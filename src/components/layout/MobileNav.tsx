@@ -1,9 +1,8 @@
 'use client';
 
-import { useState } from 'react';
-import Link from 'next/link';
 import Image from 'next/image';
-import { Logo } from '../Logo';
+import Link from 'next/link';
+import { useState } from 'react';
 
 type NavItem = {
   name: string;
@@ -78,11 +77,11 @@ export function MobileNav({ locale, isOpen, onToggle }: MobileNavProps) {
   ];
 
   return (
-    <header className="fixed left-0 top-0 z-50 flex h-20 w-full items-center bg-white px-6 shadow-[0_1px_2px_1px_rgba(0,0,0,0.16)] md:hidden">
+    <header className="fixed top-0 left-0 z-50 flex h-20 w-full items-center px-6 md:hidden">
       {/* 菜单按钮 */}
       <button
         onClick={onToggle}
-        className="mr-3 flex h-[18px] w-[18px] items-center justify-center"
+        className="mr-3 flex h-[18px] w-[18px] flex-shrink-0 items-center justify-center"
         aria-label="Toggle menu"
       >
         <Image
@@ -98,34 +97,38 @@ export function MobileNav({ locale, isOpen, onToggle }: MobileNavProps) {
         />
       </button>
 
-      {/* Logo */}
-      <Link href="/" className="flex-shrink-0">
-        <Image
-          src="/logo.webp"
-          alt="BrainCo"
-          width={120}
-          height={36}
-          priority
-          className="h-auto w-[120px]"
-        />
-      </Link>
-
-      {/* 购物车 */}
-      <div className="ml-auto flex items-center">
-        <Link href="/purchase/cart">
+      {/* Logo - 只在菜单打开时显示 */}
+      {isOpen && (
+        <Link href="/" className="flex-shrink-0">
           <Image
-            src="https://website-www-brainco-cn.oss-cn-hangzhou.aliyuncs.com/images/G7UDx0MHZvyebaSK.png"
-            alt="购物车"
-            width={36}
+            src="/logo.webp"
+            alt="BrainCo"
+            width={120}
             height={36}
-            className="h-9 w-9 p-1.5"
+            priority
+            className="h-auto w-[120px]"
           />
         </Link>
-      </div>
+      )}
+
+      {/* 购物车 - 只在菜单打开时显示 */}
+      {isOpen && (
+        <div className="ml-auto flex items-center">
+          <Link href="/purchase/cart">
+            <Image
+              src="https://website-www-brainco-cn.oss-cn-hangzhou.aliyuncs.com/images/G7UDx0MHZvyebaSK.png"
+              alt="购物车"
+              width={36}
+              height={36}
+              className="h-9 w-9 p-1.5"
+            />
+          </Link>
+        </div>
+      )}
 
       {/* 移动端菜单 */}
       {isOpen && (
-        <div className="animate-fade-in absolute left-0 top-20 h-[calc(100vh-80px)] w-full overflow-y-auto bg-black/30">
+        <div className="animate-fade-in absolute top-20 left-0 h-[calc(100vh-80px)] w-full overflow-y-auto bg-black/30">
           <div className="bg-white px-5 pb-8">
             <nav>
               <ul>
@@ -140,30 +143,32 @@ export function MobileNav({ locale, isOpen, onToggle }: MobileNavProps) {
                         }
                       }}
                     >
-                      {item.href ? (
-                        <Link
-                          href={item.href}
-                          className="flex-1 text-lg"
-                          onClick={onToggle}
-                        >
-                          {item.name}
-                        </Link>
-                      ) : (
-                        <span className="flex-1 text-lg">{item.name}</span>
-                      )}
-
-                      {item.children && (
-                        <button
-                          className="ml-auto text-sm text-gray-400"
-                          aria-label={`Toggle ${item.name}`}
-                        >
-                          {openMenus[item.name] ? (
-                            <span className="iconfont">▼</span>
-                          ) : (
-                            <span className="iconfont">▶</span>
+                      {item.href
+                        ? (
+                            <Link
+                              href={item.href}
+                              className="flex-1 text-lg text-[#333]"
+                              onClick={onToggle}
+                            >
+                              {item.name}
+                            </Link>
+                          )
+                        : (
+                            <span className="flex-1 text-lg text-[#333]">{item.name}</span>
                           )}
-                        </button>
-                      )}
+
+                      <u
+                        className={`iconfont text-sm text-[#aaa] no-underline ${
+                          !item.children || openMenus[item.name]
+                            ? 'icon-arrow-right-bold'
+                            : ''
+                        } ${
+                          item.children && !openMenus[item.name]
+                            ? 'icon-arrow-down-bold'
+                            : ''
+                        }`}
+                      >
+                      </u>
                     </div>
 
                     {/* 子菜单 */}
@@ -173,18 +178,18 @@ export function MobileNav({ locale, isOpen, onToggle }: MobileNavProps) {
                           <div key={child.title || child.name || index}>
                             {/* 分类标题 */}
                             {child.title && (
-                              <div className="mb-2.5 mt-7 text-xs font-medium text-[#333]">
+                              <div className="mt-7.5 mb-2.5 text-xs font-medium text-[#333]">
                                 {child.title}
                               </div>
                             )}
 
                             {/* 无子级的链接 */}
                             {child.name && child.href && !child.children && (
-                              <div className="mb-2.5 mt-7 text-sm text-[#333]">
+                              <div className="mt-7.5 mb-2.5 text-sm">
                                 <Link
                                   href={child.href}
                                   onClick={onToggle}
-                                  className="block"
+                                  className="block text-[#333]"
                                 >
                                   {child.name}
                                 </Link>
@@ -197,7 +202,7 @@ export function MobileNav({ locale, isOpen, onToggle }: MobileNavProps) {
                                 {child.children.map(product => (
                                   <li
                                     key={product.href}
-                                    className="pl-7 leading-[2.5]"
+                                    className="pl-7.5 leading-[2.5]"
                                   >
                                     <Link
                                       href={product.href}
@@ -222,7 +227,8 @@ export function MobileNav({ locale, isOpen, onToggle }: MobileNavProps) {
         </div>
       )}
 
-      <style jsx>{`
+      <style jsx>
+        {`
         @keyframes fadeIn {
           from {
             opacity: 0;
@@ -235,8 +241,8 @@ export function MobileNav({ locale, isOpen, onToggle }: MobileNavProps) {
         .animate-fade-in {
           animation: fadeIn 0.3s ease-in;
         }
-      `}</style>
+      `}
+      </style>
     </header>
   );
 }
-

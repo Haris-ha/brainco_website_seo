@@ -117,7 +117,7 @@ export function ProductsMenuDesktop() {
   });
 
   return (
-    <div className="animate-fade-in fixed top-[78px] left-0 hidden w-full bg-white px-[110px] py-20 md:flex md:justify-between">
+    <div className="animate-fade-in fixed top-10 left-0 hidden w-full bg-white px-[110px] py-20 md:flex md:justify-between">
       {productCategories.map(category => (
         <div key={category.title} className="flex-1">
           {/* 分类标题 */}
