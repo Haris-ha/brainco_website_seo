@@ -1,23 +1,20 @@
-import type { LocalizationResource } from '@clerk/types';
 import type { LocalePrefixMode } from 'next-intl/routing';
-import { enUS, frFR } from '@clerk/localizations';
 
 const localePrefix: LocalePrefixMode = 'as-needed';
 
-// FIXME: Update this configuration file based on your project information
+// BrainCo 官网配置
 export const AppConfig = {
-  name: 'Nextjs Starter',
-  locales: ['en', 'fr'],
-  defaultLocale: 'en',
+  name: 'BrainCo 官网',
+  // 支持的语言：简体中文、英文、繁体中文（港澳台）
+  locales: ['zh', 'en', 'zh-TW'],
+  // 默认语言：简体中文
+  defaultLocale: 'zh',
   localePrefix,
 };
 
-const supportedLocales: Record<string, LocalizationResource> = {
-  en: enUS,
-  fr: frFR,
-};
-
-export const ClerkLocalizations = {
-  defaultLocale: enUS,
-  supportedLocales,
+// 语言显示名称
+export const LocaleNames: Record<string, string> = {
+  zh: '简体中文',
+  en: 'English',
+  'zh-TW': '繁體中文',
 };

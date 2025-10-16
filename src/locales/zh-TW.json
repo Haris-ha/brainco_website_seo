@@ -1,0 +1,42 @@
+{
+  "RootLayout": {
+    "home_link": "首頁",
+    "about_link": "關於",
+    "products_link": "產品",
+    "company_link": "公司",
+    "news_link": "新聞",
+    "contact_link": "聯絡我們"
+  },
+  "BaseTemplate": {
+    "description": "BrainCo 官方網站 - 腦機介面技術領導者",
+    "made_with": "由 <author></author> 製作"
+  },
+  "Index": {
+    "meta_title": "BrainCo - 腦機介面技術領導者",
+    "meta_description": "BrainCo 專注於腦機介面技術，提供智能仿生手、智能輕巧仿生腿等創新產品"
+  },
+  "About": {
+    "meta_title": "關於我們 - BrainCo",
+    "meta_description": "瞭解 BrainCo 的使命、願景和團隊"
+  },
+  "Products": {
+    "meta_title": "產品中心 - BrainCo",
+    "meta_description": "探索 BrainCo 的創新產品：智能仿生手、智能輕巧仿生腿、開星果等",
+    "brain_robotics": "智能仿生手",
+    "mobius": "智能輕巧仿生腿",
+    "starkids": "開星果",
+    "easleep": "睡眠儀",
+    "focus_zen": "冥想產品",
+    "dexterous": "工業靈巧手",
+    "emg": "EMG 產品"
+  },
+  "Company": {
+    "meta_title": "公司介紹 - BrainCo",
+    "meta_description": "BrainCo 公司介紹、技術實力和聯絡方式"
+  },
+  "News": {
+    "meta_title": "新聞中心 - BrainCo",
+    "meta_description": "BrainCo 最新動態和行業資訊"
+  }
+}
+

@@ -1,32 +1,37 @@
-#
-# Your Crowdin credentials
-#
-# No need modify CROWDIN_PROJECT_ID and CROWDIN_PERSONAL_TOKEN, you can set them in GitHub Actions secrets
-project_id_env: CROWDIN_PROJECT_ID
-api_token_env: CROWDIN_PERSONAL_TOKEN
-base_path: .
-base_url: 'https://api.crowdin.com' # https://{organization-name}.crowdin.com for Crowdin Enterprise
+# Crowdin 配置文件
+# BrainCo 官网多语言翻译管理
 
-#
-# Choose file structure in Crowdin
-# e.g. true or false
-#
+# 项目标识符（从 Crowdin 项目设置中获取）
+project_id: ""
+
+# API Token（建议使用环境变量：CROWDIN_PERSONAL_TOKEN）
+# api_token: ""
+
+# 保留文件结构
 preserve_hierarchy: true
 
-#
-# Files configuration
-#
+# 文件配置
 files:
-  - source: /src/locales/en.json
+  # 简体中文作为源语言，翻译到英文和繁体中文
+  - source: /src/locales/zh.json
+    translation: /src/locales/%locale_with_underscore%.json
+    update_option: update_as_unapproved
 
-    #
-    # Where translations will be placed
-    # e.g. "/resources/%two_letters_code%/%original_file_name%"
-    #
-    translation: '/src/locales/%two_letters_code%.json'
+# 语言映射
+languages_mapping:
+  locale_with_underscore:
+    en: en
+    zh-TW: zh-TW
 
-    #
-    # File type
-    # e.g. "json"
-    #
-    type: json
+# 支持的目标语言
+# Crowdin 语言代码 -> 项目中的语言代码
+# en (English) -> en
+# zh-TW (Chinese Traditional, Taiwan) -> zh-TW
+
+# 翻译选项
+skip_untranslated_strings: false
+skip_untranslated_files: false
+export_only_approved: false
+
+# 自动批准选项（可选）
+# auto_approve_imported: false
