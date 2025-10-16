@@ -10,6 +10,16 @@ const baseConfig: NextConfig = {
   },
   poweredByHeader: false,
   reactStrictMode: true,
+  images: {
+    remotePatterns: [
+      {
+        protocol: 'https',
+        hostname: 'website-www-brainco-cn.oss-cn-hangzhou.aliyuncs.com',
+        port: '',
+        pathname: '/images/**',
+      },
+    ],
+  },
 };
 
 // Initialize the Next-Intl plugin
