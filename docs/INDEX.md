@@ -52,15 +52,20 @@
 ## 📋 项目状态
 
 ### 当前阶段
-🚧 **阶段 2: 架构搭建** (60% 完成)
+🚧 **阶段 3: 页面开发准备** (10% 完成)
 
 ### 整体进度
 ```
-[████████░░░░░░░░░░░░] 30%
+[█████████░░░░░░░░░░░] 40%
 ```
 
 ### 下一个里程碑
-📍 **M1: 架构搭建完成** - Day 4
+📍 **M2: 核心页面完成** - Day 12
+
+### 最近完成
+✅ 静态资源迁移（Logo、图标、图片）
+✅ Logo 和 QRCode 组件创建
+✅ 资源使用文档完善
 
 详细进度请查看 [进度追踪](./PROGRESS.md)
 
@@ -74,10 +79,14 @@ docs/
 ├── REFACTOR_PLAN.md            # 重构方案 - 官方规划文档
 ├── IMPLEMENTATION_ROADMAP.md   # 实施路线图 - 技术实施计划
 ├── PROGRESS.md                 # 进度追踪 - 实时项目状态
+├── PHASE2_SUMMARY.md           # 阶段2总结 - 架构搭建完成
 ├── README.md                   # 项目概览 - 技术栈和功能说明
 ├── SETUP.md                    # 快速开始 - 配置和开发指南
 ├── CROWDIN_GUIDE.md            # 多语言管理 - Crowdin 详细指南
-└── MIGRATION_SUMMARY.md        # 迁移记录 - 清理和重构总结
+├── MIGRATION_SUMMARY.md        # 迁移记录 - 清理和重构总结
+├── ASSETS_MIGRATION.md         # 资源迁移 - 详细清单和指南
+├── ASSETS_SUMMARY.md           # 资源总结 - 迁移完成报告
+└── COMPONENT_EXAMPLES.md       # 组件示例 - 使用指南
 ```
 
 ---
@@ -93,7 +102,7 @@ docs/
 
 ### 技术指标
 - Lighthouse 性能 ≥95
-- Lighthouse SEO ≥95  
+- Lighthouse SEO ≥95
 - Lighthouse Accessibility ≥95
 - 首屏加载 < 2s
 - 18个核心页面全部完成
@@ -146,6 +155,6 @@ docs/
 
 ---
 
-**最后更新：** 2025-01-XX  
-**文档版本：** v2.0  
+**最后更新：** 2025-01-XX
+**文档版本：** v2.0
 **维护者：** BrainCo 开发团队

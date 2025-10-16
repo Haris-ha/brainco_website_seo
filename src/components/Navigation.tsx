@@ -1,6 +1,7 @@
 import { getTranslations } from 'next-intl/server';
 import Link from 'next/link';
 import { LocaleSwitcher } from './LocaleSwitcher';
+import { Logo } from './Logo';
 
 export async function Navigation({ locale }: { locale: string }) {
   const t = await getTranslations({
@@ -14,9 +15,7 @@ export async function Navigation({ locale }: { locale: string }) {
         <div className="flex h-16 justify-between">
           <div className="flex">
             <div className="flex flex-shrink-0 items-center">
-              <Link href="/" className="text-xl font-bold text-gray-900">
-                BrainCo
-              </Link>
+              <Logo priority />
             </div>
             <div className="hidden sm:ml-6 sm:flex sm:space-x-8">
               <Link
