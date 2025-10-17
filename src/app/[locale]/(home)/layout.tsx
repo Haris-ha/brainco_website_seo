@@ -9,4 +9,3 @@ export default async function HomeLayout(props: {
 
   return <>{props.children}</>;
 }
-
