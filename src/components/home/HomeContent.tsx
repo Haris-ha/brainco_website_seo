@@ -1,8 +1,13 @@
+/* eslint-disable jsx-a11y/no-noninteractive-element-interactions */
+/* eslint-disable jsx-a11y/click-events-have-key-events */
+/* eslint-disable tailwindcss/enforces-negative-arbitrary-values */
+/* eslint-disable react-hooks-extra/no-direct-set-state-in-use-effect */
 'use client';
 
+import { motion } from 'framer-motion';
 import Image from 'next/image';
 import { useRouter } from 'next/navigation';
-import { useEffect, useRef, useState } from 'react';
+import { useCallback, useEffect, useRef, useState } from 'react';
 
 const imgPath = 'https://website-www-brainco-cn.oss-cn-hangzhou.aliyuncs.com/images/';
 
@@ -110,25 +115,51 @@ export function HomeContent() {
   const [videoProgress, setVideoProgress] = useState(videoList.map(() => 0));
   const [productCount, setProductCount] = useState(0);
 
-  useEffect(() => {
-    playNextVideo();
+  const playNextVideo = useCallback(() => {
+    setPlayCount((prevCount) => {
+      const nextIndex = prevCount % videoList.length;
+      const nextVideo = videoList[nextIndex];
+
+      // 更新进度状态
+      setVideoProgress((prev) => {
+        const newProgress = [...prev];
+
+        // 如果是新一轮循环（回到第1个），重置所有进度为0
+        if (nextIndex === 0 && prevCount > 0) {
+          return videoList.map(() => 0);
+        }
+
+        // 将上一个视频的进度设置为 100%（保持高亮）
+        if (prevCount > 0) {
+          const prevIndex = (prevCount - 1) % videoList.length;
+          newProgress[prevIndex] = 100;
+        }
+
+        // 当前视频的进度设置为 0（即将开始播放）
+        newProgress[nextIndex] = 0;
+
+        return newProgress;
+      });
+
+      if (nextVideo) {
+        setVideoLink(nextVideo.src);
+      }
+
+      setTimeout(() => {
+        if (videoRef.current) {
+          videoRef.current.play().catch(() => {
+            // 自动播放失败时静默处理
+          });
+        }
+      }, 10);
+
+      return prevCount + 1;
+    });
   }, []);
 
-  const playNextVideo = () => {
-    const nextIndex = playCount % videoList.length;
-    const nextVideo = videoList[nextIndex];
-    if (nextVideo) {
-      setVideoLink(nextVideo.src);
-    }
-    setPlayCount(playCount + 1);
-    setTimeout(() => {
-      if (videoRef.current) {
-        videoRef.current.play().catch(() => {
-          // 自动播放失败时静默处理
-        });
-      }
-    }, 10);
-  };
+  useEffect(() => {
+    playNextVideo();
+  }, [playNextVideo]);
 
   const handleTimeUpdate = (e: React.SyntheticEvent<HTMLVideoElement>) => {
     const video = e.currentTarget;
@@ -136,6 +167,7 @@ export function HomeContent() {
     const currentTime = video.currentTime;
     const currentIndex = (playCount - 1 + videoList.length) % videoList.length;
 
+    // 更新当前视频的进度
     const newProgress = [...videoProgress];
     newProgress[currentIndex] = (currentTime / duration) * 100;
     setVideoProgress(newProgress);
@@ -146,16 +178,30 @@ export function HomeContent() {
       {/* 视频轮播区域 */}
       <div className="relative bg-white">
         <div className="relative max-h-screen overflow-hidden">
-          <h1
-            className="absolute top-[60%] left-1/2 z-10 -translate-x-1/2 -translate-y-1/2 text-[80px] text-white"
-            data-aos="fade-up"
-            data-aos-delay="200"
-            data-aos-easing="ease-in-out"
+          <motion.h1
+            className="absolute top-[60%] left-1/2 z-10 -translate-x-1/2 -translate-y-1/2 text-[74px] text-white"
+            initial={{ opacity: 0, y: 50 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 1, delay: 0.3, ease: 'easeOut' }}
           >
-            脑机科技，开启
+            <motion.span
+              className="inline-block"
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.5, ease: 'easeOut' }}
+            >
+              脑机科技，开启
+            </motion.span>
             <br />
-            生命更多可能性
-          </h1>
+            <motion.span
+              className="inline-block"
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.7, ease: 'easeOut' }}
+            >
+              生命更多可能性
+            </motion.span>
+          </motion.h1>
           {videoLink && (
             <video
               ref={videoRef}
@@ -170,22 +216,34 @@ export function HomeContent() {
         </div>
 
         {/* 视频标签和进度条 */}
-        <ul className="absolute bottom-[100px] left-1/2 z-10 flex -translate-x-1/2">
+        <motion.ul
+          className="absolute bottom-[140px] left-1/2 z-10 flex -translate-x-1/2"
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 0.9, ease: 'easeOut' }}
+        >
           {videoList.map((item, index) => (
-            <li
+            <motion.li
               key={item.title}
               className="ml-10 flex flex-col items-center justify-center first:ml-0"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{
+                duration: 0.6,
+                delay: 1.1 + index * 0.1,
+                ease: 'easeOut',
+              }}
             >
               <span className="text-2xl text-white">{item.title}</span>
               <s className="mt-[18px] flex h-2 w-[200px] overflow-hidden rounded bg-[rgba(227,227,227,0.4)] no-underline">
                 <u
-                  className="h-2 rounded bg-white no-underline"
+                  className="h-2 rounded bg-white no-underline transition-all duration-300 ease-linear"
                   style={{ width: `${videoProgress[index]}%` }}
                 />
               </s>
-            </li>
+            </motion.li>
           ))}
-        </ul>
+        </motion.ul>
       </div>
 
       {/* 产品展示区域 */}
