@@ -4,6 +4,7 @@ import Image from 'next/image';
 import { useEffect, useState } from 'react';
 import { DesktopNav } from '../layout/DesktopNav';
 import { MobileNav } from '../layout/MobileNav';
+import { Footer } from '../layout/Footer';
 import { HomeContent } from './HomeContent';
 import { HomeContentMobile } from './HomeContentMobile';
 
@@ -91,6 +92,9 @@ export function HomePageClient({ locale }: HomePageClientProps) {
       <div className="flex flex-1 flex-col">
         {isMobile ? <HomeContentMobile /> : <HomeContent />}
       </div>
+
+      {/* Footer */}
+      <Footer locale={locale} />
     </div>
   );
 }

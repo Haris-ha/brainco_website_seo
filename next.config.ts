@@ -16,7 +16,7 @@ const baseConfig: NextConfig = {
         protocol: 'https',
         hostname: 'website-www-brainco-cn.oss-cn-hangzhou.aliyuncs.com',
         port: '',
-        pathname: '/images/**',
+        pathname: '/**',
       },
     ],
   },

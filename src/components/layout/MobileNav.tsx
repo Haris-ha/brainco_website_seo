@@ -80,6 +80,7 @@ export function MobileNav({ locale, isOpen, onToggle }: MobileNavProps) {
     <header className="fixed top-0 left-0 z-50 flex h-20 w-full items-center px-6 md:hidden">
       {/* 菜单按钮 */}
       <button
+        type="button"
         onClick={onToggle}
         className="mr-3 flex h-[18px] w-[18px] flex-shrink-0 items-center justify-center"
         aria-label="Toggle menu"

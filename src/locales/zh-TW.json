@@ -37,5 +37,38 @@
   "News": {
     "meta_title": "新聞中心 - BrainCo",
     "meta_description": "BrainCo 最新動態和行業資訊"
+  },
+  "Footer": {
+    "follow_us": "關注我們",
+    "back_to_top": "返回頂部",
+    "wechat_qrcode_title": "微信掃一掃關注",
+    "wechat_qrcode_subtitle": "BrainCo官方公眾號",
+    "copyright_shenzhen": "版權所有強腦科技有限公司 ©Copyright 2015-2024. All Rights Reserved.",
+    "copyright_hangzhou": "版權所有強腦科技有限公司 ©Copyright 2015-2024. All Rights Reserved.",
+    "icp_shenzhen": "粵ICP備17159775號-1",
+    "icp_hangzhou": "浙ICP備20005104號-2",
+    "public_security": "粵公網安備440320-43418-00001",
+    "products": "產品",
+    "intelligent_bionics": "智能仿生",
+    "brain_robotics": "智能仿生手",
+    "mobius": "輕凌智能仿生腿",
+    "dexterous_revo1": "仿生靈巧手 Revo1",
+    "dexterous_revo2": "仿生靈巧手 Revo2",
+    "intelligent_health": "智能健康",
+    "easleep": "Easleep 深海豚腦機智能安睡儀",
+    "oxyzen": "OxyZen 仰憩助眠舒壓系統",
+    "focus_zen": "FocusZen 正念舒壓系統",
+    "focus_xin": "專注欣 腦機介面注意力訓練系統",
+    "starkids": "Starkids 開星果腦機社交溝通訓練系統",
+    "intelligent_education": "智能教育",
+    "brain_ai": "BrainAl 人工智能腦科學課程",
+    "technology": "技術",
+    "brainco_cooperation": "BrainCo合作",
+    "neuroscience_history": "腦科學發展歷程",
+    "company_news": "企業新聞",
+    "about_brainco": "關於BrainCo",
+    "contact_us": "聯絡我們",
+    "purchase": "購買",
+    "my_orders": "我的訂單"
   }
 }

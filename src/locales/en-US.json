@@ -37,5 +37,38 @@
   "News": {
     "meta_title": "News - BrainCo",
     "meta_description": "Latest updates and industry news from BrainCo"
+  },
+  "Footer": {
+    "follow_us": "Follow Us",
+    "back_to_top": "Back to Top",
+    "wechat_qrcode_title": "Scan to follow",
+    "wechat_qrcode_subtitle": "BrainCo Official Account",
+    "copyright_shenzhen": "Copyright © BrainCo Technology Co., Ltd. 2015-2024. All Rights Reserved.",
+    "copyright_hangzhou": "Copyright © BrainCo Technology Co., Ltd. 2015-2024. All Rights Reserved.",
+    "icp_shenzhen": "粤ICP备17159775号-1",
+    "icp_hangzhou": "浙ICP备20005104号-2",
+    "public_security": "粤公网安备440320-43418-00001",
+    "products": "Products",
+    "intelligent_bionics": "Intelligent Bionics",
+    "brain_robotics": "Intelligent Bionic Hand",
+    "mobius": "Lightweight Bionic Leg",
+    "dexterous_revo1": "Bionic Dexterous Hand Revo1",
+    "dexterous_revo2": "Bionic Dexterous Hand Revo2",
+    "intelligent_health": "Intelligent Health",
+    "easleep": "Easleep Smart Sleep Device",
+    "oxyzen": "OxyZen Sleep & Relaxation System",
+    "focus_zen": "FocusZen Meditation System",
+    "focus_xin": "Focus Xin Attention Training System",
+    "starkids": "StarKids Social Communication Training System",
+    "intelligent_education": "Intelligent Education",
+    "brain_ai": "BrainAI Neuroscience Course",
+    "technology": "Technology",
+    "brainco_cooperation": "BrainCo Cooperation",
+    "neuroscience_history": "Neuroscience Development History",
+    "company_news": "Company News",
+    "about_brainco": "About BrainCo",
+    "contact_us": "Contact Us",
+    "purchase": "Purchase",
+    "my_orders": "My Orders"
   }
 }
