@@ -61,7 +61,7 @@ export function DesktopNav({ locale: _locale }: { locale: string }) {
               {navItems.map((item, _index) => (
                 <li
                   key={item.name}
-                  className="group relative flex h-16 w-full cursor-pointer items-center justify-around text-xl"
+                  className="group relative flex h-20 w-full cursor-pointer items-center justify-around text-xl"
                   style={{ fontFamily: '\'PingFang SC-Regular\', \'PingFang SC\', sans-serif' }}
                   onMouseEnter={() => {
                     setActiveDropdown(item.name);
@@ -83,7 +83,9 @@ export function DesktopNav({ locale: _locale }: { locale: string }) {
                           <span className="text-[#333] transition-colors duration-200 hover:text-black">{item.name}</span>
                           {/* Hover 下划线 */}
                           <div
-                            className="absolute bottom-2.5 left-1/2 h-0.5 w-20 -translate-x-1/2 scale-x-0 rounded-sm bg-[#333] transition-all duration-200 group-hover:scale-x-100"
+                            className={`absolute bottom-2 left-1/2 h-0.5 w-20 -translate-x-1/2 rounded-sm bg-[#333] transition-all duration-200 ${
+                              showProductMenu ? 'scale-x-100' : 'scale-x-0 group-hover:scale-x-100'
+                            }`}
                             style={{ height: '3px' }}
                           />
                         </>
@@ -95,7 +97,7 @@ export function DesktopNav({ locale: _locale }: { locale: string }) {
                             <span className="text-[#333] transition-colors duration-200 hover:text-black">{item.name}</span>
                             {/* Hover 下划线 */}
                             <div
-                              className="absolute bottom-2.5 left-1/2 h-0.5 w-20 -translate-x-1/2 scale-x-0 rounded-sm bg-[#333] transition-all duration-200 group-hover:scale-x-100"
+                              className="absolute bottom-2 left-1/2 h-0.5 w-20 -translate-x-1/2 scale-x-0 rounded-sm bg-[#333] transition-all duration-200 group-hover:scale-x-100"
                               style={{ height: '3px' }}
                             />
                             {/* 公司下拉菜单 */}
@@ -129,7 +131,7 @@ export function DesktopNav({ locale: _locale }: { locale: string }) {
                             </Link>
                             {/* Hover 下划线 */}
                             <div
-                              className="absolute bottom-2.5 left-1/2 h-0.5 w-20 -translate-x-1/2 scale-x-0 rounded-sm bg-[#333] transition-all duration-200 group-hover:scale-x-100"
+                              className="absolute bottom-2 left-1/2 h-0.5 w-20 -translate-x-1/2 scale-x-0 rounded-sm bg-[#333] transition-all duration-200 group-hover:scale-x-100"
                               style={{ height: '3px' }}
                             />
                           </div>

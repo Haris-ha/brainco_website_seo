@@ -1,7 +1,6 @@
 'use client';
 
 import { useLocale } from 'next-intl';
-import { useRouter } from 'next/navigation';
 import {
   Select,
   SelectContent,
@@ -9,7 +8,7 @@ import {
   SelectTrigger,
   SelectValue,
 } from '@/components/ui/select';
-import { usePathname } from '@/libs/I18nNavigation';
+import { usePathname, useRouter } from '@/libs/I18nNavigation';
 
 const languageNames = {
   'zh-CN': '简体中文',
@@ -18,13 +17,12 @@ const languageNames = {
 };
 
 export function LanguageSelector() {
-  const router = useRouter();
-  const pathname = usePathname();
   const locale = useLocale();
+  const pathname = usePathname();
+  const router = useRouter();
 
   const handleChange = (newLocale: string) => {
-    router.push(`/${newLocale}${pathname}`);
-    router.refresh();
+    router.replace(pathname, { locale: newLocale });
   };
 
   return (
