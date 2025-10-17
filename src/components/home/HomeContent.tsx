@@ -179,7 +179,7 @@ export function HomeContent() {
       <div className="relative bg-white">
         <div className="relative max-h-screen overflow-hidden">
           <motion.h1
-            className="absolute top-[60%] left-1/2 z-10 -translate-x-1/2 -translate-y-1/2 text-[74px] text-white"
+            className="text-fluid-7xl absolute top-[60%] left-1/2 z-10 -translate-x-1/2 -translate-y-1/2 text-white"
             initial={{ opacity: 0, y: 50 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1, delay: 0.3, ease: 'easeOut' }}
@@ -217,7 +217,7 @@ export function HomeContent() {
 
         {/* 视频标签和进度条 */}
         <motion.ul
-          className="absolute bottom-[140px] left-1/2 z-10 flex -translate-x-1/2"
+          className="absolute bottom-[120px] left-1/2 z-10 flex -translate-x-1/2"
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.9, ease: 'easeOut' }}
@@ -235,7 +235,7 @@ export function HomeContent() {
               }}
             >
               <span className="text-2xl text-white">{item.title}</span>
-              <s className="mt-[18px] flex h-2 w-[200px] overflow-hidden rounded bg-[rgba(227,227,227,0.4)] no-underline">
+              <s className="mt-[18px] flex h-2 w-[148px] overflow-hidden rounded bg-[rgba(227,227,227,0.4)] no-underline 2xl:w-[180px]">
                 <u
                   className="h-2 rounded bg-white no-underline transition-all duration-300 ease-linear"
                   style={{ width: `${videoProgress[index]}%` }}
@@ -259,7 +259,7 @@ export function HomeContent() {
         </div>
 
         <div className="w-[980px] flex-shrink-0">
-          <h2 className="mb-[52px] text-[60px] font-bold text-[#333]">
+          <h2 className="text-fluid-6xl mb-[52px] font-bold text-[#333]">
             BrainCo与脑机接口技术
           </h2>
           <p className="mb-[30px] text-xl text-[#595757]">

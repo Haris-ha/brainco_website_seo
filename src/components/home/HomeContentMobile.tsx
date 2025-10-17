@@ -125,7 +125,7 @@ export function HomeContentMobile() {
           transition={{ duration: 0.8, ease: 'easeOut' }}
         >
           <motion.h1
-            className="text-[40px] leading-none font-bold"
+            className="text-fluid-5xl leading-none font-bold"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.2, ease: 'easeOut' }}
@@ -133,7 +133,7 @@ export function HomeContentMobile() {
             脑机科技
           </motion.h1>
           <motion.p
-            className="mt-5 text-2xl"
+            className="text-fluid-3xl mt-10"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.4, ease: 'easeOut' }}
@@ -176,7 +176,7 @@ export function HomeContentMobile() {
             }}
           >
             <span>{item.title}</span>
-            <s className="mt-1 h-1 w-[50px] flex-shrink-0 overflow-hidden rounded-sm bg-[rgba(227,227,227,0.4)] no-underline">
+            <s className="mt-1 h-1.5 w-[50px] flex-shrink-0 overflow-hidden rounded-sm bg-[rgba(227,227,227,0.4)] no-underline">
               <u
                 className="block h-full bg-white transition-all duration-300 ease-linear"
                 style={{ width: `${videoProgress[index]}%` }}

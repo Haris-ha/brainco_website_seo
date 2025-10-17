@@ -8,7 +8,7 @@
   --color-brand-primary: #2563eb;
   --color-brand-secondary: #7c3aed;
   --color-brand-accent: #f59e0b;
-  
+
   /* 灰度色 */
   --color-gray-50: #f9fafb;
   --color-gray-100: #f3f4f6;
@@ -20,24 +20,25 @@
   --color-gray-700: #374151;
   --color-gray-800: #1f2937;
   --color-gray-900: #111827;
-  
+
   /* 字体 */
-  --font-sans: ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
-  --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
-  
+  --font-sans:
+    ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+  --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, 'Liberation Mono', 'Courier New', monospace;
+
   /* 间距 */
   --spacing-xs: 0.5rem;
   --spacing-sm: 1rem;
   --spacing-md: 1.5rem;
   --spacing-lg: 2rem;
   --spacing-xl: 3rem;
-  
+
   /* 圆角 */
   --radius-sm: 0.25rem;
   --radius-md: 0.5rem;
   --radius-lg: 1rem;
   --radius-xl: 1.5rem;
-  
+
   /* 阴影 */
   --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
   --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1);
@@ -62,6 +63,32 @@ html {
   scroll-behavior: smooth;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+
+  /* 🎯 流式字体缩放：使根字体大小随视口宽度变化 */
+  /* 基准：在 1920px 视口时 = 16px (浏览器默认) */
+  /* 公式：16px / 1920px * 100vw ≈ 0.833vw */
+  font-size: clamp(12px, 0.833vw, 20px);
+}
+
+/* 针对大屏幕优化 */
+@media only screen and (min-width: 1920px) {
+  html {
+    font-size: 16px; /* 固定基准，防止在超大屏上过大 */
+  }
+}
+
+/* 针对中等屏幕 */
+@media only screen and (min-width: 1440px) and (max-width: 1919px) {
+  html {
+    font-size: 0.833vw; /* 动态缩放 */
+  }
+}
+
+/* 针对小屏幕 */
+@media only screen and (max-width: 1439px) {
+  html {
+    font-size: 12px; /* 最小字体大小，保证可读性 */
+  }
 }
 
 body {
@@ -70,6 +97,7 @@ body {
   background-color: white;
   margin: 0;
   padding: 0;
+  font-size: 1rem; /* 使用相对单位 */
 }
 
 /* 链接样式 */
@@ -219,4 +247,69 @@ select {
   transform: translateZ(0);
   backface-visibility: hidden;
   perspective: 1000px;
+}
+
+/* 🎯 流式字体大小工具类 - 使用 rem 实现响应式缩放 */
+.text-fluid-xs {
+  font-size: 0.75rem;
+} /* 12px base */
+.text-fluid-sm {
+  font-size: 0.875rem;
+} /* 14px base */
+.text-fluid-base {
+  font-size: 1rem;
+} /* 16px base */
+.text-fluid-lg {
+  font-size: 1.125rem;
+} /* 18px base */
+.text-fluid-xl {
+  font-size: 1.25rem;
+} /* 20px base */
+.text-fluid-2xl {
+  font-size: 1.5rem;
+} /* 24px base */
+.text-fluid-3xl {
+  font-size: 1.875rem;
+} /* 30px base */
+.text-fluid-4xl {
+  font-size: 2.25rem;
+} /* 36px base */
+.text-fluid-5xl {
+  font-size: 3rem;
+} /* 48px base */
+.text-fluid-6xl {
+  font-size: 3.75rem;
+} /* 60px base */
+.text-fluid-7xl {
+  font-size: 4.5rem;
+} /* 72px base */
+.text-fluid-8xl {
+  font-size: 6rem;
+} /* 96px base */
+
+/* 流式间距工具类 */
+.p-fluid {
+  padding: 1rem;
+}
+.px-fluid {
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+.py-fluid {
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+}
+.m-fluid {
+  margin: 1rem;
+}
+.mx-fluid {
+  margin-left: 1rem;
+  margin-right: 1rem;
+}
+.my-fluid {
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+}
+.gap-fluid {
+  gap: 1rem;
 }
