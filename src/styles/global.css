@@ -4,6 +4,7 @@
 
 /* 自定义 CSS 变量 */
 :root {
+  text-autospace: normal;
   /* 品牌颜色 - 根据 BrainCo 品牌指南定制 */
   --color-brand-primary: #2563eb;
   --color-brand-secondary: #7c3aed;

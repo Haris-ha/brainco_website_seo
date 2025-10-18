@@ -6,6 +6,7 @@ import { useCallback, useEffect, useRef, useState } from 'react';
 
 // 声明微信 JS Bridge 类型
 declare global {
+  // eslint-disable-next-line ts/consistent-type-definitions
   interface Window {
     WeixinJSBridge?: {
       invoke: (action: string, params: unknown, callback: (res: unknown) => void) => void;
@@ -93,13 +94,19 @@ export function HomeContentMobile() {
       // 在微信中需要等待微信 JS Bridge 准备好
       if (typeof WeixinJSBridge !== 'undefined') {
         playNextVideo();
+        return undefined;
       } else {
-        document.addEventListener('WeixinJSBridgeReady', () => {
+        const handleReady = () => {
           playNextVideo();
-        });
+        };
+        document.addEventListener('WeixinJSBridgeReady', handleReady);
+        return () => {
+          document.removeEventListener('WeixinJSBridgeReady', handleReady);
+        };
       }
     } else {
       playNextVideo();
+      return undefined;
     }
   }, [playNextVideo]);
 
@@ -117,7 +124,7 @@ export function HomeContentMobile() {
 
   return (
     <div className="relative h-full">
-      <div className="relative h-full overflow-hidden">
+      <div className="relative h-full min-h-[720px] overflow-hidden bg-white">
         <motion.div
           className="absolute top-[60%] left-1/2 z-10 flex w-full -translate-x-1/2 -translate-y-1/2 flex-col items-center text-white"
           initial={{ opacity: 0, y: 30 }}
@@ -151,14 +158,14 @@ export function HomeContentMobile() {
             x5-video-player-type="h5-page"
             onEnded={playNextVideo}
             onTimeUpdate={handleTimeUpdate}
-            className="h-full w-full object-cover"
+            className="h-[720px] w-full object-cover"
           />
         )}
       </div>
 
       {/* 视频标签和进度条 */}
       <motion.ul
-        className="absolute bottom-[62px] left-0 flex w-full justify-center"
+        className="absolute bottom-[140px] left-0 flex w-full justify-center"
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8, delay: 0.6, ease: 'easeOut' }}

@@ -1,5 +1,6 @@
 'use client';
 
+import { ChevronDown, ChevronRight } from 'lucide-react';
 import { useTranslations } from 'next-intl';
 import Image from 'next/image';
 import Link from 'next/link';
@@ -83,72 +84,82 @@ export function MobileNav({ locale, isOpen, onToggle, showHeader = true }: Mobil
     <>
       {/* 顶部导航栏 - 仅在首页显示 */}
       {showHeader && (
-        <header className={`fixed top-0 left-0 z-[60] flex h-20 w-full items-center px-6 md:hidden ${isOpen ? 'bg-white' : ''}`}>
-          {/* 菜单按钮 */}
-          <button
-            type="button"
-            onClick={onToggle}
-            className="mr-3 flex h-[18px] w-[18px] flex-shrink-0 items-center justify-center"
-            aria-label="Toggle menu"
-          >
-            <Image
-              src={
-                isOpen
-                  ? 'https://website-www-brainco-cn.oss-cn-hangzhou.aliyuncs.com/images/com/close.webp'
-                  : 'https://website-www-brainco-cn.oss-cn-hangzhou.aliyuncs.com/images/com/menu_white.png'
-              }
-              alt={t('menu')}
-              width={18}
-              height={18}
-              className="h-[18px] w-[18px]"
-            />
-          </button>
-
-          {/* Logo - 只在菜单打开时显示 */}
-          {isOpen && (
-            <Link href={`/${locale}`} className="flex-shrink-0">
+        <header className={`fixed top-0 left-0 z-[60] flex h-24 w-full items-center justify-between px-8 md:hidden ${isOpen ? 'bg-white shadow-sm' : ''}`}>
+          {/* 左侧：汉堡菜单按钮和 Logo */}
+          <div className="flex items-center gap-2">
+            {/* 菜单按钮 */}
+            <button
+              type="button"
+              onClick={onToggle}
+              className="flex h-[22px] w-[22px] flex-shrink-0 items-center justify-center"
+              aria-label="Toggle menu"
+            >
               <Image
-                src="/logo.webp"
-                alt="BrainCo"
-                width={120}
-                height={36}
-                priority
-                className="h-auto w-[120px]"
+                src={
+                  isOpen
+                    ? 'https://website-www-brainco-cn.oss-cn-hangzhou.aliyuncs.com/images/com/close.webp'
+                    : 'https://website-www-brainco-cn.oss-cn-hangzhou.aliyuncs.com/images/com/menu_white.png'
+                }
+                alt={t('menu')}
+                width={22}
+                height={22}
+                className="h-[22px] w-[22px]"
               />
-            </Link>
-          )}
+            </button>
 
-          {/* 购物车 - 只在菜单打开时显示 */}
-          {isOpen && (
-            <div className="ml-auto flex items-center">
-              <Link href={`/${locale}/purchase/cart`}>
+            {/* Logo - 只在菜单打开时显示 */}
+            {isOpen && (
+              <Link href={`/${locale}`} className="flex-shrink-0">
                 <Image
-                  src="https://website-www-brainco-cn.oss-cn-hangzhou.aliyuncs.com/images/G7UDx0MHZvyebaSK.png"
-                  alt={t('cart')}
-                  width={36}
-                  height={36}
-                  className="h-9 w-9 p-1.5"
+                  src="/logo.webp"
+                  alt="BrainCo"
+                  width={132}
+                  height={40}
+                  priority
+                  className="h-auto w-[120px]"
                 />
               </Link>
-            </div>
+            )}
+          </div>
+
+          {/* 右侧：购物车 - 只在菜单打开时显示 */}
+          {isOpen && (
+            <Link href={`/${locale}/purchase/cart`} className="flex items-center">
+              <Image
+                src="https://website-www-brainco-cn.oss-cn-hangzhou.aliyuncs.com/images/G7UDx0MHZvyebaSK.png"
+                alt={t('cart')}
+                width={36}
+                height={36}
+                className="h-11 w-11 p-1.5"
+              />
+            </Link>
           )}
         </header>
       )}
 
       {/* 移动端菜单 */}
       {isOpen && (
-        <div className="animate-fade-in fixed top-20 left-0 z-[55] h-[calc(100vh-80px)] w-full overflow-y-auto bg-black/30">
-          <div className="bg-white px-5 pb-8">
+        <div className="animate-fade-in fixed top-24 left-0 z-[55] h-screen w-full overflow-y-auto bg-black/30">
+          <div className="bg-white px-8 pb-8">
             <nav>
               <ul>
-                {navItems.map(item => (
+                {navItems.map((item, index) => (
                   <li key={item.key}>
                     {/* 菜单项 */}
                     <div
-                      className="flex h-[78px] items-center justify-between border-b border-gray-100"
+                      role="button"
+                      tabIndex={0}
+                      className={`flex h-[68px] items-center justify-between border-b border-gray-100 ${index === 0 ? 'border-t' : ''}`}
                       onClick={() => {
                         if (item.children) {
                           toggleSubmenu(item.key);
+                        }
+                      }}
+                      onKeyDown={(e) => {
+                        if (e.key === 'Enter' || e.key === ' ') {
+                          if (item.children) {
+                            toggleSubmenu(item.key);
+                          }
                         }
                       }}
                     >
@@ -156,28 +167,21 @@ export function MobileNav({ locale, isOpen, onToggle, showHeader = true }: Mobil
                         ? (
                             <Link
                               href={item.href}
-                              className="flex-1 text-lg text-[#333]"
+                              className="flex-1 text-xl !text-[#333] no-underline hover:!text-[#333]"
                               onClick={onToggle}
                             >
                               {t(item.key)}
                             </Link>
                           )
                         : (
-                            <span className="flex-1 text-lg text-[#333]">{t(item.key)}</span>
+                            <span className="flex-1 text-xl text-[#333]">{t(item.key)}</span>
                           )}
 
-                      <u
-                        className={`iconfont text-sm text-[#aaa] no-underline ${
-                          !item.children || openMenus[item.key]
-                            ? 'icon-arrow-right-bold'
-                            : ''
-                        } ${
-                          item.children && !openMenus[item.key]
-                            ? 'icon-arrow-down-bold'
-                            : ''
-                        }`}
-                      >
-                      </u>
+                      {item.children && (
+                        openMenus[item.key]
+                          ? <ChevronRight className="h-6 w-6 text-[#333]" />
+                          : <ChevronDown className="h-6 w-6 text-[#333]" />
+                      )}
                     </div>
 
                     {/* 子菜单 */}
@@ -187,18 +191,18 @@ export function MobileNav({ locale, isOpen, onToggle, showHeader = true }: Mobil
                           <div key={child.titleKey || child.key || index}>
                             {/* 分类标题 */}
                             {child.titleKey && (
-                              <div className="mt-7.5 mb-2.5 text-xs font-medium text-[#333]">
+                              <div className="mt-4 mb-2.5 text-lg font-medium !text-[#333]">
                                 {t(child.titleKey)}
                               </div>
                             )}
 
                             {/* 无子级的链接 */}
                             {child.key && child.href && !child.children && (
-                              <div className="mt-7.5 mb-2.5 text-sm">
+                              <div className="mt-4 mb-2.5 text-lg">
                                 <Link
                                   href={child.href}
                                   onClick={onToggle}
-                                  className="block text-[#333]"
+                                  className="block !text-[#333] no-underline hover:!text-[#333]"
                                 >
                                   {t(child.key)}
                                 </Link>
@@ -215,7 +219,7 @@ export function MobileNav({ locale, isOpen, onToggle, showHeader = true }: Mobil
                                   >
                                     <Link
                                       href={product.href}
-                                      className="block text-sm text-[#666]"
+                                      className="block text-lg !text-[#666] no-underline hover:!text-[#666]"
                                       onClick={onToggle}
                                     >
                                       {t(product.key)}
