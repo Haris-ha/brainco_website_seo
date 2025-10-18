@@ -36,7 +36,7 @@ const productList = [
     img: `${imgPath}KJgdiOXZcRnGYhDH.webp`,
     hoverImg: `${imgPath}vJBVfyIDRSmEpieZ.webp`,
     name: '仰憩',
-    desc: '一个用于冥想和睡<br/>眠的智能系统',
+    desc: '一个用于冥想和睡眠的智能系统',
     router: '/health/oxyzen',
     id: 3,
   },
@@ -44,7 +44,7 @@ const productList = [
     img: `${imgPath}sTFJhVGYtwbOmvBN.webp`,
     hoverImg: `${imgPath}nGjyEWDFRvCrwald.webp`,
     name: '智能仿生手',
-    desc: '智能假肢手，集成脑机接口<br/>技术与AI算法',
+    desc: '智能假肢手，集成脑机接口技术与AI算法',
     router: '/products/brain-robotics',
     id: 4,
   },
@@ -52,7 +52,7 @@ const productList = [
     img: `${imgPath}oMVDmWAPurnEGZiw.webp`,
     hoverImg: `${imgPath}MIhtXTQFnymLuCwS.webp`,
     name: 'Brain AI',
-    desc: '面向STEM教育的工业级<br/>可组装假手套件',
+    desc: '面向STEM教育的工业级可组装假手套件',
     router: '/education/brain-ai',
     id: 0,
   },
@@ -68,7 +68,7 @@ const productList = [
     img: `${imgPath}iBCIDeObGYNVWhEq.webp`,
     hoverImg: `${imgPath}aNIUvPigSeFGEbHW.webp`,
     name: '智能仿生腿',
-    desc: '一款先进的智能假肢膝关<br/>节，采用源自脑机接口研究<br/>的控制算法，带来更精确的<br/>运动体验',
+    desc: '一款先进的智能假肢膝关节，采用源自脑机接口研究的控制算法，带来更精确的运动体验',
     router: '/products/mobius',
     id: 5,
   },
@@ -249,14 +249,17 @@ export function HomeContent() {
       {/* 产品展示区域 */}
       <div className="flex items-center justify-center overflow-hidden bg-white px-8 pt-[84px] pb-[46px]">
         <motion.div
-          className="mr-[60px] h-auto w-[300px] flex-shrink-0"
+          className="mr-[40px] h-auto w-[300px] flex-shrink-0 2xl:mr-[60px]"
+          initial={{ opacity: 0, x: -50 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          viewport={{ once: true, amount: 0.3 }}
+          transition={{
+            duration: 0.8,
+            ease: 'easeOut',
+          }}
           animate={{
             y: productCount !== 0 ? [0, -10, 0] : 0,
             scale: productCount !== 0 ? [1, 1.02, 1] : 1,
-          }}
-          transition={{
-            duration: 0.6,
-            ease: 'easeInOut',
           }}
         >
           <Image
@@ -268,33 +271,43 @@ export function HomeContent() {
           />
         </motion.div>
 
-        <div className="w-[980px] flex-shrink-0">
+        <div
+          className="w-[900px] flex-shrink-0 2xl:w-[960px]"
+          onMouseLeave={() => {
+            setExpandType(null);
+            setProductCount(0);
+          }}
+        >
           <h2 className="text-fluid-6xl mb-[52px] font-bold text-[#333]">
             BrainCo与脑机接口技术
           </h2>
-          <p className="mb-[30px] text-xl text-[#595757]">
-            作为国内首个脑机接口领域独角兽，BrainCo强脑科技致力于脑机接口技术底层技术的突破，通过在大脑和外部设备之间建立信号传送通路实现两者信息交换的方式为残疾人康复、孤独症等脑疾病提供了解决方案，目前已有多款产品上市。
-          </p>
-          <p className="mb-[30px] text-xl text-[#595757]">
-            未来，BrainCo强脑科技将继续深耕非侵入式脑机接口领域，为抑郁症、阿尔茨海默症等疾病提供解决方案。
-          </p>
+          <div className="w-[900px] 2xl:w-[960px]">
+            <p className="mb-[30px] text-xl text-[#595757]">
+              作为国内首个脑机接口领域独角兽，BrainCo强脑科技致力于脑机接口技术底层技术的突破，通过在大脑和外部设备之间建立信号传送通路实现两者信息交换的方式为残疾人康复、孤独症等脑疾病提供了解决方案，目前已有多款产品上市。
+            </p>
+            <p className="mb-[30px] text-xl text-[#595757]">
+              未来，BrainCo强脑科技将继续深耕非侵入式脑机接口领域，为抑郁症、阿尔茨海默症等疾病提供解决方案。
+            </p>
+          </div>
 
           {/* 产品网格 */}
           <motion.ul
-            className="mt-16 grid max-w-[1200px] grid-cols-3 gap-x-6 gap-y-16"
+            className="mt-16 grid max-w-[1200px] grid-cols-3 gap-y-16"
             initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 0.8, delay: 0.3 }}
+            whileInView={{ opacity: 1 }}
+            viewport={{ once: true, amount: 0.1 }}
+            transition={{ duration: 0.6 }}
           >
             {productList.map((item, index) => (
               <motion.li
                 key={item.img}
-                className="group/product flex cursor-pointer items-center text-lg"
+                className={`group/product flex cursor-pointer items-center text-lg ${index === 1 || index === 4 ? 'mr-8' : ''}`}
                 initial={{ opacity: 0, y: 30 }}
-                animate={{ opacity: 1, y: 0 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, amount: 0.3 }}
                 transition={{
                   duration: 0.6,
-                  delay: 0.5 + index * 0.1,
+                  delay: index * 0.1,
                   ease: 'easeOut',
                 }}
                 whileHover={{
@@ -305,6 +318,8 @@ export function HomeContent() {
                   if (item.id) {
                     setProductCount(item.id);
                   }
+                  setExpandType(null);
+                  setProductCount(0);
                 }}
                 onMouseLeave={() => setProductCount(0)}
                 onClick={() => {
@@ -329,7 +344,11 @@ export function HomeContent() {
                     className="absolute inset-0 h-full w-full object-cover opacity-0 transition-opacity duration-100 ease-in-out group-hover/product:opacity-100"
                   />
                 </div>
-                <div className="flex flex-1 flex-col">
+                <div
+                  className={`flex flex-1 flex-col ${
+                    index === 1 || index === 4 ? '-ml-8' : ''
+                  }`}
+                >
                   <h5 className="mb-2 text-2xl leading-tight font-medium">
                     {item.name}
                   </h5>
@@ -345,10 +364,11 @@ export function HomeContent() {
             <motion.li
               className="flex cursor-pointer items-center text-lg"
               initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, amount: 0.3 }}
               transition={{
                 duration: 0.6,
-                delay: 0.5 + productList.length * 0.1,
+                delay: productList.length * 0.1,
                 ease: 'easeOut',
               }}
               whileHover={{
@@ -356,7 +376,6 @@ export function HomeContent() {
                 transition: { duration: 0.3 },
               }}
               onMouseEnter={() => setExpandType('dexterous')}
-              onMouseLeave={() => setExpandType(null)}
             >
               <div className="relative mr-3 h-40 w-[140px] flex-shrink-0 overflow-hidden">
                 <Image
@@ -391,10 +410,11 @@ export function HomeContent() {
           <motion.div
             className={`mt-8 flex h-[204px] max-w-[1200px] items-center ${expandType === 'nerve' ? 'justify-start' : 'justify-between'}`}
             initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.3 }}
             transition={{
               duration: 0.6,
-              delay: 0.5 + (productList.length + 1) * 0.1,
+              delay: (productList.length + 1) * 0.1,
               ease: 'easeOut',
             }}
           >
@@ -407,10 +427,6 @@ export function HomeContent() {
               onMouseEnter={() => {
                 setExpandType('nerve');
                 setProductCount(1);
-              }}
-              onMouseLeave={() => {
-                setExpandType(null);
-                setProductCount(0);
               }}
             >
               <div className="mr-3 flex h-40 w-[140px] items-center justify-center">
@@ -437,6 +453,7 @@ export function HomeContent() {
                 animate={{ opacity: 1, x: 0 }}
                 exit={{ opacity: 0, x: 20 }}
                 transition={{ duration: 0.3 }}
+                onMouseEnter={() => setExpandType('dexterous')}
               >
                 <div
                   role="button"
@@ -486,6 +503,10 @@ export function HomeContent() {
                 animate={{ opacity: 1, x: 0 }}
                 exit={{ opacity: 0, x: 20 }}
                 transition={{ duration: 0.3 }}
+                onMouseEnter={() => {
+                  setExpandType('nerve');
+                  setProductCount(1);
+                }}
               >
                 {nerveList.map(item => (
                   <div
