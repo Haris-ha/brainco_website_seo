@@ -41,5 +41,9 @@ export default function TechnologyPageClient() {
     return null;
   }
 
-  return isMobile ? <TechnologyContentMobile /> : <TechnologyContent />;
+  return (
+    <div>
+      {isMobile ? <TechnologyContentMobile /> : <TechnologyContent />}
+    </div>
+  );
 }

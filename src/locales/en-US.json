@@ -7,6 +7,31 @@
     "news_link": "News",
     "contact_link": "Contact"
   },
+  "Navigation": {
+    "home": "Home",
+    "products": "Products",
+    "technology": "Technology",
+    "news": "News",
+    "careers": "Careers",
+    "company": "Company",
+    "about_us": "About Us",
+    "contact_us": "Contact Us",
+    "cart": "Cart",
+    "menu": "Menu",
+    "intelligent_bionics": "Intelligent Bionics",
+    "brain_robotics": "Intelligent Bionic Hand",
+    "mobius": "Lightweight Bionic Leg",
+    "revo1": "Bionic Dexterous Hand Revo 1",
+    "revo2": "Bionic Dexterous Hand Revo 2",
+    "intelligent_health": "Intelligent Health",
+    "easleep": "Easleep Smart Sleep Device",
+    "oxyzen": "OxyZen Sleep & Relaxation System",
+    "focus_zen": "FocusZen Meditation System",
+    "focus_xin": "Focus Xin Attention Training System",
+    "starkids": "StarKids Social Communication Training System",
+    "intelligent_education": "Intelligent Education",
+    "brain_ai": "BrainAI Neuroscience Course"
+  },
   "BaseTemplate": {
     "description": "BrainCo Official Website - Leader in Brain-Computer Interface Technology",
     "made_with": "Made with <author></author>."

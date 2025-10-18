@@ -7,6 +7,31 @@
     "news_link": "新闻",
     "contact_link": "联系我们"
   },
+  "Navigation": {
+    "home": "首页",
+    "products": "产品",
+    "technology": "技术",
+    "news": "新闻",
+    "careers": "招募",
+    "company": "公司",
+    "about_us": "关于我们",
+    "contact_us": "联系我们",
+    "cart": "购物车",
+    "menu": "菜单",
+    "intelligent_bionics": "智能仿生",
+    "brain_robotics": "智能仿生手",
+    "mobius": "轻凌智能仿生腿",
+    "revo1": "仿生灵巧手 Revo 1",
+    "revo2": "仿生灵巧手 Revo 2",
+    "intelligent_health": "智能健康",
+    "easleep": "Easleep 深海豚脑机智能安睡仪",
+    "oxyzen": "OxyZen 仰憩助眠舒压系统",
+    "focus_zen": "FocusZen 正念舒压系统",
+    "focus_xin": "专注欣 脑机接口注意力训练系统",
+    "starkids": "Starkids 开星果脑机社交沟通训练系统",
+    "intelligent_education": "智能教育",
+    "brain_ai": "BrainAI 人工智能脑科学课程"
+  },
   "BaseTemplate": {
     "description": "BrainCo 官方网站 - 脑机接口技术领导者",
     "made_with": "由 <author></author> 制作"

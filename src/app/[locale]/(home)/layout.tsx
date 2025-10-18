@@ -1,4 +1,5 @@
 import { setRequestLocale } from 'next-intl/server';
+import { Header } from '@/components/layout/Header';
 
 export default async function HomeLayout(props: {
   children: React.ReactNode;
@@ -7,5 +8,10 @@ export default async function HomeLayout(props: {
   const { locale } = await props.params;
   setRequestLocale(locale);
 
-  return <>{props.children}</>;
+  return (
+    <>
+      <Header locale={locale} />
+      {props.children}
+    </>
+  );
 }

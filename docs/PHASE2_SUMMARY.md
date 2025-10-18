@@ -24,7 +24,7 @@
 ```typescript
 // 域名配置
 export const DomainConfig = {
-  cn: 'https://www.brainco.cn',  // 中国站
+  cn: 'https://www.brainco.cn', // 中国站
   us: 'https://www.brainco.tech', // 美国站
 };
 
@@ -37,11 +37,11 @@ export const LocaleToDomain = {
 
 // IP 定位到语言的映射
 export const CountryToLocale = {
-  'CN': 'zh-CN',     // 中国大陆
-  'TW': 'zh-TW',     // 台湾
-  'HK': 'zh-TW',     // 香港
-  'MO': 'zh-TW',     // 澳门
-  'US': 'en-US',     // 美国等其他国家
+  CN: 'zh-CN', // 中国大陆
+  TW: 'zh-TW', // 台湾
+  HK: 'zh-TW', // 香港
+  MO: 'zh-TW', // 澳门
+  US: 'en-US', // 美国等其他国家
   // ...
 };
 ```
@@ -71,23 +71,23 @@ export const CountryToLocale = {
 **新增核心依赖**:
 ```json
 {
-  "@tanstack/react-query": "^5.62.0",  // 数据请求管理
-  "axios": "^1.7.9",                    // HTTP 客户端
-  "framer-motion": "^12.0.0",           // 动画库
-  "next-seo": "^6.7.0",                 // SEO 优化
-  "next-sitemap": "^5.1.0",             // Sitemap 生成
-  "qs": "^6.13.2",                      // 查询字符串解析
-  "react-hook-form": "^7.54.2",         // 表单管理
-  "sharp": "^0.33.6"                    // 图片优化
+  "@tanstack/react-query": "^5.62.0", // 数据请求管理
+  "axios": "^1.7.9", // HTTP 客户端
+  "framer-motion": "^12.0.0", // 动画库
+  "next-seo": "^6.7.0", // SEO 优化
+  "next-sitemap": "^5.1.0", // Sitemap 生成
+  "qs": "^6.13.2", // 查询字符串解析
+  "react-hook-form": "^7.54.2", // 表单管理
+  "sharp": "^0.33.6" // 图片优化
 }
 ```
 
 **新增开发依赖**:
 ```json
 {
-  "@hookform/resolvers": "^3.10.0",     // 表单验证集成
-  "@tanstack/react-query-devtools": "^5.62.0",  // 开发工具
-  "@types/qs": "^6.9.18"                // TS 类型
+  "@hookform/resolvers": "^3.10.0", // 表单验证集成
+  "@tanstack/react-query-devtools": "^5.62.0", // 开发工具
+  "@types/qs": "^6.9.18" // TS 类型
 }
 ```
 
@@ -102,7 +102,7 @@ alternateRefs: [
   { href: 'https://www.brainco.tech', hreflang: 'en-US' },
   { href: 'https://www.brainco.cn/zh-TW', hreflang: 'zh-TW' },
   { href: 'https://www.brainco.cn', hreflang: 'x-default' },
-]
+];
 ```
 
 #### ✅ Robots.txt 配置
@@ -188,14 +188,14 @@ if (!isBot) {
 
 ### 2. CDN 配置依赖
 - **问题**: 需要 CDN 提供 GeoIP headers
-- **解决**: 
+- **解决**:
   - AWS CloudFront: 默认支持
   - 阿里云: 需要开启 GeoIP 功能
   - Vercel: 自动支持
 
 ### 3. 搜索引擎索引
 - **问题**: 两个域名可能导致内容重复
-- **解决**: 
+- **解决**:
   - 使用 canonical 标签
   - hreflang 标签指定语言区域
   - sitemap 中明确标注
@@ -271,14 +271,9 @@ npm run dev
 
 ---
 
-**阶段状态**: ✅ 代码完成，待测试  
-**下一阶段**: 阶段 3 - 页面模板开发  
-**预计开始**: Day 5  
+**阶段状态**: ✅ 代码完成，待测试
+**下一阶段**: 阶段 3 - 页面模板开发
+**预计开始**: Day 5
 
-**完成日期**: 2025-01-XX  
+**完成日期**: 2025-01-XX
 **负责人**: AI Assistant
-
-
-
-
-

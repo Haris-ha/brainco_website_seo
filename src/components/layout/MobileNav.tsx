@@ -1,18 +1,19 @@
 'use client';
 
+import { useTranslations } from 'next-intl';
 import Image from 'next/image';
 import Link from 'next/link';
 import { useState } from 'react';
 
 type NavItem = {
-  name: string;
+  key: string;
   href?: string;
   children?: Array<{
-    title?: string;
-    name?: string;
+    titleKey?: string;
+    key?: string;
     href?: string;
     children?: Array<{
-      name: string;
+      key: string;
       href: string;
     }>;
   }>;
@@ -22,9 +23,11 @@ type MobileNavProps = {
   locale: string;
   isOpen: boolean;
   onToggle: () => void;
+  showHeader?: boolean; // 是否显示顶部导航栏（首页用）
 };
 
-export function MobileNav({ locale, isOpen, onToggle }: MobileNavProps) {
+export function MobileNav({ locale, isOpen, onToggle, showHeader = true }: MobileNavProps) {
+  const t = useTranslations('Navigation');
   const [openMenus, setOpenMenus] = useState<{ [key: string]: boolean }>({});
 
   const toggleSubmenu = (menuName: string) => {
@@ -37,110 +40,115 @@ export function MobileNav({ locale, isOpen, onToggle }: MobileNavProps) {
   // 产品分类
   const productCategories = [
     {
-      title: '智能仿生',
+      titleKey: 'intelligent_bionics',
       children: [
-        { name: '智能仿生手', href: '/products/brain-robotics' },
-        { name: '轻凌智能仿生腿', href: '/products/mobius' },
-        { name: '仿生灵巧手 Revo 1', href: '/products/revo1' },
-        { name: '仿生灵巧手 Revo 2', href: '/products/revo2' },
+        { key: 'brain_robotics', href: `/${locale}/products/brain-robotics` },
+        { key: 'mobius', href: `/${locale}/products/mobius` },
+        { key: 'revo1', href: `/${locale}/products/revo1` },
+        { key: 'revo2', href: `/${locale}/products/revo2` },
       ],
     },
     {
-      title: '智能健康',
+      titleKey: 'intelligent_health',
       children: [
-        { name: 'Easleep 深海豚脑机智能安睡仪', href: '/health/easleep' },
-        { name: 'OxyZen 仰憩助眠舒压系统', href: '/health/oxyzen' },
-        { name: 'FocusZen 正念舒压系统', href: '/health/focus-zen' },
-        { name: '专注欣 脑机接口注意力训练系统', href: '/health/focus-xin' },
-        { name: 'Starkids 开星果脑机社交沟通训练系统', href: '/health/starkids' },
+        { key: 'easleep', href: `/${locale}/health/easleep` },
+        { key: 'oxyzen', href: `/${locale}/health/oxyzen` },
+        { key: 'focus_zen', href: `/${locale}/health/focus-zen` },
+        { key: 'focus_xin', href: `/${locale}/health/focus-xin` },
+        { key: 'starkids', href: `/${locale}/health/starkids` },
       ],
     },
     {
-      title: '智能教育',
-      children: [{ name: 'BrainAI 人工智能脑科学课程', href: '/education/brain-ai' }],
+      titleKey: 'intelligent_education',
+      children: [{ key: 'brain_ai', href: `/${locale}/education/brain-ai` }],
     },
   ];
 
   // 导航菜单配置
   const navItems: NavItem[] = [
-    { name: '产品', children: productCategories },
-    { name: '技术', href: '/technology' },
-    { name: '新闻', href: '/news' },
-    { name: '招募', href: '/careers' },
+    { key: 'products', children: productCategories },
+    { key: 'technology', href: `/${locale}/technology` },
+    { key: 'news', href: `/${locale}/news` },
+    { key: 'careers', href: `/${locale}/careers` },
     {
-      name: '公司',
+      key: 'company',
       children: [
-        { name: '关于我们', href: '/company/about' },
-        { name: '联系我们', href: '/company/contact' },
+        { key: 'about_us', href: `/${locale}/company/about` },
+        { key: 'contact_us', href: `/${locale}/company/contact` },
       ],
     },
   ];
 
   return (
-    <header className="fixed top-0 left-0 z-50 flex h-20 w-full items-center px-6 md:hidden">
-      {/* 菜单按钮 */}
-      <button
-        type="button"
-        onClick={onToggle}
-        className="mr-3 flex h-[18px] w-[18px] flex-shrink-0 items-center justify-center"
-        aria-label="Toggle menu"
-      >
-        <Image
-          src={
-            isOpen
-              ? 'https://website-www-brainco-cn.oss-cn-hangzhou.aliyuncs.com/images/com/close.webp'
-              : 'https://website-www-brainco-cn.oss-cn-hangzhou.aliyuncs.com/images/com/menu.webp'
-          }
-          alt="Menu"
-          width={18}
-          height={18}
-          className="h-[18px] w-[18px]"
-        />
-      </button>
-
-      {/* Logo - 只在菜单打开时显示 */}
-      {isOpen && (
-        <Link href="/" className="flex-shrink-0">
-          <Image
-            src="/logo.webp"
-            alt="BrainCo"
-            width={120}
-            height={36}
-            priority
-            className="h-auto w-[120px]"
-          />
-        </Link>
-      )}
-
-      {/* 购物车 - 只在菜单打开时显示 */}
-      {isOpen && (
-        <div className="ml-auto flex items-center">
-          <Link href="/purchase/cart">
+    <>
+      {/* 顶部导航栏 - 仅在首页显示 */}
+      {showHeader && (
+        <header className={`fixed top-0 left-0 z-[60] flex h-20 w-full items-center px-6 md:hidden ${isOpen ? 'bg-white' : ''}`}>
+          {/* 菜单按钮 */}
+          <button
+            type="button"
+            onClick={onToggle}
+            className="mr-3 flex h-[18px] w-[18px] flex-shrink-0 items-center justify-center"
+            aria-label="Toggle menu"
+          >
             <Image
-              src="https://website-www-brainco-cn.oss-cn-hangzhou.aliyuncs.com/images/G7UDx0MHZvyebaSK.png"
-              alt="购物车"
-              width={36}
-              height={36}
-              className="h-9 w-9 p-1.5"
+              src={
+                isOpen
+                  ? 'https://website-www-brainco-cn.oss-cn-hangzhou.aliyuncs.com/images/com/close.webp'
+                  : 'https://website-www-brainco-cn.oss-cn-hangzhou.aliyuncs.com/images/com/menu_white.png'
+              }
+              alt={t('menu')}
+              width={18}
+              height={18}
+              className="h-[18px] w-[18px]"
             />
-          </Link>
-        </div>
+          </button>
+
+          {/* Logo - 只在菜单打开时显示 */}
+          {isOpen && (
+            <Link href={`/${locale}`} className="flex-shrink-0">
+              <Image
+                src="/logo.webp"
+                alt="BrainCo"
+                width={120}
+                height={36}
+                priority
+                className="h-auto w-[120px]"
+              />
+            </Link>
+          )}
+
+          {/* 购物车 - 只在菜单打开时显示 */}
+          {isOpen && (
+            <div className="ml-auto flex items-center">
+              <Link href={`/${locale}/purchase/cart`}>
+                <Image
+                  src="https://website-www-brainco-cn.oss-cn-hangzhou.aliyuncs.com/images/G7UDx0MHZvyebaSK.png"
+                  alt={t('cart')}
+                  width={36}
+                  height={36}
+                  className="h-9 w-9 p-1.5"
+                />
+              </Link>
+            </div>
+          )}
+        </header>
       )}
 
       {/* 移动端菜单 */}
       {isOpen && (
-        <div className="animate-fade-in absolute top-20 left-0 h-[calc(100vh-80px)] w-full overflow-y-auto bg-black/30">
+        <div className="animate-fade-in fixed top-20 left-0 z-[55] h-[calc(100vh-80px)] w-full overflow-y-auto bg-black/30">
           <div className="bg-white px-5 pb-8">
             <nav>
               <ul>
                 {navItems.map(item => (
-                  <li key={item.name}>
+                  <li key={item.key}>
                     {/* 菜单项 */}
                     <div
                       className="flex h-[78px] items-center justify-between border-b border-gray-100"
                       onClick={() => {
                         if (item.children) {
-                          toggleSubmenu(item.name);
+                          toggleSubmenu(item.key);
                         }
                       }}
                     >
@@ -151,20 +159,20 @@ export function MobileNav({ locale, isOpen, onToggle }: MobileNavProps) {
                               className="flex-1 text-lg text-[#333]"
                               onClick={onToggle}
                             >
-                              {item.name}
+                              {t(item.key)}
                             </Link>
                           )
                         : (
-                            <span className="flex-1 text-lg text-[#333]">{item.name}</span>
+                            <span className="flex-1 text-lg text-[#333]">{t(item.key)}</span>
                           )}
 
                       <u
                         className={`iconfont text-sm text-[#aaa] no-underline ${
-                          !item.children || openMenus[item.name]
+                          !item.children || openMenus[item.key]
                             ? 'icon-arrow-right-bold'
                             : ''
                         } ${
-                          item.children && !openMenus[item.name]
+                          item.children && !openMenus[item.key]
                             ? 'icon-arrow-down-bold'
                             : ''
                         }`}
@@ -173,26 +181,26 @@ export function MobileNav({ locale, isOpen, onToggle }: MobileNavProps) {
                     </div>
 
                     {/* 子菜单 */}
-                    {item.children && openMenus[item.name] && (
+                    {item.children && openMenus[item.key] && (
                       <div className="pl-5">
                         {item.children.map((child, index) => (
-                          <div key={child.title || child.name || index}>
+                          <div key={child.titleKey || child.key || index}>
                             {/* 分类标题 */}
-                            {child.title && (
+                            {child.titleKey && (
                               <div className="mt-7.5 mb-2.5 text-xs font-medium text-[#333]">
-                                {child.title}
+                                {t(child.titleKey)}
                               </div>
                             )}
 
                             {/* 无子级的链接 */}
-                            {child.name && child.href && !child.children && (
+                            {child.key && child.href && !child.children && (
                               <div className="mt-7.5 mb-2.5 text-sm">
                                 <Link
                                   href={child.href}
                                   onClick={onToggle}
                                   className="block text-[#333]"
                                 >
-                                  {child.name}
+                                  {t(child.key)}
                                 </Link>
                               </div>
                             )}
@@ -210,7 +218,7 @@ export function MobileNav({ locale, isOpen, onToggle }: MobileNavProps) {
                                       className="block text-sm text-[#666]"
                                       onClick={onToggle}
                                     >
-                                      {product.name}
+                                      {t(product.key)}
                                     </Link>
                                   </li>
                                 ))}
@@ -244,6 +252,6 @@ export function MobileNav({ locale, isOpen, onToggle }: MobileNavProps) {
         }
       `}
       </style>
-    </header>
+    </>
   );
 }
