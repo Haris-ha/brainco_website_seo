@@ -26,7 +26,7 @@ export function DesktopNav({ locale }: { locale: string }) {
     { key: 'products' }, // 产品有特殊的下拉菜单
     { key: 'technology', href: `/${locale}/technology` },
     { key: 'news', href: `/${locale}/news` },
-    { key: 'careers', href: `/${locale}/careers` },
+    { key: 'careers', href: `/${locale}/recruit` },
     {
       key: 'company',
       children: [

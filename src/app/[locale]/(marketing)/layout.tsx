@@ -12,7 +12,7 @@ export default async function MarketingLayout(props: {
   return (
     <div className="min-h-screen bg-white">
       <Header locale={locale} />
-      <main className="pt-20">{props.children}</main>
+      <main>{props.children}</main>
       <Footer locale={locale} />
     </div>
   );

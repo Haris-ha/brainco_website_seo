@@ -70,7 +70,7 @@ export function MobileNav({ locale, isOpen, onToggle, showHeader = true }: Mobil
     { key: 'products', children: productCategories },
     { key: 'technology', href: `/${locale}/technology` },
     { key: 'news', href: `/${locale}/news` },
-    { key: 'careers', href: `/${locale}/careers` },
+    { key: 'careers', href: `/${locale}/recruit` },
     {
       key: 'company',
       children: [
