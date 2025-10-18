@@ -1,6 +1,3 @@
-/* eslint-disable jsx-a11y/no-noninteractive-element-interactions */
-/* eslint-disable jsx-a11y/click-events-have-key-events */
-/* eslint-disable tailwindcss/enforces-negative-arbitrary-values */
 /* eslint-disable react-hooks-extra/no-direct-set-state-in-use-effect */
 'use client';
 
@@ -114,6 +111,9 @@ export function HomeContent() {
   const [videoLink, setVideoLink] = useState('');
   const [videoProgress, setVideoProgress] = useState(videoList.map(() => 0));
   const [productCount, setProductCount] = useState(0);
+  const [expandType, setExpandType] = useState<'dexterous' | 'nerve' | null>(
+    null,
+  );
 
   const playNextVideo = useCallback(() => {
     setPlayCount((prevCount) => {
@@ -247,16 +247,26 @@ export function HomeContent() {
       </div>
 
       {/* 产品展示区域 */}
-      <div className="flex items-center justify-center overflow-hidden bg-white px-0 pt-[84px] pb-[46px]">
-        <div className="mr-[90px] h-auto w-[380px] flex-shrink-0">
+      <div className="flex items-center justify-center overflow-hidden bg-white px-8 pt-[84px] pb-[46px]">
+        <motion.div
+          className="mr-[60px] h-auto w-[300px] flex-shrink-0"
+          animate={{
+            y: productCount !== 0 ? [0, -10, 0] : 0,
+            scale: productCount !== 0 ? [1, 1.02, 1] : 1,
+          }}
+          transition={{
+            duration: 0.6,
+            ease: 'easeInOut',
+          }}
+        >
           <Image
             src={mapping[productCount] ?? mapping[0] ?? ''}
             alt="产品展示"
             width={380}
-            height={600}
-            className="h-auto w-full"
+            height={400}
+            className="h-auto w-full transition-opacity duration-300"
           />
-        </div>
+        </motion.div>
 
         <div className="w-[980px] flex-shrink-0">
           <h2 className="text-fluid-6xl mb-[52px] font-bold text-[#333]">
@@ -270,17 +280,27 @@ export function HomeContent() {
           </p>
 
           {/* 产品网格 */}
-          <ul className="grid w-[1200px] grid-cols-[310px_405px_405px] gap-6">
+          <motion.ul
+            className="mt-16 grid max-w-[1200px] grid-cols-3 gap-x-6 gap-y-16"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 0.8, delay: 0.3 }}
+          >
             {productList.map((item, index) => (
-              <li
+              <motion.li
                 key={item.img}
-                className={`group/product flex cursor-pointer items-center text-lg ${index === 2 ? '-ml-[50px]' : ''}`}
-                style={
-                  {
-                    '--bg': `url(${item.img})`,
-                    '--hover': `url(${item.hoverImg})`,
-                  } as React.CSSProperties
-                }
+                className="group/product flex cursor-pointer items-center text-lg"
+                initial={{ opacity: 0, y: 30 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{
+                  duration: 0.6,
+                  delay: 0.5 + index * 0.1,
+                  ease: 'easeOut',
+                }}
+                whileHover={{
+                  scale: 1.03,
+                  transition: { duration: 0.3 },
+                }}
                 onMouseEnter={() => {
                   if (item.id) {
                     setProductCount(item.id);
@@ -293,79 +313,107 @@ export function HomeContent() {
                   }
                 }}
               >
-                <div
-                  className="mr-2.5 h-40 w-[140px] flex-shrink-0 bg-cover bg-center group-hover/product:bg-[image:var(--hover)]"
-                  style={{ backgroundImage: `var(--bg)` }}
-                />
-                <div className="name">
-                  <h5 className="mb-2 text-2xl font-medium">{item.name}</h5>
+                <div className="relative mr-3 h-40 w-[140px] flex-shrink-0 overflow-hidden">
+                  <Image
+                    src={item.img}
+                    alt={item.name}
+                    width={140}
+                    height={160}
+                    className="absolute inset-0 h-full w-full object-cover transition-opacity duration-100 ease-in-out group-hover/product:opacity-0"
+                  />
+                  <Image
+                    src={item.hoverImg}
+                    alt={`${item.name} hover`}
+                    width={140}
+                    height={160}
+                    className="absolute inset-0 h-full w-full object-cover opacity-0 transition-opacity duration-100 ease-in-out group-hover/product:opacity-100"
+                  />
+                </div>
+                <div className="flex flex-1 flex-col">
+                  <h5 className="mb-2 text-2xl leading-tight font-medium">
+                    {item.name}
+                  </h5>
                   <p
-                    className="text-lg"
+                    className="text-lg leading-snug"
                     dangerouslySetInnerHTML={{ __html: item.desc }}
                   />
                 </div>
-              </li>
+              </motion.li>
             ))}
 
             {/* 工业灵巧手 */}
-            <li
-              className="group relative flex cursor-pointer items-center text-lg"
-              style={
-                {
-                  '--bg': `url(${imgPath}pKlkrsJEDIgBCYRy.webp)`,
-                  '--hover': `url(${imgPath}uRsplIedTmtaAUYk.webp)`,
-                } as React.CSSProperties
-              }
+            <motion.li
+              className="flex cursor-pointer items-center text-lg"
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{
+                duration: 0.6,
+                delay: 0.5 + productList.length * 0.1,
+                ease: 'easeOut',
+              }}
+              whileHover={{
+                scale: 1.03,
+                transition: { duration: 0.3 },
+              }}
+              onMouseEnter={() => setExpandType('dexterous')}
+              onMouseLeave={() => setExpandType(null)}
             >
-              <div
-                className="mr-2.5 h-40 w-[140px] flex-shrink-0 bg-cover bg-center transition-all group-hover:bg-[image:var(--hover)]"
-                style={{ backgroundImage: `var(--bg)` }}
-              />
-              <div className="name group-hover:hidden">
-                <h5 className="mb-2 text-2xl font-medium">工业灵巧手</h5>
-                <p className="text-lg">
+              <div className="relative mr-3 h-40 w-[140px] flex-shrink-0 overflow-hidden">
+                <Image
+                  src={`${imgPath}pKlkrsJEDIgBCYRy.webp`}
+                  alt="工业灵巧手"
+                  width={140}
+                  height={160}
+                  className={`absolute inset-0 h-full w-full object-cover transition-opacity duration-100 ease-in-out ${expandType === 'dexterous' ? 'opacity-0' : 'opacity-100'}`}
+                />
+                <Image
+                  src={`${imgPath}uRsplIedTmtaAUYk.webp`}
+                  alt="工业灵巧手 hover"
+                  width={140}
+                  height={160}
+                  className={`absolute inset-0 h-full w-full object-cover transition-opacity duration-100 ease-in-out ${expandType === 'dexterous' ? 'opacity-100' : 'opacity-0'}`}
+                />
+              </div>
+              <div className="flex flex-1 flex-col">
+                <h5 className="mb-2 text-2xl leading-tight font-medium">
+                  工业灵巧手
+                </h5>
+                <p className="text-lg leading-snug">
                   屡获殊荣，符合人体工学，
                   <br />
                   适应性强，操作流畅
                 </p>
               </div>
-              <div className="absolute top-1/2 left-0 hidden -translate-y-1/2 flex-col group-hover:flex">
-                <div
-                  className="mb-4 w-[216px] cursor-pointer rounded-2xl bg-[#f5f5f5]"
-                  onClick={() => router.push('/products/dexterous')}
-                >
-                  <Image
-                    src="https://website-www-brainco-cn.oss-cn-hangzhou.aliyuncs.com/images/product/rove2/wUey39BYXL6A2K5j.webp"
-                    alt="Revo 1"
-                    width={216}
-                    height={200}
-                    className="h-auto w-full"
-                  />
-                </div>
-                <div
-                  className="w-[216px] cursor-pointer rounded-2xl bg-[#f5f5f5]"
-                  onClick={() => router.push('/products/revo2')}
-                >
-                  <Image
-                    src="https://website-www-brainco-cn.oss-cn-hangzhou.aliyuncs.com/images/product/rove2/zvQPGjp6x8gNCbUk.webp"
-                    alt="Revo 2"
-                    width={216}
-                    height={200}
-                    className="h-auto w-full"
-                  />
-                </div>
-              </div>
-            </li>
-          </ul>
+            </motion.li>
+          </motion.ul>
 
-          {/* 神经调控 */}
-          <div
-            className="nerve-container group/nerve mt-6 flex h-[204px] w-[1200px] items-center"
-            onMouseEnter={() => setProductCount(1)}
-            onMouseLeave={() => setProductCount(0)}
+          {/* 神经调控 - 与工业灵巧手共用右侧展开区域 */}
+          <motion.div
+            className={`mt-8 flex h-[204px] max-w-[1200px] items-center ${expandType === 'nerve' ? 'justify-start' : 'justify-between'}`}
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{
+              duration: 0.6,
+              delay: 0.5 + (productList.length + 1) * 0.1,
+              ease: 'easeOut',
+            }}
           >
-            <div className="flex w-[310px] flex-shrink-0 cursor-pointer items-center">
-              <div className="mr-2.5 flex h-40 w-[140px] items-center justify-center">
+            <motion.div
+              className="flex w-[310px] flex-shrink-0 cursor-pointer items-center transition-opacity duration-200"
+              whileHover={{
+                scale: 1.03,
+                transition: { duration: 0.3 },
+              }}
+              onMouseEnter={() => {
+                setExpandType('nerve');
+                setProductCount(1);
+              }}
+              onMouseLeave={() => {
+                setExpandType(null);
+                setProductCount(0);
+              }}
+            >
+              <div className="mr-3 flex h-40 w-[140px] items-center justify-center">
                 <Image
                   src="https://website-www-brainco-cn.oss-cn-hangzhou.aliyuncs.com/images/kojfrMNnQOelFbAI.webp"
                   alt="神经调控"
@@ -374,42 +422,104 @@ export function HomeContent() {
                   className="h-auto w-auto"
                 />
               </div>
-              <div className="name cursor-pointer">
-                <h5 className="mb-2 text-2xl font-medium">神经调控</h5>
-                <p className="text-lg">头戴设备</p>
+              <div className="flex flex-1 flex-col">
+                <h5 className="mb-2 text-2xl leading-tight font-medium">
+                  神经调控
+                </h5>
+                <p className="text-lg leading-snug">头戴设备</p>
               </div>
-            </div>
+            </motion.div>
 
-            <div className="hidden w-[810px] flex-shrink-0 items-center rounded-lg bg-[#f4f4f4] group-hover/nerve:flex">
-              <ul className="flex">
+            {expandType === 'dexterous' && (
+              <motion.div
+                className="flex h-[180px] w-fit flex-shrink-0 items-center gap-4 rounded-lg bg-[#f4f4f4] p-4"
+                initial={{ opacity: 0, x: 20 }}
+                animate={{ opacity: 1, x: 0 }}
+                exit={{ opacity: 0, x: 20 }}
+                transition={{ duration: 0.3 }}
+              >
+                <div
+                  role="button"
+                  tabIndex={0}
+                  className="flex h-full w-[180px] cursor-pointer flex-col items-center justify-center overflow-hidden rounded-2xl bg-white transition-transform duration-200 hover:scale-105"
+                  onClick={() => router.push('/products/dexterous')}
+                  onKeyDown={(e) => {
+                    if (e.key === 'Enter' || e.key === ' ') {
+                      router.push('/products/dexterous');
+                    }
+                  }}
+                >
+                  <Image
+                    src="https://website-www-brainco-cn.oss-cn-hangzhou.aliyuncs.com/images/product/rove2/wUey39BYXL6A2K5j.webp"
+                    alt="Revo 1"
+                    width={180}
+                    height={180}
+                    className="h-full w-full object-cover"
+                  />
+                </div>
+                <div
+                  role="button"
+                  tabIndex={0}
+                  className="flex h-full w-[180px] cursor-pointer flex-col items-center justify-center overflow-hidden rounded-2xl bg-white transition-transform duration-200 hover:scale-105"
+                  onClick={() => router.push('/products/revo2')}
+                  onKeyDown={(e) => {
+                    if (e.key === 'Enter' || e.key === ' ') {
+                      router.push('/products/revo2');
+                    }
+                  }}
+                >
+                  <Image
+                    src="https://website-www-brainco-cn.oss-cn-hangzhou.aliyuncs.com/images/product/rove2/zvQPGjp6x8gNCbUk.webp"
+                    alt="Revo 2"
+                    width={180}
+                    height={180}
+                    className="h-full w-full object-cover"
+                  />
+                </div>
+              </motion.div>
+            )}
+
+            {expandType === 'nerve' && (
+              <motion.div
+                className="flex h-[180px] w-fit flex-shrink-0 items-center gap-4 rounded-lg bg-[#f4f4f4] p-4"
+                initial={{ opacity: 0, x: 20 }}
+                animate={{ opacity: 1, x: 0 }}
+                exit={{ opacity: 0, x: 20 }}
+                transition={{ duration: 0.3 }}
+              >
                 {nerveList.map(item => (
-                  <li
+                  <div
                     key={item.name}
-                    className="flex w-[270px] cursor-pointer flex-col items-center justify-center"
+                    role="button"
+                    tabIndex={0}
+                    className="flex h-full w-[150px] cursor-pointer flex-col items-center justify-center overflow-hidden rounded-2xl bg-white transition-transform duration-200 hover:scale-105"
                     onClick={() => router.push(item.router)}
+                    onKeyDown={(e) => {
+                      if (e.key === 'Enter' || e.key === ' ') {
+                        router.push(item.router);
+                      }
+                    }}
                   >
-                    <div className="-mt-5 flex items-center justify-center">
+                    <div className="flex flex-1 items-center justify-center">
                       <Image
                         src={item.img}
                         alt={item.name}
-                        width={140}
-                        height={160}
-                        className="h-auto w-auto"
+                        width={100}
+                        height={100}
+                        className="max-h-[100px] w-auto"
                       />
                     </div>
-                    <div className="-mt-5 flex flex-col items-center">
-                      <span className="text-base font-bold text-[#555]">
+                    <div className="flex flex-col items-center px-2 pt-2 pb-3">
+                      <span className="text-sm font-bold text-[#555]">
                         {item.name}
                       </span>
-                      <span className="text-base font-bold text-[#555]">
-                        {item.desc}
-                      </span>
+                      <span className="text-xs text-[#555]">{item.desc}</span>
                     </div>
-                  </li>
+                  </div>
                 ))}
-              </ul>
-            </div>
-          </div>
+              </motion.div>
+            )}
+          </motion.div>
         </div>
       </div>
 
