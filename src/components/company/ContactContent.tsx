@@ -1,7 +1,12 @@
 'use client';
 
+import { motion } from 'framer-motion';
 import { useTranslations } from 'next-intl';
 import { useState } from 'react';
+import { Button } from '@/components/ui/button';
+import { Checkbox } from '@/components/ui/checkbox';
+import { Input } from '@/components/ui/input';
+import { Label } from '@/components/ui/label';
 
 export default function ContactContent() {
   const t = useTranslations('Contact');
@@ -20,32 +25,47 @@ export default function ContactContent() {
     e: React.ChangeEvent<HTMLInputElement>,
     field: string,
   ) => {
-    setFormData((prev) => ({
+    setFormData(prev => ({
       ...prev,
       [field]: e.target.value,
     }));
   };
 
   const handleCheckboxChange = (value: string, checked: boolean) => {
-    setFormData((prev) => ({
+    setFormData(prev => ({
       ...prev,
       cooperationType: checked
         ? [...prev.cooperationType, value]
-        : prev.cooperationType.filter((item) => item !== value),
+        : prev.cooperationType.filter(item => item !== value),
     }));
   };
 
   const handleSubmit = async () => {
-    if (!formData.company) return alert(t('alert_company'));
-    if (!formData.address) return alert(t('alert_address'));
-    if (!formData.name) return alert(t('alert_name'));
-    if (!formData.email) return alert(t('alert_email'));
-    if (!formData.phone) return alert(t('alert_phone'));
-    if (!formData.project) return alert(t('alert_project'));
-    if (formData.cooperationType.length === 0)
+    if (!formData.company) {
+      return alert(t('alert_company'));
+    }
+    if (!formData.address) {
+      return alert(t('alert_address'));
+    }
+    if (!formData.name) {
+      return alert(t('alert_name'));
+    }
+    if (!formData.email) {
+      return alert(t('alert_email'));
+    }
+    if (!formData.phone) {
+      return alert(t('alert_phone'));
+    }
+    if (!formData.project) {
+      return alert(t('alert_project'));
+    }
+    if (formData.cooperationType.length === 0) {
       return alert(t('alert_cooperation_type'));
+    }
 
-    if (isSubmitting) return;
+    if (isSubmitting) {
+      return;
+    }
     setIsSubmitting(true);
 
     try {
@@ -96,80 +116,131 @@ export default function ContactContent() {
     <div className="w-full bg-white">
       {/* Top Banner */}
       <div
-        className="flex h-[1030px] w-full flex-col justify-start bg-cover bg-center pt-[120px] pl-[310px]"
+        className="flex h-screen w-full flex-col items-start justify-center bg-cover bg-center px-[240px] pt-20 2xl:px-[300px]"
         style={{
           backgroundImage:
             'url(https://website-www-brainco-cn.oss-cn-hangzhou.aliyuncs.com/images/jnBeGhhj5wSkShKc.webp)',
         }}
       >
-        <h1 className="text-[76px] leading-[92px] text-white">
+        <motion.h1
+          className="text-fluid-6xl leading-[92px] text-white"
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 0.3, ease: 'easeOut' }}
+        >
           {t('page_title')}
-        </h1>
-        <p className="mt-[26px] w-[333px] text-xl leading-[34px] text-white">
+        </motion.h1>
+        <motion.p
+          className="text-fluid-xl mt-[26px] w-[333px] leading-[34px] text-white"
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 0.5, ease: 'easeOut' }}
+        >
           {t('intro_text')}
-        </p>
+        </motion.p>
       </div>
 
       {/* Contact Details */}
-      <div className="flex h-[1080px] w-full flex-col justify-end bg-white">
-        <div className="flex items-end justify-around pb-[119px]">
-          <div>
+      <div className="flex h-screen w-full flex-col justify-center bg-white">
+        <div className="flex items-end justify-around">
+          <motion.div
+            initial={{ opacity: 0, x: -30 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8, ease: 'easeOut' }}
+          >
             <div className="mb-[50px] h-px w-[75px] border-t-[3px] border-[#333333]" />
             <div className="w-[343px]">
-              <div className="mt-[40px]">
-                <div className="text-2xl font-medium leading-10 text-[#333333]">
+              <motion.div
+                className="mt-[40px]"
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6, delay: 0.1, ease: 'easeOut' }}
+              >
+                <div className="text-2xl leading-10 font-medium text-[#333333]">
                   {t('location_hangzhou')}
                 </div>
                 <div className="text-xl leading-10 text-[#707070]">
                   {t('address_hangzhou')}
                 </div>
-              </div>
+              </motion.div>
 
-              <div className="mt-[40px]">
-                <div className="text-2xl font-medium leading-10 text-[#333333]">
+              <motion.div
+                className="mt-[40px]"
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6, delay: 0.2, ease: 'easeOut' }}
+              >
+                <div className="text-2xl leading-10 font-medium text-[#333333]">
                   {t('location_shenzhen')}
                 </div>
                 <div className="text-xl leading-10 text-[#707070]">
                   {t('address_shenzhen')}
                 </div>
-              </div>
+              </motion.div>
 
-              <div className="mt-[40px]">
-                <div className="text-2xl font-medium leading-10 text-[#333333]">
+              <motion.div
+                className="mt-[40px]"
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6, delay: 0.3, ease: 'easeOut' }}
+              >
+                <div className="text-2xl leading-10 font-medium text-[#333333]">
                   {t('location_boston')}
                 </div>
                 <div className="text-xl leading-10 text-[#707070]">
                   {t('address_boston')}
                 </div>
-              </div>
+              </motion.div>
             </div>
-          </div>
+          </motion.div>
 
-          <div className="w-[264px]">
-            <div className="mt-[30px]">
-              <span className="text-xl font-medium leading-10 text-[#333333]">
+          <motion.div
+            className="w-[264px]"
+            initial={{ opacity: 0, x: 30 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8, ease: 'easeOut' }}
+          >
+            <motion.div
+              className="mt-[30px]"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: 0.1, ease: 'easeOut' }}
+            >
+              <span className="text-xl leading-10 font-medium text-[#333333]">
                 {t('media_inquiry')}
               </span>
               <br />
-              <span className="text-xl font-medium leading-10 text-[#00baff]">
+              <span className="text-xl leading-10 font-medium text-[#00baff]">
                 pr@brainco.cn
               </span>
-            </div>
-            <div className="mt-[30px]">
-              <span className="text-xl font-medium leading-10 text-[#333333]">
+            </motion.div>
+            <motion.div
+              className="mt-[30px]"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: 0.2, ease: 'easeOut' }}
+            >
+              <span className="text-xl leading-10 font-medium text-[#333333]">
                 {t('hr_inquiry')}
               </span>
               <br />
-              <span className="text-xl font-medium leading-10 text-[#00baff]">
+              <span className="text-xl leading-10 font-medium text-[#00baff]">
                 hr@brainco.cn
               </span>
-            </div>
-          </div>
+            </motion.div>
+          </motion.div>
         </div>
       </div>
 
       {/* Business Areas */}
-      <div className="grid h-[1080px] w-full grid-cols-4">
+      <div className="grid h-screen w-full grid-cols-4">
         {[
           {
             bg: 'https://website-www-brainco-cn.oss-cn-hangzhou.aliyuncs.com/images/product/rove2/HKyIiSGZxRQOcU4C.webp',
@@ -197,13 +268,13 @@ export default function ContactContent() {
             className="flex items-center justify-center bg-cover bg-center"
             style={{ backgroundImage: `url(${area.bg})` }}
           >
-            <div className="flex h-[70%] w-[50%] flex-col justify-around">
-              <h2 className="break-words text-[60px] font-medium leading-[80px] text-[#333333]">
+            <div className="flex h-[60%] w-[50%] flex-col justify-around">
+              <h2 className="text-fluid-7xl pr-10 leading-[80px] font-medium text-[#333333]">
                 {area.title}
               </h2>
-              <div>
+              <div className="flex h-[50%] flex-col justify-start">
                 <div className="mb-[50px] h-px w-[75px] border-t-[3px] border-[#333333]" />
-                <p className="w-[313px] text-xl leading-[34px] text-[#707070]">
+                <p className="text-fluid-xl w-full leading-[34px] text-[#707070]">
                   {area.desc}
                 </p>
               </div>
@@ -214,129 +285,191 @@ export default function ContactContent() {
 
       {/* Cooperation Form */}
       <div className="flex h-[1520px] w-full items-center justify-center bg-white">
-        <div className="flex w-[65%] flex-col">
-          <h2 className="mb-[45px] text-[60px] font-medium leading-[80px] text-[#333333]">
+        <motion.div
+          className="flex w-[65%] flex-col"
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.8, ease: 'easeOut' }}
+        >
+          <h2 className="mb-[45px] text-[60px] leading-[80px] font-medium text-[#333333]">
             {t('cooperation_title')}
           </h2>
 
-          <div className="mb-[43px] flex flex-col">
-            <label className="text-2xl font-medium text-[#333333]">
-              {t('form_company')}*
-            </label>
-            <input
+          <motion.div
+            className="mb-[43px] flex flex-col space-y-2"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, delay: 0.1, ease: 'easeOut' }}
+          >
+            <Label className="text-2xl font-medium text-[#333333]">
+              {t('form_company')}
+              {' '}
+              *
+            </Label>
+            <Input
               type="text"
               value={formData.company}
-              onChange={(e) => handleInputChange(e, 'company')}
-              className="border-0 border-b border-[#000] text-[25px] outline-none"
+              onChange={e => handleInputChange(e, 'company')}
+              className="rounded-none border-0 border-b border-[#000] text-[25px] shadow-none focus-visible:ring-0"
             />
-          </div>
+          </motion.div>
 
-          <div className="mb-[43px] flex flex-col">
-            <label className="text-2xl font-medium text-[#333333]">
-              {t('form_address')}*
-            </label>
-            <input
+          <motion.div
+            className="mb-[43px] flex flex-col space-y-2"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, delay: 0.15, ease: 'easeOut' }}
+          >
+            <Label className="text-2xl font-medium text-[#333333]">
+              {t('form_address')}
+              {' '}
+              *
+            </Label>
+            <Input
               type="text"
               value={formData.address}
-              onChange={(e) => handleInputChange(e, 'address')}
-              className="border-0 border-b border-[#000] text-[25px] outline-none"
+              onChange={e => handleInputChange(e, 'address')}
+              className="rounded-none border-0 border-b border-[#000] text-[25px] shadow-none focus-visible:ring-0"
             />
-          </div>
+          </motion.div>
 
-          <div className="mb-[43px] flex flex-col">
-            <label className="text-2xl font-medium text-[#333333]">
-              {t('form_name')}*
-            </label>
-            <input
+          <motion.div
+            className="mb-[43px] flex flex-col space-y-2"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, delay: 0.2, ease: 'easeOut' }}
+          >
+            <Label className="text-2xl font-medium text-[#333333]">
+              {t('form_name')}
+              {' '}
+              *
+            </Label>
+            <Input
               type="text"
               value={formData.name}
-              onChange={(e) => handleInputChange(e, 'name')}
-              className="border-0 border-b border-[#000] text-[25px] outline-none"
+              onChange={e => handleInputChange(e, 'name')}
+              className="rounded-none border-0 border-b border-[#000] text-[25px] shadow-none focus-visible:ring-0"
             />
-          </div>
+          </motion.div>
 
-          <div className="mb-[43px] flex flex-col">
-            <label className="text-2xl font-medium text-[#333333]">
-              {t('form_email')}*
-            </label>
-            <input
+          <motion.div
+            className="mb-[43px] flex flex-col space-y-2"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, delay: 0.25, ease: 'easeOut' }}
+          >
+            <Label className="text-2xl font-medium text-[#333333]">
+              {t('form_email')}
+              {' '}
+              *
+            </Label>
+            <Input
               type="email"
               value={formData.email}
-              onChange={(e) => handleInputChange(e, 'email')}
-              className="border-0 border-b border-[#000] text-[25px] outline-none"
+              onChange={e => handleInputChange(e, 'email')}
+              className="rounded-none border-0 border-b border-[#000] text-[25px] shadow-none focus-visible:ring-0"
             />
-          </div>
+          </motion.div>
 
-          <div className="mb-[43px] flex flex-col">
-            <label className="text-2xl font-medium text-[#333333]">
-              {t('form_phone')}*
-            </label>
-            <input
+          <motion.div
+            className="mb-[43px] flex flex-col space-y-2"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, delay: 0.3, ease: 'easeOut' }}
+          >
+            <Label className="text-2xl font-medium text-[#333333]">
+              {t('form_phone')}
+              {' '}
+              *
+            </Label>
+            <Input
               type="tel"
               value={formData.phone}
-              onChange={(e) => handleInputChange(e, 'phone')}
-              className="border-0 border-b border-[#000] text-[25px] outline-none"
+              onChange={e => handleInputChange(e, 'phone')}
+              className="rounded-none border-0 border-b border-[#000] text-[25px] shadow-none focus-visible:ring-0"
             />
-          </div>
+          </motion.div>
 
-          <div className="mb-[43px] flex flex-col">
-            <label className="text-2xl font-medium text-[#333333]">
+          <motion.div
+            className="mb-[43px] flex flex-col space-y-2"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, delay: 0.35, ease: 'easeOut' }}
+          >
+            <Label className="text-2xl font-medium text-[#333333]">
               {t('form_project')}
-            </label>
-            <input
+            </Label>
+            <Input
               type="text"
               placeholder={t('form_project_placeholder')}
               value={formData.project}
-              onChange={(e) => handleInputChange(e, 'project')}
-              className="border-0 border-b border-[#000] text-[25px] outline-none"
+              onChange={e => handleInputChange(e, 'project')}
+              className="rounded-none border-0 border-b border-[#000] text-[25px] shadow-none focus-visible:ring-0"
             />
-          </div>
+          </motion.div>
 
-          <div className="flex flex-col">
-            <label className="text-2xl font-medium text-[#333333]">
-              {t('form_cooperation_type')}*
-            </label>
+          <motion.div
+            className="flex flex-col space-y-3"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, delay: 0.4, ease: 'easeOut' }}
+          >
+            <Label className="text-2xl font-medium text-[#333333]">
+              {t('form_cooperation_type')}
+              {' '}
+              *
+            </Label>
             <div className="flex flex-wrap items-center justify-between">
               {[
                 { id: 'rd', value: t('cooperation_rd') },
                 { id: 'sales', value: t('cooperation_sales') },
                 { id: 'brand', value: t('cooperation_brand') },
                 { id: 'other', value: t('cooperation_other') },
-              ].map((type) => (
-                <div key={type.id} className="flex items-center justify-center">
-                  <input
+              ].map(type => (
+                <div key={type.id} className="flex items-center space-x-2">
+                  <Checkbox
                     id={type.id}
-                    type="checkbox"
                     checked={formData.cooperationType.includes(type.value)}
-                    onChange={(e) =>
-                      handleCheckboxChange(type.value, e.target.checked)
-                    }
-                    className="mr-2"
+                    onCheckedChange={(checked: boolean) =>
+                      handleCheckboxChange(type.value, checked)}
                   />
-                  <label
+                  <Label
                     htmlFor={type.id}
-                    className="text-xl text-[rgba(51,51,51,0.5)]"
+                    className="cursor-pointer text-xl font-normal text-[rgba(51,51,51,0.5)]"
                   >
                     {type.value}
-                  </label>
+                  </Label>
                 </div>
               ))}
             </div>
-          </div>
+          </motion.div>
 
-          <div className="mt-[96px] flex items-center">
-            <button
+          <motion.div
+            className="mt-[96px] flex items-center"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, delay: 0.5, ease: 'easeOut' }}
+          >
+            <Button
               type="button"
               onClick={handleSubmit}
               disabled={isSubmitting}
-              className="h-20 w-[274px] cursor-pointer rounded-[68px] border-[3px] border-[#333333] bg-white text-[28px] hover:bg-gray-50 disabled:cursor-not-allowed disabled:opacity-50"
+              className="h-20 w-[274px] rounded-[68px] border-[3px] border-[#333333] bg-white text-[28px] hover:bg-gray-50"
             >
               {t('submit_button')}
-            </button>
-          </div>
-        </div>
+            </Button>
+          </motion.div>
+        </motion.div>
       </div>
     </div>
   );
 }
-

@@ -1,5 +1,6 @@
 'use client';
 
+import { motion } from 'framer-motion';
 import { useTranslations } from 'next-intl';
 import Image from 'next/image';
 
@@ -17,47 +18,102 @@ export default function AboutContentMobile() {
           height={800}
           className="w-full object-cover"
         />
-        <div className="absolute left-0 top-0 flex h-[calc(100vh-80px)] w-full flex-col justify-center px-20 pr-5">
-          <h1 className="text-[40px] font-bold text-white">
+        <motion.div
+          className="absolute top-0 left-0 flex h-[calc(100vh-80px)] w-full flex-col justify-center px-20 pr-5"
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 0.3, ease: 'easeOut' }}
+        >
+          <motion.h1
+            className="text-[40px] font-bold text-white"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.5, ease: 'easeOut' }}
+          >
             {t('page_title')}
-          </h1>
-          <p className="mt-5 text-base text-white">{t('intro_text')}</p>
-        </div>
+          </motion.h1>
+          <motion.p
+            className="mt-5 text-base text-white"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.7, ease: 'easeOut' }}
+          >
+            {t('intro_text')}
+          </motion.p>
+        </motion.div>
       </div>
 
       {/* Brand Culture Section */}
-      <div className="px-[42px]">
-        <h2 className="mb-[14px] mt-[54px] text-center text-2xl font-bold">
+      <motion.div
+        className="px-[42px] text-center"
+        initial={{ opacity: 0, y: 30 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.8, ease: 'easeOut' }}
+      >
+        <h2 className="text-fluid-2xl mt-[54px] mb-[14px] text-center font-bold">
           {t('brand_culture')}
         </h2>
         <dl>
-          <dt className="mb-[18px] mt-[38px] inline-block border-b-[3px] border-[#333] pb-[6px] pr-1 text-xl">
-            {t('mission')}
-          </dt>
-          <dd className="mb-[6px] text-[#707070]">{t('mission_text')}</dd>
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, delay: 0.1, ease: 'easeOut' }}
+          >
+            <dt className="mt-[16px] mb-[18px] inline-block border-b-[3px] border-[#333] pr-1 pb-[6px] text-xl">
+              {t('mission')}
+            </dt>
+            <dd className="mb-[6px] text-[#707070]">{t('mission_text')}</dd>
+          </motion.div>
 
-          <dt className="mb-[18px] mt-[38px] inline-block border-b-[3px] border-[#333] pb-[6px] pr-1 text-xl">
-            {t('vision')}
-          </dt>
-          <dd className="mb-[6px] text-[#707070]">{t('vision_text')}</dd>
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, delay: 0.2, ease: 'easeOut' }}
+          >
+            <dt className="mt-[38px] mb-[18px] inline-block border-b-[3px] border-[#333] pr-1 pb-[6px] text-xl">
+              {t('vision')}
+            </dt>
+            <dd className="mb-[6px] text-[#707070]">{t('vision_text')}</dd>
+          </motion.div>
 
-          <dt className="mb-[18px] mt-[38px] inline-block border-b-[3px] border-[#333] pb-[6px] pr-1 text-xl">
-            {t('values')}
-          </dt>
-          <dd className="mb-[6px] text-[#707070]">{t('values_1')}</dd>
-          <dd className="mb-[6px] text-[#707070]">{t('values_2')}</dd>
-          <dd className="mb-[6px] text-[#707070]">{t('values_3')}</dd>
-          <dd className="mb-[6px] text-[#707070]">{t('values_4')}</dd>
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, delay: 0.3, ease: 'easeOut' }}
+          >
+            <dt className="mt-[38px] mb-[18px] inline-block border-b-[3px] border-[#333] pr-1 pb-[6px] text-xl">
+              {t('values')}
+            </dt>
+            <dd className="mb-[6px] text-[#707070]">{t('values_1')}</dd>
+            <dd className="mb-[6px] text-[#707070]">{t('values_2')}</dd>
+            <dd className="mb-[6px] text-[#707070]">{t('values_3')}</dd>
+            <dd className="mb-[6px] text-[#707070]">{t('values_4')}</dd>
+          </motion.div>
         </dl>
-      </div>
+      </motion.div>
 
       {/* Social Contribution Section */}
-      <div className="mb-[50px] mt-[50px] px-[42px]">
-        <h2 className="mb-[14px] mt-[54px] text-center text-2xl font-bold">
+      <motion.div
+        className="mt-[50px] mb-[50px] px-[42px]"
+        initial={{ opacity: 0, y: 30 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.8, ease: 'easeOut' }}
+      >
+        <h2 className="text-fluid-2xl mt-[54px] mb-[14px] text-center font-bold">
           {t('social_contribution')}
         </h2>
         <ul>
-          <li>
+          <motion.li
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, delay: 0.2, ease: 'easeOut' }}
+          >
             <Image
               src="https://website-www-brainco-cn.oss-cn-hangzhou.aliyuncs.com/images/mZvimSaC46hEWw9I.webp"
               alt={t('social_contribution')}
@@ -68,10 +124,9 @@ export default function AboutContentMobile() {
             <p className="mt-[10px] text-sm text-[#707070]">
               {t('contribution_text')}
             </p>
-          </li>
+          </motion.li>
         </ul>
-      </div>
+      </motion.div>
     </div>
   );
 }
-

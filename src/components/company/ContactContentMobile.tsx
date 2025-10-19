@@ -1,8 +1,13 @@
 'use client';
 
+import { motion } from 'framer-motion';
 import { useTranslations } from 'next-intl';
 import { useState, useEffect } from 'react';
 import Image from 'next/image';
+import { Button } from '@/components/ui/button';
+import { Checkbox } from '@/components/ui/checkbox';
+import { Input } from '@/components/ui/input';
+import { Label } from '@/components/ui/label';
 
 export default function ContactContentMobile() {
   const t = useTranslations('Contact');
@@ -138,66 +143,125 @@ export default function ContactContentMobile() {
           height={800}
           className="w-full object-cover"
         />
-        <div className="absolute left-0 top-0 flex h-[calc(100vh-80px)] w-full flex-col justify-center px-20 pr-10">
-          <h1 className="text-[40px] font-bold text-white">
+        <motion.div
+          className="absolute left-0 top-0 flex h-[calc(100vh-80px)] w-full flex-col justify-center px-20 pr-10"
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 0.3, ease: 'easeOut' }}
+        >
+          <motion.h1
+            className="text-[40px] font-bold text-white"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.5, ease: 'easeOut' }}
+          >
             {t('page_title')}
-          </h1>
-          <p className="mt-3 text-base text-white">{t('intro_text')}</p>
-        </div>
+          </motion.h1>
+          <motion.p
+            className="mt-3 text-base text-white"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.7, ease: 'easeOut' }}
+          >
+            {t('intro_text')}
+          </motion.p>
+        </motion.div>
       </div>
 
       {/* Contact Details */}
       <div className="w-full bg-white">
-        <div className="mt-[30px] px-10">
+        <motion.div
+          className="mt-[30px] px-10"
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.8, ease: 'easeOut' }}
+        >
           <div className="mb-[50px] h-px w-[75px] border-t-[3px] border-[#333333]" />
           <div>
-            <div className="mt-[30px]">
+            <motion.div
+              className="mt-[30px]"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: 0.1, ease: 'easeOut' }}
+            >
               <div className="text-xl font-medium text-[#333333]">
                 {t('location_hangzhou')}
               </div>
               <div className="text-sm text-[#707070]">
                 {t('address_hangzhou')}
               </div>
-            </div>
+            </motion.div>
 
-            <div className="mt-[30px]">
+            <motion.div
+              className="mt-[30px]"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: 0.2, ease: 'easeOut' }}
+            >
               <div className="text-xl font-medium text-[#333333]">
                 {t('location_shenzhen')}
               </div>
               <div className="text-sm text-[#707070]">
                 {t('address_shenzhen')}
               </div>
-            </div>
+            </motion.div>
 
-            <div className="mt-[30px]">
+            <motion.div
+              className="mt-[30px]"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: 0.3, ease: 'easeOut' }}
+            >
               <div className="text-xl font-medium text-[#333333]">
                 {t('location_boston')}
               </div>
               <div className="text-sm text-[#707070]">
                 {t('address_boston')}
               </div>
-            </div>
+            </motion.div>
           </div>
-        </div>
+        </motion.div>
 
-        <div className="mt-[30px] px-10">
-          <div className="mt-[10px]">
+        <motion.div
+          className="mt-[30px] px-10"
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.8, delay: 0.2, ease: 'easeOut' }}
+        >
+          <motion.div
+            className="mt-[10px]"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, delay: 0.1, ease: 'easeOut' }}
+          >
             <span className="block text-xl font-medium leading-10 text-[#333333]">
               {t('media_inquiry')}
             </span>
             <span className="text-sm font-medium text-[#00baff]">
               pr@brainco.cn
             </span>
-          </div>
-          <div className="mt-[10px]">
+          </motion.div>
+          <motion.div
+            className="mt-[10px]"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, delay: 0.2, ease: 'easeOut' }}
+          >
             <span className="block text-xl font-medium leading-10 text-[#333333]">
               {t('hr_inquiry')}
             </span>
             <span className="text-sm font-medium text-[#00baff]">
               hr@brainco.cn
             </span>
-          </div>
-        </div>
+          </motion.div>
+        </motion.div>
       </div>
 
       {/* Business Areas */}
@@ -222,91 +286,137 @@ export default function ContactContentMobile() {
       </div>
 
       {/* Cooperation Form */}
-      <div
+      <motion.div
         id="contact"
         className="mb-[50px] mt-20 w-full bg-white px-10"
+        initial={{ opacity: 0, y: 30 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.8, ease: 'easeOut' }}
       >
         <h2 className="mb-20 text-center text-2xl text-[#333333]">
           {t('cooperation_title')}
         </h2>
 
-        <div className="mb-[26px] flex flex-col">
-          <label className="mt-[26px] text-sm text-[#333333]">
+        <motion.div
+          className="mb-[26px] flex flex-col space-y-2"
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6, delay: 0.1, ease: 'easeOut' }}
+        >
+          <Label className="text-sm text-[#333333]">
             {t('form_company')}*
-          </label>
-          <input
+          </Label>
+          <Input
             type="text"
             value={formData.company}
             onChange={(e) => handleInputChange(e, 'company')}
-            className="border-0 border-b border-[#000] text-sm leading-[30px] outline-none"
+            className="border-0 border-b border-[#000] rounded-none text-sm leading-[30px] shadow-none focus-visible:ring-0"
           />
-        </div>
+        </motion.div>
 
-        <div className="mb-[26px] flex flex-col">
-          <label className="mt-[26px] text-sm text-[#333333]">
+        <motion.div
+          className="mb-[26px] flex flex-col space-y-2"
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6, delay: 0.15, ease: 'easeOut' }}
+        >
+          <Label className="text-sm text-[#333333]">
             {t('form_address')}*
-          </label>
-          <input
+          </Label>
+          <Input
             type="text"
             value={formData.address}
             onChange={(e) => handleInputChange(e, 'address')}
-            className="border-0 border-b border-[#000] text-sm leading-[30px] outline-none"
+            className="border-0 border-b border-[#000] rounded-none text-sm leading-[30px] shadow-none focus-visible:ring-0"
           />
-        </div>
+        </motion.div>
 
-        <div className="mb-[26px] flex flex-col">
-          <label className="mt-[26px] text-sm text-[#333333]">
+        <motion.div
+          className="mb-[26px] flex flex-col space-y-2"
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6, delay: 0.2, ease: 'easeOut' }}
+        >
+          <Label className="text-sm text-[#333333]">
             {t('form_name')}*
-          </label>
-          <input
+          </Label>
+          <Input
             type="text"
             value={formData.name}
             onChange={(e) => handleInputChange(e, 'name')}
-            className="border-0 border-b border-[#000] text-sm leading-[30px] outline-none"
+            className="border-0 border-b border-[#000] rounded-none text-sm leading-[30px] shadow-none focus-visible:ring-0"
           />
-        </div>
+        </motion.div>
 
-        <div className="mb-[26px] flex flex-col">
-          <label className="mt-[26px] text-sm text-[#333333]">
+        <motion.div
+          className="mb-[26px] flex flex-col space-y-2"
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6, delay: 0.25, ease: 'easeOut' }}
+        >
+          <Label className="text-sm text-[#333333]">
             {t('form_email')}*
-          </label>
-          <input
+          </Label>
+          <Input
             type="email"
             value={formData.email}
             onChange={(e) => handleInputChange(e, 'email')}
-            className="border-0 border-b border-[#000] text-sm leading-[30px] outline-none"
+            className="border-0 border-b border-[#000] rounded-none text-sm leading-[30px] shadow-none focus-visible:ring-0"
           />
-        </div>
+        </motion.div>
 
-        <div className="mb-[26px] flex flex-col">
-          <label className="mt-[26px] text-sm text-[#333333]">
+        <motion.div
+          className="mb-[26px] flex flex-col space-y-2"
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6, delay: 0.3, ease: 'easeOut' }}
+        >
+          <Label className="text-sm text-[#333333]">
             {t('form_phone')}*
-          </label>
-          <input
+          </Label>
+          <Input
             type="tel"
             value={formData.phone}
             onChange={(e) => handleInputChange(e, 'phone')}
-            className="border-0 border-b border-[#000] text-sm leading-[30px] outline-none"
+            className="border-0 border-b border-[#000] rounded-none text-sm leading-[30px] shadow-none focus-visible:ring-0"
           />
-        </div>
+        </motion.div>
 
-        <div className="mb-[26px] flex flex-col">
-          <label className="mt-[26px] text-sm text-[#333333]">
+        <motion.div
+          className="mb-[26px] flex flex-col space-y-2"
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6, delay: 0.35, ease: 'easeOut' }}
+        >
+          <Label className="text-sm text-[#333333]">
             {t('form_project')}
-          </label>
-          <input
+          </Label>
+          <Input
             type="text"
             placeholder={t('form_project_placeholder')}
             value={formData.project}
             onChange={(e) => handleInputChange(e, 'project')}
-            className="border-0 border-b border-[#000] text-sm leading-[30px] outline-none"
+            className="border-0 border-b border-[#000] rounded-none text-sm leading-[30px] shadow-none focus-visible:ring-0"
           />
-        </div>
+        </motion.div>
 
-        <div className="flex flex-col">
-          <label className="mt-[26px] text-sm text-[#333333]">
+        <motion.div
+          className="flex flex-col space-y-3"
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6, delay: 0.4, ease: 'easeOut' }}
+        >
+          <Label className="text-sm text-[#333333]">
             {t('form_cooperation_type')}*
-          </label>
+          </Label>
           <div className="flex flex-wrap items-center justify-between">
             {[
               { id: 'rd-mobile', value: t('cooperation_rd') },
@@ -316,39 +426,44 @@ export default function ContactContentMobile() {
             ].map((type) => (
               <div
                 key={type.id}
-                className="mt-[10px] flex flex-[50%] items-center justify-start"
+                className="mt-[10px] flex flex-[50%] items-center justify-start space-x-2"
               >
-                <input
+                <Checkbox
                   id={type.id}
-                  type="checkbox"
                   checked={formData.cooperationType.includes(type.value)}
-                  onChange={(e) =>
-                    handleCheckboxChange(type.value, e.target.checked)
+                  onCheckedChange={(checked) =>
+                    handleCheckboxChange(type.value, checked as boolean)
                   }
-                  className="mr-2"
                 />
-                <label
+                <Label
                   htmlFor={type.id}
-                  className="text-sm text-[rgba(51,51,51,0.5)]"
+                  className="text-sm font-normal text-[rgba(51,51,51,0.5)] cursor-pointer"
                 >
                   {type.value}
-                </label>
+                </Label>
               </div>
             ))}
           </div>
-        </div>
+        </motion.div>
 
-        <div className="mt-[72px] flex items-center">
-          <button
+        <motion.div
+          className="mt-[72px] flex items-center"
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6, delay: 0.5, ease: 'easeOut' }}
+        >
+          <Button
             type="button"
             onClick={handleSubmit}
             disabled={isSubmitting}
-            className="h-12 w-[166px] cursor-pointer rounded-3xl border-[3px] border-[#333333] bg-white text-base hover:bg-gray-50 disabled:cursor-not-allowed disabled:opacity-50"
+            variant="outline"
+            className="h-12 w-[166px] rounded-3xl border-[3px] border-[#333333] bg-white text-base hover:bg-gray-50"
           >
             {t('submit_button')}
-          </button>
-        </div>
-      </div>
+          </Button>
+        </motion.div>
+      </motion.div>
     </div>
   );
 }
