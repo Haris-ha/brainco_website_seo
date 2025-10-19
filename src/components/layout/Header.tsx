@@ -3,8 +3,8 @@
 import Image from 'next/image';
 import { usePathname } from 'next/navigation';
 import { useEffect, useState } from 'react';
-import { DesktopNav } from './DesktopNav';
-import { MobileNav } from './MobileNav';
+import { DesktopNav } from '@/components/layout/DesktopNav';
+import { MobileNav } from '@/components/layout/MobileNav';
 
 type HeaderProps = {
   locale: string;

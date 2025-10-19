@@ -30,8 +30,8 @@ export function DesktopNav({ locale }: { locale: string }) {
     {
       key: 'company',
       children: [
-        { key: 'about_us', href: `/${locale}/company/about` },
-        { key: 'contact_us', href: `/${locale}/company/contact` },
+        { key: 'about_us', href: `/${locale}/about` },
+        { key: 'contact_us', href: `/${locale}/contact` },
       ],
     },
   ];

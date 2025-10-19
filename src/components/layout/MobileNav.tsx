@@ -74,8 +74,8 @@ export function MobileNav({ locale, isOpen, onToggle, showHeader = true }: Mobil
     {
       key: 'company',
       children: [
-        { key: 'about_us', href: `/${locale}/company/about` },
-        { key: 'contact_us', href: `/${locale}/company/contact` },
+        { key: 'about_us', href: `/${locale}/about` },
+        { key: 'contact_us', href: `/${locale}/contact` },
       ],
     },
   ];

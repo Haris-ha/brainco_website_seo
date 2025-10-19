@@ -65,8 +65,8 @@ export function Footer({ locale }: FooterProps) {
     {
       title: t('about_brainco'),
       items: [
-        { title: t('about_brainco'), href: `/${locale}/company` },
-        { title: t('contact_us'), href: `/${locale}/company/contact` },
+        { title: t('about_brainco'), href: `/${locale}/about` },
+        { title: t('contact_us'), href: `/${locale}/contact` },
       ],
     },
     {

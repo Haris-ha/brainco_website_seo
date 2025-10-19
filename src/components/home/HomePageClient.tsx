@@ -1,9 +1,9 @@
 'use client';
 
 import { useEffect, useState } from 'react';
+import { HomeContent } from '@/components/home/HomeContent';
+import { HomeContentMobile } from '@/components/home/HomeContentMobile';
 import { Footer } from '../layout/Footer';
-import { HomeContent } from './HomeContent';
-import { HomeContentMobile } from './HomeContentMobile';
 
 type HomePageClientProps = {
   locale: string;

@@ -3,14 +3,14 @@
 import { useTranslations } from 'next-intl';
 import { useEffect, useState } from 'react';
 
-interface Job {
+type Job = {
   id: string;
   title: string;
   address: string;
   time: string;
   duties: string;
   claim?: string;
-}
+};
 
 export default function JobsContentMobile() {
   const t = useTranslations('Recruit');
@@ -18,10 +18,6 @@ export default function JobsContentMobile() {
   const [allJobs, setAllJobs] = useState<Job[]>([]);
   const [selectedJob, setSelectedJob] = useState<Job | null>(null);
   const [searchValue, setSearchValue] = useState('');
-
-  useEffect(() => {
-    fetchJobs();
-  }, []);
 
   useEffect(() => {
     if (selectedJob) {
@@ -38,11 +34,14 @@ export default function JobsContentMobile() {
       const jobs = data.map((item: any) => item.list).flat() as Job[];
       setJobList(jobs);
       setAllJobs(jobs);
-    }
-    catch (error) {
+    } catch (error) {
       console.error('Failed to fetch jobs:', error);
     }
   };
+
+  useEffect(() => {
+    fetchJobs();
+  }, []);
 
   const handleSearch = () => {
     if (searchValue) {
@@ -50,8 +49,7 @@ export default function JobsContentMobile() {
         job.title.includes(searchValue),
       );
       setJobList(filtered);
-    }
-    else {
+    } else {
       setJobList(allJobs);
     }
   };
@@ -131,7 +129,7 @@ export default function JobsContentMobile() {
                     {job.time}
                   </div>
                   <div
-                    className="overflow-hidden text-ellipsis text-[12px] font-normal text-[#83868a] [-webkit-box-orient:vertical] [-webkit-line-clamp:2] [display:-webkit-box]"
+                    className="[display:-webkit-box] overflow-hidden text-[12px] font-normal text-ellipsis text-[#83868a] [-webkit-box-orient:vertical] [-webkit-line-clamp:2]"
                     dangerouslySetInnerHTML={{ __html: job.duties }}
                   />
                 </div>
@@ -151,7 +149,7 @@ export default function JobsContentMobile() {
             role="button"
             tabIndex={0}
           >
-            <div className="h-5 px-[10px] text-[18px] font-normal leading-none [transform:scaleY(2)]">
+            <div className="h-5 [transform:scaleY(2)] px-[10px] text-[18px] leading-none font-normal">
               &lt;
             </div>
             <span className="text-[18px]">{t('job_info')}</span>
@@ -160,7 +158,7 @@ export default function JobsContentMobile() {
           <article className="mt-[30px] block px-5">
             <h4 className="text-base font-bold">{selectedJob.title}</h4>
             <div className="mt-[6px] text-[12px]">
-              <span className="relative mr-[12px] pr-[12px] leading-none after:absolute after:right-0 after:top-1/2 after:h-[12px] after:border-r after:border-solid after:border-[#333] after:content-['_'] after:[transform:translateY(-50%)]">
+              <span className="relative mr-[12px] pr-[12px] leading-none after:absolute after:top-1/2 after:right-0 after:h-[12px] after:[transform:translateY(-50%)] after:border-r after:border-solid after:border-[#333] after:content-['_']">
                 {selectedJob.address}
               </span>
               <span className="leading-none">{selectedJob.time}</span>
@@ -187,4 +185,3 @@ export default function JobsContentMobile() {
     </div>
   );
 }
-

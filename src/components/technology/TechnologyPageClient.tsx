@@ -1,8 +1,8 @@
 'use client';
 
 import { useEffect, useState } from 'react';
-import TechnologyContent from './TechnologyContent';
-import TechnologyContentMobile from './TechnologyContentMobile';
+import TechnologyContent from '@/components/technology/TechnologyContent';
+import TechnologyContentMobile from '@/components/technology/TechnologyContentMobile';
 
 export default function TechnologyPageClient() {
   const [isMobile, setIsMobile] = useState(false);

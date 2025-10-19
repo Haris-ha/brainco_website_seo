@@ -1,10 +1,10 @@
 'use client';
 
 import { useEffect, useState } from 'react';
-import JobsContent from '@/components/recruit/JobsContent';
-import JobsContentMobile from '@/components/recruit/JobsContentMobile';
+import AboutContent from '@/components/company/AboutContent';
+import AboutContentMobile from '@/components/company/AboutContentMobile';
 
-export default function JobsPageClient() {
+export default function AboutPageClient() {
   const [isMobile, setIsMobile] = useState(false);
 
   useEffect(() => {
@@ -18,5 +18,5 @@ export default function JobsPageClient() {
     return () => window.removeEventListener('resize', checkMobile);
   }, []);
 
-  return isMobile ? <JobsContentMobile /> : <JobsContent />;
+  return isMobile ? <AboutContentMobile /> : <AboutContent />;
 }
