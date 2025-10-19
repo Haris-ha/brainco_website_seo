@@ -17,12 +17,12 @@ export default function RecruitContentMobile() {
           height={600}
           className="w-full"
         />
-        <div className="absolute left-1/2 top-0 flex h-full w-[230px] -translate-x-1/2 flex-col items-start justify-center pt-[130px] text-white">
-          <div className="mb-[34px] flex flex-col text-[40px]">
-            <span>{t('join_us')}</span>
-            <span>{t('change_world')}</span>
+        <div className="absolute top-0 left-1/2 flex h-full w-[230px] -translate-x-1/2 flex-col items-start justify-center pt-[130px] text-white">
+          <div className="mb-[34px] flex w-full flex-col items-center justify-center text-center text-[40px]">
+            <div>{t('join_us')}</div>
+            <div>{t('change_world')}</div>
           </div>
-          <span className="mb-[58px] text-[14px] font-light">{t('brain_tech_slogan')}</span>
+          <div className="mb-[58px] w-full text-center text-[14px] font-light">{t('brain_tech_slogan')}</div>
         </div>
       </div>
 
@@ -122,4 +122,3 @@ export default function RecruitContentMobile() {
     </div>
   );
 }
-

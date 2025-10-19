@@ -2,16 +2,17 @@
 
 import { useTranslations } from 'next-intl';
 import Image from 'next/image';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
 export default function RecruitContent() {
   const t = useTranslations('Recruit');
-  const [transformValue, setTransformValue] = useState(() => {
+  const [transformValue, setTransformValue] = useState(0);
+
+  useEffect(() => {
     if (typeof window !== 'undefined') {
-      return window.innerWidth / 5;
+      setTransformValue(window.innerWidth / 5);
     }
-    return 0;
-  });
+  }, []);
 
   const handlePrev = () => {
     if (typeof window !== 'undefined') {
@@ -40,7 +41,7 @@ export default function RecruitContent() {
             <span>{t('join_us')}</span>
             <span>{t('change_world')}</span>
           </div>
-          <span className="h-[95px] text-xl text-white">
+          <span className="h-[95px] text-2xl text-white">
             {t('brain_tech_slogan')}
           </span>
         </div>

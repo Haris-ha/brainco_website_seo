@@ -59,7 +59,7 @@ export function DesktopNav({ locale }: { locale: string }) {
 
           {/* 导航菜单 */}
           <nav className="flex flex-1">
-            <ul className="mr-8 flex w-full justify-center 2xl:mr-16 2xl:px-16">
+            <ul className="mr-8 flex w-full justify-center px-48 2xl:mr-16 2xl:px-32">
               {navItems.map((item, _index) => (
                 <li
                   key={item.key}
@@ -104,7 +104,7 @@ export function DesktopNav({ locale }: { locale: string }) {
                             />
                             {/* 公司下拉菜单 */}
                             {activeDropdown === item.key && (
-                              <div className="absolute top-16 left-1/2 w-[204px] -translate-x-1/2 pt-2.5">
+                              <div className="absolute top-20 left-1/2 w-[180px] -translate-x-1/2 pt-2">
                                 <div className="flex h-[208px] flex-col items-center justify-center rounded-[14px] bg-white/30 backdrop-blur-[10px]">
                                   {item.children.map((child, childIndex) => (
                                     <Link
