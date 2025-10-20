@@ -3,6 +3,7 @@
 import { motion } from 'framer-motion';
 import { useTranslations } from 'next-intl';
 import { useState } from 'react';
+import toast, { Toaster } from 'react-hot-toast';
 import { Button } from '@/components/ui/button';
 import { Checkbox } from '@/components/ui/checkbox';
 import { Input } from '@/components/ui/input';
@@ -42,25 +43,32 @@ export default function ContactContent() {
 
   const handleSubmit = async () => {
     if (!formData.company) {
-      return alert(t('alert_company'));
+      toast.error(t('alert_company'));
+      return;
     }
     if (!formData.address) {
-      return alert(t('alert_address'));
+      toast.error(t('alert_address'));
+      return;
     }
     if (!formData.name) {
-      return alert(t('alert_name'));
+      toast.error(t('alert_name'));
+      return;
     }
     if (!formData.email) {
-      return alert(t('alert_email'));
+      toast.error(t('alert_email'));
+      return;
     }
     if (!formData.phone) {
-      return alert(t('alert_phone'));
+      toast.error(t('alert_phone'));
+      return;
     }
     if (!formData.project) {
-      return alert(t('alert_project'));
+      toast.error(t('alert_project'));
+      return;
     }
     if (formData.cooperationType.length === 0) {
-      return alert(t('alert_cooperation_type'));
+      toast.error(t('alert_cooperation_type'));
+      return;
     }
 
     if (isSubmitting) {
@@ -92,7 +100,7 @@ export default function ContactContent() {
       });
 
       if (response.ok) {
-        alert(t('submit_success'));
+        toast.success(t('submit_success'));
         setFormData({
           company: '',
           address: '',
@@ -103,10 +111,10 @@ export default function ContactContent() {
           cooperationType: [],
         });
       } else {
-        alert(t('submit_error'));
+        toast.error(t('submit_error'));
       }
-    } catch (error) {
-      alert(t('submit_error'));
+    } catch {
+      toast.error(t('submit_error'));
     } finally {
       setIsSubmitting(false);
     }
@@ -114,6 +122,7 @@ export default function ContactContent() {
 
   return (
     <div className="w-full bg-white">
+      <Toaster />
       {/* Top Banner */}
       <div
         className="flex h-screen w-full flex-col items-start justify-center bg-cover bg-center px-[240px] pt-20 2xl:px-[300px]"
@@ -284,7 +293,7 @@ export default function ContactContent() {
       </div>
 
       {/* Cooperation Form */}
-      <div className="flex h-[1520px] w-full items-center justify-center bg-white">
+      <div className="my-[200px] flex h-screen w-full items-center justify-center bg-white">
         <motion.div
           className="flex w-[65%] flex-col"
           initial={{ opacity: 0, y: 30 }}
@@ -453,7 +462,7 @@ export default function ContactContent() {
           </motion.div>
 
           <motion.div
-            className="mt-[96px] flex items-center"
+            className="mt-[96px] flex w-full items-center justify-center"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}

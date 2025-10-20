@@ -2,8 +2,9 @@
 
 import { motion } from 'framer-motion';
 import { useTranslations } from 'next-intl';
-import { useState, useEffect } from 'react';
 import Image from 'next/image';
+import { useEffect, useState } from 'react';
+import toast, { Toaster } from 'react-hot-toast';
 import { Button } from '@/components/ui/button';
 import { Checkbox } from '@/components/ui/checkbox';
 import { Input } from '@/components/ui/input';
@@ -37,32 +38,54 @@ export default function ContactContentMobile() {
     e: React.ChangeEvent<HTMLInputElement>,
     field: string,
   ) => {
-    setFormData((prev) => ({
+    setFormData(prev => ({
       ...prev,
       [field]: e.target.value,
     }));
   };
 
   const handleCheckboxChange = (value: string, checked: boolean) => {
-    setFormData((prev) => ({
+    setFormData(prev => ({
       ...prev,
       cooperationType: checked
         ? [...prev.cooperationType, value]
-        : prev.cooperationType.filter((item) => item !== value),
+        : prev.cooperationType.filter(item => item !== value),
     }));
   };
 
   const handleSubmit = async () => {
-    if (!formData.company) return alert(t('alert_company'));
-    if (!formData.address) return alert(t('alert_address'));
-    if (!formData.name) return alert(t('alert_name'));
-    if (!formData.email) return alert(t('alert_email'));
-    if (!formData.phone) return alert(t('alert_phone'));
-    if (!formData.project) return alert(t('alert_project'));
-    if (formData.cooperationType.length === 0)
-      return alert(t('alert_cooperation_type'));
+    if (!formData.company) {
+      toast.error(t('alert_company'));
+      return;
+    }
+    if (!formData.address) {
+      toast.error(t('alert_address'));
+      return;
+    }
+    if (!formData.name) {
+      toast.error(t('alert_name'));
+      return;
+    }
+    if (!formData.email) {
+      toast.error(t('alert_email'));
+      return;
+    }
+    if (!formData.phone) {
+      toast.error(t('alert_phone'));
+      return;
+    }
+    if (!formData.project) {
+      toast.error(t('alert_project'));
+      return;
+    }
+    if (formData.cooperationType.length === 0) {
+      toast.error(t('alert_cooperation_type'));
+      return;
+    }
 
-    if (isSubmitting) return;
+    if (isSubmitting) {
+      return;
+    }
     setIsSubmitting(true);
 
     try {
@@ -89,7 +112,7 @@ export default function ContactContentMobile() {
       });
 
       if (response.ok) {
-        alert(t('submit_success'));
+        toast.success(t('submit_success'));
         setFormData({
           company: '',
           address: '',
@@ -100,10 +123,10 @@ export default function ContactContentMobile() {
           cooperationType: [],
         });
       } else {
-        alert(t('submit_error'));
+        toast.error(t('submit_error'));
       }
-    } catch (error) {
-      alert(t('submit_error'));
+    } catch {
+      toast.error(t('submit_error'));
     } finally {
       setIsSubmitting(false);
     }
@@ -134,6 +157,7 @@ export default function ContactContentMobile() {
 
   return (
     <div className="w-full bg-white">
+      <Toaster />
       {/* Top Banner */}
       <div className="relative">
         <Image
@@ -144,7 +168,7 @@ export default function ContactContentMobile() {
           className="w-full object-cover"
         />
         <motion.div
-          className="absolute left-0 top-0 flex h-[calc(100vh-80px)] w-full flex-col justify-center px-20 pr-10"
+          className="absolute top-0 left-0 flex h-[calc(100vh-80px)] w-full flex-col justify-center px-20 pr-10"
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.3, ease: 'easeOut' }}
@@ -240,7 +264,7 @@ export default function ContactContentMobile() {
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.1, ease: 'easeOut' }}
           >
-            <span className="block text-xl font-medium leading-10 text-[#333333]">
+            <span className="block text-xl leading-10 font-medium text-[#333333]">
               {t('media_inquiry')}
             </span>
             <span className="text-sm font-medium text-[#00baff]">
@@ -254,7 +278,7 @@ export default function ContactContentMobile() {
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.2, ease: 'easeOut' }}
           >
-            <span className="block text-xl font-medium leading-10 text-[#333333]">
+            <span className="block text-xl leading-10 font-medium text-[#333333]">
               {t('hr_inquiry')}
             </span>
             <span className="text-sm font-medium text-[#00baff]">
@@ -275,8 +299,8 @@ export default function ContactContentMobile() {
               height={500}
               className="w-full object-cover"
             />
-            <div className="absolute left-0 top-0 h-full w-full px-10">
-              <h4 className="relative mb-[18px] mt-12 pb-6 text-xl font-bold leading-none tracking-[6px] after:absolute after:bottom-0 after:left-0 after:h-0 after:w-[76px] after:border-b-[3px] after:border-[#333] after:content-['']">
+            <div className="absolute top-0 left-0 h-full w-full px-10">
+              <h4 className="relative mt-12 mb-[18px] pb-6 text-xl leading-none font-bold tracking-[6px] after:absolute after:bottom-0 after:left-0 after:h-0 after:w-[76px] after:border-b-[3px] after:border-[#333] after:content-['']">
                 {area.title}
               </h4>
               <p className="text-[18px] text-[#707070]">{area.desc}</p>
@@ -288,13 +312,13 @@ export default function ContactContentMobile() {
       {/* Cooperation Form */}
       <motion.div
         id="contact"
-        className="mb-[50px] mt-20 w-full bg-white px-10"
+        className="mt-20 mb-[50px] w-full bg-white px-10"
         initial={{ opacity: 0, y: 30 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
         transition={{ duration: 0.8, ease: 'easeOut' }}
       >
-        <h2 className="mb-20 text-center text-2xl text-[#333333]">
+        <h2 className="text-fluid-3xl mb-10 text-center text-[#333333]">
           {t('cooperation_title')}
         </h2>
 
@@ -306,13 +330,14 @@ export default function ContactContentMobile() {
           transition={{ duration: 0.6, delay: 0.1, ease: 'easeOut' }}
         >
           <Label className="text-sm text-[#333333]">
-            {t('form_company')}*
+            {t('form_company')}
+            *
           </Label>
           <Input
             type="text"
             value={formData.company}
-            onChange={(e) => handleInputChange(e, 'company')}
-            className="border-0 border-b border-[#000] rounded-none text-sm leading-[30px] shadow-none focus-visible:ring-0"
+            onChange={e => handleInputChange(e, 'company')}
+            className="rounded-none border-0 border-b border-[#000] text-sm leading-[30px] shadow-none focus-visible:ring-0"
           />
         </motion.div>
 
@@ -324,13 +349,14 @@ export default function ContactContentMobile() {
           transition={{ duration: 0.6, delay: 0.15, ease: 'easeOut' }}
         >
           <Label className="text-sm text-[#333333]">
-            {t('form_address')}*
+            {t('form_address')}
+            *
           </Label>
           <Input
             type="text"
             value={formData.address}
-            onChange={(e) => handleInputChange(e, 'address')}
-            className="border-0 border-b border-[#000] rounded-none text-sm leading-[30px] shadow-none focus-visible:ring-0"
+            onChange={e => handleInputChange(e, 'address')}
+            className="rounded-none border-0 border-b border-[#000] text-sm leading-[30px] shadow-none focus-visible:ring-0"
           />
         </motion.div>
 
@@ -342,13 +368,14 @@ export default function ContactContentMobile() {
           transition={{ duration: 0.6, delay: 0.2, ease: 'easeOut' }}
         >
           <Label className="text-sm text-[#333333]">
-            {t('form_name')}*
+            {t('form_name')}
+            *
           </Label>
           <Input
             type="text"
             value={formData.name}
-            onChange={(e) => handleInputChange(e, 'name')}
-            className="border-0 border-b border-[#000] rounded-none text-sm leading-[30px] shadow-none focus-visible:ring-0"
+            onChange={e => handleInputChange(e, 'name')}
+            className="rounded-none border-0 border-b border-[#000] text-sm leading-[30px] shadow-none focus-visible:ring-0"
           />
         </motion.div>
 
@@ -360,13 +387,14 @@ export default function ContactContentMobile() {
           transition={{ duration: 0.6, delay: 0.25, ease: 'easeOut' }}
         >
           <Label className="text-sm text-[#333333]">
-            {t('form_email')}*
+            {t('form_email')}
+            *
           </Label>
           <Input
             type="email"
             value={formData.email}
-            onChange={(e) => handleInputChange(e, 'email')}
-            className="border-0 border-b border-[#000] rounded-none text-sm leading-[30px] shadow-none focus-visible:ring-0"
+            onChange={e => handleInputChange(e, 'email')}
+            className="rounded-none border-0 border-b border-[#000] text-sm leading-[30px] shadow-none focus-visible:ring-0"
           />
         </motion.div>
 
@@ -378,13 +406,14 @@ export default function ContactContentMobile() {
           transition={{ duration: 0.6, delay: 0.3, ease: 'easeOut' }}
         >
           <Label className="text-sm text-[#333333]">
-            {t('form_phone')}*
+            {t('form_phone')}
+            *
           </Label>
           <Input
             type="tel"
             value={formData.phone}
-            onChange={(e) => handleInputChange(e, 'phone')}
-            className="border-0 border-b border-[#000] rounded-none text-sm leading-[30px] shadow-none focus-visible:ring-0"
+            onChange={e => handleInputChange(e, 'phone')}
+            className="rounded-none border-0 border-b border-[#000] text-sm leading-[30px] shadow-none focus-visible:ring-0"
           />
         </motion.div>
 
@@ -402,8 +431,8 @@ export default function ContactContentMobile() {
             type="text"
             placeholder={t('form_project_placeholder')}
             value={formData.project}
-            onChange={(e) => handleInputChange(e, 'project')}
-            className="border-0 border-b border-[#000] rounded-none text-sm leading-[30px] shadow-none focus-visible:ring-0"
+            onChange={e => handleInputChange(e, 'project')}
+            className="rounded-none border-0 border-b border-[#000] text-sm leading-[30px] shadow-none focus-visible:ring-0"
           />
         </motion.div>
 
@@ -415,7 +444,8 @@ export default function ContactContentMobile() {
           transition={{ duration: 0.6, delay: 0.4, ease: 'easeOut' }}
         >
           <Label className="text-sm text-[#333333]">
-            {t('form_cooperation_type')}*
+            {t('form_cooperation_type')}
+            *
           </Label>
           <div className="flex flex-wrap items-center justify-between">
             {[
@@ -423,7 +453,7 @@ export default function ContactContentMobile() {
               { id: 'sales-mobile', value: t('cooperation_sales') },
               { id: 'brand-mobile', value: t('cooperation_brand') },
               { id: 'other-mobile', value: t('cooperation_other') },
-            ].map((type) => (
+            ].map(type => (
               <div
                 key={type.id}
                 className="mt-[10px] flex flex-[50%] items-center justify-start space-x-2"
@@ -431,13 +461,12 @@ export default function ContactContentMobile() {
                 <Checkbox
                   id={type.id}
                   checked={formData.cooperationType.includes(type.value)}
-                  onCheckedChange={(checked) =>
-                    handleCheckboxChange(type.value, checked as boolean)
-                  }
+                  onCheckedChange={checked =>
+                    handleCheckboxChange(type.value, checked as boolean)}
                 />
                 <Label
                   htmlFor={type.id}
-                  className="text-sm font-normal text-[rgba(51,51,51,0.5)] cursor-pointer"
+                  className="cursor-pointer text-sm font-normal text-[rgba(51,51,51,0.5)]"
                 >
                   {type.value}
                 </Label>
@@ -447,7 +476,7 @@ export default function ContactContentMobile() {
         </motion.div>
 
         <motion.div
-          className="mt-[72px] flex items-center"
+          className="mt-16 flex items-center justify-center"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
@@ -467,4 +496,3 @@ export default function ContactContentMobile() {
     </div>
   );
 }
-
