@@ -182,3 +182,6 @@ type SimpleCarouselProps = {
 
 
 
+
+
+
