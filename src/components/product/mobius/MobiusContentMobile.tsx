@@ -38,7 +38,7 @@ export default function MobiusContentMobile() {
   ];
 
   return (
-    <div className="w-full bg-white">
+    <div className="h-full w-full overflow-x-hidden bg-white">
       {/* Hero Banner */}
       <motion.div
         initial={{ opacity: 0 }}

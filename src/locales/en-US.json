@@ -186,6 +186,16 @@
     "how_to_apply": "How to Apply",
     "application_email": "Resume Submission Email: Hr@brainco.cn"
   },
+  "OnlineService": {
+    "title": "Customer Service",
+    "online_service": "Online Service",
+    "contact_service": "Contact Online Service",
+    "service_time": "Monday to Sunday: 9:00-18:00 (Beijing Time)",
+    "hotline": "Service Hotline",
+    "wechat_service": "WeChat Service",
+    "wechat_desc": "Scan QR Code\nfor 1v1 Consultation",
+    "wechat_desc_mobile": "Add WeChat for 1v1 Consultation"
+  },
   "Mobius": {
     "meta_title": "Lightweight Bionic Leg - Intelligent Lower Limb Prosthetic - BrainCo",
     "meta_description": "Lightweight Intelligent Bionic Leg integrates brain-computer interface technology and AI algorithms for real-time gait adjustment and highly bionic experience. Supports multiple activity scenarios with intelligent safety and stability.",

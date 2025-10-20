@@ -186,6 +186,16 @@
     "how_to_apply": "如何申请",
     "application_email": "简历投递邮箱：Hr@brainco.cn"
   },
+  "OnlineService": {
+    "title": "客服咨询",
+    "online_service": "在线客服",
+    "contact_service": "联系在线客服",
+    "service_time": "周一至周日:9:00-18:00(北京时间)",
+    "hotline": "客服热线",
+    "wechat_service": "企微客服",
+    "wechat_desc": "微信扫一扫\n享 1v1 咨询",
+    "wechat_desc_mobile": "添加微信享 1v1 咨询"
+  },
   "Mobius": {
     "meta_title": "轻凌仿生腿 - 智能仿生下肢 - 强脑科技BrainCo",
     "meta_description": "轻凌智能仿生腿融合脑机接口技术和人工智能算法，实时步态调整，提供高仿生体验。支持多种运动场景，智能安全稳定。",

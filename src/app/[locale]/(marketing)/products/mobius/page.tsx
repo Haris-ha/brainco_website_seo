@@ -1,4 +1,6 @@
 import { getTranslations } from 'next-intl/server';
+import OnlineService from '@/components/common/OnlineService';
+import OnlineServiceMobile from '@/components/common/OnlineServiceMobile';
 import MobiusContent from '@/components/product/mobius/MobiusContent';
 import MobiusContentMobile from '@/components/product/mobius/MobiusContentMobile';
 
@@ -24,6 +26,16 @@ export default function MobiusPage() {
       </div>
       <div className="block lg:hidden">
         <MobiusContentMobile />
+      </div>
+
+      {/* Online Service - Desktop */}
+      <div className="hidden lg:block">
+        <OnlineService />
+      </div>
+
+      {/* Online Service - Mobile */}
+      <div className="block lg:hidden">
+        <OnlineServiceMobile />
       </div>
     </>
   );
