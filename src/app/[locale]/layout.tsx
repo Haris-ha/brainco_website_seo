@@ -50,7 +50,10 @@ export default async function RootLayout(props: {
   return (
     <html lang={locale}>
       <body>
-        <TargetCursor spinDuration={3} hideDefaultCursor />
+        {/* TargetCursor 仅在桌面端显示 */}
+        <div className="hidden md:block">
+          <TargetCursor spinDuration={3} hideDefaultCursor />
+        </div>
         <NextIntlClientProvider>
           {props.children}
         </NextIntlClientProvider>
