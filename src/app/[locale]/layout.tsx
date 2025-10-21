@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 import { hasLocale, NextIntlClientProvider } from 'next-intl';
 import { setRequestLocale } from 'next-intl/server';
 import { notFound } from 'next/navigation';
+import TargetCursor from '@/components/ui/TargetCursor/TargetCursor';
 import { routing } from '@/libs/I18nRouting';
 import '@/styles/global.css';
 
@@ -49,6 +50,7 @@ export default async function RootLayout(props: {
   return (
     <html lang={locale}>
       <body>
+        <TargetCursor spinDuration={2.5} hideDefaultCursor />
         <NextIntlClientProvider>
           {props.children}
         </NextIntlClientProvider>

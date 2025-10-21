@@ -135,7 +135,7 @@ export default function Revo1Content() {
           >
             <Link
               href="/company/contact#contact"
-              className="text-fluid-3xl flex h-[90px] w-[264px] items-center justify-center rounded-[45px] bg-[#1a74bf] !text-white transition-transform hover:scale-105"
+              className="cursor-target text-fluid-3xl flex h-[90px] w-[264px] items-center justify-center rounded-[45px] bg-[#1a74bf] !text-white transition-transform hover:scale-105"
             >
               {t('contact_us')}
             </Link>
@@ -143,7 +143,7 @@ export default function Revo1Content() {
               href="https://www.brainco-hz.com/docs/revolimb-hand/revo1/parameters.html"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-fluid-3xl flex h-[90px] w-[264px] items-center justify-center rounded-[45px] border border-white !text-white transition-transform hover:scale-105"
+              className="cursor-target text-fluid-3xl flex h-[90px] w-[264px] items-center justify-center rounded-[45px] border border-white !text-white transition-transform hover:scale-105"
             >
               {t('documentation')}
             </a>
@@ -152,7 +152,7 @@ export default function Revo1Content() {
         <button
           type="button"
           onClick={handlePlay}
-          className="absolute right-16 bottom-16 h-[72px] w-[72px] cursor-pointer transition-transform hover:scale-110"
+          className="cursor-target absolute right-16 bottom-16 h-[72px] w-[72px] transition-transform hover:scale-110"
         >
           <Image
             src={
@@ -442,7 +442,7 @@ export default function Revo1Content() {
                 <button
                   type="button"
                   onClick={() => handleQualityPlay(index)}
-                  className="absolute top-1/2 left-1/2 z-10 h-15 w-15 -translate-x-1/2 -translate-y-1/2 cursor-pointer transition-transform hover:scale-110"
+                  className="cursor-target absolute top-1/2 left-1/2 z-10 h-15 w-15 -translate-x-1/2 -translate-y-1/2 transition-transform hover:scale-110"
                 >
                   <Image
                     src={
@@ -478,7 +478,7 @@ export default function Revo1Content() {
             <button
               type="button"
               onClick={() => handleQualityPlay(2)}
-              className="absolute top-1/2 left-1/2 z-10 h-15 w-15 -translate-x-1/2 -translate-y-1/2 cursor-pointer transition-transform hover:scale-110"
+              className="cursor-target absolute top-1/2 left-1/2 z-10 h-15 w-15 -translate-x-1/2 -translate-y-1/2 transition-transform hover:scale-110"
             >
               <Image
                 src={
@@ -558,7 +558,7 @@ export default function Revo1Content() {
         >
           <Link
             href="/company/contact#contact"
-            className="text-fluid-3xl flex h-16 w-66 items-center justify-center rounded-[32px] bg-[#1a74bf] !text-white transition-transform hover:scale-105"
+            className="cursor-target text-fluid-3xl flex h-16 w-66 items-center justify-center rounded-[32px] bg-[#1a74bf] !text-white transition-transform hover:scale-105"
           >
             {t('contact_us')}
           </Link>
