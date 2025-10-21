@@ -58,8 +58,8 @@ export default function OnlineService() {
 
   const containerVariants = {
     collapsed: {
-      width: 288,
-      height: 144,
+      width: 180,
+      height: 80,
       borderRadius: 72,
       transition: {
         duration: 0.4,
@@ -67,9 +67,9 @@ export default function OnlineService() {
       },
     },
     expanded: {
-      width: 375,
+      width: 300,
       height: 'auto',
-      borderRadius: 94,
+      borderRadius: 72,
       transition: {
         duration: 0.4,
         ease: [0.4, 0, 0.2, 1] as any,
@@ -79,16 +79,16 @@ export default function OnlineService() {
 
   const avatarVariants = {
     collapsed: {
-      width: 100,
-      height: 100,
+      width: 60,
+      height: 60,
       transition: {
         duration: 0.4,
         ease: [0.4, 0, 0.2, 1] as any,
       },
     },
     expanded: {
-      width: 125,
-      height: 125,
+      width: 110,
+      height: 110,
       transition: {
         duration: 0.4,
         ease: [0.4, 0, 0.2, 1] as any,
@@ -104,7 +104,7 @@ export default function OnlineService() {
       },
     },
     expanded: {
-      fontSize: '32px',
+      fontSize: '24px',
       transition: {
         duration: 0.3,
       },
@@ -143,7 +143,7 @@ export default function OnlineService() {
 
   return (
     <motion.div
-      className="fixed right-20 bottom-20 z-[999] flex flex-col bg-white shadow-[0_3px_20px_1px_rgba(0,0,0,0.16)] transition-shadow hover:shadow-[0_6px_30px_2px_rgba(0,0,0,0.2)] active:shadow-[0_0_3px_1px_rgba(0,0,0,0.2)]"
+      className="fixed right-10 bottom-10 z-[999] flex flex-col bg-white shadow-[0_3px_20px_1px_rgba(0,0,0,0.16)] transition-shadow hover:shadow-[0_6px_30px_2px_rgba(0,0,0,0.2)] active:shadow-[0_0_3px_1px_rgba(0,0,0,0.2)]"
       variants={containerVariants}
       initial="collapsed"
       animate={isExpanded ? 'expanded' : 'collapsed'}
@@ -151,17 +151,17 @@ export default function OnlineService() {
       onHoverEnd={() => setIsExpanded(false)}
     >
       {/* Avatar and Title */}
-      <div className="relative z-10 flex items-center justify-center pt-[22px]">
+      <div className="relative z-10 flex items-center justify-center pt-3.5">
         <motion.div
-          className="mr-[18px] flex-shrink-0"
+          className="mr-[12px] flex-shrink-0"
           variants={avatarVariants}
           animate={isExpanded ? 'expanded' : 'collapsed'}
         >
           <Image
             src="https://website-www-brainco-cn.oss-cn-hangzhou.aliyuncs.com/images/server.png"
             alt="Customer Service"
-            width={125}
-            height={125}
+            width={60}
+            height={60}
             className="h-full w-full"
           />
         </motion.div>
@@ -185,7 +185,7 @@ export default function OnlineService() {
             animate="visible"
             exit="hidden"
           >
-            <ul className="flex w-full max-w-[335px] cursor-pointer flex-col items-center justify-center pt-[30px] pb-8 text-left">
+            <ul className="flex w-full max-w-[335px] cursor-pointer flex-col items-center justify-center pt-10 pb-4 text-left">
               {/* Online Service */}
               <motion.li
                 custom={0}
@@ -256,7 +256,7 @@ export default function OnlineService() {
                   height={24}
                   className="mt-2.5 flex-shrink-0"
                 />
-                <div className="mr-6 ml-5 flex w-24 flex-shrink-0 flex-col justify-between">
+                <div className="mr-4 ml-5 flex w-24 flex-shrink-0 flex-col justify-between">
                   <h4 className="text-2xl font-bold whitespace-nowrap">
                     {t('wechat_service')}
                   </h4>
@@ -265,15 +265,15 @@ export default function OnlineService() {
                   </p>
                 </div>
                 <motion.div
-                  className="h-[100px] w-[100px] flex-shrink-0 overflow-hidden rounded-lg"
+                  className="h-[80px] w-[80px] flex-shrink-0 overflow-hidden rounded-lg"
                   whileHover={{ scale: 1.1 }}
                   transition={{ duration: 0.2 }}
                 >
                   <Image
                     src="https://website-www-brainco-cn.oss-cn-hangzhou.aliyuncs.com/assets/images/05E2A5BB-24A5-4D85-9CE7-331E1B31D080.png"
                     alt="WeChat QR Code"
-                    width={100}
-                    height={100}
+                    width={80}
+                    height={80}
                     className="h-full w-full"
                   />
                 </motion.div>
