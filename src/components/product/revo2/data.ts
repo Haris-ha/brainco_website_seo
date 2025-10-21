@@ -1,9 +1,9 @@
 // Customizable color images
-export interface ColorOption {
+export type ColorOption = {
   name: string;
   img: string;
   color: string;
-}
+};
 
 export const colorImages: ColorOption[] = [
   {
@@ -24,12 +24,12 @@ export const colorImages: ColorOption[] = [
 ];
 
 // Technical specifications
-export interface TechSpec {
+export type TechSpec = {
   label: string;
   value: string;
   unit?: string;
   customStyle?: boolean;
-}
+};
 
 export const technicalSpecs: TechSpec[] = [
   { label: 'spec_active_joints', value: '6', unit: '个' },
@@ -44,18 +44,18 @@ export const technicalSpecs: TechSpec[] = [
 ];
 
 // Product version details
-export interface VersionDetail {
+export type VersionDetail = {
   label: string;
   value: string;
-}
+};
 
-export interface ProductVersion {
+export type ProductVersion = {
   title: string;
   model: string;
   details: VersionDetail[];
   gradient?: string;
   border?: boolean;
-}
+};
 
 export const productVersions: ProductVersion[] = [
   {
@@ -92,5 +92,3 @@ export const productVersions: ProductVersion[] = [
     ],
   },
 ];
-
-

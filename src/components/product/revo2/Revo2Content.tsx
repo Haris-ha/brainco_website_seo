@@ -1,15 +1,15 @@
 'use client';
 
+import { motion } from 'framer-motion';
 import { useTranslations } from 'next-intl';
 import Image from 'next/image';
 import Link from 'next/link';
-import { motion } from 'framer-motion';
-import { Swiper, SwiperSlide } from 'swiper/react';
 import { Pagination } from 'swiper/modules';
-import 'swiper/css';
-import 'swiper/css/pagination';
-
+import { Swiper, SwiperSlide } from 'swiper/react';
 import { colorImages, productVersions, technicalSpecs } from './data';
+import 'swiper/css';
+
+import 'swiper/css/pagination';
 
 export default function Revo2Content() {
   const t = useTranslations('Revo2');
@@ -35,7 +35,7 @@ export default function Revo2Content() {
           src="https://website-www-brainco-cn.oss-cn-hangzhou.aliyuncs.com/video/b7z0t3TqNhyEO6sv.mp4"
           className="block w-full"
         />
-        <div className="absolute left-0 top-0 flex h-full w-full flex-col items-center justify-center">
+        <div className="absolute top-0 left-0 flex h-full w-full flex-col items-center justify-center">
           <motion.h1
             className="text-fluid-6xl font-bold text-white"
             initial={{ y: 20, opacity: 0 }}
@@ -63,7 +63,7 @@ export default function Revo2Content() {
           >
             <Link
               href="/company/contact#contact"
-              className="flex h-[90px] w-[264px] items-center justify-center rounded-[45px] bg-[#1a74bf] text-fluid-3xl text-white transition-transform hover:scale-105"
+              className="text-fluid-3xl flex h-[90px] w-[264px] items-center justify-center rounded-[45px] bg-[#1a74bf] !text-white transition-transform hover:scale-105"
             >
               {t('contact_us')}
             </Link>
@@ -71,7 +71,7 @@ export default function Revo2Content() {
               href="https://www.brainco-hz.com/docs/revolimb-hand/revo2/parameters.html"
               target="_blank"
               rel="noopener noreferrer"
-              className="flex h-[90px] w-[264px] items-center justify-center rounded-[45px] border border-white text-fluid-3xl text-white transition-transform hover:scale-105"
+              className="text-fluid-3xl flex h-[90px] w-[264px] items-center justify-center rounded-[45px] border border-white !text-white transition-transform hover:scale-105"
             >
               {t('documentation')}
             </a>
@@ -249,7 +249,7 @@ export default function Revo2Content() {
       </section>
 
       {/* Technical Specifications */}
-      <section className="mx-auto w-[1200px] border-t border-b border-[#666] py-20 text-center">
+      <section className="mx-auto w-[1200px] border-y border-[#666] py-20 text-center">
         <motion.h5
           className="text-fluid-5xl font-semibold text-[#fafafa]"
           initial={{ opacity: 0, y: 30 }}
@@ -288,7 +288,7 @@ export default function Revo2Content() {
           viewport={{ once: true }}
           transition={{ delay: 0.6, duration: 0.8 }}
         >
-          <ul className="mb-12 grid grid-cols-3 gap-x-auto border-b border-[#333] px-25">
+          <ul className="gap-x-auto mb-12 grid grid-cols-3 justify-items-center border-b border-[#333] px-25">
             {technicalSpecs.map((spec, index) => (
               <motion.li
                 key={spec.label}
@@ -299,22 +299,24 @@ export default function Revo2Content() {
                 transition={{ delay: 0.7 + index * 0.05, duration: 0.5 }}
               >
                 <span className="text-fluid-2xl">{t(spec.label as any)}</span>
-                {spec.customStyle ? (
-                  <h3 className="text-fluid-5xl mt-3 flex flex-col items-start font-bold leading-[50px]">
-                    {spec.value.split('&').map((part, i) => (
-                      <i key={i} className="text-fluid-2xl m-0 font-normal not-italic leading-[30px]">
-                        {part}
-                      </i>
-                    ))}
-                  </h3>
-                ) : (
-                  <h3 className="text-fluid-5xl mt-3 flex items-center font-bold leading-[50px]">
-                    {spec.value}
-                    {spec.unit && (
-                      <i className="text-fluid-2xl ml-2 font-normal not-italic">{spec.unit}</i>
+                {spec.customStyle
+                  ? (
+                      <h3 className="text-fluid-5xl mt-3 flex flex-col items-start leading-[50px] font-bold">
+                        {spec.value.split('&').map((part, i) => (
+                          <i key={i} className="text-fluid-2xl m-0 leading-[30px] font-normal not-italic">
+                            {part}
+                          </i>
+                        ))}
+                      </h3>
+                    )
+                  : (
+                      <h3 className="text-fluid-5xl mt-3 flex items-center leading-[50px] font-bold">
+                        {spec.value}
+                        {spec.unit && (
+                          <i className="text-fluid-2xl ml-2 font-normal not-italic">{spec.unit}</i>
+                        )}
+                      </h3>
                     )}
-                  </h3>
-                )}
               </motion.li>
             ))}
           </ul>
@@ -339,7 +341,7 @@ export default function Revo2Content() {
           {productVersions.map((version, index) => (
             <motion.li
               key={version.title}
-              className={`flex-1 rounded-3xl p-10 ${version.border ? 'flex-[100%_0_0] w-full border border-[#1a74bf] mt-8' : ''}`}
+              className={`flex-1 rounded-3xl p-10 ${version.border ? 'mt-8 w-full flex-[100%_0_0] border border-[#1a74bf]' : ''}`}
               style={version.gradient ? { background: version.gradient } : {}}
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -397,7 +399,7 @@ export default function Revo2Content() {
         >
           <Link
             href="/company/contact#contact"
-            className="text-fluid-3xl flex h-[90px] w-[264px] items-center justify-center rounded-[45px] bg-[#1a74bf] text-white transition-transform hover:scale-105"
+            className="text-fluid-3xl flex h-[90px] w-[264px] items-center justify-center rounded-[45px] bg-[#1a74bf] !text-white transition-transform hover:scale-105"
           >
             {t('contact_us')}
           </Link>
@@ -420,7 +422,8 @@ export default function Revo2Content() {
         />
       </section>
 
-      <style jsx global>{`
+      <style jsx global>
+        {`
         .swiper-pagination {
           display: flex;
           align-items: center;
@@ -456,8 +459,8 @@ export default function Revo2Content() {
         .swiper-slide-active {
           transform: scale(1.1);
         }
-      `}</style>
+      `}
+      </style>
     </div>
   );
 }
-
