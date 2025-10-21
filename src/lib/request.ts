@@ -145,3 +145,4 @@ class Request {
 // 导出默认实例
 const request = new Request();
 export default request;
+

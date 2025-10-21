@@ -5,9 +5,10 @@ import { motion } from 'framer-motion';
 import { useTranslations } from 'next-intl';
 import Image from 'next/image';
 import Link from 'next/link';
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useMemo, useRef, useState } from 'react';
 import { Autoplay, Pagination } from 'swiper/modules';
 import { Swiper, SwiperSlide } from 'swiper/react';
+import LogoLoopComponent from '@/components/ui/LogoLoop/LogoLoop';
 import {
   abilityList,
   experienceImages,
@@ -19,6 +20,9 @@ import {
 import 'swiper/css';
 
 import 'swiper/css/pagination';
+
+// Type assertion for JSX component without TypeScript definitions
+const LogoLoop = LogoLoopComponent as any;
 
 export default function Revo1Content() {
   const t = useTranslations('Revo1');
@@ -69,6 +73,15 @@ export default function Revo1Content() {
   const handleSlideChange = (swiper: SwiperType) => {
     setSwiperIndex(swiper.realIndex);
   };
+
+  // 将 partner 数组转换为 LogoLoop 格式
+  const partnerLogos = useMemo(() => {
+    return partner.map((src, index) => ({
+      src,
+      alt: `Partner ${index + 1}`,
+      height: 140,
+    }));
+  }, []);
 
   useEffect(() => {
     // Auto-play banner video on load
@@ -496,7 +509,7 @@ export default function Revo1Content() {
       {/* Partner Section */}
       <section className="bg-white pb-25 text-black">
         <motion.h4
-          className="text-fluid-5xl mt-20 text-center"
+          className="text-fluid-5xl pt-20 text-center"
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
@@ -504,28 +517,31 @@ export default function Revo1Content() {
         >
           {t('partner_title')}
         </motion.h4>
-        <motion.ul
-          className="mx-auto mt-21 flex w-[1300px] flex-wrap justify-between"
+
+        {/* Logo 滚动区域 */}
+        <motion.div
+          className="mt-20 px-20"
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
           transition={{ delay: 0.2, duration: 0.8 }}
         >
-          {partner.map((logo, index) => (
-            <motion.li
-              key={logo}
-              className="mb-22 flex h-35 justify-center"
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: 0.3 + index * 0.05, duration: 0.5 }}
-            >
-              <Image src={logo} alt="" width={200} height={140} className="max-h-full" />
-            </motion.li>
-          ))}
-        </motion.ul>
+          <div className="h-[140px]">
+            <LogoLoop
+              logos={partnerLogos}
+              speed={60}
+              direction="left"
+              logoHeight={140}
+              gap={80}
+              pauseOnHover
+              scaleOnHover
+              ariaLabel="合作伙伴"
+            />
+          </div>
+        </motion.div>
+
         <motion.p
-          className="text-fluid-2xl text-center font-medium"
+          className="text-fluid-2xl mt-20 text-center font-medium"
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
@@ -542,7 +558,7 @@ export default function Revo1Content() {
         >
           <Link
             href="/company/contact#contact"
-            className="text-fluid-3xl flex h-16 w-66 items-center justify-center rounded-[32px] bg-[#1a74bf] text-white transition-transform hover:scale-105"
+            className="text-fluid-3xl flex h-16 w-66 items-center justify-center rounded-[32px] bg-[#1a74bf] !text-white transition-transform hover:scale-105"
           >
             {t('contact_us')}
           </Link>
