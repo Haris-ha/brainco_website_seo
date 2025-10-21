@@ -108,7 +108,7 @@ export default function Revo1Content() {
           muted
           className="block h-auto w-full object-cover"
         />
-        <div className="absolute bottom-48 left-0 flex w-full flex-col items-center !text-white">
+        <div className="absolute top-0 left-0 flex h-full w-full flex-col items-center justify-center !text-white">
           <motion.h2
             className="text-fluid-6xl font-bold"
             initial={{ y: 20, opacity: 0 }}
@@ -117,7 +117,7 @@ export default function Revo1Content() {
           >
             {t('product_name')}
             {' '}
-            <span className="font-bold">{t('product_model')}</span>
+            <span className="ml-6 font-bold">{t('product_model')}</span>
           </motion.h2>
           <motion.p
             className="text-fluid-3xl mt-4"

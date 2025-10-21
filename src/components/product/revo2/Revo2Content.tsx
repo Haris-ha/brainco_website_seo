@@ -4,20 +4,12 @@ import { motion } from 'framer-motion';
 import { useTranslations } from 'next-intl';
 import Image from 'next/image';
 import Link from 'next/link';
-import { Pagination } from 'swiper/modules';
-import { Swiper, SwiperSlide } from 'swiper/react';
+import { useState } from 'react';
 import { colorImages, productVersions, technicalSpecs } from './data';
-import 'swiper/css';
-
-import 'swiper/css/pagination';
 
 export default function Revo2Content() {
   const t = useTranslations('Revo2');
-
-  const renderBullet = (index: number, className: string) => {
-    const color = colorImages[index];
-    return `<span class="${className}"><s style="background-color: ${color.color}; border: 2px solid #D6D6D6; width: 30px; height: 30px; border-radius: 50%; display: inline-block;"></s><i style="font-style: normal; font-size: 24px; margin-top: 24px; white-space: nowrap; line-height: 1; display: block;">${t(`color_${index === 0 ? 'gold' : index === 1 ? 'silver' : 'gray'}` as any)}</i></span>`;
-  };
+  const [selectedColorIndex, setSelectedColorIndex] = useState(1); // Default to middle (流光银)
 
   return (
     <div className="bg-black text-white">
@@ -63,7 +55,7 @@ export default function Revo2Content() {
           >
             <Link
               href="/company/contact#contact"
-              className="text-fluid-3xl flex h-[90px] w-[264px] items-center justify-center rounded-[45px] bg-[#1a74bf] !text-white transition-transform hover:scale-105"
+              className="cursor-target text-fluid-3xl flex h-[90px] w-[264px] items-center justify-center rounded-[45px] bg-[#1a74bf] !text-white transition-transform hover:scale-105"
             >
               {t('contact_us')}
             </Link>
@@ -71,7 +63,7 @@ export default function Revo2Content() {
               href="https://www.brainco-hz.com/docs/revolimb-hand/revo2/parameters.html"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-fluid-3xl flex h-[90px] w-[264px] items-center justify-center rounded-[45px] border border-white !text-white transition-transform hover:scale-105"
+              className="cursor-target text-fluid-3xl flex h-[90px] w-[264px] items-center justify-center rounded-[45px] border border-white !text-white transition-transform hover:scale-105"
             >
               {t('documentation')}
             </a>
@@ -217,34 +209,69 @@ export default function Revo2Content() {
           />
         </motion.div>
 
+        {/* 机械手图片展示区 */}
         <motion.div
-          className="relative left-[-40px] mt-21 h-[474px] w-[1000px] overflow-visible"
+          className="relative mt-12 flex h-[400px] w-full items-center justify-center gap-12"
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
           transition={{ delay: 0.4, duration: 0.8 }}
         >
-          <Swiper
-            modules={[Pagination]}
-            slidesPerView={3}
-            spaceBetween={0}
-            initialSlide={1}
-            loop={false}
-            pagination={{
-              clickable: true,
-              renderBullet,
-            }}
-            allowTouchMove={false}
-            className="pb-30"
-          >
-            {colorImages.map(item => (
-              <SwiperSlide key={item.img}>
-                <div className="flex flex-col items-center justify-center">
-                  <Image src={item.img} alt={item.name} width={300} height={300} className="h-75 w-auto" />
-                </div>
-              </SwiperSlide>
-            ))}
-          </Swiper>
+          {colorImages.map((item, index) => (
+            <motion.div
+              key={item.img}
+              className="flex flex-col items-center justify-center"
+              animate={{
+                scale: selectedColorIndex === index ? 1.15 : 1,
+                y: selectedColorIndex === index ? -20 : 0,
+              }}
+              transition={{ duration: 0.5, ease: 'easeOut' }}
+              style={{
+                zIndex: selectedColorIndex === index ? 10 : 1,
+              }}
+            >
+              <Image
+                src={item.img}
+                alt={item.name}
+                width={400}
+                height={400}
+                className="h-75 w-auto"
+              />
+            </motion.div>
+          ))}
+        </motion.div>
+
+        {/* 颜色选择器 */}
+        <motion.div
+          className="mt-12 ml-20 flex items-center justify-center gap-24"
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          viewport={{ once: true }}
+          transition={{ delay: 0.6, duration: 0.8 }}
+        >
+          {colorImages.map((item, index) => (
+            <button
+              key={item.color}
+              type="button"
+              onClick={() => setSelectedColorIndex(index)}
+              className="cursor-target flex flex-col items-center gap-6 transition-transform hover:scale-110"
+            >
+              <motion.div
+                className="flex h-[30px] w-[30px] items-center justify-center rounded-full"
+                style={{
+                  backgroundColor: item.color,
+                  border: '2px solid #D6D6D6',
+                }}
+                animate={{
+                  scale: selectedColorIndex === index ? 1.2 : 1,
+                }}
+                transition={{ duration: 0.3 }}
+              />
+              <span className="text-fluid-lg whitespace-nowrap text-white">
+                {item.name}
+              </span>
+            </button>
+          ))}
         </motion.div>
       </section>
 
@@ -399,7 +426,7 @@ export default function Revo2Content() {
         >
           <Link
             href="/company/contact#contact"
-            className="text-fluid-3xl flex h-[90px] w-[264px] items-center justify-center rounded-[45px] bg-[#1a74bf] !text-white transition-transform hover:scale-105"
+            className="cursor-target text-fluid-3xl flex h-[90px] w-[264px] items-center justify-center rounded-[45px] bg-[#1a74bf] !text-white transition-transform hover:scale-105"
           >
             {t('contact_us')}
           </Link>
@@ -421,46 +448,6 @@ export default function Revo2Content() {
           className="w-full"
         />
       </section>
-
-      <style jsx global>
-        {`
-        .swiper-pagination {
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          gap: 120px;
-          bottom: 70px;
-          margin-left: 40px;
-        }
-        .swiper-pagination-bullet {
-          opacity: 1;
-          margin: 0;
-          display: flex;
-          flex-direction: column;
-          align-items: center;
-          background: transparent;
-        }
-        .swiper-pagination-bullet s {
-          width: 30px;
-          height: 30px;
-          border-radius: 50%;
-          display: inline-block;
-          transition: all 0.3s ease;
-        }
-        .swiper-pagination-bullet-active s {
-          transform: scale(1.2);
-        }
-        .swiper-slide {
-          transition: transform 0.3s ease;
-          display: flex;
-          align-items: center;
-          justify-content: center;
-        }
-        .swiper-slide-active {
-          transform: scale(1.1);
-        }
-      `}
-      </style>
     </div>
   );
 }
