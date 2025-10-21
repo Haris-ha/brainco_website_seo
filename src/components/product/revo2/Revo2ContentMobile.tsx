@@ -1,26 +1,18 @@
 'use client';
 
+import { motion } from 'framer-motion';
 import { useTranslations } from 'next-intl';
 import Image from 'next/image';
 import Link from 'next/link';
-import { motion } from 'framer-motion';
-import { Swiper, SwiperSlide } from 'swiper/react';
-import { Pagination } from 'swiper/modules';
-import 'swiper/css';
-import 'swiper/css/pagination';
-
+import { useState } from 'react';
 import { colorImages, productVersions, technicalSpecs } from './data';
 
 export default function Revo2ContentMobile() {
   const t = useTranslations('Revo2');
-
-  const renderBullet = (index: number, className: string) => {
-    const color = colorImages[index];
-    return `<span class="${className}"><s style="background-color: ${color.color}; border: 2px solid #D6D6D6;"></s><i>${t(`color_${index === 0 ? 'gold' : index === 1 ? 'silver' : 'gray'}` as any)}</i></span>`;
-  };
+  const [selectedColorIndex, setSelectedColorIndex] = useState(1); // Default to middle (流光银)
 
   return (
-    <div className="bg-gradient-to-b from-[#07111b] via-[#0a233b] to-[#010b13] text-white">
+    <div className="bg-gradient-to-b from-[#07111b] via-[#0a233b] to-[#010b13] !text-white">
       {/* Hero Video */}
       <motion.video
         autoPlay
@@ -28,22 +20,22 @@ export default function Revo2ContentMobile() {
         playsInline
         loop
         src="https://website-www-brainco-cn.oss-cn-hangzhou.aliyuncs.com/images/product/rove2/PtmpayvYJ8qRWrxK.mp4"
-        className="block h-[210px] w-full"
+        className="mt-24 block h-full w-screen"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 1 }}
       />
 
       {/* Contact Section */}
-      <section className="bg-[#070707] pb-16 pt-10 text-center">
+      <section className="bg-[#070707] pt-10 pb-16 text-center">
         <motion.h1
-          className="text-fluid-2xl flex justify-center font-bold"
+          className="text-fluid-4xl flex justify-center font-bold"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
         >
           {t('product_name')}
-          <span className="ml-2 bg-gradient-to-r from-[#acd0f4] to-[#5da1e6] bg-clip-text font-bold text-transparent">
+          <span className="ml-4 bg-gradient-to-r from-[#acd0f4] to-[#5da1e6] bg-clip-text font-bold text-transparent">
             {t('product_model')}
           </span>
         </motion.h1>
@@ -63,7 +55,7 @@ export default function Revo2ContentMobile() {
         >
           <Link
             href="/company/contact#contact"
-            className="flex h-[38px] w-[112px] items-center justify-center rounded-[20px] bg-[#1a74bf] text-white"
+            className="flex h-[38px] w-[112px] items-center justify-center rounded-[20px] bg-[#1a74bf] !text-white"
           >
             {t('contact_us')}
           </Link>
@@ -71,7 +63,7 @@ export default function Revo2ContentMobile() {
             href="https://www.brainco-hz.com/docs/revolimb-hand/revo2/parameters.html"
             target="_blank"
             rel="noopener noreferrer"
-            className="flex h-[38px] w-[112px] items-center justify-center rounded-[20px] border border-white text-white"
+            className=" flex h-[38px] w-[112px] items-center justify-center rounded-[20px] border border-white !text-white"
           >
             {t('documentation')}
           </a>
@@ -81,7 +73,7 @@ export default function Revo2ContentMobile() {
       {/* Compact Feature */}
       <section className="pt-10 text-center">
         <motion.h2
-          className="text-fluid-xl bg-gradient-to-r from-[#acd0f4] to-[#5da1e6] bg-clip-text text-transparent"
+          className="text-fluid-2xl bg-gradient-to-r from-[#acd0f4] to-[#5da1e6] bg-clip-text text-transparent"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
@@ -90,7 +82,7 @@ export default function Revo2ContentMobile() {
           {t('feature_compact_title')}
         </motion.h2>
         <motion.p
-          className="text-fluid-lg mt-4 text-[#c7cdd4]"
+          className="text-fluid-lg mt-4 px-20 text-[#c7cdd4]"
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
@@ -116,7 +108,7 @@ export default function Revo2ContentMobile() {
       {/* Lightweight Feature */}
       <section className="pt-10 text-center">
         <motion.h2
-          className="text-fluid-xl bg-gradient-to-r from-[#acd0f4] to-[#5da1e6] bg-clip-text text-transparent"
+          className="text-fluid-2xl bg-gradient-to-r from-[#acd0f4] to-[#5da1e6] bg-clip-text text-transparent"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
@@ -133,7 +125,7 @@ export default function Revo2ContentMobile() {
         >
           {t('feature_light_weight')}
           <span className="text-fluid-3xl mx-1 font-bold">{t('feature_light_value')}</span>
-          <i className="text-fluid-3xl not-italic font-bold">{t('feature_light_unit')}</i>
+          <i className="text-fluid-3xl font-bold not-italic">{t('feature_light_unit')}</i>
         </motion.h3>
         <motion.p
           className="text-fluid-lg mt-4 text-[#c7cdd4]"
@@ -163,7 +155,7 @@ export default function Revo2ContentMobile() {
       {/* Bionic Feature */}
       <section className="pt-10 text-center">
         <motion.h2
-          className="text-fluid-xl bg-gradient-to-r from-[#acd0f4] to-[#5da1e6] bg-clip-text text-transparent"
+          className="text-fluid-2xl bg-gradient-to-r from-[#acd0f4] to-[#5da1e6] bg-clip-text text-transparent"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
@@ -172,7 +164,7 @@ export default function Revo2ContentMobile() {
           {t('feature_bionic_title')}
         </motion.h2>
         <motion.p
-          className="text-fluid-lg mt-4 text-[#c7cdd4]"
+          className="text-fluid-lg mt-4 px-20 text-[#c7cdd4]"
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
@@ -194,7 +186,7 @@ export default function Revo2ContentMobile() {
       </section>
 
       {/* Customizable Colors */}
-      <section className="pt-10 text-center">
+      <section className="px-4 pt-10 text-center">
         <motion.h2
           className="text-fluid-xl bg-gradient-to-r from-[#acd0f4] to-[#5da1e6] bg-clip-text text-transparent"
           initial={{ opacity: 0, y: 20 }}
@@ -212,43 +204,75 @@ export default function Revo2ContentMobile() {
           transition={{ delay: 0.2, duration: 0.8 }}
           dangerouslySetInnerHTML={{ __html: t('feature_custom_desc').replace(/\n/g, '<br />') }}
         />
+
+        {/* 机械手图片展示区 */}
         <motion.div
-          className="mt-5 h-[270px] w-full overflow-visible"
+          className="relative mt-8 flex h-[200px] w-full items-center justify-center gap-6"
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
           transition={{ delay: 0.4, duration: 0.8 }}
         >
-          <Swiper
-            modules={[Pagination]}
-            slidesPerView={1}
-            spaceBetween={0}
-            initialSlide={1}
-            loop={false}
-            pagination={{
-              clickable: true,
-              renderBullet,
-            }}
-            allowTouchMove={false}
-            className="h-full w-full pb-12"
-          >
-            {colorImages.map(item => (
-              <SwiperSlide key={item.img} className="!mx-4 !h-[140px] !flex-1">
-                <Image
-                  src={item.img}
-                  alt={item.name}
-                  width={200}
-                  height={140}
-                  className="w-full rounded-2xl shadow-lg"
-                />
-              </SwiperSlide>
-            ))}
-          </Swiper>
+          {colorImages.map((item, index) => (
+            <motion.div
+              key={item.img}
+              className="flex flex-col items-center justify-center"
+              animate={{
+                scale: selectedColorIndex === index ? 1.2 : 1,
+                y: selectedColorIndex === index ? -10 : 0,
+              }}
+              transition={{ duration: 0.5, ease: 'easeOut' }}
+              style={{
+                zIndex: selectedColorIndex === index ? 10 : 1,
+              }}
+            >
+              <Image
+                src={item.img}
+                alt={item.name}
+                width={120}
+                height={120}
+                className="h-auto w-[90px]"
+              />
+            </motion.div>
+          ))}
+        </motion.div>
+
+        {/* 颜色选择器 */}
+        <motion.div
+          className=" mt-4 ml-12 flex items-center justify-center gap-8"
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          viewport={{ once: true }}
+          transition={{ delay: 0.6, duration: 0.8 }}
+        >
+          {colorImages.map((item, index) => (
+            <button
+              key={item.color}
+              type="button"
+              onClick={() => setSelectedColorIndex(index)}
+              className=" flex flex-col items-center gap-3 transition-transform hover:scale-110"
+            >
+              <motion.div
+                className="flex h-[24px] w-[24px] items-center justify-center rounded-full"
+                style={{
+                  backgroundColor: item.color,
+                  border: '2px solid #D6D6D6',
+                }}
+                animate={{
+                  scale: selectedColorIndex === index ? 1.3 : 1,
+                }}
+                transition={{ duration: 0.3 }}
+              />
+              <span className="text-fluid-sm whitespace-nowrap !text-white">
+                {item.name}
+              </span>
+            </button>
+          ))}
         </motion.div>
       </section>
 
       {/* Technical Specifications */}
-      <section className="mt-10 bg-[#070707] py-10 text-center">
+      <section className="mt-10 flex flex-col items-center bg-[#070707] py-10 text-center">
         <motion.h2
           className="text-fluid-2xl mb-6 font-bold"
           initial={{ opacity: 0, y: 20 }}
@@ -259,7 +283,7 @@ export default function Revo2ContentMobile() {
           {t('specs_title')}
         </motion.h2>
         <motion.p
-          className="text-fluid-sm mt-6"
+          className="text-fluid-sm mt-6 px-20"
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
@@ -277,11 +301,11 @@ export default function Revo2ContentMobile() {
             alt=""
             width={230}
             height={230}
-            className="ml-12 mt-10"
+            className="mt-10"
           />
         </motion.div>
         <motion.ul
-          className="mb-10 mt-9 grid grid-cols-2 gap-x-0 px-14 pr-10 text-left"
+          className="mt-9 mb-10 ml-12 grid grid-cols-2 gap-x-0 px-14 pr-10 text-left"
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
@@ -296,20 +320,22 @@ export default function Revo2ContentMobile() {
               transition={{ delay: 0.7 + index * 0.05, duration: 0.5 }}
             >
               <h6 className="text-fluid-lg text-[#c7cdd4]">{t(spec.label as any)}</h6>
-              {spec.customStyle ? (
-                <div className="mb-8 mt-2 flex items-center text-fluid-3xl font-bold leading-10">
-                  {spec.value.split('&').map((part, i) => (
-                    <span key={i} className="text-fluid-lg block">
-                      {part}
-                    </span>
-                  ))}
-                </div>
-              ) : (
-                <p className="text-fluid-3xl mb-8 mt-2 flex items-center font-bold leading-10">
-                  {spec.value}
-                  {spec.unit && <span className="text-fluid-lg ml-1.5">{spec.unit}</span>}
-                </p>
-              )}
+              {spec.customStyle
+                ? (
+                    <div className="text-fluid-3xl mt-2 mb-8 flex items-center leading-10 font-bold">
+                      {spec.value.split('&').map((part, i) => (
+                        <span key={i} className="text-fluid-lg block">
+                          {part}
+                        </span>
+                      ))}
+                    </div>
+                  )
+                : (
+                    <p className="text-fluid-3xl mt-2 mb-8 flex items-center leading-10 font-bold">
+                      {spec.value}
+                      {spec.unit && <span className="text-fluid-lg ml-1.5">{spec.unit}</span>}
+                    </p>
+                  )}
             </motion.li>
           ))}
         </motion.ul>
@@ -319,7 +345,7 @@ export default function Revo2ContentMobile() {
       </section>
 
       {/* Product Versions */}
-      <section className="bg-[#070707] pb-8 pt-10">
+      <section className="bg-[#070707] pt-10 pb-8">
         <motion.h2
           className="text-fluid-2xl mx-auto mb-8 w-[326px] border-t border-[#666] pt-10 text-center font-bold text-[#d6d6d6]"
           initial={{ opacity: 0, y: 20 }}
@@ -392,7 +418,7 @@ export default function Revo2ContentMobile() {
         >
           <Link
             href="/company/contact#contact"
-            className="flex h-[38px] w-[112px] items-center justify-center rounded-[20px] bg-[#1a74bf] text-white"
+            className=" flex h-[38px] w-[112px] items-center justify-center rounded-[20px] bg-[#1a74bf] !text-white"
           >
             {t('contact_us')}
           </Link>
@@ -414,57 +440,6 @@ export default function Revo2ContentMobile() {
           className="w-full"
         />
       </section>
-
-      <style jsx global>{`
-        .swiper-pagination {
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          gap: 80px;
-          bottom: 46px;
-        }
-        .swiper-pagination-bullet {
-          opacity: 1;
-          margin: 0;
-          display: flex;
-          flex-direction: column;
-          align-items: center;
-          background: transparent;
-        }
-        .swiper-pagination-bullet s {
-          width: 24px;
-          height: 24px;
-          border-radius: 50%;
-          display: inline-block;
-          transition: all 0.3s ease;
-        }
-        .swiper-pagination-bullet i {
-          font-style: normal;
-          font-size: 12px;
-          margin-top: 14px;
-          white-space: nowrap;
-          line-height: 1;
-        }
-        .swiper-pagination-bullet-active s {
-          transform: scale(1.2);
-        }
-        .swiper-slide {
-          transition: transform 0.3s ease;
-        }
-        .swiper-slide-active {
-          transform: scale(1.2);
-        }
-        .swiper-wrapper {
-          position: relative;
-          left: -8px;
-          align-items: center;
-          height: 180px;
-          display: flex !important;
-          transform: none !important;
-        }
-      `}</style>
     </div>
   );
 }
-
-
