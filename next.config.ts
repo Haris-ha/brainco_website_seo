@@ -1,5 +1,6 @@
 import type { NextConfig } from 'next';
 import withBundleAnalyzer from '@next/bundle-analyzer';
+import { codeInspectorPlugin } from 'code-inspector-plugin';
 import createNextIntlPlugin from 'next-intl/plugin';
 import './src/libs/Env';
 
@@ -7,6 +8,11 @@ import './src/libs/Env';
 const baseConfig: NextConfig = {
   eslint: {
     dirs: ['.'],
+  },
+  turbopack: {
+    rules: codeInspectorPlugin({
+      bundler: 'turbopack',
+    }),
   },
   poweredByHeader: false,
   reactStrictMode: true,

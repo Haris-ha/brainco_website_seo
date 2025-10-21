@@ -66,6 +66,7 @@
     "@types/qs": "^6.9.18",
     "@types/react": "^19.2.0",
     "@types/react-dom": "^19.2.0",
+    "code-inspector-plugin": "^1.2.10",
     "cross-env": "^10.1.0",
     "eslint": "^9.36.0",
     "eslint-plugin-format": "^1.0.2",
