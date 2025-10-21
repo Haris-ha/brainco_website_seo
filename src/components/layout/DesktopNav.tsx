@@ -109,7 +109,7 @@ export function DesktopNav({ locale }: { locale: string }) {
                             />
                             {/* 公司下拉菜单 */}
                             {activeDropdown === item.key && (
-                              <div className="absolute top-18 left-1/2 w-[180px] -translate-x-1/2 pt-2">
+                              <div className="absolute top-20 left-1/2 w-[180px] -translate-x-1/2 pt-2">
                                 <div className={`flex h-[208px] flex-col items-center justify-center rounded-[14px] backdrop-blur-[10px] ${isRevoPage ? 'bg-black/60' : 'bg-white/30'}`}>
                                   {item.children.map((child, childIndex) => (
                                     <Link
