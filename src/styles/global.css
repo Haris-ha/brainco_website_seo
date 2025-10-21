@@ -64,6 +64,8 @@ html {
   scroll-behavior: smooth;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  /* 保留滚动条槽位，防止内容抖动 */
+  scrollbar-gutter: stable;
 
   /* 🎯 流式字体缩放：使根字体大小随视口宽度变化 */
   /* 基准：在 1920px 视口时 = 16px (浏览器默认) */
@@ -99,6 +101,8 @@ body {
   margin: 0;
   padding: 0;
   font-size: 1rem; /* 使用相对单位 */
+  /* 保留滚动条槽位，防止页面抖动 */
+  overflow-y: scroll;
 }
 
 /* 链接样式 */

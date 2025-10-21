@@ -20,12 +20,25 @@ type ProductCategory = {
 
 export function ProductsMenuDesktop() {
   useEffect(() => {
-    const originalStyle = window.getComputedStyle(document.body).overflow;
+    // 保存当前滚动位置
+    const scrollY = window.scrollY;
 
-    document.body.style.overflow = 'hidden';
+    // 固定页面位置防止滚动
+    document.body.style.position = 'fixed';
+    document.body.style.top = `-${scrollY}px`;
+    document.body.style.left = '0';
+    document.body.style.right = '0';
 
     return () => {
-      document.body.style.overflow = originalStyle;
+      // 恢复原状
+      const scrollPos = Math.abs(Number.parseInt(document.body.style.top || '0', 10));
+      document.body.style.position = '';
+      document.body.style.top = '';
+      document.body.style.left = '';
+      document.body.style.right = '';
+
+      // 恢复滚动位置
+      window.scrollTo(0, scrollPos);
     };
   }, []);
 
@@ -133,7 +146,7 @@ export function ProductsMenuDesktop() {
       animate={{ opacity: 1, y: 0 }}
       exit={{ opacity: 0, y: -20 }}
       transition={{ duration: 0.3, ease: 'easeOut' }}
-      className="fixed top-20 right-0 bottom-0 left-0 z-50  hidden w-screen gap-4 overflow-y-auto bg-white px-4 pt-10 !pb-10 shadow-lg md:flex md:justify-around 2xl:gap-0 2xl:px-8"
+      className="fixed top-20 right-0 bottom-0 left-0 z-50 hidden w-full gap-4 overflow-y-auto bg-white px-4 pt-10 !pb-10 shadow-lg md:flex md:justify-around 2xl:gap-0 2xl:px-8"
     >
       {productCategories.map((category, categoryIndex) => (
         <motion.div
@@ -164,7 +177,7 @@ export function ProductsMenuDesktop() {
                 >
                   <Link
                     href={product.href}
-                    className={`flex flex-col items-center rounded-lg px-2 py-2 transition-all duration-300 md:px-4 md:py-3 ${
+                    className={`cursor-target flex flex-col items-center rounded-lg px-2 py-2 transition-all duration-300 md:px-4 md:py-3 ${
                       hoveredProduct[category.title] === index
                         ? 'bg-gray-100'
                         : 'hover:bg-gray-50'
@@ -217,7 +230,7 @@ export function ProductsMenuDesktop() {
                   >
                     <Link
                       href={category.products[hoveredProduct[category.title]!]!.href}
-                      className="flex h-full flex-col items-center justify-center"
+                      className="cursor-target flex h-full flex-col items-center justify-center"
                     >
                       {/* 预览图 */}
                       <motion.div
@@ -264,7 +277,7 @@ export function ProductsMenuDesktop() {
                         whileHover={{ scale: 1.02, y: -5 }}
                         transition={{ duration: 0.2 }}
                       >
-                        <Link href="/products/revo1" className="block overflow-hidden rounded-2xl">
+                        <Link href="/products/revo1" className="cursor-target block overflow-hidden rounded-2xl">
                           <Image
                             src="https://website-www-brainco-cn.oss-cn-hangzhou.aliyuncs.com/images/product/rove2/E2OMTcHyivahBS45.webp"
                             alt="Revo 1"
@@ -278,7 +291,7 @@ export function ProductsMenuDesktop() {
                         whileHover={{ scale: 1.02, y: -5 }}
                         transition={{ duration: 0.2 }}
                       >
-                        <Link href="/products/revo2" className="block overflow-hidden rounded-2xl">
+                        <Link href="/products/revo2" className="cursor-target block overflow-hidden rounded-2xl">
                           <Image
                             src="https://website-www-brainco-cn.oss-cn-hangzhou.aliyuncs.com/images/product/rove2/laCLywA51tPhZJ7D.webp"
                             alt="Revo 2"
