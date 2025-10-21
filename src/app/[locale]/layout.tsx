@@ -50,7 +50,7 @@ export default async function RootLayout(props: {
   return (
     <html lang={locale}>
       <body>
-        <TargetCursor spinDuration={2.5} hideDefaultCursor />
+        <TargetCursor spinDuration={3} hideDefaultCursor />
         <NextIntlClientProvider>
           {props.children}
         </NextIntlClientProvider>
