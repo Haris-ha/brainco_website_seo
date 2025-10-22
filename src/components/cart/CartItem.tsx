@@ -37,7 +37,7 @@ export const CartItem = memo(({
       animate={{ opacity: 1, y: 0 }}
       exit={{ opacity: 0, x: -20 }}
       transition={{ duration: 0.3 }}
-      className="flex flex-col gap-4 border-b border-dashed border-[#707070] pb-4 md:flex-row md:items-center md:justify-between md:pb-6"
+      className="flex flex-col gap-4  pb-4 md:flex-row md:items-center md:justify-between md:pb-6"
     >
       {/* 复选框和商品信息 */}
       <div className="flex items-start gap-4 md:flex-1 md:items-center md:gap-8">

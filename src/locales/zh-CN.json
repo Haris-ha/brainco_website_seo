@@ -602,7 +602,10 @@
     "removed_from_cart": "已从购物车移除",
     "min_quantity_error": "商品数量不能小于1",
     "add_to_cart": "加入购物车",
-    "buy_now": "立即购买"
+    "buy_now": "立即购买",
+    "copyright": "Copyright ©️2023 BrainCo Inc.",
+    "privacy_legal": "隐私和法律",
+    "icp_number": "粤ICP备17159775号-1"
   },
   "Checkout": {
     "title": "订单结算",
