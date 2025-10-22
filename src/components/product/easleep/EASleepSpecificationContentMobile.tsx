@@ -52,7 +52,7 @@ export default function EASleepSpecificationContentMobile({ products }: EASleepS
   };
 
   return (
-    <div className="specification-mobile px-4 py-8">
+    <div className="px-4 py-8">
       {/* Image Gallery */}
       <div className="mb-8">
         <Swiper
@@ -63,7 +63,7 @@ export default function EASleepSpecificationContentMobile({ products }: EASleepS
         >
           {currentImages.map((image, index) => (
             <SwiperSlide key={`mobile-image-${index}`}>
-              <div className="relative">
+              <div className="relative w-full">
                 <Image
                   src={image}
                   alt={`Product image ${index + 1}`}
@@ -75,7 +75,7 @@ export default function EASleepSpecificationContentMobile({ products }: EASleepS
             </SwiperSlide>
           ))}
         </Swiper>
-        
+
         {/* Thumbnail Navigation */}
         <div className="mt-4">
           <div className="flex gap-2 overflow-x-auto">
@@ -83,7 +83,7 @@ export default function EASleepSpecificationContentMobile({ products }: EASleepS
               <motion.div
                 key={`mobile-thumb-${index}`}
                 whileTap={{ scale: 0.95 }}
-                className="flex-shrink-0 w-[60px] h-[60px] rounded-lg overflow-hidden border border-gray-300"
+                className="h-[60px] w-[60px] flex-shrink-0 cursor-pointer overflow-hidden rounded-lg border border-gray-300"
                 style={{
                   backgroundImage: `url(${image})`,
                   backgroundSize: 'cover',
@@ -101,11 +101,11 @@ export default function EASleepSpecificationContentMobile({ products }: EASleepS
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
-          className="text-fluid-2xl font-normal text-[#333333] mb-6"
+          className="text-fluid-2xl mb-6 font-normal text-[#333333]"
         >
           {t('spec_title')}
         </motion.h5>
-        
+
         <div className="space-y-4">
           {products.map((product, index) => (
             <motion.div
@@ -115,9 +115,9 @@ export default function EASleepSpecificationContentMobile({ products }: EASleepS
               transition={{ duration: 0.5, delay: index * 0.1 }}
               whileTap={{ scale: 0.98 }}
               onClick={() => handleProductChange(index)}
-              className={`w-full h-[80px] rounded-[20px] border-2 flex items-center justify-between px-4 cursor-pointer transition-all ${
-                selectedProductIndex === index 
-                  ? 'border-[#6475d0] bg-[#6475d0]/5' 
+              className={`flex h-[80px] w-full cursor-pointer items-center justify-between rounded-[20px] border-2 px-4 transition-all ${
+                selectedProductIndex === index
+                  ? 'border-[#6475d0] bg-[#6475d0]/5'
                   : 'border-[#333] hover:border-[#6475d0]/50'
               }`}
             >
@@ -125,10 +125,14 @@ export default function EASleepSpecificationContentMobile({ products }: EASleepS
                 {product.name}
               </h5>
               <div className="flex-shrink-0 text-right">
-                <div className="text-fluid-lg text-[#333]">¥{(product.price || 0) / 100}</div>
+                <div className="text-fluid-lg text-[#333]">
+                  ¥
+                  {(product.price || 0) / 100}
+                </div>
                 {product.oldPrice && (
                   <div className="text-fluid-sm text-[#595757] opacity-50 line-through">
-                    ¥{(product.oldPrice || 0) / 100}
+                    ¥
+                    {(product.oldPrice || 0) / 100}
                   </div>
                 )}
               </div>
@@ -136,7 +140,7 @@ export default function EASleepSpecificationContentMobile({ products }: EASleepS
           ))}
         </div>
       </div>
-      
+
       {/* Purchase Button */}
       <div className="flex justify-center">
         <PurchaseButton product={selectedProduct} />

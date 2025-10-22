@@ -146,7 +146,7 @@ export function ProductsMenuDesktop() {
       animate={{ opacity: 1, y: 0 }}
       exit={{ opacity: 0, y: -20 }}
       transition={{ duration: 0.3, ease: 'easeOut' }}
-      className="fixed top-20 right-0 bottom-0 left-0 z-50 hidden w-full gap-4 overflow-y-auto bg-white px-4 pt-10 !pb-10 shadow-lg md:flex md:justify-around 2xl:gap-0 2xl:px-8"
+      className="fixed top-20 right-0 bottom-0 left-0 z-999 hidden w-full gap-4 overflow-y-auto bg-white px-4 pt-10 !pb-10 shadow-lg md:flex md:justify-around 2xl:gap-0 2xl:px-8"
     >
       {productCategories.map((category, categoryIndex) => (
         <motion.div

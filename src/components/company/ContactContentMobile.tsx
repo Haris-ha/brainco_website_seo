@@ -4,7 +4,7 @@ import { motion } from 'framer-motion';
 import { useTranslations } from 'next-intl';
 import Image from 'next/image';
 import { useEffect, useState } from 'react';
-import toast, { Toaster } from 'react-hot-toast';
+import toast from 'react-hot-toast';
 import { Button } from '@/components/ui/button';
 import { Checkbox } from '@/components/ui/checkbox';
 import { Input } from '@/components/ui/input';
@@ -157,7 +157,6 @@ export default function ContactContentMobile() {
 
   return (
     <div className="w-full bg-white">
-      <Toaster />
       {/* Top Banner */}
       <div className="relative">
         <Image

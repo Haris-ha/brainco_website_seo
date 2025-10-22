@@ -6,11 +6,19 @@ import Image from 'next/image';
 import { useEffect, useState } from 'react';
 import { Pagination } from 'swiper/modules';
 import { Swiper, SwiperSlide } from 'swiper/react';
+import { useRouter } from '@/libs/I18nNavigation';
 import 'swiper/css';
 
 export default function EASleepContentMobile() {
   const t = useTranslations('EASleep');
+  const router = useRouter();
   const [isScrolling, setIsScrolling] = useState(false);
+
+  // 处理购买按钮点击 - 跳转到规格选择页面
+  const handlePurchase = () => {
+    // 跳转到产品规格选择页面，让用户选择具体型号
+    router.push('/health/easleep/specification');
+  };
 
   // Handle scroll detection
   useEffect(() => {
@@ -695,6 +703,7 @@ export default function EASleepContentMobile() {
           <motion.button
             whileHover={{ scale: 1.02 }}
             whileTap={{ scale: 0.98 }}
+            onClick={handlePurchase}
             className="text-fluid-base h-[36px] w-[120px] cursor-pointer rounded-[22px] bg-[#4f68d2] font-medium text-white transition-all"
           >
             {t('hero_buy_button')}

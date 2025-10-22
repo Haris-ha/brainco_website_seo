@@ -5,11 +5,19 @@ import { useTranslations } from 'next-intl';
 import Image from 'next/image';
 import { Pagination } from 'swiper/modules';
 import { Swiper, SwiperSlide } from 'swiper/react';
+import { useRouter } from '@/libs/I18nNavigation';
 import 'swiper/css';
 import 'swiper/css/pagination';
 
 export default function EASleepContent() {
   const t = useTranslations('EASleep');
+  const router = useRouter();
+
+  // 处理购买按钮点击 - 跳转到规格选择页面
+  const handlePurchase = () => {
+    // 跳转到产品规格选择页面，让用户选择具体型号
+    router.push('/health/easleep/specification');
+  };
 
   // Swiper carousel data
   const swiperData = [
@@ -195,6 +203,7 @@ export default function EASleepContent() {
               transition={{ duration: 0.8, delay: 0.6 }}
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
+              onClick={handlePurchase}
               className="text-fluid-2xl cursor-target h-[82px] w-[260px] cursor-pointer rounded-[41px] bg-[#4f68d2] font-medium text-white transition-all hover:scale-105"
             >
               {t('hero_buy_button')}

@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 import { hasLocale, NextIntlClientProvider } from 'next-intl';
 import { setRequestLocale } from 'next-intl/server';
 import { notFound } from 'next/navigation';
+import { Toaster } from 'react-hot-toast';
 import TargetCursor from '@/components/ui/TargetCursor/TargetCursor';
 import { routing } from '@/libs/I18nRouting';
 import '@/styles/global.css';
@@ -54,6 +55,43 @@ export default async function RootLayout(props: {
         <div className="hidden md:block">
           <TargetCursor spinDuration={3} hideDefaultCursor />
         </div>
+        {/* 全局 Toast 通知 */}
+        <Toaster
+          position="top-center"
+          reverseOrder={false}
+          gutter={8}
+          toastOptions={{
+            // 默认选项
+            duration: 3000,
+            style: {
+              background: '#363636',
+              color: '#fff',
+              fontSize: '14px',
+              borderRadius: '8px',
+              padding: '12px 20px',
+            },
+            // 成功提示
+            success: {
+              duration: 3000,
+              iconTheme: {
+                primary: '#22c55e',
+                secondary: '#fff',
+              },
+            },
+            // 错误提示
+            error: {
+              duration: 4000,
+              iconTheme: {
+                primary: '#ef4444',
+                secondary: '#fff',
+              },
+            },
+            // 加载提示
+            loading: {
+              duration: Infinity,
+            },
+          }}
+        />
         <NextIntlClientProvider>
           {props.children}
         </NextIntlClientProvider>
