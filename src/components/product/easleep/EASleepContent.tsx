@@ -318,56 +318,102 @@ export default function EASleepContent() {
       </section>
 
       {/* Solution Section */}
-      <section className="mt-[100px] px-4 lg:px-8 xl:px-12">
-        <div className="mx-auto max-w-7xl">
-          <div className="flex">
-            <div className="flex-1 pt-[60px] text-center">
+      <section className="mt-[100px]">
+        <div className="mx-auto w-full">
+          <div className="flex items-center">
+            {/* Left side - Text content */}
+            <div className="w-1/2 pr-8">
               <motion.h5
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.8 }}
-                className="text-fluid-4xl font-light"
+                className="text-fluid-5xl mb-32 text-center font-light"
               >
                 {t('solution_title')}
               </motion.h5>
-              <div className="mt-[150px] flex flex-wrap justify-center gap-8">
-                {solutionItems.map((item, index) => (
+
+              {/* Top row - 3 items */}
+              <div className="mb-24 flex justify-center gap-8">
+                {solutionItems.slice(0, 3).map((item, index) => (
                   <motion.div
                     key={`solution-${item.title}`}
                     initial={{ opacity: 0, scale: 0.8 }}
                     whileInView={{ opacity: 1, scale: 1 }}
                     viewport={{ once: true }}
                     transition={{ duration: 0.5, delay: index * 0.1 }}
-                    className="flex w-[240px] flex-col items-center"
+                    className="flex w-[200px] flex-col items-center"
                   >
-                    <div className="mb-5 flex h-[70px] w-[64px] items-center justify-center">
+                    <div className="mb-4 flex h-[60px] w-[60px] items-center justify-center">
                       <Image
                         src={item.icon}
                         alt={item.title}
-                        width={64}
-                        height={70}
+                        width={60}
+                        height={60}
                       />
                     </div>
                     <div className="text-center">
-                      <h6 className="text-fluid-xl font-bold">{item.title}</h6>
-                      <p className="text-fluid-lg leading-relaxed font-light">{item.desc1}</p>
-                      <p className="text-fluid-lg leading-relaxed font-light">{item.desc2}</p>
+                      <h6 className="text-fluid-xl mb-2 font-bold">{item.title}</h6>
+                      <p className="text-fluid-base leading-relaxed font-light">{item.desc1}</p>
+                      <p className="text-fluid-base leading-relaxed font-light">{item.desc2}</p>
                       {item.desc3 && (
-                        <p className="text-fluid-lg leading-relaxed font-light">{item.desc3}</p>
+                        <p className="text-fluid-base leading-relaxed font-light">{item.desc3}</p>
+                      )}
+                    </div>
+                  </motion.div>
+                ))}
+              </div>
+
+              {/* Bottom row - 2 items */}
+              <div className="flex justify-center gap-16">
+                {solutionItems.slice(3, 5).map((item, index) => (
+                  <motion.div
+                    key={`solution-${item.title}`}
+                    initial={{ opacity: 0, scale: 0.8 }}
+                    whileInView={{ opacity: 1, scale: 1 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.5, delay: (index + 3) * 0.1 }}
+                    className="flex w-[200px] flex-col items-center"
+                  >
+                    <div className="mb-4 flex h-[60px] w-[60px] items-center justify-center">
+                      <Image
+                        src={item.icon}
+                        alt={item.title}
+                        width={60}
+                        height={60}
+                      />
+                    </div>
+                    <div className="text-center">
+                      <h6 className="text-fluid-xl mb-2 font-bold">{item.title}</h6>
+                      <p className="text-fluid-base leading-relaxed font-light">{item.desc1}</p>
+                      <p className="text-fluid-base leading-relaxed font-light">{item.desc2}</p>
+                      {item.desc3 && (
+                        <p className="text-fluid-base leading-relaxed font-light">{item.desc3}</p>
                       )}
                     </div>
                   </motion.div>
                 ))}
               </div>
             </div>
-            <Image
-              src="https://website-www-brainco-cn.oss-cn-hangzhou.aliyuncs.com/images/3HCZ6fNEISGadXJg.webp"
-              alt="EASleep product"
-              width={820}
-              height={600}
-              className="animate-zoom-in flex-shrink-0"
-            />
+
+            {/* Right side - Image */}
+            <div className="w-1/2 pl-8">
+              <motion.div
+                initial={{ opacity: 0, scale: 0.8 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.8, delay: 0.2 }}
+                className="animate-zoom-in"
+              >
+                <Image
+                  src="https://website-www-brainco-cn.oss-cn-hangzhou.aliyuncs.com/images/3HCZ6fNEISGadXJg.webp"
+                  alt="EASleep product"
+                  width={600}
+                  height={500}
+                  className="h-auto w-full"
+                />
+              </motion.div>
+            </div>
           </div>
         </div>
       </section>
@@ -447,7 +493,7 @@ export default function EASleepContent() {
                 whileInView={{ opacity: 1, scale: 1 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.3, delay: index * 0.02 }}
-                className="text-fluid-sm text-[#ccc]"
+                className="text-fluid-base text-[#ccc]"
               >
                 {t('spec_patent_prefix')}
                 {patent}
@@ -489,7 +535,7 @@ export default function EASleepContent() {
           </motion.p>
 
           <div className="mt-[50px] flex justify-center">
-            <div className="relative w-[1300px] max-w-full">
+            <div className="relative max-w-full px-4 lg:px-8 xl:px-12">
               <Image
                 src="https://website-www-brainco-cn.oss-cn-hangzhou.aliyuncs.com/images/K53kYsjX6zxJN0EZ.webp"
                 alt="Brain visualization"
@@ -503,14 +549,14 @@ export default function EASleepContent() {
                   whileInView={{ opacity: 1, scale: 1 }}
                   viewport={{ once: true }}
                   transition={{ duration: 0.8 }}
-                  className="relative"
+                  className="relative flex flex-col items-center"
                 >
                   <Image
                     src="https://website-www-brainco-cn.oss-cn-hangzhou.aliyuncs.com/images/SJjwGQ4c5kk1fKAh.webp"
                     alt="Endorphins"
-                    width={200}
-                    height={100}
-                    className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-[60%]"
+                    width={60}
+                    height={60}
+                    className="absolute left-1/2 -translate-x-1/2 -translate-y-[70%]"
                   />
                   <span className="text-fluid-2xl flex h-[64px] w-[250px] items-center justify-center rounded-[32px] bg-[#9686ac] font-normal text-white">
                     {t('ces_effect_1')}
@@ -521,18 +567,18 @@ export default function EASleepContent() {
                   whileInView={{ opacity: 1, scale: 1 }}
                   viewport={{ once: true }}
                   transition={{ duration: 0.8, delay: 0.2 }}
-                  className="relative"
+                  className="relative flex flex-col items-center"
                 >
+                  <span className="text-fluid-2xl mb-4 flex h-[64px] w-[250px] items-center justify-center rounded-[32px] bg-[#b1b1b1] font-normal text-white">
+                    {t('ces_effect_2')}
+                  </span>
                   <Image
                     src="https://website-www-brainco-cn.oss-cn-hangzhou.aliyuncs.com/images/cbXAJda8C6aZE3F7.webp"
                     alt="Cortisol"
-                    width={200}
-                    height={100}
-                    className="absolute bottom-0 left-1/2 translate-x-[60%]"
+                    width={60}
+                    height={60}
+                    className="absolute left-1/2 -translate-x-1/2 translate-y-[70%]"
                   />
-                  <span className="text-fluid-2xl flex h-[64px] w-[250px] items-center justify-center rounded-[32px] bg-[#b1b1b1] font-normal text-white">
-                    {t('ces_effect_2')}
-                  </span>
                 </motion.li>
               </ul>
             </div>
@@ -555,7 +601,7 @@ export default function EASleepContent() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8 }}
-            className="text-fluid-4xl font-light"
+            className="text-fluid-4xl font-bold"
           >
             {t('binaural_title')}
           </motion.h3>
@@ -564,7 +610,7 @@ export default function EASleepContent() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8, delay: 0.2 }}
-            className="text-fluid-4xl font-light"
+            className="text-fluid-4xl font-bold"
           >
             {t('binaural_subtitle')}
           </motion.h3>
@@ -573,7 +619,7 @@ export default function EASleepContent() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8, delay: 0.4 }}
-            className="text-fluid-xl mt-[40px] font-light"
+            className="text-fluid-xl mt-[40px]"
           >
             {t('binaural_desc1')}
           </motion.p>
@@ -582,7 +628,7 @@ export default function EASleepContent() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8, delay: 0.6 }}
-            className="text-fluid-xl font-light"
+            className="text-fluid-xl"
           >
             {t('binaural_desc2')}
           </motion.p>
@@ -597,7 +643,7 @@ export default function EASleepContent() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8 }}
-            className="text-fluid-5xl font-light"
+            className="text-fluid-5xl"
           >
             {t('manager_title')}
           </motion.h5>
@@ -606,7 +652,7 @@ export default function EASleepContent() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8, delay: 0.2 }}
-            className="text-fluid-xl mt-[25px] font-light"
+            className="text-fluid-xl mt-[25px]"
           >
             {t('manager_desc1')}
           </motion.p>
@@ -615,7 +661,7 @@ export default function EASleepContent() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8, delay: 0.4 }}
-            className="text-fluid-xl font-light"
+            className="text-fluid-xl"
           >
             {t('manager_desc2')}
           </motion.p>
@@ -628,7 +674,7 @@ export default function EASleepContent() {
               transition={{ duration: 0.5 }}
               className="flex flex-col items-center"
             >
-              <p className="text-fluid-xl mb-[-30px] w-[200px] text-center font-light">
+              <p className="text-fluid-xl mb-[-20px] w-[200px] text-center">
                 {t('manager_feature_1')}
               </p>
               <Image
@@ -646,7 +692,7 @@ export default function EASleepContent() {
               transition={{ duration: 0.5, delay: 0.2 }}
               className="flex flex-col items-center"
             >
-              <p className="text-fluid-xl mb-[-30px] w-[200px] text-center font-light">
+              <p className="text-fluid-xl mb-[-20px] w-[200px] text-center">
                 {t('manager_feature_2')}
               </p>
               <Image
@@ -664,7 +710,7 @@ export default function EASleepContent() {
               transition={{ duration: 0.5, delay: 0.4 }}
               className="flex flex-col items-center"
             >
-              <p className="text-fluid-xl mb-[-30px] w-[200px] text-center font-light">
+              <p className="text-fluid-xl mb-[-20px] w-[200px] text-center">
                 {t('manager_feature_3')}
               </p>
               <Image
@@ -682,7 +728,7 @@ export default function EASleepContent() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8, delay: 0.6 }}
-            className="text-fluid-sm mt-[30px] text-center font-light text-[rgba(51,51,51,0.33)]"
+            className="text-fluid-base mt-[30px] text-center text-[rgba(51,51,51,0.33)]"
           >
             {t('manager_note')}
           </motion.p>
@@ -697,7 +743,7 @@ export default function EASleepContent() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8 }}
-            className="text-fluid-5xl mb-[48px] text-center font-normal"
+            className="text-fluid-5xl mb-[48px] text-center"
           >
             {t('scenarios_title')}
           </motion.dt>
@@ -724,9 +770,9 @@ export default function EASleepContent() {
                 <Image
                   src={scenario.image}
                   alt={scenario.title}
-                  width={390}
-                  height={300}
-                  className="animate-zoom-in"
+                  width={260}
+                  height={260}
+                  className="animate-zoom-in rounded-[10px]"
                 />
               </motion.dd>
             ))}
