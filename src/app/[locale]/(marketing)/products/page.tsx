@@ -30,7 +30,6 @@ export default async function ProductsPage(props: ProductsPageProps) {
     { id: 'brain-robotics', name: t('brain_robotics'), slug: 'brain-robotics' },
     { id: 'mobius', name: t('mobius'), slug: 'mobius' },
     { id: 'starkids', name: t('starkids'), slug: 'starkids' },
-    { id: 'easleep', name: t('easleep'), slug: 'easleep' },
     { id: 'focus-zen', name: t('focus_zen'), slug: 'focus-zen' },
     { id: 'dexterous', name: t('dexterous'), slug: 'dexterous' },
     { id: 'emg', name: t('emg'), slug: 'emg' },

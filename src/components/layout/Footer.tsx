@@ -31,7 +31,7 @@ export function Footer({ locale }: FooterProps) {
     {
       title: t('intelligent_health'),
       items: [
-        { title: t('easleep'), href: `/${locale}/product/easleep` },
+        { title: t('easleep'), href: `/${locale}/health/easleep` },
         { title: t('oxyzen'), href: `/${locale}/product/oxyzen` },
         { title: t('focus_zen'), href: `/${locale}/product/focus-zen` },
         { title: t('focus_xin'), href: `/${locale}/product/focus-xin` },
