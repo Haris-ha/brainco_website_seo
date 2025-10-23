@@ -1,182 +1,198 @@
 'use client';
 
-import type { UserInfo } from '@/types/cart';
-import { zodResolver } from '@hookform/resolvers/zod';
 import { motion } from 'framer-motion';
 import { useTranslations } from 'next-intl';
-import { useForm } from 'react-hook-form';
-import { z } from 'zod';
+import { useState } from 'react';
+import toast from 'react-hot-toast';
 
 interface StepUserInfoProps {
-  onContinue: (data: UserInfo) => void;
-  initialData?: UserInfo;
+  onContinue: (data: { name: string; phone: string }) => void;
+  initialData?: { name: string; phone: string };
 }
 
+/**
+ * 第一步：基本信息
+ * 原版样式：姓名、电话号码、验证码
+ */
 export function StepUserInfo({ onContinue, initialData }: StepUserInfoProps) {
   const t = useTranslations('Checkout');
-
-  // 表单验证 schema
-  const userInfoSchema = z.object({
-    name: z.string().min(1, t('required_field')),
-    phone: z.string().regex(/^1[3-9]\d{9}$/, t('invalid_phone')),
-    address: z.string().min(1, t('required_field')),
-    email: z.string().email(t('invalid_email')).optional().or(z.literal('')),
+  
+  const [formData, setFormData] = useState({
+    name: initialData?.name || '',
+    phone: initialData?.phone || '',
+    code: '',
   });
+  const [codeText, setCodeText] = useState(t('get_code'));
+  const [countdown, setCountdown] = useState(0);
+  const [validation, setValidation] = useState('');
 
-  type UserInfoForm = z.infer<typeof userInfoSchema>;
+  // 获取验证码
+  const handleGetCode = async () => {
+    if (countdown > 0)
+      return;
 
-  const {
-    register,
-    handleSubmit,
-    formState: { errors, isSubmitting },
-  } = useForm<UserInfoForm>({
-    resolver: zodResolver(userInfoSchema),
-    defaultValues: initialData || {
-      name: '',
-      phone: '',
-      address: '',
-      email: '',
-    },
-  });
+    // 验证手机号
+    if (!formData.phone) {
+      setValidation('请输入手机号码');
+      return;
+    }
+    if (!/^1[3-9]\d{9}$/.test(formData.phone)) {
+      setValidation('手机号码格式不正确');
+      return;
+    }
 
-  const onSubmit = (data: UserInfoForm) => {
-    onContinue(data as UserInfo);
+    try {
+      // TODO: 调用发送验证码 API
+      // await sendVerificationCode(formData.phone);
+      
+      toast.success('验证码已发送');
+      setValidation('');
+      
+      // 开始倒计时
+      let count = 60;
+      setCountdown(count);
+      setCodeText(t('code_countdown', { count }));
+      
+      const timer = setInterval(() => {
+        count -= 1;
+        if (count <= 0) {
+          clearInterval(timer);
+          setCountdown(0);
+          setCodeText(t('get_code'));
+        }
+        else {
+          setCountdown(count);
+          setCodeText(t('code_countdown', { count }));
+        }
+      }, 1000);
+    }
+    catch (error) {
+      setValidation('验证码发送失败');
+    }
   };
+
+  // 提交表单
+  const handleSubmit = () => {
+    if (!formData.name) {
+      setValidation('请输入姓名');
+      return;
+    }
+    if (!formData.phone) {
+      setValidation('请输入手机号码');
+      return;
+    }
+    if (!/^1[3-9]\d{9}$/.test(formData.phone)) {
+      setValidation('手机号码格式不正确');
+      return;
+    }
+    if (!formData.code) {
+      setValidation('请输入验证码');
+      return;
+    }
+    if (!/^\d{6}$/.test(formData.code)) {
+      setValidation('验证码格式不正确');
+      return;
+    }
+
+    setValidation('');
+    
+    // TODO: 调用验证验证码 API
+    // await verifyCode(formData.phone, formData.code);
+    
+    onContinue({
+      name: formData.name,
+      phone: formData.phone,
+    });
+  };
+
+  const isSubmitDisabled = !formData.name || !/^1[3-9]\d{9}$/.test(formData.phone) || !/^\d{6}$/.test(formData.code);
 
   return (
     <motion.div
       initial={{ opacity: 0, y: 30 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.6 }}
-      className="mx-auto max-w-[600px]"
+      className="w-full max-w-[620px]"
     >
-      <h2 className="text-fluid-4xl mb-6 text-center font-medium text-[#333] md:mb-8">
-        {t('user_info')}
-      </h2>
+      {/* 步骤指示 */}
+      <span className="mb-6 mt-4 block text-base md:mb-8 md:mt-6 md:text-lg lg:mb-11 lg:mt-9 lg:text-[24px]">
+        {t('step_indicator', { current: 1, total: 3 })}
+      </span>
 
-      <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
+      {/* 标题 */}
+      <h1 className="text-3xl text-[#333] md:text-4xl lg:text-[56px]">
+        {t('step_1_title')}
+      </h1>
+      
+      <p className="text-sm md:text-base lg:text-[18px]">
+        {t('step_1_desc')}
+      </p>
+
+      {/* 表单 */}
+      <ul className="mt-4 w-full md:mt-5">
         {/* 姓名 */}
-        <div>
-          <label className="text-fluid-lg mb-2 block text-[#333]">
+        <li className="mb-4 md:mb-5 lg:mb-6">
+          <label className="mb-1.5 block text-sm text-[#333] md:mb-2 md:text-base lg:text-[18px]">
             {t('name')}
-            <span className="ml-1 text-red-500">*</span>
           </label>
-          <motion.input
-            whileFocus={{ scale: 1.01 }}
+          <input
             type="text"
-            {...register('name')}
-            placeholder={t('name_placeholder')}
-            className={`text-fluid-base w-full rounded-lg border px-4 py-3 transition-all focus:outline-none focus:ring-2 ${
-              errors.name
-                ? 'border-red-500 focus:ring-red-500'
-                : 'border-[#e0e0e0] focus:ring-[#4F68D2]'
-            }`}
+            value={formData.name}
+            onChange={e => setFormData({ ...formData, name: e.target.value })}
+            className="h-[50px] w-full rounded-[25px] border border-[#707070] px-4 text-base focus:border-[#4F68D2] focus:outline-none md:h-[60px] md:rounded-[30px] md:px-6 md:text-lg lg:h-[80px] lg:rounded-[40px] lg:px-8 lg:text-[24px]"
           />
-          {errors.name && (
-            <motion.p
-              initial={{ opacity: 0, y: -10 }}
-              animate={{ opacity: 1, y: 0 }}
-              className="mt-1 text-sm text-red-500"
-            >
-              {errors.name.message}
-            </motion.p>
-          )}
-        </div>
+        </li>
 
-        {/* 电话 */}
-        <div>
-          <label className="text-fluid-lg mb-2 block text-[#333]">
+        {/* 电话号码 */}
+        <li className="mb-4 md:mb-5 lg:mb-6">
+          <label className="mb-1.5 block text-sm text-[#333] md:mb-2 md:text-base lg:text-[18px]">
             {t('phone')}
-            <span className="ml-1 text-red-500">*</span>
           </label>
-          <motion.input
-            whileFocus={{ scale: 1.01 }}
+          <input
             type="tel"
-            {...register('phone')}
-            placeholder={t('phone_placeholder')}
-            className={`text-fluid-base w-full rounded-lg border px-4 py-3 transition-all focus:outline-none focus:ring-2 ${
-              errors.phone
-                ? 'border-red-500 focus:ring-red-500'
-                : 'border-[#e0e0e0] focus:ring-[#4F68D2]'
-            }`}
+            value={formData.phone}
+            onChange={e => setFormData({ ...formData, phone: e.target.value })}
+            className="h-[50px] w-full rounded-[25px] border border-[#707070] px-4 text-base focus:border-[#4F68D2] focus:outline-none md:h-[60px] md:rounded-[30px] md:px-6 md:text-lg lg:h-[80px] lg:rounded-[40px] lg:px-8 lg:text-[24px]"
           />
-          {errors.phone && (
-            <motion.p
-              initial={{ opacity: 0, y: -10 }}
-              animate={{ opacity: 1, y: 0 }}
-              className="mt-1 text-sm text-red-500"
-            >
-              {errors.phone.message}
-            </motion.p>
-          )}
-        </div>
+        </li>
 
-        {/* 地址 */}
-        <div>
-          <label className="text-fluid-lg mb-2 block text-[#333]">
-            {t('address')}
-            <span className="ml-1 text-red-500">*</span>
+        {/* 验证码 */}
+        <li className="mb-4 md:mb-5 lg:mb-6">
+          <label className="mb-1.5 block text-sm text-[#333] md:mb-2 md:text-base lg:text-[18px]">
+            {t('verification_code')}
           </label>
-          <motion.textarea
-            whileFocus={{ scale: 1.01 }}
-            {...register('address')}
-            placeholder={t('address_placeholder')}
-            rows={3}
-            className={`text-fluid-base w-full resize-none rounded-lg border px-4 py-3 transition-all focus:outline-none focus:ring-2 ${
-              errors.address
-                ? 'border-red-500 focus:ring-red-500'
-                : 'border-[#e0e0e0] focus:ring-[#4F68D2]'
-            }`}
-          />
-          {errors.address && (
-            <motion.p
-              initial={{ opacity: 0, y: -10 }}
-              animate={{ opacity: 1, y: 0 }}
-              className="mt-1 text-sm text-red-500"
+          <div className="relative flex">
+            <input
+              type="text"
+              value={formData.code}
+              onChange={e => setFormData({ ...formData, code: e.target.value })}
+              className="h-[50px] w-full rounded-[25px] border border-[#707070] px-4 pr-[120px] text-base focus:border-[#4F68D2] focus:outline-none md:h-[60px] md:rounded-[30px] md:px-6 md:pr-[140px] md:text-lg lg:h-[80px] lg:rounded-[40px] lg:px-8 lg:pr-[180px] lg:text-[24px]"
+            />
+            <button
+              type="button"
+              onClick={handleGetCode}
+              disabled={countdown > 0 || !/^1[3-9]\d{9}$/.test(formData.phone)}
+              className="absolute right-3 top-1/2 -translate-y-1/2 cursor-pointer text-sm text-[#4F68D2] disabled:cursor-not-allowed disabled:text-[#ccc] md:right-4 md:text-base lg:right-5 lg:text-[18px]"
             >
-              {errors.address.message}
-            </motion.p>
-          )}
-        </div>
+              {codeText}
+            </button>
+          </div>
+        </li>
+      </ul>
 
-        {/* 邮箱（可选） */}
-        <div>
-          <label className="text-fluid-lg mb-2 block text-[#333]">
-            {t('email')}
-          </label>
-          <motion.input
-            whileFocus={{ scale: 1.01 }}
-            type="email"
-            {...register('email')}
-            placeholder={t('email_placeholder')}
-            className={`text-fluid-base w-full rounded-lg border px-4 py-3 transition-all focus:outline-none focus:ring-2 ${
-              errors.email
-                ? 'border-red-500 focus:ring-red-500'
-                : 'border-[#e0e0e0] focus:ring-[#4F68D2]'
-            }`}
-          />
-          {errors.email && (
-            <motion.p
-              initial={{ opacity: 0, y: -10 }}
-              animate={{ opacity: 1, y: 0 }}
-              className="mt-1 text-sm text-red-500"
-            >
-              {errors.email.message}
-            </motion.p>
-          )}
-        </div>
+      {/* 错误提示 */}
+      {validation && (
+        <span className="block text-sm text-red-500 md:text-base">{validation}</span>
+      )}
 
-        {/* 继续按钮 */}
-        <motion.button
-          whileHover={{ scale: 1.05 }}
-          whileTap={{ scale: 0.95 }}
-          type="submit"
-          disabled={isSubmitting}
-          className="text-fluid-xl md:text-fluid-2xl cursor-target mx-auto mt-8 block h-[50px] w-[162px] rounded-[25px] bg-[#4F68D2] font-medium text-white shadow-lg transition-all hover:bg-[#3d52a8] disabled:cursor-not-allowed disabled:opacity-50 md:h-[82px] md:w-[260px] md:rounded-[41px]"
-        >
-          {isSubmitting ? t('submitting') : t('continue_btn')}
-        </motion.button>
-      </form>
+      {/* 继续按钮 */}
+      <button
+        onClick={handleSubmit}
+        disabled={isSubmitDisabled}
+        className="mx-auto mt-12 flex h-[50px] w-[180px] items-center justify-center rounded-[25px] border-none bg-[#4f68d2] text-xl font-medium text-white shadow-[0px_3px_20px_1px_rgba(0,0,0,0.16)] transition-all hover:bg-[#3d52a8] disabled:cursor-not-allowed disabled:bg-[#f4f4f4] disabled:text-[#707070] md:mt-16 md:h-[64px] md:w-[220px] md:rounded-[32px] md:text-2xl lg:mt-26 lg:h-[82px] lg:w-[260px] lg:rounded-[40px] lg:text-[34px]"
+      >
+        {t('continue_btn')}
+      </button>
     </motion.div>
   );
 }
