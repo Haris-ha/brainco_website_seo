@@ -1,30 +1,30 @@
 // FocusZen 产品静态数据
 
-export interface DeviceFeature {
+export type DeviceFeature = {
   icon: string;
   titleKey: string;
   desc1Key: string;
   desc2Key: string;
-}
+};
 
-export interface MindfulnessScene {
+export type MindfulnessScene = {
   image: string;
   icon: string;
   nameKey: string;
-}
+};
 
-export interface SolutionItem {
+export type SolutionItem = {
   icon: string;
   nameKey: string;
-}
+};
 
-export interface MeditationCornerImage {
+export type MeditationCornerImage = {
   url: string;
-}
+};
 
-export interface SalonImage {
+export type SalonImage = {
   url: string;
-}
+};
 
 // 设备特性数据（3项）
 export const deviceFeatures: DeviceFeature[] = [
@@ -112,23 +112,23 @@ export const imageUrls = {
   // Hero Banner
   heroBanner: 'https://website-www-brainco-cn.oss-cn-hangzhou.aliyuncs.com/images/DyWnCFyTsz9KeXXb.webp',
   heroBannerMobile: 'https://website-www-brainco-cn.oss-cn-hangzhou.aliyuncs.com/images/MZP1fPJC7Pm2CBDc.webp',
-  
+
   // 设备区块
   deviceMain: 'https://website-www-brainco-cn.oss-cn-hangzhou.aliyuncs.com/images/EiG02Nkw09bPrGha.webp',
-  
+
   // 视频区块
   videoPoster: 'https://website-www-brainco-cn.oss-cn-hangzhou.aliyuncs.com/images/TSexEDE8hwzhE39x.webp',
   videoSrc: 'https://website-www-brainco-cn.oss-cn-hangzhou.aliyuncs.com/video/DpX1kFSctJcxKc3K.mp4',
   videoSrcMobile: 'https://website-www-brainco-cn.oss-cn-hangzhou.aliyuncs.com/video/8sd53NGz7c9ys8yM.mp4',
-  
+
   // 报告解析
   report1: 'https://website-www-brainco-cn.oss-cn-hangzhou.aliyuncs.com/images/ekRtQxpXSBbHMSpE.webp',
   report2: 'https://website-www-brainco-cn.oss-cn-hangzhou.aliyuncs.com/images/Tner3QeKMPGP3DHp.webp',
-  
+
   // 精品内容
   content1: 'https://website-www-brainco-cn.oss-cn-hangzhou.aliyuncs.com/images/xb51r1XsS6WJNFsi.webp',
   content2: 'https://website-www-brainco-cn.oss-cn-hangzhou.aliyuncs.com/images/NzBzhf61GzDBwWnF.webp',
-  
+
   // 群组正念模式
   groupBg: 'https://website-www-brainco-cn.oss-cn-hangzhou.aliyuncs.com/images/jzWkpMH2Wf6haZ4P.webp',
   groupMain: 'https://website-www-brainco-cn.oss-cn-hangzhou.aliyuncs.com/images/wyt8P7yJzHhxS4tA.webp',
@@ -137,26 +137,25 @@ export const imageUrls = {
   groupAvatar2: 'https://website-www-brainco-cn.oss-cn-hangzhou.aliyuncs.com/images/6Km3XAjeDx2bW3xd.webp',
   groupAvatar3: 'https://website-www-brainco-cn.oss-cn-hangzhou.aliyuncs.com/images/nAkAN62cxN4ZcwwW.webp',
   groupAvatar4: 'https://website-www-brainco-cn.oss-cn-hangzhou.aliyuncs.com/images/YrzFRK4FKKkhtb20.webp',
-  
+
   // 社群练习
   community1: 'https://website-www-brainco-cn.oss-cn-hangzhou.aliyuncs.com/images/bfNjznt5nQct6xS5.webp',
   community2: 'https://website-www-brainco-cn.oss-cn-hangzhou.aliyuncs.com/images/den3REdQZe89e2eM.webp',
   community3: 'https://website-www-brainco-cn.oss-cn-hangzhou.aliyuncs.com/images/sbmpS6xzdwnQMjkC.webp',
   community4: 'https://website-www-brainco-cn.oss-cn-hangzhou.aliyuncs.com/images/E4Rin5AhaFzjZzTE.webp',
   community5: 'https://website-www-brainco-cn.oss-cn-hangzhou.aliyuncs.com/images/asjQEqqjmoFO2sbg.webp',
-  
+
   // 行业解决方案
   businessBg: 'https://website-www-brainco-cn.oss-cn-hangzhou.aliyuncs.com/images/zK02OskrPn6ZafHT.webp',
-  
+
   // 培训数据
   training1: 'https://website-www-brainco-cn.oss-cn-hangzhou.aliyuncs.com/images/Fc1sGstdESNxyJ9m.webp',
   training2: 'https://website-www-brainco-cn.oss-cn-hangzhou.aliyuncs.com/images/rEymTm9kST57M2zM.webp',
-  
+
   // 合作伙伴
   partners: 'https://website-www-brainco-cn.oss-cn-hangzhou.aliyuncs.com/images/tMBHM1S26Re7rJE0.webp',
 };
 
 // 产品 SKU 信息
 export const productSku = 'focus-zen-basic'; // 根据实际产品 SKU 调整
-export const productPrice = 299900; // 2999.00 元（分为单位）
-
+export const productPrice = 349900; // 3499.00 元（分为单位）

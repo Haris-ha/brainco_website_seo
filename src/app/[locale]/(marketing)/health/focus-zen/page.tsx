@@ -1,5 +1,6 @@
 import { setRequestLocale } from 'next-intl/server';
 import OnlineService from '@/components/common/OnlineService';
+import OnlineServiceMobile from '@/components/common/OnlineServiceMobile';
 import FocusZenContent from '@/components/product/focus-zen/FocusZenContent';
 import FocusZenContentMobile from '@/components/product/focus-zen/FocusZenContentMobile';
 
@@ -45,8 +46,15 @@ export default async function FocusZenPage(props: {
         <FocusZenContentMobile />
       </div>
 
-      {/* Online Service */}
-      <OnlineService />
+      {/* Online Service - Desktop */}
+      <div className="hidden lg:block">
+        <OnlineService />
+      </div>
+
+      {/* Online Service - Mobile */}
+      <div className="block lg:hidden">
+        <OnlineServiceMobile />
+      </div>
     </>
   );
 }
