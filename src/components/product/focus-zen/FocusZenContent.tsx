@@ -3,14 +3,15 @@
 import { motion } from 'framer-motion';
 import { useTranslations } from 'next-intl';
 import Image from 'next/image';
+import { useEffect, useState } from 'react';
 import AfterSales from '@/components/common/AfterSales';
+import { findProductByIdentifier } from '@/lib/api';
 import {
   deviceFeatures,
   imageUrls,
   meditationCornerImages,
   mindfulnessScenes,
-  productPrice,
-  productSku,
+  productCode,
   salonImages,
   solutionItems,
 } from './data';
@@ -18,15 +19,18 @@ import PurchaseButton from './PurchaseButton';
 
 export default function FocusZenContent() {
   const t = useTranslations('FocusZen');
+  const [product, setProduct] = useState<any>(null);
 
-  // Product info for purchase button
-  const product = {
-    id: productSku,
-    name: 'FocusZen',
-    price: productPrice,
-    code: productSku,
-    pictureUrl: imageUrls.deviceMain,
-  };
+  // Fetch product data from API
+  useEffect(() => {
+    const fetchProduct = async () => {
+      const productData = await findProductByIdentifier(null, productCode, productCode);
+      if (productData) {
+        setProduct(productData);
+      }
+    };
+    fetchProduct();
+  }, []);
 
   return (
     <div>
@@ -78,24 +82,35 @@ export default function FocusZenContent() {
               </motion.p>
 
               {/* 价格显示 */}
-              <motion.div
-                initial={{ opacity: 0, y: 30 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.8, delay: 0.7 }}
-                className="mb-6 flex items-baseline justify-center"
-              >
-                <span className="text-fluid-5xl font-medium text-white">
-                  ¥2999
-                </span>
-              </motion.div>
+              {product && (
+                <>
+                  <motion.div
+                    initial={{ opacity: 0, y: 30 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.8, delay: 0.7 }}
+                    className="mb-6 flex items-baseline justify-center"
+                  >
+                    <span className="text-fluid-5xl font-medium text-white">
+                      ¥
+                      {product.price / 100}
+                    </span>
+                    {product.oldPrice && (
+                      <span className="text-fluid-2xl ml-4 text-white/70 line-through">
+                        ¥
+                        {product.oldPrice / 100}
+                      </span>
+                    )}
+                  </motion.div>
 
-              <motion.div
-                initial={{ opacity: 0, y: 30 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.8, delay: 0.8 }}
-              >
-                <PurchaseButton product={product} />
-              </motion.div>
+                  <motion.div
+                    initial={{ opacity: 0, y: 30 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.8, delay: 0.8 }}
+                  >
+                    <PurchaseButton product={product} />
+                  </motion.div>
+                </>
+              )}
             </div>
           </div>
         </div>

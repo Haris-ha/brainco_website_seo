@@ -156,6 +156,5 @@ export const imageUrls = {
   partners: 'https://website-www-brainco-cn.oss-cn-hangzhou.aliyuncs.com/images/tMBHM1S26Re7rJE0.webp',
 };
 
-// 产品 SKU 信息
-export const productSku = 'focus-zen-basic'; // 根据实际产品 SKU 调整
-export const productPrice = 349900; // 3499.00 元（分为单位）
+// 产品代码（用于API查询）
+export const productCode = 'focus-zen';

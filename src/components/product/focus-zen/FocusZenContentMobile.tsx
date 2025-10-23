@@ -3,14 +3,15 @@
 import { motion } from 'framer-motion';
 import { useTranslations } from 'next-intl';
 import Image from 'next/image';
+import { useEffect, useState } from 'react';
 import AfterSalesMobile from '@/components/common/AfterSalesMobile';
+import { findProductByIdentifier } from '@/lib/api';
 import {
   deviceFeatures,
   imageUrls,
   meditationCornerImages,
   mindfulnessScenes,
-  productPrice,
-  productSku,
+  productCode,
   salonImages,
   solutionItems,
 } from './data';
@@ -18,15 +19,18 @@ import PurchaseButton from './PurchaseButton';
 
 export default function FocusZenContentMobile() {
   const t = useTranslations('FocusZen');
+  const [product, setProduct] = useState<any>(null);
 
-  // Product info for purchase button
-  const product = {
-    id: productSku,
-    name: 'FocusZen',
-    price: productPrice,
-    code: productSku,
-    pictureUrl: imageUrls.deviceMain,
-  };
+  // Fetch product data from API
+  useEffect(() => {
+    const fetchProduct = async () => {
+      const productData = await findProductByIdentifier(null, productCode, productCode);
+      if (productData) {
+        setProduct(productData);
+      }
+    };
+    fetchProduct();
+  }, []);
 
   return (
     <div>
@@ -716,19 +720,27 @@ export default function FocusZenContentMobile() {
       </section>
 
       {/* Fixed Bottom Purchase Bar */}
-      <div className="fixed right-0 bottom-0 left-0 z-50 border-t border-gray-200 bg-white px-4 py-3 shadow-lg">
-        <div className="flex items-center justify-between">
-          <div className="ml-4 flex items-baseline">
-            <span className="text-fluid-3xl font-medium text-gray-900">
-              ¥
-              {productPrice / 100}
-            </span>
-          </div>
-          <div className="w-[120px]">
-            <PurchaseButton product={product} isMobile />
+      {product && (
+        <div className="fixed right-0 bottom-0 left-0 z-50 border-t border-gray-200 bg-white px-4 py-3 shadow-lg">
+          <div className="flex items-center justify-between">
+            <div className="ml-4 flex items-baseline">
+              <span className="text-fluid-3xl font-medium text-gray-900">
+                ¥
+                {product.price / 100}
+              </span>
+              {product.oldPrice && (
+                <span className="text-fluid-base ml-2 text-gray-600 line-through">
+                  ¥
+                  {product.oldPrice / 100}
+                </span>
+              )}
+            </div>
+            <div className="w-[120px]">
+              <PurchaseButton product={product} isMobile />
+            </div>
           </div>
         </div>
-      </div>
+      )}
       {' '}
       {/* Spacer for fixed button */}
 
