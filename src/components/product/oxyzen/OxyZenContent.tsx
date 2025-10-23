@@ -1,0 +1,592 @@
+'use client';
+
+import { motion } from 'framer-motion';
+import { useTranslations } from 'next-intl';
+import Image from 'next/image';
+import AfterSales from '@/components/common/AfterSales';
+import PurchaseButton from './PurchaseButton';
+import { socialMediaData, appDownloadData, purchaseLink } from './data';
+
+interface OxyZenContentProps {
+  productInfo?: any;
+}
+
+export default function OxyZenContent({ productInfo }: OxyZenContentProps) {
+  const t = useTranslations('OxyZen');
+
+  return (
+    <div className="bg-white text-[#333]">
+      {/* Hero Banner */}
+      <section className="relative">
+        <picture>
+          <source
+            media="(min-width: 900px)"
+            srcSet="https://website-www-brainco-cn.oss-cn-hangzhou.aliyuncs.com/images/oC1WrNlfkwV4dAXv.webp"
+          />
+          <source
+            media="(max-width: 900px)"
+            srcSet="https://website-www-brainco-cn.oss-cn-hangzhou.aliyuncs.com/images/fxm7kxmChGi5Rw44.webp"
+          />
+          <img
+            src="https://website-www-brainco-cn.oss-cn-hangzhou.aliyuncs.com/images/oC1WrNlfkwV4dAXv.webp"
+            alt={t('product_name')}
+            className="w-full"
+          />
+        </picture>
+
+        <div className="absolute top-0 left-1/2 flex h-full w-full max-w-[332px] -translate-x-[-80px] flex-col items-center justify-center">
+          <motion.h1
+            className="text-fluid-6xl font-normal text-white"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+          >
+            {t('product_name')}
+          </motion.h1>
+          <motion.div
+            initial={{ opacity: 0, scale: 0.8 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ delay: 0.3, duration: 0.8 }}
+          >
+            <Image
+              src="https://website-www-brainco-cn.oss-cn-hangzhou.aliyuncs.com/images/jwVL5GHGoetrtLNM.webp"
+              alt={t('product_subtitle')}
+              width={160}
+              height={80}
+              className="h-auto w-40"
+            />
+          </motion.div>
+          <motion.div
+            className="mt-4 w-full border-t border-[#666666] pt-8"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ delay: 0.6, duration: 0.8 }}
+          />
+          <motion.p
+            className="text-fluid-3xl mb-2 w-full text-center font-light text-[#333]"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.9, duration: 0.8 }}
+          >
+            {t('tagline_1')}
+          </motion.p>
+          <motion.p
+            className="text-fluid-3xl mb-9 w-full text-center font-light text-[#333]"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 1.2, duration: 0.8 }}
+          >
+            {t('tagline_2')}
+          </motion.p>
+
+          {productInfo && (
+            <motion.div
+              className="flex w-full flex-col items-center"
+              initial={{ opacity: 0, scale: 0.8 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ delay: 1.4, duration: 0.8 }}
+            >
+              <div className="flex justify-center">
+                <span className="text-fluid-5xl mr-7 text-[#333]">
+                  ¥{productInfo.price / 100}
+                </span>
+                {productInfo.oldPrice && (
+                  <s className="text-fluid-5xl text-[#000] opacity-50">
+                    ¥{productInfo.oldPrice / 100}
+                  </s>
+                )}
+              </div>
+              <PurchaseButton product={productInfo} />
+            </motion.div>
+          )}
+        </div>
+      </section>
+
+      {/* Product Image */}
+      <section className="relative">
+        <Image
+          src="https://website-www-brainco-cn.oss-cn-hangzhou.aliyuncs.com/images/iftXG0SL0Cr5V08e.webp"
+          alt=""
+          width={1920}
+          height={1080}
+          className="h-auto w-full"
+        />
+        <motion.div
+          className="absolute top-0 left-0 flex h-full w-full flex-col items-center justify-end pb-[4.27vw]"
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.8 }}
+        >
+          <Image
+            src="https://website-www-brainco-cn.oss-cn-hangzhou.aliyuncs.com/images/5fiJCWcxEy5VLUxa.webp"
+            alt=""
+            width={290}
+            height={100}
+            className="mb-8 h-auto w-[15.1vw]"
+          />
+          <p className="text-fluid-2xl">{t('award_text')}</p>
+        </motion.div>
+      </section>
+
+      {/* Data Collection */}
+      <section className="pb-[10.15vw] pt-[5.83vw] text-center">
+        <motion.h2
+          className="text-fluid-5xl mb-5 font-medium"
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.8 }}
+        >
+          {t('data_collection_title')}
+        </motion.h2>
+        <motion.p
+          className="text-fluid-2xl leading-[1.8]"
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ delay: 0.2, duration: 0.8 }}
+        >
+          {t('data_collection_desc_1')}
+        </motion.p>
+        <motion.p
+          className="text-fluid-2xl leading-[1.8]"
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ delay: 0.3, duration: 0.8 }}
+        >
+          {t('data_collection_desc_2')}
+        </motion.p>
+
+        <ul className="mt-[3.125vw] flex justify-center gap-[3.33vw]">
+          {[
+            { icon: 'https://website-www-brainco-cn.oss-cn-hangzhou.aliyuncs.com/images/v1KcdkCd82vI9Jak.webp', label: 'eeg' },
+            { icon: 'https://website-www-brainco-cn.oss-cn-hangzhou.aliyuncs.com/images/yEhR5bpcCX5euLzV.webp', label: 'heart_rate' },
+            { icon: 'https://website-www-brainco-cn.oss-cn-hangzhou.aliyuncs.com/images/UifZOlpUJ2jyiWfR.webp', label: 'blood_oxygen' },
+          ].map((item, index) => (
+            <motion.li
+              key={item.label}
+              className="flex items-center"
+              initial={{ opacity: 0, scale: 0.8 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              viewport={{ once: true }}
+              transition={{ delay: index * 0.1, duration: 0.6 }}
+            >
+              <Image src={item.icon} alt="" width={60} height={60} className="mr-3 h-auto w-auto" />
+              <span className="text-fluid-3xl">{t(item.label as any)}</span>
+            </motion.li>
+          ))}
+        </ul>
+
+        <motion.div
+          className="mx-auto mt-[7.7vw] w-[43.95vw]"
+          initial={{ opacity: 0, scale: 0.9 }}
+          whileInView={{ opacity: 1, scale: 1 }}
+          viewport={{ once: true }}
+          transition={{ delay: 0.4, duration: 0.8 }}
+        >
+          <Image
+            src="https://website-www-brainco-cn.oss-cn-hangzhou.aliyuncs.com/images/Xk6yoAjyJNl4ND2V.webp"
+            alt=""
+            width={844}
+            height={600}
+            className="h-auto w-full"
+          />
+        </motion.div>
+      </section>
+
+      {/* Design Features */}
+      <section className="bg-[#edf1f2] px-[1.56vw] py-[2.6vw]">
+        <div className="flex justify-center gap-[1.56vw]">
+          {/* Left Column */}
+          <div className="flex w-[38.33vw] flex-col gap-[1.56vw]">
+            <motion.div
+              className="flex flex-col items-center rounded-[2.86vw] bg-white px-[2.08vw] pt-[3.38vw] pb-[2.08vw]"
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.8 }}
+            >
+              <h3 className="text-fluid-5xl mb-5 font-medium">{t('design_magnetic_title')}</h3>
+              <p
+                className="text-fluid-2xl leading-[1.8]"
+                dangerouslySetInnerHTML={{ __html: t('design_magnetic_desc').replace(/\n/g, '<br />') }}
+              />
+              <Image
+                src="https://website-www-brainco-cn.oss-cn-hangzhou.aliyuncs.com/images/LewVPJHtk60Dy2hS.webp"
+                alt=""
+                width={568}
+                height={300}
+                className="mt-5 h-auto w-[29.58vw]"
+              />
+            </motion.div>
+            <motion.div
+              className="overflow-hidden rounded-[2.86vw] bg-white"
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.2, duration: 0.8 }}
+            >
+              <Image
+                src="https://website-www-brainco-cn.oss-cn-hangzhou.aliyuncs.com/images/beazFEGimF59Rbvo.webp"
+                alt=""
+                width={736}
+                height={400}
+                className="h-auto w-full"
+              />
+            </motion.div>
+          </div>
+
+          {/* Right Column */}
+          <div className="flex w-[26.66vw] flex-col gap-[1.56vw]">
+            <motion.div
+              className="flex flex-col items-center rounded-[2.86vw] bg-white px-[2.08vw] pt-[3.38vw] pb-[2.08vw]"
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.1, duration: 0.8 }}
+            >
+              <h3 className="text-fluid-5xl mb-6 font-medium">{t('design_comfortable_title')}</h3>
+              <p
+                className="text-fluid-2xl leading-[1.8] text-center"
+                dangerouslySetInnerHTML={{ __html: t('design_comfortable_desc').replace(/\n/g, '<br />') }}
+              />
+              <Image
+                src="https://website-www-brainco-cn.oss-cn-hangzhou.aliyuncs.com/images/CrrdayolPeH3kgXx.webp"
+                alt=""
+                width={275}
+                height={200}
+                className="mt-6 h-auto w-[14.32vw]"
+              />
+            </motion.div>
+            <motion.div
+              className="flex flex-col items-center rounded-[2.86vw] bg-white px-[2.08vw] pt-[3.02vw] pb-[1.87vw]"
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.3, duration: 0.8 }}
+            >
+              <h3 className="text-fluid-5xl mb-6 font-medium">{t('design_portable_title')}</h3>
+              <p
+                className="text-fluid-2xl leading-[1.8] text-center"
+                dangerouslySetInnerHTML={{ __html: t('design_portable_desc').replace(/\n/g, '<br />') }}
+              />
+              <Image
+                src="https://website-www-brainco-cn.oss-cn-hangzhou.aliyuncs.com/images/SEH2rPIKwdnQxgx1.webp"
+                alt=""
+                width={390}
+                height={300}
+                className="mt-[2.7vw] h-auto w-[20.31vw]"
+              />
+            </motion.div>
+          </div>
+        </div>
+      </section>
+
+      {/* 3D Indicators */}
+      <section className="flex items-center justify-center gap-[12.5vw] py-[3.125vw]">
+        <div className="text-left">
+          <motion.h2
+            className="text-fluid-5xl relative mb-[3.125vw] pb-[3.125vw] font-medium after:absolute after:bottom-0 after:left-0 after:h-[0.26vw] after:w-[2.08vw] after:bg-[#333]"
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8 }}
+          >
+            {t('indicators_title')}
+          </motion.h2>
+          <motion.p
+            className="text-fluid-2xl mb-5 font-thin"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.2, duration: 0.8 }}
+          >
+            {t('indicators_desc_1')}
+          </motion.p>
+          <motion.p
+            className="text-fluid-2xl font-thin"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.3, duration: 0.8 }}
+            dangerouslySetInnerHTML={{ __html: t('indicators_desc_2').replace(/\n/g, '<br />') }}
+          />
+
+          <ul className="mt-[4.9vw] flex items-center gap-[2.6vw]">
+            {[
+              { icon: 'https://website-www-brainco-cn.oss-cn-hangzhou.aliyuncs.com/images/erf4oSW4RsApX9an.webp', label: 'mindfulness_index' },
+              { icon: 'https://website-www-brainco-cn.oss-cn-hangzhou.aliyuncs.com/images/b4AIgvmOSvtoi2TC.webp', label: 'heart_rate' },
+              { icon: 'https://website-www-brainco-cn.oss-cn-hangzhou.aliyuncs.com/images/CwWiNTmB7klLvtDa.webp', label: 'blood_oxygen' },
+            ].map((item, index) => (
+              <motion.li
+                key={item.label}
+                className="flex items-center"
+                initial={{ opacity: 0, scale: 0.8 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                viewport={{ once: true }}
+                transition={{ delay: 0.4 + index * 0.1, duration: 0.6 }}
+              >
+                <Image src={item.icon} alt="" width={60} height={60} className="mr-4 h-auto w-auto" />
+                <span className="text-fluid-3xl">{t(item.label as any)}</span>
+              </motion.li>
+            ))}
+          </ul>
+        </div>
+
+        <motion.div
+          className="w-[27.6vw]"
+          initial={{ opacity: 0, scale: 0.9 }}
+          whileInView={{ opacity: 1, scale: 1 }}
+          viewport={{ once: true }}
+          transition={{ delay: 0.5, duration: 0.8 }}
+        >
+          <Image
+            src="https://website-www-brainco-cn.oss-cn-hangzhou.aliyuncs.com/images/fHPc2QXmcbrsKvHA.webp"
+            alt=""
+            width={530}
+            height={600}
+            className="h-auto w-full"
+          />
+        </motion.div>
+      </section>
+
+      {/* 9D Parsing */}
+      <section className="pb-[3.125vw] pt-[5.83vw] text-center">
+        <motion.h2
+          className="text-fluid-5xl mb-5 font-medium"
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.8 }}
+        >
+          {t('parsing_title')}
+        </motion.h2>
+        <motion.p
+          className="text-fluid-2xl leading-[1.8]"
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ delay: 0.2, duration: 0.8 }}
+        >
+          {t('parsing_desc_1')}
+        </motion.p>
+        <motion.p
+          className="text-fluid-2xl leading-[1.8]"
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ delay: 0.3, duration: 0.8 }}
+        >
+          {t('parsing_desc_2')}
+        </motion.p>
+
+        <div className="relative mx-auto mt-[4.58vw] h-[34.68vw] w-[58.43vw] rounded-full border border-[#d8d6d6] p-[1.09vw]">
+          <div className="h-full w-full rounded-full border border-[#d8d6d6]" />
+
+          <Image
+            src="https://website-www-brainco-cn.oss-cn-hangzhou.aliyuncs.com/images/WAowa05JcAyTF6AL.webp"
+            alt=""
+            width={270}
+            height={200}
+            className="absolute left-1/2 top-0 z-10 h-auto w-[14.06vw] -translate-x-[12.5vw] -translate-y-[3.64vw]"
+          />
+          <Image
+            src="https://website-www-brainco-cn.oss-cn-hangzhou.aliyuncs.com/images/Ls3phK4hHBivlNDI.webp"
+            alt=""
+            width={276}
+            height={200}
+            className="absolute left-1/2 top-0 h-auto w-[14.37vw] -translate-x-[2.08vw] -translate-y-[1.3vw]"
+          />
+          <Image
+            src="https://website-www-brainco-cn.oss-cn-hangzhou.aliyuncs.com/images/Tyw4f2mxbbxhy7kD.png"
+            alt=""
+            width={358}
+            height={300}
+            className="absolute left-1/2 top-[39%] z-20 h-auto w-[18.64vw] -translate-x-1/2"
+          />
+
+          <ul className="absolute top-0 left-0 h-full w-full">
+            {[
+              { label: 'dimension_1', style: 'top-[2.34vw] left-[5.52vw]' },
+              { label: 'dimension_2', style: 'top-[12.76vw] left-[-3.125vw]' },
+              { label: 'dimension_3', style: 'top-[24.06vw] left-0' },
+              { label: 'dimension_4', style: 'top-[30vw] left-[12.5vw]' },
+              { label: 'dimension_5', style: 'top-[31.25vw] left-[30.62vw]' },
+              { label: 'dimension_6', style: 'left-[45.83vw] top-[26.82vw]' },
+              { label: 'dimension_7', style: 'top-[18.02vw] left-[52.29vw]' },
+              { label: 'dimension_8', style: 'left-[50.93vw] top-[7.29vw]' },
+              { label: 'dimension_9', style: 'top-0 left-[42.7vw]' },
+            ].map((item, index) => (
+              <motion.li
+                key={item.label}
+                className={`absolute flex h-[2.7vw] w-[6.25vw] items-center justify-center rounded-[1.35vw] bg-gradient-to-b from-[#edfdfd] to-[#82c8c4] text-fluid-xl font-light ${item.style}`}
+                initial={{ opacity: 0, scale: 0 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                viewport={{ once: true }}
+                transition={{ delay: 0.6 + index * 0.1, duration: 0.5 }}
+              >
+                {t(item.label as any)}
+              </motion.li>
+            ))}
+          </ul>
+        </div>
+      </section>
+
+      {/* Sleep Content */}
+      <section className="relative">
+        <Image
+          src="https://website-www-brainco-cn.oss-cn-hangzhou.aliyuncs.com/images/KMdRLRBvdixnEOm7.webp"
+          alt=""
+          width={1920}
+          height={1080}
+          className="h-auto w-full"
+        />
+        <div className="absolute top-0 left-0 h-full w-full pt-[5.83vw] text-center text-white">
+          <motion.h2
+            className="text-fluid-5xl mb-5 font-medium"
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8 }}
+          >
+            {t('content_title')}
+          </motion.h2>
+          <motion.p
+            className="text-fluid-2xl leading-[1.8]"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.2, duration: 0.8 }}
+          >
+            {t('content_desc_1')}
+          </motion.p>
+          <motion.p
+            className="text-fluid-2xl leading-[1.8]"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.3, duration: 0.8 }}
+          >
+            {t('content_desc_2')}
+          </motion.p>
+          <motion.div
+            className="mx-auto mt-[1.82vw] w-[66.25vw]"
+            initial={{ opacity: 0, scale: 0.9 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.4, duration: 0.8 }}
+          >
+            <Image
+              src="https://website-www-brainco-cn.oss-cn-hangzhou.aliyuncs.com/images/3cnnb6RhNtvQJW7d.webp"
+              alt=""
+              width={1272}
+              height={800}
+              className="h-auto w-full"
+            />
+          </motion.div>
+        </div>
+      </section>
+
+      {/* Social Media & Downloads */}
+      <section className="flex justify-center gap-[0.41vw] bg-[#f8f8f8] pb-[5.83vw] pt-[0.83vw]">
+        {/* Follow Us */}
+        <div className="w-[14.84vw]">
+          <h3 className="text-fluid-2xl mb-2 pt-8 font-normal">{t('follow_us')}</h3>
+          <div className="mb-2 flex h-[9.73vw] items-center justify-center bg-white">
+            <Image
+              src={socialMediaData.wechat.qrCode}
+              alt=""
+              width={82}
+              height={82}
+              className="mr-[1.56vw] h-auto w-[4.27vw]"
+            />
+            <span className="text-fluid-lg w-[5.72vw] text-center">{t('wechat_official')}</span>
+          </div>
+          <div className="flex h-[9.73vw] items-center justify-center bg-white">
+            <Image
+              src={socialMediaData.xiaohongshu.qrCode}
+              alt=""
+              width={82}
+              height={82}
+              className="mr-[1.56vw] h-auto w-[4.27vw]"
+            />
+            <div className="flex flex-col items-center">
+              <span className="text-fluid-lg text-center">{t('xiaohongshu')}</span>
+              <span className="text-fluid-lg text-center">{t('xiaohongshu_account')}</span>
+            </div>
+          </div>
+        </div>
+
+        {/* Main Image */}
+        <div className="ml-[0.41vw] w-[13.54vw] pt-[3.85vw]">
+          <div className="flex h-full items-center justify-center bg-white">
+            <Image
+              src={socialMediaData.mainImage}
+              alt=""
+              width={164}
+              height={164}
+              className="h-auto w-[8.54vw]"
+            />
+          </div>
+        </div>
+
+        {/* Downloads */}
+        <div className="ml-[1.25vw] w-[28.33vw]">
+          <div className="flex gap-[0.41vw]">
+            <ul>
+              <li className="text-fluid-2xl mb-2 pt-8">{t('download_app')}</li>
+              <li className="mb-2 flex h-[5.1vw] w-[14.84vw] items-center bg-white pl-4">
+                <Image
+                  src={appDownloadData.ios.qrCode}
+                  alt=""
+                  width={80}
+                  height={80}
+                  className="mr-[4.16vw] h-auto w-[4.16vw]"
+                />
+                <span className="text-fluid-lg">{t('ios')}</span>
+              </li>
+              <li className="flex h-[5.1vw] w-[14.84vw] items-center bg-white pl-4">
+                <Image
+                  src={appDownloadData.android.qrCode}
+                  alt=""
+                  width={80}
+                  height={80}
+                  className="mr-[4.16vw] h-auto w-[4.16vw]"
+                />
+                <span className="text-fluid-lg">{t('android')}</span>
+              </li>
+            </ul>
+
+            <div className="w-[13.02vw]">
+              <h3 className="text-fluid-2xl mb-2 pt-8 font-normal">{t('cooperation')}</h3>
+              <div className="flex h-[10.62vw] flex-col items-center justify-center bg-white">
+                <Image
+                  src={socialMediaData.cooperation.qrCode}
+                  alt=""
+                  width={82}
+                  height={82}
+                  className="h-auto w-[4.27vw]"
+                />
+                <span className="text-fluid-lg mt-4">{t('wechat_assistant')}</span>
+              </div>
+            </div>
+          </div>
+
+          {/* Purchase Link */}
+          <div className="mt-2">
+            <h3 className="text-fluid-2xl mb-2 font-normal">{t('purchase_link')}</h3>
+            <div className="text-fluid-base flex h-[5.46vw] items-center justify-center bg-white">
+              {purchaseLink}
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* After Sales */}
+      <AfterSales />
+    </div>
+  );
+}
+
