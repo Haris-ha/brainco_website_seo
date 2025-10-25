@@ -3,6 +3,7 @@
 
 import { motion } from 'framer-motion';
 import Image from 'next/image';
+import { useTranslations } from 'next-intl';
 import { useRouter } from 'next/navigation';
 import { useCallback, useEffect, useRef, useState } from 'react';
 
@@ -10,22 +11,22 @@ const imgPath = 'https://website-www-brainco-cn.oss-cn-hangzhou.aliyuncs.com/ima
 
 const videoList = [
   {
-    title: '康复',
+    titleKey: 'video_category_rehabilitation',
     src: 'https://website-www-brainco-cn.oss-cn-hangzhou.aliyuncs.com/video/2AB431c65bhdriQN.webm',
     progress: 0,
   },
   {
-    title: '健康',
+    titleKey: 'video_category_health',
     src: 'https://website-www-brainco-cn.oss-cn-hangzhou.aliyuncs.com/video/x1pcXdPCmQ3K6Ht7.webm',
     progress: 0,
   },
   {
-    title: '教育',
+    titleKey: 'video_category_education',
     src: 'https://website-www-brainco-cn.oss-cn-hangzhou.aliyuncs.com/video/kiS7xyHWpYastA1y.webm',
     progress: 0,
   },
   {
-    title: '具身智能',
+    titleKey: 'video_category_embodied',
     src: 'https://website-www-brainco-cn.oss-cn-hangzhou.aliyuncs.com/images/product/rove2/wDEtsqZd5USGCIxL.mp4',
     progress: 0,
   },
@@ -35,40 +36,40 @@ const productList = [
   {
     img: `${imgPath}KJgdiOXZcRnGYhDH.webp`,
     hoverImg: `${imgPath}vJBVfyIDRSmEpieZ.webp`,
-    name: '仰憩',
-    desc: '一个用于冥想和睡眠的智能系统',
+    nameKey: 'product_oxyzen_name',
+    descKey: 'product_oxyzen_desc',
     router: '/health/oxyzen',
     id: 3,
   },
   {
     img: `${imgPath}sTFJhVGYtwbOmvBN.webp`,
     hoverImg: `${imgPath}nGjyEWDFRvCrwald.webp`,
-    name: '智能仿生手',
-    desc: '智能假肢手，集成脑机接口技术与AI算法',
+    nameKey: 'product_brain_robotics_name',
+    descKey: 'product_brain_robotics_desc',
     router: '/products/brain-robotics',
     id: 4,
   },
   {
     img: `${imgPath}oMVDmWAPurnEGZiw.webp`,
     hoverImg: `${imgPath}MIhtXTQFnymLuCwS.webp`,
-    name: 'Brain AI',
-    desc: '面向STEM教育的工业级可组装假手套件',
+    nameKey: 'product_brain_ai_name',
+    descKey: 'product_brain_ai_desc',
     router: '/education/brain-ai',
     id: 0,
   },
   {
     img: `${imgPath}DJqKOvlTBcFyidSf.webp`,
     hoverImg: `${imgPath}BAGWcXOZRtdxgpsk.webp`,
-    name: '深海豚',
-    desc: '一个用于睡眠的脑机接口智能安睡仪',
+    nameKey: 'product_easleep_name',
+    descKey: 'product_easleep_desc',
     router: '/health/easleep',
     id: 2,
   },
   {
     img: `${imgPath}iBCIDeObGYNVWhEq.webp`,
     hoverImg: `${imgPath}aNIUvPigSeFGEbHW.webp`,
-    name: '智能仿生腿',
-    desc: '一款先进的智能假肢膝关节，采用源自脑机接口研究的控制算法，带来更精确的运动体验',
+    nameKey: 'product_mobius_name',
+    descKey: 'product_mobius_desc',
     router: '/products/mobius',
     id: 5,
   },
@@ -86,25 +87,26 @@ const mapping = [
 const nerveList = [
   {
     img: `${imgPath}tpoWHUmdFJbXQeRI.webp`,
-    name: 'FocusZen',
-    desc: '正念舒压系统',
+    nameKey: 'product_focus_zen_name',
+    descKey: 'product_focus_zen_desc',
     router: '/health/focus-zen',
   },
   {
     img: `${imgPath}tpoWHUmdFJbXQeRI.webp`,
-    name: '专注欣',
-    desc: '脑机接口注意力训练系统',
+    nameKey: 'product_focus_xin_name',
+    descKey: 'product_focus_xin_desc',
     router: '/health/focus-xin',
   },
   {
     img: `${imgPath}QqcGWLgUfmjhPZEz.webp`,
-    name: '开星果',
-    desc: '脑机接口社交沟通训练系统',
+    nameKey: 'product_starkids_name',
+    descKey: 'product_starkids_desc',
     router: '/health/starkids',
   },
 ];
 
 export function HomeContent() {
+  const t = useTranslations('Home');
   const router = useRouter();
   const videoRef = useRef<HTMLVideoElement>(null);
   const [playCount, setPlayCount] = useState(0);
@@ -190,7 +192,7 @@ export function HomeContent() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.5, ease: 'easeOut' }}
             >
-              脑机科技，开启
+              {t('hero_title_1')}
             </motion.span>
             <br />
             <motion.span
@@ -199,7 +201,7 @@ export function HomeContent() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.7, ease: 'easeOut' }}
             >
-              生命更多可能性
+              {t('hero_title_2')}
             </motion.span>
           </motion.h1>
           {videoLink && (
@@ -224,7 +226,7 @@ export function HomeContent() {
         >
           {videoList.map((item, index) => (
             <motion.li
-              key={item.title}
+              key={item.titleKey}
               className="ml-10 flex flex-col items-center justify-center first:ml-0"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
@@ -234,7 +236,7 @@ export function HomeContent() {
                 ease: 'easeOut',
               }}
             >
-              <span className="text-2xl text-white">{item.title}</span>
+              <span className="text-2xl text-white">{t(item.titleKey)}</span>
               <s className="mt-[18px] flex h-2 w-[148px] overflow-hidden rounded bg-[rgba(227,227,227,0.4)] no-underline 2xl:w-[180px]">
                 <u
                   className="h-2 rounded bg-white no-underline transition-all duration-300 ease-linear"
@@ -279,14 +281,14 @@ export function HomeContent() {
           }}
         >
           <h2 className="text-fluid-6xl mb-[52px] font-bold text-[#333]">
-            BrainCo与脑机接口技术
+            {t('bci_section_title')}
           </h2>
           <div className="w-[900px] 2xl:w-[960px]">
             <p className="mb-[30px] text-xl text-[#595757]">
-              作为国内首个脑机接口领域独角兽，BrainCo强脑科技致力于脑机接口技术底层技术的突破，通过在大脑和外部设备之间建立信号传送通路实现两者信息交换的方式为残疾人康复、孤独症等脑疾病提供了解决方案，目前已有多款产品上市。
+              {t('bci_section_desc_1')}
             </p>
             <p className="mb-[30px] text-xl text-[#595757]">
-              未来，BrainCo强脑科技将继续深耕非侵入式脑机接口领域，为抑郁症、阿尔茨海默症等疾病提供解决方案。
+              {t('bci_section_desc_2')}
             </p>
           </div>
 
@@ -315,11 +317,10 @@ export function HomeContent() {
                   transition: { duration: 0.3 },
                 }}
                 onMouseEnter={() => {
-                  if (item.id) {
+                  if (item.id !== undefined) {
                     setProductCount(item.id);
                   }
                   setExpandType(null);
-                  setProductCount(0);
                 }}
                 onMouseLeave={() => setProductCount(0)}
                 onClick={() => {
@@ -331,14 +332,14 @@ export function HomeContent() {
                 <div className="relative mr-3 h-40 w-[140px] flex-shrink-0 overflow-hidden">
                   <Image
                     src={item.img}
-                    alt={item.name}
+                    alt={t(item.nameKey)}
                     width={140}
                     height={160}
                     className="absolute inset-0 h-full w-full object-cover transition-opacity duration-100 ease-in-out group-hover/product:opacity-0"
                   />
                   <Image
                     src={item.hoverImg}
-                    alt={`${item.name} hover`}
+                    alt={`${t(item.nameKey)} hover`}
                     width={140}
                     height={160}
                     className="absolute inset-0 h-full w-full object-cover opacity-0 transition-opacity duration-100 ease-in-out group-hover/product:opacity-100"
@@ -350,11 +351,11 @@ export function HomeContent() {
                   }`}
                 >
                   <h5 className="mb-2 text-2xl leading-tight font-medium">
-                    {item.name}
+                    {t(item.nameKey)}
                   </h5>
                   <p
                     className="text-lg leading-snug"
-                    dangerouslySetInnerHTML={{ __html: item.desc }}
+                    dangerouslySetInnerHTML={{ __html: t(item.descKey) }}
                   />
                 </div>
               </motion.li>
@@ -395,13 +396,12 @@ export function HomeContent() {
               </div>
               <div className="flex flex-1 flex-col">
                 <h5 className="mb-2 text-2xl leading-tight font-medium">
-                  工业灵巧手
+                  {t('product_dexterous_name')}
                 </h5>
-                <p className="text-lg leading-snug">
-                  屡获殊荣，符合人体工学，
-                  <br />
-                  适应性强，操作流畅
-                </p>
+                <p
+                  className="text-lg leading-snug"
+                  dangerouslySetInnerHTML={{ __html: t('product_dexterous_desc') }}
+                />
               </div>
             </motion.li>
           </motion.ul>
@@ -432,7 +432,7 @@ export function HomeContent() {
               <div className="mr-3 flex h-40 w-[140px] items-center justify-center">
                 <Image
                   src="https://website-www-brainco-cn.oss-cn-hangzhou.aliyuncs.com/images/kojfrMNnQOelFbAI.webp"
-                  alt="神经调控"
+                  alt={t('nerve_modulation_name')}
                   width={140}
                   height={160}
                   className="h-auto w-auto"
@@ -440,9 +440,9 @@ export function HomeContent() {
               </div>
               <div className="flex flex-1 flex-col">
                 <h5 className="mb-2 text-2xl leading-tight font-medium">
-                  神经调控
+                  {t('nerve_modulation_name')}
                 </h5>
-                <p className="text-lg leading-snug">头戴设备</p>
+                <p className="text-lg leading-snug">{t('nerve_modulation_desc')}</p>
               </div>
             </motion.div>
 
@@ -510,7 +510,7 @@ export function HomeContent() {
               >
                 {nerveList.map(item => (
                   <div
-                    key={item.name}
+                    key={item.nameKey}
                     role="button"
                     tabIndex={0}
                     className="flex h-full w-[150px] cursor-pointer flex-col items-center justify-center overflow-hidden rounded-2xl bg-white transition-transform duration-200 hover:scale-105"
@@ -524,7 +524,7 @@ export function HomeContent() {
                     <div className="flex flex-1 items-center justify-center">
                       <Image
                         src={item.img}
-                        alt={item.name}
+                        alt={t(item.nameKey)}
                         width={100}
                         height={100}
                         className="max-h-[100px] w-auto"
@@ -532,9 +532,9 @@ export function HomeContent() {
                     </div>
                     <div className="flex flex-col items-center px-2 pt-2 pb-3">
                       <span className="text-sm font-bold text-[#555]">
-                        {item.name}
+                        {t(item.nameKey)}
                       </span>
-                      <span className="text-xs text-[#555]">{item.desc}</span>
+                      <span className="text-xs text-[#555]">{t(item.descKey)}</span>
                     </div>
                   </div>
                 ))}

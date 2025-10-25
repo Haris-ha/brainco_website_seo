@@ -2,6 +2,7 @@
 'use client';
 
 import { motion } from 'framer-motion';
+import { useTranslations } from 'next-intl';
 import { useCallback, useEffect, useRef, useState } from 'react';
 
 // 声明微信 JS Bridge 类型
@@ -17,28 +18,29 @@ declare global {
 
 const videoList = [
   {
-    title: '康复',
+    titleKey: 'video_category_rehabilitation',
     src: 'https://website-www-brainco-cn.oss-cn-hangzhou.aliyuncs.com/video/6D96ctRFNanQF08m.mp4',
     progress: 0,
   },
   {
-    title: '健康',
+    titleKey: 'video_category_health',
     src: 'https://website-www-brainco-cn.oss-cn-hangzhou.aliyuncs.com/video/NTi6JrDHd0twGhxH.mp4',
     progress: 0,
   },
   {
-    title: '教育',
+    titleKey: 'video_category_education',
     src: 'https://website-www-brainco-cn.oss-cn-hangzhou.aliyuncs.com/video/Qsec88NMmmk2Z5Ec.mp4',
     progress: 0,
   },
   {
-    title: '具身智能',
+    titleKey: 'video_category_embodied',
     src: 'https://website-www-brainco-cn.oss-cn-hangzhou.aliyuncs.com/images/product/rove2/tVUqvnogP4AHE7Cr.mp4',
     progress: 0,
   },
 ];
 
 export function HomeContentMobile() {
+  const t = useTranslations('Home');
   const videoRef = useRef<HTMLVideoElement>(null);
   const [playCount, setPlayCount] = useState(0);
   const [videoLink, setVideoLink] = useState('');
@@ -137,7 +139,7 @@ export function HomeContentMobile() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.2, ease: 'easeOut' }}
           >
-            脑机科技
+            {t('hero_title_1')}
           </motion.h1>
           <motion.p
             className="text-fluid-3xl mt-10"
@@ -145,7 +147,7 @@ export function HomeContentMobile() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.4, ease: 'easeOut' }}
           >
-            开启生命更多可能性
+            {t('hero_title_2')}
           </motion.p>
         </motion.div>
         {videoLink && (
@@ -172,7 +174,7 @@ export function HomeContentMobile() {
       >
         {videoList.map((item, index) => (
           <motion.li
-            key={item.title}
+            key={item.titleKey}
             className="ml-[22px] flex flex-col items-center text-white first:ml-0"
             initial={{ opacity: 0, y: 15 }}
             animate={{ opacity: 1, y: 0 }}
@@ -182,7 +184,7 @@ export function HomeContentMobile() {
               ease: 'easeOut',
             }}
           >
-            <span>{item.title}</span>
+            <span>{t(item.titleKey)}</span>
             <s className="mt-1 h-1.5 w-[50px] flex-shrink-0 overflow-hidden rounded-sm bg-[rgba(227,227,227,0.4)] no-underline">
               <u
                 className="block h-full bg-white transition-all duration-300 ease-linear"
