@@ -1,6 +1,7 @@
 'use client';
 
 import { motion } from 'framer-motion';
+import { useTranslations } from 'next-intl';
 import Image from 'next/image';
 import Link from 'next/link';
 import { useEffect, useState } from 'react';
@@ -19,6 +20,8 @@ type ProductCategory = {
 };
 
 export function ProductsMenuDesktop() {
+  const t = useTranslations('ProductsMenuDesktop');
+
   useEffect(() => {
     // 保存当前滚动位置
     const scrollY = window.scrollY;
@@ -44,101 +47,106 @@ export function ProductsMenuDesktop() {
 
   const productCategories: ProductCategory[] = [
     {
-      title: '智能仿生',
+      title: t('intelligent_bionics'),
       products: [
         {
-          name: '智能仿生腿',
+          name: t('mobius_name'),
           img: 'https://website-www-brainco-cn.oss-cn-hangzhou.aliyuncs.com/images/iBCIDeObGYNVWhEq.webp',
           previewImg:
             'https://website-www-brainco-cn.oss-cn-hangzhou.aliyuncs.com/images/aNIUvPigSeFGEbHW.webp',
           href: '/products/mobius',
-          desc: '采用脑机接口算法的仿生膝关节',
+          desc: t('mobius_desc'),
         },
         {
-          name: '智能仿生手',
+          name: t('brain_robotics_name'),
           img: 'https://website-www-brainco-cn.oss-cn-hangzhou.aliyuncs.com/images/sTFJhVGYtwbOmvBN.webp',
           previewImg:
             'https://website-www-brainco-cn.oss-cn-hangzhou.aliyuncs.com/images/nGjyEWDFRvCrwald.webp',
           href: '/products/brain-robotics',
-          desc: '结合脑机接口与AI算法的智能产品',
+          desc: t('brain_robotics_desc'),
         },
         {
-          name: '工业灵巧手',
+          name: t('dexterous_name'),
           img: 'https://website-www-brainco-cn.oss-cn-hangzhou.aliyuncs.com/images/pKlkrsJEDIgBCYRy.webp',
           previewImg:
             'https://website-www-brainco-cn.oss-cn-hangzhou.aliyuncs.com/images/uRsplIedTmtaAUYk.webp',
           href: '/products/revo1',
-          desc: '屡获殊荣，符合人体工学，适应性强，操作流畅',
+          desc: t('dexterous_desc'),
         },
       ],
     },
     {
-      title: '智能健康',
+      title: t('intelligent_health'),
       products: [
         {
-          name: '深海豚',
+          name: t('easleep_name'),
           img: 'https://website-www-brainco-cn.oss-cn-hangzhou.aliyuncs.com/images/DJqKOvlTBcFyidSf.webp',
           previewImg:
             'https://website-www-brainco-cn.oss-cn-hangzhou.aliyuncs.com/images/BAGWcXOZRtdxgpsk.webp',
           href: '/health/easleep',
-          desc: '深海豚脑机智能安睡仪',
+          desc: t('easleep_desc'),
         },
         {
-          name: '仰憩',
+          name: t('oxyzen_name'),
           img: 'https://website-www-brainco-cn.oss-cn-hangzhou.aliyuncs.com/images/KJgdiOXZcRnGYhDH.webp',
           previewImg:
             'https://website-www-brainco-cn.oss-cn-hangzhou.aliyuncs.com/images/vJBVfyIDRSmEpieZ.webp',
           href: '/health/oxyzen',
-          desc: '仰憩舒压助眠系统',
+          desc: t('oxyzen_desc'),
         },
         {
-          name: 'FocusZen',
+          name: t('focus_zen_name'),
           img: 'https://website-www-brainco-cn.oss-cn-hangzhou.aliyuncs.com/images/qyrUWeHbfgRsVAPS.webp',
           previewImg:
             'https://website-www-brainco-cn.oss-cn-hangzhou.aliyuncs.com/images/NKmGxfsUrSWyTBQe.webp',
           href: '/health/focus-zen',
-          desc: 'FocusZen正念舒压系统',
+          desc: t('focus_zen_desc'),
         },
         {
-          name: '专注欣',
+          name: t('focus_xin_name'),
           img: 'https://website-www-brainco-cn.oss-cn-hangzhou.aliyuncs.com/images/qyrUWeHbfgRsVAPS.webp',
           previewImg:
             'https://website-www-brainco-cn.oss-cn-hangzhou.aliyuncs.com/images/NKmGxfsUrSWyTBQe.webp',
           href: '/health/focus-xin',
-          desc: '专注欣脑机接口注意力训练系统',
+          desc: t('focus_xin_desc'),
         },
         {
-          name: '开星果',
+          name: t('starkids_name'),
           img: 'https://website-www-brainco-cn.oss-cn-hangzhou.aliyuncs.com/images/qyrUWeHbfgRsVAPS.webp',
           previewImg:
             'https://website-www-brainco-cn.oss-cn-hangzhou.aliyuncs.com/images/QqcGWLgUfmjhPZEz.webp',
           href: '/health/starkids',
-          desc: '开星果脑机接口社交沟通训练系统',
+          desc: t('starkids_desc'),
         },
       ],
     },
     {
-      title: '智能教育',
+      title: t('intelligent_education'),
       products: [
         {
-          name: 'Brain AI',
+          name: t('brain_ai_name'),
           img: 'https://website-www-brainco-cn.oss-cn-hangzhou.aliyuncs.com/images/oMVDmWAPurnEGZiw.webp',
           previewImg:
             'https://website-www-brainco-cn.oss-cn-hangzhou.aliyuncs.com/images/MIhtXTQFnymLuCwS.webp',
           href: '/education/brain-ai',
-          desc: '用于STEM教育的可组装假手套件',
+          desc: t('brain_ai_desc'),
         },
       ],
     },
   ];
 
+  // 使用类别标题作为 key，初始化每个类别的悬停产品索引为 0
+  const initialHoveredState = productCategories.reduce(
+    (acc, category) => {
+      acc[category.title] = 0;
+      return acc;
+    },
+    {} as { [key: string]: number },
+  );
+
   const [hoveredProduct, setHoveredProduct] = useState<{
     [key: string]: number;
-  }>({
-    智能仿生: 0,
-    智能健康: 0,
-    智能教育: 0,
-  });
+  }>(initialHoveredState);
 
   return (
     <motion.div
@@ -219,7 +227,7 @@ export function ProductsMenuDesktop() {
             </ul>
 
             {/* 产品预览 */}
-            {category.title !== '智能仿生' || hoveredProduct[category.title]! < 2
+            {category.title !== t('intelligent_bionics') || hoveredProduct[category.title]! < 2
               ? (
                   <motion.div
                     key={`preview-${category.title}-${hoveredProduct[category.title]}`}
