@@ -96,7 +96,7 @@ export function Footer({ locale }: FooterProps) {
             <div className="flex items-center gap-9">
               <button
                 type="button"
-                className="relative cursor-pointer cursor-target transition-opacity"
+                className="cursor-target relative cursor-pointer transition-opacity"
                 onMouseEnter={() => {
                   setShowWechatQR(true);
                   setHoveredIcon('wechat');
@@ -194,7 +194,7 @@ export function Footer({ locale }: FooterProps) {
                   {section.items.map(item => (
                     <motion.div
                       key={item.href}
-                      className="group relative mb-4"
+                      className="mb-4"
                       initial={{ opacity: 0, x: -20 }}
                       whileInView={{ opacity: 1, x: 0 }}
                       viewport={{ once: true }}
@@ -202,11 +202,11 @@ export function Footer({ locale }: FooterProps) {
                     >
                       <Link
                         href={item.href}
-                        className="inline-block text-xl !text-[#666] transition-colors duration-200"
+                        className="cursor-target group relative inline-block text-xl !text-[#666] transition-colors duration-200"
                       >
                         {item.title}
+                        <div className="absolute -bottom-1 left-0 h-[2px] w-0 bg-[#666] transition-all duration-300 ease-in-out group-hover:w-full" />
                       </Link>
-                      <div className="absolute -bottom-1 left-0 h-[2px] w-0 bg-[#666] transition-all duration-300 ease-in-out group-hover:w-full" />
                     </motion.div>
                   ))}
                 </div>
@@ -223,7 +223,7 @@ export function Footer({ locale }: FooterProps) {
                   {section.items.map(item => (
                     <motion.div
                       key={item.href}
-                      className="group relative mb-4"
+                      className="mb-4"
                       initial={{ opacity: 0, x: -20 }}
                       whileInView={{ opacity: 1, x: 0 }}
                       viewport={{ once: true }}
@@ -231,11 +231,11 @@ export function Footer({ locale }: FooterProps) {
                     >
                       <Link
                         href={item.href}
-                        className="inline-block text-xl !text-[#666] transition-colors duration-200"
+                        className="cursor-target group relative inline-block text-xl !text-[#666] transition-colors duration-200"
                       >
                         {item.title}
+                        <div className="absolute -bottom-1 left-0 h-[2px] w-0 bg-[#666] transition-all duration-300 ease-in-out group-hover:w-full" />
                       </Link>
-                      <div className="absolute -bottom-1 left-0 h-[2px] w-0 bg-[#666] transition-all duration-300 ease-in-out group-hover:w-full" />
                     </motion.div>
                   ))}
                 </div>
@@ -243,7 +243,7 @@ export function Footer({ locale }: FooterProps) {
             </div>
 
             {/* 其他栏 */}
-            <div>
+            <div className="flex flex-col justify-between">
               {otherNavigation.slice(1).map((section, index) => (
                 <div key={section.title} className={index > 0 ? 'mt-20' : ''}>
                   <h4 className="mb-10 text-2xl font-medium !text-[#666]">
@@ -252,7 +252,7 @@ export function Footer({ locale }: FooterProps) {
                   {section.items.map(item => (
                     <motion.div
                       key={item.href}
-                      className="group relative mb-4"
+                      className="mb-4"
                       initial={{ opacity: 0, x: -20 }}
                       whileInView={{ opacity: 1, x: 0 }}
                       viewport={{ once: true }}
@@ -260,11 +260,11 @@ export function Footer({ locale }: FooterProps) {
                     >
                       <Link
                         href={item.href}
-                        className="inline-block text-xl !text-[#666] transition-colors duration-200"
+                        className="cursor-target group relative inline-block text-xl !text-[#666] transition-colors duration-200"
                       >
                         {item.title}
+                        <div className="absolute -bottom-1 left-0 h-[2px] w-0 bg-[#666] transition-all duration-300 ease-in-out group-hover:w-full" />
                       </Link>
-                      <div className="absolute -bottom-1 left-0 h-[2px] w-0 bg-[#666] transition-all duration-300 ease-in-out group-hover:w-full" />
                     </motion.div>
                   ))}
                 </div>

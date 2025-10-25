@@ -27,12 +27,12 @@ export function LanguageSelector() {
 
   return (
     <Select value={locale} onValueChange={handleChange}>
-      <SelectTrigger className="w-[180px] border-gray-300 !text-[#333]">
+      <SelectTrigger className="cursor-target w-[180px] border-gray-300 text-lg !text-[#333]">
         <SelectValue />
       </SelectTrigger>
       <SelectContent>
         {Object.entries(languageNames).map(([code, name]) => (
-          <SelectItem key={code} value={code}>
+          <SelectItem className="cursor-target" key={code} value={code}>
             {name}
           </SelectItem>
         ))}
