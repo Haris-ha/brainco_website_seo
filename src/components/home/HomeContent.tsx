@@ -2,8 +2,8 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import Image from 'next/image';
 import { useTranslations } from 'next-intl';
+import Image from 'next/image';
 import { useRouter } from 'next/navigation';
 import { useCallback, useEffect, useRef, useState } from 'react';
 
@@ -181,11 +181,11 @@ export function HomeContent() {
   const handleTimeUpdate = useCallback(
     (e: React.SyntheticEvent<HTMLVideoElement>) => {
       const video = e.currentTarget;
-      
+
       // 只有当前激活的视频才更新进度
       const isVideo1Active = activeVideoIndex === 0 && video === video1Ref.current;
       const isVideo2Active = activeVideoIndex === 1 && video === video2Ref.current;
-      
+
       if (!isVideo1Active && !isVideo2Active) {
         return;
       }
@@ -208,13 +208,13 @@ export function HomeContent() {
       <div className="relative bg-white">
         <div className="relative aspect-video max-h-screen w-full overflow-hidden">
           <motion.h1
-            className="text-fluid-7xl absolute top-[60%] left-1/2 z-10 -translate-x-1/2 -translate-y-1/2 text-white"
+            className="text-fluid-7xl absolute top-[55%] left-1/2 z-10 w-[90%] -translate-x-1/2 -translate-y-1/2 text-center text-white md:top-[60%] md:w-auto"
             initial={{ opacity: 0, y: 50 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1, delay: 0.3, ease: 'easeOut' }}
           >
             <motion.span
-              className="inline-block"
+              className="inline-block whitespace-nowrap"
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.5, ease: 'easeOut' }}
@@ -223,7 +223,7 @@ export function HomeContent() {
             </motion.span>
             <br />
             <motion.span
-              className="inline-block"
+              className="inline-block whitespace-nowrap"
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.7, ease: 'easeOut' }}
@@ -262,7 +262,7 @@ export function HomeContent() {
 
         {/* 视频标签和进度条 */}
         <motion.ul
-          className="absolute bottom-[120px] left-1/2 z-10 flex -translate-x-1/2"
+          className="absolute bottom-[100px] left-1/2 z-10 flex -translate-x-1/2 md:bottom-[120px]"
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.9, ease: 'easeOut' }}
@@ -270,7 +270,7 @@ export function HomeContent() {
           {videoList.map((item, index) => (
             <motion.li
               key={item.titleKey}
-              className="ml-10 flex flex-col items-center justify-center first:ml-0"
+              className="ml-6 flex flex-col items-center justify-center first:ml-0 md:ml-10"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{
@@ -279,8 +279,12 @@ export function HomeContent() {
                 ease: 'easeOut',
               }}
             >
-              <span className="text-2xl text-white">{t(item.titleKey)}</span>
-              <s className="mt-[18px] flex h-2 w-[148px] overflow-hidden rounded bg-[rgba(227,227,227,0.4)] no-underline 2xl:w-[180px]">
+              <span className="text-xl whitespace-nowrap text-white md:text-2xl">{t(item.titleKey)}</span>
+              <s
+                className={`mt-[18px] flex h-2 overflow-hidden rounded bg-[rgba(227,227,227,0.4)] no-underline ${
+                  index === 3 ? 'w-[180px] 2xl:w-[220px]' : 'w-[120px] md:w-[148px] 2xl:w-[180px]'
+                }`}
+              >
                 <u
                   className="h-2 rounded bg-white no-underline transition-all duration-300 ease-linear"
                   style={{ width: `${videoProgress[index]}%` }}
