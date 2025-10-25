@@ -1,13 +1,21 @@
 'use client';
 
 import { motion } from 'framer-motion';
+import { useLocale, useTranslations } from 'next-intl';
 import Image from 'next/image';
 import { useState } from 'react';
 import { SimpleCarousel } from '@/components/ui/SimpleCarousel';
-import { cooperatingInstitutions, footnotes, process, researchArticles } from './data';
+import { getCooperatingInstitutions, getFootnotes, getProcess, getResearchArticles } from './data';
 
 export default function TechnologyContent() {
+  const locale = useLocale();
+  const t = useTranslations('Technology');
   const [selectedYear, setSelectedYear] = useState(0);
+
+  const process = getProcess(locale);
+  const footnotes = getFootnotes(locale);
+  const cooperatingInstitutions = getCooperatingInstitutions(locale);
+  const researchArticles = getResearchArticles(locale);
 
   return (
     <div className="w-full">
@@ -31,7 +39,7 @@ export default function TechnologyContent() {
             transition={{ duration: 0.6, delay: 0.3 }}
             className="text-fluid-7xl mb-[62px] leading-[70px] font-bold"
           >
-            脑机接口技术
+            {t('page_title')}
           </motion.h1>
           <motion.p
             initial={{ opacity: 0, y: 20 }}
@@ -39,7 +47,7 @@ export default function TechnologyContent() {
             transition={{ duration: 0.6, delay: 0.6 }}
             className="text-fluid-2xl max-w-[708px]"
           >
-            BrainCo强脑科技以技术为核心，以科研为导向，拥有领先的科学家团队，其中来自哈佛、MIT、清华、北大等全球顶级学府的优秀校友在核心研发团队中占比超过70%。目前公司在脑机接口领域拥有核心发明专利200余项，在全球脑机接口企业中处于领先地位。公司成功攻克了脑电信号大规模精准采集的难题，自主研发的固态凝胶电极已实现量产，显著提升了采集信号的精确度和稳定性。在此基础上，公司构建了覆盖脑电与神经信号采集、解析和实时反馈的完整技术链条，实现了从实验室研究到产业应用的突破，并在康复、大健康、人机交互和具身智能等领域得到广泛应用。
+            {t('page_intro')}
           </motion.p>
         </div>
       </motion.div>
@@ -54,7 +62,7 @@ export default function TechnologyContent() {
           className="mb-20 text-center"
         >
           <h2 className="text-[40px] font-bold tracking-[10px] text-[#333333]">
-            科研合作
+            {t('research_collaboration')}
           </h2>
         </motion.div>
 
@@ -99,7 +107,7 @@ export default function TechnologyContent() {
                   whileTap={{ scale: 0.95 }}
                 >
                   <span className="relative">
-                    了解更多
+                    {t('learn_more')}
                     <span className="absolute bottom-0 left-0 h-[2px] w-0 bg-[#1A74BF] transition-all duration-300 group-hover:w-full" />
                   </span>
                   <motion.div
@@ -163,7 +171,7 @@ export default function TechnologyContent() {
                   </p>
                   <div className="flex items-center">
                     <span className="cursor-pointer font-semibold !text-[#1A74BF]">
-                      了解更多
+                      {t('learn_more')}
                     </span>
                     <Image
                       src="https://website-www-brainco-cn.oss-cn-hangzhou.aliyuncs.com/images/dXLzUFuSgVRtErQb.png"
@@ -189,7 +197,7 @@ export default function TechnologyContent() {
           className="mb-20"
         >
           <h2 className="text-center text-[40px] font-bold tracking-[10px] text-[#333333]">
-            脑科学发展历程
+            {t('timeline_title')}
           </h2>
         </motion.div>
 
@@ -243,7 +251,7 @@ export default function TechnologyContent() {
                               </div>
                               <h4 className="mb-6 text-5xl font-normal">
                                 {item.year}
-                                <span className="ml-1 text-xl">年</span>
+                                {t('year_suffix') && <span className="ml-1 text-xl">{t('year_suffix')}</span>}
                               </h4>
                               <p className="text-xl leading-[1.7] font-light">
                                 {data.desc}
@@ -270,7 +278,7 @@ export default function TechnologyContent() {
         >
           {footnotes.map((note, index) => (
             <motion.li
-              key={note.url}
+              key={`footnote-${index}`}
               initial={{ opacity: 0, x: -20 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}

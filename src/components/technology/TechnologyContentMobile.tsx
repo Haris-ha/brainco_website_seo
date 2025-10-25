@@ -1,13 +1,21 @@
 'use client';
 
 import { motion } from 'framer-motion';
+import { useLocale, useTranslations } from 'next-intl';
 import Image from 'next/image';
 import { useState } from 'react';
 import { SimpleCarousel } from '@/components/ui/SimpleCarousel';
-import { cooperatingInstitutions, footnotes, process, researchArticles } from './data';
+import { getCooperatingInstitutions, getFootnotes, getProcess, getResearchArticles } from './data';
 
 export default function TechnologyContentMobile() {
+  const locale = useLocale();
+  const t = useTranslations('Technology');
   const [processIndex, setProcessIndex] = useState(0);
+
+  const process = getProcess(locale);
+  const footnotes = getFootnotes(locale);
+  const cooperatingInstitutions = getCooperatingInstitutions(locale);
+  const researchArticles = getResearchArticles(locale);
 
   return (
     <div className="w-full">
@@ -32,7 +40,7 @@ export default function TechnologyContentMobile() {
             transition={{ duration: 0.6, delay: 0.1 }}
             className="text-fluid-4xl mb-12 font-bold"
           >
-            脑机接口技术
+            {t('page_title')}
           </motion.h1>
           <motion.p
             initial={{ opacity: 0, y: 10 }}
@@ -40,7 +48,7 @@ export default function TechnologyContentMobile() {
             transition={{ duration: 0.6, delay: 0.4 }}
             className="text-fluid-xl leading-[1.4]"
           >
-            BrainCo强脑科技以技术为核心，以科研为导向，拥有领先的科学家团队，其中来自哈佛、MIT、清华、北大等全球顶级学府的优秀校友在核心研发团队中占比超过70%。目前公司在脑机接口领域拥有核心发明专利200余项，在全球脑机接口企业中处于领先地位。公司成功攻克了脑电信号大规模精准采集的难题，自主研发的固态凝胶电极已实现量产，显著提升了采集信号的精确度和稳定性。在此基础上，公司构建了覆盖脑电与神经信号采集、解析和实时反馈的完整技术链条，实现了从实验室研究到产业应用的突破，并在康复、大健康、人机交互和具身智能等领域得到广泛应用。
+            {t('page_intro')}
           </motion.p>
         </motion.div>
       </div>
@@ -54,7 +62,7 @@ export default function TechnologyContentMobile() {
           transition={{ duration: 0.6 }}
           className="text-fluid-4xl mb-8 text-center font-bold"
         >
-          科研合作
+          {t('research_collaboration')}
         </motion.h2>
 
         <motion.div
@@ -91,7 +99,7 @@ export default function TechnologyContentMobile() {
                     whileTap={{ scale: 0.95 }}
                   >
                     <span className="relative text-base font-bold text-[#1A74BF]">
-                      了解更多
+                      {t('learn_more')}
                     </span>
                     <motion.div
                       animate={{ x: [0, 3, 0] }}
@@ -156,7 +164,7 @@ export default function TechnologyContentMobile() {
               </p>
               <div className="mt-10 flex items-center">
                 <span className="text-base font-semibold text-[#1A74BF]">
-                  了解更多
+                  {t('learn_more')}
                 </span>
                 <Image
                   src="https://website-www-brainco-cn.oss-cn-hangzhou.aliyuncs.com/images/dXLzUFuSgVRtErQb.png"
@@ -180,7 +188,7 @@ export default function TechnologyContentMobile() {
           transition={{ duration: 0.6 }}
           className="text-fluid-4xl mb-10 text-center font-bold"
         >
-          脑科学发展历程
+          {t('timeline_title')}
         </motion.h2>
 
         <motion.ul
@@ -233,7 +241,7 @@ export default function TechnologyContentMobile() {
                         </div>
                         <h4 className="text-fluid-4xl my-[14px] flex items-end leading-[1.2]">
                           {item.year}
-                          <span className="text-fluid-lg mb-2 no-underline">年</span>
+                          {t('year_suffix') && <span className="text-fluid-lg mb-2 no-underline">{t('year_suffix')}</span>}
                         </h4>
                         <p className="text-fluid-lg w-full text-left leading-relaxed">
                           {data.desc}
