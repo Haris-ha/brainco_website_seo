@@ -83,7 +83,7 @@ export function Footer({ locale }: FooterProps) {
     <>
       {/* 桌面端Footer */}
       <footer className="hidden bg-gray-50 md:block">
-        <div className="mx-auto w-full max-w-7xl px-4 py-12">
+        <div className="mx-auto w-full max-w-7xl px-4 pt-12">
           {/* Logo和社交媒体图标 */}
           <div className="flex items-center justify-between border-b border-gray-300 pb-12">
             <Image
@@ -96,19 +96,29 @@ export function Footer({ locale }: FooterProps) {
             <div className="flex items-center gap-9">
               <button
                 type="button"
-                className="relative cursor-pointer transition-opacity hover:opacity-70"
-                onMouseEnter={() => setShowWechatQR(true)}
-                onMouseLeave={() => setShowWechatQR(false)}
+                className="relative cursor-pointer cursor-target transition-opacity"
+                onMouseEnter={() => {
+                  setShowWechatQR(true);
+                  setHoveredIcon('wechat');
+                }}
+                onMouseLeave={() => {
+                  setShowWechatQR(false);
+                  setHoveredIcon(null);
+                }}
               >
                 <Image
-                  src="https://website-www-brainco-cn.oss-cn-hangzhou.aliyuncs.com/assets/images/icon/MAqhgUP8Tto47vOE.webp"
+                  src={
+                    hoveredIcon === 'wechat'
+                      ? 'https://website-www-brainco-cn.oss-cn-hangzhou.aliyuncs.com/assets/images/icon/xnCVb1j5kU42BaXe.png'
+                      : 'https://website-www-brainco-cn.oss-cn-hangzhou.aliyuncs.com/assets/images/icon/MAqhgUP8Tto47vOE.webp'
+                  }
                   alt="WeChat"
                   width={38}
                   height={38}
                   className="h-9 w-9"
                 />
                 {showWechatQR && (
-                  <div className="absolute -top-20 -left-40 z-10 flex w-40 flex-col items-center justify-center rounded-3xl bg-white p-4 text-center shadow-lg">
+                  <div className="absolute -top-20 -left-42 z-10 flex w-40 flex-col items-center justify-center rounded-3xl bg-white p-4 text-center shadow-lg">
                     <Image
                       src="https://website-www-brainco-cn.oss-cn-hangzhou.aliyuncs.com/assets/images/brainco_code.jpg"
                       alt="WeChat QR Code"
@@ -130,7 +140,7 @@ export function Footer({ locale }: FooterProps) {
                 href="https://weibo.com/6552733338/profile?topnav=1&wvr=6"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="transition-opacity"
+                className="cursor-target transition-opacity"
                 onMouseEnter={() => setHoveredIcon('weibo')}
                 onMouseLeave={() => setHoveredIcon(null)}
               >
@@ -150,7 +160,7 @@ export function Footer({ locale }: FooterProps) {
                 href="https://www.zhihu.com/org/braincoqiang-nao-ke-ji"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="transition-opacity"
+                className="cursor-target transition-opacity"
                 onMouseEnter={() => setHoveredIcon('zhihu')}
                 onMouseLeave={() => setHoveredIcon(null)}
               >

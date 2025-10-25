@@ -367,7 +367,7 @@ export function HomeContent() {
                 }}
                 onMouseLeave={() => setProductCount(0)}
                 onClick={() => {
-                  if (item.router !== '/products/dexterous') {
+                  if (item.router !== '/products/revo1') {
                     router.push(item.router);
                   }
                 }}
@@ -502,10 +502,10 @@ export function HomeContent() {
                   role="button"
                   tabIndex={0}
                   className="cursor-target flex h-full w-[180px] cursor-pointer flex-col items-center justify-center overflow-hidden rounded-2xl bg-white transition-transform duration-200 hover:scale-105"
-                  onClick={() => router.push('/products/dexterous')}
+                  onClick={() => router.push('/products/revo1')}
                   onKeyDown={(e) => {
                     if (e.key === 'Enter' || e.key === ' ') {
-                      router.push('/products/dexterous');
+                      router.push('/products/revo1');
                     }
                   }}
                 >
