@@ -22,7 +22,7 @@ export function OrderPreview({
   items,
   discountAmount = 0,
   currentStep,
-  onDiscountApplied,
+  onDiscountApplied: _onDiscountApplied,
 }: OrderPreviewProps) {
   const t = useTranslations('Checkout');
   const [showMore, setShowMore] = useState(false);

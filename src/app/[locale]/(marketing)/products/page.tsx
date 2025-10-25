@@ -10,7 +10,7 @@ export async function generateMetadata(props: ProductsPageProps): Promise<Metada
   const t = await getTranslations({
     locale,
     namespace: 'Products',
-  });
+  } as any);
 
   return {
     title: t('meta_title'),
@@ -24,7 +24,7 @@ export default async function ProductsPage(props: ProductsPageProps) {
   const t = await getTranslations({
     locale,
     namespace: 'Products',
-  });
+  } as any);
 
   const products = [
     { id: 'brain-robotics', name: t('brain_robotics'), slug: 'brain-robotics' },

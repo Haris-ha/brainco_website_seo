@@ -20,7 +20,7 @@ export const getLastPathValue = (): string => {
   const currentPath = window.location.pathname;
   const regex = /\/([^/?]+)(?:\?.*)?$/;
   const match = currentPath.match(regex);
-  return match ? match[1] : '';
+  return match ? (match[1] || '') : '';
 };
 
 // 获取 URL 查询参数

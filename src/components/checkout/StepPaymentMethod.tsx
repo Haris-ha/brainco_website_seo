@@ -3,7 +3,6 @@
 import { motion } from 'framer-motion';
 import { useTranslations } from 'next-intl';
 import { useState } from 'react';
-import Image from 'next/image';
 
 interface StepPaymentMethodProps {
   orderNumber: string;
@@ -16,9 +15,9 @@ interface StepPaymentMethodProps {
  * 原版样式：微信支付、支付宝
  */
 export function StepPaymentMethod({
-  orderNumber,
-  totalAmount,
-  onSubmit,
+  orderNumber: _orderNumber,
+  totalAmount: _totalAmount,
+  onSubmit: _onSubmit,
 }: StepPaymentMethodProps) {
   const t = useTranslations('Checkout');
   

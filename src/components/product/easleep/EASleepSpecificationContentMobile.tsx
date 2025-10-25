@@ -44,7 +44,7 @@ export default function EASleepSpecificationContentMobile({ products }: EASleepS
     ],
   ];
 
-  const currentImages = productImages[selectedProductIndex] || productImages[0];
+  const currentImages = productImages[selectedProductIndex] || productImages[0] || [];
   const selectedProduct = products[selectedProductIndex] || products[0];
 
   const handleProductChange = (index: number) => {

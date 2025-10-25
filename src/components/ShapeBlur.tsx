@@ -135,14 +135,13 @@ const ShapeBlur = ({
   circleSize = 0.3,
   circleEdge = 0.5
 }) => {
-  const mountRef = useRef/**@type {HTMLDivElement | null}*/(null);
+  const mountRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     const mount = mountRef.current;
     if (!mount) return;
     
-    /** @type {number | null} */
-    let animationFrameId = null;
+    let animationFrameId: number | null = null;
     let time = 0,
       lastTime = 0;
 
@@ -182,7 +181,7 @@ const ShapeBlur = ({
     const quad = new THREE.Mesh(geo, material);
     scene.add(quad);
 
-    const onPointerMove = e => {
+    const onPointerMove = (e: MouseEvent | PointerEvent) => {
       const rect = mount.getBoundingClientRect();
       vMouse.set(e.clientX - rect.left, e.clientY - rect.top);
     };
@@ -192,6 +191,7 @@ const ShapeBlur = ({
 
     const resize = () => {
       const container = mountRef.current;
+      if (!container) return;
       w = container.clientWidth;
       h = container.clientHeight;
       const dpr = Math.min(window.devicePixelRatio, 2);
@@ -207,7 +207,9 @@ const ShapeBlur = ({
 
       quad.scale.set(w, h, 1);
       vResolution.set(w, h).multiplyScalar(dpr);
-      material.uniforms.u_pixelRatio.value = dpr;
+      if (material.uniforms.u_pixelRatio) {
+        material.uniforms.u_pixelRatio.value = dpr;
+      }
     };
 
     resize();
@@ -221,7 +223,7 @@ const ShapeBlur = ({
       const dt = time - lastTime;
       lastTime = time;
 
-      ['x', 'y'].forEach(k => {
+      (['x', 'y'] as const).forEach((k) => {
         vMouseDamp[k] = THREE.MathUtils.damp(vMouseDamp[k], vMouse[k], 8, dt);
       });
 
@@ -231,7 +233,9 @@ const ShapeBlur = ({
     update();
 
     return () => {
-      cancelAnimationFrame(animationFrameId);
+      if (animationFrameId !== null) {
+        cancelAnimationFrame(animationFrameId);
+      }
       window.removeEventListener('resize', resize);
       if (ro) ro.disconnect();
       document.removeEventListener('mousemove', onPointerMove);

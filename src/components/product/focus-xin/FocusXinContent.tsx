@@ -456,7 +456,7 @@ export default function FocusXinContent() {
         <div className="mx-auto flex max-w-6xl flex-wrap gap-x-3 gap-y-3 text-[0.94vw] text-gray-500">
           {patentList.map((group, groupIndex) => (
             <div key={groupIndex} className="flex flex-col space-y-3">
-              <span>{patentList[groupIndex]}</span>
+              <span>{group}</span>
             </div>
           ))}
         </div>

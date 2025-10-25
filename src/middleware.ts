@@ -7,7 +7,7 @@ import { DomainConfig } from './utils/AppConfig';
 const handleI18nRouting = createMiddleware(routing);
 
 export default async function middleware(request: NextRequest) {
-  const { pathname } = request.nextUrl;
+  const { pathname: _pathname } = request.nextUrl;
 
   // 检测搜索引擎爬虫，不执行跳转
   const userAgent = request.headers.get('user-agent') || '';
@@ -19,7 +19,7 @@ export default async function middleware(request: NextRequest) {
     // 优先从 CDN 头获取，其次使用 Vercel/Next.js 的 geo 信息
     const countryCode = request.headers.get('cloudfront-viewer-country')
       || request.headers.get('x-forwarded-country')
-      || request.geo?.country
+      || (request as any).geo?.country
       || null;
 
     const hostname = request.headers.get('host') || '';

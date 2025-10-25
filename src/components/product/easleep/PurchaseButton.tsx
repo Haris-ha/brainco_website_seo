@@ -19,7 +19,6 @@ export default function PurchaseButton({
   mode = 'buy',
 }: PurchaseButtonProps) {
   const t = useTranslations('Cart');
-  const tEasleep = useTranslations('EASleep');
   const router = useRouter();
   const { addToCart, toggleItemCheck } = useCart();
   const [isLoading, setIsLoading] = useState(false);

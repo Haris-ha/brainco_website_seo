@@ -1,14 +1,12 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import { useTranslations } from 'next-intl';
 import { CartEmpty } from '@/components/cart/CartEmpty';
 import { CartList } from '@/components/cart/CartList';
 import { CartSummary } from '@/components/cart/CartSummary';
 import { useCart } from '@/hooks/useCart';
 
 export default function CartPage() {
-  const t = useTranslations('Cart');
   const {
     items,
     toggleItemCheck,

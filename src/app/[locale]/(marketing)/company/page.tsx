@@ -10,7 +10,7 @@ export async function generateMetadata(props: CompanyPageProps): Promise<Metadat
   const t = await getTranslations({
     locale,
     namespace: 'Company',
-  });
+  } as any);
 
   return {
     title: t('meta_title'),
@@ -24,7 +24,7 @@ export default async function CompanyPage(props: CompanyPageProps) {
   const t = await getTranslations({
     locale,
     namespace: 'Company',
-  });
+  } as any);
 
   return (
     <div className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8">

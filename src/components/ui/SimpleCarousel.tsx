@@ -33,6 +33,7 @@ export function SimpleCarousel({
       }, autoplayDelay);
       return () => clearInterval(timer);
     }
+    return undefined;
   }, [autoplay, autoplayDelay, items.length]);
 
   const handleDragEnd = (_: unknown, info: { offset: { x: number }; velocity: { x: number } }) => {

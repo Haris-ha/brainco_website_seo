@@ -5,7 +5,6 @@ import { useTranslations } from 'next-intl';
 import Image from 'next/image';
 import AfterSalesMobile from '@/components/common/AfterSalesMobile';
 import PurchaseButton from './PurchaseButton';
-import { socialMediaData, appDownloadData, purchaseLink } from './data';
 
 interface OxyZenContentMobileProps {
   productInfo?: any;
