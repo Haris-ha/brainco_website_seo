@@ -41,9 +41,12 @@ const videoList = [
 
 export function HomeContentMobile() {
   const t = useTranslations('Home');
-  const videoRef = useRef<HTMLVideoElement>(null);
+  const video1Ref = useRef<HTMLVideoElement>(null);
+  const video2Ref = useRef<HTMLVideoElement>(null);
   const [playCount, setPlayCount] = useState(0);
-  const [videoLink, setVideoLink] = useState('');
+  const [video1Link, setVideo1Link] = useState('');
+  const [video2Link, setVideo2Link] = useState('');
+  const [activeVideoIndex, setActiveVideoIndex] = useState(0); // 0 for video1, 1 for video2
   const [videoProgress, setVideoProgress] = useState(videoList.map(() => 0));
 
   const playNextVideo = useCallback(() => {
@@ -73,16 +76,28 @@ export function HomeContentMobile() {
       });
 
       if (nextVideo) {
-        setVideoLink(nextVideo.src);
-      }
+        // 确定下一个要使用的视频元素
+        const nextVideoIndex = prevCount % 2;
+        const nextVideoRef = nextVideoIndex === 0 ? video1Ref : video2Ref;
 
-      setTimeout(() => {
-        if (videoRef.current) {
-          videoRef.current.play().catch(() => {
-            // 自动播放失败时静默处理
-          });
+        // 设置视频源
+        if (nextVideoIndex === 0) {
+          setVideo1Link(nextVideo.src);
+        } else {
+          setVideo2Link(nextVideo.src);
         }
-      }, 10);
+
+        // 等待视频加载后播放并切换显示
+        setTimeout(() => {
+          if (nextVideoRef.current) {
+            nextVideoRef.current.play().catch(() => {
+              // 自动播放失败时静默处理
+            });
+            // 切换激活的视频索引，触发淡入淡出效果
+            setActiveVideoIndex(nextVideoIndex);
+          }
+        }, 10);
+      }
 
       return prevCount + 1;
     });
@@ -112,17 +127,29 @@ export function HomeContentMobile() {
     }
   }, [playNextVideo]);
 
-  const handleTimeUpdate = (e: React.SyntheticEvent<HTMLVideoElement>) => {
-    const video = e.currentTarget;
-    const duration = video.duration;
-    const currentTime = video.currentTime;
-    const currentIndex = (playCount - 1 + videoList.length) % videoList.length;
+  const handleTimeUpdate = useCallback(
+    (e: React.SyntheticEvent<HTMLVideoElement>) => {
+      const video = e.currentTarget;
+      
+      // 只有当前激活的视频才更新进度
+      const isVideo1Active = activeVideoIndex === 0 && video === video1Ref.current;
+      const isVideo2Active = activeVideoIndex === 1 && video === video2Ref.current;
+      
+      if (!isVideo1Active && !isVideo2Active) {
+        return;
+      }
 
-    // 更新当前视频的进度
-    const newProgress = [...videoProgress];
-    newProgress[currentIndex] = (currentTime / duration) * 100;
-    setVideoProgress(newProgress);
-  };
+      const duration = video.duration;
+      const currentTime = video.currentTime;
+      const currentIndex = (playCount - 1 + videoList.length) % videoList.length;
+
+      // 更新当前视频的进度
+      const newProgress = [...videoProgress];
+      newProgress[currentIndex] = (currentTime / duration) * 100;
+      setVideoProgress(newProgress);
+    },
+    [playCount, videoProgress, activeVideoIndex],
+  );
 
   return (
     <div className="relative h-full">
@@ -150,19 +177,37 @@ export function HomeContentMobile() {
             {t('hero_title_2')}
           </motion.p>
         </motion.div>
-        {videoLink && (
-          <video
-            ref={videoRef}
-            src={videoLink}
-            muted
-            playsInline
-            webkit-playsinline="true"
-            x5-video-player-type="h5-page"
-            onEnded={playNextVideo}
-            onTimeUpdate={handleTimeUpdate}
-            className="h-[720px] w-full object-cover"
-          />
-        )}
+        {/* 双视频元素交替显示，避免切换闪烁 */}
+        <video
+          ref={video1Ref}
+          {...(video1Link && { src: video1Link })}
+          muted
+          playsInline
+          webkit-playsinline="true"
+          x5-video-player-type="h5-page"
+          onEnded={playNextVideo}
+          onTimeUpdate={handleTimeUpdate}
+          className="absolute inset-0 h-[720px] w-full object-cover transition-opacity duration-500"
+          style={{
+            opacity: activeVideoIndex === 0 && video1Link ? 1 : 0,
+            pointerEvents: activeVideoIndex === 0 ? 'auto' : 'none',
+          }}
+        />
+        <video
+          ref={video2Ref}
+          {...(video2Link && { src: video2Link })}
+          muted
+          playsInline
+          webkit-playsinline="true"
+          x5-video-player-type="h5-page"
+          onEnded={playNextVideo}
+          onTimeUpdate={handleTimeUpdate}
+          className="absolute inset-0 h-[720px] w-full object-cover transition-opacity duration-500"
+          style={{
+            opacity: activeVideoIndex === 1 && video2Link ? 1 : 0,
+            pointerEvents: activeVideoIndex === 1 ? 'auto' : 'none',
+          }}
+        />
       </div>
 
       {/* 视频标签和进度条 */}
