@@ -4,10 +4,10 @@ import { motion } from 'framer-motion';
 import { useTranslations } from 'next-intl';
 import Image from 'next/image';
 
-interface AfterSalesProps {
+type AfterSalesProps = {
   text?: string;
   text2?: string;
-}
+};
 
 export default function AfterSales({ text, text2 }: AfterSalesProps) {
   const t = useTranslations('AfterSales');
@@ -39,7 +39,7 @@ export default function AfterSales({ text, text2 }: AfterSalesProps) {
             alt=""
             width={78}
             height={78}
-            className="h-auto w-[4.0625vw] min-w-[50px] max-w-[78px]"
+            className="h-auto w-[4.0625vw] max-w-[78px] min-w-[50px]"
           />
           <span className="text-fluid-2xl ml-[1.145vw] max-w-[26vw] text-left">
             {item.name}
@@ -49,4 +49,3 @@ export default function AfterSales({ text, text2 }: AfterSalesProps) {
     </ul>
   );
 }
-

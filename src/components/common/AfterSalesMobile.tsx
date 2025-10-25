@@ -4,10 +4,10 @@ import { motion } from 'framer-motion';
 import { useTranslations } from 'next-intl';
 import Image from 'next/image';
 
-interface AfterSalesMobileProps {
+type AfterSalesMobileProps = {
   text?: string;
   text2?: string;
-}
+};
 
 export default function AfterSalesMobile({ text, text2 }: AfterSalesMobileProps) {
   const t = useTranslations('AfterSales');
@@ -49,4 +49,3 @@ export default function AfterSalesMobile({ text, text2 }: AfterSalesMobileProps)
     </ul>
   );
 }
-

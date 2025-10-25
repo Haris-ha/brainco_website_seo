@@ -4,6 +4,8 @@ import OnlineServiceMobile from '@/components/common/OnlineServiceMobile';
 import BrainRoboticsContent from '@/components/product/brain-robotics/BrainRoboticsContent';
 import BrainRoboticsContentMobile from '@/components/product/brain-robotics/BrainRoboticsContentMobile';
 
+export const dynamic = 'force-dynamic';
+
 export async function generateMetadata({
   params,
 }: {

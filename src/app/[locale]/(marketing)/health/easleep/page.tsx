@@ -4,6 +4,8 @@ import OnlineServiceMobile from '@/components/common/OnlineServiceMobile';
 import EASleepContent from '@/components/product/easleep/EASleepContent';
 import EASleepContentMobile from '@/components/product/easleep/EASleepContentMobile';
 
+export const dynamic = 'force-dynamic';
+
 export async function generateMetadata({
   params,
 }: {

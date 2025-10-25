@@ -21,7 +21,7 @@
 3. 填写项目信息：
    - Project name: `BrainCo Website`
    - Source language: `Chinese Simplified`
-   - Target languages: 
+   - Target languages:
      - `English`
      - `Chinese Traditional, Taiwan`
 
@@ -43,7 +43,7 @@ CROWDIN_PERSONAL_TOKEN=your_personal_token_here
 然后更新 `crowdin.yml` 文件中的 `project_id`：
 
 ```yaml
-project_id: "your_project_id"
+project_id: your_project_id
 ```
 
 ### 5. 上传源文件
@@ -161,7 +161,7 @@ import { getTranslations } from 'next-intl/server';
 
 export default async function ProductPage() {
   const t = await getTranslations('Products');
-  
+
   return <h1>{t('new_product')}</h1>;
 }
 ```
@@ -195,7 +195,7 @@ Crowdin 自动保存翻译历史，相同或相似的文本会自动提示之前
    - 设置审校人员权限
 
 2. **只导出已审批的翻译**
-   
+
    修改 `crowdin.yml`：
    ```yaml
    export_only_approved: true
@@ -279,7 +279,7 @@ npm run build
 
 ### Q: 如何添加新语言？
 
-A: 
+A:
 1. 在 Crowdin 项目中添加目标语言
 2. 更新 `src/utils/AppConfig.ts` 中的 `locales` 数组
 3. 更新 `crowdin.yml` 中的语言映射
@@ -369,4 +369,3 @@ git commit -m "chore: update translations from Crowdin"
 ---
 
 **提示**：Crowdin 对开源项目免费，商业项目需要付费订阅。
-

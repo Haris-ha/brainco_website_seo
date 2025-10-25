@@ -109,7 +109,9 @@ import toast, { Toaster } from 'react-hot-toast';
 export default function MyComponent() {
   return (
     <div>
-      <Toaster />  {/* 每个使用 toast 的组件都需要添加 */}
+      <Toaster />
+      {' '}
+      {/* 每个使用 toast 的组件都需要添加 */}
       {/* 组件内容 */}
     </div>
   );
@@ -212,18 +214,17 @@ toast.promise(
 
 ```tsx
 <Toaster
-  position="top-center"  // 修改位置
+  position="top-center" // 修改位置
   toastOptions={{
-    duration: 4000,  // 修改默认时长
+    duration: 4000, // 修改默认时长
     style: {
-      background: '#000',  // 修改背景色
-      color: '#fff',       // 修改文字颜色
+      background: '#000', // 修改背景色
+      color: '#fff', // 修改文字颜色
       // ... 其他样式
     },
   }}
-/>
+/>;
 ```
 
 ## 更新日期
 2025-10-22
-

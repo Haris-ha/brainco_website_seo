@@ -207,7 +207,7 @@ export default function BrainRoboticsContentMobile() {
       (entries) => {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
-            video.play().catch(err => console.log('Video play failed:', err));
+            video.play().catch(err => console.error('Video play failed:', err));
           } else {
             video.pause();
           }

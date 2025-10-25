@@ -25,8 +25,3 @@ const Checkbox = ({ ref, className, ...props }: React.ComponentPropsWithoutRef<t
 Checkbox.displayName = CheckboxPrimitive.Root.displayName;
 
 export { Checkbox };
-
-
-
-
-

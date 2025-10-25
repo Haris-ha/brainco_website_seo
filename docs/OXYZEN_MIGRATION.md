@@ -233,7 +233,7 @@ import AfterSalesMobile from '@/components/common/AfterSalesMobile';
 <AfterSalesMobile />
 
 // 自定义文案
-<AfterSales 
+<AfterSales
   text="自定义退换货文案"
   text2="自定义客服文案"
 />
@@ -244,7 +244,7 @@ import AfterSalesMobile from '@/components/common/AfterSalesMobile';
 ### 问题 1: JSON 解析错误
 **错误**: 第 703 行包含未转义的中文引号导致 JSON 解析失败
 
-**修复**: 
+**修复**:
 - 将 `"正念"` 改为 `\"正念\"`
 - 在 JSON 中正确转义引号字符
 
@@ -267,7 +267,7 @@ import AfterSalesMobile from '@/components/common/AfterSalesMobile';
 ### 问题 3: 路由错误
 **错误**: `/products/oxyzen` 404
 
-**修复**: 
+**修复**:
 - 将页面从 `/products/oxyzen` 移动到 `/health/oxyzen`
 - 更新 Footer 导航链接
 - OxyZen 属于"智能健康"分类，与 EASleep 同级
@@ -287,4 +287,3 @@ OxyZen 产品模块已完全迁移到新的 Next.js 项目，包括：
 - ✅ 错误处理和 fallback 数据
 
 所有代码遵循项目规范，使用现代 React 和 Next.js 最佳实践。
-

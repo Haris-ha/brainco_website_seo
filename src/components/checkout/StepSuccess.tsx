@@ -5,9 +5,9 @@ import { CheckCircle } from 'lucide-react';
 import { useTranslations } from 'next-intl';
 import { useRouter } from '@/libs/I18nNavigation';
 
-interface StepSuccessProps {
+type StepSuccessProps = {
   orderNumber: string;
-}
+};
 
 export function StepSuccess({ orderNumber }: StepSuccessProps) {
   const t = useTranslations('Checkout');
@@ -90,4 +90,3 @@ export function StepSuccess({ orderNumber }: StepSuccessProps) {
     </motion.div>
   );
 }
-

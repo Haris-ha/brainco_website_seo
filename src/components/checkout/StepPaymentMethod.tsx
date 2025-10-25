@@ -4,11 +4,11 @@ import { motion } from 'framer-motion';
 import { useTranslations } from 'next-intl';
 import { useState } from 'react';
 
-interface StepPaymentMethodProps {
+type StepPaymentMethodProps = {
   orderNumber: string;
   totalAmount: number;
   onSubmit: () => Promise<void>;
-}
+};
 
 /**
  * 第三步：支付方式选择
@@ -20,7 +20,7 @@ export function StepPaymentMethod({
   onSubmit: _onSubmit,
 }: StepPaymentMethodProps) {
   const t = useTranslations('Checkout');
-  
+
   const [paymentMethod, setPaymentMethod] = useState('');
   const [qrValue, setQrValue] = useState('');
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -32,25 +32,25 @@ export function StepPaymentMethod({
 
   // 提交支付
   const handleSubmit = async () => {
-    if (!paymentMethod) return;
+    if (!paymentMethod) {
+      return;
+    }
 
     try {
       setIsSubmitting(true);
-      
+
       // TODO: 调用支付 API
       // const response = await createPayment(orderNumber, paymentMethod);
       // setQrValue(response.codeUrl);
-      
+
       // 模拟生成二维码
       setQrValue('mock-qr-code');
-      
+
       // 开始轮询支付状态
       // startPaymentPolling(orderNumber, onSubmit);
-    }
-    catch (error) {
+    } catch (error) {
       console.error('Payment failed:', error);
-    }
-    finally {
+    } finally {
       setIsSubmitting(false);
     }
   };
@@ -63,7 +63,7 @@ export function StepPaymentMethod({
       className="w-full max-w-[620px]"
     >
       {/* 步骤指示 */}
-      <span className="mb-6 mt-4 block text-base md:mb-8 md:mt-6 md:text-lg lg:mb-11 lg:mt-9 lg:text-[24px]">
+      <span className="mt-4 mb-6 block text-base md:mt-6 md:mb-8 md:text-lg lg:mt-9 lg:mb-11 lg:text-[24px]">
         {t('step_indicator', { current: 3, total: 3 })}
       </span>
 
@@ -71,7 +71,7 @@ export function StepPaymentMethod({
       <h1 className="text-3xl text-[#333] md:text-4xl lg:text-[56px]">
         {t('step_3_title')}
       </h1>
-      
+
       <p className="text-sm md:text-base lg:text-[18px]">
         {t('step_3_desc')}
       </p>
@@ -99,7 +99,7 @@ export function StepPaymentMethod({
           <p className="my-1.5 text-xs text-[#707070] md:text-sm">
             {t('scan_to_pay', { method: paymentMethod === 'WECHAT_PAY_NATIVE' ? '微信' : '支付宝' })}
           </p>
-          
+
           {/* 二维码 */}
           <div className="flex h-[180px] w-[180px] items-center justify-center md:h-[200px] md:w-[200px] lg:h-[240px] lg:w-[240px]">
             {paymentMethod === 'WECHAT_PAY_NATIVE' && (
@@ -108,7 +108,7 @@ export function StepPaymentMethod({
                 <div className="size-[150px] bg-gray-200 md:size-[180px] lg:size-[200px]" />
               </div>
             )}
-            
+
             {paymentMethod === 'ALIPAY_PAGE' && (
               <div id="payCode" className="flex items-center justify-center">
                 {/* 支付宝表单将在这里渲染 */}
@@ -116,7 +116,7 @@ export function StepPaymentMethod({
               </div>
             )}
           </div>
-          
+
           <p className="my-1.5 text-xs text-[#707070] md:text-sm">
             {t('pay_within_30_min')}
           </p>
@@ -136,4 +136,3 @@ export function StepPaymentMethod({
     </motion.div>
   );
 }
-

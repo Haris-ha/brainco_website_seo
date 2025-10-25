@@ -87,11 +87,11 @@ class Request {
       clearTimeout(timeoutId);
       if (error instanceof Error) {
         if (error.name === 'AbortError') {
-          return Promise.reject('请求超时');
+          return Promise.reject(new Error('请求超时'));
         }
-        return Promise.reject(error.message);
+        return Promise.reject(error);
       }
-      return Promise.reject('请求失败');
+      return Promise.reject(new Error('请求失败'));
     }
   }
 
@@ -145,4 +145,3 @@ class Request {
 // 导出默认实例
 const request = new Request();
 export default request;
-

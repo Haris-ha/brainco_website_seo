@@ -61,19 +61,19 @@ export function Header() {
 #### 2. 指定桌面端 Logo
 
 ```tsx
-<Logo variant="desktop" width={250} height={75} />
+<Logo variant="desktop" width={250} height={75} />;
 ```
 
 #### 3. 指定移动端 Logo
 
 ```tsx
-<Logo variant="mobile" width={120} height={36} />
+<Logo variant="mobile" width={120} height={36} />;
 ```
 
 #### 4. 自定义样式
 
 ```tsx
-<Logo className="transition-opacity hover:opacity-80" />
+<Logo className="transition-opacity hover:opacity-80" />;
 ```
 
 ### 在导航栏中使用
@@ -107,7 +107,7 @@ export function Navigation() {
 ```tsx
 import { QRCode } from '@/components/QRCode';
 
-<QRCode />
+<QRCode />;
 ```
 
 ### Props
@@ -124,7 +124,7 @@ import { QRCode } from '@/components/QRCode';
 #### 1. 默认样式
 
 ```tsx
-<QRCode />
+<QRCode />;
 ```
 
 #### 2. 自定义尺寸和文字
@@ -134,7 +134,7 @@ import { QRCode } from '@/components/QRCode';
   size={150}
   title="关注我们"
   description="获取最新产品资讯"
-/>
+/>;
 ```
 
 #### 3. 无文字版本
@@ -144,7 +144,7 @@ import { QRCode } from '@/components/QRCode';
   size={180}
   title=""
   description=""
-/>
+/>;
 ```
 
 #### 4. 在页脚使用
@@ -156,7 +156,7 @@ export function Footer() {
       <div className="mx-auto max-w-7xl px-4">
         <div className="grid grid-cols-1 gap-8 md:grid-cols-3">
           {/* 其他内容 */}
-          
+
           <div className="flex justify-center">
             <QRCode
               size={150}
@@ -178,12 +178,12 @@ export function ContactPage() {
   return (
     <div className="mx-auto max-w-4xl px-4 py-16">
       <h1 className="text-3xl font-bold">联系我们</h1>
-      
+
       <div className="mt-8 grid gap-8 md:grid-cols-2">
         <div>
           {/* 联系信息 */}
         </div>
-        
+
         <div className="flex items-center justify-center">
           <QRCode
             size={200}
@@ -214,7 +214,7 @@ export default async function Layout({
   params: Promise<{ locale: string }>;
 }) {
   const { locale } = await params;
-  
+
   return (
     <div>
       <Navigation locale={locale} />
@@ -264,7 +264,7 @@ export default async function Layout({
 ```tsx
 <Link href="/new-page">
   {t('new_link')}
-</Link>
+</Link>;
 ```
 
 ---
@@ -278,7 +278,7 @@ export default async function Layout({
 ```tsx
 import { LocaleSwitcher } from '@/components/LocaleSwitcher';
 
-<LocaleSwitcher />
+<LocaleSwitcher />;
 ```
 
 ### 支持的语言
@@ -292,7 +292,7 @@ import { LocaleSwitcher } from '@/components/LocaleSwitcher';
 ```tsx
 <div className="flex items-center">
   <LocaleSwitcher />
-</div>
+</div>;
 ```
 
 ---
@@ -312,7 +312,7 @@ import Image from 'next/image';
   width={800}
   height={600}
   loading="lazy"
-/>
+/>;
 ```
 
 ### 产品图片
@@ -349,7 +349,7 @@ import Image from 'next/image';
     className="object-cover"
     sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
   />
-</div>
+</div>;
 ```
 
 ### 图片优化
@@ -367,9 +367,9 @@ Next.js 自动优化：
 ### 基础页面布局
 
 ```tsx
+import { Footer } from '@/components/Footer';
 // src/app/[locale]/(marketing)/layout.tsx
 import { Navigation } from '@/components/Navigation';
-import { Footer } from '@/components/Footer';
 
 export default async function MarketingLayout({
   children,
@@ -379,15 +379,15 @@ export default async function MarketingLayout({
   params: Promise<{ locale: string }>;
 }) {
   const { locale } = await params;
-  
+
   return (
     <div className="flex min-h-screen flex-col">
       <Navigation locale={locale} />
-      
+
       <main className="flex-1">
         {children}
       </main>
-      
+
       <Footer />
     </div>
   );
@@ -409,7 +409,7 @@ export function Container({ children }: { children: React.ReactNode }) {
 <Container>
   <h1>页面标题</h1>
   <p>页面内容</p>
-</Container>
+</Container>;
 ```
 
 ### Section 组件
@@ -434,7 +434,7 @@ export function Section({
   <Container>
     <h2>Section 标题</h2>
   </Container>
-</Section>
+</Section>;
 ```
 
 ---
@@ -509,7 +509,7 @@ export function ProductGrid({ products }: { products: Product[] }) {
 
 ```tsx
 // 默认就是懒加载
-<Image src="/product.webp" loading="lazy" />
+<Image src="/product.webp" loading="lazy" />;
 ```
 
 ### 3. 使用占位符
@@ -519,7 +519,7 @@ export function ProductGrid({ products }: { products: Product[] }) {
   src="/product.webp"
   placeholder="blur"
   blurDataURL="data:image/..." // 低质量占位符
-/>
+/>;
 ```
 
 ### 4. 响应式 sizes
@@ -529,7 +529,7 @@ export function ProductGrid({ products }: { products: Product[] }) {
   src="/hero.webp"
   sizes="(max-width: 768px) 100vw, 50vw"
   // 告诉浏览器如何选择合适的图片尺寸
-/>
+/>;
 ```
 
 ---
@@ -544,25 +544,5 @@ export function ProductGrid({ products }: { products: Product[] }) {
 
 ---
 
-**最后更新**: 2025-01-XX  
+**最后更新**: 2025-01-XX
 **文档作者**: AI Assistant
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

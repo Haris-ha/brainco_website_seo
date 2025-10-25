@@ -2,7 +2,7 @@ import { describe, expect, it } from 'vitest';
 import { routing } from '@/libs/I18nRouting';
 import { getI18nPath } from './Helpers';
 
-describe('Helpers', () => {
+describe('helpers', () => {
   describe('getI18nPath function', () => {
     it('should not change the path for default language', () => {
       const url = '/random-url';

@@ -12,12 +12,12 @@
 ```css
 /* brainco_website/src/assets/base.css */
 html {
-  font-size: 10vw;  /* 🔑 关键！根字体大小基于视口宽度 */
+  font-size: 10vw; /* 🔑 关键！根字体大小基于视口宽度 */
 }
 
-@media only screen and (min-width: 1920PX) {
+@media only screen and (min-width: 1920px) {
   html {
-    font-size: 192PX;  /* 大屏固定 */
+    font-size: 192px; /* 大屏固定 */
   }
 }
 ```
@@ -82,18 +82,42 @@ html {
 新增 12 个流式字体大小类：
 
 ```css
-.text-fluid-xs   { font-size: 0.75rem; }   /* 12px @ 16px base */
-.text-fluid-sm   { font-size: 0.875rem; }  /* 14px */
-.text-fluid-base { font-size: 1rem; }      /* 16px */
-.text-fluid-lg   { font-size: 1.125rem; }  /* 18px */
-.text-fluid-xl   { font-size: 1.25rem; }   /* 20px */
-.text-fluid-2xl  { font-size: 1.5rem; }    /* 24px */
-.text-fluid-3xl  { font-size: 1.875rem; }  /* 30px */
-.text-fluid-4xl  { font-size: 2.25rem; }   /* 36px */
-.text-fluid-5xl  { font-size: 3rem; }      /* 48px */
-.text-fluid-6xl  { font-size: 3.75rem; }   /* 60px */
-.text-fluid-7xl  { font-size: 4.5rem; }    /* 72px */
-.text-fluid-8xl  { font-size: 6rem; }      /* 96px */
+.text-fluid-xs {
+  font-size: 0.75rem;
+} /* 12px @ 16px base */
+.text-fluid-sm {
+  font-size: 0.875rem;
+} /* 14px */
+.text-fluid-base {
+  font-size: 1rem;
+} /* 16px */
+.text-fluid-lg {
+  font-size: 1.125rem;
+} /* 18px */
+.text-fluid-xl {
+  font-size: 1.25rem;
+} /* 20px */
+.text-fluid-2xl {
+  font-size: 1.5rem;
+} /* 24px */
+.text-fluid-3xl {
+  font-size: 1.875rem;
+} /* 30px */
+.text-fluid-4xl {
+  font-size: 2.25rem;
+} /* 36px */
+.text-fluid-5xl {
+  font-size: 3rem;
+} /* 48px */
+.text-fluid-6xl {
+  font-size: 3.75rem;
+} /* 60px */
+.text-fluid-7xl {
+  font-size: 4.5rem;
+} /* 72px */
+.text-fluid-8xl {
+  font-size: 6rem;
+} /* 96px */
 ```
 
 ### 3. 组件更新示例
@@ -272,21 +296,5 @@ font-size: clamp(12px, 0.833vw, 20px);
 
 ---
 
-**最后更新：** 2025-10-17  
+**最后更新：** 2025-10-17
 **状态：** 基础功能完成，等待全面迁移
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

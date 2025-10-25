@@ -5,12 +5,12 @@ import { useTranslations } from 'next-intl';
 import Image from 'next/image';
 import { useState } from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
-import 'swiper/css';
 import PurchaseButton from './PurchaseButton';
+import 'swiper/css';
 
-interface EASleepSpecificationContentMobileProps {
+type EASleepSpecificationContentMobileProps = {
   products: any[];
-}
+};
 
 export default function EASleepSpecificationContentMobile({ products }: EASleepSpecificationContentMobileProps) {
   const t = useTranslations('EASleep');
@@ -24,7 +24,7 @@ export default function EASleepSpecificationContentMobile({ products }: EASleepS
       'https://website-www-brainco-cn.oss-cn-hangzhou.aliyuncs.com/assets/images/wlKhSyscJ9EoBTGc.webp',
       'https://website-www-brainco-cn.oss-cn-hangzhou.aliyuncs.com/assets/images/wckP0iXLfaTxVFNR.webp',
       'https://website-www-brainco-cn.oss-cn-hangzhou.aliyuncs.com/assets/images/YzhZ68n25w11GnoM.webp',
-      'https://website-www-brainco-cn.oss-cn-hangzhou.aliyuncs.com/assets/images/eDSQYeauFtGLf7yx.webp'
+      'https://website-www-brainco-cn.oss-cn-hangzhou.aliyuncs.com/assets/images/eDSQYeauFtGLf7yx.webp',
     ],
     [
       'https://website-www-brainco-cn.oss-cn-hangzhou.aliyuncs.com/assets/images/YxNFBzYONzQD5o2T.webp',
@@ -32,7 +32,7 @@ export default function EASleepSpecificationContentMobile({ products }: EASleepS
       'https://website-www-brainco-cn.oss-cn-hangzhou.aliyuncs.com/assets/images/c75Pq3y4U6IoUmho.webp',
       'https://website-www-brainco-cn.oss-cn-hangzhou.aliyuncs.com/assets/images/tG7cYDaMqHgtYaTt.webp',
       'https://website-www-brainco-cn.oss-cn-hangzhou.aliyuncs.com/assets/images/Uod369tyglYbNjxX.webp',
-      'https://website-www-brainco-cn.oss-cn-hangzhou.aliyuncs.com/assets/images/GNBvCPD3WmXZ6aGw.webp'
+      'https://website-www-brainco-cn.oss-cn-hangzhou.aliyuncs.com/assets/images/GNBvCPD3WmXZ6aGw.webp',
     ],
     [
       'https://website-www-brainco-cn.oss-cn-hangzhou.aliyuncs.com/assets/images/5fVFNfitWtYkpVh4.webp',
@@ -40,7 +40,7 @@ export default function EASleepSpecificationContentMobile({ products }: EASleepS
       'https://website-www-brainco-cn.oss-cn-hangzhou.aliyuncs.com/assets/images/c75Pq3y4U6IoUmho.webp',
       'https://website-www-brainco-cn.oss-cn-hangzhou.aliyuncs.com/assets/images/tG7cYDaMqHgtYaTt.webp',
       'https://website-www-brainco-cn.oss-cn-hangzhou.aliyuncs.com/assets/images/Uod369tyglYbNjxX.webp',
-      'https://website-www-brainco-cn.oss-cn-hangzhou.aliyuncs.com/assets/images/GNBvCPD3WmXZ6aGw.webp'
+      'https://website-www-brainco-cn.oss-cn-hangzhou.aliyuncs.com/assets/images/GNBvCPD3WmXZ6aGw.webp',
     ],
   ];
 
@@ -130,7 +130,7 @@ export default function EASleepSpecificationContentMobile({ products }: EASleepS
                   {(product.price || 0) / 100}
                 </div>
                 {product.oldPrice && (
-                  <div className="text-fluid-sm text-[#595757] opacity-50 line-through">
+                  <div className="text-fluid-sm text-[#595757] line-through opacity-50">
                     ¥
                     {(product.oldPrice || 0) / 100}
                   </div>

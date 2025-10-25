@@ -1,5 +1,7 @@
 import { getTranslations } from 'next-intl/server';
 
+export const dynamic = 'force-dynamic';
+
 import OnlineService from '@/components/common/OnlineService';
 import OnlineServiceMobile from '@/components/common/OnlineServiceMobile';
 import Revo1Content from '@/components/product/revo1/Revo1Content';

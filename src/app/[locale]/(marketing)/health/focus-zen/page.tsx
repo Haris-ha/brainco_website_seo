@@ -4,6 +4,8 @@ import OnlineServiceMobile from '@/components/common/OnlineServiceMobile';
 import FocusZenContent from '@/components/product/focus-zen/FocusZenContent';
 import FocusZenContentMobile from '@/components/product/focus-zen/FocusZenContentMobile';
 
+export const dynamic = 'force-dynamic';
+
 export async function generateMetadata(props: {
   params: Promise<{ locale: string }>;
 }) {

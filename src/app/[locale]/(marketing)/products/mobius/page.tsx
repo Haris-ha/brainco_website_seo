@@ -4,6 +4,8 @@ import OnlineServiceMobile from '@/components/common/OnlineServiceMobile';
 import MobiusContent from '@/components/product/mobius/MobiusContent';
 import MobiusContentMobile from '@/components/product/mobius/MobiusContentMobile';
 
+export const dynamic = 'force-dynamic';
+
 export async function generateMetadata({
   params,
 }: {

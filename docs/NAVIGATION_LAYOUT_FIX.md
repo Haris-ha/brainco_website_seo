@@ -24,13 +24,13 @@
 <div className="relative z-10 flex h-20 w-full items-center pl-60">
   {/* Logo */}
   <div className="mr-0 flex items-center">...</div>
-  
+
   {/* 导航菜单 */}
   <nav className="flex flex-1">...</nav>
-  
+
   {/* 购物车 */}
   <div className="mr-[30vw] flex items-center">...</div>
-</div>
+</div>;
 ```
 
 **修复后**:
@@ -38,13 +38,13 @@
 <div className="relative z-10 flex h-20 w-full items-center justify-between px-4 sm:px-8 md:px-16 lg:px-24 xl:px-32 2xl:px-60">
   {/* Logo - 左侧对齐 */}
   <div className="flex items-center">...</div>
-  
+
   {/* 导航菜单 - 居中 */}
-  <nav className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2">...</nav>
-  
+  <nav className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">...</nav>
+
   {/* 购物车 - 右侧对齐 */}
   <div className="flex items-center">...</div>
-</div>
+</div>;
 ```
 
 ### 2. 响应式内边距
@@ -71,7 +71,7 @@ px-4 sm:px-8 md:px-16 lg:px-24 xl:px-32 2xl:px-60
 
 **修复后**: 绝对定位居中
 ```tsx
-className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2"
+className = 'absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2';
 ```
 
 - `absolute`: 绝对定位
@@ -84,21 +84,21 @@ className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2"
 ```tsx
 <div className="flex items-center">
   {/* Logo 内容 */}
-</div>
+</div>;
 ```
 
 **购物车 (右侧)**:
 ```tsx
 <div className="flex items-center">
   {/* 购物车内容 */}
-</div>
+</div>;
 ```
 
 **容器布局**:
 ```tsx
 <div className="flex h-20 w-full items-center justify-between">
   {/* justify-between 确保左右对齐 */}
-</div>
+</div>;
 ```
 
 ---
@@ -256,25 +256,6 @@ px-4 sm:px-8 md:px-16 lg:px-24 xl:px-32 2xl:px-60
 
 ---
 
-**修复日期**: 2025-01-16  
-**修复状态**: ✅ 100% 完成  
+**修复日期**: 2025-01-16
+**修复状态**: ✅ 100% 完成
 **代码质量**: ✅ 零错误
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

@@ -8,7 +8,6 @@ type IIndexProps = {
 
 export async function generateMetadata(props: IIndexProps): Promise<Metadata> {
   const { locale } = await props.params;
-  // @ts-ignore - Type inference issue with next-intl
   const t = await getTranslations({
     locale,
     namespace: 'Index',

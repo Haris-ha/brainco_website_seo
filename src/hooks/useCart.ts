@@ -1,9 +1,9 @@
 'use client';
 
 import type { CartItem } from '@/types/cart';
-import { useCartStore } from '@/store/cartStore';
 import { useTranslations } from 'next-intl';
 import toast from 'react-hot-toast';
+import { useCartStore } from '@/store/cartStore';
 
 export function useCart() {
   const t = useTranslations('Cart');
@@ -42,4 +42,3 @@ export function useCart() {
     totalItemsCount: store.items.length,
   };
 }
-

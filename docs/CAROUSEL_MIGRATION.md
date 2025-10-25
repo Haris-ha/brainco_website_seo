@@ -20,11 +20,11 @@
 #### API 参数
 ```typescript
 type SimpleCarouselProps = {
-  items: ReactNode[];        // 轮播项数组
-  autoplay?: boolean;        // 是否自动播放（默认 false）
-  autoplayDelay?: number;    // 自动播放延迟（默认 3000ms）
-  className?: string;        // 自定义类名
-  showIndicators?: boolean;  // 是否显示分页器（默认 true）
+  items: ReactNode[]; // 轮播项数组
+  autoplay?: boolean; // 是否自动播放（默认 false）
+  autoplayDelay?: number; // 自动播放延迟（默认 3000ms）
+  className?: string; // 自定义类名
+  showIndicators?: boolean; // 是否显示分页器（默认 true）
 };
 ```
 
@@ -38,7 +38,7 @@ type SimpleCarouselProps = {
   ]}
   autoplay={false}
   showIndicators
-/>
+/>;
 ```
 
 ### 2. 更新桌面版技术页面 (`TechnologyContent.tsx`)
@@ -46,9 +46,9 @@ type SimpleCarouselProps = {
 #### 修改内容
 - ❌ 移除 Swiper 导入
   ```typescript
+  import { Pagination } from 'swiper/modules';
   // 旧
   import { Swiper, SwiperSlide } from 'swiper/react';
-  import { Pagination } from 'swiper/modules';
   import 'swiper/css';
   import 'swiper/css/pagination';
   ```
@@ -70,7 +70,7 @@ type SimpleCarouselProps = {
   ))}
   autoplay={false}
   showIndicators
-/>
+/>;
 ```
 
 ### 3. 更新移动端技术页面 (`TechnologyContentMobile.tsx`)
@@ -87,7 +87,7 @@ type SimpleCarouselProps = {
   autoplay={false}
   showIndicators
   className="pb-[50px]"
-/>
+/>;
 ```
 
 #### 时间轴轮播
@@ -169,21 +169,5 @@ type SimpleCarouselProps = {
 
 ---
 
-**迁移完成时间**：2025年10月  
+**迁移完成时间**：2025年10月
 **状态**：✅ 已完成并通过测试
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

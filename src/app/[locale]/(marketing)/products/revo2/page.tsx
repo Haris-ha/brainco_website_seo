@@ -1,5 +1,7 @@
 import { getTranslations } from 'next-intl/server';
 
+export const dynamic = 'force-dynamic';
+
 import OnlineService from '@/components/common/OnlineService';
 import OnlineServiceMobile from '@/components/common/OnlineServiceMobile';
 import Revo2Content from '@/components/product/revo2/Revo2Content';
@@ -44,5 +46,3 @@ export default function Revo2Page() {
     </>
   );
 }
-
-

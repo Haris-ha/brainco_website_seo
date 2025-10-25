@@ -1,5 +1,7 @@
 import { getTranslations } from 'next-intl/server';
 
+export const dynamic = 'force-dynamic';
+
 import OnlineService from '@/components/common/OnlineService';
 import OnlineServiceMobile from '@/components/common/OnlineServiceMobile';
 import OxyZenContent from '@/components/product/oxyzen/OxyZenContent';
@@ -64,4 +66,3 @@ export default async function OxyZenPage() {
     </>
   );
 }
-

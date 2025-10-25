@@ -2,7 +2,7 @@
 # BrainCo 官网多语言翻译管理
 
 # 项目标识符（从 Crowdin 项目设置中获取）
-project_id: ""
+project_id: ''
 
 # API Token（建议使用环境变量：CROWDIN_PERSONAL_TOKEN）
 # api_token: ""

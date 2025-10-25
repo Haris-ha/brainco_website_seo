@@ -70,4 +70,3 @@ export const getProductServiceUrl = async (
   const product = await findProductByIdentifier(productId, code, lastPath);
   return product?.serviceUrl || null;
 };
-

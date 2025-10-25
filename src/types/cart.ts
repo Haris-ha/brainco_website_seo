@@ -1,6 +1,6 @@
 // Shopping Cart and Order Types
 
-export interface CartItem {
+export type CartItem = {
   id: number | string;
   name: string;
   price: number; // 单位：分
@@ -8,25 +8,25 @@ export interface CartItem {
   pictureUrl: string;
   code: string;
   checked: boolean;
-}
+};
 
-export interface UserInfo {
+export type UserInfo = {
   name: string;
   phone: string;
   address: string;
   email?: string;
-}
+};
 
-export interface OrderData {
+export type OrderData = {
   items: CartItem[];
   userInfo: UserInfo;
   paymentMethod: string;
   discountCode?: string;
   discountAmount: number;
   totalAmount: number;
-}
+};
 
-export interface OrderResponse {
+export type OrderResponse = {
   orderNo: string;
   status: 'PENDING' | 'PAID' | 'SHIPPED' | 'CLOSED';
   orderItems: Array<{
@@ -36,11 +36,10 @@ export interface OrderResponse {
   discountAmount: number;
   changeAmount: number;
   totalAmount: number;
-}
+};
 
-export interface PaymentMethod {
+export type PaymentMethod = {
   id: string;
   name: string;
   icon?: string;
-}
-
+};

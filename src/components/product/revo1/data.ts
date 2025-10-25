@@ -1,18 +1,18 @@
 export const imgPath = 'https://website-www-brainco-cn.oss-cn-hangzhou.aliyuncs.com/images/product/dexterous/';
 
 // Industry empowerment ability data
-export interface AbilityParam {
+export type AbilityParam = {
   title: string;
   data: string;
   unit: string;
   extend?: string;
   connect?: string;
-}
+};
 
-export interface IndustryItem {
+export type IndustryItem = {
   icon: string;
   ability: AbilityParam[];
-}
+};
 
 export const industryList: IndustryItem[] = [
   {
@@ -45,11 +45,11 @@ export const industryList: IndustryItem[] = [
 ];
 
 // Ability showcase video/image data
-export interface AbilityShowcase {
+export type AbilityShowcase = {
   img: string;
   video: string;
   mobileVideo: string;
-}
+};
 
 export const abilityList: AbilityShowcase[] = [
   {
@@ -113,16 +113,16 @@ export const qualityVideos = [
 ];
 
 // Product version comparison table data
-export interface VersionSpec {
+export type VersionSpec = {
   label: string;
   basic: string;
   tactile: string;
-}
+};
 
-export interface VersionCategory {
+export type VersionCategory = {
   category: string;
   specs: VersionSpec[];
-}
+};
 
 export const versionSpecs: VersionCategory[] = [
   {
@@ -180,5 +180,3 @@ export const versionSpecs: VersionCategory[] = [
     ],
   },
 ];
-
-

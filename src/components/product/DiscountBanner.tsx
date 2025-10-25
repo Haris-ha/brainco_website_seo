@@ -4,12 +4,12 @@ import { AnimatePresence, motion } from 'framer-motion';
 import Image from 'next/image';
 import { useState } from 'react';
 
-interface DiscountBannerProps {
+type DiscountBannerProps = {
   product?: {
     discountAmount?: number;
   };
   isMobile?: boolean;
-}
+};
 
 export default function DiscountBanner({ product, isMobile = false }: DiscountBannerProps) {
   const [showQrCode, setShowQrCode] = useState(false);
@@ -39,7 +39,7 @@ export default function DiscountBanner({ product, isMobile = false }: DiscountBa
               className="absolute bottom-[calc(100%+10px)] left-7 flex w-[233px] flex-col items-center justify-center rounded-[10px] bg-white px-0 py-8 shadow-[0px_3px_20px_1px_rgba(0,0,0,0.16)]"
             >
               {/* Arrow */}
-              <div className="absolute -bottom-[18px] left-[50px] h-0 w-0 border-l-[10px] border-r-[10px] border-t-[10px] border-l-transparent border-r-transparent border-t-white" />
+              <div className="absolute -bottom-[18px] left-[50px] h-0 w-0 border-t-[10px] border-r-[10px] border-l-[10px] border-t-white border-r-transparent border-l-transparent" />
 
               <Image
                 src="https://website-www-brainco-cn.oss-cn-hangzhou.aliyuncs.com/images/05E2A5BB-24A5-4D85-9CE7-331E1B31D080.png"
@@ -77,7 +77,7 @@ export default function DiscountBanner({ product, isMobile = false }: DiscountBa
             className="absolute bottom-[calc(100%+15px)] left-10 flex w-[280px] flex-col items-center justify-center rounded-[12px] bg-white px-0 py-10 shadow-[0px_3px_20px_1px_rgba(0,0,0,0.16)]"
           >
             {/* Arrow */}
-            <div className="absolute -bottom-[22px] left-[60px] h-0 w-0 border-l-[12px] border-r-[12px] border-t-[12px] border-l-transparent border-r-transparent border-t-white" />
+            <div className="absolute -bottom-[22px] left-[60px] h-0 w-0 border-t-[12px] border-r-[12px] border-l-[12px] border-t-white border-r-transparent border-l-transparent" />
 
             <Image
               src="https://website-www-brainco-cn.oss-cn-hangzhou.aliyuncs.com/images/05E2A5BB-24A5-4D85-9CE7-331E1B31D080.png"
@@ -93,4 +93,3 @@ export default function DiscountBanner({ product, isMobile = false }: DiscountBa
     </div>
   );
 }
-

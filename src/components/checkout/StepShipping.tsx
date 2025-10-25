@@ -5,12 +5,12 @@ import { motion } from 'framer-motion';
 import { useTranslations } from 'next-intl';
 import { useState } from 'react';
 
-interface StepShippingProps {
+type StepShippingProps = {
   basicInfo: { name: string; phone: string };
   onSubmit: (data: UserInfo) => Promise<void>;
   onBack: () => void;
   initialData?: UserInfo;
-}
+};
 
 /**
  * 第二步：收货信息
@@ -23,7 +23,7 @@ export function StepShipping({
   initialData,
 }: StepShippingProps) {
   const t = useTranslations('Checkout');
-  
+
   const [formData, setFormData] = useState<UserInfo>({
     name: initialData?.name || basicInfo.name,
     phone: initialData?.phone || basicInfo.phone,
@@ -39,25 +39,23 @@ export function StepShipping({
     if (!formData.phone || !/^1[3-9]\d{9}$/.test(formData.phone)) {
       return;
     }
-    
+
     if (!formData.name || !formData.address) {
       return;
     }
 
     try {
       setIsSubmitting(true);
-      
+
       // TODO: 如果设置为默认地址，保存地址
       if (defaultAddress) {
         // await saveDefaultAddress(formData);
       }
-      
+
       await onSubmit(formData);
-    }
-    catch (error) {
+    } catch (error) {
       console.error('Submit failed:', error);
-    }
-    finally {
+    } finally {
       setIsSubmitting(false);
     }
   };
@@ -73,7 +71,7 @@ export function StepShipping({
     >
       {/* 返回按钮 */}
       <div
-        className="absolute left-0 top-[20px] flex cursor-pointer items-center text-sm leading-8 md:left-[-60px] md:top-[28px] md:text-base lg:left-[-80px] lg:top-[34px] lg:text-[18px] lg:leading-10"
+        className="absolute top-[20px] left-0 flex cursor-pointer items-center text-sm leading-8 md:top-[28px] md:left-[-60px] md:text-base lg:top-[34px] lg:left-[-80px] lg:text-[18px] lg:leading-10"
         onClick={onBack}
       >
         <span className="mr-1 text-sm md:text-base">←</span>
@@ -81,7 +79,7 @@ export function StepShipping({
       </div>
 
       {/* 步骤指示 */}
-      <span className="mb-6 mt-12 block text-base md:mb-8 md:mt-6 md:text-lg lg:mb-11 lg:mt-9 lg:text-[24px]">
+      <span className="mt-12 mb-6 block text-base md:mt-6 md:mb-8 md:text-lg lg:mt-9 lg:mb-11 lg:text-[24px]">
         {t('step_indicator', { current: 2, total: 3 })}
       </span>
 
@@ -89,7 +87,7 @@ export function StepShipping({
       <h1 className="text-3xl text-[#333] md:text-4xl lg:text-[56px]">
         {t('step_2_title')}
       </h1>
-      
+
       <p className="flex flex-col items-start justify-between gap-2 text-sm md:flex-row md:items-center md:text-base lg:text-[18px]">
         <span>{t('step_2_desc')}</span>
         <div className="flex items-center text-[#6076D6]">
@@ -172,4 +170,3 @@ export function StepShipping({
     </motion.div>
   );
 }
-

@@ -25,7 +25,7 @@ CROWDIN_PERSONAL_TOKEN=your_crowdin_token_here
 编辑 `crowdin.yml` 文件，填入您的项目 ID：
 
 ```yaml
-project_id: "your_crowdin_project_id"
+project_id: your_crowdin_project_id
 ```
 
 ### 4. 启动开发服务器
@@ -256,4 +256,3 @@ vercel
 - [CROWDIN_GUIDE.md](./CROWDIN_GUIDE.md) - Crowdin 详细指南
 - [Next.js 文档](https://nextjs.org/docs)
 - [next-intl 文档](https://next-intl-docs.vercel.app/)
-

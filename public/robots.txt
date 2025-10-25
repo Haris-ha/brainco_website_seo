@@ -1,0 +1,20 @@
+# *
+User-agent: *
+Allow: /
+Disallow: /api
+Disallow: /purchase/orders
+Disallow: /purchase/cart
+
+# Baiduspider
+User-agent: Baiduspider
+Allow: /
+Disallow: /api
+Disallow: /purchase
+Crawl-delay: 1
+
+# Host
+Host: https://www.brainco.cn
+
+# Sitemaps
+Sitemap: https://www.brainco.cn/sitemap.xml
+Sitemap: https://www.brainco.tech/sitemap.xml

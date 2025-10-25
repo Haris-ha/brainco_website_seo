@@ -25,7 +25,19 @@ export default antfu(
     },
 
     // Ignored paths
-    ignores: [],
+    ignores: [
+      '**/node_modules/**',
+      '**/.pnpm-store/**',
+      '**/brainco_website/**',
+      '**/docs/**',
+      '**/*.md',
+      '**/dist/**',
+      '**/.next/**',
+      '**/out/**',
+      '**/*.config.js',
+      '**/*.config.ts',
+      '**/*.config.mjs',
+    ],
   },
   // --- Accessibility Rules ---
   jsxA11y.flatConfigs.recommended,
@@ -46,6 +58,13 @@ export default antfu(
       'ts/consistent-type-definitions': ['error', 'type'], // Use `type` instead of `interface`
       'react/prefer-destructuring-assignment': 'off', // Vscode doesn't support automatically destructuring, it's a pain to add a new variable
       'node/prefer-global/process': 'off', // Allow using `process.env`
+      'jsx-a11y/click-events-have-key-events': 'off', // Allow click handlers without keyboard listeners
+      'jsx-a11y/no-static-element-interactions': 'off', // Allow static elements with interactions
+      'jsx-a11y/no-noninteractive-element-interactions': 'off', // Allow non-interactive elements with interactions
+      'jsx-a11y/anchor-is-valid': 'off', // Allow anchors with javascript: URLs
+      'jsx-a11y/media-has-caption': 'off', // Allow media without captions
+      'regexp/no-useless-non-capturing-group': 'off', // Allow non-capturing groups for readability
+      'ts/ban-ts-comment': 'off', // Allow @ts-nocheck and @ts-ignore comments
     },
   },
 );

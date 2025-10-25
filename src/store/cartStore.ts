@@ -2,7 +2,7 @@ import type { CartItem } from '@/types/cart';
 import { create } from 'zustand';
 import { persist } from 'zustand/middleware';
 
-interface CartStore {
+type CartStore = {
   items: CartItem[];
   addToCart: (product: Omit<CartItem, 'checked' | 'quantity'> & { quantity?: number }) => void;
   removeFromCart: (id: number | string) => void;
@@ -13,7 +13,7 @@ interface CartStore {
   getCheckedItems: () => CartItem[];
   getTotalPrice: () => number;
   getCheckedTotalPrice: () => number;
-}
+};
 
 export const useCartStore = create<CartStore>()(
   persist(
@@ -33,8 +33,7 @@ export const useCartStore = create<CartStore>()(
                   : item,
               ),
             };
-          }
-          else {
+          } else {
             // 添加新商品
             return {
               items: [
@@ -57,8 +56,9 @@ export const useCartStore = create<CartStore>()(
       },
 
       updateQuantity: (id, quantity) => {
-        if (quantity < 1)
+        if (quantity < 1) {
           return;
+        }
 
         set(state => ({
           items: state.items.map(item =>
@@ -94,9 +94,7 @@ export const useCartStore = create<CartStore>()(
       },
 
       getCheckedTotalPrice: () => {
-        return get().items
-          .filter(item => item.checked)
-          .reduce((total, item) => total + item.price * item.quantity, 0);
+        return get().items.filter(item => item.checked).reduce((total, item) => total + item.price * item.quantity, 0);
       },
     }),
     {
@@ -105,4 +103,3 @@ export const useCartStore = create<CartStore>()(
     },
   ),
 );
-

@@ -7,10 +7,10 @@ import toast from 'react-hot-toast';
 import { useCart } from '@/hooks/useCart';
 import { useRouter } from '@/libs/I18nNavigation';
 
-interface PurchaseButtonProps {
+type PurchaseButtonProps = {
   product: any;
   isMobile?: boolean;
-}
+};
 
 export default function PurchaseButton({ product, isMobile = false }: PurchaseButtonProps) {
   const t = useTranslations('OxyZen');
@@ -76,4 +76,3 @@ export default function PurchaseButton({ product, isMobile = false }: PurchaseBu
     </motion.button>
   );
 }
-

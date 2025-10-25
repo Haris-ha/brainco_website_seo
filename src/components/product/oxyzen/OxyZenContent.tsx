@@ -4,12 +4,12 @@ import { motion } from 'framer-motion';
 import { useTranslations } from 'next-intl';
 import Image from 'next/image';
 import AfterSales from '@/components/common/AfterSales';
+import { appDownloadData, purchaseLink, socialMediaData } from './data';
 import PurchaseButton from './PurchaseButton';
-import { socialMediaData, appDownloadData, purchaseLink } from './data';
 
-interface OxyZenContentProps {
+type OxyZenContentProps = {
   productInfo?: any;
-}
+};
 
 export default function OxyZenContent({ productInfo }: OxyZenContentProps) {
   const t = useTranslations('OxyZen');
@@ -88,11 +88,13 @@ export default function OxyZenContent({ productInfo }: OxyZenContentProps) {
             >
               <div className="flex justify-center">
                 <span className="text-fluid-5xl mr-7 text-[#333]">
-                  ¥{productInfo.price / 100}
+                  ¥
+                  {productInfo.price / 100}
                 </span>
                 {productInfo.oldPrice && (
                   <s className="text-fluid-5xl text-[#000] opacity-50">
-                    ¥{productInfo.oldPrice / 100}
+                    ¥
+                    {productInfo.oldPrice / 100}
                   </s>
                 )}
               </div>
@@ -130,7 +132,7 @@ export default function OxyZenContent({ productInfo }: OxyZenContentProps) {
       </section>
 
       {/* Data Collection */}
-      <section className="pb-[10.15vw] pt-[5.83vw] text-center">
+      <section className="pt-[5.83vw] pb-[10.15vw] text-center">
         <motion.h2
           className="text-fluid-5xl mb-5 font-medium"
           initial={{ opacity: 0, y: 30 }}
@@ -249,7 +251,7 @@ export default function OxyZenContent({ productInfo }: OxyZenContentProps) {
             >
               <h3 className="text-fluid-5xl mb-6 font-medium">{t('design_comfortable_title')}</h3>
               <p
-                className="text-fluid-2xl leading-[1.8] text-center"
+                className="text-fluid-2xl text-center leading-[1.8]"
                 dangerouslySetInnerHTML={{ __html: t('design_comfortable_desc').replace(/\n/g, '<br />') }}
               />
               <Image
@@ -269,7 +271,7 @@ export default function OxyZenContent({ productInfo }: OxyZenContentProps) {
             >
               <h3 className="text-fluid-5xl mb-6 font-medium">{t('design_portable_title')}</h3>
               <p
-                className="text-fluid-2xl leading-[1.8] text-center"
+                className="text-fluid-2xl text-center leading-[1.8]"
                 dangerouslySetInnerHTML={{ __html: t('design_portable_desc').replace(/\n/g, '<br />') }}
               />
               <Image
@@ -353,7 +355,7 @@ export default function OxyZenContent({ productInfo }: OxyZenContentProps) {
       </section>
 
       {/* 9D Parsing */}
-      <section className="pb-[3.125vw] pt-[5.83vw] text-center">
+      <section className="pt-[5.83vw] pb-[3.125vw] text-center">
         <motion.h2
           className="text-fluid-5xl mb-5 font-medium"
           initial={{ opacity: 0, y: 30 }}
@@ -390,21 +392,21 @@ export default function OxyZenContent({ productInfo }: OxyZenContentProps) {
             alt=""
             width={270}
             height={200}
-            className="absolute left-1/2 top-0 z-10 h-auto w-[14.06vw] -translate-x-[12.5vw] -translate-y-[3.64vw]"
+            className="absolute top-0 left-1/2 z-10 h-auto w-[14.06vw] -translate-x-[12.5vw] -translate-y-[3.64vw]"
           />
           <Image
             src="https://website-www-brainco-cn.oss-cn-hangzhou.aliyuncs.com/images/Ls3phK4hHBivlNDI.webp"
             alt=""
             width={276}
             height={200}
-            className="absolute left-1/2 top-0 h-auto w-[14.37vw] -translate-x-[2.08vw] -translate-y-[1.3vw]"
+            className="absolute top-0 left-1/2 h-auto w-[14.37vw] -translate-x-[2.08vw] -translate-y-[1.3vw]"
           />
           <Image
             src="https://website-www-brainco-cn.oss-cn-hangzhou.aliyuncs.com/images/Tyw4f2mxbbxhy7kD.png"
             alt=""
             width={358}
             height={300}
-            className="absolute left-1/2 top-[39%] z-20 h-auto w-[18.64vw] -translate-x-1/2"
+            className="absolute top-[39%] left-1/2 z-20 h-auto w-[18.64vw] -translate-x-1/2"
           />
 
           <ul className="absolute top-0 left-0 h-full w-full">
@@ -421,7 +423,7 @@ export default function OxyZenContent({ productInfo }: OxyZenContentProps) {
             ].map((item, index) => (
               <motion.li
                 key={item.label}
-                className={`absolute flex h-[2.7vw] w-[6.25vw] items-center justify-center rounded-[1.35vw] bg-gradient-to-b from-[#edfdfd] to-[#82c8c4] text-fluid-xl font-light ${item.style}`}
+                className={`text-fluid-xl absolute flex h-[2.7vw] w-[6.25vw] items-center justify-center rounded-[1.35vw] bg-gradient-to-b from-[#edfdfd] to-[#82c8c4] font-light ${item.style}`}
                 initial={{ opacity: 0, scale: 0 }}
                 whileInView={{ opacity: 1, scale: 1 }}
                 viewport={{ once: true }}
@@ -490,7 +492,7 @@ export default function OxyZenContent({ productInfo }: OxyZenContentProps) {
       </section>
 
       {/* Social Media & Downloads */}
-      <section className="flex justify-center gap-[0.41vw] bg-[#f8f8f8] pb-[5.83vw] pt-[0.83vw]">
+      <section className="flex justify-center gap-[0.41vw] bg-[#f8f8f8] pt-[0.83vw] pb-[5.83vw]">
         {/* Follow Us */}
         <div className="w-[14.84vw]">
           <h3 className="text-fluid-2xl mb-2 pt-8 font-normal">{t('follow_us')}</h3>
@@ -589,4 +591,3 @@ export default function OxyZenContent({ productInfo }: OxyZenContentProps) {
     </div>
   );
 }
-

@@ -6,9 +6,9 @@ import Image from 'next/image';
 import AfterSalesMobile from '@/components/common/AfterSalesMobile';
 import PurchaseButton from './PurchaseButton';
 
-interface OxyZenContentMobileProps {
+type OxyZenContentMobileProps = {
   productInfo?: any;
-}
+};
 
 export default function OxyZenContentMobile({ productInfo }: OxyZenContentMobileProps) {
   const t = useTranslations('OxyZen');
@@ -24,7 +24,7 @@ export default function OxyZenContentMobile({ productInfo }: OxyZenContentMobile
           height={1000}
           className="h-auto w-full"
         />
-        <div className="absolute top-0 left-0 right-0 pt-10 text-center">
+        <div className="absolute top-0 right-0 left-0 pt-10 text-center">
           <motion.h1
             className="text-fluid-4xl font-normal text-white"
             initial={{ opacity: 0, y: 20 }}
@@ -47,7 +47,9 @@ export default function OxyZenContentMobile({ productInfo }: OxyZenContentMobile
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.4, duration: 0.8 }}
           >
-            {t('tagline_1')} {t('tagline_2')}
+            {t('tagline_1')}
+            {' '}
+            {t('tagline_2')}
           </motion.p>
         </div>
       </section>
@@ -310,21 +312,21 @@ export default function OxyZenContentMobile({ productInfo }: OxyZenContentMobile
             alt=""
             width={96}
             height={80}
-            className="absolute left-1/2 top-0 z-10 h-auto w-[25.6vw] -translate-x-[25.6vw] -translate-y-[42.66vw]"
+            className="absolute top-0 left-1/2 z-10 h-auto w-[25.6vw] -translate-x-[25.6vw] -translate-y-[42.66vw]"
           />
           <Image
             src="https://website-www-brainco-cn.oss-cn-hangzhou.aliyuncs.com/images/Ls3phK4hHBivlNDI.webp"
             alt=""
             width={96}
             height={80}
-            className="absolute left-1/2 top-0 h-auto w-[25.6vw] -translate-x-[5.33vw] -translate-y-[37.33vw]"
+            className="absolute top-0 left-1/2 h-auto w-[25.6vw] -translate-x-[5.33vw] -translate-y-[37.33vw]"
           />
           <Image
             src="https://website-www-brainco-cn.oss-cn-hangzhou.aliyuncs.com/images/Tyw4f2mxbbxhy7kD.png"
             alt=""
             width={107}
             height={100}
-            className="absolute left-1/2 top-1/2 z-20 h-auto w-[28.53vw] -translate-x-1/2 -translate-y-[10.66vw]"
+            className="absolute top-1/2 left-1/2 z-20 h-auto w-[28.53vw] -translate-x-1/2 -translate-y-[10.66vw]"
           />
 
           <ul className="absolute top-0 left-0 h-full w-full">
@@ -341,7 +343,7 @@ export default function OxyZenContentMobile({ productInfo }: OxyZenContentMobile
             ].map((item, index) => (
               <motion.li
                 key={item.label}
-                className={`absolute flex h-8 w-[18.66vw] items-center justify-center rounded-2xl bg-gradient-to-b from-[#edfdfd] to-[#82c8c4] text-fluid-sm font-light ${item.style}`}
+                className={`text-fluid-sm absolute flex h-8 w-[18.66vw] items-center justify-center rounded-2xl bg-gradient-to-b from-[#edfdfd] to-[#82c8c4] font-light ${item.style}`}
                 initial={{ opacity: 0, scale: 0 }}
                 whileInView={{ opacity: 1, scale: 0.5 }}
                 viewport={{ once: true }}
@@ -363,7 +365,7 @@ export default function OxyZenContentMobile({ productInfo }: OxyZenContentMobile
           height={500}
           className="h-auto w-full"
         />
-        <div className="absolute top-0 left-0 right-0 pt-10 text-center text-white">
+        <div className="absolute top-0 right-0 left-0 pt-10 text-center text-white">
           <motion.h2
             className="text-fluid-2xl mb-2.5 font-medium"
             initial={{ opacity: 0, y: 20 }}
@@ -380,7 +382,8 @@ export default function OxyZenContentMobile({ productInfo }: OxyZenContentMobile
             viewport={{ once: true }}
             transition={{ delay: 0.2, duration: 0.8 }}
           >
-            {t('content_desc_1')}{t('content_desc_2')}
+            {t('content_desc_1')}
+            {t('content_desc_2')}
           </motion.p>
         </div>
       </section>
@@ -391,11 +394,13 @@ export default function OxyZenContentMobile({ productInfo }: OxyZenContentMobile
           <div className="flex items-center justify-between">
             <div className="ml-4 flex items-baseline">
               <span className="text-fluid-2xl font-medium text-gray-900">
-                ¥{productInfo.price / 100}
+                ¥
+                {productInfo.price / 100}
               </span>
               {productInfo.oldPrice && (
                 <span className="text-fluid-base ml-2 text-gray-600 line-through">
-                  ¥{productInfo.oldPrice / 100}
+                  ¥
+                  {productInfo.oldPrice / 100}
                 </span>
               )}
             </div>
@@ -411,4 +416,3 @@ export default function OxyZenContentMobile({ productInfo }: OxyZenContentMobile
     </div>
   );
 }
-

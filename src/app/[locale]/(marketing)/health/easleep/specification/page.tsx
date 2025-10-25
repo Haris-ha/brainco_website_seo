@@ -1,15 +1,15 @@
-import { getBraincoProducts } from '@/lib/api';
 import EASleepSpecificationContent from '@/components/product/easleep/EASleepSpecificationContent';
 import EASleepSpecificationContentMobile from '@/components/product/easleep/EASleepSpecificationContentMobile';
+import { getBraincoProducts } from '@/lib/api';
 
 export default async function EASleepSpecificationPage() {
   let products: any[] = [];
-  
+
   try {
     const response = await getBraincoProducts();
     // Filter products by code 'easleep'
     products = response.data?.filter((item: any) => item.code === 'easleep') || [];
-    
+
     // Sort by price
     products.sort((a: any, b: any) => a.price - b.price);
   } catch (error) {

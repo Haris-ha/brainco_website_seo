@@ -1,8 +1,8 @@
 // @ts-nocheck
 'use client';
 
-import { useEffect, useRef, useCallback, useMemo } from 'react';
 import { gsap } from 'gsap';
+import { useCallback, useEffect, useMemo, useRef } from 'react';
 import './TargetCursor.css';
 
 const TargetCursor = ({ targetSelector = '.cursor-target', spinDuration = 2, hideDefaultCursor = true }) => {
@@ -14,23 +14,27 @@ const TargetCursor = ({ targetSelector = '.cursor-target', spinDuration = 2, hid
     () => ({
       borderWidth: 3,
       cornerSize: 12,
-      parallaxStrength: 0.00005
+      parallaxStrength: 0.00005,
     }),
-    []
+    [],
   );
 
   const moveCursor = useCallback((x, y) => {
-    if (!cursorRef.current) return;
+    if (!cursorRef.current) {
+      return;
+    }
     gsap.to(cursorRef.current, {
       x,
       y,
       duration: 0.1,
-      ease: 'power3.out'
+      ease: 'power3.out',
     });
   }, []);
 
   useEffect(() => {
-    if (!cursorRef.current) return;
+    if (!cursorRef.current) {
+      return;
+    }
 
     const originalCursor = document.body.style.cursor;
     if (hideDefaultCursor) {
@@ -46,7 +50,7 @@ const TargetCursor = ({ targetSelector = '.cursor-target', spinDuration = 2, hid
     let isAnimatingToTarget = false;
     let resumeTimeout = null;
 
-    const cleanupTarget = target => {
+    const cleanupTarget = (target) => {
       if (currentTargetMove) {
         target.removeEventListener('mousemove', currentTargetMove);
       }
@@ -61,7 +65,7 @@ const TargetCursor = ({ targetSelector = '.cursor-target', spinDuration = 2, hid
       xPercent: -50,
       yPercent: -50,
       x: window.innerWidth / 2,
-      y: window.innerHeight / 2
+      y: window.innerHeight / 2,
     });
 
     const createSpinTimeline = () => {
@@ -79,15 +83,17 @@ const TargetCursor = ({ targetSelector = '.cursor-target', spinDuration = 2, hid
     window.addEventListener('mousemove', moveHandler);
 
     const scrollHandler = () => {
-      if (!activeTarget || !cursorRef.current) return;
+      if (!activeTarget || !cursorRef.current) {
+        return;
+      }
 
       const mouseX = gsap.getProperty(cursorRef.current, 'x');
       const mouseY = gsap.getProperty(cursorRef.current, 'y');
 
       const elementUnderMouse = document.elementFromPoint(mouseX, mouseY);
-      const isStillOverTarget =
-        elementUnderMouse &&
-        (elementUnderMouse === activeTarget || elementUnderMouse.closest(targetSelector) === activeTarget);
+      const isStillOverTarget
+        = elementUnderMouse
+          && (elementUnderMouse === activeTarget || elementUnderMouse.closest(targetSelector) === activeTarget);
 
       if (!isStillOverTarget) {
         if (currentLeaveHandler) {
@@ -98,19 +104,23 @@ const TargetCursor = ({ targetSelector = '.cursor-target', spinDuration = 2, hid
 
     window.addEventListener('scroll', scrollHandler, { passive: true });
 
-    //---------------------------------------------------------------
+    // ---------------------------------------------------------------
     // This code for onclick animation
 
     window.addEventListener('mousemove', moveHandler);
     const mouseDownHandler = () => {
-      if (!dotRef.current) return;
+      if (!dotRef.current) {
+        return;
+      }
       gsap.to(dotRef.current, { scale: 0.7, duration: 0.3 });
       gsap.to(cursorRef.current, { scale: 0.9, duration: 0.2 });
     };
 
     // Animate it back to its original size
     const mouseUpHandler = () => {
-      if (!dotRef.current) return;
+      if (!dotRef.current) {
+        return;
+      }
       gsap.to(dotRef.current, { scale: 1, duration: 0.3 });
       gsap.to(cursorRef.current, { scale: 1, duration: 0.2 });
     };
@@ -118,8 +128,8 @@ const TargetCursor = ({ targetSelector = '.cursor-target', spinDuration = 2, hid
     window.addEventListener('mousedown', mouseDownHandler);
     window.addEventListener('mouseup', mouseUpHandler);
 
-    //----------------------------------------------------------------
-    const enterHandler = e => {
+    // ----------------------------------------------------------------
+    const enterHandler = (e) => {
       const directTarget = e.target;
 
       const allTargets = [];
@@ -132,9 +142,13 @@ const TargetCursor = ({ targetSelector = '.cursor-target', spinDuration = 2, hid
       }
 
       const target = allTargets[0] || null;
-      if (!target || !cursorRef.current || !cornersRef.current) return;
+      if (!target || !cursorRef.current || !cornersRef.current) {
+        return;
+      }
 
-      if (activeTarget === target) return;
+      if (activeTarget === target) {
+        return;
+      }
 
       if (activeTarget) {
         cleanupTarget(activeTarget);
@@ -147,7 +161,7 @@ const TargetCursor = ({ targetSelector = '.cursor-target', spinDuration = 2, hid
 
       activeTarget = target;
       const corners = Array.from(cornersRef.current);
-      corners.forEach(corner => {
+      corners.forEach((corner) => {
         gsap.killTweensOf(corner);
       });
 
@@ -167,21 +181,21 @@ const TargetCursor = ({ targetSelector = '.cursor-target', spinDuration = 2, hid
 
         const { borderWidth, cornerSize, parallaxStrength } = constants;
 
-        let tlOffset = {
+        const tlOffset = {
           x: rect.left - cursorCenterX - borderWidth,
-          y: rect.top - cursorCenterY - borderWidth
+          y: rect.top - cursorCenterY - borderWidth,
         };
-        let trOffset = {
+        const trOffset = {
           x: rect.right - cursorCenterX + borderWidth - cornerSize,
-          y: rect.top - cursorCenterY - borderWidth
+          y: rect.top - cursorCenterY - borderWidth,
         };
-        let brOffset = {
+        const brOffset = {
           x: rect.right - cursorCenterX + borderWidth - cornerSize,
-          y: rect.bottom - cursorCenterY + borderWidth - cornerSize
+          y: rect.bottom - cursorCenterY + borderWidth - cornerSize,
         };
-        let blOffset = {
+        const blOffset = {
           x: rect.left - cursorCenterX - borderWidth,
-          y: rect.bottom - cursorCenterY + borderWidth - cornerSize
+          y: rect.bottom - cursorCenterY + borderWidth - cornerSize,
         };
 
         if (mouseX !== undefined && mouseY !== undefined) {
@@ -211,9 +225,9 @@ const TargetCursor = ({ targetSelector = '.cursor-target', spinDuration = 2, hid
               x: offsets[index].x,
               y: offsets[index].y,
               duration: 0.2,
-              ease: 'power2.out'
+              ease: 'power2.out',
             },
-            0
+            0,
           );
         });
       };
@@ -226,8 +240,10 @@ const TargetCursor = ({ targetSelector = '.cursor-target', spinDuration = 2, hid
       }, 1);
 
       let moveThrottle = null;
-      const targetMove = ev => {
-        if (moveThrottle || isAnimatingToTarget) return;
+      const targetMove = (ev) => {
+        if (moveThrottle || isAnimatingToTarget) {
+          return;
+        }
         moveThrottle = requestAnimationFrame(() => {
           const mouseEvent = ev;
           updateCorners(mouseEvent.clientX, mouseEvent.clientY);
@@ -248,7 +264,7 @@ const TargetCursor = ({ targetSelector = '.cursor-target', spinDuration = 2, hid
             { x: -cornerSize * 1.5, y: -cornerSize * 1.5 },
             { x: cornerSize * 0.5, y: -cornerSize * 1.5 },
             { x: cornerSize * 0.5, y: cornerSize * 0.5 },
-            { x: -cornerSize * 1.5, y: cornerSize * 0.5 }
+            { x: -cornerSize * 1.5, y: cornerSize * 0.5 },
           ];
 
           const tl = gsap.timeline();
@@ -259,9 +275,9 @@ const TargetCursor = ({ targetSelector = '.cursor-target', spinDuration = 2, hid
                 x: positions[index].x,
                 y: positions[index].y,
                 duration: 0.3,
-                ease: 'power3.out'
+                ease: 'power3.out',
               },
-              0
+              0,
             );
           });
         }
@@ -282,7 +298,7 @@ const TargetCursor = ({ targetSelector = '.cursor-target', spinDuration = 2, hid
               ease: 'none',
               onComplete: () => {
                 spinTl.current?.restart();
-              }
+              },
             });
           }
           resumeTimeout = null;
@@ -309,15 +325,15 @@ const TargetCursor = ({ targetSelector = '.cursor-target', spinDuration = 2, hid
         cleanupTarget(activeTarget);
       }
 
-      console.log('Cleaning up TargetCursor');
-
       spinTl.current?.kill();
       document.body.style.cursor = originalCursor;
     };
   }, [targetSelector, spinDuration, moveCursor, constants, hideDefaultCursor]);
 
   useEffect(() => {
-    if (!cursorRef.current || !spinTl.current) return;
+    if (!cursorRef.current || !spinTl.current) {
+      return;
+    }
 
     if (spinTl.current.isActive()) {
       spinTl.current.kill();

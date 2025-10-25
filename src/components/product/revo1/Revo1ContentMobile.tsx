@@ -1,17 +1,17 @@
 'use client';
 
+import type { Swiper as SwiperType } from 'swiper';
+import { motion } from 'framer-motion';
 import { useTranslations } from 'next-intl';
 import Image from 'next/image';
 import Link from 'next/link';
 import { useRef, useState } from 'react';
-import { motion } from 'framer-motion';
-import { Swiper, SwiperSlide } from 'swiper/react';
 import { Pagination } from 'swiper/modules';
-import type { Swiper as SwiperType } from 'swiper';
-import 'swiper/css';
-import 'swiper/css/pagination';
-
+import { Swiper, SwiperSlide } from 'swiper/react';
 import { abilityList, industryList, partnerMobile, qualityVideos, versionSpecs } from './data';
+import 'swiper/css';
+
+import 'swiper/css/pagination';
 
 const imgPath = 'https://website-www-brainco-cn.oss-cn-hangzhou.aliyuncs.com/images/product/dexterous/';
 
@@ -27,7 +27,9 @@ export default function Revo1ContentMobile() {
 
   const handleQualityPlay = (index: number) => {
     const video = qualityVideoRefs.current[index];
-    if (!video) return;
+    if (!video) {
+      return;
+    }
 
     const newStates = [false, false, false];
 
@@ -69,7 +71,7 @@ export default function Revo1ContentMobile() {
       </motion.section>
 
       {/* Product Info Section */}
-      <section className="bg-[#f5f5f5] flex flex-col items-center justify-center py-4 pb-12 text-black">
+      <section className="flex flex-col items-center justify-center bg-[#f5f5f5] py-4 pb-12 text-black">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
@@ -78,7 +80,9 @@ export default function Revo1ContentMobile() {
         >
           <Image src={`${imgPath}yOnXsafVGAoJFLYz.webp`} alt="" width={264} height={264} />
           <h4 className="text-fluid-2xl mt-7 font-medium">
-            {t('product_name')} {t('product_model')}
+            {t('product_name')}
+            {' '}
+            {t('product_model')}
           </h4>
           <p className="text-fluid-lg mt-2">{t('subtitle')}</p>
           <div className="mt-6 flex gap-6">
@@ -165,8 +169,9 @@ export default function Revo1ContentMobile() {
           <dl className="mt-10 flex justify-center">
             <dd className="mr-18">
               <p className="text-fluid-xs font-medium text-[#c7cdd4]">{t('product_weight_label')}</p>
-              <h2 className="text-fluid-3xl mt-2 flex items-end font-bold leading-none text-[#c7cdd4]">
-                {t('product_weight_value')}{' '}
+              <h2 className="text-fluid-3xl mt-2 flex items-end leading-none font-bold text-[#c7cdd4]">
+                {t('product_weight_value')}
+                {' '}
                 <span className="text-fluid-xs relative bottom-1 ml-1 font-normal">
                   {t('product_weight_unit')}
                 </span>
@@ -174,8 +179,9 @@ export default function Revo1ContentMobile() {
             </dd>
             <dd>
               <p className="text-fluid-xs font-medium text-[#c7cdd4]">{t('active_joints_label')}</p>
-              <h2 className="text-fluid-3xl mt-2 flex items-end font-bold leading-none text-[#c7cdd4]">
-                {t('active_joints_value')}{' '}
+              <h2 className="text-fluid-3xl mt-2 flex items-end leading-none font-bold text-[#c7cdd4]">
+                {t('active_joints_value')}
+                {' '}
                 <span className="text-fluid-xs relative bottom-1 ml-1 font-normal">
                   {t('active_joints_unit')}
                 </span>
@@ -255,7 +261,7 @@ export default function Revo1ContentMobile() {
         >
           {versionSpecs.map((category, catIndex) => (
             <div key={category.category}>
-              <dt className="text-fluid-xl mb-10 mt-15 flex items-center border-b border-b-[#555] px-2 pb-2 leading-none first:mt-5">
+              <dt className="text-fluid-xl mt-15 mb-10 flex items-center border-b border-b-[#555] px-2 pb-2 leading-none first:mt-5">
                 <h4 className="font-bold">{category.category}</h4>
               </dt>
               {category.specs.map((spec, specIndex) => (
@@ -340,7 +346,7 @@ export default function Revo1ContentMobile() {
               <button
                 type="button"
                 onClick={() => handleQualityPlay(index)}
-                className="absolute left-1/2 top-1/2 z-10 h-12 w-12 -translate-x-1/2 -translate-y-1/2 cursor-pointer"
+                className="absolute top-1/2 left-1/2 z-10 h-12 w-12 -translate-x-1/2 -translate-y-1/2 cursor-pointer"
               >
                 <Image
                   src={
@@ -354,7 +360,7 @@ export default function Revo1ContentMobile() {
                 />
               </button>
               <video
-                ref={el => {
+                ref={(el) => {
                   qualityVideoRefs.current[index] = el;
                 }}
                 src={videoSrc}
@@ -420,7 +426,7 @@ export default function Revo1ContentMobile() {
           </Link>
         </motion.div>
         <motion.span
-          className="text-fluid-sm mb-15 mt-6 block text-center text-[#8d8d8d]"
+          className="text-fluid-sm mt-6 mb-15 block text-center text-[#8d8d8d]"
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
@@ -430,7 +436,8 @@ export default function Revo1ContentMobile() {
         </motion.span>
       </section>
 
-      <style jsx global>{`
+      <style jsx global>
+        {`
         .swiper-pagination {
           display: flex;
           justify-content: center;
@@ -447,8 +454,8 @@ export default function Revo1ContentMobile() {
         .swiper-pagination-bullet-active {
           background: #fff;
         }
-      `}</style>
+      `}
+      </style>
     </div>
   );
 }
-

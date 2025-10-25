@@ -39,7 +39,7 @@
 
 **Next.js 新版**:
 ```tsx
-<div className="absolute inset-0 bg-white/30 backdrop-blur-[10px]" />
+<div className="absolute inset-0 bg-white/30 backdrop-blur-[10px]" />;
 ```
 
 **还原度**: 100% ✅
@@ -88,7 +88,7 @@ style={{ fontFamily: '\'PingFang SC-Regular\', \'PingFang SC\', sans-serif' }}
 <div
   className="absolute bottom-2.5 left-1/2 h-0.5 w-20 -translate-x-1/2 rounded-sm bg-[#333] transition-all duration-200"
   style={{ height: '3px' }}
-/>
+/>;
 ```
 
 **还原度**: 100% ✅
@@ -106,21 +106,21 @@ style={{ fontFamily: '\'PingFang SC-Regular\', \'PingFang SC\', sans-serif' }}
   top: 0;
   left: 0;
   width: 100%;
-  
+
   .logo {
     flex: 0 0 170px;
     width: 170px;
   }
-  
-  &>ul {
+
+  & > ul {
     flex: 1;
-    
-    &>li {
+
+    & > li {
       flex: 140px 0 0;
       height: 80px;
     }
   }
-  
+
   .cart {
     flex: 30px 0 0;
     width: 30px;
@@ -138,7 +138,7 @@ style={{ fontFamily: '\'PingFang SC-Regular\', \'PingFang SC\', sans-serif' }}
         {/* Logo */}
       </Link>
     </div>
-    
+
     <nav className="flex flex-1">
       <ul className="flex">
         <li className="group relative flex h-20 w-[140px] cursor-pointer items-center justify-center text-2xl">
@@ -146,12 +146,12 @@ style={{ fontFamily: '\'PingFang SC-Regular\', \'PingFang SC\', sans-serif' }}
         </li>
       </ul>
     </nav>
-    
+
     <div className="mr-[30vw] flex items-center">
       {/* 购物车 */}
     </div>
   </div>
-</header>
+</header>;
 ```
 
 **还原度**: 100% ✅
@@ -222,25 +222,6 @@ style={{ fontFamily: '\'PingFang SC-Regular\', \'PingFang SC\', sans-serif' }}
 
 ---
 
-**文档创建日期**: 2025-01-16  
-**最后更新**: 2025-01-16  
+**文档创建日期**: 2025-01-16
+**最后更新**: 2025-01-16
 **还原状态**: ✅ 100% 完成
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

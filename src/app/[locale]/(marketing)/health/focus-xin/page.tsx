@@ -4,6 +4,8 @@ import OnlineServiceMobile from '@/components/common/OnlineServiceMobile';
 import FocusXinContent from '@/components/product/focus-xin/FocusXinContent';
 import FocusXinContentMobile from '@/components/product/focus-xin/FocusXinContentMobile';
 
+export const dynamic = 'force-dynamic';
+
 export async function generateMetadata(props: {
   params: Promise<{ locale: string }>;
 }) {
@@ -58,4 +60,3 @@ export default async function FocusXinPage(props: {
     </>
   );
 }
-

@@ -22,8 +22,3 @@ const Label = ({ ref, className, ...props }: React.ComponentPropsWithoutRef<type
 Label.displayName = LabelPrimitive.Root.displayName;
 
 export { Label };
-
-
-
-
-

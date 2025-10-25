@@ -36,8 +36,8 @@ export default function OnlineServiceMobile() {
   const handleServiceClick = async () => {
     try {
       // 获取产品标识
-      const productId = searchParams.get('productId');
-      const code = searchParams.get('code');
+      const productId = searchParams?.get('productId');
+      const code = searchParams?.get('code');
       const lastPath = getLastPathValue();
 
       // 查找匹配的产品

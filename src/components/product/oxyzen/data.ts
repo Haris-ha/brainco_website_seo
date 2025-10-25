@@ -24,4 +24,3 @@ export const purchaseLink = '#小程序://FocusZen正念舒压微商城/uezD7ZQo
 
 export const productCode = 'oxyzen';
 export const productId = 6;
-

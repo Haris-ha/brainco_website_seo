@@ -38,4 +38,3 @@ export function CartEmpty() {
     </motion.div>
   );
 }
-

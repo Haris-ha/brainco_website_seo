@@ -46,14 +46,14 @@ import { Header } from '@/components/layout/Header';
 
 export default async function RootLayout(props) {
   const { locale } = await props.params;
-  
+
   return (
     <html lang={locale}>
       <body>
         <NextIntlClientProvider>
           {/* 全局导航栏 */}
           <Header locale={locale} />
-          
+
           {/* 页面内容 */}
           {props.children}
         </NextIntlClientProvider>
@@ -76,7 +76,7 @@ export default async function RootLayout(props) {
 **之后**：只关注内容渲染
 ```tsx
 // 之后：约60行代码，只渲染内容
-{isMobile ? <HomeContentMobile /> : <HomeContent />}
+{ isMobile ? <HomeContentMobile /> : <HomeContent />; }
 ```
 
 #### TechnologyPageClient.tsx
@@ -84,7 +84,7 @@ export default async function RootLayout(props) {
 ```tsx
 import { MobileHeader } from '@/components/layout/MobileHeader';
 
-{isMobile && <MobileHeader locale={locale} />}
+{ isMobile && <MobileHeader locale={locale} />; }
 ```
 
 **之后**：不需要任何导航代码
@@ -92,7 +92,7 @@ import { MobileHeader } from '@/components/layout/MobileHeader';
 // 导航已在全局 layout 中处理
 <div className={isMobile ? 'pt-20' : ''}>
   {isMobile ? <TechnologyContentMobile /> : <TechnologyContent />}
-</div>
+</div>;
 ```
 
 ### 4. 删除冗余组件
@@ -137,25 +137,25 @@ const isHomePage = pathname === `/${locale}` || pathname === '/';
 
 ### 条件渲染
 ```tsx
-{isMobile && (
+{ isMobile && (
   <>
     {isHomePage
       ? (
         // 首页：透明汉堡图标
-        <>
-          <FloatingMenuButton />
-          <MobileNav showHeader={true} />
-        </>
-      )
+          <>
+            <FloatingMenuButton />
+            <MobileNav showHeader={true} />
+          </>
+        )
       : (
         // 其他页面：白色导航栏
-        <>
-          <FixedWhiteHeader />
-          <MobileNav showHeader={false} />
-        </>
-      )}
+          <>
+            <FixedWhiteHeader />
+            <MobileNav showHeader={false} />
+          </>
+        )}
   </>
-)}
+); }
 ```
 
 ### 内容区域适配
@@ -163,7 +163,7 @@ const isHomePage = pathname === `/${locale}` || pathname === '/';
 // 非首页需要添加顶部间距，避免被固定导航栏遮挡
 <div className={isMobile ? 'pt-20' : ''}>
   {content}
-</div>
+</div>;
 ```
 
 ## 文件变更清单
@@ -260,7 +260,7 @@ const [isMobile, setIsMobile] = useState(false);
 // ✅ 为移动端内容添加顶部间距
 <div className={isMobile ? 'pt-20' : ''}>
   {/* 你的内容 */}
-</div>
+</div>;
 ```
 
 ### 步骤 3：测试验证
@@ -313,7 +313,6 @@ return <DefaultNavigation />;
 
 ---
 
-**更新时间**：2025年10月  
-**状态**：✅ 已完成重构并通过测试  
+**更新时间**：2025年10月
+**状态**：✅ 已完成重构并通过测试
 **影响范围**：全局导航系统，所有页面组件
-

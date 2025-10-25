@@ -222,7 +222,7 @@ src/
 
 ### ✅ Motion Animations
 - Page load animations
-- Scroll-triggered animations  
+- Scroll-triggered animations
 - Staggered sequential effects
 - Scale, fade, slide transitions
 - Smooth performance
@@ -274,7 +274,7 @@ Primary color: `#A95B30` (warm brown)
 
 - **9** Training modules
 - **1500+** Training goals
-- **4000+** Digital training courses  
+- **4000+** Digital training courses
 - **88.2%** Clinical effectiveness rate
 - **28** Invention patents
 - **4** Software copyrights
@@ -388,4 +388,3 @@ Added comprehensive e-commerce integration:
 ### Product Code:
 - Identifier: `'starkids'`
 - Used for API queries to fetch product details
-

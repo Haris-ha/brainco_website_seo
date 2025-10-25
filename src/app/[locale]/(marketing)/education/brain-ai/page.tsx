@@ -4,6 +4,8 @@ import OnlineServiceMobile from '@/components/common/OnlineServiceMobile';
 import BrainAIContent from '@/components/product/brain-ai/BrainAIContent';
 import BrainAIContentMobile from '@/components/product/brain-ai/BrainAIContentMobile';
 
+export const dynamic = 'force-dynamic';
+
 export async function generateMetadata({
   params,
 }: {
@@ -40,4 +42,3 @@ export default function BrainAIPage() {
     </>
   );
 }
-

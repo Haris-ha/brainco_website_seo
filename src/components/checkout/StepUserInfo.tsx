@@ -5,10 +5,10 @@ import { useTranslations } from 'next-intl';
 import { useState } from 'react';
 import toast from 'react-hot-toast';
 
-interface StepUserInfoProps {
+type StepUserInfoProps = {
   onContinue: (data: { name: string; phone: string }) => void;
   initialData?: { name: string; phone: string };
-}
+};
 
 /**
  * 第一步：基本信息
@@ -16,7 +16,7 @@ interface StepUserInfoProps {
  */
 export function StepUserInfo({ onContinue, initialData }: StepUserInfoProps) {
   const t = useTranslations('Checkout');
-  
+
   const [formData, setFormData] = useState({
     name: initialData?.name || '',
     phone: initialData?.phone || '',
@@ -28,8 +28,9 @@ export function StepUserInfo({ onContinue, initialData }: StepUserInfoProps) {
 
   // 获取验证码
   const handleGetCode = async () => {
-    if (countdown > 0)
+    if (countdown > 0) {
       return;
+    }
 
     // 验证手机号
     if (!formData.phone) {
@@ -44,29 +45,27 @@ export function StepUserInfo({ onContinue, initialData }: StepUserInfoProps) {
     try {
       // TODO: 调用发送验证码 API
       // await sendVerificationCode(formData.phone);
-      
+
       toast.success('验证码已发送');
       setValidation('');
-      
+
       // 开始倒计时
       let count = 60;
       setCountdown(count);
       setCodeText(t('code_countdown', { count }));
-      
+
       const timer = setInterval(() => {
         count -= 1;
         if (count <= 0) {
           clearInterval(timer);
           setCountdown(0);
           setCodeText(t('get_code'));
-        }
-        else {
+        } else {
           setCountdown(count);
           setCodeText(t('code_countdown', { count }));
         }
       }, 1000);
-    }
-    catch (error) {
+    } catch {
       setValidation('验证码发送失败');
     }
   };
@@ -95,10 +94,10 @@ export function StepUserInfo({ onContinue, initialData }: StepUserInfoProps) {
     }
 
     setValidation('');
-    
+
     // TODO: 调用验证验证码 API
     // await verifyCode(formData.phone, formData.code);
-    
+
     onContinue({
       name: formData.name,
       phone: formData.phone,
@@ -115,7 +114,7 @@ export function StepUserInfo({ onContinue, initialData }: StepUserInfoProps) {
       className="w-full max-w-[620px]"
     >
       {/* 步骤指示 */}
-      <span className="mb-6 mt-4 block text-base md:mb-8 md:mt-6 md:text-lg lg:mb-11 lg:mt-9 lg:text-[24px]">
+      <span className="mt-4 mb-6 block text-base md:mt-6 md:mb-8 md:text-lg lg:mt-9 lg:mb-11 lg:text-[24px]">
         {t('step_indicator', { current: 1, total: 3 })}
       </span>
 
@@ -123,7 +122,7 @@ export function StepUserInfo({ onContinue, initialData }: StepUserInfoProps) {
       <h1 className="text-3xl text-[#333] md:text-4xl lg:text-[56px]">
         {t('step_1_title')}
       </h1>
-      
+
       <p className="text-sm md:text-base lg:text-[18px]">
         {t('step_1_desc')}
       </p>
@@ -172,7 +171,7 @@ export function StepUserInfo({ onContinue, initialData }: StepUserInfoProps) {
               type="button"
               onClick={handleGetCode}
               disabled={countdown > 0 || !/^1[3-9]\d{9}$/.test(formData.phone)}
-              className="absolute right-3 top-1/2 -translate-y-1/2 cursor-pointer text-sm text-[#4F68D2] disabled:cursor-not-allowed disabled:text-[#ccc] md:right-4 md:text-base lg:right-5 lg:text-[18px]"
+              className="absolute top-1/2 right-3 -translate-y-1/2 cursor-pointer text-sm text-[#4F68D2] disabled:cursor-not-allowed disabled:text-[#ccc] md:right-4 md:text-base lg:right-5 lg:text-[18px]"
             >
               {codeText}
             </button>
@@ -196,4 +195,3 @@ export function StepUserInfo({ onContinue, initialData }: StepUserInfoProps) {
     </motion.div>
   );
 }
-

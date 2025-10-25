@@ -4,9 +4,9 @@
 
 本文档记录了从 Vue3 到 Next.js 的导航栏迁移过程。
 
-**迁移日期**: 2025-01-16  
-**迁移负责人**: AI Assistant  
-**原始文件**: 
+**迁移日期**: 2025-01-16
+**迁移负责人**: AI Assistant
+**原始文件**:
 - `brainco_website/src/components/Nav/index.vue` (PC端)
 - `brainco_website/src/components/Nav/index.mobile.vue` (移动端)
 - `brainco_website/src/components/Nav/components/Products.vue` (产品菜单)
@@ -33,7 +33,7 @@
 ### 1. Header (主组件)
 
 ```tsx
-src/components/layout/Header.tsx
+src / components / layout / Header.tsx;
 ```
 
 **职责**：
@@ -45,7 +45,7 @@ src/components/layout/Header.tsx
 ```tsx
 import { Header } from '@/components/layout/Header';
 
-<Header locale="zh-CN" />
+<Header locale="zh-CN" />;
 ```
 
 ---
@@ -53,7 +53,7 @@ import { Header } from '@/components/layout/Header';
 ### 2. DesktopNav (桌面端导航)
 
 ```tsx
-src/components/layout/DesktopNav.tsx
+src / components / layout / DesktopNav.tsx;
 ```
 
 **特性**：
@@ -76,15 +76,15 @@ src/components/layout/DesktopNav.tsx
 
 **关键代码片段**：
 ```tsx
-<header className="fixed left-0 top-0 z-50 hidden w-full md:flex">
+<header className="fixed top-0 left-0 z-50 hidden w-full md:flex">
   {/* 毛玻璃背景 */}
   <div className="absolute inset-0 bg-white/30 backdrop-blur-[10px]" />
-  
+
   {/* 导航内容 */}
   <div className="relative z-10 flex h-20 w-full items-center pl-60">
     {/* Logo、导航菜单、购物车 */}
   </div>
-</header>
+</header>;
 ```
 
 ---
@@ -92,7 +92,7 @@ src/components/layout/DesktopNav.tsx
 ### 3. ProductsMenuDesktop (产品下拉菜单)
 
 ```tsx
-src/components/layout/ProductsMenuDesktop.tsx
+src / components / layout / ProductsMenuDesktop.tsx;
 ```
 
 **特性**：
@@ -162,7 +162,7 @@ onMouseEnter={() =>
 ### 4. MobileNav (移动端导航)
 
 ```tsx
-src/components/layout/MobileNav.tsx
+src / components / layout / MobileNav.tsx;
 ```
 
 **特性**：
@@ -198,14 +198,14 @@ const toggleSubmenu = (menuName: string) => {
 
 **关键代码片段**：
 ```tsx
-{/* 移动端菜单 */}
-{isOpen && (
-  <div className="animate-fade-in absolute left-0 top-20 h-[calc(100vh-80px)] w-full overflow-y-auto bg-black/30">
+{ /* 移动端菜单 */ }
+{ isOpen && (
+  <div className="animate-fade-in absolute top-20 left-0 h-[calc(100vh-80px)] w-full overflow-y-auto bg-black/30">
     <div className="bg-white px-5 pb-8">
       {/* 菜单内容 */}
     </div>
   </div>
-)}
+); }
 ```
 
 ---
@@ -225,7 +225,7 @@ Vue3 原始代码：
 
 Next.js Tailwind 实现：
 ```tsx
-<div className="absolute inset-0 bg-white/30 backdrop-blur-[10px]" />
+<div className="absolute inset-0 bg-white/30 backdrop-blur-[10px]" />;
 ```
 
 **参数**：
@@ -253,7 +253,7 @@ Vue3 原始代码：
 
 Next.js Tailwind 实现：
 ```tsx
-<div className="absolute bottom-2.5 left-1/2 h-0.5 w-20 -translate-x-1/2 rounded-sm bg-[#333] transition-all duration-200 scale-x-0 group-hover:scale-x-100" />
+<div className="absolute bottom-2.5 left-1/2 h-0.5 w-20 -translate-x-1/2 scale-x-0 rounded-sm bg-[#333] transition-all duration-200 group-hover:scale-x-100" />;
 ```
 
 **参数**：
@@ -349,8 +349,8 @@ const navItems: NavItem[] = [
 
 ```tsx
 const navItems: NavItem[] = [
-  { 
-    name: '产品', 
+  {
+    name: '产品',
     children: [
       {
         title: '智能仿生',
@@ -502,6 +502,6 @@ onMouseEnter={() =>
 
 ---
 
-**文档创建日期**: 2025-01-16  
-**最后更新**: 2025-01-16  
+**文档创建日期**: 2025-01-16
+**最后更新**: 2025-01-16
 **维护者**: BrainCo 开发团队

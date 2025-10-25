@@ -11,12 +11,12 @@
 ```css
 /* brainco_website/src/assets/base.css */
 html {
-  font-size: 10vw;  /* 🔑 关键！根字体大小 = 视口宽度的 10% */
+  font-size: 10vw; /* 🔑 关键！根字体大小 = 视口宽度的 10% */
 }
 
 @media only screen and (min-width: 1920px) {
   html {
-    font-size: 192px;  /* 大屏时固定，防止过大 */
+    font-size: 192px; /* 大屏时固定，防止过大 */
   }
 }
 ```
@@ -86,7 +86,7 @@ html {
 ```tsx
 <h1 className="text-[74px] text-white">
   脑机科技，开启生命更多可能性
-</h1>
+</h1>;
 ```
 
 #### ✅ 新方式（流式缩放）
@@ -94,15 +94,17 @@ html {
 ```tsx
 <h1 className="text-fluid-7xl text-white">
   脑机科技，开启生命更多可能性
-</h1>
+</h1>;
 ```
 
 或使用 Tailwind 的 rem 单位：
 
 ```tsx
-<h1 className="text-7xl text-white">  {/* Tailwind 的 text-7xl = 4.5rem */}
+<h1 className="text-7xl text-white">
+  {' '}
+  {/* Tailwind 的 text-7xl = 4.5rem */}
   脑机科技，开启生命更多可能性
-</h1>
+</h1>;
 ```
 
 ## 🎯 迁移步骤
@@ -187,9 +189,9 @@ grep -r "text-\[.*px\]" src/components
 **A:** 调整 `global.css` 中的 `clamp()` 最小值，或使用响应式类：
 
 ```tsx
-<h1 className="text-4xl md:text-6xl lg:text-fluid-7xl">
+<h1 className="lg:text-fluid-7xl text-4xl md:text-6xl">
   响应式标题
-</h1>
+</h1>;
 ```
 
 ### Q3: 如何在特定组件中禁用流式缩放？
@@ -197,7 +199,7 @@ grep -r "text-\[.*px\]" src/components
 **A:** 使用内联样式或固定像素单位：
 
 ```tsx
-<div style={{ fontSize: '16px' }}>固定大小文字</div>
+<div style={{ fontSize: '16px' }}>固定大小文字</div>;
 ```
 
 ## 📝 示例代码
@@ -246,19 +248,3 @@ export function HomeContent() {
 ---
 
 **注意：** 流式字体缩放会影响整个网站的视觉体验。建议逐步迁移，充分测试后再全面应用。
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

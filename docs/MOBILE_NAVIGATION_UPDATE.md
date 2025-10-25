@@ -19,7 +19,7 @@
 
 #### 组件结构
 ```tsx
-<MobileHeader locale="zh-CN" />
+<MobileHeader locale="zh-CN" />;
 ```
 
 ### 2. 更新 MobileNav 组件 (`src/components/layout/MobileNav.tsx`)
@@ -43,12 +43,12 @@ type MobileNavProps = {
 #### TechnologyPageClient.tsx
 ```tsx
 // 移动端显示固定导航栏
-{isMobile && <MobileHeader locale={locale} />}
+{ isMobile && <MobileHeader locale={locale} />; }
 
 // 主要内容区域（添加顶部间距）
 <div className={isMobile ? 'pt-20' : ''}>
   {isMobile ? <TechnologyContentMobile /> : <TechnologyContent />}
-</div>
+</div>;
 ```
 
 #### page.tsx
@@ -63,7 +63,7 @@ type MobileNavProps = {
   isOpen={showMobileNav}
   onToggle={() => setShowMobileNav(false)}
   showHeader={true}
-/>
+/>;
 ```
 
 ## 视觉效果对比
@@ -208,21 +208,5 @@ type MobileNavProps = {
 
 ---
 
-**更新时间**：2025年10月  
+**更新时间**：2025年10月
 **状态**：✅ 已完成并通过测试
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
