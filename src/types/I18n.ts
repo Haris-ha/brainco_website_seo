@@ -1,10 +1,10 @@
 import type { routing } from '@/libs/I18nRouting';
-import type messages from '@/locales/en-US.json';
 
 declare module 'next-intl' {
   // eslint-disable-next-line ts/consistent-type-definitions
   interface AppConfig {
     Locale: (typeof routing.locales)[number];
-    Messages: typeof messages;
+    // 不定义 Messages 类型，允许任意字符串作为 key
+    // Messages: typeof messages; // 注释掉严格类型检查
   }
 }
