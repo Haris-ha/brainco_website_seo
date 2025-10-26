@@ -25,13 +25,35 @@ export default function ContactContentMobile() {
 
   useEffect(() => {
     const hash = window.location.hash;
-    if (hash.includes('#contact')) {
-      setTimeout(() => {
-        document
-          .querySelector('#contact')
-          ?.scrollIntoView({ behavior: 'smooth' });
-      }, 200);
+    if (!hash.includes('#contact')) {
+      return;
     }
+
+    let adjustTimer: NodeJS.Timeout | null = null;
+
+    const timer = setTimeout(() => {
+      const element = document.querySelector('#contact') as HTMLElement | null;
+      if (element) {
+        // 先滚动到元素位置
+        element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+
+        // 然后再向上调整100px
+        adjustTimer = setTimeout(() => {
+          const currentScroll = window.scrollY || window.pageYOffset;
+          window.scrollTo({
+            top: currentScroll - 100,
+            behavior: 'smooth',
+          });
+        }, 800);
+      }
+    }, 600);
+
+    return () => {
+      clearTimeout(timer);
+      if (adjustTimer) {
+        clearTimeout(adjustTimer);
+      }
+    };
   }, []);
 
   const handleInputChange = (

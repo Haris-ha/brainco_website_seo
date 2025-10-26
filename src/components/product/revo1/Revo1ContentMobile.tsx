@@ -87,7 +87,7 @@ export default function Revo1ContentMobile() {
           <p className="text-fluid-lg mt-2">{t('subtitle')}</p>
           <div className="mt-6 flex gap-6">
             <Link
-              href="/company/contact#contact"
+              href="/contact#contact"
               className="flex h-[38px] w-[112px] items-center justify-center rounded-[20px] bg-[#1a74bf] text-white"
             >
               {t('contact_us')}
@@ -419,7 +419,7 @@ export default function Revo1ContentMobile() {
           transition={{ delay: 0.7, duration: 0.8 }}
         >
           <Link
-            href="/company/contact#contact"
+            href="/contact#contact"
             className="flex h-10 w-33 items-center justify-center rounded-[20px] bg-[#1a74bf] text-white"
           >
             {t('contact_us')}

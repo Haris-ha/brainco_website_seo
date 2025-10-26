@@ -292,7 +292,7 @@ export default function ContactContent() {
       </div>
 
       {/* Cooperation Form */}
-      <div className="my-[200px] flex h-screen w-full items-center justify-center bg-white">
+      <div id="contact" className="my-[200px] flex h-screen w-full items-center justify-center bg-white">
         <motion.div
           className="flex w-[65%] flex-col"
           initial={{ opacity: 0, y: 30 }}

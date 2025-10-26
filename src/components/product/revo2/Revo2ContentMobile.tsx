@@ -54,7 +54,7 @@ export default function Revo2ContentMobile() {
           transition={{ delay: 0.4, duration: 0.8 }}
         >
           <Link
-            href="/company/contact#contact"
+            href="/contact#contact"
             className="flex h-[38px] w-[112px] items-center justify-center rounded-[20px] bg-[#1a74bf] !text-white"
           >
             {t('contact_us')}
@@ -417,7 +417,7 @@ export default function Revo2ContentMobile() {
           transition={{ delay: 0.4, duration: 0.8 }}
         >
           <Link
-            href="/company/contact#contact"
+            href="/contact#contact"
             className=" flex h-[38px] w-[112px] items-center justify-center rounded-[20px] bg-[#1a74bf] !text-white"
           >
             {t('contact_us')}

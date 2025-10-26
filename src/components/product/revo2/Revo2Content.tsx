@@ -54,7 +54,7 @@ export default function Revo2Content() {
             transition={{ delay: 0.7, duration: 0.8 }}
           >
             <Link
-              href="/company/contact#contact"
+              href="/contact#contact"
               className="cursor-target text-fluid-3xl flex h-[90px] w-[264px] items-center justify-center rounded-[45px] bg-[#1a74bf] !text-white transition-transform hover:scale-105"
             >
               {t('contact_us')}
@@ -425,7 +425,7 @@ export default function Revo2Content() {
           transition={{ delay: 0.4, duration: 0.8 }}
         >
           <Link
-            href="/company/contact#contact"
+            href="/contact#contact"
             className="cursor-target text-fluid-3xl flex h-[90px] w-[264px] items-center justify-center rounded-[45px] bg-[#1a74bf] !text-white transition-transform hover:scale-105"
           >
             {t('contact_us')}
