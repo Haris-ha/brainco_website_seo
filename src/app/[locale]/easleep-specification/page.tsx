@@ -1,8 +1,25 @@
+import { getTranslations } from 'next-intl/server';
+import Image from 'next/image';
 import EASleepSpecificationContent from '@/components/product/easleep/EASleepSpecificationContent';
 import EASleepSpecificationContentMobile from '@/components/product/easleep/EASleepSpecificationContentMobile';
 import { getBraincoProducts } from '@/lib/api';
 
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}) {
+  const { locale } = await params;
+  const t = await getTranslations({ locale, namespace: 'EASleep' } as any);
+
+  return {
+    title: t('meta_title'),
+    description: t('meta_description'),
+  };
+}
+
 export default async function EASleepSpecificationPage() {
+  const t = await getTranslations('EASleep');
   let products: any[] = [];
 
   try {
@@ -41,7 +58,27 @@ export default async function EASleepSpecificationPage() {
   }
 
   return (
-    <>
+    <div className="min-h-screen bg-white">
+      {/* Logo导航栏 */}
+      <header className="sticky top-0 z-40 flex items-center border-b border-gray-100 bg-white px-6 py-4 md:px-12">
+        <div className="flex items-center gap-3 md:gap-8">
+          <Image
+            src="https://website-www-brainco-cn.oss-cn-hangzhou.aliyuncs.com/images/icon.webp"
+            alt="BrainCo"
+            width={180}
+            height={80}
+            className="h-auto w-[100px] lg:w-[180px]"
+            priority
+          />
+          <div className="relative flex items-center gap-2 pl-3 md:pl-6">
+            <div className="absolute top-1/2 left-0 h-[12px] w-[2px] -translate-y-1/2 bg-gray-800 md:h-[16px]" />
+            <span className="font-medium text-gray-800" style={{ fontSize: 'clamp(0.875rem, 1.5vw, 1.5rem)' }}>
+              {t('spec_title')}
+            </span>
+          </div>
+        </div>
+      </header>
+
       {/* Desktop Content */}
       <div className="hidden lg:block">
         <EASleepSpecificationContent products={products} />
@@ -51,6 +88,6 @@ export default async function EASleepSpecificationPage() {
       <div className="block lg:hidden">
         <EASleepSpecificationContentMobile products={products} />
       </div>
-    </>
+    </div>
   );
 }

@@ -16,7 +16,7 @@ export default function EASleepContent() {
   // 处理购买按钮点击 - 跳转到规格选择页面
   const handlePurchase = () => {
     // 跳转到产品规格选择页面，让用户选择具体型号
-    router.push('/health/easleep/specification');
+    router.push('/easleep-specification');
   };
 
   // Swiper carousel data
@@ -331,7 +331,7 @@ export default function EASleepContent() {
         <div className="mx-auto w-full">
           <div className="flex items-center">
             {/* Left side - Text content */}
-            <div className="w-1/2 pr-8">
+            <div className="w-1/2 px-10 pr-8">
               <motion.h5
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
@@ -745,7 +745,7 @@ export default function EASleepContent() {
       </section>
 
       {/* Usage Scenarios Section */}
-      <section className="mt-[178px] px-4 lg:px-8 xl:px-12">
+      <section className="mt-[140px] px-4 lg:px-8 xl:px-12">
         <div className="mx-auto max-w-7xl">
           <motion.dt
             initial={{ opacity: 0, y: 30 }}
@@ -771,8 +771,9 @@ export default function EASleepContent() {
                   <Image
                     src={scenario.icon}
                     alt={scenario.title}
-                    width={40}
-                    height={40}
+                    width={60}
+                    height={60}
+                    className="h-16 w-auto"
                   />
                   <span className="text-fluid-3xl ml-5 font-normal">{scenario.title}</span>
                 </div>
@@ -781,7 +782,7 @@ export default function EASleepContent() {
                   alt={scenario.title}
                   width={260}
                   height={260}
-                  className="animate-zoom-in rounded-[10px]"
+                  className="animate-zoom-in rounded-[20px]"
                 />
               </motion.dd>
             ))}

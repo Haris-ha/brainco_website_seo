@@ -75,24 +75,24 @@ export default function EASleepSpecificationContent({ products }: EASleepSpecifi
   };
 
   return (
-    <div className="flex justify-center gap-20 px-20 py-[125px] 2xl:px-40">
+    <div className="flex justify-center gap-20 px-20 py-[80px] 2xl:px-40">
       {/* Left Side - Image Gallery */}
       <div className="w-full max-w-4xl">
-        <div className="relative">
+        <div className="relative h-[480px]">
           <Swiper
             modules={[Controller]}
             onSwiper={setMainSwiper}
-            className="w-full"
+            className="h-full w-full"
           >
             {(currentImages ?? []).map((image, index) => (
               <SwiperSlide key={`${selectedProductIndex}-${image}-${index}`}>
-                <div className="w-full">
+                <div className="h-full w-full">
                   <Image
                     src={image}
                     alt={`Product image ${index + 1}`}
                     width={774}
                     height={600}
-                    className="w-full rounded-lg object-cover"
+                    className="h-full w-full rounded-xl object-contain"
                   />
                 </div>
               </SwiperSlide>
@@ -121,7 +121,7 @@ export default function EASleepSpecificationContent({ products }: EASleepSpecifi
         </div>
 
         {/* Thumbnail Navigation */}
-        <div className="-mt-10">
+        <div>
           <ul className="flex gap-[20px]">
             {(currentImages ?? []).map((image, index) => (
               <motion.li
@@ -147,7 +147,7 @@ export default function EASleepSpecificationContent({ products }: EASleepSpecifi
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
-          className="text-fluid-4xl font-normal text-[#333333]"
+          className="text-fluid-5xl font-normal text-[#333333]"
         >
           {t('spec_title')}
         </motion.h5>

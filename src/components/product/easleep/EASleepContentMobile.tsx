@@ -17,7 +17,7 @@ export default function EASleepContentMobile() {
   // 处理购买按钮点击 - 跳转到规格选择页面
   const handlePurchase = () => {
     // 跳转到产品规格选择页面，让用户选择具体型号
-    router.push('/health/easleep/specification');
+    router.push('/easleep-specification');
   };
 
   // Handle scroll detection
