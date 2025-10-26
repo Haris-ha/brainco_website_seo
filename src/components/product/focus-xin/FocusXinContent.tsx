@@ -127,11 +127,11 @@ export default function FocusXinContent() {
           <ul className="absolute inset-0">
             {problemList.map((problem, index) => {
               const positions = [
-                'left-[calc(50%-27.5vw)] top-1/2 -translate-y-1/2 h-[7.3vw] w-[7.3vw]',
-                'left-[calc(50%-23.5vw)] top-[calc(50%-18vw)] h-[9.8vw] w-[9.8vw]',
-                'left-1/2 top-[calc(50%-26.5vw)] h-[10.2vw] w-[10.2vw] -translate-x-1/2',
+                'left-[calc(50%-27.5vw)] top-1/2 -translate-y-1/2 h-[10vw] w-[10vw]',
+                'left-[calc(50%-23.5vw)] top-[calc(50%-18vw)] h-[10.8vw] w-[10.8vw]',
+                'left-1/2 top-[calc(50%-27.5vw)] h-[13vw] w-[13vw] -translate-x-1/2',
                 'left-[calc(50%+13.5vw)] top-[calc(50%-18vw)] h-[7.8vw] w-[7.8vw]',
-                'left-[calc(50%+21.5vw)] top-1/2 -translate-y-1/2 h-[9.8vw] w-[9.8vw]',
+                'left-[calc(50%+16.5vw)] top-1/2 -translate-y-1/2 h-[9.8vw] w-[9.8vw]',
               ];
               const backgrounds = ['bg-[#CAD4E7]', 'bg-[#96A2BF]', 'bg-[#96A2BF]', 'bg-[#CCD6E7]', 'bg-[#6B74A8]'];
 
@@ -171,27 +171,27 @@ export default function FocusXinContent() {
           className="w-full"
         />
 
-        <div className="absolute top-[10vw] left-1/2 flex -translate-x-1/2 flex-col items-center text-left">
+        <div className="absolute top-[8vw] left-1/2 flex -translate-x-1/2 flex-col items-center text-left">
           <motion.h2
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
-            className="text-fluid-4xl mb-8 font-medium"
+            className="text-fluid-4xl mb-8 text-center font-medium"
             dangerouslySetInnerHTML={{ __html: t('principle_title') }}
           />
           <motion.button
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
             onClick={() => setShowPrincipleVideo(true)}
-            className="text-fluid-xl cursor-target flex h-12 w-[11.2vw] items-center justify-center rounded-[1.5vw] border-2 border-gray-900 font-medium transition-all hover:bg-gray-100"
+            className="text-fluid-xl cursor-target flex h-14 w-[16.2vw] items-center justify-center rounded-[1.5vw] border-2 border-gray-900 font-medium transition-all hover:bg-gray-100"
           >
             {t('watch_principle')}
-            <span className="ml-2">›</span>
+            <div className="text-fluid-3xl mb-1 ml-2">›</div>
           </motion.button>
         </div>
 
-        <p className="text-fluid-sm absolute right-[15vw] bottom-[8%] text-gray-500">
+        <p className="text-fluid-base absolute right-[15vw] bottom-[8%] text-gray-500">
           {t('principle_footnote')}
           <sup>[1]</sup>
         </p>
@@ -207,7 +207,7 @@ export default function FocusXinContent() {
           className="w-full"
         />
 
-        <ul className="absolute top-1/2 left-1/2 translate-x-[16vw] -translate-y-1/2 space-y-8">
+        <ul className="absolute top-1/2 left-1/2 translate-x-[12vw] -translate-y-1/2 space-y-8">
           {modeList.map((mode, index) => (
             <motion.li
               key={mode.titleKey}
@@ -241,7 +241,7 @@ export default function FocusXinContent() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="text-fluid-4xl mb-[6.8vw] font-medium"
+          className="text-fluid-4xl mb-[4.8vw] font-medium"
           dangerouslySetInnerHTML={{ __html: t('training_title') }}
         />
 
@@ -255,7 +255,7 @@ export default function FocusXinContent() {
               transition={{ duration: 0.6, delay: index * 0.1 }}
               className="w-[23.75vw]"
             >
-              <h5 className="text-fluid-xl mb-4 font-medium">{t(training.nameKey)}</h5>
+              <h5 className="text-fluid-2xl mb-4 font-medium">{t(training.nameKey)}</h5>
               <Image
                 src={training.image}
                 alt={t(training.nameKey)}
@@ -454,19 +454,19 @@ export default function FocusXinContent() {
         />
 
         <div className="mx-auto flex max-w-6xl flex-wrap gap-x-3 gap-y-3 text-[0.94vw] text-gray-500">
-          {patentList.map((group, groupIndex) => (
+          {patentList.map((patentNumber, groupIndex) => (
             <div key={groupIndex} className="flex flex-col space-y-3">
-              <span>{group}</span>
+              <span>
+                {t('patent_prefix')}
+                {patentNumber}
+              </span>
             </div>
           ))}
         </div>
       </section>
 
       {/* AfterSales Section */}
-      <AfterSales
-        text="支持十五天无理由退换货,退换货政策详情、开具发票或者需要更多帮助，请咨询在线客服"
-        text2="下单后建议添加客服企业微信，获取更多产品使用指导及服务"
-      />
+      <AfterSales />
 
       {/* Principle Video Modal */}
       <AnimatePresence>

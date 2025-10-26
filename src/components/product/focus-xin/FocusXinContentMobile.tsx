@@ -261,9 +261,12 @@ export default function FocusXinContentMobile() {
         />
 
         <div className="text-fluid-xs flex flex-wrap justify-center gap-y-3 text-gray-500">
-          {patentList.map((group, groupIndex) => (
+          {patentList.map((patentNumber, groupIndex) => (
             <div key={groupIndex} className="flex w-[40vw] flex-col items-center space-y-3">
-              <span className="text-center">{group}</span>
+              <span className="text-center">
+                {t('patent_prefix')}
+                {patentNumber}
+              </span>
             </div>
           ))}
         </div>
