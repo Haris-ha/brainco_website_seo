@@ -139,7 +139,7 @@ export default function ContactContent() {
           {t('page_title')}
         </motion.h1>
         <motion.p
-          className="text-fluid-xl mt-[26px] w-[333px] leading-[34px] text-white"
+          className="text-fluid-xl mt-[26px] w-[380px] leading-[34px] text-white"
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.5, ease: 'easeOut' }}
@@ -248,7 +248,7 @@ export default function ContactContent() {
       </div>
 
       {/* Business Areas */}
-      <div className="grid h-screen w-full grid-cols-4">
+      <div className="grid min-h-screen w-full grid-cols-4">
         {[
           {
             bg: 'https://website-www-brainco-cn.oss-cn-hangzhou.aliyuncs.com/images/product/rove2/HKyIiSGZxRQOcU4C.webp',
@@ -270,19 +270,19 @@ export default function ContactContent() {
             title: t('area_embodied_intelligence'),
             desc: t('area_embodied_intelligence_desc'),
           },
-        ].map((area, index) => (
+        ].map(area => (
           <div
-            key={index}
-            className="flex items-center justify-center bg-cover bg-center"
+            key={area.title}
+            className="flex items-center justify-center bg-cover bg-center py-20"
             style={{ backgroundImage: `url(${area.bg})` }}
           >
-            <div className="flex h-[60%] w-[50%] flex-col justify-around">
-              <h2 className="text-fluid-7xl pr-10 leading-[80px] font-medium text-[#333333]">
+            <div className="mt-20 flex h-auto w-[70%] flex-col justify-start gap-8">
+              <h2 className="leading-tight font-medium text-[#333333]" style={{ fontSize: 'clamp(2rem, 3vw, 4rem)' }}>
                 {area.title}
               </h2>
-              <div className="flex h-[50%] flex-col justify-start">
-                <div className="mb-[50px] h-px w-[75px] border-t-[3px] border-[#333333]" />
-                <p className="text-fluid-xl w-full leading-[34px] text-[#707070]">
+              <div className="flex min-h-[400px] flex-col gap-6">
+                <div className="h-px w-[75px] border-t-[3px] border-[#333333]" />
+                <p className="text-[#707070]" style={{ fontSize: 'clamp(1rem, 1.3vw, 1.25rem)', lineHeight: '1.7' }}>
                   {area.desc}
                 </p>
               </div>
@@ -461,7 +461,7 @@ export default function ContactContent() {
           </motion.div>
 
           <motion.div
-            className="mt-[96px] flex w-full items-center justify-center"
+            className="mt-[80px] flex w-full items-center justify-center"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -471,7 +471,7 @@ export default function ContactContent() {
               type="button"
               onClick={handleSubmit}
               disabled={isSubmitting}
-              className="h-20 w-[274px] rounded-[68px] border-[3px] border-[#333333] bg-white text-[28px] hover:bg-gray-50"
+              className="h-20 w-[274px] rounded-[68px] border-[2px] border-[#333333] bg-white text-[28px] font-normal hover:bg-gray-50"
             >
               {t('submit_button')}
             </Button>
