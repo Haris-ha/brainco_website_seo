@@ -22,12 +22,12 @@ export default function RecruitContent() {
 
   const handleNext = () => {
     if (typeof window !== 'undefined') {
-      setTransformValue(-window.innerWidth / 2.2);
+      setTransformValue(-window.innerWidth / 5);
     }
   };
 
   return (
-    <div className="w-full bg-white">
+    <div className="w-full overflow-x-hidden bg-white">
       {/* Top Banner */}
       <div
         className="relative flex h-[880px] w-full items-center justify-center bg-cover bg-center"
@@ -36,12 +36,12 @@ export default function RecruitContent() {
             'url(https://website-www-brainco-cn.oss-cn-hangzhou.aliyuncs.com/images/fwXXuwCQ9Z0O636D.webp)',
         }}
       >
-        <div className="flex h-[270px] w-[660px] flex-col items-center justify-between">
-          <div className="flex w-full justify-between text-[76px] text-white">
+        <div className="flex flex-col items-center justify-center gap-6">
+          <div className="flex flex-col items-center text-center text-[76px] leading-tight text-white">
             <span>{t('join_us')}</span>
             <span>{t('change_world')}</span>
           </div>
-          <span className="h-[95px] text-2xl text-white">
+          <span className="mt-8 text-2xl text-white">
             {t('brain_tech_slogan')}
           </span>
         </div>
@@ -57,74 +57,74 @@ export default function RecruitContent() {
           <span className="pt-[5px] text-[44px] font-medium text-[#2b2b2b]">
             {t('great_product_title_2')}
           </span>
-          <p className="mt-[50px] w-[654px] text-2xl leading-10 text-[#838483]">
+          <p className="mt-[50px] w-[654px] text-center text-2xl leading-10 text-[#838483]">
             {t('philosophy_paragraph')}
           </p>
 
-          <span className="mt-[160px] text-[44px] font-medium text-[#2b2b2b]">
+          <span className="mt-[160px] max-w-[622px] text-center text-[44px] font-medium text-[#2b2b2b]">
             {t('nine_years_title')}
           </span>
-          <p className="mt-[50px] h-[155px] w-[824px] text-2xl leading-10 text-[#838483]">
+          <p className="mt-[50px] h-[155px] w-[824px] text-center text-2xl leading-10 text-[#838483]">
             {t('journey_paragraph')}
           </p>
 
           {/* What We Offer */}
-          <span className="mt-[260px] h-[90px] w-[622px] text-[62px] leading-[75px] font-medium text-[#2b2b2b]">
+          <span className="mt-32 h-[90px] w-[622px] text-center text-[52px] leading-[75px] font-medium text-[#2b2b2b]">
             {t('what_we_offer')}
           </span>
 
           {/* Cards */}
-          <div className="mt-[135px] flex w-[1100px] justify-between">
-            <div className="flex h-[372px] w-[353px] flex-col items-center justify-center rounded-[10px] bg-white shadow-[6px_7px_62px_1px_#ededed]">
+          <div className="mt-[100px] flex w-[1100px] justify-between">
+            <div className="flex h-[372px] w-[353px] flex-col items-center justify-center rounded-[20px] bg-white shadow-[6px_7px_62px_1px_#ededed]">
               <Image
                 src="https://website-www-brainco-cn.oss-cn-hangzhou.aliyuncs.com/images/KBEw9rk75UDa0f27.webp"
                 alt={t('personalized_training')}
                 width={100}
                 height={100}
               />
-              <span className="mt-[39px] h-[84px] w-[224px] text-center text-[32px] leading-[38px] text-[#2b2b2b]">
+              <span className="mt-[39px] h-[84px] w-[224px] text-center text-[28px] leading-[38px] text-[#2b2b2b]">
                 {t('personalized_training')}
               </span>
             </div>
-            <div className="flex h-[372px] w-[353px] flex-col items-center justify-center rounded-[10px] bg-white shadow-[6px_7px_62px_1px_#ededed]">
+            <div className="flex h-[372px] w-[353px] flex-col items-center justify-center rounded-[20px] bg-white shadow-[6px_7px_62px_1px_#ededed]">
               <Image
                 src="https://website-www-brainco-cn.oss-cn-hangzhou.aliyuncs.com/images/7FkZy7Pqx6Mc3qW2.webp"
                 alt={t('competitive_salary')}
                 width={100}
                 height={100}
               />
-              <span className="mt-[39px] h-[84px] w-[224px] text-center text-[32px] leading-[38px] text-[#2b2b2b]">
+              <span className="mt-[39px] h-[84px] w-[224px] text-center text-[28px] leading-[38px] text-[#2b2b2b]">
                 {t('competitive_salary')}
               </span>
             </div>
-            <div className="flex h-[372px] w-[353px] flex-col items-center justify-center rounded-[10px] bg-white shadow-[6px_7px_62px_1px_#ededed]">
+            <div className="flex h-[372px] w-[353px] flex-col items-center justify-center rounded-[20px] bg-white shadow-[6px_7px_62px_1px_#ededed]">
               <Image
                 src="https://website-www-brainco-cn.oss-cn-hangzhou.aliyuncs.com/images/rqnSfilDvu8b7CBh.webp"
                 alt={t('elite_environment')}
                 width={100}
                 height={100}
               />
-              <span className="mt-[39px] h-[84px] w-[224px] text-center text-[32px] leading-[38px] text-[#2b2b2b]">
+              <span className="mt-[39px] h-[84px] w-[224px] text-center text-[28px] leading-[38px] text-[#2b2b2b]">
                 {t('elite_environment')}
               </span>
             </div>
           </div>
 
           {/* Introduction */}
-          <div className="mt-[123px] mb-[80px] flex h-[475px] w-[678px] flex-col justify-between text-center text-2xl leading-10 text-[#2b2b2b]">
+          <div className="mt-[123px] mb-[80px] flex h-[400px] w-[678px] flex-col justify-between text-center text-2xl leading-10 text-[#2b2b2b]">
             <span>{t('intro_1')}</span>
             <span>{t('intro_2')}</span>
             <span>{t('intro_3')}</span>
           </div>
 
           {/* Scenario Carousel */}
-          <div className="flex justify-center">
+          <div className="flex w-full justify-center">
             <div className="relative">
               <div
-                className="flex transition-transform duration-500"
+                className="-ml-20 flex transition-transform duration-500"
                 style={{ transform: `translate3d(${transformValue}px, 0px, 0px)` }}
               >
-                <div className="mr-[20px] flex items-center justify-center">
+                <div className="mr-[40px] flex items-center justify-center">
                   <Image
                     src="https://website-www-brainco-cn.oss-cn-hangzhou.aliyuncs.com/images/sIZR2ml7GHJWwlMx.webp"
                     alt="Office 1"
@@ -161,11 +161,11 @@ export default function RecruitContent() {
           </div>
 
           {/* Join Us Section */}
-          <div className="mt-[181px] h-[186px] w-[530px] text-[129px] leading-[203px] text-[#e7e7e7]">
+          <div className="mt-[120px] h-[186px] w-[530px] text-center text-[129px] leading-[203px] text-[#e7e7e7]">
             <span>JOIN US</span>
           </div>
 
-          <div className="mb-[100px] w-[582px] text-[21px] leading-[31px] text-[#e7e7e7]">
+          <div className="mb-[100px] w-[582px] text-center text-[21px] leading-[31px] text-[#e7e7e7]">
             <span>{t('join_us_final')}</span>
           </div>
         </div>
