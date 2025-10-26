@@ -288,7 +288,7 @@ export default function OxyZenContent({ productInfo }: OxyZenContentProps) {
 
       {/* 3D Indicators */}
       <section className="flex items-center justify-center gap-[12.5vw] py-[3.125vw]">
-        <div className="text-left">
+        <div className="max-w-[600px] text-left">
           <motion.h2
             className="text-fluid-5xl relative mb-[3.125vw] pb-[3.125vw] font-medium after:absolute after:bottom-0 after:left-0 after:h-[0.26vw] after:w-[2.08vw] after:bg-[#333]"
             initial={{ opacity: 0, y: 30 }}
@@ -423,7 +423,7 @@ export default function OxyZenContent({ productInfo }: OxyZenContentProps) {
             ].map((item, index) => (
               <motion.li
                 key={item.label}
-                className={`text-fluid-xl absolute flex h-[2.7vw] w-[6.25vw] items-center justify-center rounded-[1.35vw] bg-gradient-to-b from-[#edfdfd] to-[#82c8c4] font-light ${item.style}`}
+                className={`text-fluid-xl absolute flex h-[4vw] w-[8vw] items-center justify-center rounded-[1.35vw] bg-gradient-to-b from-[#edfdfd] to-[#82c8c4] font-light ${item.style}`}
                 initial={{ opacity: 0, scale: 0 }}
                 whileInView={{ opacity: 1, scale: 1 }}
                 viewport={{ once: true }}

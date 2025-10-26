@@ -7,6 +7,7 @@ import { useEffect, useState } from 'react';
 import { Pagination } from 'swiper/modules';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { useRouter } from '@/libs/I18nNavigation';
+import AfterSalesMobile from '@/components/common/AfterSalesMobile';
 import 'swiper/css';
 
 export default function EASleepContentMobile() {
@@ -710,6 +711,9 @@ export default function EASleepContentMobile() {
           </motion.button>
         </div>
       </motion.div>
+
+      {/* After Sales */}
+      <AfterSalesMobile />
     </div>
   );
 }

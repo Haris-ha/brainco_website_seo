@@ -5,6 +5,7 @@ import { useTranslations } from 'next-intl';
 import Image from 'next/image';
 import { Pagination } from 'swiper/modules';
 import { Swiper, SwiperSlide } from 'swiper/react';
+import AfterSales from '@/components/common/AfterSales';
 import { useRouter } from '@/libs/I18nNavigation';
 import 'swiper/css';
 import 'swiper/css/pagination';
@@ -789,6 +790,9 @@ export default function EASleepContent() {
           </div>
         </div>
       </section>
+
+      {/* After Sales */}
+      <AfterSales />
     </div>
   );
 }
