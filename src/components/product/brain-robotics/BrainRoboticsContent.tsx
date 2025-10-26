@@ -234,7 +234,7 @@ export default function BrainRoboticsContent() {
         />
         <div className="absolute top-0 right-[20px] flex flex-col pt-[240px] 2xl:right-[180px]">
           {/* Achievement Badges */}
-          <div className="flex h-[100px] items-center">
+          <div className="flex h-[100px] items-center gap-4">
             {achievements.map((achievement, index) => (
               <motion.div
                 key={achievement}
@@ -246,9 +246,9 @@ export default function BrainRoboticsContent() {
                 <Image
                   src={achievement}
                   alt="Achievement"
-                  width={index === 0 ? 155 : index === 1 ? 140 : 88}
-                  height={index === 0 ? 155 : index === 1 ? 140 : 88}
-                  className="h-auto"
+                  width={index === 0 ? 120 : index === 1 ? 110 : 88}
+                  height={index === 0 ? 120 : index === 1 ? 110 : 68}
+                  className={`h-auto ${index === 0 ? 'w-[120px]' : index === 1 ? 'w-[110px]' : 'w-[68px]'}`}
                 />
               </motion.div>
             ))}
@@ -265,7 +265,7 @@ export default function BrainRoboticsContent() {
               {t('brand_name')}
             </motion.p>
             <motion.h1
-              className="text-fluid-7xl mb-[40px] font-bold"
+              className="text-fluid-7xl mb-[40px] max-w-[350px] font-semibold 2xl:max-w-none"
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.5, ease: 'easeOut' }}
@@ -273,7 +273,7 @@ export default function BrainRoboticsContent() {
               {t('product_name')}
             </motion.h1>
             <motion.p
-              className="text-fluid-lg leading-relaxed"
+              className="text-fluid-xl max-w-[350px] leading-relaxed 2xl:max-w-none"
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.8, ease: 'easeOut' }}
@@ -286,12 +286,12 @@ export default function BrainRoboticsContent() {
 
       {/* Gestures Section */}
       <div className="relative z-[2] -mt-[335px] pl-[182px] 2xl:pl-[242px]">
-        <div className="rounded-tl-[85px] bg-white pt-[100px] pr-[74px] pb-[100px] pl-[100px]">
+        <div className="rounded-l-[85px] bg-white pt-[100px] pr-[74px] pb-[100px] pl-[100px] shadow-lg">
           <div className="grid grid-cols-3 gap-x-[50px] gap-y-[40px]">
             {gestures.map((gesture, index) => (
               <motion.div
                 key={gesture.name}
-                className="flex items-center"
+                className="flex items-start"
                 initial={{ opacity: 0, scale: 0.9 }}
                 whileInView={{ opacity: 1, scale: 1 }}
                 viewport={{ once: true }}
@@ -333,20 +333,20 @@ export default function BrainRoboticsContent() {
                 viewport={{ once: true }}
                 transition={{ duration: 0.6, delay: index * 0.3, ease: 'easeOut' }}
               >
-                <div className="rounded-[24px] bg-[#c62927] p-[24px]">
+                <div className="rounded-[18px] bg-[#c62927] p-[18px]">
                   <Image
                     src={award.img}
                     alt={award.title}
-                    width={index === 0 ? 220 : 175}
-                    height={index === 0 ? 220 : 175}
-                    className={`h-auto ${index === 0 ? 'w-[220px]' : 'w-[175px]'}`}
+                    width={index === 0 ? 160 : 130}
+                    height={index === 0 ? 160 : 130}
+                    className={`h-auto ${index === 0 ? 'w-[160px]' : 'w-[130px]'}`}
                   />
                 </div>
-                <div className="flex w-[290px] flex-col items-end">
-                  <p className="text-fluid-xl relative flex h-[80px] w-full items-end justify-end pb-[10px] text-right after:absolute after:bottom-0 after:left-0 after:h-[4px] after:w-full after:bg-[#c62927]">
+                <div className="flex w-[240px] flex-col items-end">
+                  <p className="text-fluid-lg relative flex h-[60px] w-full items-end justify-end pb-[8px] text-right after:absolute after:bottom-0 after:left-0 after:h-[3px] after:w-full after:bg-[#c62927]">
                     {award.title}
                   </p>
-                  <h5 className="text-fluid-7xl relative leading-[80px] before:absolute before:top-1/2 before:left-[-30px] before:h-[8px] before:w-[8px] before:-translate-y-1/2 before:rounded-full before:border-[6px] before:border-[#c62927]">
+                  <h5 className="text-fluid-5xl relative leading-[60px] before:absolute before:top-1/2 before:left-[-24px] before:h-[6px] before:w-[6px] before:-translate-y-1/2 before:rounded-full before:border-[5px] before:border-[#c62927]">
                     {award.year}
                   </h5>
                 </div>
@@ -396,12 +396,12 @@ export default function BrainRoboticsContent() {
                   />
                 )}
                 <div>
-                  <h4 className="text-fluid-xl font-normal">{param.name}</h4>
-                  <h5 className="text-fluid-7xl relative mt-[20px] inline-block pb-[14px] leading-none after:absolute after:bottom-0 after:left-0 after:h-[4px] after:w-full after:rounded-[2px] after:bg-[#c62927]">
+                  <h4 className="text-fluid-lg font-normal">{param.name}</h4>
+                  <h5 className="text-fluid-5xl relative mt-[16px] inline-block pb-[10px] leading-none after:absolute after:bottom-0 after:left-0 after:h-[3px] after:w-full after:rounded-[2px] after:bg-[#c62927]">
                     {param.value}
-                    <span className="text-fluid-3xl font-light">{param.unit}</span>
+                    <span className="text-fluid-2xl font-light">{param.unit}</span>
                   </h5>
-                  <p className="text-fluid-base mt-[8px] font-light">{param.desc}</p>
+                  <p className="text-fluid-sm mt-[6px] font-light">{param.desc}</p>
                 </div>
               </motion.li>
             ))}
