@@ -22,10 +22,10 @@ export function Footer({ locale }: FooterProps) {
     {
       title: t('intelligent_bionics'),
       items: [
-        { title: t('brain_robotics'), href: `/${locale}/product/brain-robotics` },
-        { title: t('mobius'), href: `/${locale}/product/mobius` },
-        { title: t('dexterous_revo1'), href: `/${locale}/product/dexterous` },
-        { title: t('dexterous_revo2'), href: `/${locale}/product/revo2` },
+        { title: t('brain_robotics'), href: `/${locale}/products/brain-robotics` },
+        { title: t('mobius'), href: `/${locale}/products/mobius` },
+        { title: t('dexterous_revo1'), href: `/${locale}/products/revo1` },
+        { title: t('dexterous_revo2'), href: `/${locale}/products/revo2` },
       ],
     },
     {
@@ -33,14 +33,14 @@ export function Footer({ locale }: FooterProps) {
       items: [
         { title: t('easleep'), href: `/${locale}/health/easleep` },
         { title: t('oxyzen'), href: `/${locale}/health/oxyzen` },
-        { title: t('focus_zen'), href: `/${locale}/product/focus-zen` },
-        { title: t('focus_xin'), href: `/${locale}/product/focus-xin` },
-        { title: t('starkids'), href: `/${locale}/product/starkids` },
+        { title: t('focus_zen'), href: `/${locale}/health/focus-zen` },
+        { title: t('focus_xin'), href: `/${locale}/health/focus-xin` },
+        { title: t('starkids'), href: `/${locale}/health/starkids` },
       ],
     },
     {
       title: t('intelligent_education'),
-      items: [{ title: t('brain_ai'), href: `/${locale}/product/brain-ai` }],
+      items: [{ title: t('brain_ai'), href: `/${locale}/education/brain-ai` }],
     },
   ];
 

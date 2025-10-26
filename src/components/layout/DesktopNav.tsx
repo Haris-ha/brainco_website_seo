@@ -29,7 +29,13 @@ export function DesktopNav({ locale }: { locale: string }) {
   const navItems: NavItem[] = [
     { key: 'home', href: `/${locale}` },
     { key: 'products' }, // 产品有特殊的下拉菜单
-    { key: 'technology', href: `/${locale}/technology` },
+    {
+      key: 'technology',
+      children: [
+        { key: 'brainco_cooperation', href: `/${locale}/technology?t=research` },
+        { key: 'neuroscience_history', href: `/${locale}/technology?t=course` },
+      ],
+    },
     { key: 'news', href: `/${locale}/news` },
     { key: 'careers', href: `/${locale}/recruit` },
     {

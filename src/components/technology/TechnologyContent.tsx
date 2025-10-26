@@ -3,7 +3,7 @@
 import { motion } from 'framer-motion';
 import { useLocale, useTranslations } from 'next-intl';
 import Image from 'next/image';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { SimpleCarousel } from '@/components/ui/SimpleCarousel';
 import { getCooperatingInstitutions, getFootnotes, getProcess, getResearchArticles } from './data';
 
@@ -11,6 +11,42 @@ export default function TechnologyContent() {
   const locale = useLocale();
   const t = useTranslations('Technology');
   const [selectedYear, setSelectedYear] = useState(0);
+
+  // Handle scroll to section based on URL parameter
+  useEffect(() => {
+    const params = new URLSearchParams(window.location.search);
+    const section = params.get('t');
+
+    if (!section) {
+      return;
+    }
+
+    let scrollTimer: NodeJS.Timeout | null = null;
+
+    const timer = setTimeout(() => {
+      const elementId = section === 'research' ? 'research' : 'course';
+      const element = document.getElementById(elementId);
+
+      if (element) {
+        element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+
+        scrollTimer = setTimeout(() => {
+          const currentScroll = window.scrollY || window.pageYOffset;
+          window.scrollTo({
+            top: currentScroll,
+            behavior: 'smooth',
+          });
+        }, 800);
+      }
+    }, 500);
+
+    return () => {
+      clearTimeout(timer);
+      if (scrollTimer) {
+        clearTimeout(scrollTimer);
+      }
+    };
+  }, []);
 
   const process = getProcess(locale);
   const footnotes = getFootnotes(locale);
@@ -53,7 +89,7 @@ export default function TechnologyContent() {
       </motion.div>
 
       {/* Research Collaboration Section */}
-      <section className="bg-white py-20">
+      <section id="research" className="bg-white py-20">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -188,7 +224,7 @@ export default function TechnologyContent() {
       </section>
 
       {/* Timeline Section */}
-      <section className="mb-[82px] flex flex-col items-center bg-white py-[100px]">
+      <section id="course" className="mb-[82px] flex flex-col items-center bg-white py-[100px]">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
