@@ -71,7 +71,7 @@ export function Footer({ locale }: FooterProps) {
     },
     {
       title: t('purchase'),
-      items: [{ title: t('my_orders'), href: `/${locale}/buy/order` }],
+      items: [{ title: t('my_orders'), href: `/${locale}/orders` }],
     },
   ];
 
