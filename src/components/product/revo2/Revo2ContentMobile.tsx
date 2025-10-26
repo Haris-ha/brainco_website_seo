@@ -264,7 +264,7 @@ export default function Revo2ContentMobile() {
                 transition={{ duration: 0.3 }}
               />
               <span className="text-fluid-sm whitespace-nowrap !text-white">
-                {item.name}
+                {t(item.name as any)}
               </span>
             </button>
           ))}
@@ -323,17 +323,19 @@ export default function Revo2ContentMobile() {
               {spec.customStyle
                 ? (
                     <div className="text-fluid-3xl mt-2 mb-8 flex items-center leading-10 font-bold">
-                      {spec.value.split('&').map((part, i) => (
-                        <span key={i} className="text-fluid-lg block">
-                          {part}
-                        </span>
-                      ))}
+                      <span className="text-fluid-lg">
+                        {spec.value.startsWith('spec_') ? t(spec.value as any) : spec.value}
+                      </span>
                     </div>
                   )
                 : (
                     <p className="text-fluid-3xl mt-2 mb-8 flex items-center leading-10 font-bold">
                       {spec.value}
-                      {spec.unit && <span className="text-fluid-lg ml-1.5">{spec.unit}</span>}
+                      {spec.unit && (
+                        <span className="text-fluid-lg ml-1.5">
+                          {spec.unit.startsWith('spec_') ? t(spec.unit as any) : spec.unit}
+                        </span>
+                      )}
                     </p>
                   )}
             </motion.li>

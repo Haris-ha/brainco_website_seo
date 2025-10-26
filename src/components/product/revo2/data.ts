@@ -7,17 +7,17 @@ export type ColorOption = {
 
 export const colorImages: ColorOption[] = [
   {
-    name: '晨曦金',
+    name: 'color_dawn_gold',
     img: 'https://brainco-common-public.oss-cn-hangzhou.aliyuncs.com/web-config/docs-sdk/csmLWVDXndqiHoNS.webp',
     color: '#9B9083',
   },
   {
-    name: '流光银',
+    name: 'color_silver',
     img: 'https://brainco-common-public.oss-cn-hangzhou.aliyuncs.com/web-config/docs-sdk/WbXwhniecMNLxKDj.webp',
     color: '#818181',
   },
   {
-    name: '深空灰',
+    name: 'color_space_gray',
     img: 'https://brainco-common-public.oss-cn-hangzhou.aliyuncs.com/web-config/docs-sdk/gPBbsTYXRlaGhSdw.webp',
     color: '#2B2B2B',
   },
@@ -32,9 +32,9 @@ export type TechSpec = {
 };
 
 export const technicalSpecs: TechSpec[] = [
-  { label: 'spec_active_joints', value: '6', unit: '个' },
-  { label: 'spec_dof', value: '11', unit: '个' },
-  { label: 'spec_comm_freq', value: '最高1KHz', customStyle: true },
+  { label: 'spec_active_joints', value: '6', unit: 'spec_unit_piece' },
+  { label: 'spec_dof', value: '11', unit: 'spec_unit_piece' },
+  { label: 'spec_comm_freq', value: 'spec_comm_freq_value', customStyle: true },
   { label: 'spec_load', value: '≥20', unit: 'kg' },
   { label: 'spec_grip', value: '≥50', unit: 'N' },
   { label: 'spec_pinch', value: '≥15', unit: 'N' },

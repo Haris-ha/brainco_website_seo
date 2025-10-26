@@ -268,7 +268,7 @@ export default function Revo2Content() {
                 transition={{ duration: 0.3 }}
               />
               <span className="text-fluid-lg whitespace-nowrap text-white">
-                {item.name}
+                {t(item.name as any)}
               </span>
             </button>
           ))}
@@ -319,7 +319,7 @@ export default function Revo2Content() {
             {technicalSpecs.map((spec, index) => (
               <motion.li
                 key={spec.label}
-                className="mb-14 flex flex-col items-start"
+                className="mb-14 flex flex-col items-center"
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
@@ -328,19 +328,19 @@ export default function Revo2Content() {
                 <span className="text-fluid-2xl">{t(spec.label as any)}</span>
                 {spec.customStyle
                   ? (
-                      <h3 className="text-fluid-5xl mt-3 flex flex-col items-start leading-[50px] font-bold">
-                        {spec.value.split('&').map((part, i) => (
-                          <i key={i} className="text-fluid-2xl m-0 leading-[30px] font-normal not-italic">
-                            {part}
-                          </i>
-                        ))}
+                      <h3 className="text-fluid-5xl mt-3 flex h-16 items-center text-center leading-16 font-bold">
+                        <i className="text-fluid-2xl m-0 h-16 text-center leading-16 font-normal not-italic">
+                          {spec.value.startsWith('spec_') ? t(spec.value as any) : spec.value}
+                        </i>
                       </h3>
                     )
                   : (
-                      <h3 className="text-fluid-5xl mt-3 flex items-center leading-[50px] font-bold">
+                      <h3 className="text-fluid-5xl mt-3 flex h-16 items-center leading-16 font-bold">
                         {spec.value}
                         {spec.unit && (
-                          <i className="text-fluid-2xl ml-2 font-normal not-italic">{spec.unit}</i>
+                          <i className="text-fluid-2xl ml-2 text-center font-normal not-italic">
+                            {spec.unit.startsWith('spec_') ? t(spec.unit as any) : spec.unit}
+                          </i>
                         )}
                       </h3>
                     )}
@@ -396,7 +396,7 @@ export default function Revo2Content() {
       </section>
 
       {/* Summary Section */}
-      <section className="mt-20 text-center">
+      <section className="mx-auto mt-20 max-w-[90%] text-center">
         <motion.h1
           className="text-fluid-6xl font-semibold text-white"
           initial={{ opacity: 0, y: 30 }}
