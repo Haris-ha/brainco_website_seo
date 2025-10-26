@@ -68,13 +68,7 @@ export function MobileNav({ locale, isOpen, onToggle, showHeader = true }: Mobil
   // 导航菜单配置
   const navItems: NavItem[] = [
     { key: 'products', children: productCategories },
-    {
-      key: 'technology',
-      children: [
-        { key: 'brainco_cooperation', href: `/${locale}/technology?t=research` },
-        { key: 'neuroscience_history', href: `/${locale}/technology?t=course` },
-      ],
-    },
+    { key: 'technology', href: `/${locale}/technology` },
     { key: 'news', href: `/${locale}/news` },
     { key: 'careers', href: `/${locale}/recruit` },
     {
