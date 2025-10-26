@@ -178,7 +178,7 @@ export default function Revo1Content() {
         >
           {t('industry_title')}
         </motion.h4>
-        <div className="mx-auto mt-32 flex items-end justify-center text-[#c7cdd4]">
+        <div className="mx-auto mt-24 flex max-w-[90%] items-end justify-center overflow-x-hidden text-[#c7cdd4] xl:max-w-[85%]">
           <ul>
             {industryList.map((item, index) => (
               <motion.li
@@ -189,33 +189,33 @@ export default function Revo1Content() {
                 viewport={{ once: true }}
                 transition={{ delay: index * 0.2, duration: 0.8 }}
               >
-                <Image src={item.icon} alt="" width={80} height={80} className="mr-6" />
-                <div className="mr-16 w-[362px]">
-                  <h4 className="text-fluid-2xl leading-tight font-medium">
+                <Image src={item.icon} alt="" width={80} height={80} className="mr-3 flex-shrink-0 xl:mr-4" />
+                <div className="mr-8 w-[220px] flex-shrink-0 xl:mr-8 xl:w-[240px]">
+                  <h4 className="text-fluid-xl xl:text-fluid-xl leading-tight font-medium">
                     {t(`industry_${index + 1}_title` as any)}
                   </h4>
                   <p
-                    className="text-fluid-lg mt-7 leading-relaxed"
+                    className="text-fluid-base xl:text-fluid-base mt-3 leading-relaxed xl:mt-5"
                     dangerouslySetInnerHTML={{ __html: t(`industry_${index + 1}_desc` as any) }}
                   />
                 </div>
-                <ul className="flex">
+                <ul className="flex flex-shrink-0 gap-3 xl:gap-4">
                   {item.ability.map((subInfo, subIndex) => (
                     <li
                       key={`${index}-${subIndex}`}
-                      className="flex min-w-[200px] flex-col"
+                      className="flex min-w-[130px] flex-col xl:min-w-[150px]"
                     >
-                      <h5 className="text-fluid-2xl">{subInfo.title}</h5>
-                      <div className="mt-2 flex items-end leading-none">
-                        <span className="text-fluid-6xl relative top-1.5 pr-2 font-bold">
+                      <h5 className="text-fluid-xl">{t(subInfo.title as any)}</h5>
+                      <div className="mt-1 flex items-end leading-none xl:mt-2">
+                        <span className="text-fluid-3xl xl:text-fluid-4xl relative top-1 pr-1 font-bold xl:pr-2">
                           {subInfo.data}
                         </span>
-                        <s className="text-fluid-lg no-underline">{subInfo.unit}</s>
+                        <s className="text-fluid-base no-underline">{subInfo.unit === 'ability_unit_seconds' ? t(subInfo.unit as any) : subInfo.unit}</s>
                         {subInfo.extend && (
-                          <p className="text-fluid-2xl ml-3 font-medium">{subInfo.extend}</p>
+                          <p className="text-fluid-base ml-1 font-medium xl:ml-2">{subInfo.extend.startsWith('ability_') ? t(subInfo.extend as any) : subInfo.extend}</p>
                         )}
                         {subInfo.connect && (
-                          <b className="text-fluid-6xl relative top-1.5 ml-3 font-bold">
+                          <b className="text-fluid-3xl xl:text-fluid-4xl relative top-1 ml-1 font-bold xl:ml-2">
                             {subInfo.connect}
                           </b>
                         )}
@@ -227,7 +227,7 @@ export default function Revo1Content() {
             ))}
           </ul>
           <motion.div
-            className="ml-6 flex flex-col"
+            className="ml-3 flex flex-shrink-0 flex-col items-center xl:ml-4"
             initial={{ opacity: 0, scale: 0.8 }}
             whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true }}
@@ -236,27 +236,27 @@ export default function Revo1Content() {
             <Image
               src="https://website-www-brainco-cn.oss-cn-hangzhou.aliyuncs.com/images/product/dexterous/OpdcfbPwGNAqTaol.webp"
               alt=""
-              width={328}
-              height={328}
-              className="ml-6"
+              width={240}
+              height={240}
+              className="ml-1 xl:ml-2 xl:h-[280px] xl:w-[280px]"
             />
-            <p className="text-fluid-2xl mt-16 pl-[150px] text-[#c7cdd4]">
+            <p className="text-fluid-base xl:text-fluid-xl mt-6 pl-[60px] text-[#c7cdd4] xl:mt-12">
               {t('product_weight_label')}
             </p>
-            <h4 className="text-fluid-6xl flex items-end pl-[150px] font-bold text-[#c7cdd4]">
+            <h4 className="text-fluid-3xl xl:text-fluid-4xl flex items-end pl-[60px] font-bold text-[#c7cdd4]">
               {t('product_weight_value')}
               {' '}
-              <span className="text-fluid-lg relative bottom-4 ml-2">
+              <span className="text-fluid-base xl:text-fluid-base relative bottom-1 ml-1 xl:ml-1">
                 {t('product_weight_unit')}
               </span>
             </h4>
-            <p className="text-fluid-2xl mt-2 pl-[150px] text-[#c7cdd4]">
+            <p className="text-fluid-base xl:text-fluid-xl mt-2 pl-[60px] text-[#c7cdd4]">
               {t('active_joints_label')}
             </p>
-            <h4 className="text-fluid-6xl flex items-end pl-[150px] font-bold text-[#c7cdd4]">
+            <h4 className="text-fluid-3xl xl:text-fluid-4xl flex items-end pl-[60px] font-bold text-[#c7cdd4]">
               {t('active_joints_value')}
               {' '}
-              <span className="text-fluid-lg relative bottom-4 ml-2">
+              <span className="text-fluid-base xl:text-fluid-base relative bottom-1 ml-1 xl:ml-1">
                 {t('active_joints_unit')}
               </span>
             </h4>
@@ -265,8 +265,8 @@ export default function Revo1Content() {
       </section>
 
       {/* Ability Showcase Section */}
-      <section className="bg-black py-52 pb-25 text-white">
-        <div className="mx-auto w-[960px]">
+      <section className="bg-black py-36 pb-25 text-white">
+        <div className="mx-auto w-[90%] max-w-[960px] px-4">
           <div className="text-center">
             {abilityList.map(
               (item, index) =>
@@ -313,7 +313,7 @@ export default function Revo1Content() {
 
       {/* Product Version Section */}
       <section className="bg-black py-20 text-white">
-        <div className="mx-auto w-[1200px] border-t border-[#666] pt-20">
+        <div className="mx-auto w-[90%] max-w-[1200px] border-t border-[#666] pt-20">
           <motion.h2
             className="text-fluid-5xl mb-24 text-center font-bold"
             initial={{ opacity: 0, y: 30 }}
@@ -323,36 +323,36 @@ export default function Revo1Content() {
           >
             {t('version_title')}
           </motion.h2>
-          <div className="h-[116px]">
-            <ul className="flex justify-center gap-20 bg-black pb-10 pl-[120px]">
-              <li className="text-fluid-4xl flex h-[76px] w-[494px] items-center justify-center rounded-xl bg-white/10 text-white">
+          <div className="sticky top-20 z-10 h-auto overflow-hidden bg-black px-4 pb-6">
+            <ul className="flex justify-center gap-4 xl:gap-10">
+              <li className="text-fluid-2xl xl:text-fluid-3xl flex h-[60px] w-full max-w-[45%] items-center justify-center rounded-xl bg-white/10 text-white xl:h-[76px] xl:max-w-[494px]">
                 {t('version_basic')}
               </li>
-              <li className="text-fluid-4xl flex h-[76px] w-[494px] items-center justify-center rounded-xl bg-white/10 text-white">
+              <li className="text-fluid-2xl xl:text-fluid-3xl flex h-[60px] w-full max-w-[45%] items-center justify-center rounded-xl bg-white/10 text-white xl:h-[76px] xl:max-w-[494px]">
                 {t('version_tactile')}
               </li>
             </ul>
           </div>
           <motion.div
-            className="mx-auto mt-15 w-[1416px] pb-70"
+            className="mx-auto mt-15 w-full max-w-[95%] pb-36 xl:max-w-[90%] "
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8 }}
           >
             {versionSpecs.map((category, catIndex) => (
-              <div key={category.category}>
+              <div key={category.category} className="mt-36">
                 <dt className="text-fluid-4xl mt-32 mb-20 border-b border-b-[#333] pb-3 leading-none first:mt-0">
-                  <h4>{category.category}</h4>
+                  <h4>{t(category.category as any)}</h4>
                 </dt>
                 {category.specs.map((spec, specIndex) => (
                   <dd
                     key={`${catIndex}-${specIndex}`}
-                    className="text-fluid-3xl mt-14 flex first:mt-0"
+                    className="text-fluid-xl xl:text-fluid-2xl mt-10 flex flex-wrap items-start first:mt-0 xl:mt-14"
                   >
-                    <span className="mr-32 w-[320px] flex-[320px_0_0]">{spec.label}</span>
-                    <span className="flex-1">{spec.basic}</span>
-                    <span className="flex-1">{spec.tactile}</span>
+                    <span className="mr-4 w-full flex-[100%_0_0] font-medium xl:mr-0 xl:w-[280px] xl:flex-[280px_0_0]">{t(spec.label as any)}</span>
+                    <span className="mt-2 flex-1 text-center xl:mt-0">{spec.basic.startsWith('spec_') ? t(spec.basic as any) : spec.basic}</span>
+                    <span className="mt-2 flex-1 text-center xl:mt-0">{spec.tactile.startsWith('spec_') ? t(spec.tactile as any) : spec.tactile}</span>
                   </dd>
                 ))}
               </div>
@@ -362,7 +362,7 @@ export default function Revo1Content() {
       </section>
 
       {/* Experience Section */}
-      <section className="relative mx-auto flex h-full w-screen justify-between bg-white px-40 pt-20 text-black">
+      <section className="relative mx-auto flex h-full w-full max-w-[100vw] justify-between overflow-hidden bg-white px-40 pt-20 text-black">
         <div>
           <motion.h5
             className="text-fluid-5xl absolute top-20 left-1/2 -translate-x-1/2"
@@ -374,7 +374,7 @@ export default function Revo1Content() {
             {t('experience_title')}
           </motion.h5>
           <motion.p
-            className="text-fluid-2xl mx-auto mt-60 -mr-20 w-full text-[#070502]"
+            className="text-fluid-xl xl:text-fluid-2xl mx-auto mt-60 -mr-20 w-full text-[#070502]"
             initial={{ opacity: 0, x: -30 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
@@ -383,7 +383,7 @@ export default function Revo1Content() {
             {t('experience_desc')}
           </motion.p>
           <motion.ul
-            className="mx-auto mt-20 -mr-20 flex h-40 w-full gap-2"
+            className="mx-auto mt-12 -mr-20 flex h-32 w-full gap-2 xl:mt-20 xl:h-40"
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
             viewport={{ once: true }}
@@ -400,9 +400,9 @@ export default function Revo1Content() {
                 <Image
                   src={img}
                   alt=""
-                  width={200}
-                  height={144}
-                  className="h-36 w-auto"
+                  width={160}
+                  height={120}
+                  className="h-28 w-auto xl:h-36"
                 />
               </motion.li>
             ))}
@@ -411,9 +411,9 @@ export default function Revo1Content() {
         <Image
           src="https://website-www-brainco-cn.oss-cn-hangzhou.aliyuncs.com/images/product/dexterous/PRZobAtBlFTjULiC.webp"
           alt=""
-          width={890}
-          height={890}
-          // className="absolute top-15 right-0 h-full"
+          width={600}
+          height={600}
+          className="h-auto max-w-[45%] xl:max-w-[50%]"
         />
       </section>
 
@@ -428,8 +428,8 @@ export default function Revo1Content() {
         >
           {t('quality_title')}
         </motion.h4>
-        <div className="flex justify-center">
-          <div className="mr-10 flex w-[720px] flex-col">
+        <div className="flex justify-center px-4 xl:px-8">
+          <div className="mr-4 flex w-full max-w-[55%] flex-col xl:mr-10 xl:max-w-[600px]">
             {[0, 1].map(index => (
               <motion.div
                 key={index}
@@ -496,7 +496,7 @@ export default function Revo1Content() {
                 qualityVideoRefs.current[2] = el;
               }}
               src={qualityVideos[2]}
-              className="h-full w-[460px] rounded-3xl object-cover"
+              className="h-full w-full max-w-[380px] rounded-3xl object-cover xl:max-w-[460px]"
               // Added track element for accessibility as required by lint
             >
               <track kind="captions" />
