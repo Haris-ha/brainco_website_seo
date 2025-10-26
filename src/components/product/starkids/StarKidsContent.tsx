@@ -38,7 +38,7 @@ export default function StarKidsContent() {
             className="w-full"
           />
         </picture>
-        <div className="absolute top-0 bottom-0 left-0 flex w-full flex-col items-start justify-start pt-[5vw] pb-[6vw] pl-[12.5vw]">
+        <div className="absolute top-0 bottom-0 left-0 flex w-full flex-col items-start justify-start pt-[5vw] pb-[6vw] pl-[8vw]">
           <motion.div
             initial={{ opacity: 0, scale: 0.8 }}
             animate={{ opacity: 1, scale: 1 }}
@@ -101,7 +101,7 @@ export default function StarKidsContent() {
         {/* Features Grid */}
         <div className="mt-[4.5vw] flex justify-center gap-[1vw]">
           {/* Left Features */}
-          <div className="flex w-[40vw] flex-col justify-around">
+          <div className="flex w-[40vw] flex-col justify-around gap-[2vw]">
             {systemFeatures.slice(0, 2).map((feature, index) => (
               <motion.div
                 key={index}
@@ -117,7 +117,7 @@ export default function StarKidsContent() {
                   {t(feature.title)}
                 </h4>
                 <p
-                  className="text-fluid-3xl mt-[0.5vw]"
+                  className="text-fluid-3xl mt-[0.5vw] h-[8vw]"
                   dangerouslySetInnerHTML={{
                     __html: t(feature.desc).replace(/\n/g, '<br/>'),
                   }}
@@ -144,7 +144,7 @@ export default function StarKidsContent() {
           </motion.div>
 
           {/* Right Features */}
-          <div className="flex w-[40vw] flex-col justify-around">
+          <div className="flex w-[40vw] flex-col justify-around gap-[2vw]">
             {systemFeatures.slice(2, 4).map((feature, index) => (
               <motion.div
                 key={index}
@@ -160,7 +160,7 @@ export default function StarKidsContent() {
                   {t(feature.title)}
                 </h4>
                 <p
-                  className="text-fluid-3xl mt-[0.5vw]"
+                  className="text-fluid-3xl mt-[0.5vw] h-[8vw]"
                   dangerouslySetInnerHTML={{
                     __html: t(feature.desc).replace(/\n/g, '<br/>'),
                   }}
@@ -172,9 +172,9 @@ export default function StarKidsContent() {
       </article>
 
       {/* Training Modules Section */}
-      <div className="mt-[4.8vw]">
+      <div className="mt-[6.8vw]">
         {/* Statistics Header */}
-        <div className="flex justify-center gap-[10vw]">
+        <div className="flex justify-around px-[2vw]">
           {[
             {
               number: t('stats_modules'),
@@ -198,17 +198,17 @@ export default function StarKidsContent() {
               whileInView={{ opacity: 1, scale: 1 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: index * 0.1 }}
-              className="flex flex-col items-center"
+              className="flex w-[20vw] flex-col items-center justify-center text-center"
             >
               <div className="flex items-center">
                 <span
-                  className="text-fluid-7xl leading-[1] font-medium"
+                  className="text-fluid-7xl text-center leading-[1] font-medium"
                   style={{ color: PRIMARY_COLOR }}
                 >
                   {stat.number}
                 </span>
                 <span
-                  className="text-fluid-4xl ml-[0.5vw] font-normal"
+                  className="text-fluid-4xl ml-[0.5vw] text-center font-normal"
                   style={{ color: PRIMARY_COLOR }}
                 >
                   {stat.unit}
@@ -245,7 +245,7 @@ export default function StarKidsContent() {
 
                 {module.name && (
                   <div
-                    className="flex h-[2.6vw] w-[18.5vw] items-center justify-center rounded-[1.3vw] px-[0.15vw]"
+                    className="flex h-[2.6vw] w-[24.5vw] items-center justify-center rounded-[1.3vw] px-[0.15vw]"
                     style={{ background: PRIMARY_COLOR }}
                   >
                     <div className="flex h-full w-full items-center justify-center rounded-[1.3vw] border border-dashed border-white">
@@ -256,7 +256,7 @@ export default function StarKidsContent() {
                   </div>
                 )}
 
-                <div className={`mt-[1.4vw] ${isIndependent ? 'relative top-[3.1vw]' : ''}`}>
+                <div className={`mt-[1.4vw] flex flex-col items-center justify-center text-center ${isIndependent ? 'relative top-[3.1vw]' : ''}`}>
                   <Image
                     src={module.src}
                     alt={module.name ? t(module.name) : 'Training module'}
@@ -379,7 +379,7 @@ export default function StarKidsContent() {
               viewport={{ once: true }}
               className="mt-[5.2vw] mb-[2vw] flex justify-center"
             >
-              <div className="flex w-[20vw] items-center justify-center rounded-[1.25vw] bg-white px-[1.25vw] py-[1.25vw] shadow-sm">
+              <div className="flex w-[24vw] items-center justify-center rounded-[1.25vw] bg-white px-[1.25vw] py-[1.25vw] shadow-sm">
                 <p className="text-fluid-2xl font-medium">{t('recommend_title')}</p>
               </div>
             </motion.div>
@@ -401,16 +401,16 @@ export default function StarKidsContent() {
             </motion.div>
 
             {/* Assessment Title */}
-            <div className="mt-[8.6vw] flex items-center pl-[5.1vw]">
+            <div className="mt-[8.6vw] flex items-center justify-center">
               <div
-                className="flex h-[3.9vw] w-[23.3vw] items-center justify-center rounded-[2vw] px-[4.2vw] text-center text-white"
-                style={{ background: '#F06F67' }}
+                className="flex h-[8vw] w-[40vw] items-center justify-center rounded-[2vw] px-[4.2vw] text-center text-white"
+                style={{ background: '#F06F67', width: '40vw' }}
               >
                 <h5 className="text-fluid-3xl font-medium">
                   {t('recommend_assessment_1_title')}
                 </h5>
               </div>
-              <div className="ml-[1.7vw] flex items-center gap-[0.7vw]">
+              <div className="ml-[6vw] flex w-[10vw] items-center justify-start gap-[0.5vw]">
                 <i
                   className="h-[0.83vw] w-[0.83vw] rounded-full"
                   style={{ background: '#F06F67' }}
@@ -431,9 +431,9 @@ export default function StarKidsContent() {
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              className="mt-[1.8vw] self-start pl-[4.4vw]"
+              className="mt-[1.8vw] flex justify-center self-start text-center"
             >
-              <div className="w-[29vw] rounded-[1.25vw] bg-white px-[1.25vw] py-[1.25vw] shadow-sm">
+              <div className="w-[33vw] rounded-[1.25vw] bg-white px-[1.25vw] py-[1.25vw] shadow-sm">
                 <p className="text-fluid-2xl">
                   {t('recommend_assessment_1_desc')}
                 </p>
