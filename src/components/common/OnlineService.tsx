@@ -151,9 +151,9 @@ export default function OnlineService() {
       onHoverEnd={() => setIsExpanded(false)}
     >
       {/* Avatar and Title */}
-      <div className="relative z-10 flex items-center justify-center pt-3.5">
+      <div className={`relative z-10 flex items-center justify-center gap-5 ${isExpanded ? 'pt-8' : 'pt-3.5'}`}>
         <motion.div
-          className="mr-[12px] flex-shrink-0"
+          className="flex-shrink-0"
           variants={avatarVariants}
           animate={isExpanded ? 'expanded' : 'collapsed'}
         >
@@ -193,7 +193,7 @@ export default function OnlineService() {
                 initial="hidden"
                 animate="visible"
                 onClick={handleServiceClick}
-                className="mb-4 cursor-pointer border-b border-[#f5f5f5] pb-5 transition-transform hover:scale-105"
+                className="cursor-target mb-4 cursor-pointer border-b border-[#f5f5f5] pb-5 transition-transform hover:scale-105"
               >
                 <h5 className="flex items-center text-2xl font-bold">
                   <Image
@@ -205,7 +205,7 @@ export default function OnlineService() {
                   />
                   <span>{t('online_service')}</span>
                 </h5>
-                <p className="mt-1.5 ml-11 text-2xl text-[#6475d0] transition-colors hover:text-[#5060b0]">
+                <p className="mt-1.5 ml-11 text-lg text-[#6475d0] transition-colors hover:text-[#5060b0]">
                   {t('contact_service')}
                   {' '}
                   &gt;
@@ -233,7 +233,7 @@ export default function OnlineService() {
                   />
                   <span>{t('hotline')}</span>
                 </h5>
-                <p className="mt-1.5 ml-11 text-2xl text-[#6475d0] transition-colors hover:text-[#5060b0]">
+                <p className="mt-1.5 ml-11 text-xl text-[#6475d0] transition-colors hover:text-[#5060b0]">
                   400-688-6289
                 </p>
                 <s className="ml-11 text-sm whitespace-nowrap text-[#666666] no-underline">
@@ -252,11 +252,11 @@ export default function OnlineService() {
                 <Image
                   src="https://website-www-brainco-cn.oss-cn-hangzhou.aliyuncs.com/assets/images/icon/icon-a-Iconsimple-wechat.svg"
                   alt=""
-                  width={24}
-                  height={24}
-                  className="mt-2.5 flex-shrink-0"
+                  width={22}
+                  height={22}
+                  className="mt-1.5 ml-1 flex-shrink-0"
                 />
-                <div className="mr-4 ml-5 flex w-24 flex-shrink-0 flex-col justify-between">
+                <div className="mr-4 ml-5 flex h-full w-24 flex-shrink-0 flex-col justify-between">
                   <h4 className="text-2xl font-bold whitespace-nowrap">
                     {t('wechat_service')}
                   </h4>

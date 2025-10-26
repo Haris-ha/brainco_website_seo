@@ -218,14 +218,14 @@
     "application_email": "Resume Submission Email: Hr@brainco.cn"
   },
   "OnlineService": {
-    "title": "Customer Service",
+    "title": "Service",
     "online_service": "Online Service",
-    "contact_service": "Contact Online Service",
-    "service_time": "Monday to Sunday: 9:00-18:00 (Beijing Time)",
-    "hotline": "Service Hotline",
-    "wechat_service": "WeChat Service",
-    "wechat_desc": "Scan QR Code\nfor 1v1 Consultation",
-    "wechat_desc_mobile": "Add WeChat for 1v1 Consultation"
+    "contact_service": "Contact Now",
+    "service_time": "Mon-Sun: 9:00-18:00 (BJT)",
+    "hotline": "Hotline",
+    "wechat_service": "WeChat",
+    "wechat_desc": "Scan for\n1v1 Chat",
+    "wechat_desc_mobile": "Scan for 1v1 Chat"
   },
   "Mobius": {
     "meta_title": "Lightweight Bionic Leg - Intelligent Lower Limb Prosthetic - BrainCo",
