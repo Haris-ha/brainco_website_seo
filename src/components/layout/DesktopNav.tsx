@@ -169,7 +169,7 @@ export function DesktopNav({ locale }: { locale: string }) {
           onMouseEnter={() => setShowProductMenu(true)}
           onMouseLeave={() => setShowProductMenu(false)}
         >
-          <ProductsMenuDesktop />
+          <ProductsMenuDesktop onClose={() => setShowProductMenu(false)} />
         </div>
       )}
     </>

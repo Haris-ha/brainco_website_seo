@@ -254,7 +254,7 @@ export default function OnlineService() {
                   alt=""
                   width={22}
                   height={22}
-                  className="mt-1.5 ml-1 flex-shrink-0"
+                  className="mt-1.5 ml-1 flex-shrink-0 2xl:ml-0"
                 />
                 <div className="mr-4 ml-5 flex h-full w-24 flex-shrink-0 flex-col justify-between">
                   <h4 className="text-2xl font-bold whitespace-nowrap">
