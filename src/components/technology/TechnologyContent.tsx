@@ -61,7 +61,7 @@ export default function TechnologyContent() {
           transition={{ duration: 0.6 }}
           className="mb-20 text-center"
         >
-          <h2 className="text-[40px] font-bold tracking-[10px] text-[#333333]">
+          <h2 className="text-[40px] font-bold text-[#333333]">
             {t('research_collaboration')}
           </h2>
         </motion.div>
@@ -196,7 +196,7 @@ export default function TechnologyContent() {
           transition={{ duration: 0.6 }}
           className="mb-20"
         >
-          <h2 className="text-center text-[40px] font-bold tracking-[10px] text-[#333333]">
+          <h2 className="text-center text-[40px] font-bold text-[#333333]">
             {t('timeline_title')}
           </h2>
         </motion.div>

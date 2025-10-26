@@ -45,7 +45,7 @@ export default function FocusZenContent() {
           priority
         />
         <div className="absolute inset-0 flex items-center justify-start px-8 lg:px-20 xl:px-32">
-          <div className="flex flex-col items-center text-center text-white">
+          <div className="flex max-w-[40vw] flex-col items-center text-center text-white">
             {/* 毛玻璃背景容器 */}
             <div className="rounded-3xl bg-white/10 px-12 py-10 backdrop-blur-sm lg:px-16 lg:py-14">
               <motion.h1
@@ -60,7 +60,7 @@ export default function FocusZenContent() {
                 initial={{ opacity: 0, y: 30 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8, delay: 0.2 }}
-                className="text-fluid-7xl relative mb-6 pb-4 font-medium after:absolute after:bottom-0 after:left-1/2 after:h-[1px] after:w-[60%] after:-translate-x-1/2 after:bg-white/80 after:content-['']"
+                className="text-fluid-6xl relative mb-6 pb-4 font-medium after:absolute after:bottom-0 after:left-1/2 after:h-[1px] after:w-[60%] after:-translate-x-1/2 after:bg-white/80 after:content-['']"
               >
                 {t('hero_subtitle')}
               </motion.h2>
@@ -157,7 +157,7 @@ export default function FocusZenContent() {
                 whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.6, delay: index * 0.2 }}
-                className={`flex items-start ${marginClasses[index]}`}
+                className={`flex items-start ${marginClasses[index]} mr-6`}
               >
                 <Image
                   src={feature.icon}
@@ -268,7 +268,7 @@ export default function FocusZenContent() {
                     height={18}
                     className="mb-2"
                   />
-                  <span className="text-fluid-sm">{t(scene.nameKey)}</span>
+                  <span className="text-fluid-sm text-center">{t(scene.nameKey)}</span>
                 </div>
               </motion.div>
             ))}
@@ -345,7 +345,7 @@ export default function FocusZenContent() {
       {/* Premium Content Section */}
       <section className="bg-[#edf1f2]">
         <div className="mx-auto flex max-w-[90%] items-center justify-center">
-          <div className="ml-32 flex flex-col items-end justify-center">
+          <div className="ml-32 flex flex-col items-start justify-center">
             <motion.h3
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -479,7 +479,7 @@ export default function FocusZenContent() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.8 }}
-                className="text-fluid-6xl relative mb-12 pb-12 font-normal after:absolute after:bottom-0 after:left-0 after:h-[5px] after:w-[40px] after:bg-white after:content-['']"
+                className="text-fluid-6xl relative mr-6 mb-12 pb-12 font-normal after:absolute after:bottom-0 after:left-0 after:h-[5px] after:w-[40px] after:bg-white after:content-['']"
               >
                 {t('group_mode_title')}
               </motion.h3>
@@ -610,8 +610,8 @@ export default function FocusZenContent() {
           height={1080}
           className="w-full"
         />
-        <div className="absolute inset-0 flex items-center justify-end px-64">
-          <div className="text-right text-white">
+        <div className="absolute inset-0 flex items-center justify-end px-32 2xl:px-64">
+          <div className="max-w-[40vw] text-right text-white">
             <motion.h3
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
