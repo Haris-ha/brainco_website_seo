@@ -18,7 +18,7 @@ export default function AboutContent() {
         }}
       >
         <motion.div
-          className="flex flex-col items-center pb-[80px] 2xl:pb-[120px]"
+          className="flex flex-col items-center pb-[60px] 2xl:pb-[120px]"
           initial={{ opacity: 0, y: 50 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.3, ease: 'easeOut' }}
@@ -32,7 +32,7 @@ export default function AboutContent() {
             {t('page_title')}
           </motion.h1>
           <motion.p
-            className="text-fluid-xl mt-[36px] w-[740px] text-center leading-[34px] text-white 2xl:mt-[47px]"
+            className="text-fluid-2xl mt-[36px] w-[740px] text-center leading-[34px] text-white 2xl:mt-[47px]"
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.7, ease: 'easeOut' }}
@@ -124,7 +124,7 @@ export default function AboutContent() {
       </div>
 
       {/* Social Contribution Section */}
-      <div className="flex h-[680px] w-full items-center justify-center bg-white 2xl:h-[880px]">
+      <div className="flex min-h-[680px] w-full items-center justify-center bg-white py-20 2xl:min-h-[880px]">
         <div className="flex w-4/5 items-center">
           <motion.div
             className="flex w-1/2 items-center justify-center"
@@ -148,17 +148,18 @@ export default function AboutContent() {
             viewport={{ once: true }}
             transition={{ duration: 0.8, ease: 'easeOut' }}
           >
-            <h2 className="text-fluid-6xl mb-[80px] leading-[80px] font-medium text-[#333333] 2xl:mb-[100px]">
+            <h2 className="text-fluid-6xl mb-[60px] leading-[80px] font-medium text-[#333333] 2xl:mb-[100px]">
               {t('social_contribution')}
             </h2>
             <motion.div
+              className="group"
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6, delay: 0.2, ease: 'easeOut' }}
             >
               <div className="mb-[40px] h-px w-[48px] border-t-[2px] border-[#333333]" />
-              <p className="text-xl leading-[34px] text-[#707070]">
+              <p className="[display:-webkit-box] text-xl leading-[34px] text-[#707070] transition-all duration-300 [-webkit-box-orient:vertical] [-webkit-line-clamp:11] group-hover:[-webkit-line-clamp:unset] md:overflow-hidden md:text-ellipsis">
                 {t('contribution_text')}
               </p>
             </motion.div>
