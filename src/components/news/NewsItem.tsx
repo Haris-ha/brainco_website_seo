@@ -1,13 +1,13 @@
 'use client';
 
+import type { NewsItem as NewsItemType } from './types';
 import { motion } from 'framer-motion';
 import Image from 'next/image';
-import type { NewsItem as NewsItemType } from './types';
 
-interface NewsItemProps {
+type NewsItemProps = {
   item: NewsItemType;
   index?: number;
-}
+};
 
 export default function NewsItem({ item, index = 0 }: NewsItemProps) {
   return (
@@ -33,14 +33,13 @@ export default function NewsItem({ item, index = 0 }: NewsItemProps) {
             loading="lazy"
           />
         </div>
-        <div className="flex flex-1 flex-col px-[1.5vw] pb-[2.5vw] pt-[1.5vw] md:px-[30px] md:pb-[36px] md:pt-[24px]">
-          <div className="text-fluid-lg mb-[0.5vw] line-clamp-2 flex-1 font-medium text-[#333333] md:mb-[8px]">
+        <div className="flex flex-1 flex-col px-[1.5vw] pt-[1.5vw] pb-[2.5vw] md:px-[30px] md:pt-[24px] md:pb-[36px]">
+          <div className="text-fluid-xl mb-[0.5vw] line-clamp-2 flex-1 font-medium text-[#333333] md:mb-[8px]">
             {item.title}
           </div>
-          <div className="text-fluid-sm mt-auto text-[#999999]">{item.time}</div>
+          <div className="text-fluid-lg mt-auto text-[#999999]">{item.time}</div>
         </div>
       </div>
     </motion.a>
   );
 }
-

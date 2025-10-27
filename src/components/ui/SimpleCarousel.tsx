@@ -34,6 +34,18 @@ export function SimpleCarousel({
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isHovered, setIsHovered] = useState(false);
   const [isDragging, setIsDragging] = useState(false);
+  const [isMobile, setIsMobile] = useState(false);
+
+  // 检测移动端
+  useEffect(() => {
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth < 768);
+    };
+
+    checkMobile();
+    window.addEventListener('resize', checkMobile);
+    return () => window.removeEventListener('resize', checkMobile);
+  }, []);
 
   useEffect(() => {
     if (autoplay && !isHovered) {
@@ -108,7 +120,7 @@ export function SimpleCarousel({
             onClick={goToPrevious}
             disabled={currentIndex === 0}
             initial={{ opacity: 0 }}
-            animate={{ opacity: isHovered ? 1 : 0 }}
+            animate={{ opacity: isMobile || isHovered ? 1 : 0 }}
             transition={{ duration: 0.2 }}
             style={{ top: 'calc(50% - 30px)' }}
             className="absolute left-4 z-10 flex h-12 w-12 -translate-y-1/2 items-center justify-center rounded-full bg-white/20 backdrop-blur-md transition-all hover:bg-white/30 disabled:cursor-not-allowed disabled:opacity-30 md:h-14 md:w-14"
@@ -135,7 +147,7 @@ export function SimpleCarousel({
             onClick={goToNext}
             disabled={currentIndex === items.length - 1}
             initial={{ opacity: 0 }}
-            animate={{ opacity: isHovered ? 1 : 0 }}
+            animate={{ opacity: isMobile || isHovered ? 1 : 0 }}
             transition={{ duration: 0.2 }}
             style={{ top: 'calc(50% - 30px)' }}
             className="absolute right-4 z-10 flex h-12 w-12 -translate-y-1/2 items-center justify-center rounded-full bg-white/20 backdrop-blur-md transition-all hover:bg-white/30 disabled:cursor-not-allowed disabled:opacity-30 md:h-14 md:w-14"

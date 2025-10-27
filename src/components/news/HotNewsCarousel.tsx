@@ -47,12 +47,12 @@ export default function HotNewsCarousel({ hotNews, isMobile = false }: HotNewsCa
         >
           <div
             className={`font-medium text-[#333333] ${
-              isMobile ? 'text-fluid-sm mb-[1vw]' : 'text-fluid-2xl mb-[1.5vw]'
+              isMobile ? 'text-fluid-base mb-[1vw]' : 'text-fluid-2xl mb-[1.5vw]'
             }`}
           >
             {item.title}
           </div>
-          <div className="text-fluid-lg mb-[1vw] text-[#999999]">{item.time}</div>
+          <div className="text-fluid-lg xl:text-fluid-xl mb-0 text-[#999999] xl:mb-[1vw]">{item.time}</div>
         </div>
       </div>
     </div>

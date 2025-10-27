@@ -38,7 +38,7 @@ export default function NewsList({ newsList, isMobile = false }: NewsListProps) 
       initial="hidden"
       whileInView="visible"
       viewport={{ once: true, margin: '-300px' }}
-      className={`new-list grid auto-rows-fr gap-x-[2vw] gap-y-[2.5vw] md:gap-x-[38px] md:gap-y-[40px] ${
+      className={`new-list grid auto-rows-fr gap-x-[4vw] gap-y-[6vw] md:gap-x-[38px] md:gap-y-[40px] ${
         isMobile ? 'grid-cols-2' : 'grid-cols-2'
       }`}
     >
