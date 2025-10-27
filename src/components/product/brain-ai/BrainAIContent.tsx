@@ -97,7 +97,7 @@ export default function BrainAIContent() {
         </picture>
         <div className="absolute top-0 right-0 bottom-0 flex items-end">
           <div
-            className="relative mr-[100px] mb-[200px] w-[620px] rounded-3xl p-12 text-white"
+            className="relative my-auto mr-[100px] w-[620px] rounded-3xl p-12 text-white"
             style={{
               background: 'linear-gradient(to left, rgba(0, 0, 0, 0.25) 0%, rgba(0, 0, 0, 0.15) 60%, transparent 100%)',
               backdropFilter: 'blur(4px)',
@@ -124,7 +124,7 @@ export default function BrainAIContent() {
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.4 }}
-              className="text-fluid-lg mt-[48px] drop-shadow-md"
+              className="text-fluid-xl mt-[48px] drop-shadow-md"
             >
               {t('hero_description')}
             </motion.p>
@@ -185,7 +185,7 @@ export default function BrainAIContent() {
               }}
               className="pointer-events-auto mt-[32px] flex h-[78px] w-[206px] cursor-pointer items-center justify-center rounded-[39px] border border-white text-white transition-all hover:scale-105"
             >
-              <span className="text-fluid-lg">
+              <span className="text-fluid-xl">
                 {isPlaying ? '暂停' : t('video_button')}
               </span>
               <Image
@@ -239,10 +239,10 @@ export default function BrainAIContent() {
               {t('section1_title')}
             </h3>
             <div className="text-left">
-              <p className="text-fluid-lg mb-[26px]">{t('section1_desc1')}</p>
-              <p className="text-fluid-lg mb-[26px]">{t('section1_desc2')}</p>
-              <p className="text-fluid-lg mb-[26px]">{t('section1_desc3')}</p>
-              <p className="text-fluid-lg">{t('section1_desc4')}</p>
+              <p className="text-fluid-xl mb-[26px]">{t('section1_desc1')}</p>
+              <p className="text-fluid-xl mb-[26px]">{t('section1_desc2')}</p>
+              <p className="text-fluid-xl mb-[26px]">{t('section1_desc3')}</p>
+              <p className="text-fluid-xl">{t('section1_desc4')}</p>
             </div>
           </motion.div>
 
@@ -267,10 +267,10 @@ export default function BrainAIContent() {
               {t('section2_title')}
             </h3>
             <div className="text-left">
-              <p className="text-fluid-lg mb-[26px]">{t('section2_desc1')}</p>
-              <p className="text-fluid-lg mb-[26px]">{t('section2_desc2')}</p>
-              <p className="text-fluid-lg mb-[26px]">{t('section2_desc3')}</p>
-              <p className="text-fluid-lg">{t('section2_desc4')}</p>
+              <p className="text-fluid-xl mb-[26px]">{t('section2_desc1')}</p>
+              <p className="text-fluid-xl mb-[26px]">{t('section2_desc2')}</p>
+              <p className="text-fluid-xl mb-[26px]">{t('section2_desc3')}</p>
+              <p className="text-fluid-xl">{t('section2_desc4')}</p>
             </div>
           </motion.div>
 
@@ -295,8 +295,8 @@ export default function BrainAIContent() {
               {t('section3_title')}
             </h3>
             <div className="text-left">
-              <p className="text-fluid-lg mb-[26px]">{t('section3_desc1')}</p>
-              <p className="text-fluid-lg">{t('section3_desc2')}</p>
+              <p className="text-fluid-xl mb-[26px]">{t('section3_desc1')}</p>
+              <p className="text-fluid-xl">{t('section3_desc2')}</p>
             </div>
           </motion.div>
         </div>
@@ -361,15 +361,33 @@ export default function BrainAIContent() {
 
       {/* Leadership Camp Section */}
       <section className="mt-[120px]">
-        <h2 className="text-fluid-5xl mb-9 text-center font-normal">
+        <motion.h2
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: '-100px' }}
+          transition={{ duration: 0.6 }}
+          className="text-fluid-5xl mb-9 text-center font-normal"
+        >
           {t('leader_title')}
-        </h2>
-        <p className="text-fluid-2xl mx-auto mb-[98px] w-[1130px] text-center">
+        </motion.h2>
+        <motion.p
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: '-100px' }}
+          transition={{ duration: 0.6, delay: 0.2 }}
+          className="text-fluid-2xl mx-auto mb-[98px] w-[1130px] text-center"
+        >
           {t('leader_description')}
-        </p>
+        </motion.p>
 
         {/* Swiper Carousel */}
-        <div className="mx-auto w-[1400px] max-w-full">
+        <motion.div
+          initial={{ opacity: 0, scale: 0.95 }}
+          whileInView={{ opacity: 1, scale: 1 }}
+          viewport={{ once: true, margin: '-100px' }}
+          transition={{ duration: 0.7, delay: 0.3 }}
+          className="mx-auto w-[1400px] max-w-full"
+        >
           <Swiper
             slidesPerView={1.2}
             spaceBetween={50}
@@ -388,14 +406,20 @@ export default function BrainAIContent() {
               </SwiperSlide>
             ))}
           </Swiper>
-        </div>
+        </motion.div>
       </section>
 
       {/* Challenge Section */}
       <section className="mt-[130px] mb-[150px] px-4 lg:px-8 xl:px-12">
-        <h2 className="text-fluid-5xl mb-[84px] w-full text-center font-normal">
+        <motion.h2
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: '-100px' }}
+          transition={{ duration: 0.6 }}
+          className="text-fluid-5xl mb-[84px] w-full text-center font-normal"
+        >
           {t('challenge_title')}
-        </h2>
+        </motion.h2>
 
         <div className="mx-auto flex max-w-7xl flex-col justify-around gap-8 lg:flex-row lg:gap-12">
           {/* Challenge 1 - Mars Rescue */}
@@ -403,7 +427,7 @@ export default function BrainAIContent() {
             <motion.div
               initial={{ opacity: 0, scale: 0.9 }}
               whileInView={{ opacity: 1, scale: 1 }}
-              viewport={{ once: true }}
+              viewport={{ once: true, margin: '-50px' }}
               transition={{ duration: 0.5 }}
             >
               <picture>
@@ -422,17 +446,29 @@ export default function BrainAIContent() {
                 />
               </picture>
             </motion.div>
-            <h3 className="text-fluid-5xl my-[10px] text-center font-normal">
+            <motion.h3
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: '-50px' }}
+              transition={{ duration: 0.5, delay: 0.2 }}
+              className="text-fluid-5xl my-[10px] text-center font-normal"
+            >
               {t('challenge1_title')}
-            </h3>
-            <div className="text-left">
-              <p className="text-fluid-lg mb-5 leading-relaxed">
+            </motion.h3>
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: '-50px' }}
+              transition={{ duration: 0.5, delay: 0.3 }}
+              className="text-left"
+            >
+              <p className="text-fluid-xl mb-5 leading-relaxed">
                 {t('challenge1_desc1')}
               </p>
-              <p className="text-fluid-lg leading-relaxed">
+              <p className="text-fluid-xl leading-relaxed">
                 {t('challenge1_desc2')}
               </p>
-            </div>
+            </motion.div>
           </div>
 
           {/* Challenge 2 - Future City */}
@@ -440,7 +476,7 @@ export default function BrainAIContent() {
             <motion.div
               initial={{ opacity: 0, scale: 0.9 }}
               whileInView={{ opacity: 1, scale: 1 }}
-              viewport={{ once: true }}
+              viewport={{ once: true, margin: '-50px' }}
               transition={{ duration: 0.5, delay: 0.2 }}
             >
               <picture>
@@ -459,20 +495,32 @@ export default function BrainAIContent() {
                 />
               </picture>
             </motion.div>
-            <h3 className="text-fluid-5xl my-[10px] text-center font-normal">
+            <motion.h3
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: '-50px' }}
+              transition={{ duration: 0.5, delay: 0.4 }}
+              className="text-fluid-5xl my-[10px] text-center font-normal"
+            >
               {t('challenge2_title')}
-            </h3>
-            <div className="text-left">
-              <p className="text-fluid-lg mb-5 leading-relaxed">
+            </motion.h3>
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: '-50px' }}
+              transition={{ duration: 0.5, delay: 0.5 }}
+              className="text-left"
+            >
+              <p className="text-fluid-xl mb-5 leading-relaxed">
                 {t('challenge2_desc1')}
               </p>
-              <p className="text-fluid-lg mb-5 leading-relaxed">
+              <p className="text-fluid-xl mb-5 leading-relaxed">
                 {t('challenge2_desc2')}
               </p>
-              <p className="text-fluid-lg leading-relaxed">
+              <p className="text-fluid-xl leading-relaxed">
                 {t('challenge2_desc3')}
               </p>
-            </div>
+            </motion.div>
           </div>
         </div>
       </section>
