@@ -98,7 +98,7 @@ export function Header({ locale }: HeaderProps) {
                     </div>
 
                     {/* 右侧：购物车 */}
-                    <a href={`/${locale}/purchase/cart`} className="flex items-center">
+                    <a href={`/${locale}/cart`} className="flex items-center">
                       <Image
                         src="https://website-www-brainco-cn.oss-cn-hangzhou.aliyuncs.com/images/G7UDx0MHZvyebaSK.png"
                         alt="购物车"

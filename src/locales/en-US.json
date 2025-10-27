@@ -664,6 +664,7 @@
   },
   "Cart": {
     "title": "Shopping Cart",
+    "page_title": "Shopping Cart",
     "meta_title": "Shopping Cart - BrainCo",
     "meta_description": "View your shopping cart and select your favorite brain-computer interface products",
     "empty_title": "Your cart is empty~",

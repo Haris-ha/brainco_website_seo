@@ -124,7 +124,7 @@ export function MobileNav({ locale, isOpen, onToggle, showHeader = true }: Mobil
 
           {/* 右侧：购物车 - 只在菜单打开时显示 */}
           {isOpen && (
-            <Link href={`/${locale}/purchase/cart`} className="flex items-center">
+            <Link href={`/${locale}/cart`} className="flex items-center">
               <Image
                 src="https://website-www-brainco-cn.oss-cn-hangzhou.aliyuncs.com/images/G7UDx0MHZvyebaSK.png"
                 alt={t('cart')}

@@ -150,7 +150,7 @@ export function DesktopNav({ locale }: { locale: string }) {
 
           {/* 购物车图标 - 右侧对齐 */}
           <div className="flex items-center">
-            <Link href={`/${locale}/purchase/cart`} className="cursor-target block">
+            <Link href={`/${locale}/cart`} className="cursor-target block">
               <Image
                 src="https://website-www-brainco-cn.oss-cn-hangzhou.aliyuncs.com/images/G7UDx0MHZvyebaSK.png"
                 alt={t('cart')}

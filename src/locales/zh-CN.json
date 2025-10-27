@@ -664,6 +664,7 @@
   },
   "Cart": {
     "title": "购物车",
+    "page_title": "购物车",
     "meta_title": "购物车 - 强脑科技BrainCo",
     "meta_description": "查看您的购物车，选择心仪的脑机接口产品",
     "empty_title": "购物车空空如也~",
