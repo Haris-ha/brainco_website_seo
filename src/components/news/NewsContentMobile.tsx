@@ -3,6 +3,7 @@
 import type { NewsApiResponse, NewsItem } from './types';
 import { useTranslations } from 'next-intl';
 import { useEffect, useState } from 'react';
+import BackToTop from '@/components/common/BackToTop';
 import HotNewsCarousel from './HotNewsCarousel';
 import NewsHero from './NewsHero';
 import NewsList from './NewsList';
@@ -95,6 +96,8 @@ export default function NewsContentMobile() {
               </>
             )}
       </div>
+
+      <BackToTop />
     </div>
   );
 }
