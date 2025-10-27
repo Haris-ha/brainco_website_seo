@@ -1,12 +1,11 @@
 'use client';
 
-import { motion } from 'framer-motion';
+import type { NewsApiResponse, NewsItem } from './types';
 import { useTranslations } from 'next-intl';
 import { useEffect, useState } from 'react';
 import HotNewsCarousel from './HotNewsCarousel';
 import NewsHero from './NewsHero';
 import NewsList from './NewsList';
-import type { NewsApiResponse, NewsItem } from './types';
 
 export default function NewsContentMobile() {
   const t = useTranslations('News');
@@ -25,9 +24,9 @@ export default function NewsContentMobile() {
         if (data && data.data && data.data.list.length) {
           // Filter and sort hot news
           const hot = data.data.list
-            .filter((item) => item.hot)
+            .filter(item => item.hot)
             .sort((a, b) => a.sortIndex - b.sortIndex)
-            .map((item) => ({
+            .map(item => ({
               title: item.title,
               time: new Date(item.newsDate)
                 .toLocaleDateString()
@@ -40,9 +39,9 @@ export default function NewsContentMobile() {
 
           // Filter and sort regular news
           const regular = data.data.list
-            .filter((item) => !item.hot)
+            .filter(item => !item.hot)
             .sort((a, b) => a.sortIndex - b.sortIndex)
-            .map((item) => ({
+            .map(item => ({
               title: item.title,
               time: new Date(item.newsDate)
                 .toLocaleDateString()
@@ -70,8 +69,8 @@ export default function NewsContentMobile() {
     <div className="w-full overflow-x-hidden bg-white">
       <NewsHero isMobile />
 
-      <div className="mx-auto mt-[8vw] w-full px-[4vw] pb-[8vw]">
-        <motion.h5
+      <div className="mx-auto mt-[8vw] w-full px-[4vw] pt-10 pb-[8vw]">
+        {/* <motion.h5
           initial={{ opacity: 0, y: -10 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
@@ -79,22 +78,23 @@ export default function NewsContentMobile() {
           className="text-fluid-2xl mb-[4vw] text-center font-bold text-[#333333]"
         >
           {t('all_news')}
-        </motion.h5>
+        </motion.h5> */}
 
-        {loading ? (
-          <div className="py-[8vw] text-center text-fluid-base text-[#999999]">
-            {t('loading')}
-          </div>
-        ) : (
-          <>
-            <HotNewsCarousel hotNews={hotNews} isMobile />
-            <div className="mt-[4vw]">
-              <NewsList newsList={newsList} isMobile />
-            </div>
-          </>
-        )}
+        {loading
+          ? (
+              <div className="text-fluid-base py-[8vw] text-center text-[#999999]">
+                {t('loading')}
+              </div>
+            )
+          : (
+              <>
+                <HotNewsCarousel hotNews={hotNews} isMobile />
+                <div className="mt-[4vw]">
+                  <NewsList newsList={newsList} isMobile />
+                </div>
+              </>
+            )}
       </div>
     </div>
   );
 }
-

@@ -16,17 +16,19 @@ export default function HotNewsCarousel({ hotNews, isMobile = false }: HotNewsCa
   }
 
   const carouselItems = hotNews.map((item, index) => (
-    <a
+    <div
       key={`${item.url}-${index}`}
-      href={item.url}
-      target="_blank"
-      rel="noopener noreferrer"
-      className="group cursor-target block w-full"
+      className="group block w-full cursor-pointer"
+      onClick={(e) => {
+        // 检查是否是拖动操作
+        const target = e.currentTarget;
+        const isDragging = target.closest('[data-dragging="true"]');
+        if (!isDragging) {
+          window.open(item.url, '_blank', 'noopener,noreferrer');
+        }
+      }}
     >
-      <motion.div
-        whileHover={{ scale: 1.01 }}
-        className="news-single mx-auto w-full max-w-full transition-all"
-      >
+      <div className="mx-auto w-full max-w-full">
         <div className="relative aspect-[16/9] w-full overflow-hidden rounded-[10px]">
           <Image
             src={item.img}
@@ -35,24 +37,25 @@ export default function HotNewsCarousel({ hotNews, isMobile = false }: HotNewsCa
             className="object-cover transition-transform duration-500 group-hover:scale-105"
             sizes="(max-width: 768px) 90vw, 1200px"
             priority={index === 0}
+            draggable={false}
           />
         </div>
         <div
-          className={`new-title ${
+          className={`text-center ${
             isMobile ? 'px-[2vw] pt-[2vw]' : 'px-[2vw] pt-[1.5vw] md:px-[30px] md:pt-[24px]'
           }`}
         >
           <div
-            className={`introduce font-medium text-[#333333] ${
-              isMobile ? 'text-fluid-sm mb-[1vw]' : 'text-fluid-xl mb-[1.5vw]'
+            className={`font-medium text-[#333333] ${
+              isMobile ? 'text-fluid-sm mb-[1vw]' : 'text-fluid-2xl mb-[1.5vw]'
             }`}
           >
             {item.title}
           </div>
-          <div className="text-fluid-sm text-[#999999]">{item.time}</div>
+          <div className="text-fluid-lg mb-[1vw] text-[#999999]">{item.time}</div>
         </div>
-      </motion.div>
-    </a>
+      </div>
+    </div>
   ));
 
   return (
@@ -69,6 +72,8 @@ export default function HotNewsCarousel({ hotNews, isMobile = false }: HotNewsCa
         autoplayDelay={5000}
         className="w-full"
         showIndicators
+        showArrows
+        enableDrag={false}
       />
     </motion.div>
   );

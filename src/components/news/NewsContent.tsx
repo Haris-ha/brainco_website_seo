@@ -1,7 +1,6 @@
 'use client';
 
 import type { NewsApiResponse, NewsItem } from './types';
-import { motion } from 'framer-motion';
 import { useTranslations } from 'next-intl';
 import { useEffect, useState } from 'react';
 import HotNewsCarousel from './HotNewsCarousel';
@@ -71,16 +70,16 @@ export default function NewsContent() {
     <div className="w-full overflow-x-hidden bg-white">
       <NewsHero isMobile={false} />
 
-      <div className="relative mx-auto mt-[3.5vw] w-full max-w-[70vw] px-[4vw] pb-[3vw] md:mt-[55px] md:pb-[60px] xl:px-[2vw]">
-        <motion.h5
+      <div className="relative mx-auto mt-[3.5vw] w-full max-w-[70vw] px-[4vw] pt-10 pb-[3vw] md:mt-[55px] md:pb-[60px] xl:px-[2vw]">
+        {/* <motion.h5
           initial={{ opacity: 0.7, y: -5 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: '-100px' }}
           transition={{ duration: 0.2 }}
-          className="text-fluid-4xl mb-[2vw] font-normal text-[#333333] md:mb-[30px]"
+          className="text-fluid-4xl mb-[2vw] text-center font-normal text-[#333333] md:mb-[30px]"
         >
           {t('page_title')}
-        </motion.h5>
+        </motion.h5> */}
 
         {loading
           ? (

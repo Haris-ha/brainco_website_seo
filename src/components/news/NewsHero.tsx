@@ -21,11 +21,12 @@ export default function NewsHero({ isMobile = false }: NewsHeroProps) {
       transition={{ duration: 0.8 }}
       className="relative flex w-full items-center justify-center"
       style={{
-        height: isMobile ? 'auto' : '80vh',
+        height: isMobile ? '40vh' : '80vh',
         minHeight: isMobile ? '200px' : '320px',
         backgroundImage: `url(${backgroundImage})`,
         backgroundSize: 'cover',
         backgroundPosition: 'center',
+        marginTop: isMobile ? 24 : '0',
       }}
     >
       <motion.h1
@@ -34,7 +35,7 @@ export default function NewsHero({ isMobile = false }: NewsHeroProps) {
         transition={{ duration: 0.6, delay: 0.3 }}
         className={`text-center font-bold text-white ${
           isMobile
-            ? 'text-fluid-2xl py-[8vh] pr-[15vw]'
+            ? 'text-fluid-4xl'
             : 'text-fluid-6xl'
         }`}
       >

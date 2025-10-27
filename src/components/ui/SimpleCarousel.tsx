@@ -1,12 +1,16 @@
 'use client';
 
 import type { ReactNode } from 'react';
-import { motion, useMotionValue } from 'framer-motion';
+import { motion } from 'framer-motion';
 import { useEffect, useState } from 'react';
 
 const DRAG_BUFFER = 50;
 const VELOCITY_THRESHOLD = 500;
-const SPRING_OPTIONS = { type: 'spring' as const, stiffness: 300, damping: 30 };
+const TRANSITION_OPTIONS = {
+  type: 'tween' as const,
+  duration: 0.5,
+  ease: [0.32, 0.72, 0, 1] as const,
+};
 
 type SimpleCarouselProps = {
   items: ReactNode[];
@@ -14,6 +18,8 @@ type SimpleCarouselProps = {
   autoplayDelay?: number;
   className?: string;
   showIndicators?: boolean;
+  showArrows?: boolean;
+  enableDrag?: boolean;
 };
 
 export function SimpleCarousel({
@@ -22,19 +28,34 @@ export function SimpleCarousel({
   autoplayDelay = 3000,
   className = '',
   showIndicators = true,
+  showArrows = false,
+  enableDrag = true,
 }: SimpleCarouselProps) {
   const [currentIndex, setCurrentIndex] = useState(0);
-  const x = useMotionValue(0);
+  const [isHovered, setIsHovered] = useState(false);
+  const [isDragging, setIsDragging] = useState(false);
 
   useEffect(() => {
-    if (autoplay) {
+    if (autoplay && !isHovered) {
       const timer = setInterval(() => {
         setCurrentIndex(prev => (prev === items.length - 1 ? 0 : prev + 1));
       }, autoplayDelay);
       return () => clearInterval(timer);
     }
     return undefined;
-  }, [autoplay, autoplayDelay, items.length]);
+  }, [autoplay, autoplayDelay, items.length, isHovered]);
+
+  const goToPrevious = () => {
+    setCurrentIndex(prev => Math.max(prev - 1, 0));
+  };
+
+  const goToNext = () => {
+    setCurrentIndex(prev => Math.min(prev + 1, items.length - 1));
+  };
+
+  const handleDragStart = () => {
+    setIsDragging(true);
+  };
 
   const handleDragEnd = (_: unknown, info: { offset: { x: number }; velocity: { x: number } }) => {
     const offset = info.offset.x;
@@ -45,28 +66,97 @@ export function SimpleCarousel({
     } else if (offset > DRAG_BUFFER || velocity > VELOCITY_THRESHOLD) {
       setCurrentIndex(prev => Math.max(prev - 1, 0));
     }
+
+    // 延迟重置拖动状态，防止拖动后立即触发点击
+    setTimeout(() => setIsDragging(false), 100);
   };
 
   return (
-    <div className={`relative overflow-hidden ${className}`}>
+    <div
+      className={`relative overflow-hidden ${className}`}
+      onMouseEnter={() => setIsHovered(true)}
+      onMouseLeave={() => setIsHovered(false)}
+    >
       <motion.div
-        className="flex"
-        drag="x"
-        dragConstraints={{ left: 0, right: 0 }}
-        style={{ x }}
-        onDragEnd={handleDragEnd}
-        animate={{ x: `-${currentIndex * 100}%` }}
-        transition={SPRING_OPTIONS}
+        className={enableDrag ? 'flex cursor-grab active:cursor-grabbing' : 'flex'}
+        drag={enableDrag ? 'x' : false}
+        dragConstraints={enableDrag ? { left: 0, right: 0 } : undefined}
+        dragElastic={enableDrag ? 0.1 : undefined}
+        onDragStart={enableDrag ? handleDragStart : undefined}
+        onDragEnd={enableDrag ? handleDragEnd : undefined}
+        animate={!isDragging ? { x: `-${currentIndex * 100}%` } : undefined}
+        transition={TRANSITION_OPTIONS}
+        data-dragging={isDragging ? 'true' : undefined}
       >
         {items.map((item, index) => (
-          <motion.div
+          <div
             key={`carousel-item-${index}`}
             className="w-full flex-shrink-0"
+            style={{ pointerEvents: isDragging ? 'none' : 'auto' }}
           >
             {item}
-          </motion.div>
+          </div>
         ))}
       </motion.div>
+
+      {/* 左右切换按钮 */}
+      {showArrows && items.length > 1 && (
+        <>
+          {/* 左箭头 */}
+          <motion.button
+            type="button"
+            onClick={goToPrevious}
+            disabled={currentIndex === 0}
+            initial={{ opacity: 0 }}
+            animate={{ opacity: isHovered ? 1 : 0 }}
+            transition={{ duration: 0.2 }}
+            style={{ top: 'calc(50% - 30px)' }}
+            className="absolute left-4 z-10 flex h-12 w-12 -translate-y-1/2 items-center justify-center rounded-full bg-white/20 backdrop-blur-md transition-all hover:bg-white/30 disabled:cursor-not-allowed disabled:opacity-30 md:h-14 md:w-14"
+            aria-label="上一张"
+          >
+            <svg
+              className="h-6 w-6 text-white md:h-7 md:w-7"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth={2.5}
+                d="M15 19l-7-7 7-7"
+              />
+            </svg>
+          </motion.button>
+
+          {/* 右箭头 */}
+          <motion.button
+            type="button"
+            onClick={goToNext}
+            disabled={currentIndex === items.length - 1}
+            initial={{ opacity: 0 }}
+            animate={{ opacity: isHovered ? 1 : 0 }}
+            transition={{ duration: 0.2 }}
+            style={{ top: 'calc(50% - 30px)' }}
+            className="absolute right-4 z-10 flex h-12 w-12 -translate-y-1/2 items-center justify-center rounded-full bg-white/20 backdrop-blur-md transition-all hover:bg-white/30 disabled:cursor-not-allowed disabled:opacity-30 md:h-14 md:w-14"
+            aria-label="下一张"
+          >
+            <svg
+              className="h-6 w-6 text-white md:h-7 md:w-7"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth={2.5}
+                d="M9 5l7 7-7 7"
+              />
+            </svg>
+          </motion.button>
+        </>
+      )}
 
       {showIndicators && items.length > 1 && (
         <div className="mt-5 flex w-full justify-center">
