@@ -65,7 +65,7 @@ export function OrderPreview({
             </div>
 
             {/* 商品信息 */}
-            <div className="flex flex-1 flex-col justify-between py-0.5 text-base text-[#595757] md:py-1 md:text-[15px] lg:py-1.5 lg:text-base">
+            <div className="flex flex-1 flex-col justify-around py-0.5 text-base text-[#595757] md:py-1 md:text-[15px] lg:py-1.5 lg:text-base">
               <div className="flex justify-between">
                 <p className="mr-4 line-clamp-2 flex-1 overflow-hidden text-ellipsis md:mr-6 lg:mr-7.5">
                   {item.name}
