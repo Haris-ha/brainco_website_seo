@@ -120,7 +120,7 @@ export function Footer({ locale }: FooterProps) {
                 {showWechatQR && (
                   <div className="absolute -top-20 -left-42 z-10 flex w-40 flex-col items-center justify-center rounded-3xl bg-white p-4 text-center shadow-lg">
                     <Image
-                      src="https://website-www-brainco-cn.oss-cn-hangzhou.aliyuncs.com/assets/images/brainco_code.jpg"
+                      src="https://website-www-brainco-cn.oss-cn-hangzhou.aliyuncs.com/images/brainco_code.jpg"
                       alt="WeChat QR Code"
                       width={100}
                       height={100}

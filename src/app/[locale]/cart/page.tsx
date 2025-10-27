@@ -57,7 +57,7 @@ export default function CartPage() {
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 0.6 }}
-        className="mx-auto max-w-[80vw] py-8 md:max-w-[70vw] md:py-24"
+        className="mx-auto max-w-[80vw] py-8 md:max-w-[70vw]"
       >
         {hasItems
           ? (

@@ -151,7 +151,15 @@
   },
   "News": {
     "meta_title": "News - BrainCo",
-    "meta_description": "Latest updates and industry news from BrainCo"
+    "meta_description": "Latest updates and industry news from BrainCo",
+    "page_title": "News Center",
+    "all_news": "All News",
+    "hot_news": "Hot News",
+    "wechat_scan": "Scan to Follow",
+    "wechat_follow": "WeChat Official Account",
+    "loading": "Loading...",
+    "no_news": "No news available",
+    "read_more": "Read More"
   },
   "Footer": {
     "follow_us": "Follow Us",

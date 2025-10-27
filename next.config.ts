@@ -31,6 +31,24 @@ const baseConfig: NextConfig = {
         port: '',
         pathname: '/**',
       },
+      {
+        protocol: 'https',
+        hostname: 'www.brainco.cn',
+        port: '',
+        pathname: '/**',
+      },
+      {
+        protocol: 'https',
+        hostname: 'brainco.cn',
+        port: '',
+        pathname: '/**',
+      },
+      {
+        protocol: 'https',
+        hostname: 'bc-api.brainco.cn',
+        port: '',
+        pathname: '/**',
+      },
     ],
   },
 };

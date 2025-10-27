@@ -1,5 +1,8 @@
 import type { Metadata } from 'next';
 import { getTranslations, setRequestLocale } from 'next-intl/server';
+import { headers } from 'next/headers';
+import NewsContent from '@/components/news/NewsContent';
+import NewsContentMobile from '@/components/news/NewsContentMobile';
 
 type NewsPageProps = {
   params: Promise<{ locale: string }>;
@@ -21,21 +24,11 @@ export async function generateMetadata(props: NewsPageProps): Promise<Metadata> 
 export default async function NewsPage(props: NewsPageProps) {
   const { locale } = await props.params;
   setRequestLocale(locale);
-  const t = await getTranslations({
-    locale,
-    namespace: 'News',
-  } as any);
 
-  return (
-    <div className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8">
-      <div className="text-center">
-        <h1 className="text-4xl font-bold tracking-tight text-gray-900 sm:text-5xl">
-          {t('meta_title')}
-        </h1>
-        <p className="mx-auto mt-3 max-w-2xl text-xl text-gray-500">
-          {t('meta_description')}
-        </p>
-      </div>
-    </div>
-  );
+  // Detect mobile device from user agent
+  const headersList = await headers();
+  const userAgent = headersList.get('user-agent') || '';
+  const isMobile = /mobile|android|iphone|ipad|phone/i.test(userAgent);
+
+  return isMobile ? <NewsContentMobile /> : <NewsContent />;
 }

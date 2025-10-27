@@ -151,7 +151,15 @@
   },
   "News": {
     "meta_title": "新聞中心 - BrainCo",
-    "meta_description": "BrainCo 最新動態和行業資訊"
+    "meta_description": "BrainCo 最新動態和行業資訊",
+    "page_title": "新聞中心",
+    "all_news": "全部新聞",
+    "hot_news": "熱門新聞",
+    "wechat_scan": "微信掃一掃關注",
+    "wechat_follow": "該公眾號",
+    "loading": "加載中...",
+    "no_news": "暫無新聞",
+    "read_more": "查看詳情"
   },
   "Footer": {
     "follow_us": "關注我們",
