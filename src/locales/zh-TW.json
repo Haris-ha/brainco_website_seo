@@ -692,6 +692,7 @@
   },
   "Checkout": {
     "title": "訂單結算",
+    "page_title": "訂單結算",
     "meta_title": "訂單結算 - 強腦科技BrainCo",
     "meta_description": "完成您的訂單結算",
     "step_indicator": "第{current}步/共{total}步",

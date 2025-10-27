@@ -692,6 +692,7 @@
   },
   "Checkout": {
     "title": "Checkout",
+    "page_title": "Checkout",
     "meta_title": "Checkout - BrainCo",
     "meta_description": "Complete your order checkout",
     "step_indicator": "Step {current} of {total}",

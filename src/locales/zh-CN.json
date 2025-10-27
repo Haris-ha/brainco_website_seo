@@ -692,6 +692,7 @@
   },
   "Checkout": {
     "title": "订单结算",
+    "page_title": "订单结算",
     "meta_title": "订单结算 - 强脑科技BrainCo",
     "meta_description": "完成您的订单结算",
     "step_indicator": "第{current}步/共{total}步",

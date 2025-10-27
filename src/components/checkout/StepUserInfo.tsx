@@ -111,53 +111,53 @@ export function StepUserInfo({ onContinue, initialData }: StepUserInfoProps) {
       initial={{ opacity: 0, y: 30 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.6 }}
-      className="w-full max-w-[620px]"
+      className="w-full max-w-[720px]"
     >
       {/* 步骤指示 */}
-      <span className="mt-4 mb-6 block text-base md:mt-6 md:mb-8 md:text-lg lg:mt-9 lg:mb-11 lg:text-[24px]">
+      <span className="mt-3 mb-4 block text-sm md:mt-4 md:mb-5 md:text-base lg:mt-5 lg:mb-6 lg:text-lg">
         {t('step_indicator', { current: 1, total: 3 })}
       </span>
 
       {/* 标题 */}
-      <h1 className="text-3xl text-[#333] md:text-4xl lg:text-[56px]">
+      <h1 className="text-2xl text-[#333] md:text-3xl lg:text-4xl">
         {t('step_1_title')}
       </h1>
 
-      <p className="text-sm md:text-base lg:text-[18px]">
+      <p className="mt-3 text-lg">
         {t('step_1_desc')}
       </p>
 
       {/* 表单 */}
-      <ul className="mt-4 w-full md:mt-5">
+      <ul className="mt-3 w-full md:mt-4">
         {/* 姓名 */}
-        <li className="mb-4 md:mb-5 lg:mb-6">
-          <label className="mb-1.5 block text-sm text-[#333] md:mb-2 md:text-base lg:text-[18px]">
+        <li className="mb-3 md:mb-4 lg:mb-4">
+          <label className="mb-1 block text-sm text-[#333] md:mb-1.5 md:text-[15px] lg:text-lg">
             {t('name')}
           </label>
           <input
             type="text"
             value={formData.name}
             onChange={e => setFormData({ ...formData, name: e.target.value })}
-            className="h-[50px] w-full rounded-[25px] border border-[#707070] px-4 text-base focus:border-[#4F68D2] focus:outline-none md:h-[60px] md:rounded-[30px] md:px-6 md:text-lg lg:h-[80px] lg:rounded-[40px] lg:px-8 lg:text-[24px]"
+            className="h-[44px] w-full rounded-[22px] border border-[#707070] px-4 text-sm focus:border-[#4F68D2] focus:outline-none md:h-[48px] md:rounded-[24px] md:px-5 md:text-[15px] lg:h-[52px] lg:rounded-[26px] lg:px-6 lg:text-base"
           />
         </li>
 
         {/* 电话号码 */}
-        <li className="mb-4 md:mb-5 lg:mb-6">
-          <label className="mb-1.5 block text-sm text-[#333] md:mb-2 md:text-base lg:text-[18px]">
+        <li className="mb-3 md:mb-4 lg:mb-4">
+          <label className="mb-1 block text-sm text-[#333] md:mb-1.5 md:text-[15px] lg:text-lg">
             {t('phone')}
           </label>
           <input
             type="tel"
             value={formData.phone}
             onChange={e => setFormData({ ...formData, phone: e.target.value })}
-            className="h-[50px] w-full rounded-[25px] border border-[#707070] px-4 text-base focus:border-[#4F68D2] focus:outline-none md:h-[60px] md:rounded-[30px] md:px-6 md:text-lg lg:h-[80px] lg:rounded-[40px] lg:px-8 lg:text-[24px]"
+            className="h-[44px] w-full rounded-[22px] border border-[#707070] px-4 text-sm focus:border-[#4F68D2] focus:outline-none md:h-[48px] md:rounded-[24px] md:px-5 md:text-[15px] lg:h-[52px] lg:rounded-[26px] lg:px-6 lg:text-base"
           />
         </li>
 
         {/* 验证码 */}
-        <li className="mb-4 md:mb-5 lg:mb-6">
-          <label className="mb-1.5 block text-sm text-[#333] md:mb-2 md:text-base lg:text-[18px]">
+        <li className="mb-3 md:mb-4 lg:mb-4">
+          <label className="mb-1 block text-sm text-[#333] md:mb-1.5 md:text-[15px] lg:text-lg">
             {t('verification_code')}
           </label>
           <div className="relative flex">
@@ -165,13 +165,13 @@ export function StepUserInfo({ onContinue, initialData }: StepUserInfoProps) {
               type="text"
               value={formData.code}
               onChange={e => setFormData({ ...formData, code: e.target.value })}
-              className="h-[50px] w-full rounded-[25px] border border-[#707070] px-4 pr-[120px] text-base focus:border-[#4F68D2] focus:outline-none md:h-[60px] md:rounded-[30px] md:px-6 md:pr-[140px] md:text-lg lg:h-[80px] lg:rounded-[40px] lg:px-8 lg:pr-[180px] lg:text-[24px]"
+              className="h-[44px] w-full rounded-[22px] border border-[#707070] px-4 pr-[100px] text-sm focus:border-[#4F68D2] focus:outline-none md:h-[48px] md:rounded-[24px] md:px-5 md:pr-[110px] md:text-[15px] lg:h-[52px] lg:rounded-[26px] lg:px-6 lg:pr-[120px] lg:text-base"
             />
             <button
               type="button"
               onClick={handleGetCode}
               disabled={countdown > 0 || !/^1[3-9]\d{9}$/.test(formData.phone)}
-              className="absolute top-1/2 right-3 -translate-y-1/2 cursor-pointer text-sm text-[#4F68D2] disabled:cursor-not-allowed disabled:text-[#ccc] md:right-4 md:text-base lg:right-5 lg:text-[18px]"
+              className="absolute top-1/2 right-3 -translate-y-1/2 cursor-pointer text-xs text-[#4F68D2] disabled:cursor-not-allowed disabled:text-[#ccc] md:right-3.5 md:text-sm lg:right-4 lg:text-[14px]"
             >
               {codeText}
             </button>
@@ -181,14 +181,14 @@ export function StepUserInfo({ onContinue, initialData }: StepUserInfoProps) {
 
       {/* 错误提示 */}
       {validation && (
-        <span className="block text-sm text-red-500 md:text-base">{validation}</span>
+        <span className="block text-xs text-red-500 md:text-sm">{validation}</span>
       )}
 
       {/* 继续按钮 */}
       <button
         onClick={handleSubmit}
         disabled={isSubmitDisabled}
-        className="mx-auto mt-12 flex h-[50px] w-[180px] items-center justify-center rounded-[25px] border-none bg-[#4f68d2] text-xl font-medium text-white shadow-[0px_3px_20px_1px_rgba(0,0,0,0.16)] transition-all hover:bg-[#3d52a8] disabled:cursor-not-allowed disabled:bg-[#f4f4f4] disabled:text-[#707070] md:mt-16 md:h-[64px] md:w-[220px] md:rounded-[32px] md:text-2xl lg:mt-26 lg:h-[82px] lg:w-[260px] lg:rounded-[40px] lg:text-[34px]"
+        className="mx-auto mt-8 flex h-[44px] w-[140px] items-center justify-center rounded-[22px] border-none bg-[#4f68d2] text-base font-medium text-white shadow-[0px_3px_20px_1px_rgba(0,0,0,0.16)] transition-all hover:bg-[#3d52a8] disabled:cursor-not-allowed disabled:bg-[#f4f4f4] disabled:text-[#707070] md:mt-10 md:h-[48px] md:w-[160px] md:rounded-[24px] md:text-lg lg:mt-12 lg:h-[52px] lg:w-[180px] lg:rounded-[26px] lg:text-xl"
       >
         {t('continue_btn')}
       </button>
