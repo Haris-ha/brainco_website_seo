@@ -5,6 +5,7 @@ import { useTranslations } from 'next-intl';
 import Image from 'next/image';
 import { useEffect, useState } from 'react';
 import AfterSales from '@/components/common/AfterSales';
+import { SalonImageWithLabel } from '@/components/common/SalonImageWithLabel';
 import { findProductByIdentifier } from '@/lib/api';
 import {
   deviceFeatures,
@@ -832,13 +833,25 @@ export default function FocusZenContent() {
                 viewport={{ once: true }}
                 transition={{ duration: 0.4, delay: index * 0.05 }}
               >
-                <Image
-                  src={img.url}
-                  alt={`Salon ${index + 1}`}
-                  width={640}
-                  height={480}
-                  className="w-full"
-                />
+                {img.labelKey
+                  ? (
+                      <SalonImageWithLabel
+                        src={img.url}
+                        alt={`Salon ${index + 1}`}
+                        label={t(img.labelKey)}
+                        width={640}
+                        height={480}
+                      />
+                    )
+                  : (
+                      <Image
+                        src={img.url}
+                        alt={`Salon ${index + 1}`}
+                        width={640}
+                        height={480}
+                        className="w-full"
+                      />
+                    )}
               </motion.div>
             ))}
           </div>

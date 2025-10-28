@@ -24,6 +24,7 @@ export type MeditationCornerImage = {
 
 export type SalonImage = {
   url: string;
+  labelKey?: string;
 };
 
 // 设备特性数据（3项）
@@ -96,15 +97,15 @@ export const meditationCornerImages: MeditationCornerImage[] = [
 
 // 沙龙图片数据（9张）
 export const salonImages: SalonImage[] = [
-  { url: 'https://website-www-brainco-cn.oss-cn-hangzhou.aliyuncs.com/images/rtPNEmtz0rZ9tk4A.webp' },
-  { url: 'https://website-www-brainco-cn.oss-cn-hangzhou.aliyuncs.com/images/Hxi60iK3TM7SWCAN.webp' },
-  { url: 'https://website-www-brainco-cn.oss-cn-hangzhou.aliyuncs.com/images/XztW4cHyT9xaCsfK.webp' },
-  { url: 'https://website-www-brainco-cn.oss-cn-hangzhou.aliyuncs.com/images/8X7jcW3pRDHa21XN.webp' },
-  { url: 'https://website-www-brainco-cn.oss-cn-hangzhou.aliyuncs.com/images/CCjZ0b27h6azmfRC.webp' },
-  { url: 'https://website-www-brainco-cn.oss-cn-hangzhou.aliyuncs.com/images/BdyKZcy3DmNkzC3S.webp' },
-  { url: 'https://website-www-brainco-cn.oss-cn-hangzhou.aliyuncs.com/images/2KGMH1iSPCDRYrB9.webp' },
-  { url: 'https://website-www-brainco-cn.oss-cn-hangzhou.aliyuncs.com/images/Ax7RcSemBm8taFQj.webp' },
-  { url: 'https://website-www-brainco-cn.oss-cn-hangzhou.aliyuncs.com/images/9dxAm68BAcbibwkE.webp' },
+  { url: 'https://www.brainco.cn/news-images/pic1.png', labelKey: 'salon_pic1_label' },
+  { url: 'https://www.brainco.cn/news-images/pic2.png', labelKey: 'salon_pic2_label' },
+  { url: 'https://www.brainco.cn/news-images/pic3.png', labelKey: 'salon_pic3_label' },
+  { url: 'https://www.brainco.cn/news-images/pic4.png', labelKey: 'salon_pic4_label' },
+  { url: 'https://www.brainco.cn/news-images/pic5.png', labelKey: 'salon_pic5_label' },
+  { url: 'https://www.brainco.cn/news-images/pic6.png', labelKey: 'salon_pic6_label' },
+  { url: 'https://www.brainco.cn/news-images/pic7.png' },
+  { url: 'https://www.brainco.cn/news-images/pic8.png' },
+  { url: 'https://www.brainco.cn/news-images/pic9.png' },
 ];
 
 // 图片 URLs
