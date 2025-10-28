@@ -6,6 +6,8 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { useEffect, useState } from 'react';
 
+import { ProductImageWithLabel } from '@/components/common/ProductImageWithLabel';
+
 type Product = {
   name: string;
   img: string;
@@ -292,12 +294,13 @@ export function ProductsMenuDesktop({ onClose }: ProductsMenuDesktopProps) {
                         transition={{ duration: 0.2 }}
                       >
                         <Link href="/products/revo1" onClick={onClose} className="cursor-target block overflow-hidden rounded-2xl">
-                          <Image
-                            src="https://website-www-brainco-cn.oss-cn-hangzhou.aliyuncs.com/images/product/rove2/E2OMTcHyivahBS45.webp"
+                          <ProductImageWithLabel
+                            src="https://www.brainco.cn/news-images/revo.png"
                             alt="Revo 1"
+                            label={t('product_revo1_name')}
                             width={320}
                             height={180}
-                            className="h-auto w-full transition-transform hover:scale-105"
+                            className="transition-transform hover:scale-105"
                           />
                         </Link>
                       </motion.div>
@@ -306,12 +309,13 @@ export function ProductsMenuDesktop({ onClose }: ProductsMenuDesktopProps) {
                         transition={{ duration: 0.2 }}
                       >
                         <Link href="/products/revo2" onClick={onClose} className="cursor-target block overflow-hidden rounded-2xl">
-                          <Image
-                            src="https://website-www-brainco-cn.oss-cn-hangzhou.aliyuncs.com/images/product/rove2/laCLywA51tPhZJ7D.webp"
+                          <ProductImageWithLabel
+                            src="https://www.brainco.cn/news-images/stark.png"
                             alt="Revo 2"
+                            label={t('product_revo2_name')}
                             width={320}
                             height={180}
-                            className="h-auto w-full transition-transform hover:scale-105"
+                            className="transition-transform hover:scale-105"
                           />
                         </Link>
                       </motion.div>

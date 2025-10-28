@@ -7,6 +7,8 @@ import Image from 'next/image';
 import { useRouter } from 'next/navigation';
 import { useCallback, useEffect, useRef, useState } from 'react';
 
+import { ProductImageWithLabel } from '@/components/common/ProductImageWithLabel';
+
 const imgPath = 'https://website-www-brainco-cn.oss-cn-hangzhou.aliyuncs.com/images/';
 
 const videoList = [
@@ -505,7 +507,7 @@ export function HomeContent() {
                 <div
                   role="button"
                   tabIndex={0}
-                  className="cursor-target flex h-full w-[180px] cursor-pointer flex-col items-center justify-center overflow-hidden rounded-2xl bg-white transition-transform duration-200 hover:scale-105"
+                  className="cursor-target flex h-full w-[180px] cursor-pointer overflow-hidden rounded-2xl bg-white transition-transform duration-200 hover:scale-105"
                   onClick={() => router.push('/products/revo1')}
                   onKeyDown={(e) => {
                     if (e.key === 'Enter' || e.key === ' ') {
@@ -513,18 +515,19 @@ export function HomeContent() {
                     }
                   }}
                 >
-                  <Image
-                    src="https://website-www-brainco-cn.oss-cn-hangzhou.aliyuncs.com/images/product/rove2/wUey39BYXL6A2K5j.webp"
+                  <ProductImageWithLabel
+                    src="https://www.brainco.cn/news-images/revo.png"
                     alt="Revo 1"
+                    label={t('product_revo1_name')}
                     width={180}
                     height={180}
-                    className="h-full w-full object-cover"
+                    isMenu={false}
                   />
                 </div>
                 <div
                   role="button"
                   tabIndex={0}
-                  className="cursor-target flex h-full w-[180px] cursor-pointer flex-col items-center justify-center overflow-hidden rounded-2xl bg-white transition-transform duration-200 hover:scale-105"
+                  className="cursor-target flex h-full w-[180px] cursor-pointer overflow-hidden rounded-2xl bg-white transition-transform duration-200 hover:scale-105"
                   onClick={() => router.push('/products/revo2')}
                   onKeyDown={(e) => {
                     if (e.key === 'Enter' || e.key === ' ') {
@@ -532,12 +535,13 @@ export function HomeContent() {
                     }
                   }}
                 >
-                  <Image
-                    src="https://website-www-brainco-cn.oss-cn-hangzhou.aliyuncs.com/images/product/rove2/zvQPGjp6x8gNCbUk.webp"
+                  <ProductImageWithLabel
+                    src="https://www.brainco.cn/news-images/stark.png"
                     alt="Revo 2"
+                    label={t('product_revo2_name')}
                     width={180}
                     height={180}
-                    className="h-full w-full object-cover"
+                    isMenu={false}
                   />
                 </div>
               </motion.div>
@@ -578,10 +582,10 @@ export function HomeContent() {
                       />
                     </div>
                     <div className="flex flex-col items-center px-2 pt-2 pb-3">
-                      <span className="text-sm font-bold text-[#555]">
+                      <span className="text-base font-bold text-[#555]">
                         {t(item.nameKey)}
                       </span>
-                      <span className="text-xs text-[#555]">{t(item.descKey)}</span>
+                      <span className="text-center text-sm text-[#555]">{t(item.descKey)}</span>
                     </div>
                   </div>
                 ))}
