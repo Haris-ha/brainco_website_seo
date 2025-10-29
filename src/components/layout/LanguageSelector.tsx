@@ -13,7 +13,7 @@ import { usePathname, useRouter } from '@/libs/I18nNavigation';
 const languageNames = {
   'zh-CN': '简体中文',
   'en-US': 'English',
-  'zh-TW': '繁體中文',
+  // 'zh-TW': '繁體中文',
 };
 
 export function LanguageSelector() {

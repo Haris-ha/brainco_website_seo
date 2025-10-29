@@ -5,9 +5,9 @@ const localePrefix: LocalePrefixMode = 'as-needed';
 // BrainCo 官网配置
 export const AppConfig = {
   name: 'BrainCo 官网',
-  // 支持的语言：简体中文、英文、繁体中文（港澳台）
+  // 支持的语言：简体中文、英文
   // 使用 BCP 47 标准语言代码
-  locales: ['zh-CN', 'en-US', 'zh-TW'],
+  locales: ['zh-CN', 'en-US'],
   // 默认语言：简体中文（中国站）
   defaultLocale: 'zh-CN',
   localePrefix,
