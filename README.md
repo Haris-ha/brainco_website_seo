@@ -18,6 +18,7 @@ npm run dev
 
 - ✅ **清洁的模板** - 移除了所有演示代码和不必要的功能
 - ✅ **静态网站** - 所有页面都是静态生成，SEO 友好
+- ✅ **动态 SEO 配置** - 从 CMS 自动获取 SEO 数据，支持多语言自动切换
 - ✅ **多语言支持** - 简体中文、英文、繁体中文（港澳台）
 - ✅ **Crowdin 翻译管理** - 专业的翻译工作流程
 - ✅ **TypeScript** - 完整的类型安全
@@ -46,6 +47,7 @@ npm run dev
 - 🚀 [快速开始](./docs/SETUP.md) - 配置和开发指南
 - 🌍 [多语言管理](./docs/CROWDIN_GUIDE.md) - Crowdin 详细使用指南
 - 📋 [迁移记录](./docs/MIGRATION_SUMMARY.md) - 从 Boilerplate 到 BrainCo 的完整记录
+- 🔍 [SEO 动态配置](./SEO_SETUP_SUMMARY.md) - **新增！** 动态 SEO 系统完整指南
 
 ## 开发命令
 
@@ -65,6 +67,9 @@ npm run check:i18n        # 检查翻译完整性
 npm run crowdin:upload    # 上传源文件
 npm run crowdin:download  # 下载翻译
 npm run crowdin:sync      # 完整同步
+
+# SEO 配置
+npm run check:seo    # 检查 SEO 配置状态
 ```
 
 ## 项目结构

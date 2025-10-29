@@ -1,3 +1,5 @@
+import type { Metadata } from 'next';
+import { createPageMetadata } from '@/lib/metadata';
 import { getTranslations } from 'next-intl/server';
 import OnlineService from '@/components/common/OnlineService';
 import OnlineServiceMobile from '@/components/common/OnlineServiceMobile';
@@ -6,18 +8,15 @@ import EASleepContentMobile from '@/components/product/easleep/EASleepContentMob
 
 export const dynamic = 'force-dynamic';
 
-export async function generateMetadata({
-  params,
-}: {
+export async function generateMetadata(props: {
   params: Promise<{ locale: string }>;
-}) {
-  const { locale } = await params;
-  const t = await getTranslations({ locale, namespace: 'EASleep' } as any);
-
-  return {
-    title: t('meta_title'),
-    description: t('meta_description'),
-  };
+}): Promise<Metadata> {
+  const params = await props.params;
+  
+  return createPageMetadata(params, 'easleep', {
+    title: 'EASleep - 智能睡眠改善系统',
+    description: 'EASleep 智能睡眠改善系统，科学改善睡眠质量',
+  });
 }
 
 export default function EASleepPage() {

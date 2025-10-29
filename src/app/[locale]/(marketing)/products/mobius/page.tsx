@@ -1,3 +1,5 @@
+import type { Metadata } from 'next';
+import { createPageMetadata } from '@/lib/metadata';
 import { getTranslations } from 'next-intl/server';
 import OnlineService from '@/components/common/OnlineService';
 import OnlineServiceMobile from '@/components/common/OnlineServiceMobile';
@@ -6,18 +8,15 @@ import MobiusContentMobile from '@/components/product/mobius/MobiusContentMobile
 
 export const dynamic = 'force-dynamic';
 
-export async function generateMetadata({
-  params,
-}: {
+export async function generateMetadata(props: {
   params: Promise<{ locale: string }>;
-}) {
-  const { locale } = await params;
-  const t = await getTranslations({ locale, namespace: 'Mobius' } as any);
-
-  return {
-    title: t('meta_title'),
-    description: t('meta_description'),
-  };
+}): Promise<Metadata> {
+  const params = await props.params;
+  
+  return createPageMetadata(params, 'mobius', {
+    title: 'Mobius - 脑机接口头环',
+    description: 'Mobius 脑机接口头环，专业级脑电采集',
+  });
 }
 
 export default function MobiusPage() {

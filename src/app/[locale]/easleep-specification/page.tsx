@@ -1,21 +1,20 @@
+import type { Metadata } from 'next';
+import { createPageMetadata } from '@/lib/metadata';
 import { getTranslations } from 'next-intl/server';
 import Image from 'next/image';
 import EASleepSpecificationContent from '@/components/product/easleep/EASleepSpecificationContent';
 import EASleepSpecificationContentMobile from '@/components/product/easleep/EASleepSpecificationContentMobile';
 import { getBraincoProducts } from '@/lib/api';
 
-export async function generateMetadata({
-  params,
-}: {
+export async function generateMetadata(props: {
   params: Promise<{ locale: string }>;
-}) {
-  const { locale } = await params;
-  const t = await getTranslations({ locale, namespace: 'EASleep' } as any);
-
-  return {
-    title: t('meta_title'),
-    description: t('meta_description'),
-  };
+}): Promise<Metadata> {
+  const params = await props.params;
+  
+  return createPageMetadata(params, 'easleep-specification', {
+    title: 'EASleep 产品规格 - BrainCo',
+    description: 'EASleep 详细产品规格和技术参数',
+  });
 }
 
 export default async function EASleepSpecificationPage() {

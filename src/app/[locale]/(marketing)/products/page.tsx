@@ -1,21 +1,20 @@
 import type { Metadata } from 'next';
+import { createPageMetadata } from '@/lib/metadata';
 import { getTranslations, setRequestLocale } from 'next-intl/server';
 
 type ProductsPageProps = {
   params: Promise<{ locale: string }>;
 };
 
-export async function generateMetadata(props: ProductsPageProps): Promise<Metadata> {
-  const { locale } = await props.params;
-  const t = await getTranslations({
-    locale,
-    namespace: 'Products',
-  } as any);
-
-  return {
-    title: t('meta_title'),
-    description: t('meta_description'),
-  };
+export async function generateMetadata(props: {
+  params: Promise<{ locale: string }>;
+}): Promise<Metadata> {
+  const params = await props.params;
+  
+  return createPageMetadata(params, 'products', {
+    title: '产品中心 - BrainCo',
+    description: 'BrainCo 全系列产品介绍',
+  });
 }
 
 export default async function ProductsPage(props: ProductsPageProps) {

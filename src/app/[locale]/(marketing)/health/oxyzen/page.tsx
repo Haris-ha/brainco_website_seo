@@ -1,3 +1,5 @@
+import type { Metadata } from 'next';
+import { createPageMetadata } from '@/lib/metadata';
 import { getTranslations } from 'next-intl/server';
 
 export const dynamic = 'force-dynamic';
@@ -8,18 +10,15 @@ import OxyZenContent from '@/components/product/oxyzen/OxyZenContent';
 import OxyZenContentMobile from '@/components/product/oxyzen/OxyZenContentMobile';
 import { getBraincoProducts } from '@/lib/api';
 
-export async function generateMetadata({
-  params,
-}: {
+export async function generateMetadata(props: {
   params: Promise<{ locale: string }>;
-}) {
-  const { locale } = await params;
-  const t = await getTranslations({ locale, namespace: 'OxyZen' } as any);
-
-  return {
-    title: t('meta_title'),
-    description: t('meta_description'),
-  };
+}): Promise<Metadata> {
+  const params = await props.params;
+  
+  return createPageMetadata(params, 'oxyzen', {
+    title: 'OxyZen - 冥想放松系统',
+    description: 'OxyZen 冥想放松系统，缓解压力改善身心',
+  });
 }
 
 export default async function OxyZenPage() {

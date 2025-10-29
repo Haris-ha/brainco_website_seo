@@ -1,4 +1,5 @@
 import type { Metadata } from 'next';
+import { createPageMetadata } from '@/lib/metadata';
 import { getTranslations, setRequestLocale } from 'next-intl/server';
 
 import StarKidsContent from '@/components/product/starkids/StarKidsContent';
@@ -8,14 +9,15 @@ type Props = {
   params: Promise<{ locale: string }>;
 };
 
-export async function generateMetadata({ params }: Props): Promise<Metadata> {
-  const { locale } = await params;
-  const t = await getTranslations({ locale, namespace: 'StarKids' } as any);
-
-  return {
-    title: t('meta_title'),
-    description: t('meta_description'),
-  };
+export async function generateMetadata(props: {
+  params: Promise<{ locale: string }>;
+}): Promise<Metadata> {
+  const params = await props.params;
+  
+  return createPageMetadata(params, 'starkids', {
+    title: 'StarKids - 儿童专注力训练',
+    description: 'StarKids 儿童专注力训练系统，助力儿童成长',
+  });
 }
 
 export default async function StarKidsPage({ params }: Props) {

@@ -1,3 +1,5 @@
+import type { Metadata } from 'next';
+import { createPageMetadata } from '@/lib/metadata';
 import { getTranslations } from 'next-intl/server';
 import OnlineService from '@/components/common/OnlineService';
 import OnlineServiceMobile from '@/components/common/OnlineServiceMobile';
@@ -6,18 +8,15 @@ import BrainRoboticsContentMobile from '@/components/product/brain-robotics/Brai
 
 export const dynamic = 'force-dynamic';
 
-export async function generateMetadata({
-  params,
-}: {
+export async function generateMetadata(props: {
   params: Promise<{ locale: string }>;
-}) {
-  const { locale } = await params;
-  const t = await getTranslations({ locale, namespace: 'BrainRobotics' } as any);
-
-  return {
-    title: t('meta_title'),
-    description: t('meta_description'),
-  };
+}): Promise<Metadata> {
+  const params = await props.params;
+  
+  return createPageMetadata(params, 'brain-robotics', {
+    title: 'Brain Robotics - 智能仿生手',
+    description: 'Brain Robotics 智能仿生手，重塑生活可能',
+  });
 }
 
 export default function BrainRoboticsPage() {

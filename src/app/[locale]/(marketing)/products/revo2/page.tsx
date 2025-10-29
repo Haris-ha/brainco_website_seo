@@ -1,3 +1,5 @@
+import type { Metadata } from 'next';
+import { createPageMetadata } from '@/lib/metadata';
 import { getTranslations } from 'next-intl/server';
 
 export const dynamic = 'force-dynamic';
@@ -7,18 +9,15 @@ import OnlineServiceMobile from '@/components/common/OnlineServiceMobile';
 import Revo2Content from '@/components/product/revo2/Revo2Content';
 import Revo2ContentMobile from '@/components/product/revo2/Revo2ContentMobile';
 
-export async function generateMetadata({
-  params,
-}: {
+export async function generateMetadata(props: {
   params: Promise<{ locale: string }>;
-}) {
-  const { locale } = await params;
-  const t = await getTranslations({ locale, namespace: 'Revo2' } as any);
-
-  return {
-    title: t('meta_title'),
-    description: t('meta_description'),
-  };
+}): Promise<Metadata> {
+  const params = await props.params;
+  
+  return createPageMetadata(params, 'revo2', {
+    title: 'Revo2 - 第二代脑机接口',
+    description: 'Revo2 第二代脑机接口产品',
+  });
 }
 
 export default function Revo2Page() {
