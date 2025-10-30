@@ -88,7 +88,7 @@ export async function generateSEOMetadata(
     fallback?.description,
   );
 
-  return {
+  const metadata: Metadata = {
     title: seoMetadata.title,
     description: seoMetadata.description,
     keywords: seoMetadata.keywords,
@@ -97,6 +97,15 @@ export async function generateSEOMetadata(
     twitter: seoMetadata.twitter,
     alternates: seoMetadata.alternates,
   };
+
+  // 添加 publisher meta tag（如果存在）
+  if (seoMetadata.publisher) {
+    metadata.other = {
+      publisher: seoMetadata.publisher,
+    };
+  }
+
+  return metadata;
 }
 
 /**

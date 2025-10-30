@@ -17,6 +17,7 @@
     "check:deps": "knip",
     "check:i18n": "i18n-check -l src/locales -s zh-CN -u src -f next-intl",
     "check:seo": "node scripts/check-seo-pages.mjs",
+    "test:seo": "./scripts/test-seo-features.sh",
     "crowdin:upload": "crowdin upload sources",
     "crowdin:download": "crowdin download",
     "crowdin:sync": "npm run crowdin:upload && npm run crowdin:download",

@@ -1,19 +1,21 @@
 import type { Metadata } from 'next';
 import { getTranslations, setRequestLocale } from 'next-intl/server';
 import AboutPageClient from '@/components/company/AboutPageClient';
+import StructuredData from '@/components/seo/StructuredData';
 import { generateSEOMetadata } from '@/lib/metadata';
+import { getPageSEOForStructuredData } from '@/lib/seo';
 
 export async function generateMetadata(props: {
   params: Promise<{ locale: string }>;
 }): Promise<Metadata> {
   const { locale } = await props.params;
-  
+
   // 尝试从 CMS 获取 SEO 数据
   const seoMetadata = await generateSEOMetadata(
     { locale },
     '/about',
   );
-  
+
   // 如果 CMS 中没有数据，使用翻译文件作为后备
   if (!seoMetadata.title || seoMetadata.title === 'BrainCo') {
     const t = await getTranslations({
@@ -37,5 +39,14 @@ export default async function AboutPage(props: {
   const { locale } = await props.params;
   setRequestLocale(locale);
 
-  return <AboutPageClient />;
+  // 获取 SEO 数据用于结构化数据
+  const seoData = await getPageSEOForStructuredData('/about', locale);
+
+  return (
+    <>
+      {/* 添加结构化数据 */}
+      <StructuredData seoData={seoData} />
+      <AboutPageClient />
+    </>
+  );
 }

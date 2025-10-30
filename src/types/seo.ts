@@ -45,7 +45,9 @@ export type PageSEO = {
   metaTitle: string;
   metaDescription: string;
   keywords?: string;
+  publisher?: string;
   metaRobots?: string;
+  xRobotsTag?: 'index, follow' | 'noindex, nofollow' | 'index, nofollow' | 'noindex, follow';
   canonicalURL?: string;
   ogTitle?: string;
   ogDescription?: string;
@@ -77,7 +79,9 @@ export type SEOMetadata = {
   title: string;
   description: string;
   keywords?: string;
+  publisher?: string;
   robots?: string;
+  xRobotsTag?: string;
   canonical?: string;
   openGraph?: {
     title?: string;

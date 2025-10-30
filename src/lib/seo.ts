@@ -56,7 +56,7 @@ export async function getPageSEO(
       'filters[pagePath][$eq]': pagePath,
       'locale': strapiLocale,
     });
-    
+
     // Strapi v4 populate 参数需要使用数组格式
     params.append('populate[0]', 'ogImage');
     params.append('populate[1]', 'twitterImage');
@@ -169,9 +169,19 @@ export function convertToMetadata(
     metadata.keywords = seoData.keywords;
   }
 
+  // Publisher
+  if (seoData.publisher) {
+    metadata.publisher = seoData.publisher;
+  }
+
   // Robots
   if (seoData.metaRobots) {
     metadata.robots = seoData.metaRobots;
+  }
+
+  // X-Robots-Tag
+  if (seoData.xRobotsTag) {
+    metadata.xRobotsTag = seoData.xRobotsTag;
   }
 
   // Open Graph
@@ -216,6 +226,7 @@ export function convertToMetadata(
   // Canonical and alternates
   metadata.alternates = {};
 
+  // 使用 CMS 中配置的 canonical URL
   if (seoData.canonicalURL) {
     metadata.alternates.canonical = seoData.canonicalURL;
   }
@@ -255,6 +266,19 @@ export async function generatePageMetadata(
 }
 
 /**
+ * 获取页面的结构化数据（用于在页面中渲染）
+ * @param pagePath 页面路径
+ * @param locale 当前语言
+ * @returns PageSEO 数据（包含 structuredData）
+ */
+export async function getPageSEOForStructuredData(
+  pagePath: string,
+  locale: string,
+): Promise<PageSEO | null> {
+  return await getPageSEO(pagePath, locale);
+}
+
+/**
  * 获取所有页面路径的 SEO 数据（用于生成 sitemap）
  */
 export async function getAllPageSEOs(): Promise<PageSEO[]> {
@@ -262,7 +286,7 @@ export async function getAllPageSEOs(): Promise<PageSEO[]> {
     const params = new URLSearchParams({
       'pagination[pageSize]': '100',
     });
-    
+
     // Strapi v4 populate 参数需要使用数组格式
     params.append('populate[0]', 'ogImage');
     params.append('populate[1]', 'twitterImage');
