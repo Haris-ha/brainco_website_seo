@@ -52,8 +52,11 @@ const PAGE_PATH_MAP: Record<string, string> = {
  * 这个函数可以在任何页面的 generateMetadata 中使用
  *
  * @param params 页面参数（包含 locale）
+ * @param params.locale 当前语言
  * @param pagePath 页面路径（例如：'/', '/about', '/products/focus-zen'）
  * @param fallback 后备数据（当 CMS 中没有数据时使用）
+ * @param fallback.title 后备标题
+ * @param fallback.description 后备描述
  * @returns Next.js Metadata 对象
  *
  * @example
@@ -98,13 +101,6 @@ export async function generateSEOMetadata(
     alternates: seoMetadata.alternates,
   };
 
-  // 添加 publisher meta tag（如果存在）
-  if (seoMetadata.publisher) {
-    metadata.other = {
-      publisher: seoMetadata.publisher,
-    };
-  }
-
   return metadata;
 }
 
@@ -113,8 +109,11 @@ export async function generateSEOMetadata(
  * 自动从文件路径推断页面路径，无需手动指定
  *
  * @param params 页面参数（包含 locale 和其他 segments）
+ * @param params.locale 当前语言
  * @param segment 页面 segment（文件夹名称），如果不提供则自动从参数推断
  * @param fallback 后备数据
+ * @param fallback.title 后备标题
+ * @param fallback.description 后备描述
  * @returns Next.js Metadata 对象
  *
  * @example

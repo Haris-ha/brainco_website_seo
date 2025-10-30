@@ -48,8 +48,9 @@ npm run dev
 - 🚀 [快速开始](./docs/SETUP.md) - 配置和开发指南
 - 🌍 [多语言管理](./docs/CROWDIN_GUIDE.md) - Crowdin 详细使用指南
 - 📋 [迁移记录](./docs/MIGRATION_SUMMARY.md) - 从 Boilerplate 到 BrainCo 的完整记录
-- 🔍 [SEO 动态配置](./SEO_SETUP_SUMMARY.md) - 动态 SEO 系统完整指南
-- 🏷️ [Publisher & X-Robots-Tag](./docs/PUBLISHER_AND_ROBOTS_TAG.md) - **新增！** Publisher 和 X-Robots-Tag 配置指南
+- 🔍 [SEO 动态配置](./docs/SEO_SETUP_SUMMARY.md) - 动态 SEO 系统完整指南
+- 🐛 [SEO Bug 修复](./docs/SEO_BUGFIX_X_ROBOTS_TAG.md) - **最新！** X-Robots-Tag 重复和 Publisher 丢失问题修复
+- 🧪 [客户端导航测试](./docs/SEO_CLIENT_NAVIGATION_TEST.md) - 如何测试站内导航时的 SEO headers
 
 ## 开发命令
 
@@ -70,9 +71,10 @@ npm run crowdin:upload    # 上传源文件
 npm run crowdin:download  # 下载翻译
 npm run crowdin:sync      # 完整同步
 
-# SEO 配置
-npm run check:seo    # 检查 SEO 配置状态
-npm run test:seo     # 测试 Publisher 和 X-Robots-Tag 功能
+# SEO 配置和测试
+npm run check:seo         # 检查 SEO 配置状态
+npm run check:seo-headers # 检查 X-Robots-Tag 和 Publisher（需先运行 dev 或 start）
+npm run test:seo          # 测试 Publisher 和 X-Robots-Tag 功能
 ```
 
 ## 项目结构

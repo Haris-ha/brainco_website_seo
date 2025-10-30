@@ -61,7 +61,7 @@ async function getXRobotsTag(pagePath: string, locale: string): Promise<string> 
         return xRobotsTag;
       }
     }
-  } catch (error) {
+  } catch {
     // 静默失败，使用默认值
   }
 
@@ -70,6 +70,11 @@ async function getXRobotsTag(pagePath: string, locale: string): Promise<string> 
 
 export default async function middleware(request: NextRequest) {
   const { pathname } = request.nextUrl;
+
+  // 检测是否是 Next.js 内部请求（RSC、prefetch 等）
+  const purpose = request.headers.get('purpose');
+  const isRSCRequest = request.headers.get('rsc') === '1';
+  const isPrefetch = purpose === 'prefetch';
 
   // 检测搜索引擎爬虫，不执行跳转
   const userAgent = request.headers.get('user-agent') || '';
@@ -122,17 +127,22 @@ export default async function middleware(request: NextRequest) {
     ? pathSegments.slice(1).join('/')
     : pathSegments.join('/')}`;
 
-  // 获取并添加 X-Robots-Tag header
-  const xRobotsTag = await getXRobotsTag(
-    pagePath === '/' ? '/' : pagePath.replace(/\/$/, ''),
-    locale as string,
-  );
-
   // 执行 next-intl 国际化路由处理
   const response = handleI18nRouting(request);
 
-  // 添加 X-Robots-Tag header 到响应
-  if (response) {
+  // 只在非 RSC 请求和非 prefetch 请求时添加 X-Robots-Tag
+  // RSC 和 prefetch 请求不需要 SEO headers
+  if (response && !isRSCRequest && !isPrefetch) {
+    // 获取 X-Robots-Tag 值
+    const xRobotsTag = await getXRobotsTag(
+      pagePath === '/' ? '/' : pagePath.replace(/\/$/, ''),
+      locale as string,
+    );
+
+    // 清除可能存在的旧 header，然后设置新值
+    // 使用 set 会自动覆盖，但为了确保，先删除
+    response.headers.delete('X-Robots-Tag');
+    response.headers.delete('x-robots-tag'); // 删除小写版本（以防万一）
     response.headers.set('X-Robots-Tag', xRobotsTag);
   }
 

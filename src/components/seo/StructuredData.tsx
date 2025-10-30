@@ -15,8 +15,8 @@ type StructuredDataProps = {
  * 生成网页信息的结构化数据
  */
 function generateWebPageSchema(seoData: PageSEO) {
-  // 使用 CMS 中配置的 publisher，如果没有则使用默认值
-  const publisherName = seoData.publisher || 'BrainCo';
+  // Publisher 硬编码为 BrainCo
+  const publisherName = 'BrainCo';
 
   return {
     '@context': 'https://schema.org',

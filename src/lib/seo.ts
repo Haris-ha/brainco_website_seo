@@ -169,11 +169,6 @@ export function convertToMetadata(
     metadata.keywords = seoData.keywords;
   }
 
-  // Publisher
-  if (seoData.publisher) {
-    metadata.publisher = seoData.publisher;
-  }
-
   // Robots
   if (seoData.metaRobots) {
     metadata.robots = seoData.metaRobots;
@@ -324,4 +319,13 @@ export async function getAllPageSEOs(): Promise<PageSEO[]> {
     }
     return [];
   }
+}
+
+/**
+ * 获取网站的 Publisher 信息
+ * 硬编码为 'BrainCo'
+ * @returns Publisher 名称 'BrainCo'
+ */
+export function getPublisher(): string {
+  return 'BrainCo';
 }

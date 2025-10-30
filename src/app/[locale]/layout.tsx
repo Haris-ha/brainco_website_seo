@@ -3,7 +3,9 @@ import { hasLocale, NextIntlClientProvider } from 'next-intl';
 import { setRequestLocale } from 'next-intl/server';
 import { notFound } from 'next/navigation';
 import { Toaster } from 'react-hot-toast';
+import PublisherMeta from '@/components/seo/PublisherMeta';
 import TargetCursor from '@/components/ui/TargetCursor/TargetCursor';
+import { getPublisher } from '@/lib/seo';
 import { routing } from '@/libs/I18nRouting';
 import '@/styles/global.css';
 
@@ -48,8 +50,12 @@ export default async function RootLayout(props: {
 
   setRequestLocale(locale);
 
+  // 获取 Publisher 信息（硬编码为 BrainCo）
+  const publisher = getPublisher();
+
   return (
     <html lang={locale}>
+      <PublisherMeta publisher={publisher} />
       <body>
         {/* TargetCursor 仅在桌面端显示 */}
         <div className="hidden md:block">
