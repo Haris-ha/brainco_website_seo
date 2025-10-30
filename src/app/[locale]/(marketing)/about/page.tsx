@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 import { getTranslations, setRequestLocale } from 'next-intl/server';
 import AboutPageClient from '@/components/company/AboutPageClient';
 import StructuredData from '@/components/seo/StructuredData';
+import DynamicCanonical from '@/components/seo/DynamicCanonical';
 import { generateSEOMetadata } from '@/lib/metadata';
 import { getPageSEOForStructuredData } from '@/lib/seo';
 
@@ -44,7 +45,7 @@ export default async function AboutPage(props: {
 
   return (
     <>
-      {/* 添加结构化数据 */}
+      <DynamicCanonical canonicalURL={seoData?.canonicalURL} locale={locale} pagePath="/about" />
       <StructuredData seoData={seoData} />
       <AboutPageClient />
     </>

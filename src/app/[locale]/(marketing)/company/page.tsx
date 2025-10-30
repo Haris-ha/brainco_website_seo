@@ -1,6 +1,9 @@
 import type { Metadata } from 'next';
 import { createPageMetadata } from '@/lib/metadata';
 import { getTranslations, setRequestLocale } from 'next-intl/server';
+import { getPageSEOForStructuredData } from '@/lib/seo';
+import StructuredData from '@/components/seo/StructuredData';
+import DynamicCanonical from '@/components/seo/DynamicCanonical';
 
 type CompanyPageProps = {
   params: Promise<{ locale: string }>;
@@ -25,16 +28,25 @@ export default async function CompanyPage(props: CompanyPageProps) {
     namespace: 'Company',
   } as any);
 
+  // 获取 SEO 数据用于结构化数据
+  const seoData = await getPageSEOForStructuredData('/company', locale);
+
   return (
-    <div className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8">
-      <div className="text-center">
-        <h1 className="text-4xl font-bold tracking-tight text-gray-900 sm:text-5xl">
-          {t('meta_title')}
-        </h1>
-        <p className="mx-auto mt-3 max-w-2xl text-xl text-gray-500">
-          {t('meta_description')}
-        </p>
+    <>
+      {/* 添加结构化数据 - 直接从 CMS 获取 */}
+      <DynamicCanonical canonicalURL={seoData?.canonicalURL} locale={locale} pagePath="/company" />
+      <StructuredData seoData={seoData} />
+      
+      <div className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8">
+        <div className="text-center">
+          <h1 className="text-4xl font-bold tracking-tight text-gray-900 sm:text-5xl">
+            {t('meta_title')}
+          </h1>
+          <p className="mx-auto mt-3 max-w-2xl text-xl text-gray-500">
+            {t('meta_description')}
+          </p>
+        </div>
       </div>
-    </div>
+    </>
   );
 }

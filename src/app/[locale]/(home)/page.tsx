@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 import { getTranslations, setRequestLocale } from 'next-intl/server';
 import { HomePageClient } from '@/components/home/HomePageClient';
 import StructuredData from '@/components/seo/StructuredData';
+import DynamicCanonical from '@/components/seo/DynamicCanonical';
 import { generateSEOMetadata } from '@/lib/metadata';
 import { getPageSEOForStructuredData } from '@/lib/seo';
 
@@ -43,13 +44,21 @@ export default async function Index(props: IIndexProps) {
   const { locale } = await props.params;
   setRequestLocale(locale);
 
-  // 获取 SEO 数据用于结构化数据
+  // 获取 SEO 数据用于结构化数据和 Canonical URL
   const seoData = await getPageSEOForStructuredData('/', locale);
 
   return (
     <>
-      {/* 添加结构化数据 */}
+      {/* 动态更新 Canonical URL - 确保在客户端导航时也能正确更新 */}
+      <DynamicCanonical 
+        canonicalURL={seoData?.canonicalURL}
+        locale={locale}
+        pagePath="/"
+      />
+      
+      {/* 添加结构化数据 - 现在使用唯一 key 确保客户端导航时更新 */}
       <StructuredData seoData={seoData} />
+      
       <HomePageClient locale={locale} />
     </>
   );

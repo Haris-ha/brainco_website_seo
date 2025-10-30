@@ -1,13 +1,15 @@
 import type { Metadata } from 'next';
 import { createPageMetadata } from '@/lib/metadata';
-import { getTranslations } from 'next-intl/server';
-
-export const dynamic = 'force-dynamic';
-
+import { setRequestLocale } from 'next-intl/server';
+import { getPageSEOForStructuredData } from '@/lib/seo';
+import StructuredData from '@/components/seo/StructuredData';
+import DynamicCanonical from '@/components/seo/DynamicCanonical';
 import OnlineService from '@/components/common/OnlineService';
 import OnlineServiceMobile from '@/components/common/OnlineServiceMobile';
 import Revo2Content from '@/components/product/revo2/Revo2Content';
 import Revo2ContentMobile from '@/components/product/revo2/Revo2ContentMobile';
+
+export const dynamic = 'force-dynamic';
 
 export async function generateMetadata(props: {
   params: Promise<{ locale: string }>;
@@ -20,9 +22,21 @@ export async function generateMetadata(props: {
   });
 }
 
-export default function Revo2Page() {
+export default async function Revo2Page(props: {
+  params: Promise<{ locale: string }>;
+}) {
+  const { locale } = await props.params;
+  setRequestLocale(locale);
+
+  // 获取 SEO 数据（包含 Schema 结构化数据）
+  const seoData = await getPageSEOForStructuredData('/products/revo2', locale);
+
   return (
     <>
+      {/* 添加结构化数据 - 直接从 CMS 获取 */}
+      <DynamicCanonical canonicalURL={seoData?.canonicalURL} locale={locale} pagePath="/products/revo2" />
+      <StructuredData seoData={seoData} />
+      
       {/* Desktop Content */}
       <div className="hidden lg:block">
         <Revo2Content />

@@ -2,6 +2,9 @@ import type { Metadata } from 'next';
 import { getTranslations, setRequestLocale } from 'next-intl/server';
 import ContactPageClient from '@/components/company/ContactPageClient';
 import { generateSEOMetadata } from '@/lib/metadata';
+import { getPageSEOForStructuredData } from '@/lib/seo';
+import StructuredData from '@/components/seo/StructuredData';
+import DynamicCanonical from '@/components/seo/DynamicCanonical';
 
 export async function generateMetadata(props: {
   params: Promise<{ locale: string }>;
@@ -37,5 +40,15 @@ export default async function ContactPage(props: {
   const { locale } = await props.params;
   setRequestLocale(locale);
 
-  return <ContactPageClient />;
+  // 获取 SEO 数据用于结构化数据
+  const seoData = await getPageSEOForStructuredData('/contact', locale);
+
+  return (
+    <>
+      {/* 添加结构化数据 - 直接从 CMS 获取 */}
+      <DynamicCanonical canonicalURL={seoData?.canonicalURL} locale={locale} pagePath="/contact" />
+      <StructuredData seoData={seoData} />
+      <ContactPageClient />
+    </>
+  );
 }

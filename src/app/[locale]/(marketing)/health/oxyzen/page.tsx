@@ -1,14 +1,16 @@
 import type { Metadata } from 'next';
 import { createPageMetadata } from '@/lib/metadata';
-import { getTranslations } from 'next-intl/server';
-
-export const dynamic = 'force-dynamic';
-
+import { setRequestLocale } from 'next-intl/server';
+import { getPageSEOForStructuredData } from '@/lib/seo';
+import StructuredData from '@/components/seo/StructuredData';
+import DynamicCanonical from '@/components/seo/DynamicCanonical';
 import OnlineService from '@/components/common/OnlineService';
 import OnlineServiceMobile from '@/components/common/OnlineServiceMobile';
 import OxyZenContent from '@/components/product/oxyzen/OxyZenContent';
 import OxyZenContentMobile from '@/components/product/oxyzen/OxyZenContentMobile';
 import { getBraincoProducts } from '@/lib/api';
+
+export const dynamic = 'force-dynamic';
 
 export async function generateMetadata(props: {
   params: Promise<{ locale: string }>;
@@ -21,7 +23,15 @@ export async function generateMetadata(props: {
   });
 }
 
-export default async function OxyZenPage() {
+export default async function OxyZenPage(props: {
+  params: Promise<{ locale: string }>;
+}) {
+  const { locale } = await props.params;
+  setRequestLocale(locale);
+
+  // 获取 SEO 数据用于结构化数据
+  const seoData = await getPageSEOForStructuredData('/health/oxyzen', locale);
+
   let productInfo: any = null;
 
   try {
@@ -43,6 +53,10 @@ export default async function OxyZenPage() {
 
   return (
     <>
+      {/* 添加结构化数据 - 直接从 CMS 获取 */}
+      <DynamicCanonical canonicalURL={seoData?.canonicalURL} locale={locale} pagePath="/health/oxyzen" />
+      <StructuredData seoData={seoData} />
+
       {/* Desktop Content */}
       <div className="hidden lg:block">
         <OxyZenContent productInfo={productInfo} />

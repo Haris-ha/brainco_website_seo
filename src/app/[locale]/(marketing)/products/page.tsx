@@ -1,6 +1,9 @@
 import type { Metadata } from 'next';
 import { createPageMetadata } from '@/lib/metadata';
 import { getTranslations, setRequestLocale } from 'next-intl/server';
+import { getPageSEOForStructuredData } from '@/lib/seo';
+import StructuredData from '@/components/seo/StructuredData';
+import DynamicCanonical from '@/components/seo/DynamicCanonical';
 
 type ProductsPageProps = {
   params: Promise<{ locale: string }>;
@@ -25,6 +28,9 @@ export default async function ProductsPage(props: ProductsPageProps) {
     namespace: 'Products',
   } as any);
 
+  // 获取 SEO 数据用于结构化数据
+  const seoData = await getPageSEOForStructuredData('/products', locale);
+
   const products = [
     { id: 'brain-robotics', name: t('brain_robotics'), slug: 'brain-robotics' },
     { id: 'mobius', name: t('mobius'), slug: 'mobius' },
@@ -35,36 +41,42 @@ export default async function ProductsPage(props: ProductsPageProps) {
   ];
 
   return (
-    <div className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8">
-      <div className="text-center">
-        <h1 className="text-4xl font-bold tracking-tight text-gray-900 sm:text-5xl">
-          {t('meta_title')}
-        </h1>
-        <p className="mx-auto mt-3 max-w-2xl text-xl text-gray-500">
-          {t('meta_description')}
-        </p>
-      </div>
+    <>
+      {/* 添加结构化数据 - 直接从 CMS 获取 */}
+      <DynamicCanonical canonicalURL={seoData?.canonicalURL} locale={locale} pagePath="/products" />
+      <StructuredData seoData={seoData} />
+      
+      <div className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8">
+        <div className="text-center">
+          <h1 className="text-4xl font-bold tracking-tight text-gray-900 sm:text-5xl">
+            {t('meta_title')}
+          </h1>
+          <p className="mx-auto mt-3 max-w-2xl text-xl text-gray-500">
+            {t('meta_description')}
+          </p>
+        </div>
 
-      <div className="mt-12 grid gap-8 md:grid-cols-2 lg:grid-cols-3">
-        {products.map(product => (
-          <div
-            key={product.id}
-            className="overflow-hidden rounded-lg border bg-white shadow-sm transition-shadow hover:shadow-md"
-          >
-            <div className="p-6">
-              <h3 className="text-lg font-medium text-gray-900">{product.name}</h3>
-              <div className="mt-4">
-                <a
-                  href={`/products/${product.slug}`}
-                  className="text-sm font-medium text-blue-600 hover:text-blue-500"
-                >
-                  了解更多 →
-                </a>
+        <div className="mt-12 grid gap-8 md:grid-cols-2 lg:grid-cols-3">
+          {products.map(product => (
+            <div
+              key={product.id}
+              className="overflow-hidden rounded-lg border bg-white shadow-sm transition-shadow hover:shadow-md"
+            >
+              <div className="p-6">
+                <h3 className="text-lg font-medium text-gray-900">{product.name}</h3>
+                <div className="mt-4">
+                  <a
+                    href={`/products/${product.slug}`}
+                    className="text-sm font-medium text-blue-600 hover:text-blue-500"
+                  >
+                    了解更多 →
+                  </a>
+                </div>
               </div>
             </div>
-          </div>
-        ))}
+          ))}
+        </div>
       </div>
-    </div>
+    </>
   );
 }
