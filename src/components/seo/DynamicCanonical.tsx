@@ -2,13 +2,13 @@
 
 /**
  * 动态 Canonical URL 组件
- * 
+ *
  * 在客户端导航时也能正确更新 canonical URL
  * 这个组件会在客户端动态添加/更新 <link rel="canonical"> 标签
  */
 
-import { useEffect } from 'react';
 import { usePathname } from 'next/navigation';
+import { useEffect } from 'react';
 
 type DynamicCanonicalProps = {
   canonicalURL?: string;
@@ -47,4 +47,3 @@ export default function DynamicCanonical({ canonicalURL, locale, pagePath }: Dyn
   // 这个组件不渲染任何内容
   return null;
 }
-
