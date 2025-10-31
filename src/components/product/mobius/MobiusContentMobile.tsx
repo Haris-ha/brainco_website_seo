@@ -264,32 +264,45 @@ export default function MobiusContentMobile() {
       </div>
 
       {/* Characteristics */}
-      <div className="mt-[70px]">
+      <div className="mt-[70px] bg-white px-4 py-[40px]">
         <motion.h2
-          className="text-fluid-2xl text-center leading-[28px] font-medium"
+          className="text-fluid-2xl mb-[10px] text-center leading-[28px] font-medium text-[#666666]"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
         >
           {t('feature_sensor_title')}
-          <br />
-          {t('feature_sensor_freq')}
         </motion.h2>
         <motion.div
-          className="mt-[24px] flex items-center justify-center"
-          initial={{ opacity: 0, scale: 0.9 }}
-          whileInView={{ opacity: 1, scale: 1 }}
+          className="text-fluid-5xl mb-[30px] text-center font-medium text-[#333333]"
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.6, delay: 0.2 }}
+          transition={{ duration: 0.6, delay: 0.1 }}
         >
-          <Image
-            src="https://website-www-brainco-cn.oss-cn-hangzhou.aliyuncs.com/images/1a2SPuANGR3mTHnY.png"
-            alt="Sensor"
-            width={240}
-            height={240}
-          />
+          {t('feature_sensor_freq')}
         </motion.div>
+
+        {/* Three Sensor Circles */}
+        <div className="mb-[40px] flex items-center justify-center gap-[15px]">
+          {[
+            { name: t('sensor_hall') },
+            { name: t('sensor_gyro') },
+            { name: t('sensor_temperature') },
+          ].map((sensor, index) => (
+            <motion.div
+              key={sensor.name}
+              className="flex h-[90px] w-[90px] items-center justify-center rounded-full border-2 border-[#333333] bg-white"
+              initial={{ opacity: 0, scale: 0.8 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: 0.2 + index * 0.1, ease: 'easeOut' }}
+            >
+              <span className="text-fluid-xs text-center text-[#333333]">{sensor.name}</span>
+            </motion.div>
+          ))}
+        </div>
         <div className="text-fluid-base mt-[45px] flex flex-wrap pl-[30px]">
           {[
             { value: t('feature_duration_value'), unit: t('feature_duration_unit'), label: t('feature_duration') },
@@ -450,37 +463,137 @@ export default function MobiusContentMobile() {
         </div>
       </div>
 
-      {/* Comparison */}
-      <div className="flex flex-col items-center justify-center">
-        <motion.div
-          className="mt-[64px]"
-          initial={{ opacity: 0, y: 20 }}
+      {/* M3 vs M2 Comparison */}
+      <motion.div
+        className="mx-auto mt-[60px] w-full px-4"
+        initial={{ opacity: 0, y: 50 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.8, ease: 'easeOut' }}
+      >
+        {/* Title */}
+        <motion.h2
+          className="text-fluid-3xl mb-[40px] text-center font-medium"
+          initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
+          transition={{ duration: 0.8, delay: 0.2, ease: 'easeOut' }}
         >
-          <Image
-            src="https://website-www-brainco-cn.oss-cn-hangzhou.aliyuncs.com/images/y48nF2M1L3capKNX.webp"
-            alt="Comparison 1"
-            width={305}
-            height={400}
-          />
-        </motion.div>
+          {t('comparison_title')}
+        </motion.h2>
+
+        {/* Product Images */}
+        <div className="mb-[40px] flex items-end justify-center gap-[30px]">
+          <motion.div
+            className="flex flex-col items-center"
+            initial={{ opacity: 0, scale: 0.9 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8, delay: 0.3, ease: 'easeOut' }}
+          >
+            <Image
+              src="https://www.brainco.cn/news-images/m3@2x.png"
+              alt={t('comparison_m3')}
+              width={120}
+              height={160}
+              className="h-auto w-[120px]"
+            />
+            <span className="text-fluid-base mt-[10px] font-medium">{t('comparison_m3')}</span>
+          </motion.div>
+          <motion.div
+            className="flex flex-col items-center"
+            initial={{ opacity: 0, scale: 0.9 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8, delay: 0.4, ease: 'easeOut' }}
+          >
+            <Image
+              src="https://www.brainco.cn/news-images/M2@2x.png"
+              alt={t('comparison_m2')}
+              width={120}
+              height={160}
+              className="h-auto w-[120px]"
+            />
+            <span className="text-fluid-base mt-[10px] font-medium">{t('comparison_m2')}</span>
+          </motion.div>
+        </div>
+
+        {/* Comparison Table */}
         <motion.div
-          className="mt-[12px]"
-          initial={{ opacity: 0, y: 20 }}
+          className="overflow-hidden rounded-lg bg-white"
+          initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.6, delay: 0.2 }}
+          transition={{ duration: 0.8, delay: 0.5, ease: 'easeOut' }}
         >
-          <Image
-            src="https://website-www-brainco-cn.oss-cn-hangzhou.aliyuncs.com/images/U6rwu04qnVLjv3SM.webp"
-            alt="Comparison 2"
-            width={346}
-            height={400}
-          />
+          <table className="w-full">
+            <thead>
+              <tr className="bg-[#f5f5f5]">
+                <th className="text-fluid-base border-r border-gray-200 py-3 text-center font-medium text-[#333333]">
+                  {t('comparison_m3')}
+                </th>
+                <th className="text-fluid-base py-3 text-center font-medium text-[#333333]">
+                  {t('comparison_m2')}
+                </th>
+              </tr>
+            </thead>
+            <tbody>
+              {[
+                { m3: t('comparison_support_value'), m2: t('comparison_support_value') },
+                { m3: t('comparison_height_value'), m2: t('comparison_height_value') },
+                { m3: t('comparison_weight_value'), m2: t('comparison_weight_value') },
+                { m3: t('comparison_waterproof_value'), m2: t('comparison_waterproof_value') },
+                { m3: t('comparison_charging_value'), m2: t('comparison_charging_value') },
+                { m3: t('comparison_battery_m3'), m2: t('comparison_battery_m2') },
+                { m3: t('comparison_yes'), m2: t('comparison_no') },
+                { m3: t('comparison_yes'), m2: t('comparison_no') },
+                { m3: t('comparison_yes'), m2: t('comparison_no') },
+              ].map((row, idx) => (
+                <tr
+                  key={`comparison-row-${idx}`}
+                  className={`border-t border-gray-200 ${idx % 2 === 1 ? 'bg-[#fafafa]' : ''}`}
+                >
+                  <td className="text-fluid-sm border-r border-gray-200 px-3 py-3 text-center text-[#666666]">
+                    {row.m3}
+                  </td>
+                  <td className="text-fluid-sm px-3 py-3 text-center text-[#666666]">{row.m2}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+
+          {/* Common Features */}
+          <div className="border-t-2 border-gray-300 bg-[#f5f5f5] px-4 py-4 text-center">
+            <p className="text-fluid-base mb-3 font-medium text-[#333333]">
+              {t('comparison_common')}
+            </p>
+            <div className="flex flex-wrap justify-center gap-2">
+              {[
+                t('comparison_feature_1'),
+                t('comparison_feature_2'),
+                t('comparison_feature_3'),
+                t('comparison_feature_4'),
+                t('comparison_feature_5'),
+                t('comparison_feature_6'),
+                t('comparison_feature_7'),
+              ].map((feature, index) => (
+                <motion.span
+                  key={feature}
+                  className="text-fluid-xs rounded-full bg-white px-3 py-2 text-[#666666]"
+                  initial={{ opacity: 0, scale: 0.9 }}
+                  whileInView={{ opacity: 1, scale: 1 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.4, delay: 0.6 + index * 0.05, ease: 'easeOut' }}
+                >
+                  •
+                  {' '}
+                  {feature}
+                </motion.span>
+              ))}
+            </div>
+          </div>
         </motion.div>
-      </div>
+      </motion.div>
 
       {/* Patents */}
       <div className="mt-[35px] mb-[100px] px-[50px]">

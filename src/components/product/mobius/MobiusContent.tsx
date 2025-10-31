@@ -61,7 +61,7 @@ export default function MobiusContent() {
             />
           </motion.div>
           <motion.h1
-            className="text-fluid-7xl mb-[30px] font-medium text-black"
+            className="text-fluid-6xl mb-[30px] font-medium text-black"
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.3, ease: 'easeOut' }}
@@ -80,7 +80,7 @@ export default function MobiusContent() {
       </div>
 
       {/* Comparison Images */}
-      <div className="mt-[30px] flex gap-[32px] px-[40px]">
+      <div className="mt-[80px] flex gap-[32px] px-[40px]">
         <motion.div
           className="relative flex-1"
           initial={{ opacity: 0, x: -30 }}
@@ -141,43 +141,275 @@ export default function MobiusContent() {
 
       {/* Features */}
       <motion.div
-        className="mx-auto mt-[120px] flex w-full max-w-screen flex-col items-center justify-center px-40"
+        className="relative flex w-full items-center justify-center bg-white px-40 py-[100px]"
         initial={{ opacity: 0, y: 50 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
         transition={{ duration: 0.8, ease: 'easeOut' }}
       >
-        <Image
-          src="https://website-www-brainco-cn.oss-cn-hangzhou.aliyuncs.com/images/LRBPHu6DpZ0UbdEj.webp"
-          alt="Features 1"
-          width={1200}
-          height={800}
-          className="h-auto w-full max-w-screen"
-        />
-        <Image
-          src="https://website-www-brainco-cn.oss-cn-hangzhou.aliyuncs.com/images/bZ8KQE79LB1YUpsc.webp"
-          alt="Features 2"
-          width={1200}
-          height={800}
-          className="mt-40 h-auto w-full"
-        />
+        {/* Left Features */}
+        <div className="flex flex-1 flex-col items-start justify-center gap-[120px] pr-[80px]">
+          {/* Button Feature */}
+          <motion.div
+            className="relative -mr-20 max-w-[400px] text-left"
+            initial={{ opacity: 0, x: -30 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8, delay: 0.2, ease: 'easeOut' }}
+          >
+            <h3 className="text-fluid-5xl mb-[16px] font-medium text-[#333333]">{t('feature_button_title')}</h3>
+            <p className="text-fluid-2xl mb-[20px] leading-[2] text-[#333333]">
+              {t('feature_button_desc')}
+            </p>
+            {/* Connection Line */}
+            <div className="absolute top-[18px] right-[-100px] flex items-center">
+              <div className="h-[1px] w-[90px] bg-[#cccccc]" />
+              <div className="ml-2 h-8 w-8 rounded-full border-2 border-[#333333] bg-white" />
+            </div>
+          </motion.div>
+
+          {/* Sleep Feature */}
+          <motion.div
+            className="relative -mr-20 max-w-[400px] text-left"
+            initial={{ opacity: 0, x: -30 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8, delay: 0.4, ease: 'easeOut' }}
+          >
+            <h3 className="text-fluid-5xl mb-[16px] font-medium text-[#333333]">{t('feature_sleep_title')}</h3>
+            <p className="text-fluid-2xl leading-[2] text-[#333333]">
+              {t('feature_sleep_desc')}
+            </p>
+            {/* Connection Line */}
+            <div className="absolute top-[18px] right-[-90px] flex items-center">
+              <div className="h-[1px] w-[90px] bg-[#cccccc]" />
+              <div className="ml-2 h-8 w-8 rounded-full border-2 border-[#333333] bg-white" />
+            </div>
+          </motion.div>
+        </div>
+
+        {/* Center Image */}
+        <motion.div
+          className="relative z-10 flex-shrink-0"
+          initial={{ opacity: 0, scale: 0.9 }}
+          whileInView={{ opacity: 1, scale: 1 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.8, ease: 'easeOut' }}
+        >
+          <Image
+            src="https://www.brainco.cn/news-images/front.png"
+            alt="Mobius M3 Features"
+            width={400}
+            height={600}
+            className="h-auto w-[500px]"
+          />
+        </motion.div>
+
+        {/* Right Feature */}
+        <div className="flex flex-1 flex-col items-start justify-center pl-[80px]">
+          <motion.div
+            className="relative -ml-20 max-w-[400px] text-left"
+            initial={{ opacity: 0, x: 30 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8, delay: 0.6, ease: 'easeOut' }}
+          >
+            <h3 className="text-fluid-5xl mb-[16px] font-medium text-[#333333]">{t('feature_vibration_title')}</h3>
+            <p className="text-fluid-2xl leading-[2] text-[#333333]">
+              {t('feature_vibration_desc')}
+            </p>
+            {/* Connection Line */}
+            <div className="absolute top-[18px] left-[-130px] flex items-center">
+              <div className="mr-2 h-8 w-8 rounded-full border-2 border-[#333333] bg-white" />
+              <div className="h-[1px] w-[90px] bg-[#cccccc]" />
+            </div>
+          </motion.div>
+        </div>
       </motion.div>
 
+      {/* Features - Back View */}
       <motion.div
-        className="mt-[150px]"
+        className="relative flex w-full items-center justify-center bg-white px-40 pt-[100px]"
         initial={{ opacity: 0, y: 50 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
         transition={{ duration: 0.8, ease: 'easeOut' }}
       >
-        <Image
-          src="https://website-www-brainco-cn.oss-cn-hangzhou.aliyuncs.com/images/7IYc9t58RFg3BXpP.webp"
-          alt="Product Detail"
-          width={1920}
-          height={1080}
-          sizes="100vw"
-          className="h-auto w-full"
-        />
+        {/* Left Features */}
+        <div className="flex flex-1 flex-col items-start justify-center gap-[120px] pr-[80px]">
+          {/* Angle Feature */}
+          <motion.div
+            className="relative -mr-20 max-w-[400px] min-w-[300px] text-left"
+            initial={{ opacity: 0, x: -30 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8, delay: 0.2, ease: 'easeOut' }}
+          >
+            <h3 className="text-fluid-5xl mb-[16px] font-medium text-[#333333]">{t('feature_angle_title')}</h3>
+            <p className="text-fluid-2xl mb-[20px] leading-[2] text-[#333333]">
+              {t('feature_angle_desc')}
+            </p>
+            {/* Connection Line */}
+            <div className="absolute top-[18px] right-[-100px] flex items-center">
+              <div className="h-[1px] w-[80px] bg-[#cccccc]" />
+              <div className="ml-2 h-8 w-8 rounded-full border-2 border-[#333333] bg-white" />
+            </div>
+          </motion.div>
+
+          {/* Hydraulic Feature */}
+          <motion.div
+            className="relative -mr-20 max-w-[400px] text-left"
+            initial={{ opacity: 0, x: -30 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8, delay: 0.4, ease: 'easeOut' }}
+          >
+            <h3 className="text-fluid-5xl mb-[16px] font-medium text-[#333333]">{t('feature_hydraulic_title')}</h3>
+            <p className="text-fluid-2xl leading-[2] text-[#333333]">
+              {t('feature_hydraulic_desc')}
+            </p>
+            {/* Connection Line */}
+            <div className="absolute top-[18px] right-[-90px] flex items-center">
+              <div className="h-[1px] w-[80px] bg-[#cccccc]" />
+              <div className="ml-2 h-8 w-8 rounded-full border-2 border-[#333333] bg-white" />
+            </div>
+          </motion.div>
+
+          {/* Battery Feature */}
+          <motion.div
+            className="relative -mr-20 max-w-[400px] text-left"
+            initial={{ opacity: 0, x: -30 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8, delay: 0.6, ease: 'easeOut' }}
+          >
+            <h3 className="text-fluid-5xl mb-[16px] font-medium text-[#333333]">{t('feature_battery_title')}</h3>
+            <p className="text-fluid-2xl leading-[2] text-[#333333]">
+              {t('feature_battery_desc')}
+            </p>
+            {/* Connection Line */}
+            <div className="absolute top-[18px] right-[-90px] flex items-center">
+              <div className="h-[1px] w-[90px] bg-[#cccccc]" />
+              <div className="ml-2 h-8 w-8 rounded-full border-2 border-[#333333] bg-white" />
+            </div>
+          </motion.div>
+        </div>
+
+        {/* Center Image */}
+        <motion.div
+          className="relative z-10 flex-shrink-0"
+          initial={{ opacity: 0, scale: 0.9 }}
+          whileInView={{ opacity: 1, scale: 1 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.8, ease: 'easeOut' }}
+        >
+          <Image
+            src="https://www.brainco.cn/news-images/back.png"
+            alt="Mobius M3 Features Back"
+            width={400}
+            height={600}
+            className="h-auto w-[480px]"
+          />
+        </motion.div>
+
+        {/* Right Features */}
+        <div className="flex flex-1 flex-col items-start justify-center gap-[120px] pl-[80px]">
+          {/* Sensors Feature */}
+          <motion.div
+            className="relative -ml-20 max-w-[400px] text-left"
+            initial={{ opacity: 0, x: 30 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8, delay: 0.2, ease: 'easeOut' }}
+          >
+            <h3 className="text-fluid-5xl mb-[16px] font-medium text-[#333333]">{t('feature_sensors_title')}</h3>
+            <p className="text-fluid-2xl leading-[2] text-[#333333]">
+              {t('feature_sensors_desc')}
+            </p>
+            {/* Connection Line */}
+            <div className="absolute top-[18px] left-[-130px] flex items-center">
+              <div className="mr-2 h-8 w-8 rounded-full border-2 border-[#333333] bg-white" />
+              <div className="h-[1px] w-[90px] bg-[#cccccc]" />
+            </div>
+          </motion.div>
+
+          {/* Algorithm Feature */}
+          <motion.div
+            className="relative -ml-20 max-w-[400px] text-left"
+            initial={{ opacity: 0, x: 30 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8, delay: 0.4, ease: 'easeOut' }}
+          >
+            <h3 className="text-fluid-5xl mb-[16px] font-medium text-[#333333]">{t('feature_algorithm_title')}</h3>
+            <p className="text-fluid-2xl leading-[2] text-[#333333]">
+              {t('feature_algorithm_desc')}
+            </p>
+            {/* Connection Line */}
+            <div className="absolute top-[18px] left-[-130px] flex items-center">
+              <div className="mr-2 h-8 w-8 rounded-full border-2 border-[#333333] bg-white" />
+              <div className="h-[1px] w-[90px] bg-[#cccccc]" />
+            </div>
+          </motion.div>
+        </div>
+      </motion.div>
+
+      {/* Control Button Switch Section */}
+      <motion.div
+        className="relative mt-[150px] flex min-h-[600px] w-full items-center justify-end bg-cover bg-center px-20"
+        style={{
+          backgroundImage: 'url(https://www.brainco.cn/news-images/controlbuttonswitchbg@2x.png)',
+        }}
+        initial={{ opacity: 0, y: 50 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.8, ease: 'easeOut' }}
+      >
+        <div className="flex w-1/2 flex-col items-end py-[80px]">
+          {/* Title */}
+          <motion.h2
+            className="text-fluid-6xl mb-[80px] text-center font-medium text-[#333333]"
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8, delay: 0.2, ease: 'easeOut' }}
+          >
+            {t('control_button_title')}
+          </motion.h2>
+
+          {/* Activities Grid */}
+          <div className="flex gap-[40px]">
+            {[
+              { img: 'bicycle.png', name: t('activity_cycling') },
+              { img: 'fitness.png', name: t('activity_fitness') },
+              { img: 'table-tennis.png', name: t('activity_pingpong') },
+              { img: 'yoga.png', name: t('activity_yoga') },
+              { img: 'golf.png', name: t('activity_golf') },
+            ].map((activity, index) => (
+              <motion.div
+                key={activity.name}
+                className="flex flex-col items-center"
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6, delay: 0.3 + index * 0.1, ease: 'easeOut' }}
+              >
+                <div className="mb-[20px] flex h-[60px] w-[60px] items-center justify-center">
+                  <Image
+                    src={`https://www.brainco.cn/news-images/${activity.img}`}
+                    alt={activity.name}
+                    width={60}
+                    height={60}
+                    className="h-auto w-full object-contain"
+                  />
+                </div>
+                <span className="text-fluid-lg rounded-full bg-white px-6 py-2 text-center text-[#3b3b3b]">
+                  {activity.name}
+                </span>
+              </motion.div>
+            ))}
+          </div>
+        </div>
       </motion.div>
 
       {/* Applicable Scenarios */}
@@ -230,79 +462,449 @@ export default function MobiusContent() {
 
       {/* Parameters */}
       <motion.div
-        className="mx-auto mt-[100px] w-full max-w-[1220px] px-40"
+        className="mx-auto mt-[100px] w-full max-w-[1220px] bg-white px-40 py-[80px]"
         initial={{ opacity: 0, y: 50 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
         transition={{ duration: 0.8, ease: 'easeOut' }}
       >
-        <Image
-          src="https://website-www-brainco-cn.oss-cn-hangzhou.aliyuncs.com/images/PKYDQvobujXni8lH.webp"
-          alt="Parameters"
-          width={1200}
-          height={800}
-          // sizes="(max-width: 768px) 100vw, (max-width: 1220px) 90vw, 1220px"
-          className="h-auto w-full"
-        />
+        <div className="flex flex-col gap-[60px]">
+          {/* Top - Multi-Sensor */}
+          <motion.div
+            className="flex flex-col items-center text-center"
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8, delay: 0.2, ease: 'easeOut' }}
+          >
+            <h3 className="text-fluid-4xl mb-[10px] text-[#333333]">
+              {t('feature_sensor_title')}
+            </h3>
+            <div className="text-fluid-7xl mb-[40px] font-medium text-[#333333]">
+              {t('feature_sensor_freq')}
+            </div>
+
+            {/* Three Sensor Circles */}
+            <div className="flex items-center justify-around gap-[40px]">
+              {[
+                { name: t('sensor_hall') },
+                { name: t('sensor_gyro') },
+                { name: t('sensor_temperature') },
+              ].map((sensor, index) => (
+                <motion.div
+                  key={sensor.name}
+                  className="flex h-[160px] w-[160px] items-center justify-center rounded-full border-2 border-[#333333] bg-white"
+                  initial={{ opacity: 0, scale: 0.8 }}
+                  whileInView={{ opacity: 1, scale: 1 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.6, delay: 0.4 + index * 0.1, ease: 'easeOut' }}
+                >
+                  <span className="text-fluid-2xl text-center text-[#333333]">{sensor.name}</span>
+                </motion.div>
+              ))}
+            </div>
+          </motion.div>
+
+          {/* Bottom Grid - 4 Parameters */}
+          <div className="grid grid-cols-4 gap-[40px]">
+            {/* Battery Duration */}
+            <motion.div
+              className="flex flex-col items-center text-center"
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.8, delay: 0.3, ease: 'easeOut' }}
+            >
+              <div className="text-fluid-7xl mb-[10px] font-medium text-[#333333]">
+                {t('feature_duration_value')}
+                <span className="text-fluid-4xl ml-2">{t('feature_duration_unit')}</span>
+              </div>
+              <span className="text-fluid-2xl text-[#666666]">{t('feature_duration')}</span>
+            </motion.div>
+
+            {/* Maximum Flexion */}
+            <motion.div
+              className="flex flex-col items-center text-center"
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.8, delay: 0.4, ease: 'easeOut' }}
+            >
+              <div className="text-fluid-7xl mb-[10px] font-medium text-[#333333]">
+                {t('feature_flexion_value')}
+                <span className="text-fluid-4xl ml-2">{t('feature_flexion_unit')}</span>
+              </div>
+              <span className="text-fluid-2xl text-[#666666]">{t('feature_flexion')}</span>
+            </motion.div>
+
+            {/* Pressure Test */}
+            <motion.div
+              className="flex flex-col items-center text-center"
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.8, delay: 0.5, ease: 'easeOut' }}
+            >
+              <div className="text-fluid-7xl mb-[10px] font-medium text-[#333333]">
+                {t('feature_pressure_value')}
+                <span className="text-fluid-4xl ml-2">{t('feature_pressure_unit')}</span>
+              </div>
+              <span className="text-fluid-2xl text-[#666666]">{t('feature_pressure')}</span>
+            </motion.div>
+
+            {/* Waterproof Rating */}
+            <motion.div
+              className="flex flex-col items-center text-center"
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.8, delay: 0.6, ease: 'easeOut' }}
+            >
+              <div className="text-fluid-7xl mb-[10px] font-medium text-[#333333]">
+                {t('feature_waterproof_value')}
+              </div>
+              <span className="text-fluid-2xl text-[#666666]">{t('feature_waterproof')}</span>
+            </motion.div>
+          </div>
+        </div>
       </motion.div>
 
-      {/* Representative Images */}
+      {/* Carbon Fiber Shell - Image Left, Text Right */}
       <motion.div
-        className="mx-auto mt-[225px] flex w-full max-w-[1400px] flex-col items-center px-40"
+        className="mt-[100px] flex w-full items-center bg-white px-40"
         initial={{ opacity: 0, y: 50 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
         transition={{ duration: 0.8, ease: 'easeOut' }}
       >
-        <Image
-          src="https://website-www-brainco-cn.oss-cn-hangzhou.aliyuncs.com/images/YW1MU4kHgtEdJZq0.webp"
-          alt="Representative 1"
-          width={1285}
-          height={800}
-          sizes="(max-width: 768px) 100vw, (max-width: 1400px) 90vw, 1400px"
-          className="mx-40 h-auto w-full"
-        />
-        <Image
-          src="https://website-www-brainco-cn.oss-cn-hangzhou.aliyuncs.com/images/9nMV0rdFUhpx4iQB.webp"
-          alt="Representative 2"
-          width={1400}
-          height={800}
-          sizes="(max-width: 768px) 100vw, (max-width: 1400px) 90vw, 1400px"
-          className="mt-[190px] ml-40 h-auto w-full"
-        />
-      </motion.div>
-
-      {/* App */}
-      <motion.div
-        className="mt-[158px]"
-        initial={{ opacity: 0, y: 50 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true }}
-        transition={{ duration: 0.8, ease: 'easeOut' }}
-      >
-        <Image
-          src="https://website-www-brainco-cn.oss-cn-hangzhou.aliyuncs.com/images/NPjg1vKSMQw2OVui.webp"
-          alt="App Preview"
-          width={1920}
-          height={1080}
-          sizes="100vw"
-          className="h-auto w-full"
-        />
-        <div className="mx-auto mt-[120px] w-full max-w-[1496px] px-40">
+        {/* Left - Image */}
+        <motion.div
+          className="flex w-1/2 items-center justify-center"
+          initial={{ opacity: 0, x: -30 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.8, delay: 0.2, ease: 'easeOut' }}
+        >
           <Image
-            src="https://website-www-brainco-cn.oss-cn-hangzhou.aliyuncs.com/images/RSHmF7DV89GhPiO0.webp"
-            alt="App Features"
-            width={1496}
-            height={1000}
-            sizes="(max-width: 768px) 100vw, (max-width: 1496px) 90vw, 1496px"
+            src="https://www.brainco.cn/news-images/High-strength-carbon-fiber-casing.png"
+            alt={t('feature_shell_title')}
+            width={700}
+            height={800}
             className="h-auto w-full"
           />
+        </motion.div>
+
+        {/* Right - Text */}
+        <motion.div
+          className="flex w-1/2 flex-col items-start justify-center py-[100px] pl-[80px]"
+          initial={{ opacity: 0, x: 30 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.8, delay: 0.4, ease: 'easeOut' }}
+        >
+          <h2 className="text-fluid-6xl mb-[20px] font-medium text-[#333333]">
+            {t('feature_shell_title')}
+          </h2>
+          <h3 className="text-fluid-6xl mb-[40px] font-medium text-[#333333]">
+            {t('feature_shell_subtitle')}
+          </h3>
+          <div className="flex gap-[20px] text-center">
+            <span className="text-fluid-3xl rounded-full bg-black/60 px-8 py-3 text-white">
+              {t('feature_shell_1')}
+            </span>
+            <span className="text-fluid-3xl rounded-full bg-black/60 px-8 py-3 text-white">
+              {t('feature_shell_2')}
+            </span>
+            <span className="text-fluid-3xl rounded-full bg-black/60 px-8 py-3 text-white">
+              {t('feature_shell_3')}
+            </span>
+          </div>
+        </motion.div>
+      </motion.div>
+
+      {/* Variable Damping - Text Left, Image Right */}
+      <motion.div
+        className="mt-[100px] flex w-full items-center bg-white px-40"
+        initial={{ opacity: 0, y: 50 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.8, ease: 'easeOut' }}
+      >
+        {/* Left - Text */}
+        <motion.div
+          className="flex w-1/2 flex-col items-start justify-center py-[100px] pl-[60px]"
+          initial={{ opacity: 0, x: -30 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.8, delay: 0.2, ease: 'easeOut' }}
+        >
+          <h2 className="text-fluid-6xl mb-[60px] font-medium text-[#333333]">
+            {t('feature_damping_title')}
+          </h2>
+          <div className="flex flex-col gap-[30px]">
+            <div className="text-left">
+              <div className="text-fluid-7xl mb-[10px] font-medium text-[#333333]">
+                {t('feature_precision_value')}
+              </div>
+              <div className="text-fluid-3xl text-[#666666]">{t('feature_precision')}</div>
+            </div>
+            <div className="text-left">
+              <div className="text-fluid-7xl mb-[10px] font-medium text-[#333333]">
+                {t('feature_rebound_value')}
+              </div>
+              <div className="text-fluid-3xl text-[#666666]">{t('feature_rebound')}</div>
+            </div>
+            <div className="text-left">
+              <div className="text-fluid-7xl mb-[10px] font-medium text-[#333333]">
+                {t('feature_load_value')}
+              </div>
+              <div className="text-fluid-3xl text-[#666666]">{t('feature_load')}</div>
+            </div>
+          </div>
+        </motion.div>
+
+        {/* Right - Image */}
+        <motion.div
+          className="flex w-1/2 items-center justify-center"
+          initial={{ opacity: 0, x: 30 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.8, delay: 0.4, ease: 'easeOut' }}
+        >
+          <Image
+            src="https://www.brainco.cn/news-images/Bidirectional-variable-damping.png"
+            alt={t('feature_damping_title')}
+            width={700}
+            height={800}
+            className="h-auto w-full"
+          />
+        </motion.div>
+      </motion.div>
+
+      {/* App Control Section */}
+      <motion.div
+        className="mx-auto mt-[50px] w-full bg-[#f8f8f8] p-40 text-center"
+        initial={{ opacity: 0, y: 50 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.8, ease: 'easeOut' }}
+      >
+        <motion.h2
+          className="text-fluid-6xl mb-[40px] font-medium text-[#333333]"
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.8, delay: 0.2, ease: 'easeOut' }}
+        >
+          {t('app_title')}
+          {t('app_subtitle')}
+        </motion.h2>
+        <motion.p
+          className="text-fluid-2xl mx-auto max-w-[600px] leading-[2] text-[#666666]"
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.8, delay: 0.4, ease: 'easeOut' }}
+        >
+          {t('app_desc')}
+        </motion.p>
+      </motion.div>
+
+      {/* M3 vs M2 Comparison */}
+      <motion.div
+        className="mx-auto mt-[100px] w-full max-w-[1200px] px-40 py-[80px]"
+        initial={{ opacity: 0, y: 50 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.8, ease: 'easeOut' }}
+      >
+        {/* Title */}
+        <motion.h2
+          className="text-fluid-6xl mb-[60px] text-center font-medium"
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.8, delay: 0.2, ease: 'easeOut' }}
+        >
+          {t('comparison_title')}
+        </motion.h2>
+
+        {/* Product Images */}
+        <div className="mb-[60px] flex items-end justify-center gap-[100px]">
+          <motion.div
+            className="flex flex-col items-center"
+            initial={{ opacity: 0, scale: 0.9 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8, delay: 0.3, ease: 'easeOut' }}
+          >
+            <Image
+              src="https://www.brainco.cn/news-images/m3@2x.png"
+              alt="{t('m3_title')}"
+              width={300}
+              height={400}
+              className="h-auto w-[200px]"
+            />
+            <span className="text-fluid-5xl mt-[20px] font-medium">{t('m3_title')}</span>
+          </motion.div>
+          <motion.div
+            className="flex flex-col items-center"
+            initial={{ opacity: 0, scale: 0.9 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8, delay: 0.4, ease: 'easeOut' }}
+          >
+            <Image
+              src="https://www.brainco.cn/news-images/M2@2x.png"
+              alt="{t('m2_title')}"
+              width={300}
+              height={400}
+              className="h-auto w-[200px]"
+            />
+            <span className="text-fluid-5xl mt-[20px] font-medium">{t('m2_title')}</span>
+          </motion.div>
         </div>
+
+        {/* Comparison Table */}
+        <motion.div
+          className="overflow-hidden rounded-lg bg-white"
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.8, delay: 0.5, ease: 'easeOut' }}
+        >
+          <table className="w-full">
+            <thead>
+              <tr className="bg-[#f5f5f5]">
+                <th className="text-fluid-3xl border-r border-gray-200 py-6 text-center font-medium text-[#333333]">
+                  {t('comparison_m3')}
+                </th>
+                <th className="text-fluid-3xl py-6 text-center font-medium text-[#333333]">
+                  {t('comparison_m2')}
+                </th>
+              </tr>
+            </thead>
+            <tbody>
+              {/* Support Material */}
+              <tr className="border-t border-gray-200">
+                <td className="text-fluid-xl border-r border-gray-200 px-6 py-5 text-center text-[#666666]">
+                  {t('comparison_support_value')}
+                </td>
+                <td className="text-fluid-xl px-6 py-5 text-center text-[#666666]">
+                  {t('comparison_support_value')}
+                </td>
+              </tr>
+              {/* Height */}
+              <tr className="border-t border-gray-200 bg-[#fafafa]">
+                <td className="text-fluid-xl border-r border-gray-200 px-6 py-5 text-center text-[#666666]">
+                  {t('comparison_height_value')}
+                </td>
+                <td className="text-fluid-xl px-6 py-5 text-center text-[#666666]">
+                  {t('comparison_height_value')}
+                </td>
+              </tr>
+              {/* Weight */}
+              <tr className="border-t border-gray-200">
+                <td className="text-fluid-xl border-r border-gray-200 px-6 py-5 text-center text-[#666666]">
+                  {t('comparison_weight_value')}
+                </td>
+                <td className="text-fluid-xl px-6 py-5 text-center text-[#666666]">
+                  {t('comparison_weight_value')}
+                </td>
+              </tr>
+              {/* Waterproof */}
+              <tr className="border-t border-gray-200 bg-[#fafafa]">
+                <td className="text-fluid-xl border-r border-gray-200 px-6 py-5 text-center text-[#666666]">
+                  {t('comparison_waterproof_value')}
+                </td>
+                <td className="text-fluid-xl px-6 py-5 text-center text-[#666666]">
+                  {t('comparison_waterproof_value')}
+                </td>
+              </tr>
+              {/* Charging Time */}
+              <tr className="border-t border-gray-200">
+                <td className="text-fluid-xl border-r border-gray-200 px-6 py-5 text-center text-[#666666]">
+                  {t('comparison_charging_value')}
+                </td>
+                <td className="text-fluid-xl px-6 py-5 text-center text-[#666666]">
+                  {t('comparison_charging_value')}
+                </td>
+              </tr>
+              {/* Battery Life */}
+              <tr className="border-t border-gray-200 bg-[#fafafa]">
+                <td className="text-fluid-xl border-r border-gray-200 px-6 py-5 text-center text-[#666666]">
+                  {t('comparison_battery_m3')}
+                </td>
+                <td className="text-fluid-xl px-6 py-5 text-center text-[#666666]">
+                  {t('comparison_battery_m2')}
+                </td>
+              </tr>
+              {/* Stair Climbing */}
+              <tr className="border-t border-gray-200">
+                <td className="text-fluid-2xl border-r border-gray-200 px-6 py-5 text-center text-[#666666]">
+                  {t('comparison_yes')}
+                </td>
+                <td className="text-fluid-2xl px-6 py-5 text-center text-[#666666]">
+                  {t('comparison_no')}
+                </td>
+              </tr>
+              {/* Running */}
+              <tr className="border-t border-gray-200 bg-[#fafafa]">
+                <td className="text-fluid-2xl border-r border-gray-200 px-6 py-5 text-center text-[#666666]">
+                  {t('comparison_yes')}
+                </td>
+                <td className="text-fluid-2xl px-6 py-5 text-center text-[#666666]">
+                  {t('comparison_no')}
+                </td>
+              </tr>
+              {/* Obstacle */}
+              <tr className="border-t border-gray-200">
+                <td className="text-fluid-2xl border-r border-gray-200 px-6 py-5 text-center text-[#666666]">
+                  {t('comparison_yes')}
+                </td>
+                <td className="text-fluid-2xl px-6 py-5 text-center text-[#666666]">
+                  {t('comparison_no')}
+                </td>
+              </tr>
+            </tbody>
+          </table>
+
+          {/* Common Features */}
+          <div className="border-t-2 border-gray-300 bg-[#f5f5f5] px-6 py-6 text-center">
+            <p className="text-fluid-2xl mb-6 font-medium text-[#333333]">
+              {t('comparison_common')}
+            </p>
+            <div className="flex flex-wrap justify-center gap-3">
+              {[
+                t('comparison_feature_1'),
+                t('comparison_feature_2'),
+                t('comparison_feature_3'),
+                t('comparison_feature_4'),
+                t('comparison_feature_5'),
+                t('comparison_feature_6'),
+                t('comparison_feature_7'),
+              ].map((feature, index) => (
+                <motion.span
+                  key={feature}
+                  className="text-fluid-lg rounded-full bg-white px-5 py-3 text-[#666666]"
+                  initial={{ opacity: 0, scale: 0.9 }}
+                  whileInView={{ opacity: 1, scale: 1 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.4, delay: 0.6 + index * 0.05, ease: 'easeOut' }}
+                >
+                  •
+                  {' '}
+                  {feature}
+                </motion.span>
+              ))}
+            </div>
+          </div>
+        </motion.div>
       </motion.div>
 
       {/* Patents */}
       <motion.div
-        className="mx-auto mt-[150px] mb-[150px] w-full max-w-[1500px] px-4 text-center"
+        className="mx-auto mt-[50px] mb-[100px] w-full max-w-[1500px] px-4 text-center"
         initial={{ opacity: 0, y: 50 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
@@ -311,7 +913,7 @@ export default function MobiusContent() {
         <h2 className="text-fluid-6xl mb-[24px] px-40 font-normal text-[#333333]">
           {t('patent_title')}
         </h2>
-        <div className="mt-[160px] flex h-full items-center justify-center px-40">
+        <div className="mt-[60px] flex h-full items-center justify-center px-40">
           {/* Left: Patent Image */}
           <motion.div
             initial={{ opacity: 0, scale: 0.9 }}
@@ -343,7 +945,7 @@ export default function MobiusContent() {
                   viewport={{ once: true }}
                   transition={{ duration: 0.6, delay: index * 0.1, ease: 'easeOut' }}
                 >
-                  <h3 className="text-fluid-7xl leading-none text-[#333333]">
+                  <h3 className="text-fluid-6xl leading-none text-[#333333]">
                     {patent.count}
                     <span className="text-fluid-3xl">{patent.unit}</span>
                   </h3>
@@ -363,7 +965,7 @@ export default function MobiusContent() {
                   viewport={{ once: true }}
                   transition={{ duration: 0.6, delay: (index + 2) * 0.1, ease: 'easeOut' }}
                 >
-                  <h3 className="text-fluid-7xl leading-none text-[#333333]">
+                  <h3 className="text-fluid-6xl leading-none text-[#333333]">
                     {patent.count}
                     <span className="text-fluid-3xl">{patent.unit}</span>
                   </h3>
