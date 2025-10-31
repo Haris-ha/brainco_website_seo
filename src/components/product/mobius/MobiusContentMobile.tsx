@@ -25,8 +25,8 @@ export default function MobiusContentMobile() {
   ];
 
   const swiperList = [
-    { img: 'https://website-www-brainco-cn.oss-cn-hangzhou.aliyuncs.com/images/hpYsiRbDQBCyg2V5.webp', text: t('m2_desc') },
-    { img: 'https://website-www-brainco-cn.oss-cn-hangzhou.aliyuncs.com/images/KpR6l82ntVSrdJmQ.webp', text: t('m3_desc') },
+    { img: 'https://www.brainco.cn/news-images/m2.png', title: t('m2_title'), text: t('m2_desc') },
+    { img: 'https://www.brainco.cn/news-images/m3.png', title: t('m3_title'), text: t('m3_desc') },
   ];
 
   const patents = [
@@ -61,21 +61,24 @@ export default function MobiusContentMobile() {
           <div key={index} className="relative w-full flex-shrink-0 snap-start">
             <Image
               src={item.img}
-              alt={`Product ${index + 1}`}
+              alt={item.title}
               width={750}
               height={1000}
               className="w-full"
             />
-            <motion.p
-              className="text-fluid-sm absolute bottom-[60px] left-1/2 w-[310px] -translate-x-1/2 rounded-[10px] bg-[rgba(0,0,0,0.4)] p-[10px] leading-[1.5] text-white"
+            <motion.div
+              className="absolute right-[20px] bottom-[60px] left-[20px] rounded-[10px] bg-black/30 p-[20px]"
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: 0.3 }}
+              transition={{ duration: 0.6, delay: 0.2 }}
             >
-              {item.text}
-            </motion.p>
-            <div className="absolute bottom-[36px] flex w-full justify-center">
+              <h3 className="text-fluid-3xl mb-[10px] font-medium text-white">{item.title}</h3>
+              <p className="text-fluid-sm leading-[1.6] text-white">
+                {item.text}
+              </p>
+            </motion.div>
+            <div className="absolute bottom-[30px] flex w-full justify-center">
               {swiperList.map((_, i) => (
                 <div
                   key={i}

@@ -82,36 +82,60 @@ export default function MobiusContent() {
       {/* Comparison Images */}
       <div className="mt-[30px] flex gap-[32px] px-[40px]">
         <motion.div
-          className="flex-1"
+          className="relative flex-1"
           initial={{ opacity: 0, x: -30 }}
           whileInView={{ opacity: 1, x: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.8, ease: 'easeOut' }}
         >
           <Image
-            src="https://website-www-brainco-cn.oss-cn-hangzhou.aliyuncs.com/images/hudSxGrayEtM0V6H.webp"
-            alt="Comparison 1"
+            src="https://www.brainco.cn/news-images/m2.png"
+            alt={t('m2_title')}
             width={900}
             height={600}
             sizes="(max-width: 768px) 100vw, 50vw"
             className="h-auto w-full"
           />
+          <motion.div
+            className="absolute right-[40px] bottom-[40px] left-[40px] rounded-[12px] bg-black/30 p-[30px]"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8, delay: 0.3, ease: 'easeOut' }}
+          >
+            <h3 className="text-fluid-5xl mb-[20px] font-medium text-white">{t('m2_title')}</h3>
+            <p className="text-fluid-xl leading-[1.8] text-white">
+              {t('m2_desc')}
+            </p>
+          </motion.div>
         </motion.div>
         <motion.div
-          className="flex-1"
+          className="relative flex-1"
           initial={{ opacity: 0, x: 30 }}
           whileInView={{ opacity: 1, x: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.8, ease: 'easeOut' }}
         >
           <Image
-            src="https://website-www-brainco-cn.oss-cn-hangzhou.aliyuncs.com/images/kKxyGzYX0ncr75vT.webp"
-            alt="Comparison 2"
+            src="https://www.brainco.cn/news-images/m3.png"
+            alt={t('m3_title')}
             width={900}
             height={600}
             sizes="(max-width: 768px) 100vw, 50vw"
             className="h-auto w-full"
           />
+          <motion.div
+            className="absolute right-[40px] bottom-[40px] left-[40px] rounded-[12px] bg-black/30 p-[30px]"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8, delay: 0.3, ease: 'easeOut' }}
+          >
+            <h3 className="text-fluid-5xl mb-[20px] font-medium text-white">{t('m3_title')}</h3>
+            <p className="text-fluid-xl leading-[1.8] text-white">
+              {t('m3_desc')}
+            </p>
+          </motion.div>
         </motion.div>
       </div>
 
