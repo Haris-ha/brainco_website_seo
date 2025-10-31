@@ -129,6 +129,30 @@ const TargetCursor = ({ targetSelector = '.cursor-target', spinDuration = 2, hid
     window.addEventListener('mouseup', mouseUpHandler);
 
     // ----------------------------------------------------------------
+    // Handle click on links to reset cursor state before navigation
+    const clickHandler = (e) => {
+      // Check if the clicked element or its parent is a link
+      let element = e.target;
+      while (element && element !== document.body) {
+        if (element.tagName === 'A' || element.tagName === 'BUTTON' || element.getAttribute('role') === 'link') {
+          // If we have an active target, trigger the leave handler after a short delay
+          if (currentLeaveHandler && activeTarget) {
+            // Small delay to allow the click animation to complete
+            setTimeout(() => {
+              if (currentLeaveHandler) {
+                currentLeaveHandler();
+              }
+            }, 150);
+          }
+          break;
+        }
+        element = element.parentElement;
+      }
+    };
+
+    window.addEventListener('click', clickHandler);
+
+    // ----------------------------------------------------------------
     const enterHandler = (e) => {
       const directTarget = e.target;
 
@@ -320,6 +344,9 @@ const TargetCursor = ({ targetSelector = '.cursor-target', spinDuration = 2, hid
       window.removeEventListener('mousemove', moveHandler);
       window.removeEventListener('mouseover', enterHandler);
       window.removeEventListener('scroll', scrollHandler);
+      window.removeEventListener('mousedown', mouseDownHandler);
+      window.removeEventListener('mouseup', mouseUpHandler);
+      window.removeEventListener('click', clickHandler);
 
       if (activeTarget) {
         cleanupTarget(activeTarget);
