@@ -38,12 +38,12 @@ export default function NewsList({ newsList, isMobile = false }: NewsListProps) 
       initial="hidden"
       whileInView="visible"
       viewport={{ once: true, margin: '-300px' }}
-      className={`new-list grid auto-rows-fr gap-x-[4vw] gap-y-[6vw] md:gap-x-[38px] md:gap-y-[40px] ${
+      className={`grid auto-rows-fr gap-x-[4vw] gap-y-[6vw] md:gap-x-[38px] md:gap-y-[40px] ${
         isMobile ? 'grid-cols-2' : 'grid-cols-2'
       }`}
     >
       {newsList.map((item, index) => (
-        <motion.li key={`${item.url}-${index}`} className="cursor-target flex h-full w-full">
+        <motion.li key={item.id || `${item.url}-${index}`} className="cursor-target flex h-full w-full">
           <NewsItem item={item} index={index} />
         </motion.li>
       ))}

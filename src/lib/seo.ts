@@ -3,6 +3,7 @@
  * 从 Strapi CMS 获取页面 SEO 配置
  */
 
+import type { StrapiNewsItem, StrapiNewsResponse } from '@/components/news/types';
 import type { PageSEO, SEOMetadata, StrapiResponse } from '@/types/seo';
 import { AppConfig } from '@/utils/AppConfig';
 
@@ -328,4 +329,89 @@ export async function getAllPageSEOs(): Promise<PageSEO[]> {
  */
 export function getPublisher(): string {
   return 'BrainCo';
+}
+
+/**
+ * 从 Strapi CMS 获取新闻列表
+ * @param locale Next.js locale（例如：'zh-CN', 'en-US', 'zh-TW'）
+ * @param options 查询选项
+ * @returns 新闻列表
+ */
+export async function getNewsList(
+  locale: string = AppConfig.defaultLocale,
+  options?: {
+    isHot?: boolean;
+    pageSize?: number;
+    page?: number;
+  },
+): Promise<StrapiNewsItem[]> {
+  try {
+    const strapiLocale = mapLocaleToStrapi(locale);
+
+    // 构建查询参数
+    const params = new URLSearchParams({
+      'locale': strapiLocale,
+      'sort[0]': 'sortIndex:asc',
+      'sort[1]': 'newsDate:desc',
+      'pagination[pageSize]': String(options?.pageSize || 100),
+      'pagination[page]': String(options?.page || 1),
+      'publicationState': 'live',
+    });
+
+    // 如果指定了热门新闻筛选
+    if (options?.isHot !== undefined) {
+      params.append('filters[isHot][$eq]', String(options.isHot));
+    }
+
+    const url = `${CMS_API_URL}/api/newses?${params.toString()}`;
+
+    if (process.env.NODE_ENV === 'development') {
+      console.log(`📡 正在获取新闻数据: ${url}`);
+    }
+
+    const response = await fetch(url, {
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      // 使用 revalidate 来控制缓存
+      next: {
+        revalidate: 300, // 5分钟重新验证一次
+      },
+    });
+
+    if (!response.ok) {
+      if (process.env.NODE_ENV === 'development') {
+        console.warn(`⚠️  无法从 CMS 获取新闻数据 (locale: ${strapiLocale})`);
+        console.warn(`   URL: ${url}`);
+        console.warn(`   HTTP Status: ${response.status} ${response.statusText}`);
+        console.warn(`   请确保已导入新闻数据并发布`);
+      }
+      return [];
+    }
+
+    const data: StrapiNewsResponse = await response.json();
+
+    if (process.env.NODE_ENV === 'development') {
+      console.log(`✅ 获取到 ${data.data?.length || 0} 条新闻数据 (locale: ${strapiLocale})`);
+      if (data.data?.length > 0) {
+        console.log(`   第一条新闻: ${data.data[0]?.title || 'N/A'}`);
+      }
+    }
+
+    return data.data || [];
+  } catch (error) {
+    if (process.env.NODE_ENV === 'development') {
+      const err = error as NodeJS.ErrnoException;
+      console.error('❌ 获取新闻数据时出错:');
+      console.error(`   CMS_API_URL: ${CMS_API_URL}`);
+      console.error(`   Locale: ${locale}`);
+      if (err.code === 'ECONNREFUSED') {
+        console.error('   错误: 无法连接到 CMS 服务器');
+        console.error('   请确保 Strapi CMS 正在运行 (http://localhost:1337)');
+      } else {
+        console.error(`   错误详情:`, error);
+      }
+    }
+    return [];
+  }
 }
