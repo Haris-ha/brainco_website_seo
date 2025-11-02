@@ -308,7 +308,7 @@ export default function BrainRoboticsContent() {
                   <h3 className="text-fluid-3xl font-normal">{gesture.name}</h3>
                   <p className="text-fluid-xl mt-[8px]">{gesture.desc}</p>
                   {gesture.tips && (
-                    <span className="text-fluid-base mt-[4px] block font-light text-gray-600">
+                    <span className="text-fluid-base mt-[4px] block text-gray-600">
                       {gesture.tips}
                     </span>
                   )}
@@ -399,9 +399,9 @@ export default function BrainRoboticsContent() {
                   <h4 className="text-fluid-lg font-normal">{param.name}</h4>
                   <h5 className="text-fluid-5xl relative mt-[16px] inline-block pb-[10px] leading-none after:absolute after:bottom-0 after:left-0 after:h-[3px] after:w-full after:rounded-[2px] after:bg-[#c62927]">
                     {param.value}
-                    <span className="text-fluid-2xl font-light">{param.unit}</span>
+                    <span className="text-fluid-2xl">{param.unit}</span>
                   </h5>
-                  <p className="text-fluid-sm mt-[6px] font-light">{param.desc}</p>
+                  <p className="text-fluid-base mt-[6px]">{param.desc}</p>
                 </div>
               </motion.li>
             ))}

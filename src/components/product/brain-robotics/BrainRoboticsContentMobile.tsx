@@ -229,7 +229,7 @@ export default function BrainRoboticsContentMobile() {
             src="https://website-www-brainco-cn.oss-cn-hangzhou.aliyuncs.com/images/T6zim1r0nMcHY2rG.webp"
             alt={t('product_name')}
             width={750}
-            height={800}
+            height={900}
             className="w-full"
             priority
           />
@@ -237,7 +237,7 @@ export default function BrainRoboticsContentMobile() {
 
         <div className="absolute top-0 left-0 h-full w-full">
           {/* Achievement Badges - Top Right */}
-          <div className="absolute top-32 right-[14px] flex flex-col items-end">
+          <div className="absolute top-32 right-[14px] z-99 flex flex-col items-end">
             {achievements.map((achievement, index) => (
               <motion.div
                 key={achievement}
@@ -258,9 +258,9 @@ export default function BrainRoboticsContentMobile() {
           </div>
 
           {/* Product Introduction - Bottom Left */}
-          <div className="absolute bottom-0 left-[35px] flex w-[305px] flex-col justify-end pb-[50px] text-center text-white">
+          <div className="absolute bottom-0 left-[35px] mb-6 flex w-[305px] flex-col justify-end rounded-2xl p-8 text-center text-white backdrop-blur-xs">
             <motion.p
-              className="text-fluid-xl"
+              className="text-fluid-2xl"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, ease: 'easeOut' }}
@@ -268,7 +268,7 @@ export default function BrainRoboticsContentMobile() {
               {t('brand_name')}
             </motion.p>
             <motion.h1
-              className="text-fluid-4xl my-[5px] font-bold"
+              className="text-fluid-5xl my-[5px] font-bold"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.3, ease: 'easeOut' }}
@@ -276,7 +276,7 @@ export default function BrainRoboticsContentMobile() {
               {t('product_name')}
             </motion.h1>
             <motion.p
-              className="text-fluid-sm"
+              className="text-fluid-base"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.6, ease: 'easeOut' }}
@@ -308,20 +308,20 @@ export default function BrainRoboticsContentMobile() {
               />
               <div className="flex-1">
                 <h3
-                  className="text-fluid-sm origin-left"
+                  className="text-fluid-base origin-left"
                   style={{ transform: 'scale(0.8)', width: '120%' }}
                 >
                   {gesture.name}
                 </h3>
                 <p
-                  className="text-fluid-sm mt-0 origin-left"
+                  className="text-fluid-base mt-0 origin-left"
                   style={{ transform: 'scale(0.7)', width: '130%' }}
                 >
                   {gesture.desc}
                 </p>
                 {gesture.tips && (
                   <span
-                    className="text-fluid-sm -mt-[6px] block origin-left"
+                    className="text-fluid-base -mt-[6px] block origin-left"
                     style={{ transform: 'scale(0.7)', width: '130%' }}
                   >
                     {gesture.tips}
@@ -334,7 +334,7 @@ export default function BrainRoboticsContentMobile() {
       </div>
 
       {/* Parameters Section */}
-      <div className="mt-[-20px] flex px-[18px]">
+      <div className="mt-[-28px] flex pr-[14px]">
         {/* Product Image */}
         <picture className="w-[204px] flex-shrink-0">
           <source
@@ -355,7 +355,7 @@ export default function BrainRoboticsContentMobile() {
         </picture>
 
         {/* Technical Parameters - Right */}
-        <div className="ml-[-14px] pt-[200px]">
+        <div className="ml-[-8px] pt-[160px]">
           <ul>
             {parameters.map((param, index) => (
               <motion.li
@@ -376,14 +376,14 @@ export default function BrainRoboticsContentMobile() {
                   />
                 )}
                 <div>
-                  <h4 className="text-fluid-xs font-normal">{param.name}</h4>
-                  <h5 className="text-fluid-xl relative mt-[4px] inline-block pb-[4px] leading-none after:absolute after:bottom-0 after:left-0 after:h-[2px] after:w-full after:rounded-[2px] after:bg-[#c62927]">
+                  <h4 className="text-fluid-base font-normal">{param.name}</h4>
+                  <h5 className="text-fluid-2xl relative mt-[4px] inline-block pb-[4px] leading-none after:absolute after:bottom-0 after:left-0 after:h-[2px] after:w-full after:rounded-[2px] after:bg-[#c62927]">
                     {param.value}
-                    <span className="text-fluid-xs font-light">{param.unit}</span>
+                    <span className="text-fluid-base">{param.unit}</span>
                   </h5>
                   <p
-                    className="text-fluid-sm origin-left font-light"
-                    style={{ transform: 'scale(0.6)', width: '200%' }}
+                    className="text-fluid-base origin-left"
+                    style={{ transform: 'scale(0.6)', width: '160%' }}
                   >
                     {param.desc}
                   </p>
@@ -395,9 +395,9 @@ export default function BrainRoboticsContentMobile() {
       </div>
 
       {/* Awards Section */}
-      <div className="flex px-[18px]">
+      <div className="flex pl-[36px]">
         {/* Awards Timeline - Left */}
-        <div className="mr-[-14px] pt-[130px]">
+        <div className="mr-[-14px] pt-[80px]">
           <ul>
             {awards.map((award, index) => (
               <motion.li
@@ -419,12 +419,12 @@ export default function BrainRoboticsContentMobile() {
                 </div>
                 <div className="flex w-[92px] flex-shrink-0 flex-col items-end">
                   <p
-                    className="text-fluid-sm relative flex origin-right items-end justify-end pb-[10px] text-right after:absolute after:bottom-0 after:left-0 after:h-[4px] after:w-full after:bg-[#c62927]"
+                    className="text-fluid-base relative flex origin-right items-end justify-end pb-[10px] text-right after:absolute after:bottom-0 after:left-0 after:h-[4px] after:w-full after:bg-[#c62927]"
                     style={{ transform: 'scale(0.6)', width: '150%' }}
                   >
                     {award.title}
                   </p>
-                  <h5 className="text-fluid-base relative flex items-end leading-none after:order-[-1] after:mr-[6px] after:h-[6px] after:w-[6px] after:rounded-full after:border after:border-[#c62927]">
+                  <h5 className="text-fluid-xl relative flex items-center leading-none after:order-[-1] after:mr-[6px] after:h-[6px] after:w-[6px] after:rounded-full after:border after:border-[#c62927]">
                     {award.year}
                   </h5>
                 </div>
@@ -486,7 +486,7 @@ export default function BrainRoboticsContentMobile() {
         viewport={{ once: true }}
         transition={{ duration: 0.8, ease: 'easeOut' }}
       >
-        <h2 className="text-fluid-2xl mb-[28px] text-center font-bold">
+        <h2 className="text-fluid-3xl mb-[28px] text-center font-normal">
           {t('resources_title')}
         </h2>
         <div className="flex h-[40px] items-center justify-between rounded-[20px] border border-[#1A74BF] px-[24px]">
@@ -495,7 +495,7 @@ export default function BrainRoboticsContentMobile() {
             href="https://www.brainco.cn/lib/BC2-0900343100-Stark%20%E7%94%A8%E6%88%B7%E8%AF%B4%E6%98%8E%E4%B9%A6%EF%BC%88%E5%A4%A7%E6%89%8B%EF%BC%89-AW-20230925.pdf"
             target="_blank"
             rel="noopener noreferrer"
-            className="text-fluid-sm flex h-[24px] w-[58px] flex-shrink-0 items-center justify-center rounded-[12px] bg-[#1A74BF] !text-white transition-transform active:scale-95"
+            className="text-fluid-base flex h-[24px] flex-shrink-0 items-center justify-center rounded-[12px] bg-[#1A74BF] px-4 !text-white transition-transform active:scale-95"
           >
             {t('download_btn')}
           </a>
@@ -506,7 +506,7 @@ export default function BrainRoboticsContentMobile() {
             href="https://www.brainco.cn/lib/BC2-0900343100-Stark%20%E7%94%A8%E6%88%B7%E8%AF%B4%E6%98%8E%E4%B9%A6%EF%BC%88%E5%A4%A7%E6%89%8B%EF%BC%89-AW-20230925%20%E8%8B%B1%E6%96%87%E7%89%88.pdf"
             target="_blank"
             rel="noopener noreferrer"
-            className="text-fluid-sm flex h-[24px] w-[58px] flex-shrink-0 items-center justify-center rounded-[12px] bg-[#1A74BF] !text-white transition-transform active:scale-95"
+            className="text-fluid-base flex h-[24px] flex-shrink-0 items-center justify-center rounded-[12px] bg-[#1A74BF] px-4 !text-white transition-transform active:scale-95"
           >
             {t('download_btn')}
           </a>
