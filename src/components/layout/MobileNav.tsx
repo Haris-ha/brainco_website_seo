@@ -84,32 +84,34 @@ export function MobileNav({ locale, isOpen, onToggle, showHeader = true }: Mobil
     <>
       {/* 顶部导航栏 - 仅在首页显示 */}
       {showHeader && (
-        <header className={`fixed top-0 left-0 z-[60] flex h-24 w-full items-center justify-between px-8 md:hidden ${isOpen ? 'bg-white shadow-sm' : ''}`}>
+        <header className={`fixed top-0 left-0 z-[60] flex h-24 w-full items-center justify-between px-8 transition-all duration-300 md:hidden ${isOpen ? 'bg-white shadow-sm' : ''}`}>
           {/* 左侧：汉堡菜单按钮和 Logo */}
           <div className="flex items-center gap-2">
             {/* 菜单按钮 */}
             <button
               type="button"
               onClick={onToggle}
-              className="flex h-[22px] w-[22px] flex-shrink-0 items-center justify-center"
+              className="relative flex h-[20px] w-[20px] flex-shrink-0 items-center justify-center"
               aria-label="Toggle menu"
             >
-              <Image
-                src={
-                  isOpen
-                    ? 'https://website-www-brainco-cn.oss-cn-hangzhou.aliyuncs.com/images/com/close.webp'
-                    : 'https://website-www-brainco-cn.oss-cn-hangzhou.aliyuncs.com/images/com/menu_white.png'
-                }
-                alt={t('menu')}
-                width={22}
-                height={22}
-                className="h-[22px] w-[22px]"
-              />
+              <div className={`transition-transform duration-500 ${isOpen ? 'rotate-180' : 'rotate-0'}`}>
+                <Image
+                  src={
+                    isOpen
+                      ? 'https://website-www-brainco-cn.oss-cn-hangzhou.aliyuncs.com/images/com/close.webp'
+                      : 'https://website-www-brainco-cn.oss-cn-hangzhou.aliyuncs.com/images/com/menu_white.png'
+                  }
+                  alt={t('menu')}
+                  width={20}
+                  height={20}
+                  className={isOpen ? 'h-[18px] w-[18px]' : 'h-[22px] w-[22px]'}
+                />
+              </div>
             </button>
 
             {/* Logo - 只在菜单打开时显示 */}
             {isOpen && (
-              <Link href={`/${locale}`} className="flex-shrink-0">
+              <Link href={`/${locale}`} className="animate-slide-in-right flex-shrink-0">
                 <Image
                   src="/logo.webp"
                   alt="BrainCo"
@@ -124,7 +126,7 @@ export function MobileNav({ locale, isOpen, onToggle, showHeader = true }: Mobil
 
           {/* 右侧：购物车 - 只在菜单打开时显示 */}
           {isOpen && (
-            <Link href={`/${locale}/cart`} className="flex items-center">
+            <Link href={`/${locale}/cart`} className="animate-slide-in-left flex items-center">
               <Image
                 src="https://website-www-brainco-cn.oss-cn-hangzhou.aliyuncs.com/images/G7UDx0MHZvyebaSK.png"
                 alt={t('cart')}
@@ -140,16 +142,20 @@ export function MobileNav({ locale, isOpen, onToggle, showHeader = true }: Mobil
       {/* 移动端菜单 */}
       {isOpen && (
         <div className="animate-fade-in fixed top-24 left-0 z-[55] h-screen w-full overflow-y-auto bg-black/30">
-          <div className="bg-white px-8 pb-8">
+          <div className="animate-slide-down bg-white px-8 pb-8">
             <nav>
               <ul>
-                {navItems.map((item, index) => (
-                  <li key={item.key}>
+                {navItems.map((item, itemIndex) => (
+                  <li
+                    key={item.key}
+                    className="animate-slide-down"
+                    style={{ animationDelay: `${itemIndex * 0.05}s` }}
+                  >
                     {/* 菜单项 */}
                     <div
                       role="button"
                       tabIndex={0}
-                      className={`flex h-[68px] items-center justify-between border-b border-gray-100 ${index === 0 ? 'border-t' : ''}`}
+                      className="flex h-[68px] items-center justify-between border-b border-gray-100"
                       onClick={() => {
                         if (item.children) {
                           toggleSubmenu(item.key);
@@ -178,17 +184,23 @@ export function MobileNav({ locale, isOpen, onToggle, showHeader = true }: Mobil
                           )}
 
                       {item.children && (
-                        openMenus[item.key]
-                          ? <ChevronRight className="h-6 w-6 text-[#333]" />
-                          : <ChevronDown className="h-6 w-6 text-[#333]" />
+                        <div className={`transition-transform duration-300 ${openMenus[item.key] ? 'rotate-180' : 'rotate-0'}`}>
+                          {openMenus[item.key]
+                            ? <ChevronRight className="h-6 w-6 text-[#333]" />
+                            : <ChevronDown className="h-6 w-6 text-[#333]" />}
+                        </div>
                       )}
                     </div>
 
                     {/* 子菜单 */}
                     {item.children && openMenus[item.key] && (
-                      <div className="pl-5">
+                      <div className="animate-slide-down overflow-hidden pl-5">
                         {item.children.map((child, index) => (
-                          <div key={child.titleKey || child.key || index}>
+                          <div
+                            key={child.titleKey || child.key || index}
+                            className="animate-fade-in"
+                            style={{ animationDelay: `${index * 0.03}s` }}
+                          >
                             {/* 分类标题 */}
                             {child.titleKey && (
                               <div className="mt-4 mb-2.5 text-lg font-medium !text-[#333]">
@@ -212,10 +224,11 @@ export function MobileNav({ locale, isOpen, onToggle, showHeader = true }: Mobil
                             {/* 产品列表 */}
                             {child.children && (
                               <ul>
-                                {child.children.map(product => (
+                                {child.children.map((product, productIndex) => (
                                   <li
                                     key={product.href}
-                                    className="pl-7.5 leading-[2.5]"
+                                    className="animate-fade-in pl-7.5 leading-[2.5]"
+                                    style={{ animationDelay: `${(index + productIndex) * 0.02}s` }}
                                   >
                                     <Link
                                       href={product.href}
@@ -251,8 +264,53 @@ export function MobileNav({ locale, isOpen, onToggle, showHeader = true }: Mobil
           }
         }
 
+        @keyframes slideInRight {
+          from {
+            opacity: 0;
+            transform: translateX(-20px);
+          }
+          to {
+            opacity: 1;
+            transform: translateX(0);
+          }
+        }
+
+        @keyframes slideInLeft {
+          from {
+            opacity: 0;
+            transform: translateX(20px);
+          }
+          to {
+            opacity: 1;
+            transform: translateX(0);
+          }
+        }
+
+        @keyframes slideDown {
+          from {
+            opacity: 0;
+            transform: translateY(-10px);
+          }
+          to {
+            opacity: 1;
+            transform: translateY(0);
+          }
+        }
+
         .animate-fade-in {
-          animation: fadeIn 0.3s ease-in;
+          animation: fadeIn 0.4s ease-in;
+        }
+
+        .animate-slide-in-right {
+          animation: slideInRight 0.4s ease-out;
+        }
+
+        .animate-slide-in-left {
+          animation: slideInLeft 0.4s ease-out;
+        }
+
+        .animate-slide-down {
+          animation: slideDown 0.3s ease-out;
         }
       `}
       </style>
