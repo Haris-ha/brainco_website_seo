@@ -44,7 +44,7 @@ export default function NewsList({ newsList, isMobile = false }: NewsListProps) 
     >
       {newsList.map((item, index) => (
         <motion.li key={item.id || `${item.url}-${index}`} className="cursor-target flex h-full w-full">
-          <NewsItem item={item} index={index} />
+          <NewsItem item={item} index={index} isMobile={isMobile} />
         </motion.li>
       ))}
     </motion.ul>

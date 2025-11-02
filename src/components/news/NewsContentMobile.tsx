@@ -26,7 +26,7 @@ export default function NewsContentMobile({
     <div className="w-full overflow-x-hidden bg-white">
       <NewsHero isMobile />
 
-      <div className="mx-auto mt-[8vw] w-full px-[4vw] pt-10 pb-[8vw]">
+      <div className="mx-auto mt-[8vw] w-full px-[4vw] pb-[8vw]">
         {/* <motion.h5
           initial={{ opacity: 0, y: -10 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -39,7 +39,7 @@ export default function NewsContentMobile({
 
         {loading
           ? (
-              <div className="text-fluid-base py-[8vw] text-center text-[#999999]">
+              <div className="text-fluid-xl py-[8vw] text-center text-[#999999]">
                 {t('loading')}
               </div>
             )

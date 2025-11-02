@@ -7,6 +7,7 @@ import DynamicCanonical from '@/components/seo/DynamicCanonical';
 import StructuredData from '@/components/seo/StructuredData';
 import { createPageMetadata } from '@/lib/metadata';
 import { getNewsList, getPageSEOForStructuredData } from '@/lib/seo';
+import { formatDate } from '@/lib/utils';
 
 type NewsPageProps = {
   params: Promise<{ locale: string }>;
@@ -39,7 +40,7 @@ export default async function NewsPage(props: NewsPageProps) {
     .map(item => ({
       id: item.id,
       title: item.title,
-      time: new Date(item.newsDate).toLocaleDateString().replace(/\//g, '-'),
+      time: formatDate(item.newsDate, 'YYYY-MM-DD'),
       img: item.coverImage,
       url: item.externalUrl,
       hot: item.isHot,
@@ -51,7 +52,7 @@ export default async function NewsPage(props: NewsPageProps) {
     .map(item => ({
       id: item.id,
       title: item.title,
-      time: new Date(item.newsDate).toLocaleDateString().replace(/\//g, '-'),
+      time: formatDate(item.newsDate, 'YYYY-MM-DD'),
       img: item.coverImage,
       url: item.externalUrl,
       hot: item.isHot,

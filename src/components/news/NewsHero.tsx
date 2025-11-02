@@ -35,7 +35,7 @@ export default function NewsHero({ isMobile = false }: NewsHeroProps) {
         transition={{ duration: 0.6, delay: 0.3 }}
         className={`text-center font-bold text-white  ${
           isMobile
-            ? 'text-fluid-4xl'
+            ? 'text-fluid-5xl'
             : 'text-fluid-7xl'
         }`}
       >

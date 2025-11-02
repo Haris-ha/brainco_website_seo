@@ -3,6 +3,7 @@
 import type { NewsItem } from './types';
 import { motion } from 'framer-motion';
 import Image from 'next/image';
+import { useEffect, useRef, useState } from 'react';
 import { SimpleCarousel } from '@/components/ui/SimpleCarousel';
 
 type HotNewsCarouselProps = {
@@ -11,6 +12,62 @@ type HotNewsCarouselProps = {
 };
 
 export default function HotNewsCarousel({ hotNews, isMobile = false }: HotNewsCarouselProps) {
+  const carouselRef = useRef<HTMLDivElement>(null);
+  const [arrowTop, setArrowTop] = useState<string>('50%');
+
+  // 计算箭头按钮相对于图片容器的位置
+  useEffect(() => {
+    const updateArrowPosition = () => {
+      if (!carouselRef.current) {
+        return;
+      }
+
+      // 查找SimpleCarousel的实际容器（第一个子元素）
+      const carouselContainer = carouselRef.current.querySelector('[class*="relative overflow-hidden"]');
+      if (!carouselContainer || !(carouselContainer instanceof HTMLElement)) {
+        return;
+      }
+
+      // 查找第一个图片容器
+      const firstItem = carouselContainer.querySelector('[class*="aspect-[16/9]"]');
+      if (firstItem instanceof HTMLElement) {
+        const carouselRect = carouselContainer.getBoundingClientRect();
+        const imageRect = firstItem.getBoundingClientRect();
+
+        // 计算图片容器的中心点相对于轮播容器的位置
+        const imageCenter = imageRect.top + imageRect.height / 2 - carouselRect.top;
+        setArrowTop(`${imageCenter}px`);
+      }
+    };
+
+    updateArrowPosition();
+    window.addEventListener('resize', updateArrowPosition);
+
+    // 使用 ResizeObserver 监听容器大小变化
+    let resizeObserver: ResizeObserver | null = null;
+    if (carouselRef.current && typeof ResizeObserver !== 'undefined') {
+      resizeObserver = new ResizeObserver(() => {
+        updateArrowPosition();
+      });
+      resizeObserver.observe(carouselRef.current);
+    }
+
+    // 延迟执行以确保图片已加载和DOM渲染完成
+    const timer1 = setTimeout(updateArrowPosition, 100);
+    const timer2 = setTimeout(updateArrowPosition, 300);
+    const timer3 = setTimeout(updateArrowPosition, 500);
+
+    return () => {
+      window.removeEventListener('resize', updateArrowPosition);
+      if (resizeObserver) {
+        resizeObserver.disconnect();
+      }
+      clearTimeout(timer1);
+      clearTimeout(timer2);
+      clearTimeout(timer3);
+    };
+  }, [hotNews]);
+
   if (hotNews.length === 0) {
     return null;
   }
@@ -42,7 +99,7 @@ export default function HotNewsCarousel({ hotNews, isMobile = false }: HotNewsCa
         </div>
         <div
           className={`text-center ${
-            isMobile ? 'px-[2vw] pt-[2vw]' : 'px-[2vw] pt-[1.5vw] md:px-[30px] md:pt-[24px]'
+            isMobile ? 'px-[2vw] pt-[2.5vw]' : 'px-[2vw] pt-[24px] md:px-[30px]'
           }`}
         >
           <div
@@ -52,7 +109,7 @@ export default function HotNewsCarousel({ hotNews, isMobile = false }: HotNewsCa
           >
             {item.title}
           </div>
-          <div className="text-fluid-lg xl:text-fluid-xl mb-0 text-[#999999] xl:mb-[1vw]">{item.time}</div>
+          <div className={`${isMobile ? 'text-fluid-lg' : 'text-fluid-xl'} mb-0 text-[#999999] xl:mb-[1vw]`}>{item.time}</div>
         </div>
       </div>
     </div>
@@ -66,15 +123,18 @@ export default function HotNewsCarousel({ hotNews, isMobile = false }: HotNewsCa
       transition={{ duration: 0.3 }}
       className="mb-[2vw] bg-[#FAFAFA] pb-[3vw] md:mb-[40px] md:pb-[40px]"
     >
-      <SimpleCarousel
-        items={carouselItems}
-        autoplay
-        autoplayDelay={5000}
-        className="w-full"
-        showIndicators
-        showArrows
-        enableDrag={false}
-      />
+      <div ref={carouselRef}>
+        <SimpleCarousel
+          items={carouselItems}
+          autoplay
+          autoplayDelay={5000}
+          className="w-full"
+          showIndicators
+          showArrows
+          enableDrag={false}
+          style={{ '--carousel-arrow-top': arrowTop } as React.CSSProperties}
+        />
+      </div>
     </motion.div>
   );
 }

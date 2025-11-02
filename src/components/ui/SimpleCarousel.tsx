@@ -20,6 +20,7 @@ type SimpleCarouselProps = {
   showIndicators?: boolean;
   showArrows?: boolean;
   enableDrag?: boolean;
+  style?: React.CSSProperties;
 };
 
 export function SimpleCarousel({
@@ -30,6 +31,7 @@ export function SimpleCarousel({
   showIndicators = true,
   showArrows = false,
   enableDrag = true,
+  style,
 }: SimpleCarouselProps) {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isHovered, setIsHovered] = useState(false);
@@ -86,6 +88,7 @@ export function SimpleCarousel({
   return (
     <div
       className={`relative overflow-hidden ${className}`}
+      style={style}
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
     >
@@ -114,7 +117,7 @@ export function SimpleCarousel({
       {/* 左右切换按钮 */}
       {showArrows && items.length > 1 && (
         <>
-          {/* 左箭头 */}
+          {/* 左箭头 - 相对于图片容器垂直居中 */}
           <motion.button
             type="button"
             onClick={goToPrevious}
@@ -122,8 +125,12 @@ export function SimpleCarousel({
             initial={{ opacity: 0 }}
             animate={{ opacity: isMobile || isHovered ? 1 : 0 }}
             transition={{ duration: 0.2 }}
-            style={{ top: 'calc(50% - 30px)' }}
             className="absolute left-4 z-10 flex h-12 w-12 -translate-y-1/2 items-center justify-center rounded-full bg-white/20 backdrop-blur-md transition-all hover:bg-white/30 disabled:cursor-not-allowed disabled:opacity-30 md:h-14 md:w-14"
+            style={{
+              // 使用 CSS 变量来偏移，相对于图片容器（aspect-[16/9]）的中心
+              // 如果没有设置变量，则相对于整个容器居中（向后兼容）
+              top: 'var(--carousel-arrow-top, 50%)',
+            }}
             aria-label="上一张"
           >
             <svg
@@ -141,7 +148,7 @@ export function SimpleCarousel({
             </svg>
           </motion.button>
 
-          {/* 右箭头 */}
+          {/* 右箭头 - 相对于图片容器垂直居中 */}
           <motion.button
             type="button"
             onClick={goToNext}
@@ -149,8 +156,11 @@ export function SimpleCarousel({
             initial={{ opacity: 0 }}
             animate={{ opacity: isMobile || isHovered ? 1 : 0 }}
             transition={{ duration: 0.2 }}
-            style={{ top: 'calc(50% - 30px)' }}
             className="absolute right-4 z-10 flex h-12 w-12 -translate-y-1/2 items-center justify-center rounded-full bg-white/20 backdrop-blur-md transition-all hover:bg-white/30 disabled:cursor-not-allowed disabled:opacity-30 md:h-14 md:w-14"
+            style={{
+              // 使用 CSS 变量来偏移，相对于图片容器（aspect-[16/9]）的中心
+              top: 'var(--carousel-arrow-top, 50%)',
+            }}
             aria-label="下一张"
           >
             <svg
