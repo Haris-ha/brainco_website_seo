@@ -20,25 +20,26 @@ export default function TechnologyContentMobile() {
   return (
     <div className="w-full">
       {/* Hero Banner */}
-      <div className="relative w-full">
+      <div className="relative min-h-[700px] w-full">
         <Image
           src="https://website-www-brainco-cn.oss-cn-hangzhou.aliyuncs.com/images/ftbqmsviOKpgLDrW.webp"
           alt="Technology Banner"
           width={750}
-          height={600}
-          className="h-auto w-full"
+          height={700}
+          className="h-auto w-full object-cover"
+          style={{ minHeight: '700px', objectPosition: 'center' }}
         />
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 0.8 }}
-          className="absolute top-0 left-0 flex h-full w-full flex-col items-center px-[58px] pt-[110px] text-white"
+          className="absolute top-0 left-0 flex min-h-full w-full flex-col justify-center px-[10vw] pt-[58px] text-left text-white"
         >
           <motion.h1
             initial={{ scale: 0.8, opacity: 0 }}
             animate={{ scale: 1, opacity: 1 }}
             transition={{ duration: 0.6, delay: 0.1 }}
-            className="text-fluid-4xl mb-12 font-bold"
+            className="text-fluid-4xl mb-6 text-left font-bold"
           >
             {t('page_title')}
           </motion.h1>
@@ -46,7 +47,7 @@ export default function TechnologyContentMobile() {
             initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.4 }}
-            className="text-fluid-xl leading-[1.4]"
+            className="text-fluid-base leading-[1.7]"
           >
             {t('page_intro')}
           </motion.p>
@@ -54,13 +55,13 @@ export default function TechnologyContentMobile() {
       </div>
 
       {/* Research Section */}
-      <section className="mt-[54px] px-4">
+      <section className="mt-[36px] px-4">
         <motion.h2
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="text-fluid-4xl mb-8 text-center font-bold"
+          className="text-fluid-3xl mb-8 text-center font-bold"
         >
           {t('research_collaboration')}
         </motion.h2>
@@ -113,8 +114,8 @@ export default function TechnologyContentMobile() {
                       <Image
                         src="https://website-www-brainco-cn.oss-cn-hangzhou.aliyuncs.com/images/dXLzUFuSgVRtErQb.png"
                         alt="arrow"
-                        width={18}
-                        height={18}
+                        width={17}
+                        height={17}
                       />
                     </motion.div>
                   </motion.a>
@@ -143,8 +144,7 @@ export default function TechnologyContentMobile() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: index * 0.1 }}
-            className="mb-[30px] overflow-hidden rounded-lg bg-[#f6f6f6] pb-[30px]"
-            onClick={() => window.open(item.openUrl, '_blank')}
+            className="mb-[30px] overflow-hidden rounded-lg bg-[#f6f6f6] pb-[20px]"
           >
             <div className="w-full">
               <Image
@@ -156,24 +156,40 @@ export default function TechnologyContentMobile() {
               />
             </div>
             <div className="px-5">
-              <h2 className="mt-6 text-lg leading-[1.5] font-semibold">
+              <h2 className="text-fluid-xl mt-6 leading-[1.5] font-semibold">
                 {item.title}
               </h2>
-              <p className="mt-3 text-base leading-[1.5]">
+              <p className="text-fluid-base mt-3 leading-[1.5]">
                 {item.desc}
               </p>
-              <div className="mt-10 flex items-center">
-                <span className="text-base font-semibold text-[#1A74BF]">
+              <motion.a
+                href={item.openUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="mt-10 flex items-center"
+                whileTap={{ scale: 0.95 }}
+              >
+                <span className="relative text-base font-bold text-[#1A74BF]">
                   {t('learn_more')}
                 </span>
-                <Image
-                  src="https://website-www-brainco-cn.oss-cn-hangzhou.aliyuncs.com/images/dXLzUFuSgVRtErQb.png"
-                  alt="arrow"
-                  width={18}
-                  height={18}
-                  className="ml-0.5"
-                />
-              </div>
+                <motion.div
+                  animate={{ x: [0, 3, 0] }}
+                  transition={{
+                    duration: 1.5,
+                    repeat: Number.POSITIVE_INFINITY,
+                    repeatType: 'loop',
+                    ease: 'easeInOut',
+                  }}
+                >
+                  <Image
+                    src="https://website-www-brainco-cn.oss-cn-hangzhou.aliyuncs.com/images/dXLzUFuSgVRtErQb.png"
+                    alt="arrow"
+                    width={17}
+                    height={17}
+                    className="ml-0.5"
+                  />
+                </motion.div>
+              </motion.a>
             </div>
           </motion.li>
         ))}
@@ -186,7 +202,7 @@ export default function TechnologyContentMobile() {
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="text-fluid-4xl mb-10 text-center font-bold"
+          className="text-fluid-3xl mb-10 text-center font-bold"
         >
           {t('timeline_title')}
         </motion.h2>
@@ -279,7 +295,7 @@ export default function TechnologyContentMobile() {
               href={item.url}
               target="_blank"
               rel="noopener noreferrer"
-              className="text-sm text-[#707070] hover:text-[#1A74BF]"
+              className="text-fluid-base cursor-target !text-[#656565] hover:text-[#1A74BF]"
             >
               {item.label}
             </a>

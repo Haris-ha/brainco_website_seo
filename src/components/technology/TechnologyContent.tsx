@@ -89,7 +89,7 @@ export default function TechnologyContent() {
       </motion.div>
 
       {/* Research Collaboration Section */}
-      <section id="research" className="bg-white py-20">
+      <section id="research" className="bg-white pt-20">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -122,29 +122,31 @@ export default function TechnologyContent() {
                 boxShadow: '0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04)',
                 transition: { duration: 0.3 },
               }}
-              className="group relative rounded-xl bg-gradient-to-br from-gray-50 to-white p-8 text-xl font-light shadow-md transition-all duration-300 hover:from-blue-50 hover:to-white"
+              className="group cursor-target relative rounded-xl bg-gradient-to-br from-gray-50 to-white p-8 text-xl font-light shadow-md transition-all duration-300 hover:from-blue-50 hover:to-white"
             >
               {/* 装饰性渐变边框 */}
               <div className="absolute inset-0 rounded-xl bg-gradient-to-br from-blue-400/0 to-blue-400/5 opacity-0 transition-opacity duration-300 group-hover:from-blue-400/5 group-hover:to-purple-400/5 group-hover:opacity-100" />
 
-              <div className="relative">
-                <p className="mb-5 leading-relaxed text-[#595757] transition-colors duration-300 group-hover:text-[#4a4a4a]">
-                  {article.content}
-                </p>
-                <h3 className="mb-4 leading-[1.4] font-bold text-[#333333] transition-colors duration-300 group-hover:text-[#1A74BF]">
-                  {article.title}
-                </h3>
+              <div className="relative flex h-full flex-col justify-between">
+                <div>
+                  <p className="text-fluid-base mb-5 leading-relaxed text-[#595757] transition-colors duration-300 group-hover:text-[#4a4a4a]">
+                    {article.content}
+                  </p>
+                  <h3 className="text-fluid-xl mb-4 leading-[1.4] font-bold text-[#333333] transition-colors duration-300 group-hover:text-[#1A74BF]">
+                    {article.title}
+                  </h3>
+                </div>
                 <motion.a
                   href={article.link}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center text-base font-semibold !text-[#1A74BF] transition-all duration-300"
+                  className="inline-flex items-center text-lg font-semibold !text-[#1A74BF] transition-all duration-300"
                   whileHover={{ x: 4 }}
                   whileTap={{ scale: 0.95 }}
                 >
                   <span className="relative">
                     {t('learn_more')}
-                    <span className="absolute bottom-0 left-0 h-[2px] w-0 bg-[#1A74BF] transition-all duration-300 group-hover:w-full" />
+                    <span className="absolute bottom-0 left-0 h-[2px] w-0 bg-[#1A74BF] text-lg transition-all duration-300 group-hover:w-full" />
                   </span>
                   <motion.div
                     animate={{ x: [0, 4, 0] }}
@@ -186,8 +188,7 @@ export default function TechnologyContent() {
                 viewport={{ once: true }}
                 transition={{ duration: 0.6, delay: index * 0.15 }}
                 whileHover={{ y: -5 }}
-                className="cursor-pointer overflow-hidden rounded-lg bg-[#f6f6f6] pb-10"
-                onClick={() => window.open(institution.openUrl, '_blank')}
+                className="group cursor-target cursor-pointer overflow-hidden rounded-lg bg-[#f6f6f6] pb-10"
               >
                 <div className="h-auto w-full">
                   <Image
@@ -199,23 +200,42 @@ export default function TechnologyContent() {
                   />
                 </div>
                 <div className="mt-10 px-8">
-                  <h3 className="mb-5 text-lg font-semibold text-[#333333]">
+                  <h3 className="text-fluid-xl mb-4 font-semibold text-[#333333]">
                     {institution.title}
                   </h3>
-                  <p className="mb-5 text-base leading-relaxed text-[#333333]">
+                  <p className="text-fluid-base mb-4 leading-relaxed text-[#333333]">
                     {institution.desc}
                   </p>
-                  <div className="flex items-center">
-                    <span className="cursor-pointer font-semibold !text-[#1A74BF]">
+                  <motion.a
+                    href={institution.openUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center text-lg font-semibold !text-[#1A74BF] transition-all duration-300"
+                    whileHover={{ x: 4 }}
+                    whileTap={{ scale: 0.95 }}
+                  >
+                    <span className="relative">
                       {t('learn_more')}
+                      <span className="absolute bottom-0 left-0 h-[2px] w-0 bg-[#1A74BF] text-lg transition-all duration-300 group-hover:w-full" />
                     </span>
-                    <Image
-                      src="https://website-www-brainco-cn.oss-cn-hangzhou.aliyuncs.com/images/dXLzUFuSgVRtErQb.png"
-                      alt="arrow"
-                      width={18}
-                      height={18}
-                    />
-                  </div>
+                    <motion.div
+                      animate={{ x: [0, 4, 0] }}
+                      transition={{
+                        duration: 1.5,
+                        repeat: Number.POSITIVE_INFINITY,
+                        repeatType: 'loop',
+                        ease: 'easeInOut',
+                      }}
+                    >
+                      <Image
+                        src="https://website-www-brainco-cn.oss-cn-hangzhou.aliyuncs.com/images/dXLzUFuSgVRtErQb.png"
+                        alt="arrow"
+                        width={18}
+                        height={18}
+                        className="transition-transform duration-300 group-hover:translate-x-1"
+                      />
+                    </motion.div>
+                  </motion.a>
                 </div>
               </motion.div>
             ))}
@@ -264,7 +284,7 @@ export default function TechnologyContent() {
               >
                 {selectedYear !== index
                   ? (
-                      <span className="text-xl text-[#bebebe]">{item.year}</span>
+                      <span className="cursor-target text-xl text-[#bebebe]">{item.year}</span>
                     )
                   : (
                       <div className="w-full pb-10">
@@ -276,7 +296,7 @@ export default function TechnologyContent() {
                               animate={{ opacity: 1 }}
                               transition={{ duration: 0.5 }}
                             >
-                              <div className="mb-[30px] flex h-[320px] w-full items-center justify-center overflow-hidden">
+                              <div className="mb-[20px] flex h-[320px] w-full items-center justify-center overflow-hidden">
                                 <Image
                                   src={data.url}
                                   alt={item.year}
@@ -285,11 +305,11 @@ export default function TechnologyContent() {
                                   className="h-full w-full object-cover"
                                 />
                               </div>
-                              <h4 className="mb-6 text-5xl font-normal">
+                              <h4 className="text-fluid-5xl mb-6 font-normal">
                                 {item.year}
                                 {t('year_suffix') && <span className="ml-1 text-xl">{t('year_suffix')}</span>}
                               </h4>
-                              <p className="text-xl leading-[1.7] font-light">
+                              <p className="text-fluid-xl leading-[1.7] font-light">
                                 {data.desc}
                               </p>
                             </motion.div>
@@ -315,6 +335,7 @@ export default function TechnologyContent() {
           {footnotes.map((note, index) => (
             <motion.li
               key={`footnote-${index}`}
+              className="cursor-target"
               initial={{ opacity: 0, x: -20 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
@@ -324,7 +345,7 @@ export default function TechnologyContent() {
                 href={note.url}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-base !text-[#707070] transition-colors hover:!text-[#1A74BF]"
+                className="text-fluid-base cursor-target !text-[#656565] transition-colors hover:!text-[#1A74BF]"
               >
                 {note.label}
               </a>
