@@ -189,13 +189,13 @@ export default function ContactContentMobile() {
           className="w-full object-cover"
         />
         <motion.div
-          className="absolute top-0 left-0 flex h-[calc(100vh-80px)] w-full flex-col justify-center px-20 pr-10"
+          className="absolute top-0 left-0 flex h-[calc(100vh-80px)] w-full flex-col justify-center px-20"
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.3, ease: 'easeOut' }}
         >
           <motion.h1
-            className="text-[40px] font-bold text-white"
+            className="text-fluid-5xl font-bold text-white"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.5, ease: 'easeOut' }}
@@ -203,7 +203,7 @@ export default function ContactContentMobile() {
             {t('page_title')}
           </motion.h1>
           <motion.p
-            className="mt-3 text-base text-white"
+            className="text-fluid-base mt-3 text-white"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.7, ease: 'easeOut' }}
@@ -231,10 +231,10 @@ export default function ContactContentMobile() {
               viewport={{ once: true }}
               transition={{ duration: 0.6, delay: 0.1, ease: 'easeOut' }}
             >
-              <div className="text-xl font-medium text-[#333333]">
+              <div className="text-fluid-xl font-medium text-[#333333]">
                 {t('location_hangzhou')}
               </div>
-              <div className="text-sm text-[#707070]">
+              <div className="text-fluid-base text-[#656565]">
                 {t('address_hangzhou')}
               </div>
             </motion.div>
@@ -246,10 +246,10 @@ export default function ContactContentMobile() {
               viewport={{ once: true }}
               transition={{ duration: 0.6, delay: 0.2, ease: 'easeOut' }}
             >
-              <div className="text-xl font-medium text-[#333333]">
+              <div className="text-fluid-xl font-medium text-[#333333]">
                 {t('location_shenzhen')}
               </div>
-              <div className="text-sm text-[#707070]">
+              <div className="text-fluid-base text-[#656565]">
                 {t('address_shenzhen')}
               </div>
             </motion.div>
@@ -261,10 +261,10 @@ export default function ContactContentMobile() {
               viewport={{ once: true }}
               transition={{ duration: 0.6, delay: 0.3, ease: 'easeOut' }}
             >
-              <div className="text-xl font-medium text-[#333333]">
+              <div className="text-fluid-xl font-medium text-[#333333]">
                 {t('location_boston')}
               </div>
-              <div className="text-sm text-[#707070]">
+              <div className="text-fluid-base text-[#656565]">
                 {t('address_boston')}
               </div>
             </motion.div>
@@ -285,10 +285,10 @@ export default function ContactContentMobile() {
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.1, ease: 'easeOut' }}
           >
-            <span className="block text-xl leading-10 font-medium text-[#333333]">
+            <span className="text-fluid-xl block leading-10 font-medium text-[#333333]">
               {t('media_inquiry')}
             </span>
-            <span className="text-sm font-medium text-[#00baff]">
+            <span className="text-fluid-base font-medium text-[#00baff]">
               pr@brainco.cn
             </span>
           </motion.div>
@@ -299,10 +299,10 @@ export default function ContactContentMobile() {
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.2, ease: 'easeOut' }}
           >
-            <span className="block text-xl leading-10 font-medium text-[#333333]">
+            <span className="text-fluid-xl block leading-10 font-medium text-[#333333]">
               {t('hr_inquiry')}
             </span>
-            <span className="text-sm font-medium text-[#00baff]">
+            <span className="text-fluid-base font-medium text-[#00baff]">
               hr@brainco.cn
             </span>
           </motion.div>
@@ -321,10 +321,10 @@ export default function ContactContentMobile() {
               className="w-full object-cover"
             />
             <div className="absolute top-0 left-0 h-full w-full px-10">
-              <h4 className="relative mt-12 mb-[18px] pb-6 text-xl leading-none font-bold tracking-[6px] after:absolute after:bottom-0 after:left-0 after:h-0 after:w-[76px] after:border-b-[3px] after:border-[#333] after:content-['']">
+              <h4 className="text-fluid-2xl relative mt-12 mb-[18px] pb-6 font-bold after:absolute after:bottom-0 after:left-0 after:h-0 after:w-[76px] after:border-b-[3px] after:border-[#333] after:content-['']">
                 {area.title}
               </h4>
-              <p className="text-[18px] text-[#707070]">{area.desc}</p>
+              <p className="text-fluid-base text-[#656565]">{area.desc}</p>
             </div>
           </div>
         ))}
@@ -350,7 +350,7 @@ export default function ContactContentMobile() {
           viewport={{ once: true }}
           transition={{ duration: 0.6, delay: 0.1, ease: 'easeOut' }}
         >
-          <Label className="text-sm text-[#333333]">
+          <Label className="text-fluid-base text-[#333333]">
             {t('form_company')}
             *
           </Label>
@@ -358,7 +358,7 @@ export default function ContactContentMobile() {
             type="text"
             value={formData.company}
             onChange={e => handleInputChange(e, 'company')}
-            className="rounded-none border-0 border-b border-[#000] text-sm leading-[30px] shadow-none focus-visible:ring-0"
+            className="text-fluid-base rounded-none border-0 border-b border-[#000] leading-[30px] shadow-none focus-visible:ring-0"
           />
         </motion.div>
 
@@ -369,7 +369,7 @@ export default function ContactContentMobile() {
           viewport={{ once: true }}
           transition={{ duration: 0.6, delay: 0.15, ease: 'easeOut' }}
         >
-          <Label className="text-sm text-[#333333]">
+          <Label className="text-fluid-base text-[#333333]">
             {t('form_address')}
             *
           </Label>
@@ -377,7 +377,7 @@ export default function ContactContentMobile() {
             type="text"
             value={formData.address}
             onChange={e => handleInputChange(e, 'address')}
-            className="rounded-none border-0 border-b border-[#000] text-sm leading-[30px] shadow-none focus-visible:ring-0"
+            className="text-fluid-base rounded-none border-0 border-b border-[#000] leading-[30px] shadow-none focus-visible:ring-0"
           />
         </motion.div>
 
@@ -388,7 +388,7 @@ export default function ContactContentMobile() {
           viewport={{ once: true }}
           transition={{ duration: 0.6, delay: 0.2, ease: 'easeOut' }}
         >
-          <Label className="text-sm text-[#333333]">
+          <Label className="text-fluid-base text-[#333333]">
             {t('form_name')}
             *
           </Label>
@@ -396,7 +396,7 @@ export default function ContactContentMobile() {
             type="text"
             value={formData.name}
             onChange={e => handleInputChange(e, 'name')}
-            className="rounded-none border-0 border-b border-[#000] text-sm leading-[30px] shadow-none focus-visible:ring-0"
+            className="text-fluid-base rounded-none border-0 border-b border-[#000] leading-[30px] shadow-none focus-visible:ring-0"
           />
         </motion.div>
 
@@ -407,7 +407,7 @@ export default function ContactContentMobile() {
           viewport={{ once: true }}
           transition={{ duration: 0.6, delay: 0.25, ease: 'easeOut' }}
         >
-          <Label className="text-sm text-[#333333]">
+          <Label className="text-fluid-base text-[#333333]">
             {t('form_email')}
             *
           </Label>
@@ -415,7 +415,7 @@ export default function ContactContentMobile() {
             type="email"
             value={formData.email}
             onChange={e => handleInputChange(e, 'email')}
-            className="rounded-none border-0 border-b border-[#000] text-sm leading-[30px] shadow-none focus-visible:ring-0"
+            className="text-fluid-base rounded-none border-0 border-b border-[#000] leading-[30px] shadow-none focus-visible:ring-0"
           />
         </motion.div>
 
@@ -426,7 +426,7 @@ export default function ContactContentMobile() {
           viewport={{ once: true }}
           transition={{ duration: 0.6, delay: 0.3, ease: 'easeOut' }}
         >
-          <Label className="text-sm text-[#333333]">
+          <Label className="text-fluid-base text-[#333333]">
             {t('form_phone')}
             *
           </Label>
@@ -434,7 +434,7 @@ export default function ContactContentMobile() {
             type="tel"
             value={formData.phone}
             onChange={e => handleInputChange(e, 'phone')}
-            className="rounded-none border-0 border-b border-[#000] text-sm leading-[30px] shadow-none focus-visible:ring-0"
+            className="text-fluid-base rounded-none border-0 border-b border-[#000] leading-[30px] shadow-none focus-visible:ring-0"
           />
         </motion.div>
 
@@ -445,7 +445,7 @@ export default function ContactContentMobile() {
           viewport={{ once: true }}
           transition={{ duration: 0.6, delay: 0.35, ease: 'easeOut' }}
         >
-          <Label className="text-sm text-[#333333]">
+          <Label className="text-fluid-base text-[#333333]">
             {t('form_project')}
           </Label>
           <Input
@@ -453,7 +453,7 @@ export default function ContactContentMobile() {
             placeholder={t('form_project_placeholder')}
             value={formData.project}
             onChange={e => handleInputChange(e, 'project')}
-            className="rounded-none border-0 border-b border-[#000] text-sm leading-[30px] shadow-none focus-visible:ring-0"
+            className="text-fluid-base rounded-none border-0 border-b border-[#000] leading-[30px] shadow-none focus-visible:ring-0"
           />
         </motion.div>
 
@@ -464,7 +464,7 @@ export default function ContactContentMobile() {
           viewport={{ once: true }}
           transition={{ duration: 0.6, delay: 0.4, ease: 'easeOut' }}
         >
-          <Label className="text-sm text-[#333333]">
+          <Label className="text-fluid-base text-[#333333]">
             {t('form_cooperation_type')}
             *
           </Label>
@@ -487,7 +487,7 @@ export default function ContactContentMobile() {
                 />
                 <Label
                   htmlFor={type.id}
-                  className="cursor-pointer text-sm font-normal text-[rgba(51,51,51,0.5)]"
+                  className="text-fluid-base cursor-pointer font-normal text-[rgba(51,51,51,0.5)]"
                 >
                   {type.value}
                 </Label>
@@ -508,7 +508,7 @@ export default function ContactContentMobile() {
             onClick={handleSubmit}
             disabled={isSubmitting}
             variant="outline"
-            className="h-12 w-[166px] rounded-3xl border-[3px] border-[#333333] bg-white text-base hover:bg-gray-50"
+            className="text-fluid-base h-12 w-[166px] rounded-3xl border-[2px] border-[#333333] bg-white hover:bg-gray-50"
           >
             {t('submit_button')}
           </Button>
