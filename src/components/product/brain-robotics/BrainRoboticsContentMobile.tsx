@@ -237,7 +237,7 @@ export default function BrainRoboticsContentMobile() {
 
         <div className="absolute top-0 left-0 h-full w-full">
           {/* Achievement Badges - Top Right */}
-          <div className="absolute top-32 right-[14px] z-99 flex flex-col items-end">
+          <div className="absolute top-32 right-[14px] z-10 flex flex-col items-end">
             {achievements.map((achievement, index) => (
               <motion.div
                 key={achievement}

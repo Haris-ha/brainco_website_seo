@@ -191,11 +191,11 @@ export default function Revo1Content() {
               >
                 <Image src={item.icon} alt="" width={80} height={80} className="mr-3 flex-shrink-0 xl:mr-4" />
                 <div className="mr-8 w-[220px] flex-shrink-0 xl:mr-8 xl:w-[240px]">
-                  <h4 className="text-fluid-xl xl:text-fluid-xl leading-tight font-medium">
+                  <h4 className="text-fluid-2xl leading-tight font-medium">
                     {t(`industry_${index + 1}_title` as any)}
                   </h4>
                   <p
-                    className="text-fluid-base xl:text-fluid-base mt-3 leading-relaxed xl:mt-5"
+                    className="text-fluid-lg mt-3 leading-relaxed xl:mt-5"
                     dangerouslySetInnerHTML={{ __html: t(`industry_${index + 1}_desc` as any) }}
                   />
                 </div>
