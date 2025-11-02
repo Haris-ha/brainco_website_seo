@@ -42,7 +42,9 @@
   },
   "Home": {
     "hero_title_1": "Brain-Computer Interface Technology,",
+    "hero_title_1_mobile": "Brain-Computer Interface Technology",
     "hero_title_2": "Unlocking Life's Infinite Possibilities",
+    "hero_title_2_mobile": "Unlocking Life's Infinite Possibilities",
     "video_category_rehabilitation": "Rehabilitation",
     "video_category_health": "Health",
     "video_category_education": "Education",

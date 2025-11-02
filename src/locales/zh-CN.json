@@ -42,7 +42,9 @@
   },
   "Home": {
     "hero_title_1": "脑机科技，开启",
+    "hero_title_1_mobile": "脑机科技",
     "hero_title_2": "生命更多可能性",
+    "hero_title_2_mobile": "开启生命更多可能性",
     "video_category_rehabilitation": "康复",
     "video_category_health": "健康",
     "video_category_education": "教育",

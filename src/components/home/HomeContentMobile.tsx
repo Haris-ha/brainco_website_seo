@@ -130,11 +130,11 @@ export function HomeContentMobile() {
   const handleTimeUpdate = useCallback(
     (e: React.SyntheticEvent<HTMLVideoElement>) => {
       const video = e.currentTarget;
-      
+
       // 只有当前激活的视频才更新进度
       const isVideo1Active = activeVideoIndex === 0 && video === video1Ref.current;
       const isVideo2Active = activeVideoIndex === 1 && video === video2Ref.current;
-      
+
       if (!isVideo1Active && !isVideo2Active) {
         return;
       }
@@ -161,12 +161,12 @@ export function HomeContentMobile() {
           transition={{ duration: 0.8, ease: 'easeOut' }}
         >
           <motion.h1
-            className="text-fluid-5xl leading-none font-bold"
+            className="text-fluid-5xl text-center leading-none font-bold"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.2, ease: 'easeOut' }}
           >
-            {t('hero_title_1')}
+            {t('hero_title_1_mobile')}
           </motion.h1>
           <motion.p
             className="text-fluid-3xl mt-10"
@@ -174,7 +174,7 @@ export function HomeContentMobile() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.4, ease: 'easeOut' }}
           >
-            {t('hero_title_2')}
+            {t('hero_title_2_mobile')}
           </motion.p>
         </motion.div>
         {/* 双视频元素交替显示，避免切换闪烁 */}

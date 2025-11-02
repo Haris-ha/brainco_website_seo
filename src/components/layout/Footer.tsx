@@ -303,27 +303,27 @@ export function Footer({ locale }: FooterProps) {
 
       {/* 移动端Footer */}
       <footer className="bg-gray-50 md:hidden">
-        <div className="w-full px-6 py-5">
+        <div className="w-full px-10 py-5">
           {/* 返回顶部 */}
           <button
             type="button"
             onClick={scrollToTop}
             className="flex w-full flex-col items-center justify-center pt-5 text-gray-600"
           >
-            <span className="mb-1 text-xs">↑</span>
-            <span className="text-xs">{t('back_to_top')}</span>
+            <span className="text-fluid-lg mb-1">↑</span>
+            <span className="text-fluid-lg">{t('back_to_top')}</span>
           </button>
 
           {/* 导航链接 */}
           <div className="mt-9 flex gap-8">
             {/* 产品栏 */}
             <div className="flex-[3]">
-              <h4 className="mb-6 text-xs font-medium !text-[#666]">
+              <h4 className="text-fluid-lg mb-6 font-semibold !text-[#333]">
                 {t('products')}
               </h4>
               {productNavigation.map(section => (
                 <div key={section.title} className="mt-6 first:mt-0">
-                  <h5 className="mb-3 text-[10px] font-medium !text-[#666]">
+                  <h5 className="mb-3 text-[12px] font-semibold !text-[#333]">
                     {section.title}
                   </h5>
                   {section.items.map(item => (
@@ -343,7 +343,7 @@ export function Footer({ locale }: FooterProps) {
             <div className="flex-[2]">
               {otherNavigation.map(section => (
                 <div key={section.title} className="mb-6 first:mb-2">
-                  <h4 className="mb-2 text-xs font-medium !text-[#666]">
+                  <h4 className="text-fluid-lg mb-2 font-semibold !text-[#333]">
                     {section.title}
                   </h4>
                   {section.items.map(item => (
@@ -361,8 +361,8 @@ export function Footer({ locale }: FooterProps) {
           </div>
 
           {/* 社交媒体 */}
-          <div className="mt-11 flex items-center px-6">
-            <span className="mr-6 text-xs">{t('follow_us')}</span>
+          <div className="mt-11 flex items-center justify-center">
+            <span className="text-fluid-lg mr-6">{t('follow_us')}</span>
             <div className="flex items-center gap-5">
               <button
                 type="button"
@@ -407,7 +407,7 @@ export function Footer({ locale }: FooterProps) {
           </div>
 
           {/* Logo */}
-          <div className="mt-14 flex justify-center">
+          <div className="mt-10 flex justify-center md:mt-14">
             <Image
               src="/icons/logo.pc.webp"
               alt="BrainCo Logo"
@@ -418,16 +418,16 @@ export function Footer({ locale }: FooterProps) {
           </div>
 
           {/* 语言切换 */}
-          <div className="mt-6 flex flex-col items-center gap-2">
-            <span className="text-xs font-medium !text-[#666]">
+          <div className="mb-6 flex flex-col items-center gap-2 md:mt-6 md:mb-0">
+            {/* <span className="text-fluid-lg font-semibold !text-[#666]">
               {locale === 'zh-CN' ? '语言' : locale === 'en-US' ? 'Language' : '語言'}
-            </span>
+            </span> */}
             <LanguageSelector />
           </div>
 
           {/* 版权信息 */}
           <div className="mt-2.5 px-5 pb-5 text-center">
-            <p className="text-[8px] !text-gray-500">
+            <p className="text-[10px] !text-gray-500">
               {isHangzhou
                 ? t('copyright_hangzhou')
                 : t('copyright_shenzhen')}
@@ -453,15 +453,15 @@ export function Footer({ locale }: FooterProps) {
             onClick={() => setShowWechatQR(false)}
             onKeyDown={e => e.key === 'Escape' && setShowWechatQR(false)}
           >
-            <div className="absolute bottom-24 flex w-40 flex-col items-center justify-center rounded-3xl bg-white p-4 text-center shadow-lg">
+            <div className="absolute bottom-24 flex w-60 flex-col items-center justify-center rounded-3xl bg-white p-4 text-center shadow-lg">
               <Image
-                src="https://website-www-brainco-cn.oss-cn-hangzhou.aliyuncs.com/assets/images/brainco_code.jpg"
+                src="https://website-www-brainco-cn.oss-cn-hangzhou.aliyuncs.com/images/brainco_code.jpg"
                 alt="WeChat QR Code"
                 width={100}
                 height={100}
                 className="mb-2 size-25"
               />
-              <p className="text-xs text-gray-600">
+              <p className="text-fluid-lg text-gray-600">
                 {t('wechat_qrcode_title')}
                 {' '}
                 <br />
