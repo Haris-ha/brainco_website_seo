@@ -19,13 +19,13 @@ export default function AboutContentMobile() {
           className="w-full object-cover"
         />
         <motion.div
-          className="absolute top-0 left-0 flex h-[calc(100vh-80px)] w-full flex-col justify-center px-20 pr-5"
+          className="absolute top-0 left-0 flex h-[calc(100vh-80px)] w-full flex-col justify-center px-20 backdrop-blur-[3px]"
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.3, ease: 'easeOut' }}
         >
           <motion.h1
-            className="text-[40px] font-bold text-white"
+            className="text-fluid-5xl text-center font-bold text-white"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.5, ease: 'easeOut' }}
@@ -33,7 +33,7 @@ export default function AboutContentMobile() {
             {t('page_title')}
           </motion.h1>
           <motion.p
-            className="mt-5 text-base text-white"
+            className="text-fluid-base mt-5 text-center text-white"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.7, ease: 'easeOut' }}
@@ -61,10 +61,10 @@ export default function AboutContentMobile() {
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.1, ease: 'easeOut' }}
           >
-            <dt className="mt-[16px] mb-[18px] inline-block border-b-[3px] border-[#333] pr-1 pb-[6px] text-xl">
+            <dt className="text-fluid-xl mt-[16px] mb-[18px] inline-block border-b-[3px] border-[#333] pr-1 pb-[6px]">
               {t('mission')}
             </dt>
-            <dd className="mb-[6px] text-[#707070]">{t('mission_text')}</dd>
+            <dd className="text-fluid-base mb-[6px] text-[#656565]">{t('mission_text')}</dd>
           </motion.div>
 
           <motion.div
@@ -73,10 +73,10 @@ export default function AboutContentMobile() {
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.2, ease: 'easeOut' }}
           >
-            <dt className="mt-[38px] mb-[18px] inline-block border-b-[3px] border-[#333] pr-1 pb-[6px] text-xl">
+            <dt className="text-fluid-xl mt-[38px] mb-[18px] inline-block border-b-[3px] border-[#333] pr-1 pb-[6px]">
               {t('vision')}
             </dt>
-            <dd className="mb-[6px] text-[#707070]">{t('vision_text')}</dd>
+            <dd className="text-fluid-base mb-[6px] text-[#656565]">{t('vision_text')}</dd>
           </motion.div>
 
           <motion.div
@@ -85,13 +85,13 @@ export default function AboutContentMobile() {
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.3, ease: 'easeOut' }}
           >
-            <dt className="mt-[38px] mb-[18px] inline-block border-b-[3px] border-[#333] pr-1 pb-[6px] text-xl">
+            <dt className="text-fluid-xl mt-[38px] mb-[18px] inline-block border-b-[3px] border-[#333] pr-1 pb-[6px]">
               {t('values')}
             </dt>
-            <dd className="mb-[6px] text-[#707070]">{t('values_1')}</dd>
-            <dd className="mb-[6px] text-[#707070]">{t('values_2')}</dd>
-            <dd className="mb-[6px] text-[#707070]">{t('values_3')}</dd>
-            <dd className="mb-[6px] text-[#707070]">{t('values_4')}</dd>
+            <dd className="text-fluid-base mb-[6px] text-[#656565]">{t('values_1')}</dd>
+            <dd className="text-fluid-base mb-[6px] text-[#656565]">{t('values_2')}</dd>
+            <dd className="text-fluid-base mb-[6px] text-[#656565]">{t('values_3')}</dd>
+            <dd className="text-fluid-base mb-[6px] text-[#656565]">{t('values_4')}</dd>
           </motion.div>
         </dl>
       </motion.div>
@@ -119,9 +119,9 @@ export default function AboutContentMobile() {
               alt={t('social_contribution')}
               width={750}
               height={400}
-              className="w-full object-cover"
+              className="w-full rounded-sm object-cover"
             />
-            <p className="mt-[10px] text-sm text-[#707070]">
+            <p className="text-fluid-base mt-[10px] text-center text-[#656565]">
               {t('contribution_text')}
             </p>
           </motion.li>
