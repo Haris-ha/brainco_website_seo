@@ -17,7 +17,6 @@ export default function PurchaseButton({
   isMobile = false,
 }: PurchaseButtonProps) {
   const t = useTranslations('FocusZen');
-  const tCart = useTranslations('Cart');
   const router = useRouter();
   const { addToCart } = useCart();
   const [isLoading, setIsLoading] = useState(false);
@@ -41,9 +40,8 @@ export default function PurchaseButton({
         code: product.code || 'focus-zen',
       });
 
-      toast.success(tCart('added_to_cart'));
-
       // 跳转到购物车页面
+      // toast 已经在 addToCart 中显示，无需重复
       setTimeout(() => {
         router.push('/cart');
       }, 500);
@@ -62,7 +60,7 @@ export default function PurchaseButton({
         whileTap={{ scale: 0.98 }}
         onClick={handleBuyNow}
         disabled={isLoading}
-        className="text-fluid-xl h-[50px] w-full rounded-[25px] bg-[#4f68d2] font-medium text-white transition-all hover:bg-[#3d52a8] disabled:cursor-not-allowed disabled:opacity-50"
+        className="text-fluid-base h-[36px] w-[120px] cursor-pointer rounded-[22px] bg-[#4f68d2] font-medium text-white transition-all disabled:cursor-not-allowed disabled:opacity-50"
       >
         {isLoading ? '加载中...' : t('buy_now')}
       </motion.button>

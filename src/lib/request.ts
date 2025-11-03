@@ -20,7 +20,7 @@ const BASE_URL = process.env.NEXT_PUBLIC_API_BASE_URL || '';
 const TIMEOUT = 5000;
 
 // 创建请求实例
-class Request {
+export class Request {
   private baseURL: string;
   private timeout: number;
 

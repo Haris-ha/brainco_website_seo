@@ -20,35 +20,61 @@ import PurchaseButton from './PurchaseButton';
 export default function FocusZenContentMobile() {
   const t = useTranslations('FocusZen');
   const [product, setProduct] = useState<any>(null);
+  const [isScrolling, setIsScrolling] = useState(false);
 
   // Fetch product data from API
   useEffect(() => {
     const fetchProduct = async () => {
-      const productData = await findProductByIdentifier(null, productCode, productCode);
-      if (productData) {
-        setProduct(productData);
+      try {
+        const productData = await findProductByIdentifier(null, productCode, productCode);
+        if (productData && productData.price) {
+          setProduct(productData);
+        }
+      } catch (error) {
+        // 静默处理错误，避免影响页面显示
+        // 购买栏可以在没有产品数据时仍然显示（使用默认或从其他地方获取）
+        console.warn('Failed to fetch product data, purchase bar may not show:', error);
       }
     };
     fetchProduct();
+  }, []);
+
+  // Handle scroll detection
+  useEffect(() => {
+    let scrollTimer: NodeJS.Timeout;
+
+    const handleScroll = () => {
+      setIsScrolling(true);
+      clearTimeout(scrollTimer);
+      scrollTimer = setTimeout(() => {
+        setIsScrolling(false);
+      }, 150);
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+      clearTimeout(scrollTimer);
+    };
   }, []);
 
   return (
     <div>
       {/* Hero Banner Section */}
       <section
-        className="relative flex min-h-[500px] items-end justify-center bg-cover bg-center"
+        className="relative mt-24 flex min-h-[500px] items-end justify-center bg-cover bg-center"
         style={{
           backgroundImage: `url(${imageUrls.heroBannerMobile})`,
         }}
       >
-        <div className="flex h-full flex-col items-center px-4 pb-10 text-center text-white">
+        <div className="flex h-full flex-col items-center px-4 pb-16 text-center text-white">
           {/* 毛玻璃背景容器 */}
           <div className="rounded-2xl px-6 py-8">
             <motion.h1
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6 }}
-              className="text-fluid-3xl mb-1 font-medium"
+              className="text-fluid-4xl mb-1 font-medium"
             >
               {t('hero_title')}
             </motion.h1>
@@ -56,7 +82,7 @@ export default function FocusZenContentMobile() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.2 }}
-              className="text-fluid-4xl mb-2 font-medium"
+              className="text-fluid-5xl mb-2 font-medium"
             >
               {t('hero_subtitle')}
             </motion.h2>
@@ -64,13 +90,13 @@ export default function FocusZenContentMobile() {
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ duration: 0.6, delay: 0.4 }}
-              className="mx-auto mb-4 h-[1px] w-[60px] bg-white"
+              className="mx-auto my-4 h-[1px] w-[60px] bg-white"
             />
             <motion.p
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.6 }}
-              className="text-fluid-base mb-4 opacity-90"
+              className="text-fluid-lg mb-4"
             >
               {t('hero_slogan_1')}
               ,
@@ -99,23 +125,23 @@ export default function FocusZenContentMobile() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.6, delay: index * 0.1 }}
-                className="flex items-start space-x-4"
+                className="flex w-full items-center justify-center space-x-4"
               >
                 <Image
                   src={feature.icon}
                   alt={t(feature.titleKey)}
-                  width={48}
-                  height={48}
+                  width={58}
+                  height={58}
                   className="flex-shrink-0"
                 />
-                <div>
+                <div className="w-[45%]">
                   <h3 className="text-fluid-xl mb-2 font-medium">
                     {t(feature.titleKey)}
                   </h3>
-                  <p className="text-fluid-base font-light text-gray-700">
+                  <p className="text-fluid-base text-gray-700">
                     {t(feature.desc1Key)}
                   </p>
-                  <p className="text-fluid-base font-light text-gray-700">
+                  <p className="text-fluid-base text-gray-700">
                     {t(feature.desc2Key)}
                   </p>
                 </div>
@@ -151,7 +177,7 @@ export default function FocusZenContentMobile() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.4 }}
-            className="text-fluid-base mb-2 font-light"
+            className="text-fluid-base mb-2 px-10"
           >
             {t('neurofeedback_desc_1')}
           </motion.p>
@@ -160,7 +186,7 @@ export default function FocusZenContentMobile() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.6 }}
-            className="text-fluid-base mb-8 font-light"
+            className="text-fluid-base mb-8"
           >
             {t('neurofeedback_desc_2')}
           </motion.p>
@@ -179,7 +205,7 @@ export default function FocusZenContentMobile() {
             />
 
             {/* Mindfulness Scenes Overlay */}
-            <div className="absolute top-0 left-0 flex h-full w-full flex-col justify-around space-y-4 p-6">
+            <div className="absolute top-0 left-0 flex h-full w-full flex-col justify-around space-y-4 px-10 py-6">
               {mindfulnessScenes.map((scene, index) => (
                 <motion.div
                   key={scene.nameKey}
@@ -187,7 +213,7 @@ export default function FocusZenContentMobile() {
                   whileInView={{ opacity: 1, x: 0 }}
                   viewport={{ once: true }}
                   transition={{ duration: 0.6, delay: index * 0.1 }}
-                  className="relative w-14"
+                  className="relative w-[14vw]"
                 >
                   <Image
                     src={scene.image}
@@ -233,7 +259,7 @@ export default function FocusZenContentMobile() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6, delay: 0.2 }}
-              className="text-fluid-base mb-2 font-light"
+              className="text-fluid-base mb-2"
             >
               {t('report_desc_1')}
             </motion.p>
@@ -242,7 +268,7 @@ export default function FocusZenContentMobile() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6, delay: 0.4 }}
-              className="text-fluid-base font-light"
+              className="text-fluid-base"
             >
               {t('report_desc_2')}
             </motion.p>
@@ -285,7 +311,7 @@ export default function FocusZenContentMobile() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6, delay: 0.2 }}
-              className="text-fluid-base mb-2 font-light"
+              className="text-fluid-base mb-2"
             >
               {t('content_desc_1')}
             </motion.p>
@@ -294,7 +320,7 @@ export default function FocusZenContentMobile() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6, delay: 0.4 }}
-              className="text-fluid-base font-light"
+              className="text-fluid-base"
             >
               {t('content_desc_2')}
             </motion.p>
@@ -337,7 +363,7 @@ export default function FocusZenContentMobile() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6, delay: 0.2 }}
-              className="text-fluid-base font-light"
+              className="text-fluid-base px-8"
             >
               {t('group_mode_desc_1')}
               {t('group_mode_desc_2')}
@@ -413,7 +439,7 @@ export default function FocusZenContentMobile() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6, delay: 0.2 }}
-              className="text-fluid-base font-light"
+              className="text-fluid-base"
             >
               {t('community_desc_1')}
               {t('community_desc_2')}
@@ -461,7 +487,7 @@ export default function FocusZenContentMobile() {
       </section>
 
       {/* Business Solution Section */}
-      <section className="relative">
+      <section className="relative bg-[#1c1d20] py-12">
         <Image
           src={imageUrls.businessBg}
           alt="Business Background"
@@ -487,7 +513,7 @@ export default function FocusZenContentMobile() {
               transition={{ duration: 0.6, delay: 0.2 }}
               className="text-fluid-base mb-2 flex items-center justify-end space-x-2"
             >
-              <span className="relative pr-2 after:absolute after:top-1/2 after:right-0 after:h-4 after:w-[3px] after:-translate-y-1/2 after:bg-white after:content-['']">
+              <span className="relative pr-4 after:absolute after:top-1/2 after:right-0 after:h-4 after:w-[3px] after:-translate-y-1/2 after:bg-white after:content-['']">
                 {t('business_institution')}
               </span>
               <span>{t('business_institution_subtitle')}</span>
@@ -497,12 +523,12 @@ export default function FocusZenContentMobile() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6, delay: 0.4 }}
-              className="text-fluid-xs mb-6 text-right font-light"
+              className="text-fluid-sm mb-6 text-right"
             >
               {t('business_desc')}
             </motion.p>
 
-            <div className="flex justify-between">
+            <div className="-ml-4 flex justify-between gap-2">
               {solutionItems.map((item, index) => (
                 <motion.div
                   key={item.nameKey}
@@ -545,7 +571,7 @@ export default function FocusZenContentMobile() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6, delay: 0.2 }}
-          className="text-fluid-base mb-2 px-4 font-light"
+          className="text-fluid-base mb-2 px-4"
         >
           {t('training_desc_1')}
         </motion.p>
@@ -554,7 +580,7 @@ export default function FocusZenContentMobile() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6, delay: 0.4 }}
-          className="text-fluid-base mb-6 px-4 font-light"
+          className="text-fluid-base mb-6 px-4"
         >
           {t('training_desc_2')}
         </motion.p>
@@ -585,7 +611,7 @@ export default function FocusZenContentMobile() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
-            className="text-fluid-3xl mb-10 font-normal"
+            className="text-fluid-3xl mb-8 font-normal"
           >
             <span className="relative pr-3 after:absolute after:top-1/2 after:right-0 after:h-6 after:w-[2px] after:-translate-y-1/2 after:bg-gray-900 after:content-['']">
               {t('meditation_corner')}
@@ -645,7 +671,7 @@ export default function FocusZenContentMobile() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.2 }}
-            className="text-fluid-base mb-2 font-light"
+            className="text-fluid-base mb-2"
           >
             {t('salon_desc_1')}
           </motion.p>
@@ -654,7 +680,7 @@ export default function FocusZenContentMobile() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.4 }}
-            className="text-fluid-base mb-2 font-light"
+            className="text-fluid-base mb-2"
           >
             {t('salon_desc_2')}
           </motion.p>
@@ -663,7 +689,7 @@ export default function FocusZenContentMobile() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.6 }}
-            className="text-fluid-base mb-8 font-light"
+            className="text-fluid-base mb-8"
           >
             {t('salon_desc_3')}
           </motion.p>
@@ -676,6 +702,7 @@ export default function FocusZenContentMobile() {
                 whileInView={{ opacity: 1, scale: 1 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.4, delay: index * 0.03 }}
+                className="relative"
               >
                 <Image
                   src={img.url}
@@ -684,6 +711,13 @@ export default function FocusZenContentMobile() {
                   height={150}
                   className="w-full"
                 />
+                {img.labelKey && (
+                  <div className="absolute top-1/2 right-0 left-0 -translate-y-1/2 bg-black/30 py-2">
+                    <span className="text-fluid-base block text-center font-medium text-white drop-shadow-lg">
+                      {t(img.labelKey)}
+                    </span>
+                  </div>
+                )}
               </motion.div>
             ))}
           </div>
@@ -691,7 +725,7 @@ export default function FocusZenContentMobile() {
       </section>
 
       {/* Partners Section */}
-      <section className="py-12">
+      <section className="pb-8">
         <div className="px-4 text-center">
           <motion.h3
             initial={{ opacity: 0, y: 20 }}
@@ -720,16 +754,21 @@ export default function FocusZenContentMobile() {
       </section>
 
       {/* Fixed Bottom Purchase Bar */}
-      {product && (
-        <div className="fixed right-0 bottom-0 left-0 z-50 border-t border-gray-200 bg-white px-4 py-3 shadow-lg">
+      {product && product.price && (
+        <motion.div
+          initial={{ y: 0 }}
+          animate={{ y: isScrolling ? 100 : 0 }}
+          transition={{ duration: 0.3, ease: 'easeInOut' }}
+          className="fixed right-0 bottom-0 left-0 z-50 border-t border-gray-200 bg-white px-4 py-3 shadow-lg"
+        >
           <div className="flex items-center justify-between">
             <div className="ml-4 flex items-baseline">
-              <span className="text-fluid-3xl font-medium text-gray-900">
+              <span className="text-fluid-2xl font-medium text-gray-900">
                 ¥
                 {product.price / 100}
               </span>
               {product.oldPrice && (
-                <span className="text-fluid-base ml-2 text-gray-600 line-through">
+                <span className="text-fluid-base ml-1 text-gray-600 line-through">
                   ¥
                   {product.oldPrice / 100}
                 </span>
@@ -739,10 +778,8 @@ export default function FocusZenContentMobile() {
               <PurchaseButton product={product} isMobile />
             </div>
           </div>
-        </div>
+        </motion.div>
       )}
-      {' '}
-      {/* Spacer for fixed button */}
 
       {/* After Sales */}
       <AfterSalesMobile />

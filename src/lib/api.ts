@@ -2,7 +2,7 @@
  * API调用封装
  */
 
-import request from './request';
+import { Request as RequestClass } from './request';
 
 // 产品数据类型定义
 export type ProductData = {
@@ -19,12 +19,15 @@ export type ProductsResponse = {
   message?: string;
 };
 
+// 创建专门用于产品 API 的请求实例（使用 bc-api.brainco.cn）
+const productApiRequest = new RequestClass('https://bc-api.brainco.cn');
+
 /**
  * 获取所有产品数据
  */
 export const getBraincoProducts = async (): Promise<ProductsResponse> => {
   try {
-    const response = await request.get<ProductData[]>('/rsc/api/brainco-products');
+    const response = await productApiRequest.get<ProductData[]>('/rsc/api/brainco-products');
     return response as ProductsResponse;
   } catch (error) {
     console.error('获取产品数据失败:', error);
