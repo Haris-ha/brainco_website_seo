@@ -30,12 +30,12 @@ export function CartSummary({ totalPrice, hasCheckedItems }: CartSummaryProps) {
       initial={{ opacity: 0, y: 30 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.6, delay: 0.2 }}
-      className="mt-8 border-t border-dashed border-[#707070] pt-6 md:mt-12 md:pt-8"
+      className="mt-8 pt-6 md:pt-8"
     >
       {/* 快递配送信息 */}
-      <div className="mb-6 md:mb-8">
+      <div className="mb-4 md:mb-8">
         <div className="flex items-center justify-between md:justify-start md:gap-2">
-          <span className="text-fluid-lg md:text-fluid-xl text-[#595757]">
+          <span className="text-fluid-lg md:text-fluid-2xl text-[#595757]">
             {t('shipping')}
           </span>
           <span className="text-fluid-lg md:text-fluid-xl font-medium text-[#4F68D2]">
@@ -45,7 +45,7 @@ export function CartSummary({ totalPrice, hasCheckedItems }: CartSummaryProps) {
       </div>
 
       {/* 价格明细 */}
-      <div className="mb-6 flex flex-col gap-2 md:mb-8">
+      <div className="mb-4 flex flex-col gap-2 md:mb-8">
         <div className="flex items-baseline justify-between md:items-center">
           <span className="text-fluid-xl md:text-fluid-3xl text-[#333]">
             {t('total')}
@@ -71,7 +71,7 @@ export function CartSummary({ totalPrice, hasCheckedItems }: CartSummaryProps) {
           whileTap={hasCheckedItems ? { scale: 0.95 } : {}}
           onClick={handleCheckout}
           disabled={!hasCheckedItems}
-          className={`text-fluid-2xl md:text-fluid-2xl cursor-target h-[28px] w-[80px] rounded-[14px] font-medium text-white shadow-lg transition-all md:h-[48px] md:w-[160px] md:rounded-[32px] ${
+          className={`text-fluid-xl  cursor-target h-[36px] w-[120px] rounded-[28px] font-medium text-white shadow-lg transition-all md:h-[48px] md:w-[160px] md:rounded-[32px] ${
             hasCheckedItems
               ? 'bg-[#4F68D2] hover:bg-[#3d52a8]'
               : 'cursor-not-allowed bg-[rgba(0,0,0,0.16)]'
@@ -83,7 +83,7 @@ export function CartSummary({ totalPrice, hasCheckedItems }: CartSummaryProps) {
 
       {/* 版权信息 */}
       <div className="border-t border-dashed border-[#e0e0e0] pt-6 text-center">
-        <p className="text-fluid-lg md:text-fluid-lg flex flex-col items-center gap-1 text-[#999] md:flex-row md:justify-center md:gap-3">
+        <p className="text-fluid-lg md:text-fluid-lg flex flex-col items-center gap-1 text-[#444] md:flex-row md:justify-center md:gap-3">
           <span>{t('copyright')}</span>
           <span className="hidden md:inline">·</span>
           <span>{t('privacy_legal')}</span>

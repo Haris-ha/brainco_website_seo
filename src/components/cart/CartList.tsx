@@ -33,7 +33,7 @@ export function CartList({
           initial={{ opacity: 0, x: -20 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.6 }}
-          className="text-fluid-4xl md:text-fluid-5xl font-medium text-[#333]"
+          className="text-fluid-3xl md:text-fluid-5xl font-medium text-[#333]"
         >
           {t('title')}
         </motion.h1>
@@ -84,7 +84,7 @@ export function CartList({
           animate={{ opacity: 1, y: 0 }}
           className="mb-4 text-center md:hidden"
         >
-          <span className="text-fluid-base text-[#595757]">
+          <span className="text-fluid-lg text-[#595757]">
             {t('selected_items', { count: checkedCount })}
           </span>
         </motion.div>

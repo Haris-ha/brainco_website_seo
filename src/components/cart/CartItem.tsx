@@ -37,16 +37,16 @@ export const CartItem = memo(({
       animate={{ opacity: 1, y: 0 }}
       exit={{ opacity: 0, x: -20 }}
       transition={{ duration: 0.3 }}
-      className="flex flex-col gap-4  pb-4 md:flex-row md:items-center md:justify-between md:pb-6"
+      className="flex flex-col gap-4  border-b border-dashed border-[#707070] pb-4 md:flex-row md:items-center md:justify-between md:pb-6"
     >
       {/* 复选框和商品信息 */}
-      <div className="flex items-start gap-4 md:flex-1 md:items-center md:gap-8">
+      <div className="flex items-center gap-4 md:flex-1 md:items-center md:gap-8">
         {/* 复选框 */}
         <motion.div
           whileHover={{ scale: 1.1 }}
           whileTap={{ scale: 0.9 }}
           onClick={() => onToggleCheck(item.id)}
-          className={`cursor-target mt-1 flex size-[8px] shrink-0 cursor-pointer items-center justify-center rounded-[2px] border transition-all md:mt-0 md:size-[24px] md:rounded-[4px] ${
+          className={`cursor-target mt-1 flex size-[14px] shrink-0 cursor-pointer items-center justify-center rounded-[2px] border transition-all md:mt-0 md:size-[24px] md:rounded-[4px] ${
             item.checked
               ? 'border-[#4F68D2] bg-[#4F68D2]'
               : 'border-[#707070] bg-white'
@@ -56,7 +56,7 @@ export const CartItem = memo(({
             <motion.svg
               initial={{ scale: 0 }}
               animate={{ scale: 1 }}
-              className="size-[6px] text-white md:size-[24px]"
+              className="size-[12px] text-white md:size-[24px]"
               fill="none"
               stroke="currentColor"
               viewBox="0 0 24 24"
@@ -122,7 +122,7 @@ export const CartItem = memo(({
         </div>
 
         {/* 单价 */}
-        <div className="text-fluid-xl w-[80px] text-center text-[#595757]">
+        <div className="text-fluid-2xl w-[80px] text-center text-[#595757]">
           ¥
           {(item.price / 100).toFixed(2)}
         </div>
@@ -143,7 +143,7 @@ export const CartItem = memo(({
       <div className="flex items-center justify-between md:hidden">
         <div className="flex items-center gap-4">
           {/* 价格 */}
-          <span className="text-fluid-base text-[#595757]">
+          <span className="text-fluid-lg text-[#595757]">
             ¥
             {(item.price / 100).toFixed(2)}
           </span>
@@ -175,7 +175,7 @@ export const CartItem = memo(({
         <motion.button
           whileTap={{ scale: 0.9 }}
           onClick={() => onRemove(item.id)}
-          className="size-[24px]"
+          className="size-[18px]"
           aria-label={t('delete')}
         >
           <Trash2 className="size-full text-[#707070]" />
@@ -184,7 +184,7 @@ export const CartItem = memo(({
 
       {/* 小计（Mobile） */}
       <div className="text-right md:hidden">
-        <span className="text-fluid-base text-[#333]">
+        <span className="text-fluid-lg text-[#333]">
           {t('subtotal')}
           : ¥
           {subtotal.toFixed(2)}
