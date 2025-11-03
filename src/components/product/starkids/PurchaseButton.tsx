@@ -67,7 +67,9 @@ export default function PurchaseButton({
 
   // Handle scroll detection and bottom detection for mobile
   useEffect(() => {
-    if (!isMobile) return;
+    if (!isMobile) {
+      return;
+    }
 
     let scrollTimer: NodeJS.Timeout;
 
@@ -106,36 +108,40 @@ export default function PurchaseButton({
         initial={{ y: 0 }}
         animate={{ y: isScrolling || isAtBottom ? 200 : 0 }}
         transition={{ duration: 0.3, ease: 'easeInOut' }}
-        className="fixed right-0 bottom-0 left-0 z-50 flex flex-col bg-white pb-[10px] shadow-[0px_-3px_6px_1px_rgba(0,0,0,0.16)]"
+        className="fixed right-0 bottom-0 left-0 z-40 flex flex-col bg-white pt-2 shadow-lg"
       >
         {/* Discount Banner */}
         <DiscountBanner product={product} isMobile />
 
         {/* Purchase Bar */}
-        <div className="mt-[14px] flex items-center justify-between px-5">
-          {showPrice && product?.price && (
-            <div className="flex items-baseline">
-              <span className="mr-2 text-2xl font-medium text-[#333]">
-                ¥
-                {formatPrice(product.price)}
-              </span>
-              {product.oldPrice && (
-                <span className="ml-1.5 text-lg text-[#afafaf] line-through">
+        <div className="px-4 py-4">
+          <div className="flex items-center justify-between">
+            {showPrice && product?.price && (
+              <div className="ml-4 flex items-baseline">
+                <span className="text-fluid-2xl font-medium text-gray-900">
                   ¥
-                  {formatPrice(product.oldPrice)}
+                  {product.price / 100}
                 </span>
-              )}
+                {product.oldPrice && (
+                  <span className="text-fluid-base ml-1 text-gray-600 line-through">
+                    ¥
+                    {product.oldPrice / 100}
+                  </span>
+                )}
+              </div>
+            )}
+            <div className="w-[120px]">
+              <motion.button
+                whileHover={{ scale: 1.02 }}
+                whileTap={{ scale: 0.98 }}
+                onClick={handleBuyNow}
+                disabled={isLoading}
+                className="text-fluid-base h-[36px] w-[120px] cursor-pointer rounded-[22px] bg-[#4f68d2] font-medium text-white transition-all disabled:cursor-not-allowed disabled:opacity-50"
+              >
+                {isLoading ? tCart('submitting') : t('buy_now')}
+              </motion.button>
             </div>
-          )}
-          <motion.button
-            whileHover={{ scale: 1.02 }}
-            whileTap={{ scale: 0.98 }}
-            onClick={handleBuyNow}
-            disabled={isLoading}
-            className="h-[50px] w-[162px] cursor-pointer rounded-[25px] bg-[#4f68d2] text-lg font-medium text-white shadow-[0px_3px_20px_1px_rgba(0,0,0,0.16)] transition-all disabled:cursor-not-allowed disabled:opacity-50"
-          >
-            {isLoading ? tCart('submitting') : t('buy_now')}
-          </motion.button>
+          </div>
         </div>
       </motion.div>
     );

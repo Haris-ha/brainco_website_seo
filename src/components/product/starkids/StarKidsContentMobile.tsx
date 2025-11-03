@@ -28,7 +28,7 @@ export default function StarKidsContentMobile() {
   }, []);
 
   return (
-    <div className="w-full pb-32" style={{ fontFamily: 'PingFang SC', color: '#333' }}>
+    <div className="w-full" style={{ fontFamily: 'PingFang SC', color: '#333' }}>
       {/* Hero Section */}
       <motion.section
         initial={{ opacity: 0 }}
