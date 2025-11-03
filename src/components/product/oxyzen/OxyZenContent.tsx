@@ -514,7 +514,7 @@ export default function OxyZenContent({ productInfo }: OxyZenContentProps) {
               height={82}
               className="mr-[1.56vw] h-auto w-[4.27vw]"
             />
-            <div className="flex flex-col items-center">
+            <div className="flex w-[5.72vw] flex-col items-center">
               <span className="text-fluid-lg text-center">{t('xiaohongshu')}</span>
               <span className="text-fluid-lg text-center">{t('xiaohongshu_account')}</span>
             </div>

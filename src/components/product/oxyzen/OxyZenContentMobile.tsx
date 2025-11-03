@@ -16,7 +16,7 @@ export default function OxyZenContentMobile({ productInfo }: OxyZenContentMobile
   return (
     <div className="bg-white text-[#333]">
       {/* Hero Banner */}
-      <section className="relative">
+      <section className="relative mt-24">
         <Image
           src="https://website-www-brainco-cn.oss-cn-hangzhou.aliyuncs.com/images/Iq43zFOho6u9SW5N.png"
           alt={t('product_name')}
@@ -66,7 +66,7 @@ export default function OxyZenContentMobile({ productInfo }: OxyZenContentMobile
       {/* Award */}
       <section className="px-6 py-9 text-center">
         <motion.p
-          className="text-fluid-sm"
+          className="text-fluid-base"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
@@ -79,7 +79,7 @@ export default function OxyZenContentMobile({ productInfo }: OxyZenContentMobile
       {/* Data Collection */}
       <section className="px-6 py-9 text-center">
         <motion.h2
-          className="text-fluid-2xl mb-4 font-medium"
+          className="text-fluid-3xl mb-4 font-medium"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
@@ -88,7 +88,7 @@ export default function OxyZenContentMobile({ productInfo }: OxyZenContentMobile
           {t('data_collection_title')}
         </motion.h2>
         <motion.p
-          className="text-fluid-sm leading-relaxed"
+          className="text-fluid-base px-4 leading-relaxed"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
@@ -115,7 +115,7 @@ export default function OxyZenContentMobile({ productInfo }: OxyZenContentMobile
             transition={{ delay: index * 0.1, duration: 0.6 }}
           >
             <Image src={item.icon} alt="" width={15} height={15} className="mr-2 h-auto w-auto" />
-            <span className="text-fluid-sm whitespace-nowrap">{t(item.label as any)}</span>
+            <span className="text-fluid-base whitespace-nowrap">{t(item.label as any)}</span>
           </motion.div>
         ))}
       </div>
@@ -143,7 +143,7 @@ export default function OxyZenContentMobile({ productInfo }: OxyZenContentMobile
         {/* Card 1 */}
         <div className="mb-5 flex gap-5">
           <motion.div
-            className="w-[51.73vw] rounded-[30px] bg-white px-2.5 py-2.5 text-center"
+            className="w-[51.73vw] rounded-xl bg-white px-5 py-5 text-center"
             initial={{ opacity: 0, x: -20 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
@@ -151,7 +151,7 @@ export default function OxyZenContentMobile({ productInfo }: OxyZenContentMobile
           >
             <h3 className="text-fluid-xl mb-2 font-medium">{t('design_magnetic_title')}</h3>
             <p
-              className="text-fluid-sm leading-relaxed"
+              className="text-fluid-base leading-relaxed"
               dangerouslySetInnerHTML={{ __html: t('design_magnetic_desc').replace(/\n/g, ' ') }}
             />
             <Image
@@ -164,7 +164,7 @@ export default function OxyZenContentMobile({ productInfo }: OxyZenContentMobile
           </motion.div>
 
           <motion.div
-            className="w-[35.73vw] rounded-[30px] bg-white px-2.5 py-2.5 text-center"
+            className="w-[35.73vw] rounded-xl bg-white px-5 py-5 text-center"
             initial={{ opacity: 0, x: 20 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
@@ -172,7 +172,7 @@ export default function OxyZenContentMobile({ productInfo }: OxyZenContentMobile
           >
             <h3 className="text-fluid-xl mb-2 font-medium">{t('design_comfortable_title')}</h3>
             <p
-              className="text-fluid-sm leading-relaxed"
+              className="text-fluid-base leading-relaxed"
               dangerouslySetInnerHTML={{ __html: t('design_comfortable_desc').replace(/\n/g, ' ') }}
             />
             <Image
@@ -188,7 +188,7 @@ export default function OxyZenContentMobile({ productInfo }: OxyZenContentMobile
         {/* Cards 2 */}
         <div className="flex gap-5">
           <motion.div
-            className="overflow-hidden rounded-[30px] bg-white"
+            className="flex items-center justify-center overflow-hidden rounded-xl bg-white"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -204,7 +204,7 @@ export default function OxyZenContentMobile({ productInfo }: OxyZenContentMobile
           </motion.div>
 
           <motion.div
-            className="w-[32vw] rounded-[30px] bg-white px-2.5 py-2.5 text-center"
+            className="w-[32vw] rounded-xl bg-white px-5 py-5 text-center"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -212,7 +212,7 @@ export default function OxyZenContentMobile({ productInfo }: OxyZenContentMobile
           >
             <h3 className="text-fluid-xl mb-2 font-medium">{t('design_portable_title')}</h3>
             <p
-              className="text-fluid-sm leading-relaxed"
+              className="text-fluid-base leading-relaxed"
               dangerouslySetInnerHTML={{ __html: t('design_portable_desc').replace(/\n/g, ' ') }}
             />
             <Image
@@ -229,7 +229,7 @@ export default function OxyZenContentMobile({ productInfo }: OxyZenContentMobile
       {/* 3D Indicators */}
       <section className="px-6 py-9 text-center">
         <motion.h2
-          className="text-fluid-2xl relative mb-2.5 pb-2.5 font-medium after:absolute after:bottom-0 after:left-1/2 after:h-[1px] after:w-10 after:-translate-x-1/2 after:bg-[#333]"
+          className="text-fluid-3xl relative mb-2.5 pb-2.5 font-medium after:absolute after:bottom-0 after:left-1/2 after:h-[1px] after:w-10 after:-translate-x-1/2 after:bg-[#333]"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
@@ -238,7 +238,7 @@ export default function OxyZenContentMobile({ productInfo }: OxyZenContentMobile
           {t('indicators_title')}
         </motion.h2>
         <motion.p
-          className="text-fluid-sm leading-relaxed"
+          className="text-fluid-base px-4 py-4 leading-relaxed"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
@@ -250,7 +250,7 @@ export default function OxyZenContentMobile({ productInfo }: OxyZenContentMobile
       </section>
 
       {/* Icons Row 2 */}
-      <div className="flex justify-center gap-8 px-6 py-5">
+      <div className="flex justify-center gap-4 px-6 pb-5">
         {[
           { icon: 'https://website-www-brainco-cn.oss-cn-hangzhou.aliyuncs.com/images/product/oxyzen/chart.webp', label: 'mindfulness_index' },
           { icon: 'https://website-www-brainco-cn.oss-cn-hangzhou.aliyuncs.com/images/product/oxyzen/heart.webp', label: 'heart_rate' },
@@ -265,7 +265,7 @@ export default function OxyZenContentMobile({ productInfo }: OxyZenContentMobile
             transition={{ delay: index * 0.1, duration: 0.6 }}
           >
             <Image src={item.icon} alt="" width={15} height={15} className="mr-2 h-auto w-auto" />
-            <span className="text-fluid-sm whitespace-nowrap">{t(item.label as any)}</span>
+            <span className="text-fluid-base whitespace-nowrap">{t(item.label as any)}</span>
           </motion.div>
         ))}
       </div>
@@ -284,7 +284,7 @@ export default function OxyZenContentMobile({ productInfo }: OxyZenContentMobile
       {/* 9D Parsing */}
       <section className="px-6 py-10 text-center">
         <motion.h2
-          className="text-fluid-2xl mb-4 font-medium"
+          className="text-fluid-3xl mb-4 font-medium"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
@@ -293,7 +293,7 @@ export default function OxyZenContentMobile({ productInfo }: OxyZenContentMobile
           {t('parsing_title')}
         </motion.h2>
         <motion.p
-          className="text-fluid-sm leading-relaxed"
+          className="text-fluid-base px-4 py-4 leading-relaxed"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
@@ -312,14 +312,14 @@ export default function OxyZenContentMobile({ productInfo }: OxyZenContentMobile
             alt=""
             width={96}
             height={80}
-            className="absolute top-0 left-1/2 z-10 h-auto w-[25.6vw] -translate-x-[25.6vw] -translate-y-[42.66vw]"
+            className="absolute top-0 left-1/2 z-10 h-auto w-[25.6vw] -translate-x-[25.6vw] -translate-y-[14.66vw]"
           />
           <Image
             src="https://website-www-brainco-cn.oss-cn-hangzhou.aliyuncs.com/images/Ls3phK4hHBivlNDI.webp"
             alt=""
             width={96}
             height={80}
-            className="absolute top-0 left-1/2 h-auto w-[25.6vw] -translate-x-[5.33vw] -translate-y-[37.33vw]"
+            className="absolute top-0 left-1/2 h-auto w-[25.6vw] -translate-x-[5.33vw] -translate-y-[10.33vw]"
           />
           <Image
             src="https://website-www-brainco-cn.oss-cn-hangzhou.aliyuncs.com/images/Tyw4f2mxbbxhy7kD.png"
@@ -331,19 +331,19 @@ export default function OxyZenContentMobile({ productInfo }: OxyZenContentMobile
 
           <ul className="absolute top-0 left-0 h-full w-full">
             {[
-              { label: 'dimension_1', style: 'top-0 left-[5.33vw] scale-50' },
-              { label: 'dimension_2', style: 'top-1/4 left-[-5.33vw] scale-50' },
-              { label: 'dimension_3', style: 'top-1/2 left-[-5.33vw] scale-50' },
-              { label: 'dimension_4', style: 'bottom-[5.33vw] left-[8vw] scale-50' },
-              { label: 'dimension_5', style: 'bottom-0 left-[40%] scale-50' },
-              { label: 'dimension_6', style: 'right-[10%] bottom-[5.33vw] scale-50' },
-              { label: 'dimension_7', style: 'right-[-5.33vw] top-1/2 scale-50' },
-              { label: 'dimension_8', style: 'right-[-5.33vw] top-1/4 scale-50' },
-              { label: 'dimension_9', style: 'right-[5.33vw] top-0 scale-50' },
+              { label: 'dimension_1', style: 'top-0 left-[5.33vw]' },
+              { label: 'dimension_2', style: 'top-1/4 left-[-5.33vw]' },
+              { label: 'dimension_3', style: 'top-1/2 left-[-5.33vw]' },
+              { label: 'dimension_4', style: 'bottom-[5.33vw] left-8vw]' },
+              { label: 'dimension_5', style: 'bottom-0 left-[40%]' },
+              { label: 'dimension_6', style: 'right-[6%] bottom-[5.33vw]' },
+              { label: 'dimension_7', style: 'right-[-5.33vw] top-1/2' },
+              { label: 'dimension_8', style: 'right-[-5.33vw] top-1/4' },
+              { label: 'dimension_9', style: 'right-[5.33vw] top-0' },
             ].map((item, index) => (
               <motion.li
                 key={item.label}
-                className={`text-fluid-sm absolute flex h-8 w-[18.66vw] items-center justify-center rounded-2xl bg-gradient-to-b from-[#edfdfd] to-[#82c8c4] font-light ${item.style}`}
+                className={`text-fluid-base absolute flex h-10 w-[18.66vw] items-center justify-center rounded-2xl bg-gradient-to-b from-[#edfdfd] to-[#82c8c4] font-light ${item.style}`}
                 initial={{ opacity: 0, scale: 0 }}
                 whileInView={{ opacity: 1, scale: 0.5 }}
                 viewport={{ once: true }}
@@ -365,9 +365,9 @@ export default function OxyZenContentMobile({ productInfo }: OxyZenContentMobile
           height={500}
           className="h-auto w-full"
         />
-        <div className="absolute top-0 right-0 left-0 pt-10 text-center text-white">
+        <div className="absolute top-0 right-0 left-0 px-4 pt-10 text-center text-white">
           <motion.h2
-            className="text-fluid-2xl mb-2.5 font-medium"
+            className="text-fluid-3xl mb-2.5 font-medium"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -376,7 +376,7 @@ export default function OxyZenContentMobile({ productInfo }: OxyZenContentMobile
             {t('content_title')}
           </motion.h2>
           <motion.p
-            className="text-fluid-sm"
+            className="text-fluid-base"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
