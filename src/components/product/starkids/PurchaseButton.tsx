@@ -3,7 +3,7 @@
 import { motion } from 'framer-motion';
 import { useTranslations } from 'next-intl';
 import { useRouter } from 'next/navigation';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import toast from 'react-hot-toast';
 
 import DiscountBanner from '@/components/product/DiscountBanner';
@@ -25,6 +25,8 @@ export default function PurchaseButton({
   const router = useRouter();
   const { addToCart } = useCart();
   const [isLoading, setIsLoading] = useState(false);
+  const [isScrolling, setIsScrolling] = useState(false);
+  const [isAtBottom, setIsAtBottom] = useState(false);
 
   const handleBuyNow = async () => {
     if (!product || !product.id) {
@@ -63,9 +65,49 @@ export default function PurchaseButton({
     return (price / 100).toFixed(2);
   };
 
+  // Handle scroll detection and bottom detection for mobile
+  useEffect(() => {
+    if (!isMobile) return;
+
+    let scrollTimer: NodeJS.Timeout;
+
+    const handleScroll = () => {
+      setIsScrolling(true);
+
+      // Check if scrolled to bottom
+      const threshold = 10; // Small threshold for bottom detection
+      const isBottom = window.innerHeight + window.scrollY
+        >= document.documentElement.scrollHeight - threshold;
+      setIsAtBottom(isBottom);
+
+      clearTimeout(scrollTimer);
+      scrollTimer = setTimeout(() => {
+        setIsScrolling(false);
+        // Re-check bottom when scroll stops
+        const isStillBottom = window.innerHeight + window.scrollY
+          >= document.documentElement.scrollHeight - threshold;
+        setIsAtBottom(isStillBottom);
+      }, 150);
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    // Initial check
+    handleScroll();
+
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+      clearTimeout(scrollTimer);
+    };
+  }, [isMobile]);
+
   if (isMobile) {
     return (
-      <div className="fixed right-0 bottom-0 left-0 z-50 flex flex-col bg-white pb-[10px] shadow-[0px_-3px_6px_1px_rgba(0,0,0,0.16)]">
+      <motion.div
+        initial={{ y: 0 }}
+        animate={{ y: isScrolling || isAtBottom ? 200 : 0 }}
+        transition={{ duration: 0.3, ease: 'easeInOut' }}
+        className="fixed right-0 bottom-0 left-0 z-50 flex flex-col bg-white pb-[10px] shadow-[0px_-3px_6px_1px_rgba(0,0,0,0.16)]"
+      >
         {/* Discount Banner */}
         <DiscountBanner product={product} isMobile />
 
@@ -95,7 +137,7 @@ export default function PurchaseButton({
             {isLoading ? tCart('submitting') : t('buy_now')}
           </motion.button>
         </div>
-      </div>
+      </motion.div>
     );
   }
 

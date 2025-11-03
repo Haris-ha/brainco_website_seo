@@ -3,7 +3,7 @@
 import { AnimatePresence, motion } from 'framer-motion';
 import { useTranslations } from 'next-intl';
 import Image from 'next/image';
-import { useEffect, useState } from 'react';
+import { useEffect, useLayoutEffect, useRef, useState } from 'react';
 import AfterSalesMobile from '@/components/common/AfterSalesMobile';
 import DiscountBanner from '@/components/product/DiscountBanner';
 import { findProductByIdentifier } from '@/lib/api';
@@ -24,6 +24,10 @@ export default function FocusXinContentMobile() {
   const [product, setProduct] = useState<any>(null);
   const [showPrincipleVideo, setShowPrincipleVideo] = useState(false);
   const [showIntroVideo, setShowIntroVideo] = useState(false);
+  const [isScrolling, setIsScrolling] = useState(false);
+  const [isAtBottom, setIsAtBottom] = useState(false);
+  const purchaseBarRef = useRef<HTMLDivElement>(null);
+  const [hideOffset, setHideOffset] = useState(200);
 
   // Fetch product data
   useEffect(() => {
@@ -34,6 +38,47 @@ export default function FocusXinContentMobile() {
       }
     };
     fetchProduct();
+  }, []);
+
+  // Calculate purchase bar height for hide offset
+  useLayoutEffect(() => {
+    if (purchaseBarRef.current) {
+      const height = purchaseBarRef.current.offsetHeight;
+      setHideOffset(height + 200); // Add 20px extra padding
+    }
+  }, [product]);
+
+  // Handle scroll detection and bottom detection
+  useEffect(() => {
+    let scrollTimer: NodeJS.Timeout;
+
+    const handleScroll = () => {
+      setIsScrolling(true);
+
+      // Check if scrolled to bottom
+      const threshold = 10; // Small threshold for bottom detection
+      const isBottom = window.innerHeight + window.scrollY
+        >= document.documentElement.scrollHeight - threshold;
+      setIsAtBottom(isBottom);
+
+      clearTimeout(scrollTimer);
+      scrollTimer = setTimeout(() => {
+        setIsScrolling(false);
+        // Re-check bottom when scroll stops
+        const isStillBottom = window.innerHeight + window.scrollY
+          >= document.documentElement.scrollHeight - threshold;
+        setIsAtBottom(isStillBottom);
+      }, 150);
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    // Initial check
+    handleScroll();
+
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+      clearTimeout(scrollTimer);
+    };
   }, []);
 
   return (
@@ -64,7 +109,7 @@ export default function FocusXinContentMobile() {
 
       {/* Problem Section */}
       <section className="mb-32 px-4 py-12">
-        <h2 className="text-fluid-2xl mb-[8vw] font-medium">{t('problem_title')}</h2>
+        <h2 className="text-fluid-3xl mb-[8vw] font-medium">{t('problem_title')}</h2>
 
         <div className="relative mx-auto flex justify-center pt-32">
           <Image
@@ -117,7 +162,7 @@ export default function FocusXinContentMobile() {
         />
 
         <div className="absolute top-2 left-8 px-12">
-          <h2 className="text-fluid-2xl mb-5 font-medium" dangerouslySetInnerHTML={{ __html: t('principle_title') }} />
+          <h2 className="text-fluid-3xl mb-5 font-medium" dangerouslySetInnerHTML={{ __html: t('principle_title') }} />
 
           <motion.button
             whileTap={{ scale: 0.95 }}
@@ -156,7 +201,7 @@ export default function FocusXinContentMobile() {
           ))}
         </ul>
 
-        <ul className="mt-4 space-y-2 px-4 text-left text-[2.7vw] text-[#929292]">
+        <ul className="mt-4 space-y-2 px-8 text-left text-[2.7vw] text-[#929292]">
           {literatureList.map(lit => (
             <li key={lit.key} className="break-words">
               {t(lit.key)}
@@ -166,30 +211,30 @@ export default function FocusXinContentMobile() {
       </section>
 
       {/* Training Modules */}
-      <section className="px-4 py-8">
-        <h2 className="text-fluid-2xl mb-8 font-medium" dangerouslySetInnerHTML={{ __html: t('training_title') }} />
+      <section className="px-8 py-8">
+        <h2 className="text-fluid-3xl mb-8 font-medium" dangerouslySetInnerHTML={{ __html: t('training_title') }} />
 
         <div className="flex justify-center space-x-2">
           {trainingTypes.map(training => (
             <div key={training.nameKey} className="w-[29.3vw]">
-              <h5 className="text-fluid-sm mb-3 font-medium">{t(training.nameKey)}</h5>
+              <h5 className="text-fluid-base mb-3 font-medium">{t(training.nameKey)}</h5>
               <Image
                 src={training.image}
                 alt={t(training.nameKey)}
                 width={110}
                 height={110}
-                className="mb-10 w-full"
+                className="mb-8 w-full"
               />
-              <p className="text-fluid-xs text-[#3b3b3b]">{t(training.descKey)}</p>
+              <p className="text-fluid-sm text-[#3b3b3b]">{t(training.descKey)}</p>
             </div>
           ))}
         </div>
       </section>
 
       {/* Assessment Section */}
-      <section className="px-4 py-12">
-        <h2 className="text-fluid-2xl mb-3 font-medium">{t('assessment_title')}</h2>
-        <p className="text-fluid-sm mb-7" dangerouslySetInnerHTML={{ __html: t('assessment_description') }} />
+      <section className="px-8 py-8">
+        <h2 className="text-fluid-3xl mb-3 font-medium">{t('assessment_title')}</h2>
+        <p className="text-fluid-base mb-7" dangerouslySetInnerHTML={{ __html: t('assessment_description') }} />
 
         <div className="relative flex flex-col items-center space-y-6">
           <Image src={imageUrls.assessment1Mobile} alt="Assessment 1" width={280} height={280} className="w-[74.7vw]" />
@@ -205,9 +250,9 @@ export default function FocusXinContentMobile() {
       </section>
 
       {/* Game Section */}
-      <section className="px-4 py-12">
-        <h2 className="text-fluid-2xl mb-3 font-medium">{t('game_title')}</h2>
-        <p className="text-fluid-sm mb-5" dangerouslySetInnerHTML={{ __html: t('game_description') }} />
+      <section className="px-8 py-8">
+        <h2 className="text-fluid-3xl mb-3 font-medium">{t('game_title')}</h2>
+        <p className="text-fluid-base mb-5" dangerouslySetInnerHTML={{ __html: t('game_description') }} />
 
         <div className="relative">
           <Image src={imageUrls.gameMobile} alt="Game" width={270} height={270} className="mx-auto w-[72vw]" />
@@ -222,9 +267,9 @@ export default function FocusXinContentMobile() {
       </section>
 
       {/* Tracking Section */}
-      <section className="px-4 py-12">
-        <h2 className="text-fluid-2xl mb-3 font-medium">{t('tracking_title')}</h2>
-        <p className="text-fluid-sm mb-5" dangerouslySetInnerHTML={{ __html: t('tracking_description') }} />
+      <section className="px-8 py-8">
+        <h2 className="text-fluid-3xl mb-3 font-medium">{t('tracking_title')}</h2>
+        <p className="text-fluid-base mb-5" dangerouslySetInnerHTML={{ __html: t('tracking_description') }} />
 
         <div className="relative">
           <Image src={imageUrls.trackingMobile} alt="Tracking" width={280} height={280} className="mx-auto w-[74.7vw]" />
@@ -239,8 +284,8 @@ export default function FocusXinContentMobile() {
       </section>
 
       {/* Verification Section */}
-      <section className="px-4 py-12">
-        <h2 className="text-fluid-2xl mb-5 font-medium">{t('verification_title')}</h2>
+      <section className="px-8 py-8">
+        <h2 className="text-fluid-3xl mb-5 font-medium">{t('verification_title')}</h2>
 
         <div className="mx-auto w-[80vw] space-y-12">
           <Image src={imageUrls.verification1Mobile} alt="Verification 1" width={356} height={356} className="w-full" />
@@ -249,8 +294,8 @@ export default function FocusXinContentMobile() {
       </section>
 
       {/* Patents Section */}
-      <section className="px-4 py-12">
-        <h2 className="text-fluid-2xl mb-5 font-medium" dangerouslySetInnerHTML={{ __html: t('patent_title') }} />
+      <section className="px-8 py-8">
+        <h2 className="text-fluid-3xl mb-5 font-medium" dangerouslySetInnerHTML={{ __html: t('patent_title') }} />
 
         <Image
           src={imageUrls.patent}
@@ -263,7 +308,7 @@ export default function FocusXinContentMobile() {
         <div className="text-fluid-xs flex flex-wrap justify-center gap-y-3 text-gray-500">
           {patentList.map((patentNumber, groupIndex) => (
             <div key={groupIndex} className="flex w-[40vw] flex-col items-center space-y-3">
-              <span className="text-center">
+              <span className="text-fluid-sm text-center">
                 {t('patent_prefix')}
                 {patentNumber}
               </span>
@@ -274,7 +319,13 @@ export default function FocusXinContentMobile() {
 
       {/* Fixed Bottom Purchase Bar */}
       {product && (
-        <div className="fixed right-0 bottom-0 left-0 z-50 bg-white pt-2 shadow-lg">
+        <motion.div
+          ref={purchaseBarRef}
+          initial={{ y: 0 }}
+          animate={{ y: isScrolling || isAtBottom ? hideOffset : 0 }}
+          transition={{ duration: 0.3, ease: 'easeInOut' }}
+          className="fixed right-0 bottom-0 left-0 z-40 bg-white pt-2 shadow-lg"
+        >
           {/* Discount Banner */}
           <DiscountBanner product={product} isMobile />
 
@@ -282,12 +333,12 @@ export default function FocusXinContentMobile() {
           <div className="px-4 py-4">
             <div className="flex items-center justify-between">
               <div className="ml-4 flex items-baseline">
-                <span className="text-fluid-3xl font-medium text-gray-900">
+                <span className="text-fluid-2xl font-medium text-gray-900">
                   ¥
                   {product.price / 100}
                 </span>
                 {product.oldPrice && (
-                  <span className="text-fluid-base ml-2 text-gray-600 line-through">
+                  <span className="text-fluid-base ml-1 text-gray-600 line-through">
                     ¥
                     {product.oldPrice / 100}
                   </span>
@@ -298,10 +349,13 @@ export default function FocusXinContentMobile() {
               </div>
             </div>
           </div>
-        </div>
+        </motion.div>
       )}
       {/* AfterSales */}
-      <AfterSalesMobile />
+      <AfterSalesMobile is15Days />
+
+      {/* Spacer for fixed purchase bar to prevent overlap with footer */}
+      {product && <div className="h-32" />}
 
       {/* Video Modals */}
       <AnimatePresence>

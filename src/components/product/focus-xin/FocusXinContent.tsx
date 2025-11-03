@@ -466,7 +466,7 @@ export default function FocusXinContent() {
       </section>
 
       {/* AfterSales Section */}
-      <AfterSales />
+      <AfterSales is15Days={true} />
 
       {/* Principle Video Modal */}
       <AnimatePresence>

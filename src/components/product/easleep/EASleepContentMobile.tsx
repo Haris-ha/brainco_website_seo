@@ -14,6 +14,7 @@ export default function EASleepContentMobile() {
   const t = useTranslations('EASleep');
   const router = useRouter();
   const [isScrolling, setIsScrolling] = useState(false);
+  const [isAtBottom, setIsAtBottom] = useState(false);
 
   // 处理购买按钮点击 - 跳转到规格选择页面
   const handlePurchase = () => {
@@ -21,19 +22,33 @@ export default function EASleepContentMobile() {
     router.push('/easleep-specification');
   };
 
-  // Handle scroll detection
+  // Handle scroll detection and bottom detection
   useEffect(() => {
     let scrollTimer: NodeJS.Timeout;
 
     const handleScroll = () => {
       setIsScrolling(true);
+
+      // Check if scrolled to bottom
+      const threshold = 10; // Small threshold for bottom detection
+      const isBottom = window.innerHeight + window.scrollY
+        >= document.documentElement.scrollHeight - threshold;
+      setIsAtBottom(isBottom);
+
       clearTimeout(scrollTimer);
       scrollTimer = setTimeout(() => {
         setIsScrolling(false);
+        // Re-check bottom when scroll stops
+        const isStillBottom = window.innerHeight + window.scrollY
+          >= document.documentElement.scrollHeight - threshold;
+        setIsAtBottom(isStillBottom);
       }, 150);
     };
 
     window.addEventListener('scroll', handleScroll);
+    // Initial check
+    handleScroll();
+
     return () => {
       window.removeEventListener('scroll', handleScroll);
       clearTimeout(scrollTimer);
@@ -692,7 +707,7 @@ export default function EASleepContentMobile() {
       {/* Fixed Bottom Purchase Bar */}
       <motion.div
         initial={{ y: 100 }}
-        animate={{ y: isScrolling ? 100 : 0 }}
+        animate={{ y: isScrolling || isAtBottom ? 100 : 0 }}
         transition={{ duration: 0.3, ease: 'easeInOut' }}
         className="fixed right-0 bottom-0 left-0 z-50 border-t border-gray-200 bg-white px-4 py-3 shadow-lg"
       >

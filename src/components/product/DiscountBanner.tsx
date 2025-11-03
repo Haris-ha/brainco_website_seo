@@ -48,7 +48,7 @@ export default function DiscountBanner({ product, isMobile = false }: DiscountBa
                 height={160}
                 className="mb-2"
               />
-              <p className="text-[10px]">扫码添加客服，获取首购礼金</p>
+              <p className="text-fluid-base text-[10px]">扫码添加客服，获取首购礼金</p>
             </motion.div>
           )}
         </AnimatePresence>

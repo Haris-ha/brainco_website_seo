@@ -5,21 +5,22 @@ import { useTranslations } from 'next-intl';
 import Image from 'next/image';
 
 type AfterSalesMobileProps = {
+  is15Days?: boolean;
   text?: string;
   text2?: string;
 };
 
-export default function AfterSalesMobile({ text, text2 }: AfterSalesMobileProps) {
+export default function AfterSalesMobile({ is15Days = false, text, text2 }: AfterSalesMobileProps) {
   const t = useTranslations('AfterSales');
 
   const items = [
     {
       icon: 'https://website-www-brainco-cn.oss-cn-hangzhou.aliyuncs.com/images/5B2KrdV7wx3vmHWu.webp',
-      name: text || t('return_policy'),
+      name: text || is15Days ? t('return_policy_15_days') : t('return_policy'),
     },
     {
       icon: 'https://website-www-brainco-cn.oss-cn-hangzhou.aliyuncs.com/images/USr4HQ6CoExPOjgn.webp',
-      name: text2 || t('customer_service'),
+      name: text2 || is15Days ? t('customer_service_15_days') : t('customer_service'),
     },
   ];
 
@@ -28,7 +29,7 @@ export default function AfterSalesMobile({ text, text2 }: AfterSalesMobileProps)
       {items.map((item, index) => (
         <motion.li
           key={index}
-          className={`flex items-center ${index === 0 ? 'mb-7' : ''}`}
+          className={`flex items-center ${index === 0 ? 'mb-6' : ''}`}
           initial={{ opacity: 0, x: -20 }}
           whileInView={{ opacity: 1, x: 0 }}
           viewport={{ once: true }}
@@ -41,7 +42,7 @@ export default function AfterSalesMobile({ text, text2 }: AfterSalesMobileProps)
             height={40}
             className="h-auto w-10 flex-shrink-0"
           />
-          <span className="text-fluid-sm ml-2.5 text-left">
+          <span className="text-fluid-base ml-2.5 text-left">
             {item.name}
           </span>
         </motion.li>

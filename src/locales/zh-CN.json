@@ -832,7 +832,9 @@
   },
   "AfterSales": {
     "return_policy": "支持七天无理由退换货",
-    "customer_service": "退换货政策详情、开具发票或者需要更多帮助，请咨询在线客服"
+    "customer_service": "退换货政策详情、开具发票或者需要更多帮助，请咨询在线客服",
+    "return_policy_15_days": "支持十五天无理由退换货,退换货政策详情、开具发票或者需要更多帮助，请咨询在线客服",
+    "customer_service_15_days": "下单后建议添加客服企业微信，获取更多产品使用指导及服务"
   },
   "Orders": {
     "meta_title": "我的订单 - 强脑科技BrainCo",
