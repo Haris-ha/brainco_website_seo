@@ -123,8 +123,8 @@ export default function FocusXinContentMobile() {
           <ul className="absolute inset-0">
             {problemList.map((problem, index) => {
               const positions = [
-                'left-[calc(50%-42vw)] top-2/3 -translate-y-1/2 h-[14vw] w-[14vw]',
-                'left-[calc(50%-39vw)] top-[calc(50%-20vw)] h-[16vw] w-[16vw]',
+                'left-[calc(50%-46vw)] top-2/3 -translate-y-1/2 h-[22vw] w-[22vw]',
+                'left-[calc(50%-39vw)] top-[calc(50%-26vw)] h-[20vw] w-[20vw]',
                 'left-1/2 top-[calc(50%-38vw)] -translate-x-1/2 h-[22vw] w-[22vw]',
                 'left-[calc(50%+22vw)] top-[calc(50%-20vw)] h-[18vw] w-[18vw]',
                 'left-[calc(50%+26vw)] top-2/3 -translate-y-1/2 h-[20vw] w-[20vw]',
@@ -152,16 +152,8 @@ export default function FocusXinContentMobile() {
       </section>
 
       {/* Principle Section */}
-      <section className="relative px-4 py-42">
-        <Image
-          src={imageUrls.principleMobile}
-          alt="Principle"
-          width={300}
-          height={300}
-          className="mx-auto mb-4 w-[80vw]"
-        />
-
-        <div className="absolute top-2 left-8 px-12">
+      <section className="relative px-4 pb-48">
+        <div className="px-12">
           <h2 className="text-fluid-3xl mb-5 font-medium" dangerouslySetInnerHTML={{ __html: t('principle_title') }} />
 
           <motion.button
@@ -174,14 +166,22 @@ export default function FocusXinContentMobile() {
           </motion.button>
         </div>
 
-        <p className="text-fluid-xs px-10 text-right text-gray-500">
+        <Image
+          src={imageUrls.principleMobile}
+          alt="Principle"
+          width={300}
+          height={300}
+          className="mx-auto mb-4 w-[80vw]"
+        />
+
+        <p className="text-fluid-sm px-10 text-right text-gray-500">
           {t('principle_footnote')}
           <sup>[1]</sup>
         </p>
       </section>
 
       {/* Mode Section */}
-      <section className="relative py-8" style={{ marginTop: '-36vw' }}>
+      <section className="relative pt-24 pb-8" style={{ marginTop: '-36vw' }}>
         <Image
           src={imageUrls.modeMobile}
           alt="Mode"
@@ -190,12 +190,12 @@ export default function FocusXinContentMobile() {
           className="w-full"
         />
 
-        <ul className="absolute top-[20vw] right-8 space-y-3">
+        <ul className="absolute top-[12vw] right-8 space-y-3">
           {modeList.map(mode => (
             <li key={mode.titleKey} className="text-fluid-lg flex items-start text-left font-medium">
               {t(mode.titleKey)}
               {mode.superscriptKey && (
-                <sup className="text-fluid-xs ml-1">{t(mode.superscriptKey)}</sup>
+                <sup className="text-fluid-sm mt-2 ml-1">{t(mode.superscriptKey)}</sup>
               )}
             </li>
           ))}
@@ -305,7 +305,7 @@ export default function FocusXinContentMobile() {
           className="mx-auto mb-7 w-[83.2vw]"
         />
 
-        <div className="text-fluid-xs flex flex-wrap justify-center gap-y-3 text-gray-500">
+        <div className="text-fluid-sm flex flex-wrap justify-center gap-y-3 text-gray-500">
           {patentList.map((patentNumber, groupIndex) => (
             <div key={groupIndex} className="flex w-[40vw] flex-col items-center space-y-3">
               <span className="text-fluid-sm text-center">
@@ -355,7 +355,7 @@ export default function FocusXinContentMobile() {
       <AfterSalesMobile is15Days />
 
       {/* Spacer for fixed purchase bar to prevent overlap with footer */}
-      {product && <div className="h-32" />}
+      {/* {product && <div className="h-32" />} */}
 
       {/* Video Modals */}
       <AnimatePresence>
