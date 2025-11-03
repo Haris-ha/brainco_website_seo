@@ -1,16 +1,16 @@
 import type { Metadata } from 'next';
-import { createPageMetadata } from '@/lib/metadata';
 import { getTranslations } from 'next-intl/server';
 import Image from 'next/image';
 import EASleepSpecificationContent from '@/components/product/easleep/EASleepSpecificationContent';
 import EASleepSpecificationContentMobile from '@/components/product/easleep/EASleepSpecificationContentMobile';
 import { getBraincoProducts } from '@/lib/api';
+import { createPageMetadata } from '@/lib/metadata';
 
 export async function generateMetadata(props: {
   params: Promise<{ locale: string }>;
 }): Promise<Metadata> {
   const params = await props.params;
-  
+
   return createPageMetadata(params, 'easleep-specification', {
     title: 'EASleep 产品规格 - BrainCo',
     description: 'EASleep 详细产品规格和技术参数',
@@ -60,7 +60,7 @@ export default async function EASleepSpecificationPage() {
     <div className="min-h-screen bg-white">
       {/* Logo导航栏 */}
       <header className="sticky top-0 z-40 flex items-center border-b border-gray-100 bg-white px-6 py-4 md:px-12">
-        <div className="flex items-center gap-3 md:gap-8">
+        <div className="flex items-center gap-1 md:gap-8">
           <Image
             src="https://website-www-brainco-cn.oss-cn-hangzhou.aliyuncs.com/images/icon.webp"
             alt="BrainCo"
@@ -71,7 +71,7 @@ export default async function EASleepSpecificationPage() {
           />
           <div className="relative flex items-center gap-2 pl-3 md:pl-6">
             <div className="absolute top-1/2 left-0 h-[12px] w-[2px] -translate-y-1/2 bg-gray-800 md:h-[16px]" />
-            <span className="font-medium text-gray-800" style={{ fontSize: 'clamp(0.875rem, 1.5vw, 1.5rem)' }}>
+            <span className="font-medium text-gray-800" style={{ fontSize: 'clamp(14px, 1.5vw, 1.5rem)' }}>
               {t('spec_title')}
             </span>
           </div>

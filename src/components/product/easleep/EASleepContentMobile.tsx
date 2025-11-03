@@ -6,8 +6,8 @@ import Image from 'next/image';
 import { useEffect, useState } from 'react';
 import { Pagination } from 'swiper/modules';
 import { Swiper, SwiperSlide } from 'swiper/react';
-import { useRouter } from '@/libs/I18nNavigation';
 import AfterSalesMobile from '@/components/common/AfterSalesMobile';
+import { useRouter } from '@/libs/I18nNavigation';
 import 'swiper/css';
 
 export default function EASleepContentMobile() {
@@ -250,7 +250,7 @@ export default function EASleepContentMobile() {
                   {item.description}
                 </motion.p>
               </div>
-              <div className="px-4">
+              <div>
                 <Image
                   className="w-full"
                   style={{ paddingTop: '10px' }}
@@ -272,11 +272,11 @@ export default function EASleepContentMobile() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.8 }}
-          className="text-fluid-3xl pt-10 text-center"
+          className="text-fluid-2xl pt-10 text-center"
         >
-          {t('research_title')}
+          {`${t('research_title')} ${t('research_desc')}`}
         </motion.h3>
-        <motion.p
+        {/* <motion.p
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
@@ -284,13 +284,13 @@ export default function EASleepContentMobile() {
           className="text-fluid-lg px-10 text-center"
         >
           {t('research_desc')}
-        </motion.p>
+        </motion.p> */}
       </div>
 
-      <div className="flex items-center justify-center py-10">
-        <div className="text-fluid-5xl">{t('research_percentage')}</div>
+      <div className="flex items-center justify-center gap-10 px-10 py-10">
+        <div className="text-fluid-5xl text-center">{t('research_percentage')}</div>
         <div className="text-fluid-xl flex items-center">
-          <span className="px-2">{t('research_improvement')}</span>
+          <span>{t('research_improvement')}</span>
           <Image
             className="transition-transform duration-300 hover:scale-105"
             src="https://website-www-brainco-cn.oss-cn-hangzhou.aliyuncs.com/images/product/easleep/round_up.webp"
@@ -310,7 +310,7 @@ export default function EASleepContentMobile() {
       />
 
       {/* Solution Section */}
-      <div className="py-10 text-center">
+      <div className="px-4 py-10 text-center">
         <motion.h3
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -364,7 +364,7 @@ export default function EASleepContentMobile() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.8 }}
-          className="text-fluid-2xl mb-10 text-center font-normal text-[#333333]"
+          className="text-fluid-3xl mb-10 px-4 text-center font-normal text-[#333333]"
         >
           {t('patent_title')}
         </motion.h2>
@@ -385,8 +385,8 @@ export default function EASleepContentMobile() {
                 width={32}
                 height={32}
               />
-              <h2 className="text-fluid-base font-normal">{feature.title}</h2>
-              <h3 className="text-fluid-base font-normal">{feature.desc}</h3>
+              <h2 className="text-fluid-base text-center font-normal">{feature.title}</h2>
+              <h3 className="text-fluid-base text-center font-normal">{feature.desc}</h3>
             </motion.li>
           ))}
         </ul>
@@ -490,7 +490,7 @@ export default function EASleepContentMobile() {
             whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8, delay: 0.2 }}
-            className="flex h-[32px] w-[120px] items-center justify-center rounded-[16px] bg-[#9686ac] text-center"
+            className="flex h-[32px] w-[124px] items-center justify-center rounded-[16px] bg-[#9686ac] text-center"
           >
             <span className="text-fluid-sm font-normal text-white">{t('ces_effect_1')}</span>
           </motion.div>
@@ -503,7 +503,7 @@ export default function EASleepContentMobile() {
             whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8, delay: 0.2 }}
-            className="flex h-[32px] w-[120px] items-center justify-center rounded-[16px] bg-[#b1b1b1] text-center"
+            className="flex h-[32px] w-[124px] items-center justify-center rounded-[16px] bg-[#b1b1b1] text-center"
           >
             <span className="text-fluid-sm font-normal text-white">{t('ces_effect_2')}</span>
           </motion.div>
@@ -582,15 +582,15 @@ export default function EASleepContentMobile() {
         </motion.p>
       </div>
 
-      <div className="mt-4 flex justify-around px-8">
+      <div className="flex justify-around px-8">
         <motion.div
           initial={{ opacity: 0, scale: 0.8 }}
           whileInView={{ opacity: 1, scale: 1 }}
           viewport={{ once: true }}
           transition={{ duration: 0.5 }}
-          className="relative h-[178px] w-[112px] transition-transform duration-300 hover:scale-105"
+          className="relative w-[112px] duration-300"
         >
-          <p className="text-fluid-xl absolute -top-10 -right-5 -left-5 scale-50 text-center">
+          <p className="text-fluid-xl mb-[-14px] scale-70 text-center">
             {t('manager_feature_1')}
           </p>
           <Image
@@ -606,9 +606,9 @@ export default function EASleepContentMobile() {
           whileInView={{ opacity: 1, scale: 1 }}
           viewport={{ once: true }}
           transition={{ duration: 0.5, delay: 0.2 }}
-          className="relative h-[178px] w-[112px] transition-transform duration-300 hover:scale-105"
+          className="relative w-[112px] duration-300"
         >
-          <p className="text-fluid-xl absolute -top-10 -right-5 -left-5 scale-50 text-center">
+          <p className="text-fluid-xl mb-[-14px] scale-70 text-center">
             {t('manager_feature_2')}
           </p>
           <Image
@@ -624,9 +624,9 @@ export default function EASleepContentMobile() {
           whileInView={{ opacity: 1, scale: 1 }}
           viewport={{ once: true }}
           transition={{ duration: 0.5, delay: 0.4 }}
-          className="relative h-[178px] w-[120px] transition-transform duration-300 hover:scale-105"
+          className="relative w-[120px] duration-300"
         >
-          <p className="text-fluid-xl absolute -top-10 -right-5 -left-5 scale-50 text-center">
+          <p className="text-fluid-xl mb-[-14px] scale-70 text-center">
             {t('manager_feature_3')}
           </p>
           <Image
