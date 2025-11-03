@@ -148,7 +148,7 @@ export default function StarKidsContentMobile() {
                 </span>
                 {stat.unit && (
                   <span
-                    className="ml-1.5 text-[10px]"
+                    className="ml-1.5 text-[14px]"
                     style={{ color: PRIMARY_COLOR }}
                   >
                     {stat.unit}
@@ -161,7 +161,7 @@ export default function StarKidsContentMobile() {
         </div>
 
         {/* Module Images */}
-        <div className="mt-3 space-y-6">
+        <div className="mt-8 space-y-6">
           {trainingModelsMobile.map((src, index) => (
             <motion.div
               key={index}
@@ -212,10 +212,10 @@ export default function StarKidsContentMobile() {
 
       {/* Training Mode Section */}
       <section className="mx-6 mt-10 text-center" style={{ color: PRIMARY_COLOR }}>
-        <h3 className="text-fluid-2xl font-medium">{t('training_mode_title')}</h3>
-        <p className="text-fluid-lg mt-2.5">{t('training_mode_subtitle')}</p>
+        <h3 className="text-fluid-3xl font-medium">{t('training_mode_title')}</h3>
+        <p className="text-fluid-xl mt-2.5">{t('training_mode_subtitle')}</p>
 
-        <h4 className="text-fluid-lg mt-6 font-medium text-[#333]">
+        <h4 className="text-fluid-xl mt-6 font-medium text-[#333]">
           {t('training_principle')}
         </h4>
         <motion.div
@@ -233,20 +233,20 @@ export default function StarKidsContentMobile() {
           />
         </motion.div>
 
-        <div className="mt-6 space-y-6 text-center">
+        <div className="mt-12 space-y-6 text-center">
           <div>
-            <h4 className="text-fluid-lg font-medium text-[#333]">
+            <h4 className="text-fluid-2xl font-medium text-[#333]">
               {t('neurofeedback_training')}
             </h4>
-            <p className="text-fluid-base mt-2">
+            <p className="text-fluid-lg mt-2">
               {t('neurofeedback_training_desc')}
             </p>
           </div>
           <div>
-            <h4 className="text-fluid-lg font-medium text-[#333]">
+            <h4 className="text-fluid-2xl font-medium text-[#333]">
               {t('video_course')}
             </h4>
-            <p className="text-fluid-base mt-2">
+            <p className="text-fluid-lg mt-2">
               {t('video_course_desc')}
             </p>
           </div>
@@ -298,10 +298,10 @@ export default function StarKidsContentMobile() {
 
       {/* Tracking Section */}
       <section className="mt-8 pt-8 text-center" style={{ color: PRIMARY_COLOR }}>
-        <h3 className="text-fluid-2xl font-medium">{t('track_title')}</h3>
-        <p className="text-fluid-lg mt-2.5">{t('track_subtitle')}</p>
+        <h3 className="text-fluid-3xl font-medium">{t('track_title')}</h3>
+        <p className="text-fluid-xl mt-2.5">{t('track_subtitle')}</p>
 
-        <div className="mt-4 space-y-4">
+        <div className="mt-4 space-y-6">
           {[
             `${imgBase}itacOYewsFhgQBvu.webp`,
             `${imgBase}xGSeHUcnudEVPqLj.webp`,
@@ -329,7 +329,7 @@ export default function StarKidsContentMobile() {
 
       {/* Quantitative Data Section */}
       <section className="mt-8 text-center">
-        <h4 className="text-fluid-2xl font-medium">{t('track_data_title')}</h4>
+        <h4 className="text-fluid-3xl font-medium">{t('track_data_title')}</h4>
         <div className="text-fluid-base mt-4 space-y-2 px-7.5">
           <p>{t('track_data_desc_1')}</p>
           <p>{t('track_data_desc_2')}</p>
@@ -352,7 +352,7 @@ export default function StarKidsContentMobile() {
 
       {/* Intervention Section */}
       <section className="mt-8" style={{ color: PRIMARY_COLOR }}>
-        <h3 className="text-fluid-2xl text-center font-medium">
+        <h3 className="text-fluid-3xl text-center font-medium">
           {t('intervene_title')}
         </h3>
         <motion.div
@@ -383,7 +383,7 @@ export default function StarKidsContentMobile() {
       {/* Innovation Section */}
       <section className="mt-16 text-center" style={{ color: PRIMARY_COLOR }}>
         <h3 className="text-fluid-2xl font-medium">{t('auth_title')}</h3>
-        <p className="text-fluid-lg mt-2.5">{t('auth_subtitle')}</p>
+        <p className="text-fluid-lg mt-2.5 px-8">{t('auth_subtitle')}</p>
 
         <div className="mt-4 space-y-2">
           {[
@@ -415,8 +415,7 @@ export default function StarKidsContentMobile() {
       {/* After Sales Component */}
       <div className="mt-12">
         <AfterSalesMobile
-          text={t('after_sales_text')}
-          text2={t('after_sales_note')}
+          is30Days
         />
       </div>
 

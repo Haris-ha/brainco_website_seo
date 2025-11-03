@@ -100,8 +100,8 @@ export default function BrainAIContent() {
             className="relative my-auto mr-[100px] w-[620px] rounded-3xl p-12 text-white"
             style={{
               background: 'linear-gradient(to left, rgba(0, 0, 0, 0.25) 0%, rgba(0, 0, 0, 0.15) 60%, transparent 100%)',
-              backdropFilter: 'blur(4px)',
-              WebkitBackdropFilter: 'blur(4px)',
+              backdropFilter: 'blur(6px)',
+              WebkitBackdropFilter: 'blur(6px)',
             }}
           >
             <motion.h1

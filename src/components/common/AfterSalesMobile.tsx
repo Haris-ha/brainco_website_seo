@@ -6,21 +6,22 @@ import Image from 'next/image';
 
 type AfterSalesMobileProps = {
   is15Days?: boolean;
+  is30Days?: boolean;
   text?: string;
   text2?: string;
 };
 
-export default function AfterSalesMobile({ is15Days = false, text, text2 }: AfterSalesMobileProps) {
+export default function AfterSalesMobile({ is15Days = false, is30Days = false, text, text2 }: AfterSalesMobileProps) {
   const t = useTranslations('AfterSales');
 
   const items = [
     {
       icon: 'https://website-www-brainco-cn.oss-cn-hangzhou.aliyuncs.com/images/5B2KrdV7wx3vmHWu.webp',
-      name: text || is15Days ? t('return_policy_15_days') : t('return_policy'),
+      name: text || is15Days ? t('return_policy_15_days') : is30Days ? t('return_policy_30_days') : t('return_policy'),
     },
     {
       icon: 'https://website-www-brainco-cn.oss-cn-hangzhou.aliyuncs.com/images/USr4HQ6CoExPOjgn.webp',
-      name: text2 || is15Days ? t('customer_service_15_days') : t('customer_service'),
+      name: text2 || is15Days ? t('customer_service_15_days') : is30Days ? t('customer_service_30_days') : t('customer_service'),
     },
   ];
 

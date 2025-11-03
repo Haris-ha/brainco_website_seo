@@ -28,15 +28,16 @@ export default function StarKidsContent() {
   }, []);
 
   return (
-    <div className="w-full" style={{ color: '#333' }}>
+    <div className="w-full overflow-hidden" style={{ color: '#333' }}>
       {/* Hero Banner Section */}
       <section className="relative mt-[5vw] flex justify-end">
-        <picture>
+        <picture className="relative">
           <img
             src="https://website-www-brainco-cn.oss-cn-hangzhou.aliyuncs.com/images/product/starkid/XnquQobOARSTzZtY.webp"
             alt="StarKids Banner"
-            className="w-full"
+            className="w-full translate-x-[10vw]"
           />
+          <div className="pointer-events-none absolute inset-0 bg-gradient-to-r from-white via-white/10 to-transparent" />
         </picture>
         <div className="absolute top-0 bottom-0 left-0 flex w-full flex-col items-start justify-start pt-[5vw] pb-[6vw] pl-[8vw]">
           <motion.div
@@ -810,8 +811,7 @@ export default function StarKidsContent() {
       {/* After Sales Component */}
       <div className="mt-[5vw]">
         <AfterSales
-          text={t('after_sales_text')}
-          text2={t('after_sales_note')}
+          is30Days
         />
       </div>
     </div>

@@ -221,17 +221,21 @@ export default function BrainRoboticsContent() {
   }, []);
 
   return (
-    <div className="w-full bg-white">
+    <div className="w-full overflow-hidden bg-white">
       {/* Hero Section */}
       <div className="relative w-full">
-        <Image
-          src="https://website-www-brainco-cn.oss-cn-hangzhou.aliyuncs.com/images/cScrrdjj07wJs2xb.webp"
-          alt={t('product_name')}
-          width={1080}
-          height={1080}
-          className="left-1/2 h-screen -translate-x-20 transform object-cover 2xl:-translate-x-0"
-          priority
-        />
+        <div className="relative">
+          <Image
+            src="https://website-www-brainco-cn.oss-cn-hangzhou.aliyuncs.com/images/cScrrdjj07wJs2xb.webp"
+            alt={t('product_name')}
+            width={1080}
+            height={1080}
+            className="left-1/2 h-screen -translate-x-[10vw] transform object-cover 2xl:-translate-x-[5vw]"
+            priority
+          />
+          {/* White gradient overlay from right to left */}
+          <div className="pointer-events-none absolute inset-0 bg-gradient-to-l from-white via-white/5 to-transparent" />
+        </div>
         <div className="absolute top-0 right-[20px] flex flex-col pt-[240px] 2xl:right-[180px]">
           {/* Achievement Badges */}
           <div className="flex h-[100px] items-center gap-4">

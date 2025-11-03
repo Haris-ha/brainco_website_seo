@@ -834,7 +834,9 @@
     "return_policy": "7-Day Return & Exchange Policy",
     "customer_service": "For return policy details, invoicing, or more assistance, please contact our customer service",
     "return_policy_15_days": "15-Day Return & Exchange Policy. For return policy details, invoicing, or more assistance, please contact our customer service",
-    "customer_service_15_days": "After placing an order, we recommend adding our customer service WeChat for more product usage guidance and services"
+    "customer_service_15_days": "After placing an order, we recommend adding our customer service WeChat for more product usage guidance and services",
+    "return_policy_30_days": "30-Day Return & Exchange Policy. For return policy details, invoicing, or more assistance, please contact our customer service",
+    "customer_service_30_days": "After placing an order, please add our customer service WeChat for more training and supervision services"
   },
   "Orders": {
     "meta_title": "My Orders - BrainCo",
