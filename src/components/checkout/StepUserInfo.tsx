@@ -114,7 +114,7 @@ export function StepUserInfo({ onContinue, initialData }: StepUserInfoProps) {
       className="w-full max-w-[720px]"
     >
       {/* 步骤指示 */}
-      <span className="mt-3 mb-4 block text-sm md:mt-4 md:mb-5 md:text-base lg:mt-5 lg:mb-6 lg:text-lg">
+      <span className="mt-3 mb-4 block text-base md:mt-4 md:mb-5 lg:mt-5 lg:mb-6 lg:text-xl">
         {t('step_indicator', { current: 1, total: 3 })}
       </span>
 
@@ -138,7 +138,8 @@ export function StepUserInfo({ onContinue, initialData }: StepUserInfoProps) {
             type="text"
             value={formData.name}
             onChange={e => setFormData({ ...formData, name: e.target.value })}
-            className="h-[44px] w-full rounded-[22px] border border-[#707070] px-4 text-sm focus:border-[#4F68D2] focus:outline-none md:h-[48px] md:rounded-[24px] md:px-5 md:text-[15px] lg:h-[52px] lg:rounded-[26px] lg:px-6 lg:text-base"
+            placeholder={t('name_placeholder')}
+            className="cursor-target h-[44px] w-full rounded-[22px] border border-[#707070] px-4 text-sm focus:border-[#4F68D2] focus:outline-none md:h-[48px] md:rounded-[24px] md:px-5 md:text-[15px] lg:h-[52px] lg:rounded-[26px] lg:px-6 lg:text-base"
           />
         </li>
 
@@ -151,7 +152,8 @@ export function StepUserInfo({ onContinue, initialData }: StepUserInfoProps) {
             type="tel"
             value={formData.phone}
             onChange={e => setFormData({ ...formData, phone: e.target.value })}
-            className="h-[44px] w-full rounded-[22px] border border-[#707070] px-4 text-sm focus:border-[#4F68D2] focus:outline-none md:h-[48px] md:rounded-[24px] md:px-5 md:text-[15px] lg:h-[52px] lg:rounded-[26px] lg:px-6 lg:text-base"
+            placeholder={t('phone_placeholder')}
+            className="cursor-target h-[44px] w-full rounded-[22px] border border-[#707070] px-4 text-sm focus:border-[#4F68D2] focus:outline-none md:h-[48px] md:rounded-[24px] md:px-5 md:text-[15px] lg:h-[52px] lg:rounded-[26px] lg:px-6 lg:text-base"
           />
         </li>
 
@@ -165,13 +167,14 @@ export function StepUserInfo({ onContinue, initialData }: StepUserInfoProps) {
               type="text"
               value={formData.code}
               onChange={e => setFormData({ ...formData, code: e.target.value })}
-              className="h-[44px] w-full rounded-[22px] border border-[#707070] px-4 pr-[100px] text-sm focus:border-[#4F68D2] focus:outline-none md:h-[48px] md:rounded-[24px] md:px-5 md:pr-[110px] md:text-[15px] lg:h-[52px] lg:rounded-[26px] lg:px-6 lg:pr-[120px] lg:text-base"
+              placeholder={t('verification_code_placeholder')}
+              className="cursor-target h-[44px] w-full rounded-[22px] border border-[#707070] px-4 pr-[100px] text-sm focus:border-[#4F68D2] focus:outline-none md:h-[48px] md:rounded-[24px] md:px-5 md:pr-[110px] md:text-[15px] lg:h-[52px] lg:rounded-[26px] lg:px-6 lg:pr-[120px] lg:text-base"
             />
             <button
               type="button"
               onClick={handleGetCode}
               disabled={countdown > 0 || !/^1[3-9]\d{9}$/.test(formData.phone)}
-              className="absolute top-1/2 right-3 -translate-y-1/2 cursor-pointer text-xs text-[#4F68D2] disabled:cursor-not-allowed disabled:text-[#ccc] md:right-3.5 md:text-sm lg:right-4 lg:text-[14px]"
+              className="cursor-target absolute top-1/2 right-3 -translate-y-1/2 text-xs text-[#4F68D2] disabled:cursor-not-allowed disabled:text-[#ccc] md:right-3.5 md:text-sm lg:right-4 lg:text-[14px]"
             >
               {codeText}
             </button>
@@ -186,9 +189,10 @@ export function StepUserInfo({ onContinue, initialData }: StepUserInfoProps) {
 
       {/* 继续按钮 */}
       <button
+        type="button"
         onClick={handleSubmit}
         disabled={isSubmitDisabled}
-        className="mx-auto mt-8 flex h-[44px] w-[140px] items-center justify-center rounded-[22px] border-none bg-[#4f68d2] text-base font-medium text-white shadow-[0px_3px_20px_1px_rgba(0,0,0,0.16)] transition-all hover:bg-[#3d52a8] disabled:cursor-not-allowed disabled:bg-[#f4f4f4] disabled:text-[#707070] md:mt-10 md:h-[48px] md:w-[160px] md:rounded-[24px] md:text-lg lg:mt-12 lg:h-[52px] lg:w-[180px] lg:rounded-[26px] lg:text-xl"
+        className="cursor-target mx-auto mt-8 flex h-[44px] w-[140px] items-center justify-center rounded-[22px] border-none bg-[#4f68d2] text-base font-medium text-white shadow-[0px_3px_20px_1px_rgba(0,0,0,0.16)] transition-all hover:bg-[#3d52a8] disabled:cursor-not-allowed disabled:bg-[#f4f4f4] disabled:text-[#707070] md:mt-10 md:h-[48px] md:w-[160px] md:rounded-[24px] md:text-lg lg:mt-12 lg:h-[52px] lg:w-[180px] lg:rounded-[26px] lg:text-xl"
       >
         {t('continue_btn')}
       </button>

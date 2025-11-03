@@ -71,7 +71,7 @@ export function StepShipping({
     >
       {/* 返回按钮 */}
       <div
-        className="absolute top-[16px] left-0 flex cursor-pointer items-center text-xs leading-6 md:top-[20px] md:left-[-50px] md:text-sm lg:top-[24px] lg:left-[-60px] lg:text-[15px] lg:leading-7"
+        className="cursor-target absolute top-[16px] left-0 flex items-center text-xs leading-6 md:top-[20px] md:left-[-50px] md:text-sm lg:top-[24px] lg:left-[-60px] lg:text-[15px] lg:leading-7"
         onClick={onBack}
       >
         <span className="mr-1 text-sm md:text-base">←</span>
@@ -96,9 +96,9 @@ export function StepShipping({
             id="defaultAddress"
             checked={defaultAddress}
             onChange={e => setDefaultAddress(e.target.checked)}
-            className="mr-1 border-[#6076D6]"
+            className="cursor-target mr-1 border-[#6076D6]"
           />
-          <label htmlFor="defaultAddress" className="cursor-pointer text-xs md:text-sm">
+          <label htmlFor="defaultAddress" className="cursor-target text-xs md:text-sm">
             {t('set_default_address')}
           </label>
         </div>
@@ -115,7 +115,8 @@ export function StepShipping({
             type="text"
             value={formData.name}
             onChange={e => setFormData({ ...formData, name: e.target.value })}
-            className="h-[44px] w-full rounded-[22px] border border-[#707070] px-4 text-sm focus:border-[#4F68D2] focus:outline-none md:h-[48px] md:rounded-[24px] md:px-5 md:text-[15px] lg:h-[52px] lg:rounded-[26px] lg:px-6 lg:text-base"
+            placeholder={t('name_placeholder')}
+            className="cursor-target h-[44px] w-full rounded-[22px] border border-[#707070] px-4 text-sm focus:border-[#4F68D2] focus:outline-none md:h-[48px] md:rounded-[24px] md:px-5 md:text-[15px] lg:h-[52px] lg:rounded-[26px] lg:px-6 lg:text-base"
           />
         </li>
 
@@ -127,7 +128,7 @@ export function StepShipping({
           <input
             type="text"
             placeholder={t('province_city_district_placeholder')}
-            className="h-[44px] w-full rounded-[22px] border border-[#707070] px-4 text-sm focus:border-[#4F68D2] focus:outline-none md:h-[48px] md:rounded-[24px] md:px-5 md:text-[15px] lg:h-[52px] lg:rounded-[26px] lg:px-6 lg:text-base"
+            className="cursor-target h-[44px] w-full rounded-[22px] border border-[#707070] px-4 text-sm focus:border-[#4F68D2] focus:outline-none md:h-[48px] md:rounded-[24px] md:px-5 md:text-[15px] lg:h-[52px] lg:rounded-[26px] lg:px-6 lg:text-base"
           />
         </li>
 
@@ -141,7 +142,7 @@ export function StepShipping({
             value={formData.address}
             onChange={e => setFormData({ ...formData, address: e.target.value })}
             placeholder={t('detailed_address_placeholder')}
-            className="h-[44px] w-full rounded-[22px] border border-[#707070] px-4 text-sm focus:border-[#4F68D2] focus:outline-none md:h-[48px] md:rounded-[24px] md:px-5 md:text-[15px] lg:h-[52px] lg:rounded-[26px] lg:px-6 lg:text-base"
+            className="cursor-target h-[44px] w-full rounded-[22px] border border-[#707070] px-4 text-sm focus:border-[#4F68D2] focus:outline-none md:h-[48px] md:rounded-[24px] md:px-5 md:text-[15px] lg:h-[52px] lg:rounded-[26px] lg:px-6 lg:text-base"
           />
         </li>
 
@@ -154,7 +155,8 @@ export function StepShipping({
             type="tel"
             value={formData.phone}
             onChange={e => setFormData({ ...formData, phone: e.target.value })}
-            className="h-[44px] w-full rounded-[22px] border border-[#707070] px-4 text-sm focus:border-[#4F68D2] focus:outline-none md:h-[48px] md:rounded-[24px] md:px-5 md:text-[15px] lg:h-[52px] lg:rounded-[26px] lg:px-6 lg:text-base"
+            placeholder={t('phone_placeholder')}
+            className="cursor-target h-[44px] w-full rounded-[22px] border border-[#707070] px-4 text-sm focus:border-[#4F68D2] focus:outline-none md:h-[48px] md:rounded-[24px] md:px-5 md:text-[15px] lg:h-[52px] lg:rounded-[26px] lg:px-6 lg:text-base"
           />
         </li>
       </ul>
@@ -163,7 +165,7 @@ export function StepShipping({
       <button
         onClick={handleSubmit}
         disabled={isDisabled || isSubmitting}
-        className="mx-auto mt-8 flex h-[44px] w-[140px] items-center justify-center rounded-[22px] border-none bg-[#4f68d2] text-base font-medium text-white shadow-[0px_3px_20px_1px_rgba(0,0,0,0.16)] transition-all hover:bg-[#3d52a8] disabled:cursor-not-allowed disabled:bg-[#f4f4f4] disabled:text-[#707070] md:mt-10 md:h-[48px] md:w-[160px] md:rounded-[24px] md:text-lg lg:mt-12 lg:h-[52px] lg:w-[180px] lg:rounded-[26px] lg:text-xl"
+        className="cursor-target mx-auto mt-8 flex h-[44px] w-[140px] items-center justify-center rounded-[22px] border-none bg-[#4f68d2] text-base font-medium text-white shadow-[0px_3px_20px_1px_rgba(0,0,0,0.16)] transition-all hover:bg-[#3d52a8] disabled:cursor-not-allowed disabled:bg-[#f4f4f4] disabled:text-[#707070] md:mt-10 md:h-[48px] md:w-[160px] md:rounded-[24px] md:text-lg lg:mt-12 lg:h-[52px] lg:w-[180px] lg:rounded-[26px] lg:text-xl"
       >
         {isSubmitting ? t('submitting') : t('submit_order')}
       </button>

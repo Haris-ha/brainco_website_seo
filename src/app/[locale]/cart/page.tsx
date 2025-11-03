@@ -34,7 +34,7 @@ export default function CartPage() {
         transition={{ duration: 0.5 }}
         className="sticky top-0 z-40 flex items-center border-b border-gray-100 bg-white px-6 py-4 md:px-12"
       >
-        <div className="flex items-center gap-1 md:gap-8">
+        <div className="flex items-center gap-1 md:gap-4">
           <Image
             src="https://website-www-brainco-cn.oss-cn-hangzhou.aliyuncs.com/images/icon.webp"
             alt="BrainCo"
