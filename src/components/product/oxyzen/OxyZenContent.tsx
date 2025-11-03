@@ -355,7 +355,7 @@ export default function OxyZenContent({ productInfo }: OxyZenContentProps) {
       </section>
 
       {/* 9D Parsing */}
-      <section className="pt-[5.83vw] pb-[3.125vw] text-center">
+      <section className="pt-[5.83vw] pb-[6.125vw] text-center">
         <motion.h2
           className="text-fluid-5xl mb-5 font-medium"
           initial={{ opacity: 0, y: 30 }}

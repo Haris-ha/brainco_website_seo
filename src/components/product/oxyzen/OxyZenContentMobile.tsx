@@ -3,6 +3,7 @@
 import { motion } from 'framer-motion';
 import { useTranslations } from 'next-intl';
 import Image from 'next/image';
+import { useEffect, useState } from 'react';
 import AfterSalesMobile from '@/components/common/AfterSalesMobile';
 import PurchaseButton from './PurchaseButton';
 
@@ -12,6 +13,26 @@ type OxyZenContentMobileProps = {
 
 export default function OxyZenContentMobile({ productInfo }: OxyZenContentMobileProps) {
   const t = useTranslations('OxyZen');
+  const [isScrolling, setIsScrolling] = useState(false);
+
+  // Handle scroll detection
+  useEffect(() => {
+    let scrollTimer: NodeJS.Timeout;
+
+    const handleScroll = () => {
+      setIsScrolling(true);
+      clearTimeout(scrollTimer);
+      scrollTimer = setTimeout(() => {
+        setIsScrolling(false);
+      }, 150);
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+      clearTimeout(scrollTimer);
+    };
+  }, []);
 
   return (
     <div className="bg-white text-[#333]">
@@ -390,7 +411,12 @@ export default function OxyZenContentMobile({ productInfo }: OxyZenContentMobile
 
       {/* Fixed Bottom Purchase Bar */}
       {productInfo && (
-        <div className="fixed right-0 bottom-0 left-0 z-50 border-t border-gray-200 bg-white px-4 py-3 shadow-lg">
+        <motion.div
+          initial={{ y: 100 }}
+          animate={{ y: isScrolling ? 100 : 0 }}
+          transition={{ duration: 0.3, ease: 'easeInOut' }}
+          className="fixed right-0 bottom-0 left-0 z-50 border-t border-gray-200 bg-white px-4 py-3 shadow-lg"
+        >
           <div className="flex items-center justify-between">
             <div className="ml-4 flex items-baseline">
               <span className="text-fluid-2xl font-medium text-gray-900">
@@ -398,7 +424,7 @@ export default function OxyZenContentMobile({ productInfo }: OxyZenContentMobile
                 {productInfo.price / 100}
               </span>
               {productInfo.oldPrice && (
-                <span className="text-fluid-base ml-2 text-gray-600 line-through">
+                <span className="text-fluid-base ml-1 text-gray-600 line-through">
                   ¥
                   {productInfo.oldPrice / 100}
                 </span>
@@ -408,7 +434,7 @@ export default function OxyZenContentMobile({ productInfo }: OxyZenContentMobile
               <PurchaseButton product={productInfo} isMobile />
             </div>
           </div>
-        </div>
+        </motion.div>
       )}
 
       {/* After Sales */}
