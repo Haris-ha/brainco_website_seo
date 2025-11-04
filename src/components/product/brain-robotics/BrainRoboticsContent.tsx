@@ -228,15 +228,15 @@ export default function BrainRoboticsContent() {
           <Image
             src="https://website-www-brainco-cn.oss-cn-hangzhou.aliyuncs.com/images/cScrrdjj07wJs2xb.webp"
             alt={t('product_name')}
-            width={1080}
-            height={1080}
-            className="left-1/2 h-screen -translate-x-[10vw] transform object-cover 2xl:-translate-x-[5vw]"
+            width={990}
+            height={990}
+            className="left-1/2 h-screen transform object-cover"
             priority
           />
           {/* White gradient overlay from right to left */}
           <div className="pointer-events-none absolute inset-0 bg-gradient-to-l from-white via-white/5 to-transparent" />
         </div>
-        <div className="absolute top-0 right-[20px] flex flex-col pt-[240px] 2xl:right-[180px]">
+        <div className="absolute top-0 right-[20px] flex flex-col pt-[200px] 2xl:right-[180px]">
           {/* Achievement Badges */}
           <div className="flex h-[100px] items-center gap-4">
             {achievements.map((achievement, index) => (
@@ -259,7 +259,7 @@ export default function BrainRoboticsContent() {
           </div>
 
           {/* Product Introduction */}
-          <div className="mt-[80px] w-[410px]">
+          <div className="mt-[60px] w-[410px]">
             <motion.p
               className="text-fluid-5xl font-semibold"
               initial={{ opacity: 0, y: 30 }}
@@ -289,7 +289,7 @@ export default function BrainRoboticsContent() {
       </div>
 
       {/* Gestures Section */}
-      <div className="relative z-[2] -mt-[335px] pl-[182px] 2xl:pl-[242px]">
+      <div className="relative z-[2] mt-[-335px] pl-[182px] 2xl:pl-[242px]">
         <div className="rounded-l-[85px] bg-white pt-[100px] pr-[74px] pb-[100px] pl-[100px] shadow-lg">
           <div className="grid grid-cols-3 gap-x-[50px] gap-y-[40px]">
             {gestures.map((gesture, index) => (
