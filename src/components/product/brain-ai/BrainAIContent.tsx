@@ -311,8 +311,8 @@ export default function BrainAIContent() {
         {/* Introductory Course */}
         <div className="mx-auto mb-[86px] flex h-[270px] w-[1324px] max-w-full items-center justify-center rounded-[135px]" style={{ background: 'linear-gradient(131deg, #FFF2F1 0%, #FFFDF4 52%, #F1FEF6 100%, #F3FFF7 100%)' }}>
           <div className="flex w-[455px] flex-col items-center justify-center">
-            <p className="text-fluid-3xl mb-5">{t('course_intro_title')}</p>
-            <p className="text-fluid-3xl">{t('course_intro_grade')}</p>
+            <p className="text-fluid-3xl mb-5 px-2 py-1 text-center 2xl:px-10">{t('course_intro_title')}</p>
+            <p className="text-fluid-2xl px-2 py-1">{t('course_intro_grade')}</p>
           </div>
           <div className="flex flex-1 flex-wrap">
             {[1, 2, 3, 4, 5, 6].map((num, index) => (
@@ -322,10 +322,10 @@ export default function BrainAIContent() {
                 whileInView={{ opacity: 1, scale: 1 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.3, delay: index * 0.1 }}
-                className="mr-[54px] mb-10 flex h-[84px] w-[226px] items-center justify-center rounded-[42px] bg-white text-center shadow-[7px_7px_5px_1px_rgba(206,206,206,0.75)] last:mb-0"
+                className={`mr-[54px] flex h-[84px] w-[232px] items-center justify-center rounded-[42px] bg-white text-center shadow-[7px_7px_5px_1px_rgba(206,206,206,0.75)] ${index < 3 ? 'mb-10' : ''}`}
                 style={{ border: '5px solid rgba(230, 188, 188, 0.65)' }}
               >
-                <i className="text-fluid-3xl font-normal not-italic">
+                <i className="text-fluid-2xl px-2 py-1 font-normal not-italic">
                   {t(`course_intro_${num}` as any)}
                 </i>
               </motion.span>
@@ -336,8 +336,8 @@ export default function BrainAIContent() {
         {/* Advanced Course */}
         <div className="mx-auto flex h-[270px] w-[1324px] max-w-full items-center justify-center rounded-[135px]" style={{ background: 'linear-gradient(131deg, #FFF2F1 0%, #FFFDF4 52%, #F1FEF6 100%, #F3FFF7 100%)' }}>
           <div className="flex w-[455px] flex-col items-center justify-center">
-            <p className="text-fluid-3xl mb-5">{t('course_advanced_title')}</p>
-            <p className="text-fluid-3xl">{t('course_advanced_grade')}</p>
+            <p className="text-fluid-3xl mb-5 px-2 py-1 text-center 2xl:px-10">{t('course_advanced_title')}</p>
+            <p className="text-fluid-2xl px-2 py-1">{t('course_advanced_grade')}</p>
           </div>
           <div className="flex flex-1 flex-wrap">
             {[1, 2, 3, 4, 5, 6].map((num, index) => (
@@ -347,10 +347,10 @@ export default function BrainAIContent() {
                 whileInView={{ opacity: 1, scale: 1 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.3, delay: index * 0.1 }}
-                className="mr-[54px] mb-10 flex h-[84px] w-[226px] items-center justify-center rounded-[42px] bg-white text-center shadow-[7px_7px_5px_1px_rgba(206,206,206,0.75)] last:mb-0"
+                className={`mr-[54px] flex h-[84px] w-[232px] items-center justify-center rounded-[42px] bg-white text-center shadow-[7px_7px_5px_1px_rgba(206,206,206,0.75)] ${index < 3 ? 'mb-10' : ''}`}
                 style={{ border: '5px solid rgba(205, 234, 211, 0.65)' }}
               >
-                <i className="text-fluid-3xl font-normal not-italic">
+                <i className="text-fluid-2xl px-2 py-1 font-normal not-italic">
                   {t(`course_advanced_${num}` as any)}
                 </i>
               </motion.span>
