@@ -497,7 +497,7 @@ export function HomeContent() {
 
             {expandType === 'dexterous' && (
               <motion.div
-                className="flex h-[180px] w-fit flex-shrink-0 items-center gap-4 rounded-lg bg-[#f4f4f4] p-4"
+                className="flex h-[180px] w-fit flex-shrink-0 items-center gap-4 rounded-lg bg-[#f4f4f4] px-6 py-4"
                 initial={{ opacity: 0, x: 20 }}
                 animate={{ opacity: 1, x: 0 }}
                 exit={{ opacity: 0, x: 20 }}
@@ -507,7 +507,7 @@ export function HomeContent() {
                 <div
                   role="button"
                   tabIndex={0}
-                  className="cursor-target flex h-full w-[180px] cursor-pointer overflow-hidden rounded-2xl bg-white transition-transform duration-200 hover:scale-105"
+                  className="cursor-target flex h-full w-[180px] cursor-pointer overflow-hidden rounded-2xl transition-transform duration-200 hover:scale-105"
                   onClick={() => router.push('/products/revo1')}
                   onKeyDown={(e) => {
                     if (e.key === 'Enter' || e.key === ' ') {
@@ -527,7 +527,7 @@ export function HomeContent() {
                 <div
                   role="button"
                   tabIndex={0}
-                  className="cursor-target flex h-full w-[180px] cursor-pointer overflow-hidden rounded-2xl bg-white transition-transform duration-200 hover:scale-105"
+                  className="cursor-target flex h-full w-[180px] cursor-pointer overflow-hidden rounded-2xl transition-transform duration-200 hover:scale-105"
                   onClick={() => router.push('/products/revo2')}
                   onKeyDown={(e) => {
                     if (e.key === 'Enter' || e.key === ' ') {
@@ -564,7 +564,7 @@ export function HomeContent() {
                     key={item.nameKey}
                     role="button"
                     tabIndex={0}
-                    className="cursor-target flex h-full w-[150px] cursor-pointer flex-col items-center justify-center overflow-hidden rounded-2xl bg-white transition-transform duration-200 hover:scale-105"
+                    className="cursor-target flex h-full w-[180px] cursor-pointer flex-col items-center justify-center overflow-hidden rounded-2xl bg-white transition-transform duration-200 hover:scale-105"
                     onClick={() => router.push(item.router)}
                     onKeyDown={(e) => {
                       if (e.key === 'Enter' || e.key === ' ') {
@@ -581,11 +581,11 @@ export function HomeContent() {
                         className="max-h-[80px] w-auto"
                       />
                     </div>
-                    <div className="flex flex-col items-center px-2 pb-3">
+                    <div className="flex w-full flex-col items-center px-2 pb-3">
                       <span className="text-base font-bold text-[#555]">
                         {t(item.nameKey)}
                       </span>
-                      <span className="text-fluid-sm text-center font-medium text-[#555]">{t(item.descKey)}</span>
+                      <span className="h-10 text-center text-sm text-[#666]">{t(item.descKey)}</span>
                     </div>
                   </div>
                 ))}

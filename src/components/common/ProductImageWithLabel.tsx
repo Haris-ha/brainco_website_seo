@@ -20,16 +20,16 @@ export function ProductImageWithLabel({
   isMenu = true,
 }: ProductImageWithLabelProps) {
   return (
-    <div className={`relative overflow-hidden rounded-2xl bg-white ${className}`}>
+    <div className={`relative w-full overflow-hidden rounded-2xl ${className} px-2`}>
       <Image
         src={src}
         alt={alt}
         width={width}
         height={height}
-        className="-mt-8 h-auto w-full object-contain object-top"
+        className="-mt-6 h-auto w-full object-cover object-top 2xl:-mt-10"
       />
       <div className={`absolute ${isMenu ? 'bottom-8' : 'bottom-2'} right-0 left-0`}>
-        <span className="text-fluid-base block text-center font-medium text-[#555]">
+        <span className="text-fluid-base block text-center font-bold text-[#555]">
           {label}
         </span>
       </div>
