@@ -378,7 +378,7 @@ export function HomeContent() {
                   }
                 }}
               >
-                <div className="relative mr-3 h-40 w-[140px] flex-shrink-0 overflow-hidden">
+                <div className="relative mr-3 h-40 w-[110px] flex-shrink-0 overflow-hidden 2xl:w-[140px]">
                   <Image
                     src={item.img}
                     alt={t(item.nameKey)}
@@ -427,7 +427,7 @@ export function HomeContent() {
               }}
               onMouseEnter={() => setExpandType('dexterous')}
             >
-              <div className="relative mr-3 h-40 w-[140px] flex-shrink-0 overflow-hidden">
+              <div className="relative mr-3 h-40 w-[130px] flex-shrink-0 overflow-hidden 2xl:w-[140px]">
                 <Image
                   src={`${imgPath}pKlkrsJEDIgBCYRy.webp`}
                   alt="工业灵巧手"
@@ -478,7 +478,7 @@ export function HomeContent() {
                 setProductCount(1);
               }}
             >
-              <div className="mr-3 flex h-40 w-[140px] items-center justify-center">
+              <div className="mr-3 flex h-40 w-[110px] items-center justify-center 2xl:w-[140px]">
                 <Image
                   src="https://website-www-brainco-cn.oss-cn-hangzhou.aliyuncs.com/images/kojfrMNnQOelFbAI.webp"
                   alt={t('nerve_modulation_name')}
@@ -549,7 +549,7 @@ export function HomeContent() {
 
             {expandType === 'nerve' && (
               <motion.div
-                className="flex h-[180px] w-fit flex-shrink-0 items-center gap-4 rounded-lg bg-[#f4f4f4] p-4"
+                className="ml-4 flex h-[180px] w-fit flex-shrink-0 items-center gap-4 rounded-lg bg-[#f4f4f4] p-4"
                 initial={{ opacity: 0, x: 20 }}
                 animate={{ opacity: 1, x: 0 }}
                 exit={{ opacity: 0, x: 20 }}
@@ -576,16 +576,16 @@ export function HomeContent() {
                       <Image
                         src={item.img}
                         alt={t(item.nameKey)}
-                        width={100}
-                        height={100}
-                        className="max-h-[100px] w-auto"
+                        width={80}
+                        height={80}
+                        className="max-h-[80px] w-auto"
                       />
                     </div>
-                    <div className="flex flex-col items-center px-2 pt-2 pb-3">
+                    <div className="flex flex-col items-center px-2 pb-3">
                       <span className="text-base font-bold text-[#555]">
                         {t(item.nameKey)}
                       </span>
-                      <span className="text-center text-sm text-[#555]">{t(item.descKey)}</span>
+                      <span className="text-fluid-sm text-center font-medium text-[#555]">{t(item.descKey)}</span>
                     </div>
                   </div>
                 ))}

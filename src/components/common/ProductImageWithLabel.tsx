@@ -14,22 +14,22 @@ export function ProductImageWithLabel({
   src,
   alt,
   label,
-  width = 180,
-  height = 180,
+  width = 160,
+  height = 160,
   className = '',
   isMenu = true,
 }: ProductImageWithLabelProps) {
   return (
-    <div className={`relative overflow-hidden ${className}`}>
+    <div className={`relative overflow-hidden rounded-2xl bg-white ${className}`}>
       <Image
         src={src}
         alt={alt}
         width={width}
         height={height}
-        className="-mt-6 h-auto w-full object-contain object-top"
+        className="-mt-8 h-auto w-full object-contain object-top"
       />
       <div className={`absolute ${isMenu ? 'bottom-8' : 'bottom-2'} right-0 left-0`}>
-        <span className="block text-center text-sm font-medium text-[#666] md:text-base">
+        <span className="text-fluid-base block text-center font-medium text-[#555]">
           {label}
         </span>
       </div>
