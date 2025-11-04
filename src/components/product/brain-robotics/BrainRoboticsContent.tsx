@@ -236,7 +236,7 @@ export default function BrainRoboticsContent() {
           {/* White gradient overlay from right to left */}
           <div className="pointer-events-none absolute inset-0 bg-gradient-to-l from-white via-white/5 to-transparent" />
         </div>
-        <div className="absolute top-0 right-[20px] flex flex-col pt-[200px] 2xl:right-[180px]">
+        <div className="absolute top-0 right-[20px] flex flex-col pt-[200px] 2xl:right-[180px] 2xl:pt-[180px]">
           {/* Achievement Badges */}
           <div className="flex h-[100px] items-center gap-4">
             {achievements.map((achievement, index) => (
@@ -455,7 +455,7 @@ export default function BrainRoboticsContent() {
             href="https://www.brainco.cn/lib/BC2-0900343100-Stark%20%E7%94%A8%E6%88%B7%E8%AF%B4%E6%98%8E%E4%B9%A6%EF%BC%88%E5%A4%A7%E6%89%8B%EF%BC%89-AW-20230925.pdf"
             target="_blank"
             rel="noopener noreferrer"
-            className="text-fluid-2xl flex h-[56px] w-[112px] flex-shrink-0 items-center justify-center rounded-[28px] bg-[#1A74BF] !text-white transition-transform hover:scale-105"
+            className="text-fluid-lg flex h-[44px] min-w-[120px] flex-shrink-0 items-center justify-center rounded-[22px] bg-[#1A74BF] px-8 !text-white transition-transform hover:scale-105"
           >
             {t('download_btn')}
           </a>
@@ -466,7 +466,7 @@ export default function BrainRoboticsContent() {
             href="https://www.brainco.cn/lib/BC2-0900343100-Stark%20%E7%94%A8%E6%88%B7%E8%AF%B4%E6%98%8E%E4%B9%A6%EF%BC%88%E5%A4%A7%E6%89%8B%EF%BC%89-AW-20230925%20%E8%8B%B1%E6%96%87%E7%89%88.pdf"
             target="_blank"
             rel="noopener noreferrer"
-            className="text-fluid-2xl flex h-[56px] w-[112px] flex-shrink-0 items-center justify-center rounded-[28px] bg-[#1A74BF] !text-white transition-transform hover:scale-105"
+            className="text-fluid-lg flex h-[44px] min-w-[120px] flex-shrink-0 items-center justify-center rounded-[22px] bg-[#1A74BF] px-8 !text-white transition-transform hover:scale-105"
           >
             {t('download_btn')}
           </a>
