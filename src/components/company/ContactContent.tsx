@@ -121,14 +121,16 @@ export default function ContactContent() {
   };
 
   return (
-    <div className="w-full bg-white">
+    <main className="w-full bg-white">
       {/* Top Banner */}
-      <div
+      <header
         className="flex h-screen w-full flex-col items-start justify-center bg-cover bg-center px-[240px] pt-20 2xl:px-[300px]"
         style={{
           backgroundImage:
             'url(https://website-www-brainco-cn.oss-cn-hangzhou.aliyuncs.com/images/jnBeGhhj5wSkShKc.webp)',
         }}
+        role="img"
+        aria-label="BrainCo 联系我们背景图 / BrainCo Contact Us Background"
       >
         <motion.h1
           className="text-fluid-6xl leading-[92px] text-white"
@@ -146,10 +148,11 @@ export default function ContactContent() {
         >
           {t('intro_text')}
         </motion.p>
-      </div>
+      </header>
 
       {/* Contact Details */}
-      <div className="flex h-screen w-full flex-col justify-center bg-white">
+      <section className="flex h-screen w-full flex-col justify-center bg-white" aria-labelledby="contact-details-title">
+        <h2 id="contact-details-title" className="sr-only">联系方式 / Contact Information</h2>
         <div className="flex items-end justify-around">
           <motion.div
             initial={{ opacity: 0, x: -30 }}
@@ -158,7 +161,7 @@ export default function ContactContent() {
             transition={{ duration: 0.8, ease: 'easeOut' }}
           >
             <div className="mb-[50px] h-px w-[75px] border-t-[3px] border-[#333333]" />
-            <div className="w-[343px]">
+            <address className="w-[343px] not-italic">
               <motion.div
                 className="mt-[40px]"
                 initial={{ opacity: 0, y: 20 }}
@@ -203,7 +206,7 @@ export default function ContactContent() {
                   {t('address_boston')}
                 </div>
               </motion.div>
-            </div>
+            </address>
           </motion.div>
 
           <motion.div
@@ -245,7 +248,7 @@ export default function ContactContent() {
             </motion.div>
           </motion.div>
         </div>
-      </div>
+      </section>
 
       {/* Business Areas */}
       <div className="grid min-h-screen w-full grid-cols-4">
@@ -478,6 +481,6 @@ export default function ContactContent() {
           </motion.div>
         </motion.div>
       </div>
-    </div>
+    </main>
   );
 }

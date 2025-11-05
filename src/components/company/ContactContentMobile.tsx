@@ -178,12 +178,12 @@ export default function ContactContentMobile() {
   ];
 
   return (
-    <div className="w-full bg-white">
+    <main className="w-full bg-white">
       {/* Top Banner */}
-      <div className="relative">
+      <header className="relative" role="img" aria-label="BrainCo 联系我们背景 - 移动端 / BrainCo Contact Us Background - Mobile">
         <Image
           src="https://website-www-brainco-cn.oss-cn-hangzhou.aliyuncs.com/images/aiz6TJnJ7iWSNVJ1.webp"
-          alt={t('page_title')}
+          alt="BrainCo 联系我们页面背景 / BrainCo Contact Us Background"
           width={750}
           height={800}
           className="w-full object-cover"
@@ -211,12 +211,13 @@ export default function ContactContentMobile() {
             {t('intro_text')}
           </motion.p>
         </motion.div>
-      </div>
+      </header>
 
       {/* Contact Details */}
-      <div className="w-full bg-white">
-        <motion.div
-          className="mt-[30px] px-10"
+      <section className="w-full bg-white" aria-labelledby="contact-details-mobile-title">
+        <h2 id="contact-details-mobile-title" className="sr-only">联系方式 / Contact Information</h2>
+        <motion.address
+          className="mt-[30px] px-10 not-italic"
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
@@ -269,7 +270,7 @@ export default function ContactContentMobile() {
               </div>
             </motion.div>
           </div>
-        </motion.div>
+        </motion.address>
 
         <motion.div
           className="mt-[30px] px-10"
@@ -307,7 +308,7 @@ export default function ContactContentMobile() {
             </span>
           </motion.div>
         </motion.div>
-      </div>
+      </section>
 
       {/* Business Areas */}
       <div className="mt-[60px] w-full">
@@ -514,6 +515,6 @@ export default function ContactContentMobile() {
           </Button>
         </motion.div>
       </motion.div>
-    </div>
+    </main>
   );
 }

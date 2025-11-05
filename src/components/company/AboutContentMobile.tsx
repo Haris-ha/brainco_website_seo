@@ -8,12 +8,12 @@ export default function AboutContentMobile() {
   const t = useTranslations('About');
 
   return (
-    <div className="w-full bg-white">
+    <main className="w-full bg-white">
       {/* Top Banner */}
-      <div className="relative">
+      <header className="relative" role="img" aria-label="BrainCo 团队办公场景 - 移动端 / BrainCo Team Office Scene - Mobile">
         <Image
           src="https://website-www-brainco-cn.oss-cn-hangzhou.aliyuncs.com/images/8YPFxdcLUlb4CDa7.webp"
-          alt={t('page_title')}
+          alt="BrainCo 关于我们页面背景 - 团队办公场景 / BrainCo About Us Background - Team Office"
           width={750}
           height={800}
           className="w-full object-cover"
@@ -41,17 +41,18 @@ export default function AboutContentMobile() {
             {t('intro_text')}
           </motion.p>
         </motion.div>
-      </div>
+      </header>
 
       {/* Brand Culture Section */}
-      <motion.div
+      <motion.section
         className="px-[42px] text-center"
         initial={{ opacity: 0, y: 30 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
         transition={{ duration: 0.8, ease: 'easeOut' }}
+        aria-labelledby="brand-culture-title-mobile"
       >
-        <h2 className="text-fluid-2xl mt-[54px] mb-[14px] text-center font-bold">
+        <h2 id="brand-culture-title-mobile" className="text-fluid-2xl mt-[54px] mb-[14px] text-center font-bold">
           {t('brand_culture')}
         </h2>
         <dl>
@@ -94,7 +95,7 @@ export default function AboutContentMobile() {
             <dd className="text-fluid-base mb-[6px] text-[#656565]">{t('values_4')}</dd>
           </motion.div>
         </dl>
-      </motion.div>
+      </motion.section>
 
       {/* Social Contribution Section */}
       <motion.div
@@ -127,6 +128,6 @@ export default function AboutContentMobile() {
           </motion.li>
         </ul>
       </motion.div>
-    </div>
+    </main>
   );
 }

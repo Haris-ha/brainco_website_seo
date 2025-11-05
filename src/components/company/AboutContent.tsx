@@ -8,14 +8,16 @@ export default function AboutContent() {
   const t = useTranslations('About');
 
   return (
-    <div className="w-full bg-white">
+    <main className="w-full bg-white">
       {/* Top Banner */}
-      <div
+      <header
         className="relative flex h-screen w-full flex-col items-center justify-end bg-cover bg-center"
         style={{
           backgroundImage:
             'url(https://website-www-brainco-cn.oss-cn-hangzhou.aliyuncs.com/images/lQh40fjPTJJQ5w5y.webp)',
         }}
+        role="img"
+        aria-label="BrainCo 团队办公场景 / BrainCo Team Office Scene"
       >
         <motion.div
           className="flex flex-col items-center pb-[60px] 2xl:pb-[120px]"
@@ -40,10 +42,10 @@ export default function AboutContent() {
             {t('intro_text')}
           </motion.p>
         </motion.div>
-      </div>
+      </header>
 
       {/* Brand Culture Section */}
-      <div className="flex h-[680px] w-full items-center justify-center bg-white 2xl:h-[880px]">
+      <section className="flex h-[680px] w-full items-center justify-center bg-white 2xl:h-[880px]" aria-labelledby="brand-culture-title">
         <div className="flex w-4/5 items-center">
           <motion.div
             className="ml-[40px] flex w-1/2 flex-col justify-between 2xl:ml-[100px]"
@@ -52,7 +54,7 @@ export default function AboutContent() {
             viewport={{ once: true }}
             transition={{ duration: 0.8, ease: 'easeOut' }}
           >
-            <h2 className="text-fluid-6xl mb-[40px] leading-[80px] font-medium text-[#333333] 2xl:mb-[80px]">
+            <h2 id="brand-culture-title" className="text-fluid-6xl mb-[40px] leading-[80px] font-medium text-[#333333] 2xl:mb-[80px]">
               {t('brand_culture')}
             </h2>
             <div>
@@ -121,7 +123,7 @@ export default function AboutContent() {
             />
           </motion.div>
         </div>
-      </div>
+      </section>
 
       {/* Social Contribution Section */}
       <div className="flex min-h-[680px] w-full items-center justify-center bg-white py-20 2xl:min-h-[880px]">
@@ -166,6 +168,6 @@ export default function AboutContent() {
           </motion.div>
         </div>
       </div>
-    </div>
+    </main>
   );
 }
