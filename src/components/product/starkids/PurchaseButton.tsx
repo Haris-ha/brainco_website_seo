@@ -175,7 +175,7 @@ export default function PurchaseButton({
         whileTap={{ scale: 0.95 }}
         onClick={handleBuyNow}
         disabled={isLoading}
-        className="cursor-target text-fluid-2xl cursor-pointer rounded-full bg-[#1A74BF] px-[3vw] py-[1vw] font-medium text-white transition-all hover:opacity-90 disabled:cursor-not-allowed disabled:opacity-50"
+        className="cursor-target text-fluid-2xl h-[72px] w-[260px] cursor-pointer rounded-[41px] bg-[#4f68d2] font-medium text-white shadow-lg transition-all hover:bg-[#3d52a8] disabled:cursor-not-allowed disabled:opacity-50"
       >
         {isLoading ? tCart('submitting') : t('buy_now')}
       </motion.button>

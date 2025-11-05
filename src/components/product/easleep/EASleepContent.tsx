@@ -156,7 +156,7 @@ export default function EASleepContent() {
   ];
 
   return (
-    <div className="easleep-content">
+    <div>
       {/* Hero Banner */}
       <section className="relative flex items-center justify-center">
         <picture>
@@ -205,7 +205,7 @@ export default function EASleepContent() {
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
               onClick={handlePurchase}
-              className="text-fluid-2xl cursor-target h-[82px] w-[260px] cursor-pointer rounded-[41px] bg-[#4f68d2] font-medium text-white transition-all hover:scale-105"
+              className="text-fluid-2xl cursor-target h-[72px] w-[260px] cursor-pointer rounded-[41px] bg-[#4f68d2] font-medium text-white transition-all hover:scale-105"
             >
               {t('hero_buy_button')}
             </motion.button>

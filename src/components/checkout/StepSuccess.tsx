@@ -73,7 +73,7 @@ export function StepSuccess({ orderNumber }: StepSuccessProps) {
           whileHover={{ scale: 1.05 }}
           whileTap={{ scale: 0.95 }}
           onClick={() => router.push('/')}
-          className="text-fluid-xl cursor-target h-[50px] w-full rounded-[25px] border-2 border-[#4F68D2] bg-white font-medium text-[#4F68D2] transition-all hover:bg-[#4F68D2] hover:text-white md:h-[82px] md:w-[260px] md:rounded-[41px]"
+          className="text-fluid-xl cursor-target h-[50px] w-full rounded-[25px] border-2 border-[#4F68D2] bg-white font-medium text-[#4F68D2] transition-all hover:bg-[#4F68D2] hover:text-white md:h-[72px] md:w-[260px] md:rounded-[41px]"
         >
           {t('Cart.continue_shopping')}
         </motion.button>
@@ -82,7 +82,7 @@ export function StepSuccess({ orderNumber }: StepSuccessProps) {
           whileHover={{ scale: 1.05 }}
           whileTap={{ scale: 0.95 }}
           onClick={() => router.push(`/orders/${orderNumber}`)}
-          className="text-fluid-xl cursor-target h-[50px] w-full rounded-[25px] bg-[#4F68D2] font-medium text-white shadow-lg transition-all hover:bg-[#3d52a8] md:h-[82px] md:w-[260px] md:rounded-[41px]"
+          className="text-fluid-xl cursor-target h-[50px] w-full rounded-[25px] bg-[#4F68D2] font-medium text-white shadow-lg transition-all hover:bg-[#3d52a8] md:h-[72px] md:w-[260px] md:rounded-[41px]"
         >
           {t('view_order')}
         </motion.button>

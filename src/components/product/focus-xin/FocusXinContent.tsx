@@ -93,7 +93,7 @@ export default function FocusXinContent() {
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
               onClick={() => setShowIntroVideo(true)}
-              className="text-fluid-xl cursor-target flex h-[82px] w-[260px] items-center justify-center rounded-[41px] border-2 border-gray-900 font-medium transition-all hover:bg-gray-100"
+              className="text-fluid-2xl cursor-target flex h-[72px] w-[260px] items-center justify-center rounded-[41px] border-2 border-gray-900 font-medium transition-all hover:bg-gray-100"
             >
               {t('watch_video')}
               <span className="ml-2">›</span>

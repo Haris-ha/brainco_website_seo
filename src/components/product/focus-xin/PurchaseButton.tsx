@@ -73,7 +73,7 @@ export default function PurchaseButton({
       whileTap={{ scale: 0.95 }}
       onClick={handleBuyNow}
       disabled={isLoading}
-      className="cursor-target text-fluid-2xl h-[82px] w-[260px] rounded-[41px] bg-[#4f68d2] font-medium text-white shadow-lg transition-all hover:bg-[#3d52a8] disabled:cursor-not-allowed disabled:opacity-50"
+      className="cursor-target text-fluid-2xl h-[72px] w-[260px] rounded-[41px] bg-[#4f68d2] font-medium text-white shadow-lg transition-all hover:bg-[#3d52a8] disabled:cursor-not-allowed disabled:opacity-50"
     >
       {isLoading ? '加载中...' : t('buy_now')}
     </motion.button>
