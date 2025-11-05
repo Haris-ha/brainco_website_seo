@@ -519,8 +519,8 @@ export function HomeContent() {
                     src="https://www.brainco.cn/news-images/revo.png"
                     alt="Revo 1"
                     label={t('product_revo1_name')}
-                    width={180}
-                    height={180}
+                    width={140}
+                    height={140}
                     isMenu={false}
                   />
                 </div>
@@ -539,8 +539,8 @@ export function HomeContent() {
                     src="https://www.brainco.cn/news-images/stark.png"
                     alt="Revo 2"
                     label={t('product_revo2_name')}
-                    width={180}
-                    height={180}
+                    width={140}
+                    height={140}
                     isMenu={false}
                   />
                 </div>
