@@ -14,6 +14,7 @@ const DEFAULT_SERVICE_URL = 'https://work.weixin.qq.com/kfid/kfc5267fd2961e88563
 
 export default function OnlineService() {
   const [isExpanded, setIsExpanded] = useState(false);
+  const [isQRModalOpen, setIsQRModalOpen] = useState(false);
   const t = useTranslations('OnlineService');
   const searchParams = useSearchParams();
 
@@ -141,6 +142,62 @@ export default function OnlineService() {
     }),
   };
 
+  const modalVariants = {
+    hidden: {
+      opacity: 0,
+      scale: 0.8,
+      transition: {
+        duration: 0.2,
+        ease: 'easeIn' as any,
+      },
+    },
+    visible: {
+      opacity: 1,
+      scale: 1,
+      transition: {
+        duration: 0.3,
+        ease: [0.4, 0, 0.2, 1] as any,
+      },
+    },
+    exit: {
+      opacity: 0,
+      scale: 0.8,
+      transition: {
+        duration: 0.2,
+        ease: 'easeOut' as any,
+      },
+    },
+  };
+
+  const backdropVariants = {
+    hidden: {
+      opacity: 0,
+      transition: {
+        duration: 0.2,
+      },
+    },
+    visible: {
+      opacity: 1,
+      transition: {
+        duration: 0.3,
+      },
+    },
+    exit: {
+      opacity: 0,
+      transition: {
+        duration: 0.2,
+      },
+    },
+  };
+
+  const handleQRCodeClick = () => {
+    setIsQRModalOpen(true);
+  };
+
+  const handleCloseModal = () => {
+    setIsQRModalOpen(false);
+  };
+
   return (
     <motion.div
       className="fixed right-10 bottom-10 z-[999] flex flex-col bg-white shadow-[0_3px_20px_1px_rgba(0,0,0,0.16)] transition-shadow hover:shadow-[0_6px_30px_2px_rgba(0,0,0,0.2)] active:shadow-[0_0_3px_1px_rgba(0,0,0,0.2)]"
@@ -265,21 +322,92 @@ export default function OnlineService() {
                   </p>
                 </div>
                 <motion.div
-                  className="h-[80px] w-[80px] flex-shrink-0 overflow-hidden rounded-lg"
+                  className="cursor-target h-[58px] w-[58px] flex-shrink-0 overflow-hidden rounded-lg"
                   whileHover={{ scale: 1.1 }}
                   transition={{ duration: 0.2 }}
+                  onClick={handleQRCodeClick}
                 >
                   <Image
                     src="https://website-www-brainco-cn.oss-cn-hangzhou.aliyuncs.com/assets/images/05E2A5BB-24A5-4D85-9CE7-331E1B31D080.png"
                     alt="WeChat QR Code"
-                    width={80}
-                    height={80}
+                    width={58}
+                    height={58}
                     className="h-full w-full"
                   />
                 </motion.div>
               </motion.li>
             </ul>
           </motion.div>
+        )}
+      </AnimatePresence>
+
+      {/* QR Code Modal */}
+      <AnimatePresence>
+        {isQRModalOpen && (
+          <>
+            {/* Backdrop */}
+            <motion.div
+              className="fixed inset-0 z-[1000] bg-black/50 backdrop-blur-sm"
+              variants={backdropVariants}
+              initial="hidden"
+              animate="visible"
+              exit="exit"
+              onClick={handleCloseModal}
+            />
+            {/* Modal Content */}
+            <motion.div
+              className="fixed top-1/2 left-1/2 z-[1001] -translate-x-1/2 -translate-y-1/2"
+              variants={modalVariants}
+              initial="hidden"
+              animate="visible"
+              exit="exit"
+              onClick={(e) => {
+                e.stopPropagation();
+              }}
+            >
+              <div className="relative rounded-2xl bg-white p-8 shadow-2xl">
+                {/* Close Button */}
+                <button
+                  type="button"
+                  onClick={handleCloseModal}
+                  className="cursor-target absolute top-4 right-4 flex h-10 w-10 items-center justify-center rounded-full bg-gray-100 text-gray-600 transition-colors hover:bg-gray-200 hover:text-gray-800"
+                  aria-label="Close"
+                >
+                  <svg
+                    className="h-5 w-5"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={2}
+                      d="M6 18L18 6M6 6l12 12"
+                    />
+                  </svg>
+                </button>
+                {/* QR Code Image */}
+                <div className="flex flex-col items-center">
+                  <h3 className="text-fluid-2xl mb-4 font-bold text-[#333333]">
+                    {t('wechat_service')}
+                  </h3>
+                  <div className="overflow-hidden rounded-lg border-4 border-gray-100">
+                    <Image
+                      src="https://website-www-brainco-cn.oss-cn-hangzhou.aliyuncs.com/assets/images/05E2A5BB-24A5-4D85-9CE7-331E1B31D080.png"
+                      alt="WeChat QR Code"
+                      width={300}
+                      height={300}
+                      className="h-auto w-auto"
+                    />
+                  </div>
+                  <p className="text-fluid-xl mt-4 text-[#666666]">
+                    {t('wechat_desc')}
+                  </p>
+                </div>
+              </div>
+            </motion.div>
+          </>
         )}
       </AnimatePresence>
     </motion.div>
