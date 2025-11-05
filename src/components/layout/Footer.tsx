@@ -88,15 +88,16 @@ export function Footer({ locale }: FooterProps) {
           <div className="flex items-center justify-between border-b border-gray-300 pb-12">
             <Image
               src="/icons/logo.pc.webp"
-              alt="BrainCo Logo"
+              alt="BrainCo - 强脑科技 Logo / BrainCo Logo"
               width={260}
               height={60}
               className="h-auto w-64"
             />
-            <div className="flex items-center gap-9">
+            <nav aria-label="社交媒体链接 / Social media links" className="flex items-center gap-9">
               <button
                 type="button"
                 className="cursor-target relative cursor-pointer transition-opacity"
+                aria-label="关注 BrainCo 微信公众号 / Follow BrainCo on WeChat"
                 onMouseEnter={() => {
                   setShowWechatQR(true);
                   setHoveredIcon('wechat');
@@ -112,16 +113,16 @@ export function Footer({ locale }: FooterProps) {
                       ? 'https://website-www-brainco-cn.oss-cn-hangzhou.aliyuncs.com/assets/images/icon/xnCVb1j5kU42BaXe.png'
                       : 'https://website-www-brainco-cn.oss-cn-hangzhou.aliyuncs.com/assets/images/icon/MAqhgUP8Tto47vOE.webp'
                   }
-                  alt="WeChat"
+                  alt="微信公众号图标 / WeChat icon"
                   width={38}
                   height={38}
                   className="h-9 w-9"
                 />
                 {showWechatQR && (
-                  <div className="absolute -top-20 -left-42 z-10 flex w-40 flex-col items-center justify-center rounded-3xl bg-white p-4 text-center shadow-lg">
+                  <div className="absolute -top-20 -left-42 z-10 flex w-40 flex-col items-center justify-center rounded-3xl bg-white p-4 text-center shadow-lg" role="tooltip">
                     <Image
                       src="https://website-www-brainco-cn.oss-cn-hangzhou.aliyuncs.com/images/brainco_code.jpg"
-                      alt="WeChat QR Code"
+                      alt="BrainCo 微信公众号二维码 / BrainCo WeChat QR Code"
                       width={100}
                       height={100}
                       className="mb-2 size-25"
@@ -141,6 +142,7 @@ export function Footer({ locale }: FooterProps) {
                 target="_blank"
                 rel="noopener noreferrer"
                 className="cursor-target transition-opacity"
+                aria-label="关注 BrainCo 微博 / Follow BrainCo on Weibo"
                 onMouseEnter={() => setHoveredIcon('weibo')}
                 onMouseLeave={() => setHoveredIcon(null)}
               >
@@ -150,7 +152,7 @@ export function Footer({ locale }: FooterProps) {
                       ? 'https://website-www-brainco-cn.oss-cn-hangzhou.aliyuncs.com/assets/images/icon/P6e3qoz5GSivXHg0.png'
                       : 'https://website-www-brainco-cn.oss-cn-hangzhou.aliyuncs.com/assets/images/icon/oK7ABeigxqT2Q1dc.webp'
                   }
-                  alt="Weibo"
+                  alt="微博图标 / Weibo icon"
                   width={38}
                   height={38}
                   className="h-9 w-9"
@@ -161,6 +163,7 @@ export function Footer({ locale }: FooterProps) {
                 target="_blank"
                 rel="noopener noreferrer"
                 className="cursor-target transition-opacity"
+                aria-label="关注 BrainCo 知乎 / Follow BrainCo on Zhihu"
                 onMouseEnter={() => setHoveredIcon('zhihu')}
                 onMouseLeave={() => setHoveredIcon(null)}
               >
@@ -170,27 +173,27 @@ export function Footer({ locale }: FooterProps) {
                       ? 'https://website-www-brainco-cn.oss-cn-hangzhou.aliyuncs.com/assets/images/icon/LQFg74EN263VqB1J.png'
                       : 'https://website-www-brainco-cn.oss-cn-hangzhou.aliyuncs.com/assets/images/icon/8iAJUbz6FgXm4qXc.webp'
                   }
-                  alt="Zhihu"
+                  alt="知乎图标 / Zhihu icon"
                   width={65}
                   height={38}
                   className="h-9 w-16"
                 />
               </a>
-            </div>
+            </nav>
           </div>
 
           {/* 导航链接 */}
-          <div className="mt-16 flex justify-between">
+          <nav aria-label="产品和服务导航 / Products and services navigation" className="mt-16 flex justify-between">
             {/* 产品栏 */}
             <div>
-              <h4 className="mb-10 text-2xl font-medium !text-[#666]">
+              <p className="mb-10 text-2xl font-medium !text-[#666]">
                 {t('products')}
-              </h4>
+              </p>
               {productNavigation.map(section => (
                 <div key={section.title} className="mt-10 first:mt-0">
-                  <h5 className="mb-4 text-xl font-medium !text-[#666]">
+                  <p className="mb-4 text-xl font-medium !text-[#666]">
                     {section.title}
-                  </h5>
+                  </p>
                   {section.items.map(item => (
                     <motion.div
                       key={item.href}
@@ -217,9 +220,9 @@ export function Footer({ locale }: FooterProps) {
             <div>
               {otherNavigation.slice(0, 1).map(section => (
                 <div key={section.title} className="mb-20">
-                  <h4 className="mb-10 text-2xl font-medium !text-[#666]">
+                  <p className="mb-10 text-2xl font-medium !text-[#666]">
                     {section.title}
-                  </h4>
+                  </p>
                   {section.items.map(item => (
                     <motion.div
                       key={item.href}
@@ -246,9 +249,9 @@ export function Footer({ locale }: FooterProps) {
             <div className="flex flex-col justify-between">
               {otherNavigation.slice(1).map((section, index) => (
                 <div key={section.title} className={index > 0 ? 'mt-20' : ''}>
-                  <h4 className="mb-10 text-2xl font-medium !text-[#666]">
+                  <p className="mb-10 text-2xl font-medium !text-[#666]">
                     {section.title}
-                  </h4>
+                  </p>
                   {section.items.map(item => (
                     <motion.div
                       key={item.href}
@@ -272,13 +275,13 @@ export function Footer({ locale }: FooterProps) {
 
               {/* 语言切换 */}
               <div className="mt-10">
-                <h4 className="mb-6 text-2xl font-medium !text-[#666]">
+                <p className="mb-6 text-2xl font-medium !text-[#666]">
                   {locale === 'zh-CN' ? '语言' : locale === 'en-US' ? 'Language' : '語言'}
-                </h4>
+                </p>
                 <LanguageSelector />
               </div>
             </div>
-          </div>
+          </nav>
 
           {/* 版权信息 */}
           <div className="mt-20 pb-12 text-center">
@@ -318,14 +321,14 @@ export function Footer({ locale }: FooterProps) {
           <div className="mt-9 flex gap-8">
             {/* 产品栏 */}
             <div className="flex-[3]">
-              <h4 className="text-fluid-lg mb-6 font-semibold !text-[#333]">
+              <p className="text-fluid-lg mb-6 font-semibold !text-[#333]">
                 {t('products')}
-              </h4>
+              </p>
               {productNavigation.map(section => (
                 <div key={section.title} className="mt-6 first:mt-0">
-                  <h5 className="mb-3 text-[12px] font-semibold !text-[#333]">
+                  <p className="mb-3 text-[12px] font-semibold !text-[#333]">
                     {section.title}
-                  </h5>
+                  </p>
                   {section.items.map(item => (
                     <Link
                       key={item.href}
@@ -343,9 +346,9 @@ export function Footer({ locale }: FooterProps) {
             <div className="flex-[2]">
               {otherNavigation.map(section => (
                 <div key={section.title} className="mb-6 first:mb-2">
-                  <h4 className="text-fluid-lg mb-2 font-semibold !text-[#333]">
+                  <p className="text-fluid-lg mb-2 font-semibold !text-[#333]">
                     {section.title}
-                  </h4>
+                  </p>
                   {section.items.map(item => (
                     <Link
                       key={item.href}
@@ -361,17 +364,18 @@ export function Footer({ locale }: FooterProps) {
           </div>
 
           {/* 社交媒体 */}
-          <div className="mt-11 flex items-center justify-center">
+          <nav aria-label="社交媒体链接 / Social media links" className="mt-11 flex items-center justify-center">
             <span className="text-fluid-lg mr-6">{t('follow_us')}</span>
             <div className="flex items-center gap-5">
               <button
                 type="button"
                 onClick={() => setShowWechatQR(true)}
                 className="flex items-center"
+                aria-label="查看微信公众号二维码 / View WeChat QR code"
               >
                 <Image
                   src="https://website-www-brainco-cn.oss-cn-hangzhou.aliyuncs.com/assets/images/icon/MAqhgUP8Tto47vOE.webp"
-                  alt="WeChat"
+                  alt="微信图标 / WeChat icon"
                   width={20}
                   height={20}
                   className="h-5 w-5"
@@ -381,10 +385,11 @@ export function Footer({ locale }: FooterProps) {
                 href="https://weibo.com/6552733338/profile?topnav=1&wvr=6"
                 target="_blank"
                 rel="noopener noreferrer"
+                aria-label="访问 BrainCo 微博 / Visit BrainCo on Weibo"
               >
                 <Image
                   src="https://website-www-brainco-cn.oss-cn-hangzhou.aliyuncs.com/assets/images/icon/oK7ABeigxqT2Q1dc.webp"
-                  alt="Weibo"
+                  alt="微博图标 / Weibo icon"
                   width={20}
                   height={20}
                   className="h-5 w-5"
@@ -394,23 +399,24 @@ export function Footer({ locale }: FooterProps) {
                 href="https://www.zhihu.com/org/braincoqiang-nao-ke-ji"
                 target="_blank"
                 rel="noopener noreferrer"
+                aria-label="访问 BrainCo 知乎 / Visit BrainCo on Zhihu"
               >
                 <Image
                   src="https://website-www-brainco-cn.oss-cn-hangzhou.aliyuncs.com/assets/images/icon/8iAJUbz6FgXm4qXc.webp"
-                  alt="Zhihu"
+                  alt="知乎图标 / Zhihu icon"
                   width={36}
                   height={20}
                   className="h-5 w-9"
                 />
               </a>
             </div>
-          </div>
+          </nav>
 
           {/* Logo */}
           <div className="mt-10 flex justify-center md:mt-14">
             <Image
               src="/icons/logo.pc.webp"
-              alt="BrainCo Logo"
+              alt="BrainCo - 强脑科技 Logo / BrainCo Logo"
               width={106}
               height={25}
               className="h-auto w-[106px]"
@@ -452,11 +458,12 @@ export function Footer({ locale }: FooterProps) {
             className="fixed inset-0 z-50 flex items-center justify-center bg-black/50"
             onClick={() => setShowWechatQR(false)}
             onKeyDown={e => e.key === 'Escape' && setShowWechatQR(false)}
+            aria-label="关闭微信二维码弹窗 / Close WeChat QR code modal"
           >
-            <div className="absolute bottom-24 flex w-60 flex-col items-center justify-center rounded-3xl bg-white p-4 text-center shadow-lg">
+            <div className="absolute bottom-24 flex w-60 flex-col items-center justify-center rounded-3xl bg-white p-4 text-center shadow-lg" role="dialog" aria-modal="true">
               <Image
                 src="https://website-www-brainco-cn.oss-cn-hangzhou.aliyuncs.com/images/brainco_code.jpg"
-                alt="WeChat QR Code"
+                alt="BrainCo 微信公众号二维码 / BrainCo WeChat QR Code"
                 width={100}
                 height={100}
                 className="mb-2 size-25"

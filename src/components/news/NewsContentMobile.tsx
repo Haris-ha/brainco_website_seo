@@ -23,10 +23,11 @@ export default function NewsContentMobile({
   const loading = false; // 数据已在服务端获取，不需要loading状态
 
   return (
-    <div className="w-full overflow-x-hidden bg-white">
+    <main className="w-full overflow-x-hidden bg-white">
       <NewsHero isMobile />
 
-      <div className="mx-auto mt-[8vw] w-full px-[4vw] pb-[8vw]">
+      <section className="mx-auto mt-[8vw] w-full px-[4vw] pb-[8vw]" aria-labelledby="news-mobile-section-title">
+        <h2 id="news-mobile-section-title" className="sr-only">新闻列表 / News List</h2>
         {/* <motion.h5
           initial={{ opacity: 0, y: -10 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -51,9 +52,9 @@ export default function NewsContentMobile({
                 </div>
               </>
             )}
-      </div>
+      </section>
 
       <BackToTop />
-    </div>
+    </main>
   );
 }

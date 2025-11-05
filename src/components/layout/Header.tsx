@@ -40,7 +40,7 @@ export function Header({ locale }: HeaderProps) {
   }, []);
 
   return (
-    <>
+    <header>
       {/* 桌面端导航 - 使用CSS隐藏/显示以避免初始渲染问题 */}
       <div className={isMobile && mounted ? 'hidden' : ''}>
         <DesktopNav locale={locale} />
@@ -62,14 +62,15 @@ export function Header({ locale }: HeaderProps) {
             : (
               // 其他页面：显示固定白色导航栏
                 <>
-                  <header className="fixed top-0 left-0 z-50 flex h-24 w-full items-center justify-between bg-white px-8 shadow-sm">
+                  <div className="fixed top-0 left-0 z-50 flex h-24 w-full items-center justify-between bg-white px-8 shadow-sm">
                     {/* 左侧：汉堡菜单按钮 */}
                     <div className="flex items-center gap-2">
                       <button
                         type="button"
                         onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
                         className="flex h-[18px] w-[18px] flex-shrink-0 items-center justify-center"
-                        aria-label="Toggle menu"
+                        aria-label={mobileMenuOpen ? '关闭菜单 / Close menu' : '打开菜单 / Open menu'}
+                        aria-expanded={mobileMenuOpen}
                       >
                         <Image
                           src={
@@ -77,7 +78,7 @@ export function Header({ locale }: HeaderProps) {
                               ? 'https://website-www-brainco-cn.oss-cn-hangzhou.aliyuncs.com/images/com/close.webp'
                               : 'https://website-www-brainco-cn.oss-cn-hangzhou.aliyuncs.com/images/com/menu.webp'
                           }
-                          alt="Menu"
+                          alt={mobileMenuOpen ? '关闭菜单图标 / Close menu icon' : '菜单图标 / Menu icon'}
                           width={22}
                           height={22}
                           className="h-[22px] w-[22px]"
@@ -85,10 +86,10 @@ export function Header({ locale }: HeaderProps) {
                       </button>
 
                       {/* 中间：Logo */}
-                      <a href={`/${locale}`} className="flex-shrink-0">
+                      <a href={`/${locale}`} className="flex-shrink-0" aria-label="BrainCo 首页 / BrainCo Homepage">
                         <Image
                           src="/logo.webp"
-                          alt="BrainCo"
+                          alt="BrainCo - 强脑科技 Logo / BrainCo Logo"
                           width={132}
                           height={40}
                           priority
@@ -98,16 +99,16 @@ export function Header({ locale }: HeaderProps) {
                     </div>
 
                     {/* 右侧：购物车 */}
-                    <a href={`/${locale}/cart`} className="flex items-center">
+                    <a href={`/${locale}/cart`} className="flex items-center" aria-label="查看购物车 / View shopping cart">
                       <Image
                         src="https://website-www-brainco-cn.oss-cn-hangzhou.aliyuncs.com/images/G7UDx0MHZvyebaSK.png"
-                        alt="购物车"
+                        alt="购物车图标 / Shopping cart icon"
                         width={36}
                         height={36}
                         className="h-11 w-11 p-1.5"
                       />
                     </a>
-                  </header>
+                  </div>
 
                   {/* 移动端菜单（不显示顶部导航栏） */}
                   <MobileNav
@@ -120,6 +121,6 @@ export function Header({ locale }: HeaderProps) {
               )}
         </>
       )}
-    </>
+    </header>
   );
 }

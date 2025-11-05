@@ -43,17 +43,17 @@ export function DesktopNav({ locale }: { locale: string }) {
 
   return (
     <>
-      <header className="fixed top-0 left-0 z-50 hidden w-full md:flex">
+      <nav className="fixed top-0 left-0 z-50 hidden w-full md:flex" aria-label="主导航 / Main navigation">
         <div className={`absolute inset-0 backdrop-blur-[10px] ${isRevoPage ? 'bg-black/80' : 'bg-white/30'}`} />
 
         {/* 导航内容 */}
         <div className="relative z-10 flex h-20 w-full items-center justify-between px-4 sm:px-8 md:px-16 lg:px-24 xl:px-32 2xl:px-60">
           {/* Logo */}
           <div className="flex items-center">
-            <Link href={`/${locale}`} className="cursor-target block w-[170px]">
+            <Link href={`/${locale}`} className="cursor-target block w-[170px]" aria-label="BrainCo 首页 / BrainCo Homepage">
               <Image
                 src={isRevoPage ? 'https://website-www-brainco-cn.oss-cn-hangzhou.aliyuncs.com/images/TODgNdIJtLciUKpf.png' : '/logo-desktop.webp'}
-                alt="BrainCo"
+                alt="BrainCo - 强脑科技 Logo / BrainCo Logo"
                 width={170}
                 height={51}
                 priority
@@ -63,7 +63,7 @@ export function DesktopNav({ locale }: { locale: string }) {
           </div>
 
           {/* 导航菜单 */}
-          <nav className="flex flex-1">
+          <div className="flex flex-1">
             <ul className="mr-8 flex w-full justify-center px-48 2xl:mr-16 2xl:px-32">
               {navItems.map((item, _index) => (
                 <li
@@ -146,14 +146,14 @@ export function DesktopNav({ locale }: { locale: string }) {
                 </li>
               ))}
             </ul>
-          </nav>
+          </div>
 
           {/* 购物车图标 - 右侧对齐 */}
           <div className="flex items-center">
-            <Link href={`/${locale}/cart`} className="cursor-target block">
+            <Link href={`/${locale}/cart`} className="cursor-target block" aria-label="查看购物车 / View shopping cart">
               <Image
                 src="https://website-www-brainco-cn.oss-cn-hangzhou.aliyuncs.com/images/G7UDx0MHZvyebaSK.png"
-                alt={t('cart')}
+                alt="购物车图标 / Shopping cart icon"
                 width={30}
                 height={30}
                 className={`h-[30px] w-[30px] cursor-pointer transition-opacity hover:opacity-80 ${isRevoPage ? 'brightness-0 invert' : ''}`}
@@ -161,7 +161,7 @@ export function DesktopNav({ locale }: { locale: string }) {
             </Link>
           </div>
         </div>
-      </header>
+      </nav>
 
       {/* 产品下拉菜单 */}
       {showProductMenu && (

@@ -24,10 +24,11 @@ export default function NewsContent({
   const loading = false; // 数据已在服务端获取，不需要loading状态
 
   return (
-    <div className="w-full overflow-x-hidden bg-white">
+    <main className="w-full overflow-x-hidden bg-white">
       <NewsHero isMobile={false} />
 
-      <div className="relative mx-auto mt-[3.5vw] w-full max-w-[70vw] px-[4vw] pt-10 pb-[3vw] md:mt-[55px] md:pb-[60px] xl:px-[2vw]">
+      <section className="relative mx-auto mt-[3.5vw] w-full max-w-[70vw] px-[4vw] pt-10 pb-[3vw] md:mt-[55px] md:pb-[60px] xl:px-[2vw]" aria-labelledby="news-section-title">
+        <h2 id="news-section-title" className="sr-only">新闻列表 / News List</h2>
         {/* <motion.h5
           initial={{ opacity: 0.7, y: -5 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -51,9 +52,9 @@ export default function NewsContent({
                 <WeChatQRCode />
               </>
             )}
-      </div>
+      </section>
 
       <BackToTop />
-    </div>
+    </main>
   );
 }

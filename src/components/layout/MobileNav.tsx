@@ -84,7 +84,7 @@ export function MobileNav({ locale, isOpen, onToggle, showHeader = true }: Mobil
     <>
       {/* 顶部导航栏 - 仅在首页显示 */}
       {showHeader && (
-        <header className={`fixed top-0 left-0 z-[60] flex h-24 w-full items-center justify-between px-8 transition-all duration-300 md:hidden ${isOpen ? 'bg-white shadow-sm' : ''}`}>
+        <div className={`fixed top-0 left-0 z-[60] flex h-24 w-full items-center justify-between px-8 transition-all duration-300 md:hidden ${isOpen ? 'bg-white shadow-sm' : ''}`}>
           {/* 左侧：汉堡菜单按钮和 Logo */}
           <div className="flex items-center gap-2">
             {/* 菜单按钮 */}
@@ -92,7 +92,8 @@ export function MobileNav({ locale, isOpen, onToggle, showHeader = true }: Mobil
               type="button"
               onClick={onToggle}
               className="relative flex h-[20px] w-[20px] flex-shrink-0 items-center justify-center"
-              aria-label="Toggle menu"
+              aria-label={isOpen ? '关闭菜单 / Close menu' : '打开菜单 / Open menu'}
+              aria-expanded={isOpen}
             >
               <div className={`transition-transform duration-500 ${isOpen ? 'rotate-180' : 'rotate-0'}`}>
                 <Image
@@ -101,7 +102,7 @@ export function MobileNav({ locale, isOpen, onToggle, showHeader = true }: Mobil
                       ? 'https://website-www-brainco-cn.oss-cn-hangzhou.aliyuncs.com/images/com/close.webp'
                       : 'https://website-www-brainco-cn.oss-cn-hangzhou.aliyuncs.com/images/com/menu_white.png'
                   }
-                  alt={t('menu')}
+                  alt={isOpen ? '关闭菜单图标 / Close menu icon' : '菜单图标 / Menu icon'}
                   width={20}
                   height={20}
                   className={isOpen ? 'h-[18px] w-[18px]' : 'h-[22px] w-[22px]'}
@@ -111,10 +112,10 @@ export function MobileNav({ locale, isOpen, onToggle, showHeader = true }: Mobil
 
             {/* Logo - 只在菜单打开时显示 */}
             {isOpen && (
-              <Link href={`/${locale}`} className="animate-slide-in-right flex-shrink-0">
+              <Link href={`/${locale}`} className="animate-slide-in-right flex-shrink-0" aria-label="BrainCo 首页 / BrainCo Homepage">
                 <Image
                   src="/logo.webp"
-                  alt="BrainCo"
+                  alt="BrainCo - 强脑科技 Logo / BrainCo Logo"
                   width={132}
                   height={40}
                   priority
@@ -126,131 +127,129 @@ export function MobileNav({ locale, isOpen, onToggle, showHeader = true }: Mobil
 
           {/* 右侧：购物车 - 只在菜单打开时显示 */}
           {isOpen && (
-            <Link href={`/${locale}/cart`} className="animate-slide-in-left flex items-center">
+            <Link href={`/${locale}/cart`} className="animate-slide-in-left flex items-center" aria-label="查看购物车 / View shopping cart">
               <Image
                 src="https://website-www-brainco-cn.oss-cn-hangzhou.aliyuncs.com/images/G7UDx0MHZvyebaSK.png"
-                alt={t('cart')}
+                alt="购物车图标 / Shopping cart icon"
                 width={36}
                 height={36}
                 className="h-11 w-11 p-1.5"
               />
             </Link>
           )}
-        </header>
+        </div>
       )}
 
       {/* 移动端菜单 */}
       {isOpen && (
-        <div className="animate-fade-in fixed top-24 left-0 z-[55] h-screen w-full overflow-y-auto bg-black/30">
+        <nav className="animate-fade-in fixed top-24 left-0 z-[55] h-screen w-full overflow-y-auto bg-black/30" aria-label="移动端主导航菜单 / Mobile main navigation menu">
           <div className="animate-slide-down bg-white px-8 pb-8">
-            <nav>
-              <ul>
-                {navItems.map((item, itemIndex) => (
-                  <li
-                    key={item.key}
-                    className="animate-slide-down"
-                    style={{ animationDelay: `${itemIndex * 0.05}s` }}
-                  >
-                    {/* 菜单项 */}
-                    <div
-                      role="button"
-                      tabIndex={0}
-                      className="flex h-[68px] items-center justify-between border-b border-gray-100"
-                      onClick={() => {
+            <ul>
+              {navItems.map((item, itemIndex) => (
+                <li
+                  key={item.key}
+                  className="animate-slide-down"
+                  style={{ animationDelay: `${itemIndex * 0.05}s` }}
+                >
+                  {/* 菜单项 */}
+                  <div
+                    role="button"
+                    tabIndex={0}
+                    className="flex h-[68px] items-center justify-between border-b border-gray-100"
+                    onClick={() => {
+                      if (item.children) {
+                        toggleSubmenu(item.key);
+                      }
+                    }}
+                    onKeyDown={(e) => {
+                      if (e.key === 'Enter' || e.key === ' ') {
                         if (item.children) {
                           toggleSubmenu(item.key);
                         }
-                      }}
-                      onKeyDown={(e) => {
-                        if (e.key === 'Enter' || e.key === ' ') {
-                          if (item.children) {
-                            toggleSubmenu(item.key);
-                          }
-                        }
-                      }}
-                    >
-                      {item.href
-                        ? (
-                            <Link
-                              href={item.href}
-                              className="flex-1 text-xl !text-[#333] no-underline hover:!text-[#333]"
-                              onClick={onToggle}
-                            >
-                              {t(item.key)}
-                            </Link>
-                          )
-                        : (
-                            <span className="flex-1 text-xl text-[#333]">{t(item.key)}</span>
-                          )}
-
-                      {item.children && (
-                        <div className={`transition-transform duration-300 ${openMenus[item.key] ? 'rotate-180' : 'rotate-0'}`}>
-                          {openMenus[item.key]
-                            ? <ChevronRight className="h-6 w-6 text-[#333]" />
-                            : <ChevronDown className="h-6 w-6 text-[#333]" />}
-                        </div>
-                      )}
-                    </div>
-
-                    {/* 子菜单 */}
-                    {item.children && openMenus[item.key] && (
-                      <div className="animate-slide-down overflow-hidden pl-5">
-                        {item.children.map((child, index) => (
-                          <div
-                            key={child.titleKey || child.key || index}
-                            className="animate-fade-in"
-                            style={{ animationDelay: `${index * 0.03}s` }}
+                      }
+                    }}
+                  >
+                    {item.href
+                      ? (
+                          <Link
+                            href={item.href}
+                            className="flex-1 text-xl !text-[#333] no-underline hover:!text-[#333]"
+                            onClick={onToggle}
                           >
-                            {/* 分类标题 */}
-                            {child.titleKey && (
-                              <div className="mt-4 mb-2.5 text-lg font-medium !text-[#333]">
-                                {t(child.titleKey)}
-                              </div>
-                            )}
+                            {t(item.key)}
+                          </Link>
+                        )
+                      : (
+                          <span className="flex-1 text-xl text-[#333]">{t(item.key)}</span>
+                        )}
 
-                            {/* 无子级的链接 */}
-                            {child.key && child.href && !child.children && (
-                              <div className="mt-4 mb-2.5 text-lg">
-                                <Link
-                                  href={child.href}
-                                  onClick={onToggle}
-                                  className="block !text-[#333] no-underline hover:!text-[#333]"
-                                >
-                                  {t(child.key)}
-                                </Link>
-                              </div>
-                            )}
-
-                            {/* 产品列表 */}
-                            {child.children && (
-                              <ul>
-                                {child.children.map((product, productIndex) => (
-                                  <li
-                                    key={product.href}
-                                    className="animate-fade-in pl-7.5 leading-[2.5]"
-                                    style={{ animationDelay: `${(index + productIndex) * 0.02}s` }}
-                                  >
-                                    <Link
-                                      href={product.href}
-                                      className="block text-lg !text-[#666] no-underline hover:!text-[#666]"
-                                      onClick={onToggle}
-                                    >
-                                      {t(product.key)}
-                                    </Link>
-                                  </li>
-                                ))}
-                              </ul>
-                            )}
-                          </div>
-                        ))}
+                    {item.children && (
+                      <div className={`transition-transform duration-300 ${openMenus[item.key] ? 'rotate-180' : 'rotate-0'}`}>
+                        {openMenus[item.key]
+                          ? <ChevronRight className="h-6 w-6 text-[#333]" />
+                          : <ChevronDown className="h-6 w-6 text-[#333]" />}
                       </div>
                     )}
-                  </li>
-                ))}
-              </ul>
-            </nav>
+                  </div>
+
+                  {/* 子菜单 */}
+                  {item.children && openMenus[item.key] && (
+                    <div className="animate-slide-down overflow-hidden pl-5">
+                      {item.children.map((child, index) => (
+                        <div
+                          key={child.titleKey || child.key || index}
+                          className="animate-fade-in"
+                          style={{ animationDelay: `${index * 0.03}s` }}
+                        >
+                          {/* 分类标题 */}
+                          {child.titleKey && (
+                            <div className="mt-4 mb-2.5 text-lg font-medium !text-[#333]">
+                              {t(child.titleKey)}
+                            </div>
+                          )}
+
+                          {/* 无子级的链接 */}
+                          {child.key && child.href && !child.children && (
+                            <div className="mt-4 mb-2.5 text-lg">
+                              <Link
+                                href={child.href}
+                                onClick={onToggle}
+                                className="block !text-[#333] no-underline hover:!text-[#333]"
+                              >
+                                {t(child.key)}
+                              </Link>
+                            </div>
+                          )}
+
+                          {/* 产品列表 */}
+                          {child.children && (
+                            <ul>
+                              {child.children.map((product, productIndex) => (
+                                <li
+                                  key={product.href}
+                                  className="animate-fade-in pl-7.5 leading-[2.5]"
+                                  style={{ animationDelay: `${(index + productIndex) * 0.02}s` }}
+                                >
+                                  <Link
+                                    href={product.href}
+                                    className="block text-lg !text-[#666] no-underline hover:!text-[#666]"
+                                    onClick={onToggle}
+                                  >
+                                    {t(product.key)}
+                                  </Link>
+                                </li>
+                              ))}
+                            </ul>
+                          )}
+                        </div>
+                      ))}
+                    </div>
+                  )}
+                </li>
+              ))}
+            </ul>
           </div>
-        </div>
+        </nav>
       )}
 
       <style jsx>

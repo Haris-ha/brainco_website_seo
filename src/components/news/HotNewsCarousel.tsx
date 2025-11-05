@@ -89,7 +89,7 @@ export default function HotNewsCarousel({ hotNews, isMobile = false }: HotNewsCa
         <div className="relative aspect-[16/9] w-full overflow-hidden rounded-[10px]">
           <Image
             src={item.img}
-            alt={item.title}
+            alt={`${item.title} - 热点新闻配图 / Hot news image`}
             fill
             className="object-cover transition-transform duration-500 group-hover:scale-105"
             sizes="(max-width: 768px) 90vw, 1200px"
@@ -116,12 +116,13 @@ export default function HotNewsCarousel({ hotNews, isMobile = false }: HotNewsCa
   ));
 
   return (
-    <motion.div
+    <motion.section
       initial={{ opacity: 0.5, y: 10 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: '-200px' }}
       transition={{ duration: 0.3 }}
       className="mb-[2vw] bg-[#FAFAFA] pb-[3vw] md:mb-[40px] md:pb-[40px]"
+      aria-label="热点新闻轮播 / Hot news carousel"
     >
       <div ref={carouselRef}>
         <SimpleCarousel
@@ -135,6 +136,6 @@ export default function HotNewsCarousel({ hotNews, isMobile = false }: HotNewsCa
           style={{ '--carousel-arrow-top': arrowTop } as React.CSSProperties}
         />
       </div>
-    </motion.div>
+    </motion.section>
   );
 }

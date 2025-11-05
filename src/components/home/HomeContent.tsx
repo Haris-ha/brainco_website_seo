@@ -205,9 +205,9 @@ export function HomeContent() {
   );
 
   return (
-    <>
-      {/* 视频轮播区域 */}
-      <div className="relative bg-white">
+    <main>
+      {/* Hero 视频轮播区域 */}
+      <header className="relative bg-white">
         <div className="relative aspect-video max-h-screen w-full overflow-hidden">
           <motion.h1
             className="text-fluid-7xl absolute top-[55%] left-1/2 z-10 w-[90%] -translate-x-1/2 -translate-y-1/2 text-center text-white md:top-[60%] md:w-auto"
@@ -246,6 +246,7 @@ export function HomeContent() {
               opacity: activeVideoIndex === 0 && video1Link ? 1 : 0,
               pointerEvents: activeVideoIndex === 0 ? 'auto' : 'none',
             }}
+            aria-label="BrainCo 产品应用场景视频 / BrainCo product application video"
           />
           <video
             ref={video2Ref}
@@ -259,6 +260,7 @@ export function HomeContent() {
               opacity: activeVideoIndex === 1 && video2Link ? 1 : 0,
               pointerEvents: activeVideoIndex === 1 ? 'auto' : 'none',
             }}
+            aria-label="BrainCo 产品应用场景视频 / BrainCo product application video"
           />
         </div>
 
@@ -268,6 +270,7 @@ export function HomeContent() {
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.9, ease: 'easeOut' }}
+          aria-label="视频分类导航 / Video category navigation"
         >
           {videoList.map((item, index) => (
             <motion.li
@@ -295,10 +298,10 @@ export function HomeContent() {
             </motion.li>
           ))}
         </motion.ul>
-      </div>
+      </header>
 
       {/* 产品展示区域 */}
-      <div className="flex items-center justify-center overflow-hidden bg-white px-8 pt-[84px] pb-[46px]">
+      <section className="flex items-center justify-center overflow-hidden bg-white px-8 pt-[84px] pb-[46px]" aria-labelledby="products-section-title">
         <motion.div
           className="mr-[40px] h-auto w-[300px] flex-shrink-0 2xl:mr-[60px]"
           initial={{ opacity: 0, x: -50 }}
@@ -315,7 +318,7 @@ export function HomeContent() {
         >
           <Image
             src={mapping[productCount] ?? mapping[0] ?? ''}
-            alt="产品展示"
+            alt="BrainCo 脑机接口产品展示 - 智能仿生与健康设备 / BrainCo brain-computer interface products - Intelligent bionics and health devices"
             width={380}
             height={400}
             className="h-auto w-full transition-opacity duration-300"
@@ -329,7 +332,7 @@ export function HomeContent() {
             setProductCount(0);
           }}
         >
-          <h2 className="text-fluid-6xl mb-[52px] font-bold text-[#333]">
+          <h2 id="products-section-title" className="text-fluid-6xl mb-[52px] font-bold text-[#333]">
             {t('bci_section_title')}
           </h2>
           <div className="w-[900px] 2xl:w-[960px]">
@@ -348,6 +351,7 @@ export function HomeContent() {
             whileInView={{ opacity: 1 }}
             viewport={{ once: true, amount: 0.1 }}
             transition={{ duration: 0.6 }}
+            aria-label="BrainCo 产品列表 / BrainCo product list"
           >
             {productList.map((item, index) => (
               <motion.li
@@ -381,14 +385,14 @@ export function HomeContent() {
                 <div className="relative mr-3 h-40 w-[110px] flex-shrink-0 overflow-hidden 2xl:w-[140px]">
                   <Image
                     src={item.img}
-                    alt={t(item.nameKey)}
+                    alt={`${t(item.nameKey)} - BrainCo 脑机接口产品 / BrainCo BCI product`}
                     width={140}
                     height={160}
                     className="absolute inset-0 h-full w-full object-cover transition-opacity duration-100 ease-in-out group-hover/product:opacity-0"
                   />
                   <Image
                     src={item.hoverImg}
-                    alt={`${t(item.nameKey)} hover`}
+                    alt={`${t(item.nameKey)} - 产品特写 / Product close-up`}
                     width={140}
                     height={160}
                     className="absolute inset-0 h-full w-full object-cover opacity-0 transition-opacity duration-100 ease-in-out group-hover/product:opacity-100"
@@ -399,9 +403,9 @@ export function HomeContent() {
                     index === 1 || index === 4 ? '-ml-8' : ''
                   }`}
                 >
-                  <h5 className="mb-2 text-2xl leading-tight font-medium">
+                  <h3 className="mb-2 text-2xl leading-tight font-medium">
                     {t(item.nameKey)}
-                  </h5>
+                  </h3>
                   <p
                     className="text-lg leading-snug"
                     dangerouslySetInnerHTML={{ __html: t(item.descKey) }}
@@ -430,23 +434,23 @@ export function HomeContent() {
               <div className="relative mr-3 h-40 w-[130px] flex-shrink-0 overflow-hidden 2xl:w-[140px]">
                 <Image
                   src={`${imgPath}pKlkrsJEDIgBCYRy.webp`}
-                  alt="工业灵巧手"
+                  alt="BrainCo 工业灵巧手 - 智能仿生手部假肢 / BrainCo industrial dexterous hand - Intelligent bionic prosthetic hand"
                   width={140}
                   height={160}
                   className={`absolute inset-0 h-full w-full object-cover transition-opacity duration-100 ease-in-out ${expandType === 'dexterous' ? 'opacity-0' : 'opacity-100'}`}
                 />
                 <Image
                   src={`${imgPath}uRsplIedTmtaAUYk.webp`}
-                  alt="工业灵巧手 hover"
+                  alt="BrainCo 工业灵巧手特写 / BrainCo dexterous hand close-up"
                   width={140}
                   height={160}
                   className={`absolute inset-0 h-full w-full object-cover transition-opacity duration-100 ease-in-out ${expandType === 'dexterous' ? 'opacity-100' : 'opacity-0'}`}
                 />
               </div>
               <div className="flex flex-1 flex-col">
-                <h5 className="mb-2 text-2xl leading-tight font-medium">
+                <h3 className="mb-2 text-2xl leading-tight font-medium">
                   {t('product_dexterous_name')}
-                </h5>
+                </h3>
                 <p
                   className="text-lg leading-snug"
                   dangerouslySetInnerHTML={{ __html: t('product_dexterous_desc') }}
@@ -481,16 +485,16 @@ export function HomeContent() {
               <div className="mr-3 flex h-40 w-[110px] items-center justify-center 2xl:w-[140px]">
                 <Image
                   src="https://website-www-brainco-cn.oss-cn-hangzhou.aliyuncs.com/images/kojfrMNnQOelFbAI.webp"
-                  alt={t('nerve_modulation_name')}
+                  alt={`${t('nerve_modulation_name')} - BrainCo 神经调控设备 / BrainCo neuromodulation device`}
                   width={140}
                   height={160}
                   className="h-auto w-auto"
                 />
               </div>
               <div className="flex flex-1 flex-col">
-                <h5 className="mb-2 text-2xl leading-tight font-medium">
+                <h3 className="mb-2 text-2xl leading-tight font-medium">
                   {t('nerve_modulation_name')}
-                </h5>
+                </h3>
                 <p className="text-lg leading-snug">{t('nerve_modulation_desc')}</p>
               </div>
             </motion.div>
@@ -514,10 +518,11 @@ export function HomeContent() {
                       router.push('/products/revo1');
                     }
                   }}
+                  aria-label={`查看 ${t('product_revo1_name')} 产品详情 / View ${t('product_revo1_name')} details`}
                 >
                   <ProductImageWithLabel
                     src="https://www.brainco.cn/news-images/revo.png"
-                    alt="Revo 1"
+                    alt={`${t('product_revo1_name')} - BrainCo 智能灵巧手 / BrainCo intelligent dexterous hand`}
                     label={t('product_revo1_name')}
                     width={140}
                     height={140}
@@ -534,10 +539,11 @@ export function HomeContent() {
                       router.push('/products/revo2');
                     }
                   }}
+                  aria-label={`查看 ${t('product_revo2_name')} 产品详情 / View ${t('product_revo2_name')} details`}
                 >
                   <ProductImageWithLabel
                     src="https://www.brainco.cn/news-images/stark.png"
-                    alt="Revo 2"
+                    alt={`${t('product_revo2_name')} - BrainCo 智能灵巧手 / BrainCo intelligent dexterous hand`}
                     label={t('product_revo2_name')}
                     width={140}
                     height={140}
@@ -575,16 +581,16 @@ export function HomeContent() {
                     <div className="flex flex-1 items-center justify-center">
                       <Image
                         src={item.img}
-                        alt={t(item.nameKey)}
+                        alt={`${t(item.nameKey)} - BrainCo 神经调控设备 / BrainCo neuromodulation device`}
                         width={80}
                         height={80}
                         className="max-h-[80px] w-auto"
                       />
                     </div>
                     <div className="flex w-full flex-col items-center px-2 pb-3">
-                      <span className="text-base font-bold text-[#555]">
+                      <h4 className="text-base font-bold text-[#555]">
                         {t(item.nameKey)}
-                      </span>
+                      </h4>
                       <span className="h-10 text-center text-sm text-[#666]">{t(item.descKey)}</span>
                     </div>
                   </div>
@@ -593,14 +599,14 @@ export function HomeContent() {
             )}
           </motion.div>
         </div>
-      </div>
+      </section>
 
       {/* 预加载图片 */}
-      <div className="hidden">
+      <div className="hidden" aria-hidden="true">
         {mapping.map(img => (
-          <Image key={img} src={img} alt="" width={1} height={1} />
+          <Image key={img} src={img} alt="BrainCo 脑机接口产品展示 - 智能仿生与健康设备 / BrainCo brain-computer interface products - Intelligent bionics and health devices" width={1} height={1} role="presentation" />
         ))}
       </div>
-    </>
+    </main>
   );
 }

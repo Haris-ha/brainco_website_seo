@@ -152,8 +152,8 @@ export function HomeContentMobile() {
   );
 
   return (
-    <div className="relative h-full">
-      <div className="relative h-full min-h-[720px] overflow-hidden bg-white">
+    <main className="relative h-full">
+      <header className="relative h-full min-h-[720px] overflow-hidden bg-white">
         <motion.div
           className="absolute top-[60%] left-1/2 z-10 flex w-full -translate-x-1/2 -translate-y-1/2 flex-col items-center text-white"
           initial={{ opacity: 0, y: 30 }}
@@ -192,6 +192,7 @@ export function HomeContentMobile() {
             opacity: activeVideoIndex === 0 && video1Link ? 1 : 0,
             pointerEvents: activeVideoIndex === 0 ? 'auto' : 'none',
           }}
+          aria-label="BrainCo 产品应用场景视频 / BrainCo product application video"
         />
         <video
           ref={video2Ref}
@@ -207,12 +208,14 @@ export function HomeContentMobile() {
             opacity: activeVideoIndex === 1 && video2Link ? 1 : 0,
             pointerEvents: activeVideoIndex === 1 ? 'auto' : 'none',
           }}
+          aria-label="BrainCo 产品应用场景视频 / BrainCo product application video"
         />
-      </div>
+      </header>
 
       {/* 视频标签和进度条 */}
       <motion.ul
         className="absolute bottom-[140px] left-0 flex w-full justify-center"
+        aria-label="视频分类导航 / Video category navigation"
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8, delay: 0.6, ease: 'easeOut' }}
@@ -239,6 +242,6 @@ export function HomeContentMobile() {
           </motion.li>
         ))}
       </motion.ul>
-    </div>
+    </main>
   );
 }

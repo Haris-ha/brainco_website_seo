@@ -15,7 +15,7 @@ export default function NewsHero({ isMobile = false }: NewsHeroProps) {
     : 'https://website-www-brainco-cn.oss-cn-hangzhou.aliyuncs.com/images/MEA2KfGAaHXWKFa4.jpeg';
 
   return (
-    <motion.div
+    <motion.header
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       transition={{ duration: 0.8 }}
@@ -28,6 +28,8 @@ export default function NewsHero({ isMobile = false }: NewsHeroProps) {
         backgroundPosition: 'center',
         marginTop: isMobile ? 24 : '0',
       }}
+      role="img"
+      aria-label="BrainCo 新闻中心背景 / BrainCo News Center Background"
     >
       <motion.h1
         initial={{ scale: 0.9, opacity: 0 }}
@@ -41,6 +43,6 @@ export default function NewsHero({ isMobile = false }: NewsHeroProps) {
       >
         {t('page_title')}
       </motion.h1>
-    </motion.div>
+    </motion.header>
   );
 }

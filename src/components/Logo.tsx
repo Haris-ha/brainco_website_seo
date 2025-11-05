@@ -24,7 +24,7 @@ export function Logo({
         <div className="hidden md:block">
           <Image
             src="/logo-desktop.webp"
-            alt="BrainCo"
+            alt="BrainCo - 强脑科技，全球领先的脑机接口技术公司 / BrainCo - Leading Brain-Computer Interface Technology Company"
             width={width || 200}
             height={height || 60}
             priority={priority}
@@ -36,7 +36,7 @@ export function Logo({
         <div className="block md:hidden">
           <Image
             src="/logo.webp"
-            alt="BrainCo"
+            alt="BrainCo - 强脑科技，全球领先的脑机接口技术公司 / BrainCo - Leading Brain-Computer Interface Technology Company"
             width={width || 150}
             height={height || 45}
             priority={priority}
@@ -53,7 +53,7 @@ export function Logo({
       <Link href="/" className={`inline-block ${className}`}>
         <Image
           src="/logo-desktop.webp"
-          alt="BrainCo"
+          alt="BrainCo - 强脑科技，全球领先的脑机接口技术公司 / BrainCo - Leading Brain-Computer Interface Technology Company"
           width={width || 200}
           height={height || 60}
           priority={priority}
@@ -68,7 +68,7 @@ export function Logo({
     <Link href="/" className={`inline-block ${className}`}>
       <Image
         src="/logo.webp"
-        alt="BrainCo"
+        alt="BrainCo - 强脑科技，全球领先的脑机接口技术公司 / BrainCo - Leading Brain-Computer Interface Technology Company"
         width={width || 150}
         height={height || 45}
         priority={priority}
