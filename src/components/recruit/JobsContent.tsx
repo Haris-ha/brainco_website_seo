@@ -63,9 +63,9 @@ export default function JobsContent() {
   };
 
   return (
-    <div className="flex w-full flex-col items-center bg-[#f5f5f5] pb-[100px]">
+    <main className="flex w-full flex-col items-center bg-[#f5f5f5] pb-[100px]">
       {/* Top Navigation */}
-      <div className="mx-auto w-[1400px] self-start pt-[130px]">
+      <nav className="mx-auto w-[1400px] self-start pt-[130px]" aria-label="返回导航 / Back navigation">
         <div
           className="flex cursor-pointer items-center justify-start"
           onClick={() => window.history.back()}
@@ -78,7 +78,7 @@ export default function JobsContent() {
           </div>
           <span className="ml-[75px] text-[40px]">{t('elite_recruitment')}</span>
         </div>
-      </div>
+      </nav>
 
       {/* Join Us Section */}
       <div className="flex flex-col items-center justify-center">
@@ -200,6 +200,6 @@ export default function JobsContent() {
           </article>
         </div>
       )}
-    </div>
+    </main>
   );
 }

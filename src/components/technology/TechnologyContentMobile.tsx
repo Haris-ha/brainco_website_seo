@@ -18,12 +18,12 @@ export default function TechnologyContentMobile() {
   const researchArticles = getResearchArticles(locale);
 
   return (
-    <div className="w-full">
+    <main className="w-full">
       {/* Hero Banner */}
-      <div className="relative min-h-[700px] w-full">
+      <header className="relative min-h-[700px] w-full">
         <Image
           src="https://website-www-brainco-cn.oss-cn-hangzhou.aliyuncs.com/images/ftbqmsviOKpgLDrW.webp"
-          alt="Technology Banner"
+          alt="BrainCo 脑机接口技术研究 - 移动端背景 / BrainCo Brain-Computer Interface Technology Research - Mobile Background"
           width={750}
           height={700}
           className="h-auto w-full object-cover"
@@ -52,7 +52,7 @@ export default function TechnologyContentMobile() {
             {t('page_intro')}
           </motion.p>
         </motion.div>
-      </div>
+      </header>
 
       {/* Research Section */}
       <section className="mt-[36px] px-4">
@@ -232,9 +232,9 @@ export default function TechnologyContentMobile() {
               aria-label={`查看 ${item.year} 年的历程`}
             >
               {processIndex !== index && (
-                <span className="absolute flex h-full items-center text-lg text-[#bebebe]">
+                <h3 className="absolute flex h-full items-center text-lg text-[#bebebe]">
                   {item.year}
-                </span>
+                </h3>
               )}
               {processIndex === index && (
                 <motion.div
@@ -255,10 +255,10 @@ export default function TechnologyContentMobile() {
                             className="h-auto w-full object-contain"
                           />
                         </div>
-                        <h4 className="text-fluid-4xl my-[14px] flex items-end leading-[1.2]">
+                        <h3 className="text-fluid-4xl my-[14px] flex items-end leading-[1.2]">
                           {item.year}
                           {t('year_suffix') && <span className="text-fluid-lg mb-2 no-underline">{t('year_suffix')}</span>}
-                        </h4>
+                        </h3>
                         <p className="text-fluid-lg w-full text-left leading-relaxed">
                           {data.desc}
                         </p>
@@ -302,6 +302,6 @@ export default function TechnologyContentMobile() {
           </motion.li>
         ))}
       </motion.ol>
-    </div>
+    </main>
   );
 }

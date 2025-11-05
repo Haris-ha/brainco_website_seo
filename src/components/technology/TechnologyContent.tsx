@@ -54,9 +54,9 @@ export default function TechnologyContent() {
   const researchArticles = getResearchArticles(locale);
 
   return (
-    <div className="w-full">
+    <main className="w-full">
       {/* Hero Banner */}
-      <motion.div
+      <motion.header
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 0.8 }}
@@ -67,6 +67,8 @@ export default function TechnologyContent() {
           backgroundSize: '100% 1196px',
           backgroundPosition: 'center',
         }}
+        role="img"
+        aria-label="BrainCo 脑机接口技术研究背景 / BrainCo Brain-Computer Interface Technology Research Background"
       >
         <div className="w-4/5 text-white">
           <motion.h1
@@ -86,7 +88,7 @@ export default function TechnologyContent() {
             {t('page_intro')}
           </motion.p>
         </div>
-      </motion.div>
+      </motion.header>
 
       {/* Research Collaboration Section */}
       <section id="research" className="bg-white pt-20">
@@ -284,7 +286,7 @@ export default function TechnologyContent() {
               >
                 {selectedYear !== index
                   ? (
-                      <span className="cursor-target text-xl text-[#bebebe]">{item.year}</span>
+                      <h3 className="cursor-target text-xl text-[#bebebe]">{item.year}</h3>
                     )
                   : (
                       <div className="w-full pb-10">
@@ -305,10 +307,10 @@ export default function TechnologyContent() {
                                   className="h-full w-full object-cover"
                                 />
                               </div>
-                              <h4 className="text-fluid-5xl mb-6 font-normal">
+                              <h3 className="text-fluid-5xl mb-6 font-normal">
                                 {item.year}
                                 {t('year_suffix') && <span className="ml-1 text-xl">{t('year_suffix')}</span>}
-                              </h4>
+                              </h3>
                               <p className="text-fluid-xl leading-[1.7] font-light">
                                 {data.desc}
                               </p>
@@ -353,6 +355,6 @@ export default function TechnologyContent() {
           ))}
         </motion.ol>
       </section>
-    </div>
+    </main>
   );
 }

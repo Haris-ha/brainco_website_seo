@@ -8,12 +8,12 @@ export default function RecruitContentMobile() {
   const t = useTranslations('Recruit');
 
   return (
-    <div className="w-full bg-white">
+    <main className="w-full bg-white">
       {/* Top Banner */}
-      <div className="relative pb-[40px]">
+      <header className="relative pb-[40px]">
         <Image
           src="https://website-www-brainco-cn.oss-cn-hangzhou.aliyuncs.com/images/8A2MXC4jP6f5cPJc.webp"
-          alt="Banner"
+          alt="BrainCo 招聘页背景 - 加入我们改变世界 / BrainCo Recruitment - Join Us to Change the World"
           width={750}
           height={600}
           className="w-full"
@@ -24,27 +24,27 @@ export default function RecruitContentMobile() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.3, ease: 'easeOut' }}
         >
-          <motion.div
+          <motion.h1
             className="text-fluid-5xl mb-[34px] flex w-full flex-col items-center justify-center text-center"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.5, ease: 'easeOut' }}
           >
-            <motion.div
+            <motion.span
               initial={{ opacity: 0, x: -20 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.6, delay: 0.7, ease: 'easeOut' }}
             >
               {t('join_us')}
-            </motion.div>
-            <motion.div
+            </motion.span>
+            <motion.span
               initial={{ opacity: 0, x: -20 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.6, delay: 0.9, ease: 'easeOut' }}
             >
               {t('change_world')}
-            </motion.div>
-          </motion.div>
+            </motion.span>
+          </motion.h1>
           <motion.div
             className="text-fluid-base mb-[58px] w-full text-center"
             initial={{ opacity: 0, y: 20 }}
@@ -54,10 +54,11 @@ export default function RecruitContentMobile() {
             {t('brain_tech_slogan')}
           </motion.div>
         </motion.div>
-      </div>
+      </header>
 
       {/* Content List */}
-      <div className="w-full">
+      <section className="w-full" aria-labelledby="recruit-mobile-content-title">
+        <h2 id="recruit-mobile-content-title" className="sr-only">招聘信息 / Recruitment Information</h2>
         <div className="flex flex-col">
           {/* Titles */}
           <motion.span
@@ -110,7 +111,7 @@ export default function RecruitContentMobile() {
           </motion.p>
 
           {/* What We Offer */}
-          <motion.span
+          <motion.h2
             className="text-fluid-3xl mx-auto mt-[40px] block px-[42px] text-center font-bold"
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -118,7 +119,7 @@ export default function RecruitContentMobile() {
             transition={{ duration: 0.8, ease: 'easeOut' }}
           >
             {t('what_we_offer')}
-          </motion.span>
+          </motion.h2>
 
           {/* Cards */}
           <motion.div
@@ -262,7 +263,7 @@ export default function RecruitContentMobile() {
             </motion.div>
           </motion.div>
         </div>
-      </div>
-    </div>
+      </section>
+    </main>
   );
 }

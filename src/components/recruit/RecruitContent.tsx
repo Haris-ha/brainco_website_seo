@@ -28,14 +28,16 @@ export default function RecruitContent() {
   };
 
   return (
-    <div className="w-full overflow-x-hidden bg-white">
+    <main className="w-full overflow-x-hidden bg-white">
       {/* Top Banner */}
-      <div
+      <header
         className="relative flex h-[880px] w-full items-center justify-center bg-cover bg-center"
         style={{
           backgroundImage:
             'url(https://website-www-brainco-cn.oss-cn-hangzhou.aliyuncs.com/images/fwXXuwCQ9Z0O636D.webp)',
         }}
+        role="img"
+        aria-label="BrainCo 招聘页背景 - 加入我们 / BrainCo Recruitment Background - Join Us"
       >
         <motion.div
           className="flex flex-col items-center justify-center gap-6"
@@ -43,7 +45,7 @@ export default function RecruitContent() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.3, ease: 'easeOut' }}
         >
-          <motion.div
+          <motion.h1
             className="flex flex-col items-center text-center text-[76px] leading-tight text-white"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -63,7 +65,7 @@ export default function RecruitContent() {
             >
               {t('change_world')}
             </motion.span>
-          </motion.div>
+          </motion.h1>
           <motion.span
             className="mt-8 text-2xl text-white"
             initial={{ opacity: 0, y: 20 }}
@@ -73,10 +75,11 @@ export default function RecruitContent() {
             {t('brain_tech_slogan')}
           </motion.span>
         </motion.div>
-      </div>
+      </header>
 
       {/* Content List */}
-      <div className="flex w-full justify-center bg-white">
+      <section className="flex w-full justify-center bg-white" aria-labelledby="recruit-content-title">
+        <h2 id="recruit-content-title" className="sr-only">招聘信息 / Recruitment Information</h2>
         <div className="flex flex-col items-center pt-[214px]">
           {/* Title Section */}
           <motion.span
@@ -127,7 +130,7 @@ export default function RecruitContent() {
           </motion.p>
 
           {/* What We Offer */}
-          <motion.span
+          <motion.h2
             className="mt-32 h-[90px] w-[622px] text-center text-[52px] leading-[75px] font-medium text-[#2b2b2b]"
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -135,7 +138,7 @@ export default function RecruitContent() {
             transition={{ duration: 0.8, ease: 'easeOut' }}
           >
             {t('what_we_offer')}
-          </motion.span>
+          </motion.h2>
 
           {/* Cards */}
           <motion.div
@@ -332,7 +335,7 @@ export default function RecruitContent() {
             <span>{t('join_us_final')}</span>
           </motion.div>
         </div>
-      </div>
-    </div>
+      </section>
+    </main>
   );
 }
