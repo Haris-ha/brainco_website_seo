@@ -320,6 +320,7 @@
     "app_subtitle": "Revolimb Intelligent Bionic Leg",
     "app_desc": "The Revolimb App integrates both fitter and user login identities, making it convenient for fitters to adjust parameters and manage users, and for users to check product status and better use the bionic leg.",
     "comparison_title": "Intelligent Bionic Leg Model Comparison",
+    "comparison_parameter": "Parameter",
     "comparison_m3": "M3",
     "comparison_m2": "M2",
     "comparison_support": "Support Material",

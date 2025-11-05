@@ -208,7 +208,7 @@ export default function MobiusContent() {
         {/* Right Feature */}
         <div className="flex flex-1 flex-col items-start justify-center pl-[80px]">
           <motion.div
-            className="relative -ml-20 max-w-[400px] text-left"
+            className="relative -ml-20 max-w-[400px] text-left 2xl:-ml-0"
             initial={{ opacity: 0, x: 30 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
@@ -316,7 +316,7 @@ export default function MobiusContent() {
         <div className="flex flex-1 flex-col items-start justify-center gap-[120px] pl-[80px]">
           {/* Sensors Feature */}
           <motion.div
-            className="relative -ml-20 max-w-[400px] text-left"
+            className="relative -ml-20 max-w-[400px] text-left 2xl:-ml-0"
             initial={{ opacity: 0, x: 30 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
@@ -335,7 +335,7 @@ export default function MobiusContent() {
 
           {/* Algorithm Feature */}
           <motion.div
-            className="relative -ml-20 max-w-[400px] text-left"
+            className="relative -ml-20 max-w-[400px] text-left 2xl:-ml-0"
             initial={{ opacity: 0, x: 30 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
@@ -776,6 +776,9 @@ export default function MobiusContent() {
           <table className="w-full">
             <thead>
               <tr className="bg-[#f5f5f5]">
+                <th className="text-fluid-3xl border-r border-gray-200 px-6 py-6 text-center font-medium text-[#333333]">
+                  {t('comparison_parameter')}
+                </th>
                 <th className="text-fluid-3xl border-r border-gray-200 py-6 text-center font-medium text-[#333333]">
                   {t('comparison_m3')}
                 </th>
@@ -787,6 +790,9 @@ export default function MobiusContent() {
             <tbody>
               {/* Support Material */}
               <tr className="border-t border-gray-200">
+                <td className="text-fluid-xl border-r border-gray-200 px-6 py-5 text-center text-[#333333]">
+                  {t('comparison_support')}
+                </td>
                 <td className="text-fluid-xl border-r border-gray-200 px-6 py-5 text-center text-[#666666]">
                   {t('comparison_support_value')}
                 </td>
@@ -796,6 +802,9 @@ export default function MobiusContent() {
               </tr>
               {/* Height */}
               <tr className="border-t border-gray-200 bg-[#fafafa]">
+                <td className="text-fluid-xl border-r border-gray-200 px-6 py-5 text-center text-[#333333]">
+                  {t('comparison_height')}
+                </td>
                 <td className="text-fluid-xl border-r border-gray-200 px-6 py-5 text-center text-[#666666]">
                   {t('comparison_height_value')}
                 </td>
@@ -805,6 +814,9 @@ export default function MobiusContent() {
               </tr>
               {/* Weight */}
               <tr className="border-t border-gray-200">
+                <td className="text-fluid-xl border-r border-gray-200 px-6 py-5 text-center text-[#333333]">
+                  {t('comparison_weight')}
+                </td>
                 <td className="text-fluid-xl border-r border-gray-200 px-6 py-5 text-center text-[#666666]">
                   {t('comparison_weight_value')}
                 </td>
@@ -814,6 +826,9 @@ export default function MobiusContent() {
               </tr>
               {/* Waterproof */}
               <tr className="border-t border-gray-200 bg-[#fafafa]">
+                <td className="text-fluid-xl border-r border-gray-200 px-6 py-5 text-center text-[#333333]">
+                  {t('comparison_waterproof')}
+                </td>
                 <td className="text-fluid-xl border-r border-gray-200 px-6 py-5 text-center text-[#666666]">
                   {t('comparison_waterproof_value')}
                 </td>
@@ -823,6 +838,9 @@ export default function MobiusContent() {
               </tr>
               {/* Charging Time */}
               <tr className="border-t border-gray-200">
+                <td className="text-fluid-xl border-r border-gray-200 px-6 py-5 text-center text-[#333333]">
+                  {t('comparison_charging')}
+                </td>
                 <td className="text-fluid-xl border-r border-gray-200 px-6 py-5 text-center text-[#666666]">
                   {t('comparison_charging_value')}
                 </td>
@@ -832,6 +850,9 @@ export default function MobiusContent() {
               </tr>
               {/* Battery Life */}
               <tr className="border-t border-gray-200 bg-[#fafafa]">
+                <td className="text-fluid-xl border-r border-gray-200 px-6 py-5 text-center text-[#333333]">
+                  {t('comparison_battery')}
+                </td>
                 <td className="text-fluid-xl border-r border-gray-200 px-6 py-5 text-center text-[#666666]">
                   {t('comparison_battery_m3')}
                 </td>
@@ -841,6 +862,9 @@ export default function MobiusContent() {
               </tr>
               {/* Stair Climbing */}
               <tr className="border-t border-gray-200">
+                <td className="text-fluid-xl border-r border-gray-200 px-6 py-5 text-center text-[#333333]">
+                  {t('comparison_stair')}
+                </td>
                 <td className="text-fluid-2xl border-r border-gray-200 px-6 py-5 text-center text-[#666666]">
                   {t('comparison_yes')}
                 </td>
@@ -850,6 +874,9 @@ export default function MobiusContent() {
               </tr>
               {/* Running */}
               <tr className="border-t border-gray-200 bg-[#fafafa]">
+                <td className="text-fluid-xl border-r border-gray-200 px-6 py-5 text-center text-[#333333]">
+                  {t('comparison_run')}
+                </td>
                 <td className="text-fluid-2xl border-r border-gray-200 px-6 py-5 text-center text-[#666666]">
                   {t('comparison_yes')}
                 </td>
@@ -859,6 +886,9 @@ export default function MobiusContent() {
               </tr>
               {/* Obstacle */}
               <tr className="border-t border-gray-200">
+                <td className="text-fluid-xl border-r border-gray-200 px-6 py-5 text-center text-[#333333]">
+                  {t('comparison_obstacle')}
+                </td>
                 <td className="text-fluid-2xl border-r border-gray-200 px-6 py-5 text-center text-[#666666]">
                   {t('comparison_yes')}
                 </td>
@@ -949,7 +979,7 @@ export default function MobiusContent() {
                     {patent.count}
                     <span className="text-fluid-3xl">{patent.unit}</span>
                   </h3>
-                  <p className="text-fluid-4xl mt-[8px] text-[#333333]">{patent.desc}</p>
+                  <p className="text-fluid-2xl mt-[8px] text-[#333333]">{patent.desc}</p>
                 </motion.div>
               ))}
             </div>
@@ -969,7 +999,7 @@ export default function MobiusContent() {
                     {patent.count}
                     <span className="text-fluid-3xl">{patent.unit}</span>
                   </h3>
-                  <p className="text-fluid-4xl mt-[8px] text-[#333333]">{patent.desc}</p>
+                  <p className="text-fluid-2xl mt-[8px] text-[#333333]">{patent.desc}</p>
                 </motion.div>
               ))}
             </div>
