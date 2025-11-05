@@ -322,7 +322,7 @@ export default function OnlineService() {
                   </p>
                 </div>
                 <motion.div
-                  className="cursor-target h-[58px] w-[58px] flex-shrink-0 overflow-hidden rounded-lg"
+                  className="cursor-target h-[72px] w-[72px] flex-shrink-0 overflow-hidden rounded-lg"
                   whileHover={{ scale: 1.1 }}
                   transition={{ duration: 0.2 }}
                   onClick={handleQRCodeClick}

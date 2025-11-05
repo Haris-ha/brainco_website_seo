@@ -2,7 +2,7 @@
 
 import type { Swiper as SwiperType } from 'swiper';
 import { motion } from 'framer-motion';
-import { useTranslations } from 'next-intl';
+import { useLocale, useTranslations } from 'next-intl';
 import Image from 'next/image';
 import Link from 'next/link';
 import { useEffect, useMemo, useRef, useState } from 'react';
@@ -25,7 +25,13 @@ import 'swiper/css/pagination';
 const LogoLoop = LogoLoopComponent as any;
 
 export default function Revo1Content() {
+  const locale = useLocale();
   const t = useTranslations('Revo1');
+
+  // 根据语言环境构建文档链接
+  const documentationUrl = locale === 'en-US'
+    ? 'https://www.brainco-hz.com/docs/revolimb-hand/en/revo1/parameters.html'
+    : 'https://www.brainco-hz.com/docs/revolimb-hand/revo1/parameters.html';
   const [playStatus, setPlayStatus] = useState(false);
   const [swiperIndex, setSwiperIndex] = useState(0);
   const [qualityVideoStates, setQualityVideoStates] = useState([false, false, false]);
@@ -156,7 +162,7 @@ export default function Revo1Content() {
               {t('contact_us')}
             </Link>
             <a
-              href="https://www.brainco-hz.com/docs/revolimb-hand/revo1/parameters.html"
+              href={documentationUrl}
               target="_blank"
               rel="noopener noreferrer"
               className="cursor-target text-fluid-3xl flex h-[72px] w-[264px] items-center justify-center rounded-[45px] border border-white !text-white transition-transform hover:scale-105"
@@ -194,18 +200,18 @@ export default function Revo1Content() {
         >
           {t('industry_title')}
         </motion.h4>
-        <div className="mx-auto mt-24 flex max-w-[90%] items-end justify-center overflow-x-hidden text-[#c7cdd4] xl:max-w-[85%]">
+        <div className="mx-auto mt-24 flex max-w-[90%] justify-center overflow-x-hidden text-[#c7cdd4] xl:max-w-[85%]">
           <ul>
             {industryList.map((item, index) => (
               <motion.li
                 key={item.icon}
-                className="mb-32 flex items-center last:mb-0"
+                className="mb-32 flex items-start last:mb-0"
                 initial={{ opacity: 0, x: -50 }}
                 whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: index * 0.2, duration: 0.8 }}
               >
-                <Image src={item.icon} alt="" width={80} height={80} className="mr-3 flex-shrink-0 xl:mr-4" />
+                <Image src={item.icon} alt="" width={80} height={80} className="mr-3 h-20 w-20 flex-shrink-0 object-contain xl:mr-4" />
                 <div className="mr-8 w-[220px] flex-shrink-0 xl:mr-8 xl:w-[220px] 2xl:w-[240px]">
                   <h4 className="text-fluid-2xl leading-tight font-medium">
                     {t(`industry_${index + 1}_title` as any)}
@@ -354,15 +360,18 @@ export default function Revo1Content() {
           >
             {t('version_title')}
           </motion.h2>
-          <div className="sticky top-20 z-10 h-auto overflow-hidden bg-black px-4 pb-6">
-            <ul className="flex justify-center gap-4 xl:gap-10">
-              <li className="text-fluid-2xl xl:text-fluid-3xl flex h-[60px] w-full max-w-[45%] items-center justify-center rounded-xl bg-white/10 text-white xl:h-[76px] xl:max-w-[494px]">
-                {t('version_basic')}
-              </li>
-              <li className="text-fluid-2xl xl:text-fluid-3xl flex h-[60px] w-full max-w-[45%] items-center justify-center rounded-xl bg-white/10 text-white xl:h-[76px] xl:max-w-[494px]">
-                {t('version_tactile')}
-              </li>
-            </ul>
+          <div className="sticky top-20 z-10 h-auto overflow-hidden bg-black px-4">
+            <div className="mx-auto w-full max-w-[95%] xl:max-w-[90%]">
+              <ul className="flex flex-wrap items-start gap-8">
+                <span className="mr-4 w-full flex-[100%_0_0] font-medium xl:mr-0 xl:w-[280px] xl:flex-[280px_0_0]" />
+                <li className="text-fluid-2xl xl:text-fluid-3xl flex h-[60px] flex-1 items-center justify-center rounded-xl bg-white/10 text-white xl:h-[76px]">
+                  {t('version_basic')}
+                </li>
+                <li className="text-fluid-2xl xl:text-fluid-3xl flex h-[60px] flex-1 items-center justify-center rounded-xl bg-white/10 text-white xl:h-[76px]">
+                  {t('version_tactile')}
+                </li>
+              </ul>
+            </div>
           </div>
           <motion.div
             className="mx-auto mt-15 w-full max-w-[95%] pb-36 xl:max-w-[90%] "
@@ -393,10 +402,10 @@ export default function Revo1Content() {
       </section>
 
       {/* Experience Section */}
-      <section className="relative mx-auto flex h-full w-full max-w-[100vw] justify-between overflow-hidden bg-white px-40 pt-20 text-black">
+      <section className="relative mx-auto flex h-full w-full max-w-[100vw] justify-between overflow-hidden bg-white px-40 pt-40 text-black">
         <div>
           <motion.h5
-            className="text-fluid-5xl absolute top-20 left-1/2 -translate-x-1/2"
+            className="text-fluid-5xl absolute top-30 left-1/2 -translate-x-1/2"
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -414,7 +423,7 @@ export default function Revo1Content() {
             {t('experience_desc')}
           </motion.p>
           <motion.ul
-            className="mx-auto mt-12 -mr-20 flex h-32 w-full gap-2 xl:mt-20 xl:h-40"
+            className="mx-auto mt-12 -mr-20 flex w-full items-end gap-2 xl:mt-20"
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
             viewport={{ once: true }}
@@ -423,6 +432,7 @@ export default function Revo1Content() {
             {experienceImages.map((img, index) => (
               <motion.li
                 key={img}
+                className="flex-shrink-0"
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
@@ -433,7 +443,7 @@ export default function Revo1Content() {
                   alt=""
                   width={160}
                   height={120}
-                  className="h-28 w-auto xl:h-36"
+                  className="h-28 w-auto object-contain"
                 />
               </motion.li>
             ))}
