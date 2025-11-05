@@ -31,6 +31,7 @@ export default function Revo1Content() {
   const [qualityVideoStates, setQualityVideoStates] = useState([false, false, false]);
   const bannerVideoRef = useRef<HTMLVideoElement>(null);
   const qualityVideoRefs = useRef<(HTMLVideoElement | null)[]>([]);
+  const swiperRef = useRef<SwiperType | null>(null);
 
   const handlePlay = () => {
     if (bannerVideoRef.current) {
@@ -91,6 +92,21 @@ export default function Revo1Content() {
     }
   }, []);
 
+  useEffect(() => {
+    // Ensure pagination is properly initialized after Swiper is ready
+    const timer = setTimeout(() => {
+      if (swiperRef.current) {
+        const paginationEl = document.querySelector('.swiper-pagination-custom') as HTMLElement;
+        if (paginationEl && swiperRef.current.pagination) {
+          swiperRef.current.pagination.el = paginationEl;
+          swiperRef.current.pagination.render();
+          swiperRef.current.pagination.update();
+        }
+      }
+    }, 100);
+    return () => clearTimeout(timer);
+  }, [swiperIndex]);
+
   return (
     <div className="bg-black text-white">
       {/* Banner Section */}
@@ -135,7 +151,7 @@ export default function Revo1Content() {
           >
             <Link
               href="/contact#contact"
-              className="cursor-target text-fluid-3xl flex h-[90px] w-[264px] items-center justify-center rounded-[45px] bg-[#1a74bf] !text-white transition-transform hover:scale-105"
+              className="cursor-target text-fluid-3xl flex h-[72px] w-[264px] items-center justify-center rounded-[45px] bg-[#1a74bf] !text-white transition-transform hover:scale-105"
             >
               {t('contact_us')}
             </Link>
@@ -143,7 +159,7 @@ export default function Revo1Content() {
               href="https://www.brainco-hz.com/docs/revolimb-hand/revo1/parameters.html"
               target="_blank"
               rel="noopener noreferrer"
-              className="cursor-target text-fluid-3xl flex h-[90px] w-[264px] items-center justify-center rounded-[45px] border border-white !text-white transition-transform hover:scale-105"
+              className="cursor-target text-fluid-3xl flex h-[72px] w-[264px] items-center justify-center rounded-[45px] border border-white !text-white transition-transform hover:scale-105"
             >
               {t('documentation')}
             </a>
@@ -168,7 +184,7 @@ export default function Revo1Content() {
       </motion.section>
 
       {/* Industry Empowerment Section */}
-      <section className="bg-black py-20 text-white">
+      <section className="bg-black pt-40 pb-20 text-white">
         <motion.h4
           className="text-fluid-5xl text-center font-medium"
           initial={{ opacity: 0, y: 30 }}
@@ -190,7 +206,7 @@ export default function Revo1Content() {
                 transition={{ delay: index * 0.2, duration: 0.8 }}
               >
                 <Image src={item.icon} alt="" width={80} height={80} className="mr-3 flex-shrink-0 xl:mr-4" />
-                <div className="mr-8 w-[220px] flex-shrink-0 xl:mr-8 xl:w-[240px]">
+                <div className="mr-8 w-[220px] flex-shrink-0 xl:mr-8 xl:w-[220px] 2xl:w-[240px]">
                   <h4 className="text-fluid-2xl leading-tight font-medium">
                     {t(`industry_${index + 1}_title` as any)}
                   </h4>
@@ -238,7 +254,7 @@ export default function Revo1Content() {
               alt=""
               width={240}
               height={240}
-              className="ml-1 xl:ml-2 xl:h-[280px] xl:w-[280px]"
+              className="ml-1 xl:ml-2 xl:h-[280px] xl:w-[280px] 2xl:h-[360px] 2xl:w-[360px]"
             />
             <p className="text-fluid-base xl:text-fluid-xl mt-6 pl-[60px] text-[#c7cdd4] xl:mt-12">
               {t('product_weight_label')}
@@ -287,27 +303,42 @@ export default function Revo1Content() {
                 ),
             )}
           </div>
-          <Swiper
-            modules={[Pagination, Autoplay]}
-            pagination={{ clickable: true }}
-            onSlideChange={handleSlideChange}
-            className="pb-25"
-          >
-            {abilityList.map(item => (
-              <SwiperSlide key={item.img}>
-                <div className="accuracy_bg">
-                  <video
-                    autoPlay
-                    muted
-                    loop
-                    playsInline
-                    src={item.video}
-                    className="h-auto w-full"
-                  />
-                </div>
-              </SwiperSlide>
-            ))}
-          </Swiper>
+          <div className="relative">
+            <Swiper
+              modules={[Pagination, Autoplay]}
+              pagination={{ clickable: true, el: '.swiper-pagination-custom' }}
+              onSlideChange={handleSlideChange}
+              onSwiper={(swiper) => {
+                swiperRef.current = swiper;
+                // Initialize pagination after a short delay to ensure DOM is ready
+                setTimeout(() => {
+                  const paginationEl = document.querySelector('.swiper-pagination-custom') as HTMLElement;
+                  if (paginationEl && swiper.pagination) {
+                    swiper.pagination.el = paginationEl;
+                    swiper.pagination.render();
+                    swiper.pagination.update();
+                  }
+                }, 50);
+              }}
+              className="pb-8"
+            >
+              {abilityList.map(item => (
+                <SwiperSlide key={item.img}>
+                  <div className="accuracy_bg">
+                    <video
+                      autoPlay
+                      muted
+                      loop
+                      playsInline
+                      src={item.video}
+                      className="h-auto w-full"
+                    />
+                  </div>
+                </SwiperSlide>
+              ))}
+            </Swiper>
+            <div className="swiper-pagination-custom mt-8" />
+          </div>
         </div>
       </section>
 
@@ -576,21 +607,42 @@ export default function Revo1Content() {
 
       <style jsx global>
         {`
-        .swiper-pagination {
-          display: flex;
+        .swiper-pagination-custom {
+          position: relative !important;
+          display: flex !important;
           justify-content: center;
-          gap: 32px;
+          align-items: center;
+          gap: 12px;
+          margin-top: 16px;
+          bottom: auto !important;
+          left: auto !important;
+          transform: none !important;
+          width: 100% !important;
+          z-index: 10 !important;
         }
-        .swiper-pagination-bullet {
-          width: 24px;
-          height: 24px;
-          background: transparent;
-          border: 1px solid #fff;
-          opacity: 1;
-          margin: 0;
+        .swiper-pagination-custom .swiper-pagination-bullet {
+          width: 8px !important;
+          height: 8px !important;
+          background: transparent !important;
+          border: 1px solid #fff !important;
+          opacity: 1 !important;
+          margin: 0 !important;
+          cursor: pointer;
+          border-radius: 50% !important;
+          transition: all 0.3s ease !important;
         }
-        .swiper-pagination-bullet-active {
-          background: #fff;
+        .swiper-pagination-custom .swiper-pagination-bullet-active {
+          width: 24px !important;
+          height: 8px !important;
+          background: #fff !important;
+          border-color: #fff !important;
+          border-radius: 4px !important;
+        }
+        .swiper-pagination {
+          display: none !important;
+        }
+        .swiper-wrapper {
+          position: relative;
         }
       `}
       </style>

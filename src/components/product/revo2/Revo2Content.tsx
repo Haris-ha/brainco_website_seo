@@ -55,7 +55,7 @@ export default function Revo2Content() {
           >
             <Link
               href="/contact#contact"
-              className="cursor-target text-fluid-3xl flex h-[90px] w-[264px] items-center justify-center rounded-[45px] bg-[#1a74bf] !text-white transition-transform hover:scale-105"
+              className="cursor-target text-fluid-3xl flex h-[72px] w-[264px] items-center justify-center rounded-[45px] bg-[#1a74bf] !text-white transition-transform hover:scale-105"
             >
               {t('contact_us')}
             </Link>
@@ -63,7 +63,7 @@ export default function Revo2Content() {
               href="https://www.brainco-hz.com/docs/revolimb-hand/revo2/parameters.html"
               target="_blank"
               rel="noopener noreferrer"
-              className="cursor-target text-fluid-3xl flex h-[90px] w-[264px] items-center justify-center rounded-[45px] border border-white !text-white transition-transform hover:scale-105"
+              className="cursor-target text-fluid-3xl flex h-[72px] w-[264px] items-center justify-center rounded-[45px] border border-white !text-white transition-transform hover:scale-105"
             >
               {t('documentation')}
             </a>
@@ -426,7 +426,7 @@ export default function Revo2Content() {
         >
           <Link
             href="/contact#contact"
-            className="cursor-target text-fluid-3xl flex h-[90px] w-[264px] items-center justify-center rounded-[45px] bg-[#1a74bf] !text-white transition-transform hover:scale-105"
+            className="cursor-target text-fluid-3xl flex h-[72px] w-[264px] items-center justify-center rounded-[45px] bg-[#1a74bf] !text-white transition-transform hover:scale-105"
           >
             {t('contact_us')}
           </Link>
