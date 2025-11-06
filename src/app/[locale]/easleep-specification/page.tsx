@@ -1,8 +1,7 @@
 import type { Metadata } from 'next';
 import { getTranslations } from 'next-intl/server';
 import Image from 'next/image';
-import EASleepSpecificationContent from '@/components/product/easleep/EASleepSpecificationContent';
-import EASleepSpecificationContentMobile from '@/components/product/easleep/EASleepSpecificationContentMobile';
+import EASleepSpecificationPageClient from '@/components/easleep/EASleepSpecificationPageClient';
 import { getBraincoProducts } from '@/lib/api';
 import { createPageMetadata } from '@/lib/metadata';
 
@@ -63,7 +62,7 @@ export default async function EASleepSpecificationPage() {
         <div className="flex items-center gap-1 md:gap-8">
           <Image
             src="https://website-www-brainco-cn.oss-cn-hangzhou.aliyuncs.com/images/icon.webp"
-            alt="BrainCo"
+            alt="BrainCo 公司 Logo - 脑机接口技术公司 / BrainCo Company Logo - Brain-Computer Interface Technology Company"
             width={180}
             height={80}
             className="h-auto w-[100px] lg:w-[180px]"
@@ -78,15 +77,8 @@ export default async function EASleepSpecificationPage() {
         </div>
       </header>
 
-      {/* Desktop Content */}
-      <div className="hidden lg:block">
-        <EASleepSpecificationContent products={products} />
-      </div>
-
-      {/* Mobile Content */}
-      <div className="block lg:hidden">
-        <EASleepSpecificationContentMobile products={products} />
-      </div>
+      {/* 使用JS条件渲染，避免PC和移动端H标签同时被搜索引擎收录 */}
+      <EASleepSpecificationPageClient products={products} />
     </div>
   );
 }

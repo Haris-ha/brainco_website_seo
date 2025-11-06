@@ -221,13 +221,13 @@ export default function BrainRoboticsContentMobile() {
   }, []);
 
   return (
-    <div className="h-full w-full overflow-x-hidden bg-white">
+    <main className="h-full w-full overflow-x-hidden bg-white">
       {/* Hero Section */}
-      <div className="relative w-full">
+      <header className="relative w-full" role="img" aria-label="BrainRobotics 智能仿生手 - 移动端 / BrainRobotics Prosthetic Hand - Mobile">
         <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.8 }}>
           <Image
             src="https://website-www-brainco-cn.oss-cn-hangzhou.aliyuncs.com/images/T6zim1r0nMcHY2rG.webp"
-            alt={t('product_name')}
+            alt="BrainRobotics 智能仿生手产品展示 / BrainRobotics Prosthetic Hand Product Display"
             width={750}
             height={900}
             className="w-full"
@@ -248,7 +248,7 @@ export default function BrainRoboticsContentMobile() {
               >
                 <Image
                   src={achievement}
-                  alt="Achievement"
+                  alt={`BrainCo 智能仿生手获奖徽章 ${index + 1} - 移动端 / BrainCo Brain Robotics Award Badge ${index + 1} - Mobile`}
                   width={index === 0 ? 72 : index === 1 ? 50 : 40}
                   height={index === 0 ? 72 : index === 1 ? 50 : 40}
                   className={`h-auto ${index === 1 ? 'mr-[20px]' : index === 2 ? 'mr-[32px]' : ''}`}
@@ -285,13 +285,14 @@ export default function BrainRoboticsContentMobile() {
             </motion.p>
           </div>
         </div>
-      </div>
+      </header>
 
       {/* Gestures Section */}
-      <div className="mt-[20px]">
+      <section className="mt-[20px]" aria-labelledby="gestures-section-title-mobile">
+        <h2 id="gestures-section-title-mobile" className="sr-only">手势控制模式 - 移动端 / Gesture Control Modes - Mobile</h2>
         <div className="grid grid-cols-2 gap-y-[20px]">
           {gestures.map((gesture, index) => (
-            <motion.div
+            <motion.article
               key={gesture.name}
               className="flex items-center overflow-hidden px-[20px]"
               initial={{ opacity: 0, scale: 0.9 }}
@@ -301,7 +302,7 @@ export default function BrainRoboticsContentMobile() {
             >
               <Image
                 src={gesture.img}
-                alt={gesture.name}
+                alt={`${gesture.name} - 仿生手手势控制示意图 - 移动端 / ${gesture.name} - Hand gesture control illustration - Mobile`}
                 width={60}
                 height={60}
                 className="mr-[10px] h-[60px] w-[60px] flex-shrink-0"
@@ -328,13 +329,14 @@ export default function BrainRoboticsContentMobile() {
                   </span>
                 )}
               </div>
-            </motion.div>
+            </motion.article>
           ))}
         </div>
-      </div>
+      </section>
 
       {/* Parameters Section */}
-      <div className="mt-[-28px] flex pr-[14px]">
+      <section className="mt-[-28px] flex pr-[14px]" aria-labelledby="parameters-section-title-mobile">
+        <h2 id="parameters-section-title-mobile" className="sr-only">技术参数 - 移动端 / Technical Parameters - Mobile</h2>
         {/* Product Image */}
         <picture className="w-[204px] flex-shrink-0">
           <source
@@ -347,7 +349,7 @@ export default function BrainRoboticsContentMobile() {
           />
           <Image
             src="https://website-www-brainco-cn.oss-cn-hangzhou.aliyuncs.com/images/yY6BfJmjhWrzsF0Y.webp"
-            alt={t('product_name')}
+            alt="BrainRobotics 智能仿生手产品展示 / BrainRobotics Prosthetic Hand Product Display"
             width={204}
             height={300}
             className="h-auto w-[204px]"
@@ -376,11 +378,11 @@ export default function BrainRoboticsContentMobile() {
                   />
                 )}
                 <div>
-                  <h4 className="text-fluid-base font-normal">{param.name}</h4>
-                  <h5 className="text-fluid-2xl relative mt-[4px] inline-block pb-[4px] leading-none after:absolute after:bottom-0 after:left-0 after:h-[2px] after:w-full after:rounded-[2px] after:bg-[#c62927]">
+                  <h3 className="text-fluid-base font-normal">{param.name}</h3>
+                  <p className="text-fluid-2xl relative mt-[4px] inline-block pb-[4px] leading-none after:absolute after:bottom-0 after:left-0 after:h-[2px] after:w-full after:rounded-[2px] after:bg-[#c62927]">
                     {param.value}
                     <span className="text-fluid-base">{param.unit}</span>
-                  </h5>
+                  </p>
                   <p
                     className="text-fluid-base origin-left"
                     style={{ transform: 'scale(0.6)', width: '160%' }}
@@ -392,10 +394,11 @@ export default function BrainRoboticsContentMobile() {
             ))}
           </ul>
         </div>
-      </div>
+      </section>
 
       {/* Awards Section */}
-      <div className="flex pl-[36px]">
+      <section className="flex pl-[36px]" aria-labelledby="awards-section-title-mobile">
+        <h2 id="awards-section-title-mobile" className="sr-only">获奖历史 - 移动端 / Awards History - Mobile</h2>
         {/* Awards Timeline - Left */}
         <div className="mr-[-14px] pt-[80px]">
           <ul>
@@ -411,7 +414,7 @@ export default function BrainRoboticsContentMobile() {
                 <div className="rounded-[10px] bg-[#c62927] p-[6px]">
                   <Image
                     src={award.img}
-                    alt={award.title}
+                    alt={`${award.title} - ${award.year} 获奖证书 - 移动端 / ${award.title} - ${award.year} Award Certificate - Mobile`}
                     width={50}
                     height={50}
                     className="h-auto w-[50px]"
@@ -424,9 +427,9 @@ export default function BrainRoboticsContentMobile() {
                   >
                     {award.title}
                   </p>
-                  <h5 className="text-fluid-xl relative flex items-center leading-none after:order-[-1] after:mr-[6px] after:h-[6px] after:w-[6px] after:rounded-full after:border after:border-[#c62927]">
+                  <p className="text-fluid-xl relative flex items-center leading-none after:order-[-1] after:mr-[6px] after:h-[6px] after:w-[6px] after:rounded-full after:border after:border-[#c62927]">
                     {award.year}
-                  </h5>
+                  </p>
                 </div>
               </motion.li>
             ))}
@@ -445,50 +448,55 @@ export default function BrainRoboticsContentMobile() {
           />
           <Image
             src="https://website-www-brainco-cn.oss-cn-hangzhou.aliyuncs.com/images/yY6BfJmjhWrzsF0Y.webp"
-            alt={t('product_name')}
+            alt="BrainRobotics 智能仿生手产品展示 / BrainRobotics Prosthetic Hand Product Display"
             width={204}
             height={300}
             className="h-auto w-[204px]"
           />
         </picture>
-      </div>
+      </section>
 
       {/* Video Section */}
-      <motion.div
-        className="w-full"
-        initial={{ opacity: 0, y: 30 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true }}
-        transition={{ duration: 0.8, ease: 'easeOut' }}
-      >
-        <video
-          ref={videoRef}
-          muted
-          loop
-          playsInline
-          preload="metadata"
-          poster="https://website-www-brainco-cn.oss-cn-hangzhou.aliyuncs.com/images/6c5M9iSKs9fhkrwY.webp"
-          className="w-full"
-          controlsList="nodownload noremoteplayback"
+      <section className="w-full" aria-labelledby="video-section-title-mobile">
+        <h2 id="video-section-title-mobile" className="sr-only">BrainRobotics 产品演示视频 - 移动端 / BrainRobotics Product Demo Video - Mobile</h2>
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.8, ease: 'easeOut' }}
         >
-          <source
-            src="https://website-www-brainco-cn.oss-cn-hangzhou.aliyuncs.com/video/SYCzFRjKbp5Sb8aR.mp4"
-            type="video/mp4"
-          />
-        </video>
-      </motion.div>
+          <video
+            ref={videoRef}
+            muted
+            loop
+            playsInline
+            preload="metadata"
+            poster="https://website-www-brainco-cn.oss-cn-hangzhou.aliyuncs.com/images/6c5M9iSKs9fhkrwY.webp"
+            className="w-full"
+            controlsList="nodownload noremoteplayback"
+            aria-label="BrainRobotics 智能仿生手产品演示视频 - 移动端 / BrainRobotics Intelligent Prosthetic Hand Product Demo Video - Mobile"
+          >
+            <source
+              src="https://website-www-brainco-cn.oss-cn-hangzhou.aliyuncs.com/video/SYCzFRjKbp5Sb8aR.mp4"
+              type="video/mp4"
+            />
+            <track kind="captions" />
+          </video>
+        </motion.div>
+      </section>
 
       {/* Resources Download Section */}
-      <motion.div
-        className="mt-[50px] mb-[50px] px-[14px]"
-        initial={{ opacity: 0, y: 30 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true }}
-        transition={{ duration: 0.8, ease: 'easeOut' }}
-      >
-        <h2 className="text-fluid-3xl mb-[28px] text-center font-normal">
+      <section className="mt-[50px] mb-[50px] px-[14px]" aria-labelledby="resources-title-mobile">
+        <motion.h2
+          id="resources-title-mobile"
+          className="text-fluid-3xl mb-[28px] text-center font-normal"
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.8, ease: 'easeOut' }}
+        >
           {t('resources_title')}
-        </h2>
+        </motion.h2>
         <div className="flex h-[40px] items-center justify-between rounded-[20px] border border-[#1A74BF] px-[24px]">
           <span className="text-fluid-base">{t('resource_manual_cn')}</span>
           <a
@@ -496,6 +504,7 @@ export default function BrainRoboticsContentMobile() {
             target="_blank"
             rel="noopener noreferrer"
             className="text-fluid-base flex h-[24px] flex-shrink-0 items-center justify-center rounded-[12px] bg-[#1A74BF] px-4 !text-white transition-transform active:scale-95"
+            aria-label={`${t('download_btn')} - ${t('resource_manual_cn')} / ${t('download_btn')} - ${t('resource_manual_cn')}`}
           >
             {t('download_btn')}
           </a>
@@ -507,11 +516,12 @@ export default function BrainRoboticsContentMobile() {
             target="_blank"
             rel="noopener noreferrer"
             className="text-fluid-base flex h-[24px] flex-shrink-0 items-center justify-center rounded-[12px] bg-[#1A74BF] px-4 !text-white transition-transform active:scale-95"
+            aria-label={`${t('download_btn')} - ${t('resource_manual_en')} / ${t('download_btn')} - ${t('resource_manual_en')}`}
           >
             {t('download_btn')}
           </a>
         </div>
-      </motion.div>
-    </div>
+      </section>
+    </main>
   );
 }

@@ -1,13 +1,11 @@
 import type { Metadata } from 'next';
-import { createPageMetadata } from '@/lib/metadata';
 import { setRequestLocale } from 'next-intl/server';
-import { getPageSEOForStructuredData } from '@/lib/seo';
-import StructuredData from '@/components/seo/StructuredData';
+import OnlineServiceClient from '@/components/common/OnlineServiceClient';
+import BrainRoboticsPageClient from '@/components/product/brain-robotics/BrainRoboticsPageClient';
 import DynamicCanonical from '@/components/seo/DynamicCanonical';
-import OnlineService from '@/components/common/OnlineService';
-import OnlineServiceMobile from '@/components/common/OnlineServiceMobile';
-import BrainRoboticsContent from '@/components/product/brain-robotics/BrainRoboticsContent';
-import BrainRoboticsContentMobile from '@/components/product/brain-robotics/BrainRoboticsContentMobile';
+import StructuredData from '@/components/seo/StructuredData';
+import { createPageMetadata } from '@/lib/metadata';
+import { getPageSEOForStructuredData } from '@/lib/seo';
 
 export const dynamic = 'force-dynamic';
 
@@ -15,7 +13,7 @@ export async function generateMetadata(props: {
   params: Promise<{ locale: string }>;
 }): Promise<Metadata> {
   const params = await props.params;
-  
+
   return createPageMetadata(params, 'brain-robotics', {
     title: 'Brain Robotics - 智能仿生手',
     description: 'Brain Robotics 智能仿生手，重塑生活可能',
@@ -36,23 +34,10 @@ export default async function BrainRoboticsPage(props: {
       {/* 添加结构化数据 - 直接从 CMS 获取 */}
       <DynamicCanonical canonicalURL={seoData?.canonicalURL} locale={locale} pagePath="/products/brain-robotics" />
       <StructuredData seoData={seoData} />
-      
-      <div className="hidden lg:block">
-        <BrainRoboticsContent />
-      </div>
-      <div className="block lg:hidden">
-        <BrainRoboticsContentMobile />
-      </div>
 
-      {/* Online Service - Desktop */}
-      <div className="hidden lg:block">
-        <OnlineService />
-      </div>
-
-      {/* Online Service - Mobile */}
-      <div className="block lg:hidden">
-        <OnlineServiceMobile />
-      </div>
+      {/* 使用JS条件渲染，避免PC和移动端H标签同时被搜索引擎收录 */}
+      <BrainRoboticsPageClient />
+      <OnlineServiceClient />
     </>
   );
 }

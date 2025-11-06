@@ -221,13 +221,13 @@ export default function BrainRoboticsContent() {
   }, []);
 
   return (
-    <div className="w-full overflow-hidden bg-white">
+    <main className="w-full overflow-hidden bg-white">
       {/* Hero Section */}
-      <div className="relative w-full">
+      <header className="relative w-full">
         <div className="relative">
           <Image
             src="https://website-www-brainco-cn.oss-cn-hangzhou.aliyuncs.com/images/cScrrdjj07wJs2xb.webp"
-            alt={t('product_name')}
+            alt="BrainCo 智能仿生手 - 灵巧仿生假肢展示 / BrainCo Brain Robotics - Intelligent Prosthetic Hand"
             width={990}
             height={990}
             className="left-1/2 h-screen transform object-cover"
@@ -249,7 +249,7 @@ export default function BrainRoboticsContent() {
               >
                 <Image
                   src={achievement}
-                  alt="Achievement"
+                  alt={`BrainCo 智能仿生手获奖徽章 ${index + 1} / BrainCo Brain Robotics Award Badge ${index + 1}`}
                   width={index === 0 ? 120 : index === 1 ? 110 : 88}
                   height={index === 0 ? 120 : index === 1 ? 110 : 68}
                   className={`h-auto ${index === 0 ? 'w-[120px]' : index === 1 ? 'w-[110px]' : 'w-[68px]'}`}
@@ -286,14 +286,15 @@ export default function BrainRoboticsContent() {
             </motion.p>
           </div>
         </div>
-      </div>
+      </header>
 
       {/* Gestures Section */}
-      <div className="relative z-[2] mt-[-335px] pl-[182px] 2xl:pl-[242px]">
+      <section className="relative z-[2] mt-[-335px] pl-[182px] 2xl:pl-[242px]" aria-labelledby="gestures-section-title">
+        <h2 id="gestures-section-title" className="sr-only">手势控制模式 / Gesture Control Modes</h2>
         <div className="rounded-l-[85px] bg-white pt-[100px] pr-[74px] pb-[100px] pl-[100px] shadow-lg">
           <div className="grid grid-cols-3 gap-x-[50px] gap-y-[40px]">
             {gestures.map((gesture, index) => (
-              <motion.div
+              <motion.article
                 key={gesture.name}
                 className="flex items-start"
                 initial={{ opacity: 0, scale: 0.9 }}
@@ -303,7 +304,7 @@ export default function BrainRoboticsContent() {
               >
                 <Image
                   src={gesture.img}
-                  alt={gesture.name}
+                  alt={`${gesture.name} - 仿生手手势控制示意图 / ${gesture.name} - Hand gesture control illustration`}
                   width={120}
                   height={120}
                   className="h-[120px] w-[120px] flex-shrink-0"
@@ -317,14 +318,15 @@ export default function BrainRoboticsContent() {
                     </span>
                   )}
                 </div>
-              </motion.div>
+              </motion.article>
             ))}
           </div>
         </div>
-      </div>
+      </section>
 
       {/* Awards and Parameters Section */}
-      <div className="flex justify-center px-[60px] pb-40  2xl:px-0 2xl:pb-0">
+      <section className="flex justify-center px-[60px] pb-40  2xl:px-0 2xl:pb-0" aria-labelledby="awards-params-section-title">
+        <h2 id="awards-params-section-title" className="sr-only">获奖历史与技术参数 / Awards History and Technical Parameters</h2>
         {/* Left - Awards Timeline */}
         <div className="mr-[-48px] pt-[120px] 2xl:mr-[-78px] 2xl:pt-[420px]">
           <ul>
@@ -340,7 +342,7 @@ export default function BrainRoboticsContent() {
                 <div className="rounded-[18px] bg-[#c62927] p-[18px]">
                   <Image
                     src={award.img}
-                    alt={award.title}
+                    alt={`${award.title} - ${award.year} 获奖证书 / ${award.title} - ${award.year} Award Certificate`}
                     width={index === 0 ? 160 : 130}
                     height={index === 0 ? 160 : 130}
                     className={`h-auto ${index === 0 ? 'w-[160px]' : 'w-[130px]'}`}
@@ -350,9 +352,9 @@ export default function BrainRoboticsContent() {
                   <p className="text-fluid-lg relative flex h-[60px] w-full items-end justify-end pb-[8px] text-right after:absolute after:bottom-0 after:left-0 after:h-[3px] after:w-full after:bg-[#c62927]">
                     {award.title}
                   </p>
-                  <h5 className="text-fluid-5xl relative leading-[60px] before:absolute before:top-1/2 before:left-[-24px] before:h-[6px] before:w-[6px] before:-translate-y-1/2 before:rounded-full before:border-[5px] before:border-[#c62927]">
+                  <p className="text-fluid-5xl relative leading-[60px] before:absolute before:top-1/2 before:left-[-24px] before:h-[6px] before:w-[6px] before:-translate-y-1/2 before:rounded-full before:border-[5px] before:border-[#c62927]">
                     {award.year}
-                  </h5>
+                  </p>
                 </div>
               </motion.li>
             ))}
@@ -371,7 +373,7 @@ export default function BrainRoboticsContent() {
           />
           <Image
             src="https://website-www-brainco-cn.oss-cn-hangzhou.aliyuncs.com/images/3gJn1V7S1loO8cDa.webp"
-            alt={t('product_name')}
+            alt={`${t('product_name')} - BrainCo 智能仿生手产品主图 - 产品外观展示 / ${t('product_name')} - BrainCo Brain Robotics Main Product Image - Product Appearance Display`}
             width={658}
             height={900}
             className="h-auto w-[458px] 2xl:w-[658px]"
@@ -400,55 +402,60 @@ export default function BrainRoboticsContent() {
                   />
                 )}
                 <div>
-                  <h4 className="text-fluid-lg font-normal">{param.name}</h4>
-                  <h5 className="text-fluid-5xl relative mt-[16px] inline-block pb-[10px] leading-none after:absolute after:bottom-0 after:left-0 after:h-[3px] after:w-full after:rounded-[2px] after:bg-[#c62927]">
+                  <h3 className="text-fluid-lg font-normal">{param.name}</h3>
+                  <p className="text-fluid-5xl relative mt-[16px] inline-block pb-[10px] leading-none after:absolute after:bottom-0 after:left-0 after:h-[3px] after:w-full after:rounded-[2px] after:bg-[#c62927]">
                     {param.value}
                     <span className="text-fluid-2xl">{param.unit}</span>
-                  </h5>
+                  </p>
                   <p className="text-fluid-base mt-[6px]">{param.desc}</p>
                 </div>
               </motion.li>
             ))}
           </ul>
         </div>
-      </div>
+      </section>
 
       {/* Video Section */}
-      <motion.div
-        className="w-full"
-        initial={{ opacity: 0, y: 50 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true }}
-        transition={{ duration: 0.8, ease: 'easeOut' }}
-      >
-        <video
-          ref={videoRef}
-          muted
-          loop
-          playsInline
-          preload="metadata"
-          poster="https://website-www-brainco-cn.oss-cn-hangzhou.aliyuncs.com/images/6c5M9iSKs9fhkrwY.webp"
-          className="w-full"
-          controlsList="nodownload noremoteplayback"
+      <section className="w-full" aria-labelledby="video-section-title">
+        <h2 id="video-section-title" className="sr-only">BrainRobotics 产品演示视频 / BrainRobotics Product Demo Video</h2>
+        <motion.div
+          initial={{ opacity: 0, y: 50 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.8, ease: 'easeOut' }}
         >
-          <source
-            src="https://website-www-brainco-cn.oss-cn-hangzhou.aliyuncs.com/video/5jz4jGXNnhfQ4Ynp.mp4"
-            type="video/mp4"
-          />
-        </video>
-      </motion.div>
+          <video
+            ref={videoRef}
+            muted
+            loop
+            playsInline
+            preload="metadata"
+            poster="https://website-www-brainco-cn.oss-cn-hangzhou.aliyuncs.com/images/6c5M9iSKs9fhkrwY.webp"
+            className="w-full"
+            controlsList="nodownload noremoteplayback"
+            aria-label="BrainRobotics 智能仿生手产品演示视频 / BrainRobotics Intelligent Prosthetic Hand Product Demo Video"
+          >
+            <source
+              src="https://website-www-brainco-cn.oss-cn-hangzhou.aliyuncs.com/video/5jz4jGXNnhfQ4Ynp.mp4"
+              type="video/mp4"
+            />
+            <track kind="captions" />
+          </video>
+        </motion.div>
+      </section>
 
       {/* Resources Download Section */}
-      <motion.div
-        className="mt-[106px] mb-[100px]"
-        initial={{ opacity: 0, y: 50 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true }}
-        transition={{ duration: 0.8, ease: 'easeOut' }}
-      >
-        <h2 className="text-fluid-6xl mb-[58px] text-center font-bold">
+      <section className="mt-[106px] mb-[100px]" aria-labelledby="resources-title">
+        <motion.h2
+          id="resources-title"
+          className="text-fluid-6xl mb-[58px] text-center font-bold"
+          initial={{ opacity: 0, y: 50 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.8, ease: 'easeOut' }}
+        >
           {t('resources_title')}
-        </h2>
+        </motion.h2>
         <div className="mx-auto flex w-[998px] items-center justify-between rounded-[12px] border border-[#1A74BF] px-[80px] py-[40px]">
           <span className="text-fluid-2xl">{t('resource_manual_cn')}</span>
           <a
@@ -456,6 +463,7 @@ export default function BrainRoboticsContent() {
             target="_blank"
             rel="noopener noreferrer"
             className="text-fluid-lg flex h-[44px] min-w-[120px] flex-shrink-0 items-center justify-center rounded-[22px] bg-[#1A74BF] px-8 !text-white transition-transform hover:scale-105"
+            aria-label={`${t('download_btn')} - ${t('resource_manual_cn')} / ${t('download_btn')} - ${t('resource_manual_cn')}`}
           >
             {t('download_btn')}
           </a>
@@ -467,11 +475,12 @@ export default function BrainRoboticsContent() {
             target="_blank"
             rel="noopener noreferrer"
             className="text-fluid-lg flex h-[44px] min-w-[120px] flex-shrink-0 items-center justify-center rounded-[22px] bg-[#1A74BF] px-8 !text-white transition-transform hover:scale-105"
+            aria-label={`${t('download_btn')} - ${t('resource_manual_en')} / ${t('download_btn')} - ${t('resource_manual_en')}`}
           >
             {t('download_btn')}
           </a>
         </div>
-      </motion.div>
-    </div>
+      </section>
+    </main>
   );
 }
