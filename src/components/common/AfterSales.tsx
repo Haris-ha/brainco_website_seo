@@ -38,7 +38,9 @@ export default function AfterSales({ text, text2, is15Days = false, is30Days = f
         >
           <Image
             src={item.icon}
-            alt=""
+            alt={index === 0
+              ? `${item.name} - 退货政策图标 / ${item.name} - Return Policy Icon`
+              : `${item.name} - 客户服务图标 / ${item.name} - Customer Service Icon`}
             width={78}
             height={78}
             className="h-auto w-[4.0625vw] max-w-[78px] min-w-[50px]"

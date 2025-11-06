@@ -38,7 +38,9 @@ export default function AfterSalesMobile({ is15Days = false, is30Days = false, t
         >
           <Image
             src={item.icon}
-            alt=""
+            alt={index === 0
+              ? `${item.name} - 退货政策图标 / ${item.name} - Return Policy Icon`
+              : `${item.name} - 客户服务图标 / ${item.name} - Customer Service Icon`}
             width={40}
             height={40}
             className="h-auto w-10 flex-shrink-0"

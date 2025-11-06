@@ -28,13 +28,13 @@ export default function StarKidsContent() {
   }, []);
 
   return (
-    <div className="w-full overflow-hidden" style={{ color: '#333' }}>
+    <main className="w-full overflow-hidden" style={{ color: '#333' }}>
       {/* Hero Banner Section */}
-      <section className="relative mt-[5vw] flex justify-end">
+      <header className="relative mt-[5vw] flex justify-end">
         <picture className="relative">
           <img
             src="https://website-www-brainco-cn.oss-cn-hangzhou.aliyuncs.com/images/product/starkid/XnquQobOARSTzZtY.webp"
-            alt="StarKids Banner"
+            alt="StarKids 专注力训练系统产品展示 - 学生课堂训练场景 / StarKids attention training system - Student classroom training scene"
             className="w-full translate-x-[10vw]"
           />
           <div className="pointer-events-none absolute inset-0 bg-gradient-to-r from-white via-white/10 to-transparent" />
@@ -47,7 +47,7 @@ export default function StarKidsContent() {
           >
             <Image
               src="https://website-www-brainco-cn.oss-cn-hangzhou.aliyuncs.com/images/wywzwe1R9ekMiMNs.webp"
-              alt={t('hero_logo_alt')}
+              alt="StarKids 专注力训练系统 Logo / StarKids Attention Training System Logo"
               width={134}
               height={134}
               className="mb-[1vw] h-auto w-[10vw]"
@@ -79,19 +79,20 @@ export default function StarKidsContent() {
           </motion.p>
           {product && <PurchaseButton product={product} />}
         </div>
-      </section>
+      </header>
 
       {/* System Overview Section */}
-      <article className="mx-auto w-[80vw] max-w-[1600px]">
+      <section className="mx-auto w-[80vw] max-w-[1600px]" aria-labelledby="system-overview-title">
         <div className="mt-[4.5vw] text-center">
           <Image
             src="https://website-www-brainco-cn.oss-cn-hangzhou.aliyuncs.com/images/mGWZ1YCsNC1Sa1r2.webp"
-            alt={t('system_icon_alt')}
+            alt="StarKids 智能训练系统图标 / StarKids intelligent training system icon"
             width={200}
             height={200}
             className="mx-auto h-auto w-[10.4vw]"
           />
           <h2
+            id="system-overview-title"
             className="text-fluid-5xl mt-[2.6vw] font-medium"
             style={{ color: PRIMARY_COLOR }}
           >
@@ -137,7 +138,7 @@ export default function StarKidsContent() {
           >
             <Image
               src="https://website-www-brainco-cn.oss-cn-hangzhou.aliyuncs.com/images/product/starkid/KbaHqVWNlEcPSrnj.webp"
-              alt="StarKids Device"
+              alt="StarKids 专注力训练头戴设备 - 脑电波实时监测装置 / StarKids attention training headset - Real-time EEG monitoring device"
               width={642}
               height={642}
               className="h-auto w-[40vw]"
@@ -170,11 +171,12 @@ export default function StarKidsContent() {
             ))}
           </div>
         </div>
-      </article>
+      </section>
 
       {/* Training Modules Section */}
-      <div className="mt-[6.8vw]">
+      <section className="mt-[6.8vw]" aria-labelledby="training-modules-title">
         {/* Statistics Header */}
+        <h2 id="training-modules-title" className="sr-only">训练模块统计 / Training Modules Statistics</h2>
         <div className="flex justify-around px-[2vw]">
           {[
             {
@@ -260,7 +262,7 @@ export default function StarKidsContent() {
                 <div className={`mt-[1.4vw] flex flex-col items-center justify-center text-center ${isIndependent ? 'relative top-[3.1vw]' : ''}`}>
                   <Image
                     src={module.src}
-                    alt={module.name ? t(module.name) : 'Training module'}
+                    alt={module.name ? `${t(module.name)} - 训练模块示意图 / Training module illustration` : 'StarKids 训练模块 / StarKids training module'}
                     width={400}
                     height={400}
                     className={`h-auto ${isIndependent ? 'w-[18.2vw]' : 'w-[20.8vw]'}`}
@@ -278,17 +280,18 @@ export default function StarKidsContent() {
             );
           })}
         </div>
-      </div>
+      </section>
 
       {/* Interactive Scene Section */}
-      <div
+      <section
         className="mx-[8.3vw] mt-[9.4vw] text-center"
         style={{ color: PRIMARY_COLOR }}
+        aria-labelledby="interactive-scene-title"
       >
-        <h3 className="text-fluid-5xl font-medium">{t('interactive_title')}</h3>
+        <h2 id="interactive-scene-title" className="text-fluid-5xl font-medium">{t('interactive_title')}</h2>
         <p className="text-fluid-4xl">{t('interactive_subtitle')}</p>
 
-        <div className="relative mt-[4.5vw]">
+        <figure className="relative mt-[4.5vw]">
           <video
             autoPlay
             muted
@@ -296,25 +299,28 @@ export default function StarKidsContent() {
             loop
             className="relative z-[2] mx-auto w-[50vw] rounded-[1.25vw]"
             src="https://website-www-brainco-cn.oss-cn-hangzhou.aliyuncs.com/images/product/starkid/OaqBxdIPlQRLrAoC.mp4"
+            aria-label="StarKids 互动训练场景演示视频 / StarKids interactive training scene demo video"
           />
           <div className="relative -mt-[10.4vw]">
             <Image
               src="https://website-www-brainco-cn.oss-cn-hangzhou.aliyuncs.com/images/product/starkid/tHKNOlTbvxEspCrG.webp"
-              alt="Interactive scene background"
+              alt="StarKids 互动训练场景背景图 / StarKids interactive scene background"
+              role="presentation"
               width={1920}
               height={400}
               className="h-auto w-full"
             />
           </div>
-        </div>
-      </div>
+        </figure>
+      </section>
 
       {/* Training Mode Section */}
-      <div
+      <section
         className="mt-[7.8vw] bg-[#F4F4F4] pt-[5vw] text-center"
         style={{ color: PRIMARY_COLOR }}
+        aria-labelledby="training-mode-title"
       >
-        <h3 className="text-fluid-5xl font-medium">{t('training_mode_title')}</h3>
+        <h2 id="training-mode-title" className="text-fluid-5xl font-medium">{t('training_mode_title')}</h2>
         <p className="text-fluid-4xl">{t('training_mode_subtitle')}</p>
 
         <div className="mt-[6.25vw] flex items-center justify-center gap-[6.7vw] px-[5vw] pb-[4.7vw]">
@@ -326,7 +332,7 @@ export default function StarKidsContent() {
           >
             <Image
               src="https://website-www-brainco-cn.oss-cn-hangzhou.aliyuncs.com/images/product/starkid/VvRspiJCtbEnhTwl.webp"
-              alt="Training mode"
+              alt="StarKids 训练模式界面展示 / StarKids training mode interface display"
               width={440}
               height={440}
               className="h-auto w-[22.9vw]"
@@ -341,15 +347,18 @@ export default function StarKidsContent() {
             controls
             className="mt-[3.6vw] w-[50vw] cursor-pointer rounded-[1.25vw]"
             src="https://website-www-brainco-cn.oss-cn-hangzhou.aliyuncs.com/assets/video/K9hDdccdM7rYrPwAgzska.mp4"
+            aria-label="StarKids 训练模式演示视频 / StarKids training mode demo video"
           />
         </div>
-      </div>
+      </section>
 
       {/* Training Recommend Section */}
-      <div className="relative bg-[#F4F4F4] pb-[4.2vw]">
+      <section className="relative bg-[#F4F4F4] pb-[4.2vw]" aria-labelledby="training-recommend-title">
+        <h2 id="training-recommend-title" className="sr-only">个性化训练推荐 / Personalized Training Recommendations</h2>
         <Image
           src="https://website-www-brainco-cn.oss-cn-hangzhou.aliyuncs.com/images/product/starkid/CzwFXWrxOTDvYSNJ.webp"
-          alt="Recommendation background"
+          alt="StarKids 训练推荐背景 / StarKids training recommendation background"
+          role="presentation"
           width={1920}
           height={800}
           className="h-auto w-full"
@@ -366,7 +375,7 @@ export default function StarKidsContent() {
             >
               <Image
                 src={`${imgBase}nchNMCfyslDzZoXV.webp`}
-                alt="Assessment header"
+                alt="StarKids 能力评估分析界面 / StarKids ability assessment analysis interface"
                 width={750}
                 height={400}
                 className="h-auto w-full"
@@ -381,7 +390,7 @@ export default function StarKidsContent() {
               className="mt-[5.2vw] mb-[2vw] flex justify-center"
             >
               <div className="flex w-[24vw] items-center justify-center rounded-[1.25vw] bg-white px-[1.25vw] py-[1.25vw] shadow-sm">
-                <p className="text-fluid-2xl font-medium">{t('recommend_title')}</p>
+                <h3 className="text-fluid-2xl font-medium">{t('recommend_title')}</h3>
               </div>
             </motion.div>
 
@@ -394,7 +403,7 @@ export default function StarKidsContent() {
             >
               <Image
                 src={`${imgBase}yCdOIDXFmoEiTMtP.webp`}
-                alt="Training list"
+                alt="StarKids 个性化训练推荐列表 / StarKids personalized training recommendation list"
                 width={684}
                 height={400}
                 className="h-auto w-[35.6vw]"
@@ -466,14 +475,14 @@ export default function StarKidsContent() {
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              className="relative mt-[5.5vw] -ml-[1vw] px-[1vw]"
+              className="relative mt-[5.5vw] ml-[-1vw] px-[1vw]"
             >
               <Image
                 src={`${imgBase}xRVtLGqrlwFhPbkX.webp`}
-                alt="Assessment icon"
+                alt="StarKids 能力评估图标 / StarKids ability assessment icon"
                 width={82}
                 height={82}
-                className="absolute -top-[2.1vw] -left-[0.5vw] h-auto w-[4.3vw]"
+                className="absolute top-[-2.1vw] left-[-0.5vw] h-auto w-[4.3vw]"
               />
               <div className="rounded-[1.25vw] bg-white px-[1.25vw] py-[1.25vw] shadow-sm">
                 <p className="text-fluid-2xl font-medium">
@@ -491,14 +500,14 @@ export default function StarKidsContent() {
             >
               <Image
                 src={`${imgBase}xeyDUErpaJwiTOcK.webp`}
-                alt="Assessment visualization"
+                alt="StarKids 能力评估可视化图表 - 多维度数据分析展示 / StarKids ability assessment visualization - Multi-dimensional data analysis display"
                 width={700}
                 height={400}
                 className="h-auto w-full"
               />
               <Image
                 src={`${imgBase}zDcmYNeoRXPqklFI.webp`}
-                alt="Assessment icon 2"
+                alt="StarKids 能力评估图标 2 / StarKids ability assessment icon 2"
                 width={84}
                 height={84}
                 className="absolute -bottom-[3.65vw] -left-[3.75vw] h-auto w-[4.4vw]"
@@ -514,7 +523,7 @@ export default function StarKidsContent() {
             >
               <Image
                 src={`${imgBase}lTyVdaxzfswDWBhr.webp`}
-                alt="Assessment result"
+                alt="StarKids 能力评估结果报告 - 训练效果分析图表 / StarKids ability assessment result report - Training effect analysis chart"
                 width={798}
                 height={600}
                 className="h-auto w-[41.6vw]"
@@ -522,11 +531,11 @@ export default function StarKidsContent() {
             </motion.div>
           </div>
         </div>
-      </div>
+      </section>
 
       {/* Data Tracking Section */}
-      <div className="mt-[4.7vw] text-center" style={{ color: PRIMARY_COLOR }}>
-        <h3 className="text-fluid-5xl font-medium">{t('track_title')}</h3>
+      <section className="mt-[4.7vw] text-center" style={{ color: PRIMARY_COLOR }} aria-labelledby="data-tracking-title">
+        <h2 id="data-tracking-title" className="text-fluid-5xl font-medium">{t('track_title')}</h2>
         <p className="text-fluid-4xl">{t('track_subtitle')}</p>
 
         {/* Images Grid */}
@@ -539,7 +548,7 @@ export default function StarKidsContent() {
             >
               <Image
                 src="https://website-www-brainco-cn.oss-cn-hangzhou.aliyuncs.com/images/product/starkid/zQxSZGdYaDNICPAv.webp"
-                alt="Tracking data 1"
+                alt="StarKids 训练数据追踪界面 - 专注力变化趋势图 / StarKids training data tracking - Attention change trend chart"
                 width={770}
                 height={400}
                 className="h-auto w-[40vw]"
@@ -553,7 +562,7 @@ export default function StarKidsContent() {
             >
               <Image
                 src="https://website-www-brainco-cn.oss-cn-hangzhou.aliyuncs.com/images/product/starkid/RhENsbqKMcmaQtvf.webp"
-                alt="Tracking data 2"
+                alt="StarKids 能力发展报告 - 多维度数据分析 / StarKids ability development report - Multi-dimensional data analysis"
                 width={770}
                 height={400}
                 className="h-auto w-[40vw]"
@@ -568,7 +577,7 @@ export default function StarKidsContent() {
           >
             <Image
               src="https://website-www-brainco-cn.oss-cn-hangzhou.aliyuncs.com/images/product/starkid/FvSgcKadYhxzoOyV.webp"
-              alt="Tracking data 3"
+              alt="StarKids 长期训练效果追踪 - 成长曲线可视化 / StarKids long-term training effect tracking - Growth curve visualization"
               width={630}
               height={800}
               className="h-auto w-[32.8vw]"
@@ -579,9 +588,9 @@ export default function StarKidsContent() {
         {/* Quantitative Data */}
         <div className="mx-auto mt-[2.5vw] flex w-[90vw] max-w-[1500px] items-center justify-center gap-[2.8vw]">
           <div className="w-[27vw] text-left" style={{ color: '#333' }}>
-            <h4 className="text-fluid-4xl mb-[1.5vw] leading-[1.4]">
+            <h3 className="text-fluid-4xl mb-[1.5vw] leading-[1.4]">
               {t('track_data_title')}
-            </h4>
+            </h3>
             <p className="text-fluid-2xl mb-[1.25vw] leading-[1.4]">
               {t('track_data_desc_1')}
             </p>
@@ -596,23 +605,24 @@ export default function StarKidsContent() {
           >
             <Image
               src="https://website-www-brainco-cn.oss-cn-hangzhou.aliyuncs.com/images/product/starkid/BrHmkDChpJGbiYIM.webp"
-              alt="Quantitative data"
+              alt="StarKids 量化数据分析 - 科学训练效果统计 / StarKids quantitative data analysis - Scientific training effect statistics"
               width={872}
               height={600}
               className="h-auto w-[45.4vw]"
             />
           </motion.div>
         </div>
-      </div>
+      </section>
 
       {/* Scientific Intervention Section */}
-      <div className="mt-[7.3vw]">
-        <h3
+      <section className="mt-[7.3vw]" aria-labelledby="scientific-intervention-title">
+        <h2
+          id="scientific-intervention-title"
           className="text-fluid-5xl text-center font-medium"
           style={{ color: PRIMARY_COLOR }}
         >
           {t('intervene_title')}
-        </h3>
+        </h2>
 
         <div className="mx-auto mt-[11.7vw] flex w-[85.2vw] gap-[2.6vw] rounded-[1.8vw] bg-[#FAFAFA] py-[5vw] pl-[3.1vw]">
           {/* Left Content */}
@@ -641,7 +651,7 @@ export default function StarKidsContent() {
             >
               <Image
                 src="https://website-www-brainco-cn.oss-cn-hangzhou.aliyuncs.com/images/product/starkid/qOmRUTiVKrsagSot.webp"
-                alt="Research paper"
+                alt="StarKids 科学干预研究论文 - 专注力训练效果验证报告 / StarKids scientific intervention research paper - Focus training effectiveness validation report"
                 width={954}
                 height={400}
                 className="h-auto w-[49.7vw]"
@@ -662,7 +672,7 @@ export default function StarKidsContent() {
             >
               <Image
                 src="https://website-www-brainco-cn.oss-cn-hangzhou.aliyuncs.com/images/product/starkid/KwxaFOfRGIgTbuMt.webp"
-                alt="Hospital certification"
+                alt="StarKids 医院认证证书 - 专业医疗机构认可 / StarKids hospital certification - Professional medical institution recognition"
                 width={506}
                 height={600}
                 className="h-auto w-[26.4vw]"
@@ -680,7 +690,7 @@ export default function StarKidsContent() {
             </span>
           </div>
         </div>
-      </div>
+      </section>
 
       {/* Authentication Section */}
       <div className="mx-auto mt-[4.7vw] w-[78.1vw] text-center">
@@ -706,14 +716,14 @@ export default function StarKidsContent() {
             <div className="mt-[2.2vw] flex flex-col items-center gap-[0.6vw]">
               <Image
                 src="https://website-www-brainco-cn.oss-cn-hangzhou.aliyuncs.com/images/product/starkid/dTvPhEKHBxpoqLCc.webp"
-                alt="2024 Award 1"
+                alt="StarKids 2024年获奖证书 1 - 产品认证与资质 / StarKids 2024 Award Certificate 1 - Product certification and qualification"
                 width={400}
                 height={300}
                 className="h-auto w-full"
               />
               <Image
                 src="https://website-www-brainco-cn.oss-cn-hangzhou.aliyuncs.com/images/product/starkid/hWfHacAqbVUspKEM.webp"
-                alt="2024 Award 2"
+                alt="StarKids 2024年获奖证书 2 - 产品认证与资质 / StarKids 2024 Award Certificate 2 - Product certification and qualification"
                 width={400}
                 height={300}
                 className="h-auto w-full"
@@ -737,7 +747,7 @@ export default function StarKidsContent() {
                 </p>
                 <Image
                   src="https://website-www-brainco-cn.oss-cn-hangzhou.aliyuncs.com/images/product/starkid/CmUhctZKRTbFDOPg.webp"
-                  alt="2023 Award 1"
+                  alt="StarKids 2023年获奖证书 1 - 产品认证与资质 / StarKids 2023 Award Certificate 1 - Product certification and qualification"
                   width={300}
                   height={400}
                   className="mt-[2.2vw] h-auto w-full"
@@ -749,7 +759,7 @@ export default function StarKidsContent() {
                 </p>
                 <Image
                   src="https://website-www-brainco-cn.oss-cn-hangzhou.aliyuncs.com/images/product/starkid/TXJdLBpEwSQHAvMP.webp"
-                  alt="2023 Award 2"
+                  alt="StarKids 2023年获奖证书 2 - 产品认证与资质 / StarKids 2023 Award Certificate 2 - Product certification and qualification"
                   width={300}
                   height={400}
                   className="mt-[2.2vw] h-auto w-full"
@@ -773,7 +783,7 @@ export default function StarKidsContent() {
             <div className="mt-[2.2vw]">
               <Image
                 src="https://website-www-brainco-cn.oss-cn-hangzhou.aliyuncs.com/images/product/starkid/yaOeohKIbsqfcESC.webp"
-                alt="2021 Award"
+                alt="StarKids 2021年获奖证书 - 产品认证与资质 / StarKids 2021 Award Certificate - Product certification and qualification"
                 width={400}
                 height={300}
                 className="h-auto w-full"
@@ -798,7 +808,7 @@ export default function StarKidsContent() {
             <div className="mt-[2.2vw]">
               <Image
                 src="https://website-www-brainco-cn.oss-cn-hangzhou.aliyuncs.com/images/product/starkid/UBwARODtFyLpPivg.webp"
-                alt="Patents"
+                alt="StarKids 产品专利证书 - 技术创新与知识产权 / StarKids product patents - Technical innovation and intellectual property"
                 width={600}
                 height={400}
                 className="h-auto w-full"
@@ -814,6 +824,6 @@ export default function StarKidsContent() {
           is30Days
         />
       </div>
-    </div>
+    </main>
   );
 }

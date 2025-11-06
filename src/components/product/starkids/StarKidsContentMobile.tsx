@@ -28,9 +28,11 @@ export default function StarKidsContentMobile() {
   }, []);
 
   return (
-    <div className="w-full" style={{ fontFamily: 'PingFang SC', color: '#333' }}>
+    <main className="w-full" style={{ fontFamily: 'PingFang SC', color: '#333' }}>
       {/* Hero Section */}
-      <motion.section
+      <motion.header
+        role="img"
+        aria-label="StarKids 专注力训练系统 - 移动端 / StarKids Focus Training System - Mobile"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 0.6 }}
@@ -38,12 +40,12 @@ export default function StarKidsContentMobile() {
       >
         <Image
           src={`${imgBase}wWBgMfiRAIreQClF.webp`}
-          alt="StarKids Mobile Banner"
+          alt="StarKids 专注力训练系统横幅 - 移动端 / StarKids Focus Training System Banner - Mobile"
           width={375}
           height={500}
           className="h-auto w-full"
         />
-      </motion.section>
+      </motion.header>
 
       {/* System Section */}
       <section className="bg-[#F4F4F4] px-6 py-10">
@@ -56,6 +58,7 @@ export default function StarKidsContentMobile() {
             className="mx-auto mb-4 h-auto w-[100px]"
           />
           <h2
+            id="system-title-mobile"
             className="text-fluid-2xl font-medium"
             style={{ color: PRIMARY_COLOR }}
             dangerouslySetInnerHTML={{
@@ -74,7 +77,7 @@ export default function StarKidsContentMobile() {
         >
           <Image
             src="https://website-www-brainco-cn.oss-cn-hangzhou.aliyuncs.com/images/product/starkid/XCIlFueETcdvDBZg.webp"
-            alt="StarKids Device"
+            alt="StarKids 专注力训练头戴设备 - 脑电波实时监测装置 / StarKids attention training headset - Real-time EEG monitoring device"
             width={280}
             height={280}
             className="h-auto w-[280px]"
@@ -97,12 +100,12 @@ export default function StarKidsContentMobile() {
                 style={{ background: PRIMARY_COLOR }}
               />
               <div>
-                <h5
+                <h3
                   className="text-fluid-2xl font-medium"
                   style={{ color: PRIMARY_COLOR }}
                 >
                   {t(feature.title)}
-                </h5>
+                </h3>
                 <p className="text-fluid-lg">{t(feature.desc)}</p>
               </div>
             </motion.div>
@@ -173,7 +176,7 @@ export default function StarKidsContentMobile() {
             >
               <Image
                 src={src}
-                alt={`Training module ${index + 1}`}
+                alt={`StarKids 训练模块 ${index + 1} - 专注力训练课程示意图 / StarKids training module ${index + 1} - Focus training course illustration`}
                 width={276}
                 height={300}
                 className="h-auto w-full"
@@ -185,7 +188,7 @@ export default function StarKidsContentMobile() {
 
       {/* Interactive Scene Section */}
       <section className="mt-8 text-center" style={{ color: PRIMARY_COLOR }}>
-        <h3 className="text-fluid-2xl font-medium">{t('interactive_title')}</h3>
+        <h2 id="interactive-title-mobile" className="text-fluid-2xl font-medium">{t('interactive_title')}</h2>
         <p className="text-fluid-lg mt-2.5">{t('interactive_subtitle')}</p>
 
         <motion.video
@@ -198,21 +201,23 @@ export default function StarKidsContentMobile() {
           loop
           className="mx-auto mt-4 w-[320px] rounded-lg shadow-[0px_4px_4px_0px_rgba(0,0,0,0.25)]"
           src="https://website-www-brainco-cn.oss-cn-hangzhou.aliyuncs.com/images/product/starkid/OaqBxdIPlQRLrAoC.mp4"
+          aria-label="StarKids 互动训练场景演示视频 / StarKids interactive training scene demo video"
         />
         <div className="mt-10">
           <Image
             src={`${imgBase}qlfWXrDgcyPSOJNU.webp`}
-            alt="Interactive scene decoration"
+            alt="StarKids 互动训练场景背景图 / StarKids interactive scene background"
             width={375}
             height={200}
             className="h-auto w-full"
+            role="presentation"
           />
         </div>
       </section>
 
       {/* Training Mode Section */}
       <section className="mx-6 mt-10 text-center" style={{ color: PRIMARY_COLOR }}>
-        <h3 className="text-fluid-3xl font-medium">{t('training_mode_title')}</h3>
+        <h2 id="training-mode-title-mobile" className="text-fluid-3xl font-medium">{t('training_mode_title')}</h2>
         <p className="text-fluid-xl mt-2.5">{t('training_mode_subtitle')}</p>
 
         <h4 className="text-fluid-xl mt-6 font-medium text-[#333]">
@@ -226,7 +231,7 @@ export default function StarKidsContentMobile() {
         >
           <Image
             src={`${imgBase}VlFMqDNQRuUfEHBz.webp`}
-            alt="Training principles"
+            alt="StarKids 训练原理示意图 - 神经反馈训练方法 / StarKids training principles - Neurofeedback training method"
             width={375}
             height={300}
             className="h-auto w-full"
@@ -259,6 +264,7 @@ export default function StarKidsContentMobile() {
           controls
           className="mx-auto mt-6 w-full cursor-pointer rounded-[2.5vw]"
           src="https://website-www-brainco-cn.oss-cn-hangzhou.aliyuncs.com/assets/video/K9hDdccdM7rYrPwAgzska.mp4"
+          aria-label="StarKids 训练模式演示视频 / StarKids training mode demo video"
         />
       </section>
 
@@ -287,7 +293,7 @@ export default function StarKidsContentMobile() {
           >
             <Image
               src={src}
-              alt={`Recommendation ${index + 1}`}
+              alt={`StarKids 个性化训练推荐 ${index + 1} - 专注力训练方案 / StarKids personalized training recommendation ${index + 1} - Focus training program`}
               width={375}
               height={400}
               className="h-auto w-full"
@@ -298,7 +304,7 @@ export default function StarKidsContentMobile() {
 
       {/* Tracking Section */}
       <section className="mt-8 pt-8 text-center" style={{ color: PRIMARY_COLOR }}>
-        <h3 className="text-fluid-3xl font-medium">{t('track_title')}</h3>
+        <h2 id="training-mode-title-mobile" className="text-fluid-3xl font-medium">{t('track_title')}</h2>
         <p className="text-fluid-xl mt-2.5">{t('track_subtitle')}</p>
 
         <div className="mt-4 space-y-6">
@@ -317,7 +323,7 @@ export default function StarKidsContentMobile() {
             >
               <Image
                 src={src}
-                alt={`Tracking ${index + 1}`}
+                alt={`StarKids 训练数据追踪界面 ${index + 1} - 专注力变化趋势分析 / StarKids training data tracking interface ${index + 1} - Attention change trend analysis`}
                 width={300}
                 height={400}
                 className="h-auto w-full"
@@ -329,7 +335,7 @@ export default function StarKidsContentMobile() {
 
       {/* Quantitative Data Section */}
       <section className="mt-8 text-center">
-        <h4 className="text-fluid-3xl font-medium">{t('track_data_title')}</h4>
+        <h2 id="track-data-title-mobile" className="text-fluid-3xl font-medium">{t('track_data_title')}</h2>
         <div className="text-fluid-base mt-4 space-y-2 px-7.5">
           <p>{t('track_data_desc_1')}</p>
           <p>{t('track_data_desc_2')}</p>
@@ -342,7 +348,7 @@ export default function StarKidsContentMobile() {
         >
           <Image
             src={`${imgBase}fWUBcupQhoSIwimG.webp`}
-            alt="Quantitative data"
+            alt="StarKids 量化数据分析 - 科学训练效果统计 / StarKids quantitative data analysis - Scientific training effect statistics"
             width={375}
             height={300}
             className="h-auto w-full"
@@ -352,9 +358,9 @@ export default function StarKidsContentMobile() {
 
       {/* Intervention Section */}
       <section className="mt-8" style={{ color: PRIMARY_COLOR }}>
-        <h3 className="text-fluid-3xl text-center font-medium">
+        <h2 id="intervene-title-mobile" className="text-fluid-3xl text-center font-medium">
           {t('intervene_title')}
-        </h3>
+        </h2>
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -363,7 +369,7 @@ export default function StarKidsContentMobile() {
         >
           <Image
             src={`${imgBase}zjHgecWrYumLsvqG.webp`}
-            alt="Intervention research"
+            alt="StarKids 科学干预研究 - 专注力训练效果验证 / StarKids scientific intervention research - Focus training effectiveness validation"
             width={375}
             height={500}
             className="h-auto w-full"
@@ -382,7 +388,7 @@ export default function StarKidsContentMobile() {
 
       {/* Innovation Section */}
       <section className="mt-16 text-center" style={{ color: PRIMARY_COLOR }}>
-        <h3 className="text-fluid-2xl font-medium">{t('auth_title')}</h3>
+        <h2 id="interactive-title-mobile" className="text-fluid-2xl font-medium">{t('auth_title')}</h2>
         <p className="text-fluid-lg mt-2.5 px-8">{t('auth_subtitle')}</p>
 
         <div className="mt-4 space-y-2">
@@ -402,7 +408,7 @@ export default function StarKidsContentMobile() {
             >
               <Image
                 src={src}
-                alt={`Innovation ${index + 1}`}
+                alt={`StarKids 产品认证与资质 ${index + 1} - 专业认证证书 / StarKids product certification and qualification ${index + 1} - Professional certification`}
                 width={328}
                 height={400}
                 className="h-auto w-full"
@@ -421,6 +427,6 @@ export default function StarKidsContentMobile() {
 
       {/* Fixed Purchase Button */}
       {product && <PurchaseButton product={product} isMobile />}
-    </div>
+    </main>
   );
 }
