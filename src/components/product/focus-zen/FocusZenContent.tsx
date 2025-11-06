@@ -34,12 +34,12 @@ export default function FocusZenContent() {
   }, []);
 
   return (
-    <div>
+    <main>
       {/* Hero Banner Section */}
-      <section className="relative flex min-h-[600px] items-center justify-center lg:min-h-[800px]">
+      <header className="relative flex min-h-[600px] items-center justify-center lg:min-h-[800px]">
         <Image
           src={imageUrls.heroBanner}
-          alt="FocusZen Banner"
+          alt="FocusZen 专注力训练正念放松设备 - 居家冥想场景 / FocusZen Focus Training & Mindfulness Relaxation Device - Home Meditation Scene"
           width={1920}
           height={1080}
           className="w-full object-cover"
@@ -57,14 +57,14 @@ export default function FocusZenContent() {
               >
                 {t('hero_title')}
               </motion.h1>
-              <motion.h2
+              <motion.p
                 initial={{ opacity: 0, y: 30 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8, delay: 0.2 }}
                 className="text-fluid-6xl relative mb-6 pb-4 font-medium after:absolute after:bottom-0 after:left-1/2 after:h-[1px] after:w-[60%] after:-translate-x-1/2 after:bg-white/80 after:content-['']"
               >
                 {t('hero_subtitle')}
-              </motion.h2>
+              </motion.p>
               <motion.p
                 initial={{ opacity: 0, y: 30 }}
                 animate={{ opacity: 1, y: 0 }}
@@ -115,7 +115,7 @@ export default function FocusZenContent() {
             </div>
           </div>
         </div>
-      </section>
+      </header>
 
       {/* Device Features Section */}
       <section className="relative h-[864px] overflow-hidden pt-[99px] pb-[120px] 2xl:h-[1080px] 2xl:pt-[124px] 2xl:pb-[150px]">
@@ -132,7 +132,7 @@ export default function FocusZenContent() {
         >
           <Image
             src={imageUrls.deviceMain}
-            alt="FocusZen Device"
+            alt="FocusZen 专注力训练正念设备 - 产品主图展示 / FocusZen Focus Training Mindfulness Device - Main Product Display"
             width={1435}
             height={1000}
             className="w-[1148px] 2xl:w-[1435px]"
@@ -162,7 +162,7 @@ export default function FocusZenContent() {
               >
                 <Image
                   src={feature.icon}
-                  alt={t(feature.titleKey)}
+                  alt={`${t(feature.titleKey)} - FocusZen 功能特性图标 / ${t(feature.titleKey)} - FocusZen Feature Icon`}
                   width={72}
                   height={72}
                   className="relative z-10 mr-4 w-[58px] flex-shrink-0 2xl:mr-5 2xl:w-[72px]"
@@ -199,11 +199,12 @@ export default function FocusZenContent() {
           poster={imageUrls.videoPoster}
           src={imageUrls.videoSrc}
           className="w-full object-contain"
+          aria-label="FocusZen 神经反馈训练演示视频 / FocusZen Neurofeedback Training Demo Video"
         />
 
         {/* Left side - Text Content (Absolute positioned) */}
         <div className="absolute -top-20 left-40 flex h-full w-[400px] flex-col justify-center pt-[250px]">
-          <motion.h3
+          <motion.p
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -214,8 +215,9 @@ export default function FocusZenContent() {
             <span className="text-fluid-sm ml-1 leading-none">
               {t('neuromindfulness_trademark')}
             </span>
-          </motion.h3>
-          <motion.h4
+          </motion.p>
+          <motion.h2
+            id="neurofeedback-title"
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -223,7 +225,7 @@ export default function FocusZenContent() {
             className="text-fluid-4xl relative mb-6 pb-12 leading-tight font-normal after:absolute after:bottom-0 after:left-0 after:h-[5px] after:w-[40px] after:bg-gray-900 after:content-['']"
           >
             {t('neurofeedback_title')}
-          </motion.h4>
+          </motion.h2>
           <motion.p
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -256,7 +258,7 @@ export default function FocusZenContent() {
               >
                 <Image
                   src={scene.image}
-                  alt={t(scene.nameKey)}
+                  alt={`${t(scene.nameKey)} - FocusZen 正念场景示意图 / ${t(scene.nameKey)} - FocusZen Mindfulness Scene Illustration`}
                   width={88}
                   height={88}
                   className="cursor-target rounded-lg transition-transform hover:scale-105"
@@ -264,10 +266,11 @@ export default function FocusZenContent() {
                 <div className="absolute inset-0 flex flex-col items-center justify-center text-white">
                   <Image
                     src={scene.icon}
-                    alt="icon"
+                    alt={`${t(scene.nameKey)} 场景图标 / ${t(scene.nameKey)} Scene Icon`}
                     width={18}
                     height={18}
                     className="mb-2"
+                    role="presentation"
                   />
                   <span className="text-fluid-sm text-center">{t(scene.nameKey)}</span>
                 </div>
@@ -290,7 +293,7 @@ export default function FocusZenContent() {
             >
               <Image
                 src={imageUrls.report1}
-                alt="Report 1"
+                alt="FocusZen 多维报告界面 1 - 专注力训练数据分析报告 / FocusZen Multi-Dimensional Report Interface 1 - Focus Training Data Analysis Report"
                 width={490}
                 height={800}
               />
@@ -304,7 +307,7 @@ export default function FocusZenContent() {
             >
               <Image
                 src={imageUrls.report2}
-                alt="Report 2"
+                alt="FocusZen 多维报告界面 2 - 训练效果可视化图表 / FocusZen Multi-Dimensional Report Interface 2 - Training Effect Visualization Chart"
                 width={490}
                 height={800}
               />
@@ -312,7 +315,8 @@ export default function FocusZenContent() {
           </div>
 
           <div className="ml-32 flex-1">
-            <motion.h3
+            <motion.h2
+              id="report-title"
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
@@ -320,7 +324,7 @@ export default function FocusZenContent() {
               className="text-fluid-6xl relative mb-12 pb-12 font-normal after:absolute after:bottom-0 after:left-0 after:h-[5px] after:w-[40px] after:bg-gray-900 after:content-['']"
             >
               {t('report_title')}
-            </motion.h3>
+            </motion.h2>
             <motion.p
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -347,7 +351,8 @@ export default function FocusZenContent() {
       <section className="bg-[#edf1f2]">
         <div className="mx-auto flex max-w-[90%] items-center justify-center">
           <div className="ml-32 flex flex-col items-start justify-center">
-            <motion.h3
+            <motion.h2
+              id="content-title"
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
@@ -355,7 +360,7 @@ export default function FocusZenContent() {
               className="text-fluid-6xl relative mb-12 pb-12 text-left font-normal after:absolute after:bottom-0 after:left-0 after:h-[5px] after:w-[40px] after:bg-gray-900 after:content-['']"
             >
               {t('content_title')}
-            </motion.h3>
+            </motion.h2>
             <motion.p
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -386,7 +391,7 @@ export default function FocusZenContent() {
             >
               <Image
                 src={imageUrls.content1}
-                alt="Content 1"
+                alt="FocusZen 优质内容界面 1 - 正念冥想课程内容展示 / FocusZen Premium Content Interface 1 - Mindfulness Meditation Course Content Display"
                 width={505}
                 height={800}
               />
@@ -400,7 +405,7 @@ export default function FocusZenContent() {
             >
               <Image
                 src={imageUrls.content2}
-                alt="Content 2"
+                alt="FocusZen 优质内容界面 2 - 训练课程内容详情 / FocusZen Premium Content Interface 2 - Training Course Content Details"
                 width={505}
                 height={800}
               />
@@ -413,10 +418,11 @@ export default function FocusZenContent() {
       <section className="relative">
         <Image
           src={imageUrls.groupBg}
-          alt="Group Background"
+          alt="FocusZen 团体正念模式背景图 / FocusZen Group Mindfulness Mode Background"
           width={1920}
           height={1080}
           className="w-full"
+          role="presentation"
         />
         <div className="absolute inset-0 flex items-center justify-center">
           <div className="flex items-center space-x-16 2xl:space-x-32">
@@ -430,14 +436,14 @@ export default function FocusZenContent() {
             >
               <Image
                 src={imageUrls.groupMain}
-                alt="Group Main"
+                alt="FocusZen 团体正念模式主图 - 多人协同训练场景 / FocusZen Group Mindfulness Mode Main Image - Multi-Person Collaborative Training Scene"
                 width={828}
                 height={900}
               />
               <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 2xl:scale-100">
                 <Image
                   src={imageUrls.groupScreen}
-                  alt="Screen"
+                  alt="FocusZen 团体正念模式界面屏幕 - 训练数据实时显示 / FocusZen Group Mindfulness Mode Screen - Real-time Training Data Display"
                   width={495}
                   height={920}
                 />
@@ -445,37 +451,42 @@ export default function FocusZenContent() {
               {/* Avatar decorations */}
               <Image
                 src={imageUrls.groupAvatar1}
-                alt="Avatar 1"
+                alt="FocusZen 团体正念模式用户头像 1 / FocusZen Group Mindfulness Mode User Avatar 1"
                 width={67}
                 height={67}
                 className="absolute top-36 right-24"
+                role="presentation"
               />
               <Image
                 src={imageUrls.groupAvatar2}
-                alt="Avatar 2"
+                alt="FocusZen 团体正念模式用户头像 2 / FocusZen Group Mindfulness Mode User Avatar 2"
                 width={120}
                 height={120}
                 className="absolute right-24 bottom-48"
+                role="presentation"
               />
               <Image
                 src={imageUrls.groupAvatar3}
-                alt="Avatar 3"
+                alt="FocusZen 团体正念模式用户头像 3 / FocusZen Group Mindfulness Mode User Avatar 3"
                 width={95}
                 height={95}
                 className="absolute bottom-32 left-8"
+                role="presentation"
               />
               <Image
                 src={imageUrls.groupAvatar4}
-                alt="Avatar 4"
+                alt="FocusZen 团体正念模式用户头像 4 / FocusZen Group Mindfulness Mode User Avatar 4"
                 width={144}
                 height={144}
                 className="absolute top-44 left-0"
+                role="presentation"
               />
             </motion.div>
 
             {/* Text content */}
             <div className="text-white">
-              <motion.h3
+              <motion.h2
+                id="group-mode-title"
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
@@ -483,7 +494,7 @@ export default function FocusZenContent() {
                 className="text-fluid-6xl relative mr-6 mb-12 pb-12 font-normal after:absolute after:bottom-0 after:left-0 after:h-[5px] after:w-[40px] after:bg-white after:content-['']"
               >
                 {t('group_mode_title')}
-              </motion.h3>
+              </motion.h2>
               <motion.p
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
@@ -511,7 +522,8 @@ export default function FocusZenContent() {
       <section className="py-24">
         <div className="mx-auto flex max-w-[90%] items-center justify-center gap-16 px-8">
           <div className="ml-10 flex min-w-[320px] flex-1 flex-col items-start justify-center">
-            <motion.h3
+            <motion.h2
+              id="community-title"
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
@@ -519,7 +531,7 @@ export default function FocusZenContent() {
               className="text-fluid-6xl relative mb-12 w-full pb-12 text-left font-normal after:absolute after:bottom-0 after:left-0 after:h-[5px] after:w-[40px] after:bg-gray-900 after:content-['']"
             >
               {t('community_title')}
-            </motion.h3>
+            </motion.h2>
             <motion.p
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -549,7 +561,7 @@ export default function FocusZenContent() {
             >
               <Image
                 src={imageUrls.community1}
-                alt="Community 1"
+                alt="FocusZen 社区练习场景 1 - 正念训练社区活动展示 / FocusZen Community Practice Scene 1 - Mindfulness Training Community Activity Display"
                 width={420}
                 height={600}
                 className="absolute top-6 left-0"
@@ -564,7 +576,7 @@ export default function FocusZenContent() {
             >
               <Image
                 src={imageUrls.community2}
-                alt="Community 2"
+                alt="FocusZen 社区练习场景 2 - 团体正念训练活动 / FocusZen Community Practice Scene 2 - Group Mindfulness Training Activity"
                 width={420}
                 height={600}
                 className="absolute top-36 left-1/2 -translate-x-1/2"
@@ -578,7 +590,7 @@ export default function FocusZenContent() {
             >
               <Image
                 src={imageUrls.community3}
-                alt="Community 3"
+                alt="FocusZen 社区练习场景 3 - 正念冥想社区互动 / FocusZen Community Practice Scene 3 - Mindfulness Meditation Community Interaction"
                 width={420}
                 height={600}
                 className="absolute top-0 right-0"
@@ -586,17 +598,19 @@ export default function FocusZenContent() {
             </motion.div>
             <Image
               src={imageUrls.community4}
-              alt="Community 4"
+              alt="FocusZen 社区练习装饰元素 1 / FocusZen Community Practice Decorative Element 1"
               width={140}
               height={160}
               className="absolute top-24 right-96 z-30"
+              role="presentation"
             />
             <Image
               src={imageUrls.community5}
-              alt="Community 5"
+              alt="FocusZen 社区练习装饰元素 2 / FocusZen Community Practice Decorative Element 2"
               width={158}
               height={180}
               className="absolute bottom-52 left-36 z-30"
+              role="presentation"
             />
           </div>
         </div>
@@ -606,14 +620,16 @@ export default function FocusZenContent() {
       <section className="relative">
         <Image
           src={imageUrls.businessBg}
-          alt="Business Background"
+          alt="FocusZen 商业解决方案背景图 / FocusZen Business Solution Background"
           width={1920}
           height={1080}
           className="w-full"
+          role="presentation"
         />
         <div className="absolute inset-0 flex items-center justify-end px-32 2xl:px-64">
           <div className="max-w-[40vw] text-right text-white">
-            <motion.h3
+            <motion.h2
+              id="business-solution-title"
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
@@ -621,7 +637,7 @@ export default function FocusZenContent() {
               className="text-fluid-5xl mb-4 font-normal"
             >
               {t('business_solution_title')}
-            </motion.h3>
+            </motion.h2>
             <motion.div
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -656,7 +672,7 @@ export default function FocusZenContent() {
                 >
                   <Image
                     src={item.icon}
-                    alt={t(item.nameKey)}
+                    alt={`${t(item.nameKey)} - FocusZen 商业解决方案图标 / ${t(item.nameKey)} - FocusZen Business Solution Icon`}
                     width={64}
                     height={64}
                     className="mb-2"
@@ -673,7 +689,8 @@ export default function FocusZenContent() {
 
       {/* Training Data Section */}
       <section className="mb-24 bg-[#edf1f2] pt-24 text-center">
-        <motion.h3
+        <motion.h2
+          id="training-title"
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
@@ -681,7 +698,7 @@ export default function FocusZenContent() {
           className="text-fluid-5xl mb-6 font-normal"
         >
           {t('training_title')}
-        </motion.h3>
+        </motion.h2>
         <motion.p
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -710,17 +727,18 @@ export default function FocusZenContent() {
           >
             <Image
               src={imageUrls.training1}
-              alt="Training Data"
+              alt="FocusZen 训练数据统计图 - 专注力训练效果数据分析 / FocusZen Training Data Statistics - Focus Training Effect Data Analysis"
               width={1020}
               height={600}
             />
           </motion.div>
           <Image
             src={imageUrls.training2}
-            alt="Training Additional"
+            alt="FocusZen 训练数据补充图表 / FocusZen Training Data Additional Chart"
             width={200}
             height={200}
             className="absolute -right-16 -bottom-16"
+            role="presentation"
           />
         </div>
       </section>
@@ -728,7 +746,8 @@ export default function FocusZenContent() {
       {/* Meditation Corner Section */}
       <section className="py-24">
         <div className="mx-auto max-w-[90%] px-8 text-center">
-          <motion.h3
+          <motion.h2
+            id="meditation-corner-title"
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -739,7 +758,7 @@ export default function FocusZenContent() {
               {t('meditation_corner')}
             </span>
             <span>{t('meditation_corner_subtitle')}</span>
-          </motion.h3>
+          </motion.h2>
           <motion.p
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -770,7 +789,7 @@ export default function FocusZenContent() {
               >
                 <Image
                   src={img.url}
-                  alt={`Meditation Corner ${index + 1}`}
+                  alt={`FocusZen 冥想角落场景 ${index + 1} - 正念冥想环境展示 / FocusZen Meditation Corner Scene ${index + 1} - Mindfulness Meditation Environment Display`}
                   width={600}
                   height={1000}
                   className="h-full w-full rounded-lg object-cover transition-transform hover:scale-105"
@@ -784,7 +803,8 @@ export default function FocusZenContent() {
       {/* AI Mindfulness Salon Section */}
       <section className="py-24">
         <div className="mx-auto max-w-7xl px-8 text-center">
-          <motion.h3
+          <motion.h2
+            id="salon-title"
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -795,7 +815,7 @@ export default function FocusZenContent() {
               {t('salon_title')}
             </span>
             <span>{t('salon_subtitle')}</span>
-          </motion.h3>
+          </motion.h2>
           <motion.p
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -837,7 +857,7 @@ export default function FocusZenContent() {
                   ? (
                       <SalonImageWithLabel
                         src={img.url}
-                        alt={`Salon ${index + 1}`}
+                        alt={`FocusZen AI 正念沙龙场景 ${index + 1} - ${t(img.labelKey)} / FocusZen AI Mindfulness Salon Scene ${index + 1} - ${t(img.labelKey)}`}
                         label={t(img.labelKey)}
                         width={640}
                         height={480}
@@ -846,7 +866,7 @@ export default function FocusZenContent() {
                   : (
                       <Image
                         src={img.url}
-                        alt={`Salon ${index + 1}`}
+                        alt={`FocusZen AI 正念沙龙场景 ${index + 1} - 正念训练课程展示 / FocusZen AI Mindfulness Salon Scene ${index + 1} - Mindfulness Training Course Display`}
                         width={640}
                         height={480}
                         className="w-full"
@@ -861,7 +881,8 @@ export default function FocusZenContent() {
       {/* Partners Section */}
       <section className="pt-24">
         <div className="mx-auto max-w-7xl px-8 text-center">
-          <motion.h3
+          <motion.h2
+            id="partners-title"
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -869,7 +890,7 @@ export default function FocusZenContent() {
             className="text-fluid-5xl mb-12 font-normal"
           >
             {t('partners_title')}
-          </motion.h3>
+          </motion.h2>
           <motion.div
             initial={{ opacity: 0, scale: 0.8 }}
             whileInView={{ opacity: 1, scale: 1 }}
@@ -879,7 +900,7 @@ export default function FocusZenContent() {
           >
             <Image
               src={imageUrls.partners}
-              alt="Partners"
+              alt="FocusZen 合作伙伴展示 - 合作机构与品牌标识 / FocusZen Partners Display - Partner Institutions and Brand Logos"
               width={1115}
               height={600}
             />
@@ -889,6 +910,6 @@ export default function FocusZenContent() {
 
       {/* AfterSales Section */}
       <AfterSales />
-    </div>
+    </main>
   );
 }

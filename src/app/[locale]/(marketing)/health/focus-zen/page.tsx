@@ -1,12 +1,10 @@
 import { setRequestLocale } from 'next-intl/server';
-import { getPageSEOForStructuredData } from '@/lib/seo';
-import StructuredData from '@/components/seo/StructuredData';
+import OnlineServiceClient from '@/components/common/OnlineServiceClient';
+import FocusZenPageClient from '@/components/product/focus-zen/FocusZenPageClient';
 import DynamicCanonical from '@/components/seo/DynamicCanonical';
-import OnlineService from '@/components/common/OnlineService';
-import OnlineServiceMobile from '@/components/common/OnlineServiceMobile';
-import FocusZenContent from '@/components/product/focus-zen/FocusZenContent';
-import FocusZenContentMobile from '@/components/product/focus-zen/FocusZenContentMobile';
+import StructuredData from '@/components/seo/StructuredData';
 import { generateSEOMetadata } from '@/lib/metadata';
+import { getPageSEOForStructuredData } from '@/lib/seo';
 
 export const dynamic = 'force-dynamic';
 
@@ -14,13 +12,13 @@ export async function generateMetadata(props: {
   params: Promise<{ locale: string }>;
 }) {
   const { locale } = await props.params;
-  
+
   // 尝试从 CMS 获取 SEO 数据
   const seoMetadata = await generateSEOMetadata(
     { locale },
     '/health/focus-zen',
   );
-  
+
   // 如果 CMS 中没有数据，使用硬编码的后备数据
   if (!seoMetadata.title || seoMetadata.title === 'BrainCo') {
     // 根据语言返回不同的元数据
@@ -64,25 +62,9 @@ export default async function FocusZenPage(props: {
       <DynamicCanonical canonicalURL={seoData?.canonicalURL} locale={locale} pagePath="/health/focus-zen" />
       <StructuredData seoData={seoData} />
 
-      {/* Desktop version */}
-      <div className="hidden lg:block">
-        <FocusZenContent />
-      </div>
-
-      {/* Mobile version */}
-      <div className="block lg:hidden">
-        <FocusZenContentMobile />
-      </div>
-
-      {/* Online Service - Desktop */}
-      <div className="hidden lg:block">
-        <OnlineService />
-      </div>
-
-      {/* Online Service - Mobile */}
-      <div className="block lg:hidden">
-        <OnlineServiceMobile />
-      </div>
+      {/* 使用JS条件渲染，避免PC和移动端H标签同时被搜索引擎收录 */}
+      <FocusZenPageClient />
+      <OnlineServiceClient />
     </>
   );
 }
