@@ -1,13 +1,11 @@
 import type { Metadata } from 'next';
-import { createPageMetadata } from '@/lib/metadata';
 import { setRequestLocale } from 'next-intl/server';
-import { getPageSEOForStructuredData } from '@/lib/seo';
-import StructuredData from '@/components/seo/StructuredData';
+import OnlineServiceClient from '@/components/common/OnlineServiceClient';
+import Revo2PageClient from '@/components/product/revo2/Revo2PageClient';
 import DynamicCanonical from '@/components/seo/DynamicCanonical';
-import OnlineService from '@/components/common/OnlineService';
-import OnlineServiceMobile from '@/components/common/OnlineServiceMobile';
-import Revo2Content from '@/components/product/revo2/Revo2Content';
-import Revo2ContentMobile from '@/components/product/revo2/Revo2ContentMobile';
+import StructuredData from '@/components/seo/StructuredData';
+import { createPageMetadata } from '@/lib/metadata';
+import { getPageSEOForStructuredData } from '@/lib/seo';
 
 export const dynamic = 'force-dynamic';
 
@@ -15,7 +13,7 @@ export async function generateMetadata(props: {
   params: Promise<{ locale: string }>;
 }): Promise<Metadata> {
   const params = await props.params;
-  
+
   return createPageMetadata(params, 'revo2', {
     title: 'Revo2 - 第二代脑机接口',
     description: 'Revo2 第二代脑机接口产品',
@@ -36,26 +34,10 @@ export default async function Revo2Page(props: {
       {/* 添加结构化数据 - 直接从 CMS 获取 */}
       <DynamicCanonical canonicalURL={seoData?.canonicalURL} locale={locale} pagePath="/products/revo2" />
       <StructuredData seoData={seoData} />
-      
-      {/* Desktop Content */}
-      <div className="hidden lg:block">
-        <Revo2Content />
-      </div>
 
-      {/* Mobile Content */}
-      <div className="block lg:hidden">
-        <Revo2ContentMobile />
-      </div>
-
-      {/* Online Service - Desktop */}
-      <div className="hidden lg:block">
-        <OnlineService />
-      </div>
-
-      {/* Online Service - Mobile */}
-      <div className="block lg:hidden">
-        <OnlineServiceMobile />
-      </div>
+      {/* 使用JS条件渲染，避免PC和移动端H标签同时被搜索引擎收录 */}
+      <Revo2PageClient />
+      <OnlineServiceClient />
     </>
   );
 }
