@@ -156,9 +156,9 @@ export default function EASleepContent() {
   ];
 
   return (
-    <div>
+    <main>
       {/* Hero Banner */}
-      <section className="relative flex items-center justify-center">
+      <header className="relative flex items-center justify-center">
         <picture>
           <source
             media="(min-width: 900px)"
@@ -170,7 +170,7 @@ export default function EASleepContent() {
           />
           <img
             src="https://website-www-brainco-cn.oss-cn-hangzhou.aliyuncs.com/images/hD5RMSnyEK5Ad3E8.webp"
-            alt="EASleep Banner"
+            alt="EASleep 睡眠改善助眠设备 - 产品展示 / EASleep Sleep Improvement Device - Product Display"
             className="w-full"
           />
         </picture>
@@ -185,9 +185,9 @@ export default function EASleepContent() {
               <h1 className="text-fluid-7xl font-normal drop-shadow-lg">
                 {t('hero_title')}
               </h1>
-              <h2 className="text-fluid-5xl font-normal drop-shadow-lg">
+              <p className="text-fluid-5xl font-normal drop-shadow-lg">
                 {t('hero_subtitle')}
-              </h2>
+              </p>
             </motion.div>
             <motion.div
               initial={{ opacity: 0, y: 30 }}
@@ -199,6 +199,7 @@ export default function EASleepContent() {
               <span className="text-fluid-4xl ml-1">{t('hero_price_from')}</span>
             </motion.div>
             <motion.button
+              type="button"
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.6 }}
@@ -206,12 +207,13 @@ export default function EASleepContent() {
               whileTap={{ scale: 0.95 }}
               onClick={handlePurchase}
               className="text-fluid-2xl cursor-target h-[72px] w-[260px] cursor-pointer rounded-[41px] bg-[#4f68d2] font-medium text-white transition-all hover:scale-105"
+              aria-label={`${t('hero_buy_button')} - EASleep 智能助眠设备 / ${t('hero_buy_button')} - EASleep Smart Sleep Aid Device`}
             >
               {t('hero_buy_button')}
             </motion.button>
           </div>
         </div>
-      </section>
+      </header>
 
       {/* Swiper Carousel */}
       <section className="pb-16">
@@ -232,13 +234,13 @@ export default function EASleepContent() {
                 <div className="relative">
                   <Image
                     src={item.img}
-                    alt={item.title}
+                    alt={`${item.title} - EASleep 产品功能展示 / ${item.title} - EASleep Product Feature Display`}
                     width={1400}
                     height={600}
                     className="w-full"
                   />
                   <div className="absolute top-[280px] left-[200px] text-white">
-                    <motion.h4
+                    <motion.h2
                       initial={{ opacity: 0, y: 30 }}
                       whileInView={{ opacity: 1, y: 0 }}
                       viewport={{ once: true }}
@@ -246,7 +248,7 @@ export default function EASleepContent() {
                       className="text-fluid-6xl font-normal"
                     >
                       {item.title}
-                    </motion.h4>
+                    </motion.h2>
                     <motion.p
                       initial={{ opacity: 0, y: 30 }}
                       whileInView={{ opacity: 1, y: 0 }}
@@ -267,7 +269,8 @@ export default function EASleepContent() {
       {/* Clinical Research Section */}
       <section className="mt-16 px-4 lg:px-8 xl:px-12">
         <div className="mx-auto max-w-7xl">
-          <motion.h4
+          <motion.h2
+            id="research-title"
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -275,7 +278,7 @@ export default function EASleepContent() {
             className="text-fluid-5xl text-center font-light"
           >
             {t('research_title')}
-          </motion.h4>
+          </motion.h2>
           <motion.p
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -290,7 +293,7 @@ export default function EASleepContent() {
             <div className="flex items-center">
               <Image
                 src="https://website-www-brainco-cn.oss-cn-hangzhou.aliyuncs.com/images/z1wnrDWhPxEzQAkd.webp"
-                alt="Research data"
+                alt="EASleep 临床研究数据图表 - 睡眠改善效果数据 / EASleep Clinical Research Data Chart - Sleep Improvement Effect Data"
                 width={900}
                 height={400}
                 className="animate-zoom-in"
@@ -298,7 +301,7 @@ export default function EASleepContent() {
               <div className="ml-[220px] flex flex-col justify-center">
                 <Image
                   src="https://website-www-brainco-cn.oss-cn-hangzhou.aliyuncs.com/images/zNG8tK7dG2rxGpr6.webp"
-                  alt="Improvement chart"
+                  alt="EASleep 睡眠改善效果图表 - 数据可视化展示 / EASleep Sleep Improvement Chart - Data Visualization Display"
                   width={328}
                   height={200}
                   className="animate-zoom-in"
@@ -314,10 +317,11 @@ export default function EASleepContent() {
                     <span>{t('research_improvement')}</span>
                     <Image
                       src="https://website-www-brainco-cn.oss-cn-hangzhou.aliyuncs.com/images/4CJ2D4wzks5eenp6.webp"
-                      alt="Arrow up"
+                      alt="EASleep 改善趋势上升箭头图标 / EASleep Improvement Trend Up Arrow Icon"
                       width={68}
                       height={68}
                       className="ml-2"
+                      role="presentation"
                     />
                   </motion.div>
                 </div>
@@ -333,7 +337,8 @@ export default function EASleepContent() {
           <div className="flex items-center">
             {/* Left side - Text content */}
             <div className="w-1/2 px-10 pr-8">
-              <motion.h5
+              <motion.h2
+                id="solution-title"
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
@@ -341,7 +346,7 @@ export default function EASleepContent() {
                 className="text-fluid-5xl mb-32 text-center font-light"
               >
                 {t('solution_title')}
-              </motion.h5>
+              </motion.h2>
 
               {/* Top row - 3 items */}
               <div className="mb-24 flex justify-center gap-8">
@@ -357,13 +362,13 @@ export default function EASleepContent() {
                     <div className="mb-4 flex h-[60px] w-[60px] items-center justify-center">
                       <Image
                         src={item.icon}
-                        alt={item.title}
+                        alt={`${item.title} - EASleep 解决方案功能图标 / ${item.title} - EASleep Solution Feature Icon`}
                         width={60}
                         height={60}
                       />
                     </div>
                     <div className="text-center">
-                      <h6 className="text-fluid-xl mb-2 font-bold">{item.title}</h6>
+                      <h3 className="text-fluid-xl mb-2 font-bold">{item.title}</h3>
                       <p className="text-fluid-base leading-relaxed font-light">{item.desc1}</p>
                       <p className="text-fluid-base leading-relaxed font-light">{item.desc2}</p>
                       {item.desc3 && (
@@ -388,13 +393,13 @@ export default function EASleepContent() {
                     <div className="mb-4 flex h-[60px] w-[60px] items-center justify-center">
                       <Image
                         src={item.icon}
-                        alt={item.title}
+                        alt={`${item.title} - EASleep 解决方案功能图标 / ${item.title} - EASleep Solution Feature Icon`}
                         width={60}
                         height={60}
                       />
                     </div>
                     <div className="text-center">
-                      <h6 className="text-fluid-xl mb-2 font-bold">{item.title}</h6>
+                      <h3 className="text-fluid-xl mb-2 font-bold">{item.title}</h3>
                       <p className="text-fluid-base leading-relaxed font-light">{item.desc1}</p>
                       <p className="text-fluid-base leading-relaxed font-light">{item.desc2}</p>
                       {item.desc3 && (
@@ -417,7 +422,7 @@ export default function EASleepContent() {
               >
                 <Image
                   src="https://website-www-brainco-cn.oss-cn-hangzhou.aliyuncs.com/images/3HCZ6fNEISGadXJg.webp"
-                  alt="EASleep product"
+                  alt="EASleep 智能助眠设备产品主图 - 产品外观展示 / EASleep Smart Sleep Aid Device Main Product Image - Product Appearance Display"
                   width={600}
                   height={500}
                   className="h-auto w-full"
@@ -454,13 +459,13 @@ export default function EASleepContent() {
                 >
                   <Image
                     src={feature.icon}
-                    alt={feature.title}
+                    alt={`${feature.title} - EASleep 专利特性图标 / ${feature.title} - EASleep Patent Feature Icon`}
                     width={54}
                     height={54}
                     className="mb-2"
                   />
-                  <h2 className="text-fluid-3xl font-normal">{feature.title}</h2>
-                  <h6 className="text-fluid-xl font-normal">{feature.desc}</h6>
+                  <h3 className="text-fluid-3xl font-normal">{feature.title}</h3>
+                  <p className="text-fluid-xl font-normal">{feature.desc}</p>
                 </motion.li>
               ))}
             </ul>
@@ -469,13 +474,14 @@ export default function EASleepContent() {
           <div className="mt-[30px] flex justify-center">
             <Image
               src="https://website-www-brainco-cn.oss-cn-hangzhou.aliyuncs.com/images/n2CSkmATVtzMibhF.webp"
-              alt="Patent certificate"
+              alt="EASleep 产品专利证书 - 知识产权认证 / EASleep Product Patent Certificate - Intellectual Property Certification"
               width={608}
               height={300}
             />
           </div>
 
           <motion.h3
+            id="patent-count"
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -516,7 +522,8 @@ export default function EASleepContent() {
       {/* CES Physical Sleep Aid Section */}
       <section className="mt-[136px] px-4 lg:px-8 xl:px-12">
         <div className="mx-auto max-w-7xl text-center">
-          <motion.h5
+          <motion.h2
+            id="ces-title"
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -524,8 +531,8 @@ export default function EASleepContent() {
             className="text-fluid-5xl font-light"
           >
             {t('ces_title')}
-          </motion.h5>
-          <motion.h5
+          </motion.h2>
+          <motion.h3
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -533,7 +540,7 @@ export default function EASleepContent() {
             className="text-fluid-5xl font-light"
           >
             {t('ces_subtitle')}
-          </motion.h5>
+          </motion.h3>
           <motion.p
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -548,7 +555,7 @@ export default function EASleepContent() {
             <div className="relative max-w-full px-4 lg:px-8 xl:px-12">
               <Image
                 src="https://website-www-brainco-cn.oss-cn-hangzhou.aliyuncs.com/images/K53kYsjX6zxJN0EZ.webp"
-                alt="Brain visualization"
+                alt="EASleep CES 物理助眠技术原理图 - 大脑神经信号可视化 / EASleep CES Physical Sleep Aid Technology Principle - Brain Neural Signal Visualization"
                 width={1300}
                 height={600}
                 className="animate-zoom-in"
@@ -563,10 +570,11 @@ export default function EASleepContent() {
                 >
                   <Image
                     src="https://website-www-brainco-cn.oss-cn-hangzhou.aliyuncs.com/images/SJjwGQ4c5kk1fKAh.webp"
-                    alt="Endorphins"
+                    alt="EASleep 内啡肽上升箭头图标 / EASleep Endorphins Up Arrow Icon"
                     width={60}
                     height={60}
                     className="absolute left-1/2 -translate-x-1/2 -translate-y-[70%]"
+                    role="presentation"
                   />
                   <span className="text-fluid-2xl flex h-[64px] w-[250px] items-center justify-center rounded-[32px] bg-[#9686ac] font-normal text-white">
                     {t('ces_effect_1')}
@@ -584,10 +592,11 @@ export default function EASleepContent() {
                   </span>
                   <Image
                     src="https://website-www-brainco-cn.oss-cn-hangzhou.aliyuncs.com/images/cbXAJda8C6aZE3F7.webp"
-                    alt="Cortisol"
+                    alt="EASleep 皮质醇下降箭头图标 / EASleep Cortisol Down Arrow Icon"
                     width={60}
                     height={60}
                     className="absolute left-1/2 -translate-x-1/2 translate-y-[70%]"
+                    role="presentation"
                   />
                 </motion.li>
               </ul>
@@ -600,10 +609,11 @@ export default function EASleepContent() {
       <section className="relative mt-[136px]">
         <Image
           src="https://website-www-brainco-cn.oss-cn-hangzhou.aliyuncs.com/images/W0rS4D6xaMA0s5iB.webp"
-          alt="Binaural beats"
+          alt="EASleep 双耳节拍技术背景图 - 音频助眠技术展示 / EASleep Binaural Beats Technology Background - Audio Sleep Aid Technology Display"
           width={1920}
           height={600}
           className="w-full"
+          role="presentation"
         />
         <div className="absolute inset-0 flex flex-col items-center justify-center pt-[400px] text-center text-white">
           <motion.h3
@@ -648,7 +658,8 @@ export default function EASleepContent() {
       {/* Sleep Manager Section */}
       <section className="mt-[58px] px-4 lg:px-8 xl:px-12">
         <div className="mx-auto max-w-7xl text-center">
-          <motion.h5
+          <motion.h2
+            id="manager-title"
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -656,7 +667,7 @@ export default function EASleepContent() {
             className="text-fluid-5xl"
           >
             {t('manager_title')}
-          </motion.h5>
+          </motion.h2>
           <motion.p
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -689,7 +700,7 @@ export default function EASleepContent() {
               </p>
               <Image
                 src="https://website-www-brainco-cn.oss-cn-hangzhou.aliyuncs.com/images/QbjbaAfbAn0cssXX.webp"
-                alt="Sleep report"
+                alt={`${t('manager_feature_1')} - EASleep 睡眠报告界面展示 / ${t('manager_feature_1')} - EASleep Sleep Report Interface Display`}
                 width={300}
                 height={400}
                 className="animate-zoom-in"
@@ -707,7 +718,7 @@ export default function EASleepContent() {
               </p>
               <Image
                 src="https://website-www-brainco-cn.oss-cn-hangzhou.aliyuncs.com/images/WXW8cDYNr9FPXJRz.webp"
-                alt="Sleep stages"
+                alt={`${t('manager_feature_2')} - EASleep 睡眠阶段分析界面 / ${t('manager_feature_2')} - EASleep Sleep Stages Analysis Interface`}
                 width={300}
                 height={400}
                 className="animate-zoom-in"
@@ -725,7 +736,7 @@ export default function EASleepContent() {
               </p>
               <Image
                 src="https://website-www-brainco-cn.oss-cn-hangzhou.aliyuncs.com/images/03dkSWxsrWafr2tE.webp"
-                alt="B-CBTi therapy"
+                alt={`${t('manager_feature_3')} - EASleep B-CBTi 认知行为疗法界面 / ${t('manager_feature_3')} - EASleep B-CBTi Cognitive Behavioral Therapy Interface`}
                 width={300}
                 height={400}
                 className="animate-zoom-in"
@@ -748,7 +759,8 @@ export default function EASleepContent() {
       {/* Usage Scenarios Section */}
       <section className="mt-[140px] px-4 lg:px-8 xl:px-12">
         <div className="mx-auto max-w-7xl">
-          <motion.dt
+          <motion.h2
+            id="scenarios-title"
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -756,11 +768,11 @@ export default function EASleepContent() {
             className="text-fluid-5xl mb-[48px] text-center"
           >
             {t('scenarios_title')}
-          </motion.dt>
+          </motion.h2>
 
           <div className="flex flex-wrap items-center justify-center gap-[58px] pb-[60px]">
             {scenarios.map((scenario, index) => (
-              <motion.dd
+              <motion.article
                 key={`scenario-${scenario.title}`}
                 initial={{ opacity: 0, scale: 0.8 }}
                 whileInView={{ opacity: 1, scale: 1 }}
@@ -771,21 +783,21 @@ export default function EASleepContent() {
                 <div className="mb-[30px] flex items-center justify-center">
                   <Image
                     src={scenario.icon}
-                    alt={scenario.title}
+                    alt={`${scenario.title} - EASleep 使用场景图标 / ${scenario.title} - EASleep Usage Scenario Icon`}
                     width={60}
                     height={60}
                     className="h-16 w-auto"
                   />
-                  <span className="text-fluid-3xl ml-5 font-normal">{scenario.title}</span>
+                  <h3 className="text-fluid-3xl ml-5 font-normal">{scenario.title}</h3>
                 </div>
                 <Image
                   src={scenario.image}
-                  alt={scenario.title}
+                  alt={`${scenario.title} - EASleep 使用场景展示图 / ${scenario.title} - EASleep Usage Scenario Display`}
                   width={260}
                   height={260}
                   className="animate-zoom-in rounded-[20px]"
                 />
-              </motion.dd>
+              </motion.article>
             ))}
           </div>
         </div>
@@ -793,6 +805,6 @@ export default function EASleepContent() {
 
       {/* After Sales */}
       <AfterSales />
-    </div>
+    </main>
   );
 }
