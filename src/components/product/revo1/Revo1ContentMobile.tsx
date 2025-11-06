@@ -54,13 +54,15 @@ export default function Revo1ContentMobile() {
   };
 
   return (
-    <div className="bg-black text-white">
+    <main className="bg-black text-white">
       {/* Banner Section */}
-      <motion.section
+      <motion.header
         className="relative"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 1 }}
+        role="img"
+        aria-label="Revo1 智能灵巧手产品横幅 - 移动端 / Revo1 Intelligent Dexterous Hand Banner - Mobile"
       >
         <div className="relative mt-24 aspect-[16/9] w-full">
           <video
@@ -73,7 +75,10 @@ export default function Revo1ContentMobile() {
             className="block h-full w-full"
             onLoadedData={() => setBannerVideoLoaded(true)}
             onCanPlay={() => setBannerVideoLoaded(true)}
-          />
+            aria-label="Revo1 智能灵巧手产品演示视频 - 移动端 / Revo1 Intelligent Dexterous Hand Demo Video - Mobile"
+          >
+            <track kind="captions" />
+          </video>
           {!bannerVideoLoaded && (
             <div className="absolute inset-0 flex items-center justify-center bg-black">
               <motion.div
@@ -88,7 +93,7 @@ export default function Revo1ContentMobile() {
             </div>
           )}
         </div>
-      </motion.section>
+      </motion.header>
 
       {/* Product Info Section */}
       <section className="flex flex-col items-center justify-center bg-[#f5f5f5] py-8 pb-8 text-black">
@@ -98,17 +103,23 @@ export default function Revo1ContentMobile() {
           transition={{ duration: 0.8 }}
           className="flex flex-col items-center"
         >
-          <Image src={`${imgPath}yOnXsafVGAoJFLYz.webp`} alt="" width={264} height={264} />
-          <h4 className="text-fluid-4xl mt-7 font-medium">
+          <Image
+            src={`${imgPath}yOnXsafVGAoJFLYz.webp`}
+            alt="Revo1 智能灵巧手产品主图 - 移动端产品展示 / Revo1 Intelligent Dexterous Hand Main Product Image - Mobile Product Display"
+            width={264}
+            height={264}
+          />
+          <h1 className="text-fluid-4xl mt-7 font-medium">
             {t('product_name')}
             {' '}
             {t('product_model')}
-          </h4>
+          </h1>
           <p className="text-fluid-lg mt-2">{t('subtitle')}</p>
           <div className="mt-6 flex gap-6">
             <Link
               href="/contact#contact"
               className="flex h-[38px] w-[112px] items-center justify-center rounded-[20px] bg-[#1a74bf] !text-white"
+              aria-label={`${t('contact_us')} - Revo1 智能灵巧手 / ${t('contact_us')} - Revo1 Intelligent Dexterous Hand`}
             >
               {t('contact_us')}
             </Link>
@@ -117,6 +128,7 @@ export default function Revo1ContentMobile() {
               target="_blank"
               rel="noopener noreferrer"
               className="flex h-[38px] w-[112px] items-center justify-center rounded-[20px] border border-black !text-black"
+              aria-label={`${t('documentation')} - Revo1 产品文档 / ${t('documentation')} - Revo1 Product Documentation`}
             >
               {t('documentation')}
             </a>
@@ -125,8 +137,9 @@ export default function Revo1ContentMobile() {
       </section>
 
       {/* Industry Section */}
-      <section className="bg-[#07111b] py-12 text-white">
-        <motion.h4
+      <section className="bg-[#07111b] py-12 text-white" aria-labelledby="industry-title-mobile">
+        <motion.h2
+          id="industry-title-mobile"
           className="text-fluid-3xl text-center font-bold"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -134,7 +147,7 @@ export default function Revo1ContentMobile() {
           transition={{ duration: 0.8 }}
         >
           {t('industry_title')}
-        </motion.h4>
+        </motion.h2>
         <ul className="mt-10 pr-5">
           {industryList.map((item, index) => (
             <motion.li
@@ -145,17 +158,23 @@ export default function Revo1ContentMobile() {
               viewport={{ once: true }}
               transition={{ delay: index * 0.1, duration: 0.6 }}
             >
-              <Image src={item.icon} alt="" width={40} height={40} className="-ml-3 block h-10 w-auto" />
-              <h5 className="text-fluid-xl mt-3 font-medium">
+              <Image
+                src={item.icon}
+                alt={`${t(`industry_${index + 1}_title` as any)} - Revo1 行业应用图标 / ${t(`industry_${index + 1}_title` as any)} - Revo1 Industry Application Icon`}
+                width={40}
+                height={40}
+                className="-ml-3 block h-10 w-auto"
+              />
+              <h3 className="text-fluid-xl mt-3 font-medium">
                 {t(`industry_${index + 1}_title` as any)}
-              </h5>
+              </h3>
               <p className="text-fluid-base mt-2 text-gray-300">
                 {t(`industry_${index + 1}_desc` as any)}
               </p>
               <ul className="mt-8 flex">
                 {item.ability.map((subInfo, subIndex) => (
                   <li key={`${index}-${subIndex}`} className="flex-1">
-                    <h5 className="text-fluid-sm font-medium text-gray-300">{t(subInfo.title as any)}</h5>
+                    <h4 className="text-fluid-sm font-medium text-gray-300">{t(subInfo.title as any)}</h4>
                     <div className="flex items-end leading-none">
                       <span className="text-fluid-3xl relative top-1.5 mr-0.5 font-bold text-gray-300">
                         {subInfo.data}
@@ -188,38 +207,38 @@ export default function Revo1ContentMobile() {
         >
           <Image
             src={`${imgPath}UqgpHWZSKbBvImds.webp`}
-            alt=""
+            alt="Revo1 智能灵巧手产品主图 - 产品外观展示 / Revo1 Intelligent Dexterous Hand Main Product Image - Product Appearance Display"
             width={210}
             height={210}
             className="mx-auto mt-10 block h-52 w-auto"
           />
           <dl className="mt-10 flex justify-center">
-            <dd className="mr-18">
-              <p className="text-fluid-sm font-medium text-gray-300">{t('product_weight_label')}</p>
-              <h2 className="text-fluid-3xl mt-2 flex items-end leading-none font-bold text-gray-300">
+            <div className="mr-18">
+              <dt className="text-fluid-sm font-medium text-gray-300">{t('product_weight_label')}</dt>
+              <dd className="text-fluid-3xl mt-2 flex items-end leading-none font-bold text-gray-300">
                 {t('product_weight_value')}
                 {' '}
                 <span className="text-fluid-sm relative bottom-1 ml-1 font-normal">
                   {t('product_weight_unit')}
                 </span>
-              </h2>
-            </dd>
-            <dd>
-              <p className="text-fluid-sm font-medium text-gray-300">{t('active_joints_label')}</p>
-              <h2 className="text-fluid-3xl mt-2 flex items-end leading-none font-bold text-gray-300">
+              </dd>
+            </div>
+            <div>
+              <dt className="text-fluid-sm font-medium text-gray-300">{t('active_joints_label')}</dt>
+              <dd className="text-fluid-3xl mt-2 flex items-end leading-none font-bold text-gray-300">
                 {t('active_joints_value')}
                 {' '}
                 <span className="text-fluid-sm relative bottom-1 ml-1 font-normal">
                   {t('active_joints_unit')}
                 </span>
-              </h2>
-            </dd>
+              </dd>
+            </div>
           </dl>
         </motion.div>
       </section>
 
       {/* Ability Showcase Section */}
-      <section className="bg-[#07111b] py-14 pb-12 text-white">
+      <section className="bg-[#07111b] py-14 pb-12 text-white" aria-labelledby="ability-title-mobile">
         <div className="w-full">
           <div className="px-4 text-center">
             {abilityList.map(
@@ -231,9 +250,12 @@ export default function Revo1ContentMobile() {
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.5 }}
                   >
-                    <h4 className="text-fluid-3xl font-medium">
+                    <h2
+                      id="ability-title-mobile"
+                      className="text-fluid-3xl font-medium"
+                    >
                       {t(`ability_${index + 1}_title` as any)}
-                    </h4>
+                    </h2>
                     <p className="text-fluid-lg mt-3 mb-13 h-10 text-gray-300">
                       {t(`ability_${index + 1}_desc` as any)}
                     </p>
@@ -247,10 +269,20 @@ export default function Revo1ContentMobile() {
             onSlideChange={handleSlideChange}
             className="mb-10"
           >
-            {abilityList.map(item => (
+            {abilityList.map((item, videoIndex) => (
               <SwiperSlide key={item.img}>
                 <div className="accuracy_bg">
-                  <video autoPlay muted loop playsInline src={item.mobileVideo} className="w-full" />
+                  <video
+                    autoPlay
+                    muted
+                    loop
+                    playsInline
+                    src={item.mobileVideo}
+                    className="w-full"
+                    aria-label={`${t(`ability_${videoIndex + 1}_title` as any)} - Revo1 功能演示视频 - 移动端 / ${t(`ability_${videoIndex + 1}_title` as any)} - Revo1 Feature Demo Video - Mobile`}
+                  >
+                    <track kind="captions" />
+                  </video>
                 </div>
               </SwiperSlide>
             ))}
@@ -260,8 +292,9 @@ export default function Revo1ContentMobile() {
       </section>
 
       {/* Product Version Section */}
-      <section className="bg-[#07111b] pt-12 pb-23 text-white">
+      <section className="bg-[#07111b] pt-12 pb-23 text-white" aria-labelledby="version-title-mobile">
         <motion.h2
+          id="version-title-mobile"
           className="text-fluid-3xl mb-6 text-center font-bold"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -289,31 +322,34 @@ export default function Revo1ContentMobile() {
         >
           {versionSpecs.map((category, catIndex) => (
             <div key={category.category} className="mt-12">
-              <dt className="text-fluid-xl mt-15 mb-10 flex items-center border-b border-b-[#555] px-2 pb-2 leading-none first:mt-5">
-                <h4 className="font-bold">{t(category.category as any)}</h4>
-              </dt>
-              {category.specs.map((spec, specIndex) => (
-                <dd
-                  key={`${catIndex}-${specIndex}`}
-                  className="mt-10 flex items-center gap-4 overflow-hidden px-2 text-base"
-                >
-                  <span className="mr-6 w-16 flex-[64px_0_0]">{t(spec.label as any)}</span>
-                  <span className="min-w-[100px] flex-[max-content] text-center">
-                    {spec.basic.startsWith('spec_') ? t(spec.basic as any) : spec.basic}
-                  </span>
-                  <span className="min-w-[100px] flex-[max-content] text-center">
-                    {spec.tactile.startsWith('spec_') ? t(spec.tactile as any) : spec.tactile}
-                  </span>
-                </dd>
-              ))}
+              <h3 className="text-fluid-xl mt-15 mb-10 flex items-center border-b border-b-[#555] px-2 pb-2 leading-none font-bold first:mt-5">
+                {t(category.category as any)}
+              </h3>
+              <dl>
+                {category.specs.map((spec, specIndex) => (
+                  <div
+                    key={`${catIndex}-${specIndex}`}
+                    className="mt-10 flex items-center gap-4 overflow-hidden px-2 text-base"
+                  >
+                    <dt className="mr-6 w-16 flex-[64px_0_0]">{t(spec.label as any)}</dt>
+                    <dd className="min-w-[100px] flex-[max-content] text-center">
+                      {spec.basic.startsWith('spec_') ? t(spec.basic as any) : spec.basic}
+                    </dd>
+                    <dd className="min-w-[100px] flex-[max-content] text-center">
+                      {spec.tactile.startsWith('spec_') ? t(spec.tactile as any) : spec.tactile}
+                    </dd>
+                  </div>
+                ))}
+              </dl>
             </div>
           ))}
         </motion.div>
       </section>
 
       {/* Experience Section */}
-      <section className="bg-white py-12 pb-10 text-center text-black">
-        <motion.h4
+      <section className="bg-white py-12 pb-10 text-center text-black" aria-labelledby="experience-title-mobile">
+        <motion.h2
+          id="experience-title-mobile"
           className="text-fluid-3xl font-medium"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -321,7 +357,7 @@ export default function Revo1ContentMobile() {
           transition={{ duration: 0.8 }}
         >
           {t('experience_title')}
-        </motion.h4>
+        </motion.h2>
         <motion.p
           className="text-fluid-base mt-6 px-6"
           initial={{ opacity: 0 }}
@@ -339,14 +375,14 @@ export default function Revo1ContentMobile() {
         >
           <Image
             src={`${imgPath}vNxgoGQhReYHayfI.webp`}
-            alt=""
+            alt={`Revo1 应用场景图片 1 - ${t('experience_title')} / Revo1 Application Scene Image 1 - ${t('experience_title')}`}
             width={296}
             height={296}
             className="mx-auto mt-10 h-74 w-auto"
           />
           <Image
             src={`${imgPath}vyhKagkQouWpRzCc.webp`}
-            alt=""
+            alt={`Revo1 应用场景图片 2 - ${t('experience_title')} / Revo1 Application Scene Image 2 - ${t('experience_title')}`}
             width={280}
             height={280}
             className="mx-auto mt-10 h-70 w-auto"
@@ -355,8 +391,9 @@ export default function Revo1ContentMobile() {
       </section>
 
       {/* Quality Section */}
-      <section className="bg-black pt-6 text-center text-white">
-        <motion.h4
+      <section className="bg-black pt-6 text-center text-white" aria-labelledby="quality-title-mobile">
+        <motion.h2
+          id="quality-title-mobile"
           className="text-fluid-3xl font-medium"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -364,7 +401,7 @@ export default function Revo1ContentMobile() {
           transition={{ duration: 0.8 }}
         >
           {t('quality_title')}
-        </motion.h4>
+        </motion.h2>
         <ul className="mt-6">
           {qualityVideos.map((videoSrc, index) => (
             <motion.li
@@ -379,6 +416,7 @@ export default function Revo1ContentMobile() {
                 type="button"
                 onClick={() => handleQualityPlay(index)}
                 className="absolute top-1/2 left-1/2 z-10 h-12 w-12 -translate-x-1/2 -translate-y-1/2 cursor-pointer"
+                aria-label={qualityVideoStates[index] ? '暂停视频 / Pause video' : '播放视频 / Play video'}
               >
                 <Image
                   src={
@@ -386,9 +424,10 @@ export default function Revo1ContentMobile() {
                       ? `${imgPath}ObJSBxEMGvXUghHD.png`
                       : `${imgPath}VugdjKHnTrAozSPU.png`
                   }
-                  alt=""
+                  alt={qualityVideoStates[index] ? '暂停视频 / Pause video' : '播放视频 / Play video'}
                   width={48}
                   height={48}
+                  role="presentation"
                 />
               </button>
               <video
@@ -397,15 +436,19 @@ export default function Revo1ContentMobile() {
                 }}
                 src={videoSrc}
                 className="block h-full w-full object-cover"
-              />
+                aria-label={`Revo1 质量展示视频 ${index + 1} - ${t('quality_title')} - 移动端 / Revo1 Quality Display Video ${index + 1} - ${t('quality_title')} - Mobile`}
+              >
+                <track kind="captions" />
+              </video>
             </motion.li>
           ))}
         </ul>
       </section>
 
       {/* Partner Section */}
-      <section className="bg-white pt-12 text-black">
-        <motion.h4
+      <section className="bg-white pt-12 text-black" aria-labelledby="partner-title-mobile">
+        <motion.h2
+          id="partner-title-mobile"
           className="text-fluid-3xl text-center font-medium"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -413,7 +456,7 @@ export default function Revo1ContentMobile() {
           transition={{ duration: 0.8 }}
         >
           {t('partner_title')}
-        </motion.h4>
+        </motion.h2>
         <motion.ul
           className="mt-10 flex flex-wrap items-center justify-evenly px-4"
           initial={{ opacity: 0 }}
@@ -430,7 +473,13 @@ export default function Revo1ContentMobile() {
               viewport={{ once: true }}
               transition={{ delay: 0.3 + index * 0.03, duration: 0.5 }}
             >
-              <Image src={logo} alt="" width={100} height={80} className="h-16 w-auto" />
+              <Image
+                src={logo}
+                alt={`Revo1 合作伙伴 Logo ${index + 1} - ${t('partner_title')} / Revo1 Partner Logo ${index + 1} - ${t('partner_title')}`}
+                width={100}
+                height={80}
+                className="h-16 w-auto"
+              />
             </motion.li>
           ))}
         </motion.ul>
@@ -453,6 +502,7 @@ export default function Revo1ContentMobile() {
           <Link
             href="/contact#contact"
             className="flex h-10 w-33 items-center justify-center rounded-[20px] bg-[#1a74bf] !text-white"
+            aria-label={`${t('contact_us')} - Revo1 智能灵巧手 / ${t('contact_us')} - Revo1 Intelligent Dexterous Hand`}
           >
             {t('contact_us')}
           </Link>
@@ -496,6 +546,6 @@ export default function Revo1ContentMobile() {
         }
       `}
       </style>
-    </div>
+    </main>
   );
 }
