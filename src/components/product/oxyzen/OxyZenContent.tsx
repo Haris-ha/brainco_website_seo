@@ -15,9 +15,9 @@ export default function OxyZenContent({ productInfo }: OxyZenContentProps) {
   const t = useTranslations('OxyZen');
 
   return (
-    <div className="bg-white text-[#333]">
+    <main className="bg-white text-[#333]">
       {/* Hero Banner */}
-      <section className="relative">
+      <header className="relative">
         <picture>
           <source
             media="(min-width: 900px)"
@@ -29,7 +29,7 @@ export default function OxyZenContent({ productInfo }: OxyZenContentProps) {
           />
           <img
             src="https://website-www-brainco-cn.oss-cn-hangzhou.aliyuncs.com/images/oC1WrNlfkwV4dAXv.webp"
-            alt={t('product_name')}
+            alt="OxyZen 氧气能量补充设备 - 产品展示 / OxyZen Oxygen Energy Device - Product Display"
             className="w-full"
           />
         </picture>
@@ -50,7 +50,7 @@ export default function OxyZenContent({ productInfo }: OxyZenContentProps) {
           >
             <Image
               src="https://website-www-brainco-cn.oss-cn-hangzhou.aliyuncs.com/images/jwVL5GHGoetrtLNM.webp"
-              alt={t('product_subtitle')}
+              alt={`${t('product_subtitle')} - OxyZen 产品副标题标识 / ${t('product_subtitle')} - OxyZen Product Subtitle Logo`}
               width={160}
               height={80}
               className="h-auto w-40"
@@ -102,13 +102,13 @@ export default function OxyZenContent({ productInfo }: OxyZenContentProps) {
             </motion.div>
           )}
         </div>
-      </section>
+      </header>
 
       {/* Product Image */}
       <section className="relative">
         <Image
           src="https://website-www-brainco-cn.oss-cn-hangzhou.aliyuncs.com/images/iftXG0SL0Cr5V08e.webp"
-          alt=""
+          alt="OxyZen 产品佩戴展示图 - 氧气能量补充设备使用场景 / OxyZen Product Wearing Display - Oxygen Energy Device Usage Scene"
           width={1920}
           height={1080}
           className="h-auto w-full"
@@ -122,10 +122,11 @@ export default function OxyZenContent({ productInfo }: OxyZenContentProps) {
         >
           <Image
             src="https://website-www-brainco-cn.oss-cn-hangzhou.aliyuncs.com/images/5fiJCWcxEy5VLUxa.webp"
-            alt=""
+            alt="OxyZen 获奖标识 / OxyZen Award Logo"
             width={290}
             height={100}
             className="mb-8 h-auto w-[15.1vw]"
+            role="presentation"
           />
           <p className="text-fluid-2xl">{t('award_text')}</p>
         </motion.div>
@@ -175,7 +176,13 @@ export default function OxyZenContent({ productInfo }: OxyZenContentProps) {
               viewport={{ once: true }}
               transition={{ delay: index * 0.1, duration: 0.6 }}
             >
-              <Image src={item.icon} alt="" width={60} height={60} className="mr-3 h-auto w-auto" />
+              <Image
+                src={item.icon}
+                alt={`${t(item.label as any)} - OxyZen 数据采集功能图标 / ${t(item.label as any)} - OxyZen Data Collection Feature Icon`}
+                width={60}
+                height={60}
+                className="mr-3 h-auto w-auto"
+              />
               <span className="text-fluid-3xl">{t(item.label as any)}</span>
             </motion.li>
           ))}
@@ -190,7 +197,7 @@ export default function OxyZenContent({ productInfo }: OxyZenContentProps) {
         >
           <Image
             src="https://website-www-brainco-cn.oss-cn-hangzhou.aliyuncs.com/images/Xk6yoAjyJNl4ND2V.webp"
-            alt=""
+            alt="OxyZen 数据采集设备展示图 - 多维度健康数据监测 / OxyZen Data Collection Device Display - Multi-dimensional Health Data Monitoring"
             width={844}
             height={600}
             className="h-auto w-full"
@@ -217,7 +224,7 @@ export default function OxyZenContent({ productInfo }: OxyZenContentProps) {
               />
               <Image
                 src="https://website-www-brainco-cn.oss-cn-hangzhou.aliyuncs.com/images/LewVPJHtk60Dy2hS.webp"
-                alt=""
+                alt={`${t('design_magnetic_title')} - OxyZen 磁吸设计示意图 / ${t('design_magnetic_title')} - OxyZen Magnetic Design Illustration`}
                 width={568}
                 height={300}
                 className="mt-5 h-auto w-[29.58vw]"
@@ -232,7 +239,7 @@ export default function OxyZenContent({ productInfo }: OxyZenContentProps) {
             >
               <Image
                 src="https://website-www-brainco-cn.oss-cn-hangzhou.aliyuncs.com/images/beazFEGimF59Rbvo.webp"
-                alt=""
+                alt="OxyZen 设计特性展示图 - 产品外观与功能展示 / OxyZen Design Features Display - Product Appearance and Functionality"
                 width={736}
                 height={400}
                 className="h-auto w-full"
@@ -256,7 +263,7 @@ export default function OxyZenContent({ productInfo }: OxyZenContentProps) {
               />
               <Image
                 src="https://website-www-brainco-cn.oss-cn-hangzhou.aliyuncs.com/images/CrrdayolPeH3kgXx.webp"
-                alt=""
+                alt={`${t('design_comfortable_title')} - OxyZen 舒适设计示意图 / ${t('design_comfortable_title')} - OxyZen Comfortable Design Illustration`}
                 width={275}
                 height={200}
                 className="mt-6 h-auto w-[14.32vw]"
@@ -276,7 +283,7 @@ export default function OxyZenContent({ productInfo }: OxyZenContentProps) {
               />
               <Image
                 src="https://website-www-brainco-cn.oss-cn-hangzhou.aliyuncs.com/images/SEH2rPIKwdnQxgx1.webp"
-                alt=""
+                alt={`${t('design_portable_title')} - OxyZen 便携设计示意图 / ${t('design_portable_title')} - OxyZen Portable Design Illustration`}
                 width={390}
                 height={300}
                 className="mt-[2.7vw] h-auto w-[20.31vw]"
@@ -330,7 +337,13 @@ export default function OxyZenContent({ productInfo }: OxyZenContentProps) {
                 viewport={{ once: true }}
                 transition={{ delay: 0.4 + index * 0.1, duration: 0.6 }}
               >
-                <Image src={item.icon} alt="" width={60} height={60} className="mr-4 h-auto w-auto" />
+                <Image
+                  src={item.icon}
+                  alt={`${t(item.label as any)} - OxyZen 3D指标功能图标 / ${t(item.label as any)} - OxyZen 3D Indicator Feature Icon`}
+                  width={60}
+                  height={60}
+                  className="mr-4 h-auto w-auto"
+                />
                 <span className="text-fluid-3xl">{t(item.label as any)}</span>
               </motion.li>
             ))}
@@ -346,7 +359,7 @@ export default function OxyZenContent({ productInfo }: OxyZenContentProps) {
         >
           <Image
             src="https://website-www-brainco-cn.oss-cn-hangzhou.aliyuncs.com/images/fHPc2QXmcbrsKvHA.webp"
-            alt=""
+            alt="OxyZen 3D指标应用界面展示 - 健康数据可视化 / OxyZen 3D Indicators App Interface Display - Health Data Visualization"
             width={530}
             height={600}
             className="h-auto w-full"
@@ -389,21 +402,23 @@ export default function OxyZenContent({ productInfo }: OxyZenContentProps) {
 
           <Image
             src="https://website-www-brainco-cn.oss-cn-hangzhou.aliyuncs.com/images/WAowa05JcAyTF6AL.webp"
-            alt=""
+            alt="OxyZen 9D解析维度图 1 - 健康数据分析维度 / OxyZen 9D Parsing Dimension 1 - Health Data Analysis Dimension"
             width={270}
             height={200}
             className="absolute top-0 left-1/2 z-10 h-auto w-[14.06vw] -translate-x-[12.5vw] -translate-y-[3.64vw]"
+            role="presentation"
           />
           <Image
             src="https://website-www-brainco-cn.oss-cn-hangzhou.aliyuncs.com/images/Ls3phK4hHBivlNDI.webp"
-            alt=""
+            alt="OxyZen 9D解析维度图 2 - 健康数据分析维度 / OxyZen 9D Parsing Dimension 2 - Health Data Analysis Dimension"
             width={276}
             height={200}
             className="absolute top-0 left-1/2 h-auto w-[14.37vw] -translate-x-[2.08vw] -translate-y-[1.3vw]"
+            role="presentation"
           />
           <Image
             src="https://website-www-brainco-cn.oss-cn-hangzhou.aliyuncs.com/images/Tyw4f2mxbbxhy7kD.png"
-            alt=""
+            alt="OxyZen 9D解析中心图 - 多维度健康数据分析 / OxyZen 9D Parsing Center - Multi-dimensional Health Data Analysis"
             width={358}
             height={300}
             className="absolute top-[39%] left-1/2 z-20 h-auto w-[18.64vw] -translate-x-1/2"
@@ -440,10 +455,11 @@ export default function OxyZenContent({ productInfo }: OxyZenContentProps) {
       <section className="relative">
         <Image
           src="https://website-www-brainco-cn.oss-cn-hangzhou.aliyuncs.com/images/KMdRLRBvdixnEOm7.webp"
-          alt=""
+          alt="OxyZen 睡眠内容背景图 - 优质睡眠内容展示 / OxyZen Sleep Content Background - Premium Sleep Content Display"
           width={1920}
           height={1080}
           className="h-auto w-full"
+          role="presentation"
         />
         <div className="absolute top-0 left-0 h-full w-full pt-[5.83vw] text-center text-white">
           <motion.h2
@@ -482,7 +498,7 @@ export default function OxyZenContent({ productInfo }: OxyZenContentProps) {
           >
             <Image
               src="https://website-www-brainco-cn.oss-cn-hangzhou.aliyuncs.com/images/3cnnb6RhNtvQJW7d.webp"
-              alt=""
+              alt="OxyZen 睡眠内容界面展示 - 优质睡眠课程内容 / OxyZen Sleep Content Interface Display - Premium Sleep Course Content"
               width={1272}
               height={800}
               className="h-auto w-full"
@@ -499,7 +515,7 @@ export default function OxyZenContent({ productInfo }: OxyZenContentProps) {
           <div className="mb-2 flex h-[9.73vw] items-center justify-center bg-white">
             <Image
               src={socialMediaData.wechat.qrCode}
-              alt=""
+              alt="OxyZen 微信公众号二维码 - 扫码关注获取更多信息 / OxyZen WeChat Official Account QR Code - Scan to Follow for More Information"
               width={82}
               height={82}
               className="mr-[1.56vw] h-auto w-[4.27vw]"
@@ -509,7 +525,7 @@ export default function OxyZenContent({ productInfo }: OxyZenContentProps) {
           <div className="flex h-[9.73vw] items-center justify-center bg-white">
             <Image
               src={socialMediaData.xiaohongshu.qrCode}
-              alt=""
+              alt="OxyZen 小红书账号二维码 - 扫码关注获取更多信息 / OxyZen Xiaohongshu Account QR Code - Scan to Follow for More Information"
               width={82}
               height={82}
               className="mr-[1.56vw] h-auto w-[4.27vw]"
@@ -526,7 +542,7 @@ export default function OxyZenContent({ productInfo }: OxyZenContentProps) {
           <div className="flex h-full items-center justify-center bg-white">
             <Image
               src={socialMediaData.mainImage}
-              alt=""
+              alt="OxyZen 产品主图 - 氧气能量补充设备 / OxyZen Product Main Image - Oxygen Energy Device"
               width={164}
               height={164}
               className="h-auto w-[8.54vw]"
@@ -542,7 +558,7 @@ export default function OxyZenContent({ productInfo }: OxyZenContentProps) {
               <li className="mb-2 flex h-[5.1vw] w-[14.84vw] items-center bg-white pl-4">
                 <Image
                   src={appDownloadData.ios.qrCode}
-                  alt=""
+                  alt="OxyZen iOS 应用下载二维码 - 扫码下载 iOS 应用 / OxyZen iOS App Download QR Code - Scan to Download iOS App"
                   width={80}
                   height={80}
                   className="mr-[4.16vw] h-auto w-[4.16vw]"
@@ -552,7 +568,7 @@ export default function OxyZenContent({ productInfo }: OxyZenContentProps) {
               <li className="flex h-[5.1vw] w-[14.84vw] items-center bg-white pl-4">
                 <Image
                   src={appDownloadData.android.qrCode}
-                  alt=""
+                  alt="OxyZen Android 应用下载二维码 - 扫码下载 Android 应用 / OxyZen Android App Download QR Code - Scan to Download Android App"
                   width={80}
                   height={80}
                   className="mr-[4.16vw] h-auto w-[4.16vw]"
@@ -566,7 +582,7 @@ export default function OxyZenContent({ productInfo }: OxyZenContentProps) {
               <div className="flex h-[10.62vw] flex-col items-center justify-center bg-white">
                 <Image
                   src={socialMediaData.cooperation.qrCode}
-                  alt=""
+                  alt="OxyZen 微信客服二维码 - 扫码联系客服 / OxyZen WeChat Assistant QR Code - Scan to Contact Customer Service"
                   width={82}
                   height={82}
                   className="h-auto w-[4.27vw]"
@@ -588,6 +604,6 @@ export default function OxyZenContent({ productInfo }: OxyZenContentProps) {
 
       {/* After Sales */}
       <AfterSales />
-    </div>
+    </main>
   );
 }

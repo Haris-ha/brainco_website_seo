@@ -1,14 +1,12 @@
 import type { Metadata } from 'next';
-import { createPageMetadata } from '@/lib/metadata';
 import { setRequestLocale } from 'next-intl/server';
-import { getPageSEOForStructuredData } from '@/lib/seo';
-import StructuredData from '@/components/seo/StructuredData';
+import OnlineServiceClient from '@/components/common/OnlineServiceClient';
+import OxyZenPageClient from '@/components/product/oxyzen/OxyZenPageClient';
 import DynamicCanonical from '@/components/seo/DynamicCanonical';
-import OnlineService from '@/components/common/OnlineService';
-import OnlineServiceMobile from '@/components/common/OnlineServiceMobile';
-import OxyZenContent from '@/components/product/oxyzen/OxyZenContent';
-import OxyZenContentMobile from '@/components/product/oxyzen/OxyZenContentMobile';
+import StructuredData from '@/components/seo/StructuredData';
 import { getBraincoProducts } from '@/lib/api';
+import { createPageMetadata } from '@/lib/metadata';
+import { getPageSEOForStructuredData } from '@/lib/seo';
 
 export const dynamic = 'force-dynamic';
 
@@ -16,7 +14,7 @@ export async function generateMetadata(props: {
   params: Promise<{ locale: string }>;
 }): Promise<Metadata> {
   const params = await props.params;
-  
+
   return createPageMetadata(params, 'oxyzen', {
     title: 'OxyZen - 冥想放松系统',
     description: 'OxyZen 冥想放松系统，缓解压力改善身心',
@@ -57,25 +55,9 @@ export default async function OxyZenPage(props: {
       <DynamicCanonical canonicalURL={seoData?.canonicalURL} locale={locale} pagePath="/health/oxyzen" />
       <StructuredData seoData={seoData} />
 
-      {/* Desktop Content */}
-      <div className="hidden lg:block">
-        <OxyZenContent productInfo={productInfo} />
-      </div>
-
-      {/* Mobile Content */}
-      <div className="block lg:hidden">
-        <OxyZenContentMobile productInfo={productInfo} />
-      </div>
-
-      {/* Online Service - Desktop */}
-      <div className="hidden lg:block">
-        <OnlineService />
-      </div>
-
-      {/* Online Service - Mobile */}
-      <div className="block lg:hidden">
-        <OnlineServiceMobile />
-      </div>
+      {/* 使用JS条件渲染，避免PC和移动端H标签同时被搜索引擎收录 */}
+      <OxyZenPageClient productInfo={productInfo} />
+      <OnlineServiceClient />
     </>
   );
 }
