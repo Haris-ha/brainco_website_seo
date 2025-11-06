@@ -1,9 +1,7 @@
 import type { Metadata } from 'next';
 import { setRequestLocale } from 'next-intl/server';
-import OnlineService from '@/components/common/OnlineService';
-import OnlineServiceMobile from '@/components/common/OnlineServiceMobile';
-import FocusXinContent from '@/components/product/focus-xin/FocusXinContent';
-import FocusXinContentMobile from '@/components/product/focus-xin/FocusXinContentMobile';
+import OnlineServiceClient from '@/components/common/OnlineServiceClient';
+import FocusXinPageClient from '@/components/product/focus-xin/FocusXinPageClient';
 import DynamicCanonical from '@/components/seo/DynamicCanonical';
 import StructuredData from '@/components/seo/StructuredData';
 import { createPageMetadata } from '@/lib/metadata';
@@ -37,25 +35,9 @@ export default async function FocusXinPage(props: {
       <DynamicCanonical canonicalURL={seoData?.canonicalURL} locale={locale} pagePath="/health/focus-xin" />
       <StructuredData seoData={seoData} />
 
-      {/* Desktop version */}
-      <div className="hidden lg:block">
-        <FocusXinContent />
-      </div>
-
-      {/* Mobile version */}
-      <div className="block lg:hidden">
-        <FocusXinContentMobile />
-      </div>
-
-      {/* Online Service - Desktop */}
-      <div className="hidden lg:block">
-        <OnlineService />
-      </div>
-
-      {/* Online Service - Mobile */}
-      <div className="block lg:hidden">
-        <OnlineServiceMobile />
-      </div>
+      {/* 使用JS条件渲染，避免PC和移动端H标签同时被搜索引擎收录 */}
+      <FocusXinPageClient />
+      <OnlineServiceClient />
     </>
   );
 }

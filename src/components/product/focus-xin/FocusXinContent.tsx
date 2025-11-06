@@ -36,12 +36,12 @@ export default function FocusXinContent() {
   }, []);
 
   return (
-    <div className="text-center">
+    <main className="text-center">
       {/* Hero Banner Section */}
-      <section className="relative">
+      <header className="relative">
         <Image
           src={imageUrls.heroBanner}
-          alt="FocusXin Hero"
+          alt="FocusXin 专注力训练课堂设备 - 产品展示 / FocusXin Focus Training Classroom Device - Product Display"
           width={1920}
           height={800}
           className="w-full"
@@ -100,7 +100,7 @@ export default function FocusXinContent() {
             </motion.button>
           </div>
         </div>
-      </section>
+      </header>
 
       {/* Problem Identification Section */}
       <section className="py-24">
@@ -117,7 +117,7 @@ export default function FocusXinContent() {
         <div className="relative mx-auto flex justify-center">
           <Image
             src={imageUrls.problemCenter}
-            alt="Problem Center"
+            alt="FocusXin 专注力问题识别中心图 - 常见专注力问题可视化 / FocusXin focus problem identification center - Common focus issues visualization"
             width={528}
             height={528}
             className="w-[27.5vw]"
@@ -165,7 +165,7 @@ export default function FocusXinContent() {
       <section className="relative pt-24">
         <Image
           src={imageUrls.principle}
-          alt="Principle"
+          alt="FocusXin 神经反馈训练原理示意图 - 脑电信号实时反馈机制 / FocusXin neurofeedback training principle - Real-time EEG signal feedback mechanism"
           width={1920}
           height={800}
           className="w-full"
@@ -201,7 +201,7 @@ export default function FocusXinContent() {
       <section className="relative -mt-[10vw]">
         <Image
           src={imageUrls.mode}
-          alt="Mode"
+          alt="FocusXin 训练模式优势展示 - 多种训练模式对比 / FocusXin training mode advantages - Multiple training modes comparison"
           width={1920}
           height={800}
           className="w-full"
@@ -258,7 +258,7 @@ export default function FocusXinContent() {
               <h5 className="text-fluid-2xl mb-4 font-medium">{t(training.nameKey)}</h5>
               <Image
                 src={training.image}
-                alt={t(training.nameKey)}
+                alt={`${t(training.nameKey)} - FocusXin 训练模块示意图 / ${t(training.nameKey)} - FocusXin training module illustration`}
                 width={456}
                 height={456}
                 className="w-full"
@@ -292,21 +292,21 @@ export default function FocusXinContent() {
         <div className="relative mx-auto flex max-w-6xl justify-center space-x-6">
           <Image
             src={imageUrls.assessment1}
-            alt="Assessment 1"
+            alt="FocusXin 能力评估界面 1 - 专注力评估测试展示 / FocusXin ability assessment interface 1 - Focus assessment test display"
             width={728}
             height={728}
             className="w-[38vw]"
           />
           <Image
             src={imageUrls.assessment2}
-            alt="Assessment 2"
+            alt="FocusXin 能力评估界面 2 - 评估结果分析展示 / FocusXin ability assessment interface 2 - Assessment result analysis display"
             width={728}
             height={728}
             className="w-[38vw]"
           />
           <Image
             src={imageUrls.logo}
-            alt="Logo"
+            alt="FocusXin Logo - 专注力训练产品标识 / FocusXin Logo - Focus training product logo"
             width={104}
             height={104}
             className="absolute -bottom-8 left-1/2 w-[5.4vw] translate-x-[34vw]"
@@ -337,21 +337,21 @@ export default function FocusXinContent() {
         <div className="relative mx-auto flex max-w-6xl justify-center space-x-6">
           <Image
             src={imageUrls.game1}
-            alt="Game 1"
+            alt="FocusXin 游戏化训练界面 1 - 互动训练游戏展示 / FocusXin gamified training interface 1 - Interactive training game display"
             width={728}
             height={728}
             className="w-[38vw]"
           />
           <Image
             src={imageUrls.game2}
-            alt="Game 2"
+            alt="FocusXin 游戏化训练界面 2 - 训练游戏场景展示 / FocusXin gamified training interface 2 - Training game scene display"
             width={728}
             height={728}
             className="w-[38vw]"
           />
           <Image
             src={imageUrls.logo}
-            alt="Logo"
+            alt="FocusXin Logo - 专注力训练产品标识 / FocusXin Logo - Focus training product logo"
             width={104}
             height={104}
             className="absolute -bottom-8 left-1/2 w-[5.4vw] translate-x-[34vw]"
@@ -382,21 +382,21 @@ export default function FocusXinContent() {
         <div className="relative mx-auto flex max-w-6xl justify-center space-x-6">
           <Image
             src={imageUrls.tracking1}
-            alt="Tracking 1"
+            alt="FocusXin 训练效果追踪界面 1 - 专注力变化趋势图 / FocusXin training effect tracking interface 1 - Focus change trend chart"
             width={728}
             height={728}
             className="w-[38vw]"
           />
           <Image
             src={imageUrls.tracking2}
-            alt="Tracking 2"
+            alt="FocusXin 训练效果追踪界面 2 - 训练数据分析报告 / FocusXin training effect tracking interface 2 - Training data analysis report"
             width={728}
             height={728}
             className="w-[38vw]"
           />
           <Image
             src={imageUrls.logo}
-            alt="Logo"
+            alt="FocusXin Logo - 专注力训练产品标识 / FocusXin Logo - Focus training product logo"
             width={104}
             height={104}
             className="absolute -bottom-8 left-1/2 w-[5.4vw] translate-x-[34vw]"
@@ -419,14 +419,14 @@ export default function FocusXinContent() {
         <div className="mx-auto flex max-w-7xl justify-center space-x-[8.3vw]">
           <Image
             src={imageUrls.verification1}
-            alt="Verification 1"
+            alt="FocusXin 科学验证研究 1 - 专注力训练效果验证报告 / FocusXin scientific verification research 1 - Focus training effectiveness validation report"
             width={654}
             height={654}
             className="w-[34vw]"
           />
           <Image
             src={imageUrls.verification2}
-            alt="Verification 2"
+            alt="FocusXin 科学验证研究 2 - 训练效果数据统计 / FocusXin scientific verification research 2 - Training effect data statistics"
             width={654}
             height={654}
             className="w-[34vw]"
@@ -447,7 +447,7 @@ export default function FocusXinContent() {
 
         <Image
           src={imageUrls.patent}
-          alt="Patent"
+          alt="FocusXin 产品专利证书 - 技术创新与知识产权 / FocusXin product patents - Technical innovation and intellectual property"
           width={828}
           height={400}
           className="mx-auto mb-7 w-[43vw]"
@@ -486,8 +486,10 @@ export default function FocusXinContent() {
               onClick={e => e.stopPropagation()}
             >
               <button
+                type="button"
                 onClick={() => setShowPrincipleVideo(false)}
                 className="absolute top-5 right-5 z-10 cursor-pointer text-6xl text-white hover:text-gray-300"
+                aria-label="关闭视频 / Close video"
               >
                 ×
               </button>
@@ -497,6 +499,7 @@ export default function FocusXinContent() {
                 controlsList="nodownload noremoteplayback"
                 src={videoUrls.principle}
                 className="h-full w-full"
+                aria-label="FocusXin 神经反馈训练原理演示视频 / FocusXin neurofeedback training principle demo video"
               />
             </motion.div>
           </motion.div>
@@ -521,8 +524,10 @@ export default function FocusXinContent() {
               onClick={e => e.stopPropagation()}
             >
               <button
+                type="button"
                 onClick={() => setShowIntroVideo(false)}
                 className="absolute top-5 right-5 z-10 cursor-pointer text-6xl text-white hover:text-gray-300"
+                aria-label="关闭视频 / Close video"
               >
                 ×
               </button>
@@ -532,11 +537,12 @@ export default function FocusXinContent() {
                 controlsList="nodownload noremoteplayback"
                 src={videoUrls.introduction}
                 className="h-full w-full"
+                aria-label="FocusXin 产品介绍演示视频 / FocusXin product introduction demo video"
               />
             </motion.div>
           </motion.div>
         )}
       </AnimatePresence>
-    </div>
+    </main>
   );
 }
