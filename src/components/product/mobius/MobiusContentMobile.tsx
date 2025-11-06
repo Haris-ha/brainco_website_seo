@@ -38,30 +38,33 @@ export default function MobiusContentMobile() {
   ];
 
   return (
-    <div className="h-full w-full overflow-x-hidden bg-white">
+    <main className="h-full w-full overflow-x-hidden bg-white">
       {/* Hero Banner */}
-      <motion.div
+      <motion.header
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 0.8 }}
+        role="img"
+        aria-label={`${t('product_name')} - Mobius 轻凌智能仿生腿产品展示 / ${t('product_name')} - Mobius Revolimb Intelligent Bionic Leg Product Display`}
       >
         <Image
           src="https://website-www-brainco-cn.oss-cn-hangzhou.aliyuncs.com/images/vaYWlcHEsNmSDpu5.webp"
-          alt={t('product_name')}
+          alt={`${t('product_name')} - Mobius 轻凌智能仿生腿产品展示 / ${t('product_name')} - Mobius Revolimb Intelligent Bionic Leg Product Display`}
           width={750}
           height={800}
           className="w-full"
           priority
         />
-      </motion.div>
+      </motion.header>
 
       {/* Product Comparison Carousel */}
-      <div className="mt-[20px] flex w-full snap-x snap-mandatory overflow-x-auto [-ms-overflow-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
+      <section className="mt-[20px] flex w-full snap-x snap-mandatory overflow-x-auto [-ms-overflow-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden" aria-labelledby="comparison-carousel-title-mobile">
+        <h2 id="comparison-carousel-title-mobile" className="sr-only">{t('m2_title')} 与 {t('m3_title')} 产品对比 / {t('m2_title')} vs {t('m3_title')} Product Comparison</h2>
         {swiperList.map((item, index) => (
           <div key={index} className="relative w-full flex-shrink-0 snap-start">
             <Image
               src={item.img}
-              alt={item.title}
+              alt={`${item.title} - Mobius 轻凌智能仿生腿产品展示 / ${item.title} - Mobius Revolimb Intelligent Bionic Leg Product Display`}
               width={750}
               height={1000}
               className="w-full"
@@ -89,10 +92,11 @@ export default function MobiusContentMobile() {
             </div>
           </div>
         ))}
-      </div>
+      </section>
 
       {/* Feature Description List */}
-      <div className="mt-[70px]">
+      <section className="mt-[70px]" aria-labelledby="features-title-mobile">
+        <h2 id="features-title-mobile" className="sr-only">Mobius 产品功能特性 / Mobius Product Features</h2>
         <motion.div
           className="mb-[80px] flex items-center justify-center"
           initial={{ opacity: 0 }}
@@ -102,7 +106,7 @@ export default function MobiusContentMobile() {
         >
           <Image
             src="https://website-www-brainco-cn.oss-cn-hangzhou.aliyuncs.com/images/PzgtwOr0hcjJVXb6.webp"
-            alt="Feature 1"
+            alt="Mobius 产品功能特性展示图 1 - 正面视图 / Mobius Product Features Display 1 - Front View"
             width={130}
             height={400}
             className="w-[130px]"
@@ -118,10 +122,11 @@ export default function MobiusContentMobile() {
               >
                 <Image
                   src={`https://website-www-brainco-cn.oss-cn-hangzhou.aliyuncs.com/images/${img}.webp`}
-                  alt={`Feature detail ${idx + 1}`}
+                  alt={`Mobius 产品功能细节 ${idx + 1} - 功能特性说明 / Mobius Product Feature Detail ${idx + 1} - Feature Description`}
                   width={170}
                   height={50}
                   className="w-[170px]"
+                  role="presentation"
                 />
               </motion.div>
             ))}
@@ -137,7 +142,7 @@ export default function MobiusContentMobile() {
         >
           <Image
             src="https://website-www-brainco-cn.oss-cn-hangzhou.aliyuncs.com/images/5rixLAfkQDtXY1pR.webp"
-            alt="Feature 2"
+            alt="Mobius 产品功能特性展示图 2 - 侧面视图 / Mobius Product Features Display 2 - Side View"
             width={156}
             height={400}
             className="w-[156px]"
@@ -153,10 +158,11 @@ export default function MobiusContentMobile() {
               >
                 <Image
                   src={`https://website-www-brainco-cn.oss-cn-hangzhou.aliyuncs.com/images/${img}.webp`}
-                  alt={`Feature detail ${idx + 1}`}
+                  alt={`Mobius 产品功能细节 ${idx + 1} - 功能特性说明 / Mobius Product Feature Detail ${idx + 1} - Feature Description`}
                   width={170}
                   height={50}
                   className="w-[170px]"
+                  role="presentation"
                 />
               </motion.div>
             ))}
@@ -172,7 +178,7 @@ export default function MobiusContentMobile() {
         >
           <Image
             src="https://website-www-brainco-cn.oss-cn-hangzhou.aliyuncs.com/images/Ss4EmqyCFXUiYIh3.webp"
-            alt="Feature 3"
+            alt="Mobius 产品功能特性展示图 3 - 背面视图 / Mobius Product Features Display 3 - Back View"
             width={130}
             height={400}
             className="w-[130px]"
@@ -188,18 +194,19 @@ export default function MobiusContentMobile() {
               >
                 <Image
                   src={`https://website-www-brainco-cn.oss-cn-hangzhou.aliyuncs.com/images/${img}.webp`}
-                  alt={`Feature detail ${idx + 1}`}
+                  alt={`Mobius 产品功能细节 ${idx + 1} - 功能特性说明 / Mobius Product Feature Detail ${idx + 1} - Feature Description`}
                   width={170}
                   height={50}
                   className="w-[170px]"
+                  role="presentation"
                 />
               </motion.div>
             ))}
           </div>
         </motion.div>
-      </div>
+      </section>
 
-      <motion.div
+      <motion.section
         className="mt-[30px]"
         initial={{ opacity: 0 }}
         whileInView={{ opacity: 1 }}
@@ -208,16 +215,17 @@ export default function MobiusContentMobile() {
       >
         <Image
           src="https://website-www-brainco-cn.oss-cn-hangzhou.aliyuncs.com/images/UZGovFh4DECznVcA.webp"
-          alt="Product Detail"
+          alt="Mobius 产品详细展示图 - 产品细节与功能说明 / Mobius Product Detail Display - Product Details and Features"
           width={750}
           height={1000}
           className="w-full"
         />
-      </motion.div>
+      </motion.section>
 
       {/* Applicable Scenarios */}
-      <div className="pt-[40px]">
+      <section className="pt-[40px]" aria-labelledby="scenario-title-mobile">
         <motion.h2
+          id="scenario-title-mobile"
           className="text-fluid-3xl text-center text-[#333333]"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -249,7 +257,7 @@ export default function MobiusContentMobile() {
               <div className="flex h-[48px] w-[48px] items-center justify-center">
                 <Image
                   src={scenario.img}
-                  alt={scenario.name}
+                  alt={`${scenario.name} - Mobius 适用场景图标 / ${scenario.name} - Mobius Applicable Scenario Icon`}
                   width={48}
                   height={48}
                   className="max-h-full max-w-full object-contain"
@@ -261,11 +269,12 @@ export default function MobiusContentMobile() {
             </motion.div>
           ))}
         </div>
-      </div>
+      </section>
 
       {/* Characteristics */}
-      <div className="mt-[70px] bg-white px-4 py-[40px]">
+      <section className="mt-[70px] bg-white px-4 py-[40px]" aria-labelledby="characteristics-title-mobile">
         <motion.h2
+          id="characteristics-title-mobile"
           className="text-fluid-2xl mb-[10px] text-center leading-[28px] font-medium text-[#666666]"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -330,7 +339,9 @@ export default function MobiusContentMobile() {
 
         {/* Product Data */}
         <div className="mt-[65px]">
-          <motion.h4
+          <motion.h2
+            id="comparison-title-mobile"
+            id="app-title-mobile"
             className="text-fluid-3xl text-center leading-[1.5]"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -340,7 +351,7 @@ export default function MobiusContentMobile() {
             {t('feature_shell_title')}
             <br />
             {t('feature_shell_subtitle')}
-          </motion.h4>
+          </motion.h2>
           <div className="mt-[24px] flex justify-center space-x-[20px]">
             {[t('feature_shell_1'), t('feature_shell_2'), t('feature_shell_3')].map((text, idx) => (
               <motion.div
@@ -364,7 +375,7 @@ export default function MobiusContentMobile() {
           >
             <Image
               src="https://website-www-brainco-cn.oss-cn-hangzhou.aliyuncs.com/images/S8Oxr4uEvtPB9aNZ.webp"
-              alt="Shell Detail"
+              alt="Mobius 高强度碳纤维外壳详细展示图 / Mobius High-Strength Carbon Fiber Shell Detail Display"
               width={1200}
               height={600}
               className="w-full"
@@ -398,18 +409,19 @@ export default function MobiusContentMobile() {
           >
             <Image
               src="https://website-www-brainco-cn.oss-cn-hangzhou.aliyuncs.com/images/oUt4iV5RpLDBkurT.webp"
-              alt="Performance"
+              alt="Mobius 产品性能展示图 - 双向可变阻尼性能参数 / Mobius Product Performance Display - Bidirectional Variable Damping Performance Parameters"
               width={750}
               height={600}
               className="w-full"
             />
           </motion.div>
         </div>
-      </div>
+      </section>
 
       {/* App Introduction */}
-      <div className="bg-[#F8F8F8] pt-[78px] pb-[30px]">
-        <motion.h4
+      <section className="bg-[#F8F8F8] pt-[78px] pb-[30px]" aria-labelledby="app-title-mobile">
+        <motion.h2
+          id="app-title-mobile"
           className="text-fluid-3xl text-center leading-[1.5]"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -419,7 +431,7 @@ export default function MobiusContentMobile() {
           {t('app_title')}
           <br />
           {t('app_subtitle')}
-        </motion.h4>
+        </motion.h2>
         <motion.p
           className="text-fluid-sm mt-[15px] px-28 text-center"
           initial={{ opacity: 0, y: 20 }}
@@ -439,7 +451,7 @@ export default function MobiusContentMobile() {
           >
             <Image
               src="https://website-www-brainco-cn.oss-cn-hangzhou.aliyuncs.com/images/pszNLwCfbcVEJ9Ry.png"
-              alt="User App"
+              alt="Mobius 轻凌App用户端图标 / Mobius Revolimb App User Icon"
               width={120}
               height={120}
             />
@@ -454,18 +466,19 @@ export default function MobiusContentMobile() {
           >
             <Image
               src="https://website-www-brainco-cn.oss-cn-hangzhou.aliyuncs.com/images/aIHVeqFEQBWUbt29.webp"
-              alt="Fitter App"
+              alt="Mobius 轻凌App装配师端界面展示 / Mobius Revolimb App Fitter Interface Display"
               width={300}
               height={300}
             />
             <p className="mt-[22px]">{t('app_fitter')}</p>
           </motion.div>
         </div>
-      </div>
+      </section>
 
       {/* M3 vs M2 Comparison */}
-      <motion.div
+      <motion.section
         className="mx-auto mt-[60px] w-full px-4"
+        aria-labelledby="comparison-title-mobile"
         initial={{ opacity: 0, y: 50 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
@@ -473,6 +486,7 @@ export default function MobiusContentMobile() {
       >
         {/* Title */}
         <motion.h2
+          id="comparison-title-mobile"
           className="text-fluid-3xl mb-[40px] text-center font-medium"
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -493,7 +507,7 @@ export default function MobiusContentMobile() {
           >
             <Image
               src="https://www.brainco.cn/news-images/m3@2x.png"
-              alt={t('comparison_m3')}
+              alt={`${t('comparison_m3')} - Mobius 轻凌M3智能仿生腿产品图 / ${t('comparison_m3')} - Mobius Revolimb M3 Intelligent Bionic Leg Product Image`}
               width={120}
               height={160}
               className="h-auto w-[120px]"
@@ -509,7 +523,7 @@ export default function MobiusContentMobile() {
           >
             <Image
               src="https://www.brainco.cn/news-images/M2@2x.png"
-              alt={t('comparison_m2')}
+              alt={`${t('comparison_m2')} - Mobius 轻凌M2智能仿生腿产品图 / ${t('comparison_m2')} - Mobius Revolimb M2 Intelligent Bionic Leg Product Image`}
               width={120}
               height={160}
               className="h-auto w-[120px]"
@@ -593,11 +607,12 @@ export default function MobiusContentMobile() {
             </div>
           </div>
         </motion.div>
-      </motion.div>
+      </motion.section>
 
       {/* Patents */}
-      <div className="mt-[35px] mb-[100px] px-[50px]">
-        <motion.h4
+      <section className="mt-[35px] mb-[100px] px-[50px]" aria-labelledby="patent-title-mobile">
+        <motion.h2
+          id="patent-title-mobile"
           className="text-fluid-3xl text-center"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -605,7 +620,7 @@ export default function MobiusContentMobile() {
           transition={{ duration: 0.6 }}
         >
           {t('patent_title')}
-        </motion.h4>
+        </motion.h2>
         <motion.div
           className="mx-auto mt-[30px] w-[258px]"
           initial={{ opacity: 0, scale: 0.9 }}
@@ -615,7 +630,7 @@ export default function MobiusContentMobile() {
         >
           <Image
             src="https://website-www-brainco-cn.oss-cn-hangzhou.aliyuncs.com/images/GF70hH681ErUi3qu.webp"
-            alt="Patents"
+            alt="Mobius 智能假肢领域专利数量展示图 / Mobius Intelligent Prosthetics Patent Count Display"
             width={258}
             height={200}
           />
@@ -661,7 +676,7 @@ export default function MobiusContentMobile() {
             ))}
           </div>
         </div>
-      </div>
-    </div>
+      </section>
+    </main>
   );
 }

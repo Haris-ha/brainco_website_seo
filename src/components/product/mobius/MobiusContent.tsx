@@ -33,12 +33,12 @@ export default function MobiusContent() {
   ];
 
   return (
-    <div className="w-full bg-white">
+    <main className="w-full bg-white">
       {/* Hero Banner */}
-      <div className="relative w-full">
+      <header className="relative w-full">
         <Image
           src="https://website-www-brainco-cn.oss-cn-hangzhou.aliyuncs.com/images/QhGk39MAOtN7E0UZ.webp"
-          alt={t('product_name')}
+          alt="Mobius 轻凌智能仿生腿 - 产品展示 / Mobius Revolimb Intelligent Bionic Leg - Product Display"
           width={1920}
           height={1080}
           sizes="100vw"
@@ -53,7 +53,7 @@ export default function MobiusContent() {
           >
             <Image
               src="https://website-www-brainco-cn.oss-cn-hangzhou.aliyuncs.com/images/wgjcXaxT6UzSDlf2.png"
-              alt="Mobius Logo"
+              alt="Mobius 轻凌智能仿生腿 Logo / Mobius Revolimb Intelligent Bionic Leg Logo"
               width={116}
               height={116}
               sizes="116px"
@@ -77,10 +77,19 @@ export default function MobiusContent() {
             {t('intro_text')}
           </motion.p>
         </div>
-      </div>
+      </header>
 
       {/* Comparison Images */}
-      <div className="mt-[80px] flex gap-[32px] px-[40px]">
+      <section className="mt-[80px] flex gap-[32px] px-[40px]" aria-labelledby="comparison-images-title">
+        <h2 id="comparison-images-title" className="sr-only">
+          轻凌M2智能仿生腿
+          {' '}
+          与
+          {' '}
+          轻凌M3智能仿生腿
+          {' '}
+          产品对比 / Mobius Revolimb M2 Intelligent Bionic Leg vs M3 Intelligent Bionic Leg Product Comparison
+        </h2>
         <motion.div
           className="relative flex-1"
           initial={{ opacity: 0, x: -30 }}
@@ -90,7 +99,7 @@ export default function MobiusContent() {
         >
           <Image
             src="https://www.brainco.cn/news-images/m2.png"
-            alt={t('m2_title')}
+            alt={`${t('m2_title')} - Mobius 轻凌M2智能仿生腿产品展示 / ${t('m2_title')} - Mobius Revolimb M2 Intelligent Bionic Leg Product Display`}
             width={900}
             height={600}
             sizes="(max-width: 768px) 100vw, 50vw"
@@ -118,7 +127,7 @@ export default function MobiusContent() {
         >
           <Image
             src="https://www.brainco.cn/news-images/m3.png"
-            alt={t('m3_title')}
+            alt={`${t('m3_title')} - Mobius 轻凌M3智能仿生腿产品展示 / ${t('m3_title')} - Mobius Revolimb M3 Intelligent Bionic Leg Product Display`}
             width={900}
             height={600}
             sizes="(max-width: 768px) 100vw, 50vw"
@@ -137,16 +146,18 @@ export default function MobiusContent() {
             </p>
           </motion.div>
         </motion.div>
-      </div>
+      </section>
 
       {/* Features */}
-      <motion.div
+      <motion.section
         className="relative flex w-full items-center justify-center bg-white px-40 py-[100px]"
+        aria-labelledby="features-title"
         initial={{ opacity: 0, y: 50 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
         transition={{ duration: 0.8, ease: 'easeOut' }}
       >
+        <h2 id="features-title" className="sr-only">Mobius 产品功能特性 / Mobius Product Features</h2>
         {/* Left Features */}
         <div className="flex flex-1 flex-col items-start justify-center gap-[120px] pr-[80px]">
           {/* Button Feature */}
@@ -198,7 +209,7 @@ export default function MobiusContent() {
         >
           <Image
             src="https://www.brainco.cn/news-images/front.png"
-            alt="Mobius M3 Features"
+            alt="Mobius 轻凌M3智能仿生腿正面功能展示图 / Mobius Revolimb M3 Intelligent Bionic Leg Front Features Display"
             width={400}
             height={600}
             className="h-auto w-[500px]"
@@ -225,16 +236,18 @@ export default function MobiusContent() {
             </div>
           </motion.div>
         </div>
-      </motion.div>
+      </motion.section>
 
       {/* Features - Back View */}
-      <motion.div
+      <motion.section
         className="relative flex w-full items-center justify-center bg-white px-40 pt-[100px]"
+        aria-labelledby="features-back-title"
         initial={{ opacity: 0, y: 50 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
         transition={{ duration: 0.8, ease: 'easeOut' }}
       >
+        <h2 id="features-back-title" className="sr-only">Mobius 产品背面功能特性 / Mobius Product Back Features</h2>
         {/* Left Features */}
         <div className="flex flex-1 flex-col items-start justify-center gap-[120px] pr-[80px]">
           {/* Angle Feature */}
@@ -305,7 +318,7 @@ export default function MobiusContent() {
         >
           <Image
             src="https://www.brainco.cn/news-images/back.png"
-            alt="Mobius M3 Features Back"
+            alt="Mobius 轻凌M3智能仿生腿背面功能展示图 / Mobius Revolimb M3 Intelligent Bionic Leg Back Features Display"
             width={400}
             height={600}
             className="h-auto w-[480px]"
@@ -352,14 +365,15 @@ export default function MobiusContent() {
             </div>
           </motion.div>
         </div>
-      </motion.div>
+      </motion.section>
 
       {/* Control Button Switch Section */}
-      <motion.div
+      <motion.section
         className="relative mt-[150px] flex min-h-[600px] w-full items-center justify-end bg-cover bg-center px-20"
         style={{
           backgroundImage: 'url(https://www.brainco.cn/news-images/controlbuttonswitchbg@2x.png)',
         }}
+        aria-labelledby="control-button-title"
         initial={{ opacity: 0, y: 50 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
@@ -397,10 +411,11 @@ export default function MobiusContent() {
                 <div className="mb-[20px] flex h-[60px] w-[60px] items-center justify-center">
                   <Image
                     src={`https://www.brainco.cn/news-images/${activity.img}`}
-                    alt={activity.name}
+                    alt={`${activity.name} - Mobius 适用运动场景图标 / ${activity.name} - Mobius Applicable Sports Activity Icon`}
                     width={60}
                     height={60}
                     className="h-auto w-full object-contain"
+                    role="presentation"
                   />
                 </div>
                 <span className="text-fluid-lg rounded-full bg-white px-6 py-2 text-center text-[#3b3b3b]">
@@ -410,11 +425,12 @@ export default function MobiusContent() {
             ))}
           </div>
         </div>
-      </motion.div>
+      </motion.section>
 
       {/* Applicable Scenarios */}
-      <div className="mx-auto mt-[80px] w-full max-w-[1360px] px-40">
+      <section className="mx-auto mt-[80px] w-full max-w-[1360px] px-40" aria-labelledby="scenario-title">
         <motion.h2
+          id="scenario-title"
           className="text-fluid-6xl text-center font-normal text-[#333333]"
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -446,7 +462,7 @@ export default function MobiusContent() {
               <div className="flex w-full items-center justify-center">
                 <Image
                   src={scenario.img}
-                  alt={scenario.name}
+                  alt={`${scenario.name} - Mobius 适用场景图标 / ${scenario.name} - Mobius Applicable Scenario Icon`}
                   width={180}
                   height={180}
                   className="h-auto max-h-full w-auto max-w-full object-contain"
@@ -458,16 +474,18 @@ export default function MobiusContent() {
             </motion.div>
           ))}
         </div>
-      </div>
+      </section>
 
       {/* Parameters */}
-      <motion.div
+      <motion.section
         className="mx-auto mt-[100px] w-full max-w-[1220px] bg-white px-40 py-[80px]"
+        aria-labelledby="parameters-title"
         initial={{ opacity: 0, y: 50 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
         transition={{ duration: 0.8, ease: 'easeOut' }}
       >
+        <h2 id="parameters-title" className="sr-only">Mobius 产品技术参数 / Mobius Product Technical Parameters</h2>
         <div className="flex flex-col gap-[60px]">
           {/* Top - Multi-Sensor */}
           <motion.div
@@ -567,11 +585,12 @@ export default function MobiusContent() {
             </motion.div>
           </div>
         </div>
-      </motion.div>
+      </motion.section>
 
       {/* Carbon Fiber Shell - Image Left, Text Right */}
-      <motion.div
+      <motion.section
         className="mt-[100px] flex w-full items-center bg-white px-40"
+        aria-labelledby="shell-title"
         initial={{ opacity: 0, y: 50 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
@@ -587,7 +606,7 @@ export default function MobiusContent() {
         >
           <Image
             src="https://www.brainco.cn/news-images/High-strength-carbon-fiber-casing.png"
-            alt={t('feature_shell_title')}
+            alt={`${t('feature_shell_title')} - Mobius 高强度碳纤维外壳展示图 / ${t('feature_shell_title')} - Mobius High-Strength Carbon Fiber Shell Display`}
             width={700}
             height={800}
             className="h-auto w-full"
@@ -602,7 +621,7 @@ export default function MobiusContent() {
           viewport={{ once: true }}
           transition={{ duration: 0.8, delay: 0.4, ease: 'easeOut' }}
         >
-          <h2 className="text-fluid-6xl mb-[20px] font-medium text-[#333333]">
+          <h2 id="shell-title" className="text-fluid-6xl mb-[20px] font-medium text-[#333333]">
             {t('feature_shell_title')}
           </h2>
           <h3 className="text-fluid-6xl mb-[40px] font-medium text-[#333333]">
@@ -620,11 +639,12 @@ export default function MobiusContent() {
             </span>
           </div>
         </motion.div>
-      </motion.div>
+      </motion.section>
 
       {/* Variable Damping - Text Left, Image Right */}
-      <motion.div
+      <motion.section
         className="mt-[100px] flex w-full items-center bg-white px-40"
+        aria-labelledby="damping-title"
         initial={{ opacity: 0, y: 50 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
@@ -638,7 +658,7 @@ export default function MobiusContent() {
           viewport={{ once: true }}
           transition={{ duration: 0.8, delay: 0.2, ease: 'easeOut' }}
         >
-          <h2 className="text-fluid-6xl mb-[60px] font-medium text-[#333333]">
+          <h2 id="damping-title" className="text-fluid-6xl mb-[60px] font-medium text-[#333333]">
             {t('feature_damping_title')}
           </h2>
           <div className="flex flex-col gap-[30px]">
@@ -673,23 +693,25 @@ export default function MobiusContent() {
         >
           <Image
             src="https://www.brainco.cn/news-images/Bidirectional-variable-damping.png"
-            alt={t('feature_damping_title')}
+            alt={`${t('feature_damping_title')} - Mobius 双向可变阻尼展示图 / ${t('feature_damping_title')} - Mobius Bidirectional Variable Damping Display`}
             width={700}
             height={800}
             className="h-auto w-full"
           />
         </motion.div>
-      </motion.div>
+      </motion.section>
 
       {/* App Control Section */}
-      <motion.div
+      <motion.section
         className="mx-auto mt-[50px] w-full bg-[#f8f8f8] p-40 text-center"
+        aria-labelledby="app-title"
         initial={{ opacity: 0, y: 50 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
         transition={{ duration: 0.8, ease: 'easeOut' }}
       >
         <motion.h2
+          id="app-title"
           className="text-fluid-6xl mb-[40px] font-medium text-[#333333]"
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -708,11 +730,12 @@ export default function MobiusContent() {
         >
           {t('app_desc')}
         </motion.p>
-      </motion.div>
+      </motion.section>
 
       {/* M3 vs M2 Comparison */}
-      <motion.div
+      <motion.section
         className="mx-auto mt-[100px] w-full max-w-[1200px] px-40 py-[80px]"
+        aria-labelledby="comparison-title"
         initial={{ opacity: 0, y: 50 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
@@ -720,6 +743,7 @@ export default function MobiusContent() {
       >
         {/* Title */}
         <motion.h2
+          id="comparison-title"
           className="text-fluid-6xl mb-[60px] text-center font-medium"
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -740,7 +764,7 @@ export default function MobiusContent() {
           >
             <Image
               src="https://www.brainco.cn/news-images/m3@2x.png"
-              alt="{t('m3_title')}"
+              alt={`${t('m3_title')} - Mobius 轻凌M3智能仿生腿产品图 / ${t('m3_title')} - Mobius Revolimb M3 Intelligent Bionic Leg Product Image`}
               width={300}
               height={400}
               className="h-auto w-[200px]"
@@ -756,7 +780,7 @@ export default function MobiusContent() {
           >
             <Image
               src="https://www.brainco.cn/news-images/M2@2x.png"
-              alt="{t('m2_title')}"
+              alt={`${t('m2_title')} - Mobius 轻凌M2智能仿生腿产品图 / ${t('m2_title')} - Mobius Revolimb M2 Intelligent Bionic Leg Product Image`}
               width={300}
               height={400}
               className="h-auto w-[200px]"
@@ -930,17 +954,18 @@ export default function MobiusContent() {
             </div>
           </div>
         </motion.div>
-      </motion.div>
+      </motion.section>
 
       {/* Patents */}
-      <motion.div
+      <motion.section
         className="mx-auto mt-[50px] mb-[100px] w-full max-w-[1500px] px-4 text-center"
+        aria-labelledby="patent-title"
         initial={{ opacity: 0, y: 50 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
         transition={{ duration: 0.8, ease: 'easeOut' }}
       >
-        <h2 className="text-fluid-6xl mb-[24px] px-40 font-normal text-[#333333]">
+        <h2 id="patent-title" className="text-fluid-6xl mb-[24px] px-40 font-normal text-[#333333]">
           {t('patent_title')}
         </h2>
         <div className="mt-[60px] flex h-full items-center justify-center px-40">
@@ -954,7 +979,7 @@ export default function MobiusContent() {
           >
             <Image
               src="https://website-www-brainco-cn.oss-cn-hangzhou.aliyuncs.com/images/fC7y3OzorWYn9Vmb.webp"
-              alt="Patents"
+              alt="Mobius 智能假肢领域专利数量展示图 / Mobius Intelligent Prosthetics Patent Count Display"
               width={1200}
               height={600}
               className="h-auto w-full"
@@ -1005,7 +1030,7 @@ export default function MobiusContent() {
             </div>
           </div>
         </div>
-      </motion.div>
-    </div>
+      </motion.section>
+    </main>
   );
 }
