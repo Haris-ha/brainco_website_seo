@@ -59,7 +59,23 @@ export default function MobiusContentMobile() {
 
       {/* Product Comparison Carousel */}
       <section className="mt-[20px] flex w-full snap-x snap-mandatory overflow-x-auto [-ms-overflow-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden" aria-labelledby="comparison-carousel-title-mobile">
-        <h2 id="comparison-carousel-title-mobile" className="sr-only">{t('m2_title')} 与 {t('m3_title')} 产品对比 / {t('m2_title')} vs {t('m3_title')} Product Comparison</h2>
+        <h2 id="comparison-carousel-title-mobile" className="sr-only">
+          {t('m2_title')}
+          {' '}
+          与
+          {' '}
+          {t('m3_title')}
+          {' '}
+          产品对比 /
+          {' '}
+          {t('m2_title')}
+          {' '}
+          vs
+          {' '}
+          {t('m3_title')}
+          {' '}
+          Product Comparison
+        </h2>
         {swiperList.map((item, index) => (
           <div key={index} className="relative w-full flex-shrink-0 snap-start">
             <Image
@@ -341,7 +357,6 @@ export default function MobiusContentMobile() {
         <div className="mt-[65px]">
           <motion.h2
             id="comparison-title-mobile"
-            id="app-title-mobile"
             className="text-fluid-3xl text-center leading-[1.5]"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
