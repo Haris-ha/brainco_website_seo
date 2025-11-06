@@ -44,8 +44,10 @@ async function getXRobotsTag(pagePath: string, locale: string): Promise<string> 
       headers: {
         'Content-Type': 'application/json',
       },
+      // 演示系统：完全禁用缓存（revalidate: 0）
+      // TODO: 正式上线后调整为: revalidate: 60 (60秒重新验证一次)
       next: {
-        revalidate: 3600,
+        revalidate: 0, // 演示系统：禁用缓存
       },
     });
 

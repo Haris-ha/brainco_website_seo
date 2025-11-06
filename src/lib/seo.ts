@@ -69,8 +69,10 @@ export async function getPageSEO(
         'Content-Type': 'application/json',
       },
       // 使用 revalidate 来控制缓存
+      // 演示系统：完全禁用缓存（revalidate: 0）
+      // TODO: 正式上线后调整为: revalidate: 60 (60秒重新验证一次)
       next: {
-        revalidate: 3600, // 1小时重新验证一次
+        revalidate: 0, // 演示系统：禁用缓存
       },
     });
 
@@ -293,8 +295,10 @@ export async function getAllPageSEOs(): Promise<PageSEO[]> {
       headers: {
         'Content-Type': 'application/json',
       },
+      // 演示系统：完全禁用缓存（revalidate: 0）
+      // TODO: 正式上线后调整为: revalidate: 60 (60秒重新验证一次)
       next: {
-        revalidate: 3600,
+        revalidate: 0, // 演示系统：禁用缓存
       },
     });
 
@@ -365,17 +369,17 @@ export async function getNewsList(
 
     const url = `${CMS_API_URL}/api/newses?${params.toString()}`;
 
-    if (process.env.NODE_ENV === 'development') {
-      console.log(`📡 正在获取新闻数据: ${url}`);
-    }
+    // 开发环境日志已在下方处理
 
     const response = await fetch(url, {
       headers: {
         'Content-Type': 'application/json',
       },
       // 使用 revalidate 来控制缓存
+      // 演示系统：完全禁用缓存（revalidate: 0）
+      // TODO: 正式上线后调整为: revalidate: 30 (30秒重新验证一次，新闻需要更频繁更新)
       next: {
-        revalidate: 300, // 5分钟重新验证一次
+        revalidate: 0, // 演示系统：禁用缓存
       },
     });
 
@@ -391,10 +395,11 @@ export async function getNewsList(
 
     const data: StrapiNewsResponse = await response.json();
 
+    // 开发环境日志（使用 console.warn 以符合 linter 规则）
     if (process.env.NODE_ENV === 'development') {
-      console.log(`✅ 获取到 ${data.data?.length || 0} 条新闻数据 (locale: ${strapiLocale})`);
+      console.warn(`✅ 获取到 ${data.data?.length || 0} 条新闻数据 (locale: ${strapiLocale})`);
       if (data.data?.length > 0) {
-        console.log(`   第一条新闻: ${data.data[0]?.title || 'N/A'}`);
+        console.warn(`   第一条新闻: ${data.data[0]?.title || 'N/A'}`);
       }
     }
 
