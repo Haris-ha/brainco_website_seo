@@ -26,10 +26,11 @@ export function CartList({
   const checkedCount = items.filter(item => item.checked).length;
 
   return (
-    <div className="w-full">
+    <section className="w-full" aria-labelledby="cart-title">
       {/* 标题和全选 */}
-      <div className="mb-4 flex items-center justify-between border-b border-dashed border-[#707070] pb-4 md:mb-8 md:pb-6">
+      <header className="mb-4 flex items-center justify-between border-b border-dashed border-[#707070] pb-4 md:mb-8 md:pb-6">
         <motion.h1
+          id="cart-title"
           initial={{ opacity: 0, x: -20 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.6 }}
@@ -45,10 +46,13 @@ export function CartList({
           transition={{ duration: 0.6 }}
           className="hidden items-center gap-3 md:flex"
         >
-          <motion.div
+          <motion.button
+            type="button"
             whileHover={{ scale: 1.1 }}
             whileTap={{ scale: 0.9 }}
             onClick={() => onToggleAllCheck(!allChecked)}
+            aria-label={allChecked ? `${t('select_all')} - ${t('deselect')}` : t('select_all')}
+            aria-pressed={allChecked}
             className={`cursor-target flex size-[24px] cursor-pointer items-center justify-center rounded-[4px] border transition-all ${
               allChecked
                 ? 'border-[#4F68D2] bg-[#4F68D2]'
@@ -72,10 +76,10 @@ export function CartList({
                 />
               </motion.svg>
             )}
-          </motion.div>
+          </motion.button>
           <span className="text-fluid-xl text-[#333]">{t('select_all')}</span>
         </motion.div>
-      </div>
+      </header>
 
       {/* 已选商品数量提示（Mobile） */}
       {checkedCount > 0 && (
@@ -104,6 +108,6 @@ export function CartList({
           ))}
         </AnimatePresence>
       </ul>
-    </div>
+    </section>
   );
 }

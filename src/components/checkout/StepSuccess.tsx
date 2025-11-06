@@ -14,11 +14,12 @@ export function StepSuccess({ orderNumber }: StepSuccessProps) {
   const router = useRouter();
 
   return (
-    <motion.div
+    <motion.section
       initial={{ opacity: 0, scale: 0.9 }}
       animate={{ opacity: 1, scale: 1 }}
       transition={{ duration: 0.6 }}
       className="mx-auto max-w-[600px] text-center"
+      aria-labelledby="success-title"
     >
       {/* 成功图标 */}
       <motion.div
@@ -38,14 +39,15 @@ export function StepSuccess({ orderNumber }: StepSuccessProps) {
       </motion.div>
 
       {/* 成功标题 */}
-      <motion.h2
+      <motion.h1
+        id="success-title"
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6, delay: 0.4 }}
         className="text-fluid-5xl mb-4 font-medium text-[#333]"
       >
         {t('order_success')}
-      </motion.h2>
+      </motion.h1>
 
       {/* 订单号 */}
       <motion.div
@@ -70,23 +72,27 @@ export function StepSuccess({ orderNumber }: StepSuccessProps) {
         className="flex flex-col gap-4 md:flex-row md:justify-center"
       >
         <motion.button
+          type="button"
           whileHover={{ scale: 1.05 }}
           whileTap={{ scale: 0.95 }}
           onClick={() => router.push('/')}
+          aria-label={t('Cart.continue_shopping')}
           className="text-fluid-xl cursor-target h-[50px] w-full rounded-[25px] border-2 border-[#4F68D2] bg-white font-medium text-[#4F68D2] transition-all hover:bg-[#4F68D2] hover:text-white md:h-[72px] md:w-[260px] md:rounded-[41px]"
         >
           {t('Cart.continue_shopping')}
         </motion.button>
 
         <motion.button
+          type="button"
           whileHover={{ scale: 1.05 }}
           whileTap={{ scale: 0.95 }}
           onClick={() => router.push(`/orders/${orderNumber}`)}
+          aria-label={t('view_order')}
           className="text-fluid-xl cursor-target h-[50px] w-full rounded-[25px] bg-[#4F68D2] font-medium text-white shadow-lg transition-all hover:bg-[#3d52a8] md:h-[72px] md:w-[260px] md:rounded-[41px]"
         >
           {t('view_order')}
         </motion.button>
       </motion.div>
-    </motion.div>
+    </motion.section>
   );
 }

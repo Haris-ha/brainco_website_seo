@@ -42,10 +42,13 @@ export const CartItem = memo(({
       {/* 复选框和商品信息 */}
       <div className="flex items-center gap-4 md:flex-1 md:items-center md:gap-8">
         {/* 复选框 */}
-        <motion.div
+        <motion.button
+          type="button"
           whileHover={{ scale: 1.1 }}
           whileTap={{ scale: 0.9 }}
           onClick={() => onToggleCheck(item.id)}
+          aria-label={item.checked ? `${t('delete')} ${item.name}` : `${t('select_all')} ${item.name}`}
+          aria-pressed={item.checked}
           className={`cursor-target mt-1 flex size-[14px] shrink-0 cursor-pointer items-center justify-center rounded-[2px] border transition-all md:mt-0 md:size-[24px] md:rounded-[4px] ${
             item.checked
               ? 'border-[#4F68D2] bg-[#4F68D2]'
@@ -69,13 +72,13 @@ export const CartItem = memo(({
               />
             </motion.svg>
           )}
-        </motion.div>
+        </motion.button>
 
         {/* 商品图片 */}
         <div className="relative size-[44px] shrink-0 overflow-hidden rounded md:size-[100px]">
           <Image
             src={item.pictureUrl}
-            alt={item.name}
+            alt={`${item.name} - 购物车商品图片 / ${item.name} - Shopping Cart Product Image`}
             fill
             className="object-contain"
           />
@@ -99,21 +102,25 @@ export const CartItem = memo(({
           <span className="text-fluid-xl text-[#595757]">{t('quantity')}</span>
           <div className="flex h-[40px] overflow-hidden rounded-[5px] border border-[#707070]">
             <motion.button
+              type="button"
               whileHover={{ scale: 1.1 }}
               whileTap={{ scale: 0.9 }}
               onClick={() => handleQuantityChange(-1)}
               disabled={item.quantity <= 1}
+              aria-label={`${t('quantity')} - ${item.name}`}
               className="cursor-target flex w-[44px] items-center justify-center bg-[#F4F4F4] text-[25px] leading-none disabled:cursor-not-allowed disabled:opacity-50"
             >
               −
             </motion.button>
-            <div className="flex w-[44px] items-center justify-center bg-white text-[18px]">
+            <div className="flex w-[44px] items-center justify-center bg-white text-[18px]" aria-label={`${item.name} ${t('quantity')}: ${item.quantity}`}>
               {item.quantity}
             </div>
             <motion.button
+              type="button"
               whileHover={{ scale: 1.1 }}
               whileTap={{ scale: 0.9 }}
               onClick={() => handleQuantityChange(1)}
+              aria-label={`${t('quantity')} + ${item.name}`}
               className="cursor-target flex w-[44px] items-center justify-center bg-[#F4F4F4] text-[25px] leading-none"
             >
               +
@@ -129,11 +136,12 @@ export const CartItem = memo(({
 
         {/* 删除按钮 */}
         <motion.button
+          type="button"
           whileHover={{ scale: 1.1 }}
           whileTap={{ scale: 0.9 }}
           onClick={() => onRemove(item.id)}
           className="cursor-target size-[24px] cursor-pointer"
-          aria-label={t('delete')}
+          aria-label={`${t('delete')} ${item.name}`}
         >
           <Trash2 className="size-full text-[#707070] transition-colors hover:text-red-500" />
         </motion.button>
@@ -151,19 +159,23 @@ export const CartItem = memo(({
           {/* 数量调整器 */}
           <div className="ml-4 flex h-[20px] overflow-hidden rounded-[5px] border border-[#707070]">
             <motion.button
+              type="button"
               whileTap={{ scale: 0.9 }}
               onClick={() => handleQuantityChange(-1)}
               disabled={item.quantity <= 1}
+              aria-label={`${t('quantity')} - ${item.name}`}
               className="flex w-[20px] items-center justify-center bg-[#F4F4F4] text-[12px] leading-none disabled:opacity-50"
             >
               −
             </motion.button>
-            <div className="flex w-[20px] items-center justify-center bg-white text-[12px]">
+            <div className="flex w-[20px] items-center justify-center bg-white text-[12px]" aria-label={`${item.name} ${t('quantity')}: ${item.quantity}`}>
               {item.quantity}
             </div>
             <motion.button
+              type="button"
               whileTap={{ scale: 0.9 }}
               onClick={() => handleQuantityChange(1)}
+              aria-label={`${t('quantity')} + ${item.name}`}
               className="flex w-[20px] items-center justify-center bg-[#F4F4F4] text-[12px] leading-none"
             >
               +
@@ -173,10 +185,11 @@ export const CartItem = memo(({
 
         {/* 删除按钮（Mobile） */}
         <motion.button
+          type="button"
           whileTap={{ scale: 0.9 }}
           onClick={() => onRemove(item.id)}
           className="size-[18px]"
-          aria-label={t('delete')}
+          aria-label={`${t('delete')} ${item.name}`}
         >
           <Trash2 className="size-full text-[#707070]" />
         </motion.button>

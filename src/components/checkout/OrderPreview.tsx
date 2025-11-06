@@ -32,24 +32,25 @@ export function OrderPreview({
   const total = subtotal - discountAmount;
 
   return (
-    <motion.div
+    <motion.section
       initial={{ opacity: 0, x: -30 }}
       animate={{ opacity: 1, x: 0 }}
       transition={{ duration: 0.6 }}
       className="rounded-xl bg-white px-4 py-4 shadow-[0px_3px_20px_1px_rgba(0,0,0,0.16)] md:rounded-2xl"
       onClick={() => setShowQrCode(false)}
+      aria-labelledby="order-preview-title"
     >
       {/* 标题 */}
-      <div className="px-4 pt-5 md:px-6 md:pt-7 lg:px-8 lg:pt-8">
-        <h4 className="mb-3 text-xl font-medium text-[#333] md:mb-4 md:text-2xl lg:mb-5 lg:text-3xl">
+      <header className="px-4 pt-5 md:px-6 md:pt-7 lg:px-8 lg:pt-8">
+        <h2 id="order-preview-title" className="mb-3 text-xl font-medium text-[#333] md:mb-4 md:text-2xl lg:mb-5 lg:text-3xl">
           {t('order_preview')}
-        </h4>
-      </div>
+        </h2>
+      </header>
 
       {/* 商品列表 */}
-      <div className="px-4 md:px-6 lg:px-8">
+      <ul className="px-4 md:px-6 lg:px-8">
         {(showMore ? items : items.slice(0, 2)).map(item => (
-          <div
+          <li
             key={item.id}
             className="mb-4 flex md:mb-6 lg:mb-8"
           >
@@ -57,7 +58,7 @@ export function OrderPreview({
             <div className="mr-3 size-[50px] flex-shrink-0 overflow-hidden rounded-xl md:mr-3.5 md:size-[70px] md:rounded-[14px] lg:mr-4 lg:size-[80px] lg:rounded-[16px]">
               <Image
                 src={item.pictureUrl}
-                alt={item.name}
+                alt={`${item.name} - 订单预览商品图片 / ${item.name} - Order Preview Product Image`}
                 width={60}
                 height={60}
                 className="size-full object-cover"
@@ -83,22 +84,28 @@ export function OrderPreview({
                 </span>
               </div>
             </div>
-          </div>
+          </li>
         ))}
 
         {/* 查看更多按钮 */}
         {items.length > 2 && (
-          <div
-            className="cursor-target mb-3 flex items-center justify-center text-base md:mb-4 md:text-lg lg:mb-5 lg:text-xl"
-            onClick={() => setShowMore(!showMore)}
-          >
-            <span>{showMore ? t('collapse') : t('view_more')}</span>
-            <ChevronDown
-              className={`ml-1 size-4 transition-transform ${showMore ? 'rotate-180' : ''}`}
-            />
-          </div>
+          <li>
+            <button
+              type="button"
+              onClick={() => setShowMore(!showMore)}
+              aria-label={showMore ? t('collapse') : t('view_more')}
+              aria-expanded={showMore}
+              className="cursor-target mb-3 flex w-full items-center justify-center text-base md:mb-4 md:text-lg lg:mb-5 lg:text-xl"
+            >
+              <span>{showMore ? t('collapse') : t('view_more')}</span>
+              <ChevronDown
+                className={`ml-1 size-4 transition-transform ${showMore ? 'rotate-180' : ''}`}
+                aria-hidden="true"
+              />
+            </button>
+          </li>
         )}
-      </div>
+      </ul>
 
       {/* 价格明细 */}
       <div className="border-t border-dashed border-[#bebcbc] px-4 pt-3 pb-5 md:px-6 md:pt-4 md:pb-6 lg:px-8 lg:pt-5 lg:pb-7">
@@ -133,7 +140,7 @@ export function OrderPreview({
                   >
                     <Image
                       src="https://website-www-brainco-cn.oss-cn-hangzhou.aliyuncs.com/images/05E2A5BB-24A5-4D85-9CE7-331E1B31D080.png"
-                      alt="Discount QR Code"
+                      alt="获取折扣码二维码 - 扫码添加客服获取更多折扣信息 / Discount Code QR Code - Scan to Add Customer Service for More Discount Information"
                       width={200}
                       height={200}
                       className="mb-3 w-[160px] lg:mb-4 lg:w-[180px]"
@@ -168,7 +175,7 @@ export function OrderPreview({
 
                       <Image
                         src="https://website-www-brainco-cn.oss-cn-hangzhou.aliyuncs.com/images/05E2A5BB-24A5-4D85-9CE7-331E1B31D080.png"
-                        alt="Discount QR Code"
+                        alt="获取折扣码二维码 - 扫码添加客服获取更多折扣信息 / Discount Code QR Code - Scan to Add Customer Service for More Discount Information"
                         width={200}
                         height={200}
                         className="mb-3 w-[160px]"
@@ -183,23 +190,25 @@ export function OrderPreview({
         )}
 
         {/* 应付总额 */}
-        <div className="mt-4 mb-4 flex items-center justify-between md:mt-8 md:mb-8">
-          <div>
-            <h5 className="text-lg text-[#333] md:text-xl lg:text-2xl">{t('final_amount')}</h5>
-            <p className="text-sm text-[#595757] md:text-[15px] lg:text-base">{t('tax_included')}</p>
+        <dl className="mt-4 mb-4 md:mt-8 md:mb-8">
+          <div className="flex items-center justify-between">
+            <div>
+              <dt className="text-lg text-[#333] md:text-xl lg:text-2xl">{t('final_amount')}</dt>
+              <dd className="text-sm text-[#595757] md:text-[15px] lg:text-base">{t('tax_included')}</dd>
+            </div>
+            <dd className="text-2xl text-[#333] lg:text-[26px]">
+              ¥
+              {total / 100}
+            </dd>
           </div>
-          <span className="text-2xl text-[#333] lg:text-[26px]">
-            ¥
-            {total / 100}
-          </span>
-        </div>
+        </dl>
 
         {/* 快递配送 */}
-        <div className="flex justify-between text-base text-[#595757] md:text-[15px] lg:text-base">
-          <span>{t('shipping_fee')}</span>
-          <span>{t('shipping_free')}</span>
-        </div>
+        <dl className="flex justify-between text-base text-[#595757] md:text-[15px] lg:text-base">
+          <dt>{t('shipping_fee')}</dt>
+          <dd>{t('shipping_free')}</dd>
+        </dl>
       </div>
-    </motion.div>
+    </motion.section>
   );
 }

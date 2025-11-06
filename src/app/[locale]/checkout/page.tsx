@@ -115,7 +115,7 @@ export default function CheckoutPage() {
   const total = subtotal - discountAmount;
 
   return (
-    <div className="flex min-h-screen flex-col bg-white">
+    <main className="flex min-h-screen flex-col bg-white">
       {/* Logo导航栏 */}
       <motion.header
         initial={{ opacity: 0, y: -20 }}
@@ -126,7 +126,7 @@ export default function CheckoutPage() {
         <div className="flex items-center gap-1 md:gap-4">
           <Image
             src="https://website-www-brainco-cn.oss-cn-hangzhou.aliyuncs.com/images/icon.webp"
-            alt="BrainCo"
+            alt="BrainCo 公司 Logo - 脑机接口技术公司 / BrainCo Company Logo - Brain-Computer Interface Technology Company"
             width={180}
             height={80}
             className="h-auto w-[100px] lg:w-[180px]"
@@ -261,6 +261,6 @@ export default function CheckoutPage() {
           </motion.div>
         )}
       </AnimatePresence>
-    </div>
+    </main>
   );
 }

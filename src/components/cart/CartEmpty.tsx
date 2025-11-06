@@ -9,13 +9,15 @@ export function CartEmpty() {
   const router = useRouter();
 
   return (
-    <motion.div
+    <motion.section
       initial={{ opacity: 0, y: 30 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.8 }}
       className="flex min-h-[60vh] flex-col items-center justify-center"
+      aria-labelledby="cart-empty-title"
     >
       <motion.h1
+        id="cart-empty-title"
         initial={{ opacity: 0, scale: 0.9 }}
         animate={{ opacity: 1, scale: 1 }}
         transition={{ duration: 0.6, delay: 0.2 }}
@@ -25,16 +27,18 @@ export function CartEmpty() {
       </motion.h1>
 
       <motion.button
+        type="button"
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6, delay: 0.4 }}
         whileHover={{ scale: 1.05 }}
         whileTap={{ scale: 0.95 }}
         onClick={() => router.push('/')}
+        aria-label={t('continue_shopping')}
         className="text-fluid-xl cursor-target h-[72px] w-[260px] rounded-[41px] bg-[rgba(0,0,0,0.16)] font-medium text-white shadow-lg transition-all hover:bg-[rgba(0,0,0,0.24)] md:h-[72px] md:w-[260px]"
       >
         {t('continue_shopping')}
       </motion.button>
-    </motion.div>
+    </motion.section>
   );
 }

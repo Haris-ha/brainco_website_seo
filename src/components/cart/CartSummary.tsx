@@ -26,12 +26,14 @@ export function CartSummary({ totalPrice, hasCheckedItems }: CartSummaryProps) {
   };
 
   return (
-    <motion.div
+    <motion.section
       initial={{ opacity: 0, y: 30 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.6, delay: 0.2 }}
       className="mt-8 pt-6 md:pt-8"
+      aria-labelledby="cart-summary-title"
     >
+      <h2 id="cart-summary-title" className="sr-only">{t('total')}</h2>
       {/* 快递配送信息 */}
       <div className="mb-4 md:mb-8">
         <div className="flex items-center justify-between md:justify-start md:gap-2">
@@ -67,10 +69,12 @@ export function CartSummary({ totalPrice, hasCheckedItems }: CartSummaryProps) {
       {/* 结算按钮 */}
       <div className="mb-8 flex justify-center md:mb-12 md:justify-end">
         <motion.button
+          type="button"
           whileHover={hasCheckedItems ? { scale: 1.05 } : {}}
           whileTap={hasCheckedItems ? { scale: 0.95 } : {}}
           onClick={handleCheckout}
           disabled={!hasCheckedItems}
+          aria-label={hasCheckedItems ? t('checkout') : `${t('checkout')} - ${t('selected_items', { count: 0 })}`}
           className={`text-fluid-xl  cursor-target h-[36px] w-[120px] rounded-[28px] font-medium text-white shadow-lg transition-all md:h-[48px] md:w-[160px] md:rounded-[32px] ${
             hasCheckedItems
               ? 'bg-[#4F68D2] hover:bg-[#3d52a8]'
@@ -91,6 +95,6 @@ export function CartSummary({ totalPrice, hasCheckedItems }: CartSummaryProps) {
           <span>{t('icp_number')}</span>
         </p>
       </div>
-    </motion.div>
+    </motion.section>
   );
 }
