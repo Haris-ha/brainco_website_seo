@@ -77,9 +77,9 @@ export default function BrainAIContentMobile() {
   ];
 
   return (
-    <div>
+    <main className="w-full bg-white">
       {/* Hero Banner */}
-      <section className="relative w-full pt-24">
+      <header className="relative w-full pt-24" role="img" aria-label="BrainAI 智能教育产品 - 移动端 / BrainAI Smart Education Product - Mobile">
         <picture>
           <source
             media="(min-width: 900px)"
@@ -91,7 +91,7 @@ export default function BrainAIContentMobile() {
           />
           <img
             src="https://website-www-brainco-cn.oss-cn-hangzhou.aliyuncs.com/images/WAtmJrHn95X8Dd5x.webp"
-            alt="BrainAI Banner"
+            alt="BrainAI 智能教育产品横幅背景 / BrainAI Smart Education Product Banner"
             className="w-full"
           />
         </picture>
@@ -104,22 +104,22 @@ export default function BrainAIContentMobile() {
               WebkitBackdropFilter: 'blur(6px)',
             }}
           >
-            <motion.h5
+            <motion.h1
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6 }}
               className="text-fluid-4xl mb-2 text-left font-normal drop-shadow-lg"
             >
               {t('hero_title')}
-            </motion.h5>
-            <motion.h4
+            </motion.h1>
+            <motion.p
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.2 }}
               className="text-fluid-3xl mb-2 text-left font-normal drop-shadow-lg"
             >
               {t('hero_subtitle')}
-            </motion.h4>
+            </motion.p>
             <motion.p
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
@@ -130,10 +130,11 @@ export default function BrainAIContentMobile() {
             </motion.p>
           </div>
         </div>
-      </section>
+      </header>
 
       {/* Video Section */}
-      <div
+      <section
+        aria-label="产品介绍视频 / Product Introduction Video"
         className="relative mt-[10px]"
         onClick={handleVideoClick}
         onKeyDown={(e) => {
@@ -142,9 +143,6 @@ export default function BrainAIContentMobile() {
             handleVideoClick();
           }
         }}
-        role="button"
-        tabIndex={0}
-        aria-label={isPlaying ? '暂停视频' : '播放视频'}
       >
         <video
           ref={videoRef}
@@ -169,8 +167,8 @@ export default function BrainAIContentMobile() {
             exit={{ opacity: 0 }}
             className="pointer-events-none absolute top-0 left-0 flex h-full w-full flex-col items-center justify-center text-white"
           >
-            <h4 className="text-fluid-xl">{t('video_title')}</h4>
-            <h4 className="text-fluid-xl">{t('video_subtitle')}</h4>
+            <h2 className="text-fluid-xl">{t('video_title')}</h2>
+            <p className="text-fluid-xl">{t('video_subtitle')}</p>
             <motion.button
               type="button"
               whileTap={{ scale: 0.95 }}
@@ -205,11 +203,11 @@ export default function BrainAIContentMobile() {
             </div>
           </div>
         )}
-      </div>
+      </section>
 
       {/* Three Core Sections */}
       <section className="mt-[36px] flex flex-wrap px-[15px]">
-        <h2 className="text-fluid-2xl mb-[25px] w-full text-center font-normal">
+        <h2 id="core-sections-title-mobile" className="text-fluid-2xl mb-[25px] w-full text-center font-normal">
           {t('sections_title')}
         </h2>
 
@@ -230,9 +228,9 @@ export default function BrainAIContentMobile() {
               height={20}
             />
           </div>
-          <h5 className="text-fluid-2xl my-[15px] pl-[10px] font-normal">
+          <h3 className="text-fluid-2xl my-[15px] pl-[10px] font-normal">
             {t('section1_title')}
-          </h5>
+          </h3>
           <p className="text-fluid-base mb-2 leading-relaxed">{t('section1_desc1')}</p>
           <p className="text-fluid-base mb-2 leading-relaxed">{t('section1_desc2')}</p>
           <p className="text-fluid-base mb-2 leading-relaxed">{t('section1_desc3')}</p>
@@ -256,9 +254,9 @@ export default function BrainAIContentMobile() {
               height={26}
             />
           </div>
-          <h5 className="text-fluid-2xl my-[15px] pl-[10px] font-normal">
+          <h3 className="text-fluid-2xl my-[15px] pl-[10px] font-normal">
             {t('section2_title')}
-          </h5>
+          </h3>
           <p className="text-fluid-base mb-2 leading-relaxed">{t('section2_desc1')}</p>
           <p className="text-fluid-base mb-2 leading-relaxed">{t('section2_desc2')}</p>
           <p className="text-fluid-base mb-2 leading-relaxed">{t('section2_desc3')}</p>
@@ -282,9 +280,9 @@ export default function BrainAIContentMobile() {
               height={26}
             />
           </div>
-          <h5 className="text-fluid-2xl my-[15px] pl-[10px] font-normal">
+          <h3 className="text-fluid-2xl my-[15px] pl-[10px] font-normal">
             {t('section3_title')}
-          </h5>
+          </h3>
           <p className="text-fluid-base mb-2 leading-relaxed">{t('section3_desc1')}</p>
           <p className="text-fluid-base leading-relaxed">{t('section3_desc2')}</p>
         </motion.div>
@@ -292,7 +290,7 @@ export default function BrainAIContentMobile() {
 
       {/* Course Scheme Section */}
       <section className="mt-[50px]">
-        <h2 className="text-fluid-2xl mb-[25px] text-center font-normal">
+        <h2 id="course-scheme-title-mobile" className="text-fluid-2xl mb-[25px] text-center font-normal">
           {t('scheme_title')}
         </h2>
 
@@ -345,7 +343,7 @@ export default function BrainAIContentMobile() {
 
       {/* Leadership Camp Section */}
       <section className="mt-[46px]">
-        <h2 className="text-fluid-3xl mb-4 text-center font-normal">
+        <h2 id="leader-title-mobile" className="text-fluid-3xl mb-4 text-center font-normal">
           {t('leader_title')}
         </h2>
         <p className="text-fluid-base mx-auto mb-5 mb-10 px-20 text-center">
@@ -363,7 +361,7 @@ export default function BrainAIContentMobile() {
             <SwiperSlide key={img}>
               <Image
                 src={img}
-                alt="BrainAI Leadership camp"
+                alt="BrainAI 领袖训练营活动场景 / BrainAI Leadership Camp Activities"
                 width={365}
                 height={280}
                 className="w-full"
@@ -375,7 +373,7 @@ export default function BrainAIContentMobile() {
 
       {/* Challenge Section */}
       <section className="mt-[50px] mb-[50px]">
-        <h2 className="text-fluid-3xl mb-6 text-center font-normal">
+        <h2 id="challenge-title-mobile" className="text-fluid-3xl mb-6 text-center font-normal">
           {t('challenge_title')}
         </h2>
 
@@ -393,13 +391,13 @@ export default function BrainAIContentMobile() {
               />
               <img
                 src="https://website-www-brainco-cn.oss-cn-hangzhou.aliyuncs.com/images/EB7JwADDOhaAVyMB.webp"
-                alt="Mars Rescue"
+                alt="火星救援挑战项目 / Mars Rescue Challenge Project"
                 className="w-full"
               />
             </picture>
-            <h4 className="text-fluid-2xl my-[18px] text-center font-normal">
+            <h3 className="text-fluid-2xl my-[18px] text-center font-normal">
               {t('challenge1_title')}
-            </h4>
+            </h3>
             <p className="text-fluid-lg mt-[10px] leading-relaxed">
               {t('challenge1_desc1')}
             </p>
@@ -421,13 +419,13 @@ export default function BrainAIContentMobile() {
               />
               <img
                 src="https://website-www-brainco-cn.oss-cn-hangzhou.aliyuncs.com/images/MnMfBWQKQqjqRUBm.webp"
-                alt="Future City"
+                alt="未来城市挑战项目 / Future City Challenge Project"
                 className="w-full"
               />
             </picture>
-            <h4 className="text-fluid-2xl my-[18px] text-center font-normal">
+            <h3 className="text-fluid-2xl my-[18px] text-center font-normal">
               {t('challenge2_title')}
-            </h4>
+            </h3>
             <p className="text-fluid-lg mt-[10px] leading-relaxed">
               {t('challenge2_desc1')}
             </p>
@@ -440,6 +438,6 @@ export default function BrainAIContentMobile() {
           </div>
         </div>
       </section>
-    </div>
+    </main>
   );
 }

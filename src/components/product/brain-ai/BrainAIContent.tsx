@@ -77,9 +77,9 @@ export default function BrainAIContent() {
   ];
 
   return (
-    <div>
+    <main>
       {/* Hero Banner */}
-      <section className="relative flex items-end justify-end">
+      <header className="relative flex items-end justify-end">
         <picture>
           <source
             media="(min-width: 900px)"
@@ -91,7 +91,7 @@ export default function BrainAIContent() {
           />
           <img
             src="https://website-www-brainco-cn.oss-cn-hangzhou.aliyuncs.com/images/YPGiDMpdC7RZb8kN.webp"
-            alt="BrainAI Banner"
+            alt="BrainAI 智能教育产品横幅背景 / BrainAI Smart Education Product Banner"
             className="w-full"
           />
         </picture>
@@ -130,7 +130,7 @@ export default function BrainAIContent() {
             </motion.p>
           </div>
         </div>
-      </section>
+      </header>
 
       {/* Video Section */}
       <div
@@ -144,7 +144,7 @@ export default function BrainAIContent() {
         }}
         role="button"
         tabIndex={0}
-        aria-label={isPlaying ? '暂停视频' : '播放视频'}
+        aria-label={isPlaying ? t('video_pause_aria') : t('video_play')}
       >
         <video
           ref={videoRef}
@@ -186,11 +186,11 @@ export default function BrainAIContent() {
               className="pointer-events-auto mt-[32px] flex h-[78px] w-[206px] cursor-pointer items-center justify-center rounded-[39px] border border-white text-white transition-all hover:scale-105"
             >
               <span className="text-fluid-xl">
-                {isPlaying ? '暂停' : t('video_button')}
+                {isPlaying ? t('video_pause') : t('video_button')}
               </span>
               <Image
                 src="https://website-www-brainco-cn.oss-cn-hangzhou.aliyuncs.com/images/FE534C95-5853-44D5-ABDB-13596C84DA5A.png"
-                alt={isPlaying ? 'Pause' : 'Play'}
+                alt={isPlaying ? `${t('video_pause')} / Pause` : `${t('video_button')} / Play`}
                 width={22}
                 height={22}
                 className="ml-5"
@@ -230,7 +230,7 @@ export default function BrainAIContent() {
             <div className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-white px-5">
               <Image
                 src="https://website-www-brainco-cn.oss-cn-hangzhou.aliyuncs.com/images/K6DRed4HiSAPG3jX.webp"
-                alt="Icon 1"
+                alt="脑科学人工智能进校方案图标 / Neuroscience & AI School Program Icon"
                 width={40}
                 height={40}
               />
@@ -258,7 +258,7 @@ export default function BrainAIContent() {
             <div className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-white px-5">
               <Image
                 src="https://website-www-brainco-cn.oss-cn-hangzhou.aliyuncs.com/images/j4cts2sYGTmph83W.webp"
-                alt="Icon 2"
+                alt="BrainAI科技领袖营图标 / BrainAI Tech Leadership Camp Icon"
                 width={40}
                 height={40}
               />
@@ -286,7 +286,7 @@ export default function BrainAIContent() {
             <div className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-white px-5">
               <Image
                 src="https://website-www-brainco-cn.oss-cn-hangzhou.aliyuncs.com/images/NZPz4zQrGBw5DieD.webp"
-                alt="Icon 3"
+                alt="NeuroMaster挑战赛图标 / NeuroMaster Challenge Icon"
                 width={40}
                 height={40}
               />
@@ -398,7 +398,7 @@ export default function BrainAIContent() {
               <SwiperSlide key={img}>
                 <Image
                   src={img}
-                  alt="BrainAI Leadership camp"
+                  alt="BrainAI 领袖训练营活动场景 / BrainAI Leadership Camp Activities"
                   width={1200}
                   height={700}
                   className="w-full rounded-2xl"
@@ -441,7 +441,7 @@ export default function BrainAIContent() {
                 />
                 <img
                   src="https://website-www-brainco-cn.oss-cn-hangzhou.aliyuncs.com/images/xhz6h3sT0CWdTkGE.webp"
-                  alt="Mars Rescue"
+                  alt="火星救援挑战项目 / Mars Rescue Challenge Project"
                   className="w-full"
                 />
               </picture>
@@ -490,7 +490,7 @@ export default function BrainAIContent() {
                 />
                 <img
                   src="https://website-www-brainco-cn.oss-cn-hangzhou.aliyuncs.com/images/R7bc6npQRwi3RC0t.webp"
-                  alt="Future City"
+                  alt="未来城市挑战项目 / Future City Challenge Project"
                   className="w-full"
                 />
               </picture>
@@ -524,6 +524,6 @@ export default function BrainAIContent() {
           </div>
         </div>
       </section>
-    </div>
+    </main>
   );
 }
