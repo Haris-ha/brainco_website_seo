@@ -406,3 +406,13 @@ select {
 .animate-zoom-in {
   animation: zoom-in 0.6s ease-out;
 }
+
+/* 全局隐藏 TargetCursor 组件 - 如需恢复，请注释或删除以下规则 */
+.target-cursor-wrapper {
+  display: none !important;
+}
+
+/* 恢复默认鼠标光标 - 覆盖 TargetCursor 组件设置的 cursor: none */
+body {
+  cursor: auto !important;
+}

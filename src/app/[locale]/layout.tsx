@@ -4,7 +4,8 @@ import { setRequestLocale } from 'next-intl/server';
 import { notFound } from 'next/navigation';
 import { Toaster } from 'react-hot-toast';
 import PublisherMeta from '@/components/seo/PublisherMeta';
-import TargetCursor from '@/components/ui/TargetCursor/TargetCursor';
+// TargetCursor 已暂时禁用 - 如需恢复，请取消下面注释并取消下方使用位置的注释
+// import TargetCursor from '@/components/ui/TargetCursor/TargetCursor';
 import { getPublisher } from '@/lib/seo';
 import { routing } from '@/libs/I18nRouting';
 import '@/styles/global.css';
@@ -57,10 +58,10 @@ export default async function RootLayout(props: {
     <html lang={locale}>
       <PublisherMeta publisher={publisher} />
       <body>
-        {/* TargetCursor 仅在桌面端显示 */}
-        <div className="hidden md:block">
+        {/* TargetCursor 仅在桌面端显示 - 已全局隐藏，如需恢复请取消注释 */}
+        {/* <div className="hidden md:block">
           <TargetCursor spinDuration={3} hideDefaultCursor />
-        </div>
+        </div> */}
         {/* 全局 Toast 通知 */}
         <Toaster
           position="top-center"
