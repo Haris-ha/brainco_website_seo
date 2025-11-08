@@ -90,7 +90,7 @@ export function StepPaymentMethod({
                 onClick={() => setPaymentMethod(method.value)}
                 aria-pressed={paymentMethod === method.value}
                 aria-label={`${t('payment_method')} - ${method.name}`}
-                className={`cursor-target w-full flex h-[60px] items-center justify-center rounded-[30px] border-2 text-lg transition-colors md:h-[75px] md:rounded-[37px] md:border-[3px] md:text-xl lg:h-[90px] lg:rounded-[45px] lg:border-[4px] lg:text-[24px] ${
+                className={`cursor-target flex h-[60px] w-full items-center justify-center rounded-[30px] border-2 text-lg transition-colors md:h-[75px] md:rounded-[37px] md:border-[3px] md:text-xl lg:h-[90px] lg:rounded-[45px] lg:border-[4px] lg:text-[24px] ${
                   paymentMethod === method.value
                     ? 'border-[#333] bg-[#333] text-white'
                     : 'border-[#333] bg-white text-[#333]'

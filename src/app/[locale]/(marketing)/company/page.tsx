@@ -1,9 +1,9 @@
 import type { Metadata } from 'next';
-import { createPageMetadata } from '@/lib/metadata';
 import { getTranslations, setRequestLocale } from 'next-intl/server';
-import { getPageSEOForStructuredData } from '@/lib/seo';
-import StructuredData from '@/components/seo/StructuredData';
 import DynamicCanonical from '@/components/seo/DynamicCanonical';
+import StructuredData from '@/components/seo/StructuredData';
+import { createPageMetadata } from '@/lib/metadata';
+import { getPageSEOForStructuredData } from '@/lib/seo';
 
 type CompanyPageProps = {
   params: Promise<{ locale: string }>;
@@ -13,7 +13,7 @@ export async function generateMetadata(props: {
   params: Promise<{ locale: string }>;
 }): Promise<Metadata> {
   const params = await props.params;
-  
+
   return createPageMetadata(params, 'company', {
     title: '公司介绍 - BrainCo',
     description: 'BrainCo 公司介绍，了解我们的愿景和使命',
@@ -36,7 +36,7 @@ export default async function CompanyPage(props: CompanyPageProps) {
       {/* 添加结构化数据 - 直接从 CMS 获取 */}
       <DynamicCanonical canonicalURL={seoData?.canonicalURL} locale={locale} pagePath="/company" />
       <StructuredData seoData={seoData} />
-      
+
       <div className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8">
         <div className="text-center">
           <h1 className="text-4xl font-bold tracking-tight text-gray-900 sm:text-5xl">

@@ -1181,6 +1181,15 @@
     "video_course": "Social Communication Video Demonstration Course",
     "video_course_desc": "Master social communication skills, promote social skill development"
   },
+  "DiscountBanner": {
+    "banner_label": "First Purchase Gift Banner",
+    "click_to_claim": "Click to Claim",
+    "first_purchase_gift": "First Purchase Gift",
+    "offer_description": "Enjoy exclusive new customer offer, limited to one time, valid within 24 hours",
+    "qr_code_title": "Customer Service QR Code",
+    "customer_service_qr_code": "Customer Service QR Code - Scan to add customer service and get first purchase gift",
+    "scan_qr_message": "Scan QR code to add customer service and get first purchase gift"
+  },
   "Technology": {
     "page_title": "Brain-Computer Interface Technology",
     "page_intro": "BrainCo is driven by cutting-edge technology and research-oriented innovation, backed by a leading team of scientists, over 70% of whom are outstanding alumni from world-class institutions such as Harvard, MIT, Tsinghua, and Peking University. The company currently holds over 200 core invention patents in the brain-computer interface field, positioning it at the forefront globally. BrainCo has successfully overcome the challenge of large-scale, precise EEG signal acquisition. Its independently developed solid gel electrodes have achieved mass production, significantly enhancing signal accuracy and stability. Building on this foundation, the company has established a comprehensive technology chain covering EEG and neural signal acquisition, analysis, and real-time feedback, achieving breakthroughs from laboratory research to industrial applications, with widespread use in rehabilitation, healthcare, human-computer interaction, and embodied intelligence.",

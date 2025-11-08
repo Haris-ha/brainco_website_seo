@@ -123,16 +123,16 @@ export async function generateMetadata(props: {
  * 检查文件是否已有 SEO 配置
  */
 function hasSEOConfig(content) {
-  return content.includes('createPageMetadata') ||
-         content.includes('generateSEOMetadata');
+  return content.includes('createPageMetadata')
+    || content.includes('generateSEOMetadata');
 }
 
 /**
  * 检查文件是否已导入必要的模块
  */
 function hasImports(content) {
-  return content.includes('createPageMetadata') || 
-         content.includes("from '@/lib/metadata'");
+  return content.includes('createPageMetadata')
+    || content.includes('from \'@/lib/metadata\'');
 }
 
 /**
@@ -140,25 +140,25 @@ function hasImports(content) {
  */
 function addImports(content) {
   // 如果已经有 Metadata 导入，只添加 createPageMetadata
-  if (content.includes("import type { Metadata }")) {
+  if (content.includes('import type { Metadata }')) {
     if (!content.includes('createPageMetadata')) {
       content = content.replace(
-        "import type { Metadata } from 'next';",
-        "import type { Metadata } from 'next';\nimport { createPageMetadata } from '@/lib/metadata';"
+        'import type { Metadata } from \'next\';',
+        'import type { Metadata } from \'next\';\nimport { createPageMetadata } from \'@/lib/metadata\';',
       );
     }
   } else {
     // 添加所有必要的导入
-    const imports = "import type { Metadata } from 'next';\nimport { createPageMetadata } from '@/lib/metadata';\n";
+    const imports = 'import type { Metadata } from \'next\';\nimport { createPageMetadata } from \'@/lib/metadata\';\n';
     // 在第一个 import 之前插入
     if (content.includes('import ')) {
       content = imports + content;
     } else {
       // 如果没有任何 import，在文件开头插入
-      content = imports + '\n' + content;
+      content = `${imports}\n${content}`;
     }
   }
-  
+
   return content;
 }
 
@@ -168,27 +168,27 @@ function addImports(content) {
 function addSEOToPage(filePath, segment, config) {
   try {
     let content = fs.readFileSync(filePath, 'utf-8');
-    
+
     // 检查是否已有配置
     if (hasSEOConfig(content)) {
       console.log(`  ⏭️  跳过（已配置）: ${path.basename(path.dirname(filePath))}`);
       return false;
     }
-    
+
     // 添加导入
     if (!hasImports(content)) {
       content = addImports(content);
     }
-    
+
     // 生成新的 metadata 函数代码
     const newMetadataCode = generateMetadataCode(segment, config);
-    
+
     // 检查是否已经有 generateMetadata 函数
     if (content.includes('export async function generateMetadata')) {
       // 替换现有的 generateMetadata 函数
       // 使用正则表达式匹配整个函数
-      const metadataRegex = /export async function generateMetadata\([^)]*\)[^{]*\{[^]*?\n\}/m;
-      
+      const metadataRegex = /export async function generateMetadata\([^)]*\)[^{]*\{[\s\S]*?\n\}/;
+
       if (metadataRegex.test(content)) {
         content = content.replace(metadataRegex, newMetadataCode.trim());
         console.log(`  ✅ 已替换: ${path.basename(path.dirname(filePath))}`);
@@ -201,7 +201,7 @@ function addSEOToPage(filePath, segment, config) {
       if (content.includes('export default')) {
         content = content.replace(
           /export default/,
-          `${newMetadataCode}\nexport default`
+          `${newMetadataCode}\nexport default`,
         );
         console.log(`  ✅ 已添加: ${path.basename(path.dirname(filePath))}`);
       } else {
@@ -210,11 +210,10 @@ function addSEOToPage(filePath, segment, config) {
         console.log(`  ✅ 已添加: ${path.basename(path.dirname(filePath))}`);
       }
     }
-    
+
     // 写回文件
     fs.writeFileSync(filePath, content, 'utf-8');
     return true;
-    
   } catch (error) {
     console.error(`  ❌ 错误: ${filePath}`, error.message);
     return false;
@@ -226,17 +225,17 @@ function addSEOToPage(filePath, segment, config) {
  */
 function findPagesToUpdate() {
   const pages = [];
-  
+
   Object.entries(SEO_CONFIGS).forEach(([pagePath, config]) => {
-    const segment = Object.keys(SEGMENT_MAP).find(key => 
-      SEGMENT_MAP[key] && pagePath.endsWith(SEGMENT_MAP[key]) ||
-      pagePath === `/${SEGMENT_MAP[key]}`
+    const segment = Object.keys(SEGMENT_MAP).find(key =>
+      SEGMENT_MAP[key] && pagePath.endsWith(SEGMENT_MAP[key])
+      || pagePath === `/${SEGMENT_MAP[key]}`,
     );
-    
+
     if (segment) {
       // 根据 segment 查找文件路径
       let filePath;
-      
+
       if (pagePath.startsWith('/education/')) {
         filePath = path.join(projectRoot, 'src/app/[locale]/(marketing)/education', segment, 'page.tsx');
       } else if (pagePath.startsWith('/health/')) {
@@ -254,13 +253,13 @@ function findPagesToUpdate() {
       } else {
         filePath = path.join(projectRoot, 'src/app/[locale]/(marketing)', segment, 'page.tsx');
       }
-      
+
       if (fs.existsSync(filePath)) {
         pages.push({ filePath, segment, config, pagePath });
       }
     }
   });
-  
+
   return pages;
 }
 
@@ -268,18 +267,18 @@ function findPagesToUpdate() {
  * 主函数
  */
 function main() {
-  console.log('\n' + '='.repeat(60));
+  console.log(`\n${'='.repeat(60)}`);
   console.log('  批量添加 SEO 配置');
-  console.log('='.repeat(60) + '\n');
-  
+  console.log(`${'='.repeat(60)}\n`);
+
   const pages = findPagesToUpdate();
-  
+
   console.log(`找到 ${pages.length} 个页面需要处理\n`);
-  
+
   let updated = 0;
   let skipped = 0;
   let errors = 0;
-  
+
   pages.forEach(({ filePath, segment, config }) => {
     const result = addSEOToPage(filePath, segment, config);
     if (result) {
@@ -290,15 +289,15 @@ function main() {
       errors++;
     }
   });
-  
-  console.log('\n' + '='.repeat(60));
+
+  console.log(`\n${'='.repeat(60)}`);
   console.log('统计信息:');
   console.log(`  ✅ 成功添加: ${updated}`);
   console.log(`  ⏭️  跳过: ${skipped}`);
   console.log(`  ❌ 错误: ${errors}`);
   console.log(`  📊 总计: ${pages.length}`);
-  console.log('='.repeat(60) + '\n');
-  
+  console.log(`${'='.repeat(60)}\n`);
+
   if (updated > 0) {
     console.log('💡 下一步:');
     console.log('   1. 运行 npm run dev 查看效果');
@@ -308,4 +307,3 @@ function main() {
 }
 
 main();
-

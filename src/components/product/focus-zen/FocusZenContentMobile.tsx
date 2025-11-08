@@ -802,12 +802,12 @@ export default function FocusZenContentMobile() {
         >
           <div className="flex items-center justify-between">
             <div className="ml-4 flex items-baseline">
-              <span className="text-fluid-2xl font-medium text-gray-900">
+              <span className="text-fluid-3xl font-medium text-gray-900">
                 ¥
                 {product.price / 100}
               </span>
               {product.oldPrice && (
-                <span className="text-fluid-base ml-1 text-gray-600 line-through">
+                <span className="text-fluid-xl ml-1 text-gray-600 line-through">
                   ¥
                   {product.oldPrice / 100}
                 </span>

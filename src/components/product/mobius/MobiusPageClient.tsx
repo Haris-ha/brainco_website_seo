@@ -40,5 +40,3 @@ export default function MobiusPageClient() {
 
   return isMobile ? <MobiusContentMobile /> : <MobiusContent />;
 }
-
-

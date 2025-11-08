@@ -1,10 +1,10 @@
 import type { Metadata } from 'next';
+import { setRequestLocale } from 'next-intl/server';
+import DynamicCanonical from '@/components/seo/DynamicCanonical';
+import StructuredData from '@/components/seo/StructuredData';
 import TechnologyPageClient from '@/components/technology/TechnologyPageClient';
 import { createPageMetadata } from '@/lib/metadata';
-import { setRequestLocale } from 'next-intl/server';
 import { getPageSEOForStructuredData } from '@/lib/seo';
-import StructuredData from '@/components/seo/StructuredData';
-import DynamicCanonical from '@/components/seo/DynamicCanonical';
 
 export async function generateMetadata(props: {
   params: Promise<{ locale: string }>;
@@ -31,7 +31,7 @@ export default async function TechnologyPage(props: {
       {/* 添加结构化数据 - 直接从 CMS 获取 */}
       <DynamicCanonical canonicalURL={seoData?.canonicalURL} locale={locale} pagePath="/technology" />
       <StructuredData seoData={seoData} />
-      
+
       <main className="min-h-screen">
         <TechnologyPageClient />
       </main>

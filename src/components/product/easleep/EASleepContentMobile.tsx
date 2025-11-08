@@ -723,15 +723,15 @@ export default function EASleepContentMobile() {
       >
         <div className="flex items-center justify-between">
           <div className="ml-4 flex items-baseline">
-            <span className="text-fluid-2xl font-medium text-gray-900">¥2499</span>
-            <span className="text-fluid-base ml-1 text-gray-600">{t('hero_price_from')}</span>
+            <span className="text-fluid-3xl font-medium text-gray-900">¥2499</span>
+            <span className="text-fluid-xl ml-1 text-gray-600">{t('hero_price_from')}</span>
           </div>
           <motion.button
             type="button"
             whileHover={{ scale: 1.02 }}
             whileTap={{ scale: 0.98 }}
             onClick={handlePurchase}
-            className="text-fluid-base h-[36px] w-[120px] cursor-pointer rounded-[22px] bg-[#4f68d2] font-medium text-white transition-all"
+            className="text-fluid-lg h-[40px] w-[120px] cursor-pointer rounded-[22px] bg-[#4f68d2] font-medium text-white transition-all"
             aria-label={`${t('hero_buy_button')} - EASleep 智能助眠设备 / ${t('hero_buy_button')} - EASleep Smart Sleep Aid Device`}
           >
             {t('hero_buy_button')}

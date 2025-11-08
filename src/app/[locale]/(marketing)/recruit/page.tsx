@@ -1,16 +1,16 @@
 import type { Metadata } from 'next';
-import { createPageMetadata } from '@/lib/metadata';
 import { setRequestLocale } from 'next-intl/server';
-import { getPageSEOForStructuredData } from '@/lib/seo';
-import StructuredData from '@/components/seo/StructuredData';
-import DynamicCanonical from '@/components/seo/DynamicCanonical';
 import RecruitPageClient from '@/components/recruit/RecruitPageClient';
+import DynamicCanonical from '@/components/seo/DynamicCanonical';
+import StructuredData from '@/components/seo/StructuredData';
+import { createPageMetadata } from '@/lib/metadata';
+import { getPageSEOForStructuredData } from '@/lib/seo';
 
 export async function generateMetadata(props: {
   params: Promise<{ locale: string }>;
 }): Promise<Metadata> {
   const params = await props.params;
-  
+
   return createPageMetadata(params, 'recruit', {
     title: '人才招聘 - BrainCo',
     description: 'BrainCo 诚聘英才，期待你的加入',

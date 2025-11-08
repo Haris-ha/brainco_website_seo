@@ -9,22 +9,22 @@ export type OrderStatus = 'WAITING' | 'PAID' | 'SHIPPED' | 'CLOSED';
 export type RefundStatus = 0 | 1 | 2 | 3 | 4;
 
 // 轻凌订单状态类型
-export type MobiusOrderStatus =
-  | 'WORK_INJURY_CERTIFICATES_UPLOADED'
-  | 'WORK_INJURY_CERTIFICATES_REVIEWED'
-  | 'DEPOSIT_PAYING'
-  | 'PAYMENT_PAYING'
-  | 'ASSEMBLE_PAYING';
+export type MobiusOrderStatus
+  = | 'WORK_INJURY_CERTIFICATES_UPLOADED'
+    | 'WORK_INJURY_CERTIFICATES_REVIEWED'
+    | 'DEPOSIT_PAYING'
+    | 'PAYMENT_PAYING'
+    | 'ASSEMBLE_PAYING';
 
 // 支付方式类型
-export type PaymentType =
-  | 'WECHAT_PAY_NATIVE'
-  | 'WECHAT_PAY_JSAPI'
-  | 'WECHAT_PAY_H5'
-  | 'ALIPAY';
+export type PaymentType
+  = | 'WECHAT_PAY_NATIVE'
+    | 'WECHAT_PAY_JSAPI'
+    | 'WECHAT_PAY_H5'
+    | 'ALIPAY';
 
 // 订单商品项
-export interface OrderItem {
+export type OrderItem = {
   productId: string;
   productName: string;
   productPictureUrl: string;
@@ -34,25 +34,25 @@ export interface OrderItem {
     code: string;
   };
   contactUrl?: string; // VIP服务二维码URL
-}
+};
 
 // 物流信息项
-export interface LogisticsItem {
+export type LogisticsItem = {
   productId: string;
   quantity: number;
-}
+};
 
 // 物流信息
-export interface Logistics {
+export type Logistics = {
   courierNumber: string; // 快递单号
   sendDate: string; // 发货时间
   courierFee?: number;
   orderId: string;
   items: LogisticsItem[];
-}
+};
 
 // 订单基本信息
-export interface Order {
+export type Order = {
   no: string; // 订单号
   productPictureUrl: string;
   productName: string;
@@ -76,23 +76,22 @@ export interface Order {
   payType?: PaymentType; // 支付方式
   bothLeg?: boolean; // 轻凌订单：是否双腿
   difference?: number; // 轻凌订单：待支付金额差额
-}
+};
 
 // 订单列表响应
-export interface OrderListResponse {
+export type OrderListResponse = {
   list: Order[];
   total: number;
-}
+};
 
 // 登录请求
-export interface LoginRequest {
+export type LoginRequest = {
   contact: string; // 手机号
   code: string; // 验证码
-}
+};
 
 // 验证码发送请求
-export interface CaptchaRequest {
+export type CaptchaRequest = {
   login: string; // 手机号
   channel: number; // 渠道，订单查询为 7
-}
-
+};

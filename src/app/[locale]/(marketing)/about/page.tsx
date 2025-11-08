@@ -1,8 +1,8 @@
 import type { Metadata } from 'next';
 import { getTranslations, setRequestLocale } from 'next-intl/server';
 import AboutPageClient from '@/components/company/AboutPageClient';
-import StructuredData from '@/components/seo/StructuredData';
 import DynamicCanonical from '@/components/seo/DynamicCanonical';
+import StructuredData from '@/components/seo/StructuredData';
 import { generateSEOMetadata } from '@/lib/metadata';
 import { getPageSEOForStructuredData } from '@/lib/seo';
 

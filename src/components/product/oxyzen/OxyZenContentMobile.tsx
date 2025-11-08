@@ -454,12 +454,12 @@ export default function OxyZenContentMobile({ productInfo }: OxyZenContentMobile
         >
           <div className="flex items-center justify-between">
             <div className="ml-4 flex items-baseline">
-              <span className="text-fluid-2xl font-medium text-gray-900">
+              <span className="text-fluid-3xl font-medium text-gray-900">
                 ¥
                 {productInfo.price / 100}
               </span>
               {productInfo.oldPrice && (
-                <span className="text-fluid-base ml-1 text-gray-600 line-through">
+                <span className="text-fluid-xl ml-1 text-gray-600 line-through">
                   ¥
                   {productInfo.oldPrice / 100}
                 </span>

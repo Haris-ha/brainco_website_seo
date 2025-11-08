@@ -82,22 +82,22 @@ export default function Revo2ContentMobile() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.4, duration: 0.8 }}
         >
-            <Link
-              href="/contact#contact"
-              className="flex h-[38px] w-[112px] items-center justify-center rounded-[20px] bg-[#1a74bf] !text-white"
-              aria-label={`${t('contact_us')} - Revo2 智能灵巧手 / ${t('contact_us')} - Revo2 Intelligent Dexterous Hand`}
-            >
-              {t('contact_us')}
-            </Link>
-            <a
-              href="https://www.brainco-hz.com/docs/revolimb-hand/revo2/parameters.html"
-              target="_blank"
-              rel="noopener noreferrer"
-              className=" flex h-[38px] w-[112px] items-center justify-center rounded-[20px] border border-white !text-white"
-              aria-label={`${t('documentation')} - Revo2 产品文档 / ${t('documentation')} - Revo2 Product Documentation`}
-            >
-              {t('documentation')}
-            </a>
+          <Link
+            href="/contact#contact"
+            className="flex h-[38px] w-[112px] items-center justify-center rounded-[20px] bg-[#1a74bf] !text-white"
+            aria-label={`${t('contact_us')} - Revo2 智能灵巧手 / ${t('contact_us')} - Revo2 Intelligent Dexterous Hand`}
+          >
+            {t('contact_us')}
+          </Link>
+          <a
+            href="https://www.brainco-hz.com/docs/revolimb-hand/revo2/parameters.html"
+            target="_blank"
+            rel="noopener noreferrer"
+            className=" flex h-[38px] w-[112px] items-center justify-center rounded-[20px] border border-white !text-white"
+            aria-label={`${t('documentation')} - Revo2 产品文档 / ${t('documentation')} - Revo2 Product Documentation`}
+          >
+            {t('documentation')}
+          </a>
         </motion.div>
       </section>
 

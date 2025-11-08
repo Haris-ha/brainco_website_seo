@@ -5,10 +5,10 @@ import type { Order } from '@/types/order';
 import { motion } from 'framer-motion';
 import { useTranslations } from 'next-intl';
 
-interface OrderListProps {
+type OrderListProps = {
   orders: Order[];
   onSelectOrder: (order: Order) => void;
-}
+};
 
 /**
  * 订单列表组件
@@ -61,7 +61,9 @@ export function OrderList({ orders, onSelectOrder }: OrderListProps) {
             {/* 订单头部 */}
             <div className="flex items-center justify-between border-b border-gray-100 px-6 py-4 md:px-8">
               <p className="text-gray-500" style={{ fontSize: 'clamp(0.875rem, 1.2vw, 1.125rem)' }}>
-                {t('order_number_prefix')}: {order.no}
+                {t('order_number_prefix')}
+                :
+                {order.no}
               </p>
               <div className="flex items-center gap-2">
                 <span
@@ -111,13 +113,16 @@ export function OrderList({ orders, onSelectOrder }: OrderListProps) {
                       className="text-gray-700"
                       style={{ fontSize: 'clamp(0.875rem, 1.2vw, 1.125rem)' }}
                     >
-                      ¥{(item.productAmount / 100).toFixed(2)}
+                      ¥
+                      {(item.productAmount / 100).toFixed(2)}
                     </span>
                     <span
                       className="text-gray-500"
                       style={{ fontSize: 'clamp(0.75rem, 1vw, 0.875rem)' }}
                     >
-                      {tCheckout('quantity')}: {item.quantity}
+                      {tCheckout('quantity')}
+                      :
+                      {item.quantity}
                     </span>
                   </div>
                 </motion.div>
@@ -135,7 +140,8 @@ export function OrderList({ orders, onSelectOrder }: OrderListProps) {
                     className="font-semibold text-gray-900"
                     style={{ fontSize: 'clamp(1.25rem, 2vw, 1.875rem)' }}
                   >
-                    ¥{(order.payAmount / 100).toFixed(2)}
+                    ¥
+                    {(order.payAmount / 100).toFixed(2)}
                   </span>
                 </div>
               )}
@@ -146,4 +152,3 @@ export function OrderList({ orders, onSelectOrder }: OrderListProps) {
     </div>
   );
 }
-

@@ -6,10 +6,10 @@ import { motion } from 'framer-motion';
 import { useTranslations } from 'next-intl';
 import toast from 'react-hot-toast';
 
-interface OrderDetailProps {
+type OrderDetailProps = {
   order: Order;
   onBack: () => void;
-}
+};
 
 /**
  * 订单详情组件
@@ -24,16 +24,16 @@ export function OrderDetail({ order, onBack }: OrderDetailProps) {
     try {
       await navigator.clipboard.writeText(text);
       toast.success(t('copy_success'));
-    }
-    catch {
+    } catch {
       toast.error(t('copy_failed'));
     }
   };
 
   // 获取支付方式文本
   const getPaymentMethodText = (payType?: string) => {
-    if (!payType)
+    if (!payType) {
       return '';
+    }
     if (
       payType === 'WECHAT_PAY_NATIVE'
       || payType === 'WECHAT_PAY_JSAPI'
@@ -148,8 +148,9 @@ export function OrderDetail({ order, onBack }: OrderDetailProps) {
                 const orderItem = order.orderItems.find(
                   item => item.productId === logisticsItem.productId,
                 );
-                if (!orderItem)
+                if (!orderItem) {
                   return null;
+                }
 
                 return (
                   <div key={`${logisticsItem.productId}-${itemIndex}`} className="flex items-center gap-4 md:gap-6">
@@ -165,7 +166,10 @@ export function OrderDetail({ order, onBack }: OrderDetailProps) {
                         {orderItem.productName}
                       </span>
                       <div className="flex items-center justify-between text-gray-600" style={{ fontSize: 'clamp(0.875rem, 1.2vw, 1rem)' }}>
-                        <span>¥{(orderItem.productAmount / 100).toFixed(2)}</span>
+                        <span>
+                          ¥
+                          {(orderItem.productAmount / 100).toFixed(2)}
+                        </span>
                         <span>
                           {tCheckout('quantity')}
                           :
@@ -214,7 +218,10 @@ export function OrderDetail({ order, onBack }: OrderDetailProps) {
                       {item.productName}
                     </span>
                     <div className="flex items-center justify-between text-gray-600" style={{ fontSize: 'clamp(0.875rem, 1.2vw, 1rem)' }}>
-                      <span>¥{(item.productAmount / 100).toFixed(2)}</span>
+                      <span>
+                        ¥
+                        {(item.productAmount / 100).toFixed(2)}
+                      </span>
                       <span>
                         {tCheckout('quantity')}
                         :
@@ -260,7 +267,10 @@ export function OrderDetail({ order, onBack }: OrderDetailProps) {
                       {item.productName}
                     </span>
                     <div className="flex items-center justify-between text-gray-600" style={{ fontSize: 'clamp(0.875rem, 1.2vw, 1rem)' }}>
-                      <span>¥{(item.productAmount / 100).toFixed(2)}</span>
+                      <span>
+                        ¥
+                        {(item.productAmount / 100).toFixed(2)}
+                      </span>
                       <span>
                         {tCheckout('quantity')}
                         :
@@ -284,13 +294,19 @@ export function OrderDetail({ order, onBack }: OrderDetailProps) {
           {order.discountAmount && order.discountAmount > 0 && (
             <div className="flex items-center justify-between" style={{ fontSize: 'clamp(0.875rem, 1.2vw, 1.125rem)' }}>
               <span className="text-gray-600">{tCheckout('discount_code')}</span>
-              <span className="text-gray-900">¥{(order.discountAmount / 100).toFixed(2)}</span>
+              <span className="text-gray-900">
+                ¥
+                {(order.discountAmount / 100).toFixed(2)}
+              </span>
             </div>
           )}
           {order.changeAmount && order.changeAmount !== 0 && (
             <div className="flex items-center justify-between" style={{ fontSize: 'clamp(0.875rem, 1.2vw, 1.125rem)' }}>
               <span className="text-gray-600">{tCheckout('merchant_price_adjustment')}</span>
-              <span className="text-gray-900">¥{(order.changeAmount / 100).toFixed(2)}</span>
+              <span className="text-gray-900">
+                ¥
+                {(order.changeAmount / 100).toFixed(2)}
+              </span>
             </div>
           )}
           <div className="flex items-center justify-between border-t border-gray-100 pt-3">
@@ -410,4 +426,3 @@ export function OrderDetail({ order, onBack }: OrderDetailProps) {
     </motion.div>
   );
 }
-

@@ -1,6 +1,6 @@
 'use client';
 
-import { motion, AnimatePresence } from 'framer-motion';
+import { AnimatePresence, motion } from 'framer-motion';
 import { useEffect, useState } from 'react';
 
 export default function BackToTop() {
@@ -33,7 +33,7 @@ export default function BackToTop() {
           animate={{ opacity: 1, y: 0 }}
           exit={{ opacity: 0, y: 20 }}
           transition={{ duration: 0.3 }}
-          className="fixed bottom-8 right-8 z-50 flex h-12 w-12 items-center justify-center rounded-full bg-[#666666] text-white shadow-lg transition-all hover:bg-[#333333] hover:shadow-xl md:h-14 md:w-14"
+          className="fixed right-8 bottom-8 z-50 flex h-12 w-12 items-center justify-center rounded-full bg-[#666666] text-white shadow-lg transition-all hover:bg-[#333333] hover:shadow-xl md:h-14 md:w-14"
           aria-label="回到顶部"
         >
           <svg
@@ -54,4 +54,3 @@ export default function BackToTop() {
     </AnimatePresence>
   );
 }
-

@@ -110,71 +110,77 @@ export function StepShipping({
       </p>
 
       {/* 表单 */}
-      <form id="step-2-form" className="mt-3 w-full md:mt-4" onSubmit={(e) => { e.preventDefault(); handleSubmit(); }}>
+      <form
+        id="step-2-form"
+        className="mt-3 w-full md:mt-4"
+        onSubmit={(e) => {
+          e.preventDefault(); handleSubmit();
+        }}
+      >
         <fieldset>
           <legend className="sr-only">{t('step_2_title')}</legend>
           <ul className="w-full">
-        {/* 姓名 */}
-        <li className="mb-3 md:mb-4 lg:mb-4">
-          <label htmlFor="shipping-name" className="mb-1 block text-sm text-[#333] md:mb-1.5 md:text-[15px] lg:text-base">
-            {t('name')}
-          </label>
-          <input
-            id="shipping-name"
-            type="text"
-            value={formData.name}
-            onChange={e => setFormData({ ...formData, name: e.target.value })}
-            placeholder={t('name_placeholder')}
-            aria-required="true"
-            className="cursor-target h-[44px] w-full rounded-[22px] border border-[#707070] px-4 text-sm focus:border-[#4F68D2] focus:outline-none md:h-[48px] md:rounded-[24px] md:px-5 md:text-[15px] lg:h-[52px] lg:rounded-[26px] lg:px-6 lg:text-base"
-          />
-        </li>
+            {/* 姓名 */}
+            <li className="mb-3 md:mb-4 lg:mb-4">
+              <label htmlFor="shipping-name" className="mb-1 block text-sm text-[#333] md:mb-1.5 md:text-[15px] lg:text-base">
+                {t('name')}
+              </label>
+              <input
+                id="shipping-name"
+                type="text"
+                value={formData.name}
+                onChange={e => setFormData({ ...formData, name: e.target.value })}
+                placeholder={t('name_placeholder')}
+                aria-required="true"
+                className="cursor-target h-[44px] w-full rounded-[22px] border border-[#707070] px-4 text-sm focus:border-[#4F68D2] focus:outline-none md:h-[48px] md:rounded-[24px] md:px-5 md:text-[15px] lg:h-[52px] lg:rounded-[26px] lg:px-6 lg:text-base"
+              />
+            </li>
 
-        {/* 收货地址（简化版） */}
-        <li className="mb-3 md:mb-4 lg:mb-4">
-          <label htmlFor="shipping-region" className="mb-1 block text-sm text-[#333] md:mb-1.5 md:text-[15px] lg:text-base">
-            {t('province_city_district')}
-          </label>
-          <input
-            id="shipping-region"
-            type="text"
-            placeholder={t('province_city_district_placeholder')}
-            aria-required="true"
-            className="cursor-target h-[44px] w-full rounded-[22px] border border-[#707070] px-4 text-sm focus:border-[#4F68D2] focus:outline-none md:h-[48px] md:rounded-[24px] md:px-5 md:text-[15px] lg:h-[52px] lg:rounded-[26px] lg:px-6 lg:text-base"
-          />
-        </li>
+            {/* 收货地址（简化版） */}
+            <li className="mb-3 md:mb-4 lg:mb-4">
+              <label htmlFor="shipping-region" className="mb-1 block text-sm text-[#333] md:mb-1.5 md:text-[15px] lg:text-base">
+                {t('province_city_district')}
+              </label>
+              <input
+                id="shipping-region"
+                type="text"
+                placeholder={t('province_city_district_placeholder')}
+                aria-required="true"
+                className="cursor-target h-[44px] w-full rounded-[22px] border border-[#707070] px-4 text-sm focus:border-[#4F68D2] focus:outline-none md:h-[48px] md:rounded-[24px] md:px-5 md:text-[15px] lg:h-[52px] lg:rounded-[26px] lg:px-6 lg:text-base"
+              />
+            </li>
 
-        {/* 详细地址 */}
-        <li className="mb-3 md:mb-4 lg:mb-4">
-          <label htmlFor="shipping-address" className="mb-1 block text-sm text-[#333] md:mb-1.5 md:text-[15px] lg:text-base">
-            {t('detailed_address')}
-          </label>
-          <input
-            id="shipping-address"
-            type="text"
-            value={formData.address}
-            onChange={e => setFormData({ ...formData, address: e.target.value })}
-            placeholder={t('detailed_address_placeholder')}
-            aria-required="true"
-            className="cursor-target h-[44px] w-full rounded-[22px] border border-[#707070] px-4 text-sm focus:border-[#4F68D2] focus:outline-none md:h-[48px] md:rounded-[24px] md:px-5 md:text-[15px] lg:h-[52px] lg:rounded-[26px] lg:px-6 lg:text-base"
-          />
-        </li>
+            {/* 详细地址 */}
+            <li className="mb-3 md:mb-4 lg:mb-4">
+              <label htmlFor="shipping-address" className="mb-1 block text-sm text-[#333] md:mb-1.5 md:text-[15px] lg:text-base">
+                {t('detailed_address')}
+              </label>
+              <input
+                id="shipping-address"
+                type="text"
+                value={formData.address}
+                onChange={e => setFormData({ ...formData, address: e.target.value })}
+                placeholder={t('detailed_address_placeholder')}
+                aria-required="true"
+                className="cursor-target h-[44px] w-full rounded-[22px] border border-[#707070] px-4 text-sm focus:border-[#4F68D2] focus:outline-none md:h-[48px] md:rounded-[24px] md:px-5 md:text-[15px] lg:h-[52px] lg:rounded-[26px] lg:px-6 lg:text-base"
+              />
+            </li>
 
-        {/* 电话号码 */}
-        <li className="mb-3 md:mb-4 lg:mb-4">
-          <label htmlFor="shipping-phone" className="mb-1 block text-sm text-[#333] md:mb-1.5 md:text-[15px] lg:text-base">
-            {t('phone')}
-          </label>
-          <input
-            id="shipping-phone"
-            type="tel"
-            value={formData.phone}
-            onChange={e => setFormData({ ...formData, phone: e.target.value })}
-            placeholder={t('phone_placeholder')}
-            aria-required="true"
-            className="cursor-target h-[44px] w-full rounded-[22px] border border-[#707070] px-4 text-sm focus:border-[#4F68D2] focus:outline-none md:h-[48px] md:rounded-[24px] md:px-5 md:text-[15px] lg:h-[52px] lg:rounded-[26px] lg:px-6 lg:text-base"
-          />
-        </li>
+            {/* 电话号码 */}
+            <li className="mb-3 md:mb-4 lg:mb-4">
+              <label htmlFor="shipping-phone" className="mb-1 block text-sm text-[#333] md:mb-1.5 md:text-[15px] lg:text-base">
+                {t('phone')}
+              </label>
+              <input
+                id="shipping-phone"
+                type="tel"
+                value={formData.phone}
+                onChange={e => setFormData({ ...formData, phone: e.target.value })}
+                placeholder={t('phone_placeholder')}
+                aria-required="true"
+                className="cursor-target h-[44px] w-full rounded-[22px] border border-[#707070] px-4 text-sm focus:border-[#4F68D2] focus:outline-none md:h-[48px] md:rounded-[24px] md:px-5 md:text-[15px] lg:h-[52px] lg:rounded-[26px] lg:px-6 lg:text-base"
+              />
+            </li>
           </ul>
         </fieldset>
       </form>
