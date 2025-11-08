@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
 import { hasLocale, NextIntlClientProvider } from 'next-intl';
 import { setRequestLocale } from 'next-intl/server';
+import { Inter } from 'next/font/google';
 import { notFound } from 'next/navigation';
 import { Toaster } from 'react-hot-toast';
 import PublisherMeta from '@/components/seo/PublisherMeta';
@@ -9,6 +10,25 @@ import PublisherMeta from '@/components/seo/PublisherMeta';
 import { getPublisher } from '@/lib/seo';
 import { routing } from '@/libs/I18nRouting';
 import '@/styles/global.css';
+
+// 使用 Inter 字体确保跨平台一致性
+// Inter 专为屏幕显示优化，在 Windows、macOS、Linux 上显示一致
+const inter = Inter({
+  subsets: ['latin'],
+  display: 'swap',
+  variable: '--font-inter',
+  preload: true,
+  fallback: [
+    'system-ui',
+    '-apple-system',
+    'BlinkMacSystemFont',
+    'Segoe UI',
+    'Roboto',
+    'Helvetica Neue',
+    'Arial',
+    'sans-serif',
+  ],
+});
 
 export const metadata: Metadata = {
   icons: [
@@ -55,9 +75,9 @@ export default async function RootLayout(props: {
   const publisher = getPublisher();
 
   return (
-    <html lang={locale}>
+    <html lang={locale} className={inter.variable}>
       <PublisherMeta publisher={publisher} />
-      <body>
+      <body className={inter.className}>
         {/* TargetCursor 仅在桌面端显示 - 已全局隐藏，如需恢复请取消注释 */}
         {/* <div className="hidden md:block">
           <TargetCursor spinDuration={3} hideDefaultCursor />
