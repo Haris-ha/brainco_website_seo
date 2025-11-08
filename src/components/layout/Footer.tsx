@@ -313,27 +313,27 @@ export function Footer({ locale }: FooterProps) {
             onClick={scrollToTop}
             className="flex w-full flex-col items-center justify-center pt-5 text-gray-600"
           >
-            <span className="text-fluid-lg mb-1">↑</span>
-            <span className="text-fluid-lg">{t('back_to_top')}</span>
+            <span className="text-fluid-xl mb-1">↑</span>
+            <span className="text-fluid-xl">{t('back_to_top')}</span>
           </button>
 
           {/* 导航链接 */}
           <div className="mt-9 flex gap-8">
             {/* 产品栏 */}
             <div className="flex-[3]">
-              <p className="text-fluid-lg mb-6 font-semibold !text-[#333]">
+              <p className="text-fluid-2xl mb-6 font-semibold !text-[#333]">
                 {t('products')}
               </p>
               {productNavigation.map(section => (
                 <div key={section.title} className="mt-6 first:mt-0">
-                  <p className="mb-3 text-[12px] font-semibold !text-[#333]">
+                  <p className="text-fluid-xl mb-3 font-semibold !text-[#333]">
                     {section.title}
                   </p>
                   {section.items.map(item => (
                     <Link
                       key={item.href}
                       href={item.href}
-                      className="mb-2.5 block text-[10px] !text-[#666]"
+                      className="text-fluid-lg mb-2.5 block !text-[#666]"
                     >
                       {item.title}
                     </Link>
@@ -346,14 +346,14 @@ export function Footer({ locale }: FooterProps) {
             <div className="flex-[2]">
               {otherNavigation.map(section => (
                 <div key={section.title} className="mb-6 first:mb-2">
-                  <p className="text-fluid-lg mb-2 font-semibold !text-[#333]">
+                  <p className="text-fluid-2xl mb-2 font-semibold !text-[#333]">
                     {section.title}
                   </p>
                   {section.items.map(item => (
                     <Link
                       key={item.href}
                       href={item.href}
-                      className="mb-2.5 block text-[10px] !text-[#666]"
+                      className="text-fluid-lg mb-2.5 block !text-[#666]"
                     >
                       {item.title}
                     </Link>
@@ -365,7 +365,7 @@ export function Footer({ locale }: FooterProps) {
 
           {/* 社交媒体 */}
           <nav aria-label="社交媒体链接 / Social media links" className="mt-11 flex items-center justify-center">
-            <span className="text-fluid-lg mr-6">{t('follow_us')}</span>
+            <span className="text-fluid-xl mr-6">{t('follow_us')}</span>
             <div className="flex items-center gap-5">
               <button
                 type="button"
@@ -376,9 +376,9 @@ export function Footer({ locale }: FooterProps) {
                 <Image
                   src="https://website-www-brainco-cn.oss-cn-hangzhou.aliyuncs.com/assets/images/icon/MAqhgUP8Tto47vOE.webp"
                   alt="微信图标 / WeChat icon"
-                  width={20}
-                  height={20}
-                  className="h-5 w-5"
+                  width={24}
+                  height={24}
+                  className="h-6 w-6"
                 />
               </button>
               <a
@@ -390,9 +390,9 @@ export function Footer({ locale }: FooterProps) {
                 <Image
                   src="https://website-www-brainco-cn.oss-cn-hangzhou.aliyuncs.com/assets/images/icon/oK7ABeigxqT2Q1dc.webp"
                   alt="微博图标 / Weibo icon"
-                  width={20}
-                  height={20}
-                  className="h-5 w-5"
+                  width={24}
+                  height={24}
+                  className="h-6 w-6"
                 />
               </a>
               <a
@@ -406,7 +406,7 @@ export function Footer({ locale }: FooterProps) {
                   alt="知乎图标 / Zhihu icon"
                   width={36}
                   height={20}
-                  className="h-5 w-9"
+                  className="h-5 w-10"
                 />
               </a>
             </div>
@@ -417,9 +417,9 @@ export function Footer({ locale }: FooterProps) {
             <Image
               src="/icons/logo.pc.webp"
               alt="BrainCo - 强脑科技 Logo / BrainCo Logo"
-              width={106}
+              width={126}
               height={25}
-              className="h-auto w-[106px]"
+              className="h-auto w-[126px]"
             />
           </div>
 
@@ -433,7 +433,7 @@ export function Footer({ locale }: FooterProps) {
 
           {/* 版权信息 */}
           <div className="mt-2.5 px-5 pb-5 text-center">
-            <p className="text-[10px] !text-gray-500">
+            <p className="text-fluid-base !text-gray-500">
               {isHangzhou
                 ? t('copyright_hangzhou')
                 : t('copyright_shenzhen')}
