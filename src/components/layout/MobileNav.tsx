@@ -155,7 +155,7 @@ export function MobileNav({ locale, isOpen, onToggle, showHeader = true }: Mobil
                   <div
                     role="button"
                     tabIndex={0}
-                    className="flex h-[68px] items-center justify-between border-b border-gray-100"
+                    className="flex min-h-[72px] items-center justify-between border-b border-gray-100 px-2 transition-colors active:bg-gray-50"
                     onClick={() => {
                       if (item.children) {
                         toggleSubmenu(item.key);
@@ -173,14 +173,14 @@ export function MobileNav({ locale, isOpen, onToggle, showHeader = true }: Mobil
                       ? (
                           <Link
                             href={item.href}
-                            className="flex-1 text-xl !text-[#333] no-underline hover:!text-[#333]"
+                            className="text-fluid-2xl flex-1 !text-[#333] no-underline hover:!text-[#333]"
                             onClick={onToggle}
                           >
                             {t(item.key)}
                           </Link>
                         )
                       : (
-                          <span className="flex-1 text-xl text-[#333]">{t(item.key)}</span>
+                          <span className="text-fluid-2xl flex-1 text-[#333]">{t(item.key)}</span>
                         )}
 
                     {item.children && (
@@ -203,22 +203,20 @@ export function MobileNav({ locale, isOpen, onToggle, showHeader = true }: Mobil
                         >
                           {/* 分类标题 */}
                           {child.titleKey && (
-                            <div className="mt-4 mb-2.5 text-lg font-medium !text-[#333]">
+                            <div className="text-fluid-xl mt-5 mb-3 font-semibold !text-[#333]">
                               {t(child.titleKey)}
                             </div>
                           )}
 
                           {/* 无子级的链接 */}
                           {child.key && child.href && !child.children && (
-                            <div className="mt-4 mb-2.5 text-lg">
-                              <Link
-                                href={child.href}
-                                onClick={onToggle}
-                                className="block !text-[#333] no-underline hover:!text-[#333]"
-                              >
-                                {t(child.key)}
-                              </Link>
-                            </div>
+                            <Link
+                              href={child.href}
+                              onClick={onToggle}
+                              className="text-fluid-lg mt-3 block min-h-[48px] leading-[48px] !text-[#333] no-underline hover:!text-[#333] active:bg-gray-50"
+                            >
+                              {t(child.key)}
+                            </Link>
                           )}
 
                           {/* 产品列表 */}
@@ -227,12 +225,12 @@ export function MobileNav({ locale, isOpen, onToggle, showHeader = true }: Mobil
                               {child.children.map((product, productIndex) => (
                                 <li
                                   key={product.href}
-                                  className="animate-fade-in pl-7.5 leading-[2.5]"
+                                  className="animate-fade-in"
                                   style={{ animationDelay: `${(index + productIndex) * 0.02}s` }}
                                 >
                                   <Link
                                     href={product.href}
-                                    className="block text-lg !text-[#666] no-underline hover:!text-[#666]"
+                                    className="text-fluid-lg block min-h-[42px] pl-5 leading-[42px] !text-[#666] no-underline transition-colors hover:!text-[#333] active:bg-gray-50"
                                     onClick={onToggle}
                                   >
                                     {t(product.key)}
