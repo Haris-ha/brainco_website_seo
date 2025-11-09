@@ -2,8 +2,9 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import { useTranslations } from 'next-intl';
+import { useLocale, useTranslations } from 'next-intl';
 import Image from 'next/image';
+import Link from 'next/link';
 import { useRouter } from 'next/navigation';
 import { useCallback, useEffect, useRef, useState } from 'react';
 
@@ -109,6 +110,7 @@ const nerveList = [
 
 export function HomeContent() {
   const t = useTranslations('Home');
+  const locale = useLocale();
   const router = useRouter();
   const video1Ref = useRef<HTMLVideoElement>(null);
   const video2Ref = useRef<HTMLVideoElement>(null);
@@ -353,66 +355,125 @@ export function HomeContent() {
             transition={{ duration: 0.6 }}
             aria-label="BrainCo 产品列表 / BrainCo product list"
           >
-            {productList.map((item, index) => (
-              <motion.li
-                key={item.img}
-                className={`cursor-target group/product flex cursor-pointer items-center text-lg ${index === 1 || index === 4 ? 'mr-8' : ''}`}
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, amount: 0.3 }}
-                transition={{
-                  duration: 0.6,
-                  delay: index * 0.1,
-                  ease: 'easeOut',
-                }}
-                whileHover={{
-                  scale: 1.03,
-                  transition: { duration: 0.3 },
-                }}
-                onMouseEnter={() => {
-                  if (item.id !== undefined) {
-                    setProductCount(item.id);
-                  }
-                  setExpandType(null);
-                }}
-                onMouseLeave={() => setProductCount(0)}
-                onClick={() => {
-                  if (item.router !== '/products/revo1') {
-                    router.push(item.router);
-                  }
-                }}
-              >
-                <div className="relative mr-3 h-40 w-[110px] flex-shrink-0 overflow-hidden 2xl:w-[140px]">
-                  <Image
-                    src={item.img}
-                    alt={`${t(item.nameKey)} - BrainCo 脑机接口产品 / BrainCo BCI product`}
-                    width={140}
-                    height={160}
-                    className="absolute inset-0 h-full w-full object-cover transition-opacity duration-100 ease-in-out group-hover/product:opacity-0"
-                  />
-                  <Image
-                    src={item.hoverImg}
-                    alt={`${t(item.nameKey)} - 产品特写 / Product close-up`}
-                    width={140}
-                    height={160}
-                    className="absolute inset-0 h-full w-full object-cover opacity-0 transition-opacity duration-100 ease-in-out group-hover/product:opacity-100"
-                  />
-                </div>
-                <div
-                  className={`flex flex-1 flex-col ${
-                    index === 1 || index === 4 ? '-ml-8' : ''
-                  }`}
+            {productList.map((item, index) => {
+              // 如果路由是 /products/revo1，不创建链接（根据原始逻辑）
+              if (item.router === '/products/revo1') {
+                return (
+                  <motion.li
+                    key={item.img}
+                    className={`cursor-target group/product flex items-center text-lg ${index === 1 || index === 4 ? 'mr-8' : ''}`}
+                    initial={{ opacity: 0, y: 30 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true, amount: 0.3 }}
+                    transition={{
+                      duration: 0.6,
+                      delay: index * 0.1,
+                      ease: 'easeOut',
+                    }}
+                    whileHover={{
+                      scale: 1.03,
+                      transition: { duration: 0.3 },
+                    }}
+                    onMouseEnter={() => {
+                      if (item.id !== undefined) {
+                        setProductCount(item.id);
+                      }
+                      setExpandType(null);
+                    }}
+                    onMouseLeave={() => setProductCount(0)}
+                  >
+                    <div className="relative mr-3 h-40 w-[110px] flex-shrink-0 overflow-hidden 2xl:w-[140px]">
+                      <Image
+                        src={item.img}
+                        alt={`${t(item.nameKey)} - BrainCo 脑机接口产品 / BrainCo BCI product`}
+                        width={140}
+                        height={160}
+                        className="absolute inset-0 h-full w-full object-cover transition-opacity duration-100 ease-in-out group-hover/product:opacity-0"
+                      />
+                      <Image
+                        src={item.hoverImg}
+                        alt={`${t(item.nameKey)} - 产品特写 / Product close-up`}
+                        width={140}
+                        height={160}
+                        className="absolute inset-0 h-full w-full object-cover opacity-0 transition-opacity duration-100 ease-in-out group-hover/product:opacity-100"
+                      />
+                    </div>
+                    <div
+                      className={`flex flex-1 flex-col ${
+                        index === 1 || index === 4 ? '-ml-8' : ''
+                      }`}
+                    >
+                      <h3 className="mb-2 text-2xl leading-tight font-medium">
+                        {t(item.nameKey)}
+                      </h3>
+                      <p
+                        className="text-lg leading-snug"
+                        dangerouslySetInnerHTML={{ __html: t(item.descKey) }}
+                      />
+                    </div>
+                  </motion.li>
+                );
+              }
+
+              // 其他产品使用 Link 组件，确保可爬取
+              const href = `/${locale}${item.router}`;
+              return (
+                <motion.li
+                  key={item.img}
+                  className={`cursor-target group/product flex items-center text-lg ${index === 1 || index === 4 ? 'mr-8' : ''}`}
+                  initial={{ opacity: 0, y: 30 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true, amount: 0.3 }}
+                  transition={{
+                    duration: 0.6,
+                    delay: index * 0.1,
+                    ease: 'easeOut',
+                  }}
                 >
-                  <h3 className="mb-2 text-2xl leading-tight font-medium">
-                    {t(item.nameKey)}
-                  </h3>
-                  <p
-                    className="text-lg leading-snug"
-                    dangerouslySetInnerHTML={{ __html: t(item.descKey) }}
-                  />
-                </div>
-              </motion.li>
-            ))}
+                  <Link
+                    href={href}
+                    className="flex w-full cursor-pointer items-center !text-black hover:!text-black"
+                    onMouseEnter={() => {
+                      if (item.id !== undefined) {
+                        setProductCount(item.id);
+                      }
+                      setExpandType(null);
+                    }}
+                    onMouseLeave={() => setProductCount(0)}
+                  >
+                    <div className="relative mr-3 h-40 w-[110px] flex-shrink-0 overflow-hidden 2xl:w-[140px]">
+                      <Image
+                        src={item.img}
+                        alt={`${t(item.nameKey)} - BrainCo 脑机接口产品 / BrainCo BCI product`}
+                        width={140}
+                        height={160}
+                        className="absolute inset-0 h-full w-full object-cover transition-opacity duration-100 ease-in-out group-hover/product:opacity-0"
+                      />
+                      <Image
+                        src={item.hoverImg}
+                        alt={`${t(item.nameKey)} - 产品特写 / Product close-up`}
+                        width={140}
+                        height={160}
+                        className="absolute inset-0 h-full w-full object-cover opacity-0 transition-opacity duration-100 ease-in-out group-hover/product:opacity-100"
+                      />
+                    </div>
+                    <div
+                      className={`flex flex-1 flex-col ${
+                        index === 1 || index === 4 ? '-ml-8' : ''
+                      }`}
+                    >
+                      <h3 className="mb-2 text-2xl leading-tight font-medium">
+                        {t(item.nameKey)}
+                      </h3>
+                      <p
+                        className="text-lg leading-snug"
+                        dangerouslySetInnerHTML={{ __html: t(item.descKey) }}
+                      />
+                    </div>
+                  </Link>
+                </motion.li>
+              );
+            })}
 
             {/* 工业灵巧手 */}
             <motion.li

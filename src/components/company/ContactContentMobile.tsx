@@ -180,7 +180,7 @@ export default function ContactContentMobile() {
   return (
     <main className="w-full bg-white">
       {/* Top Banner */}
-      <header className="relative" role="img" aria-label="BrainCo 联系我们背景 - 移动端 / BrainCo Contact Us Background - Mobile">
+      <header className="relative">
         <Image
           src="https://website-www-brainco-cn.oss-cn-hangzhou.aliyuncs.com/images/aiz6TJnJ7iWSNVJ1.webp"
           alt="BrainCo 联系我们页面背景 / BrainCo Contact Us Background"
@@ -351,11 +351,12 @@ export default function ContactContentMobile() {
           viewport={{ once: true }}
           transition={{ duration: 0.6, delay: 0.1, ease: 'easeOut' }}
         >
-          <Label className="text-fluid-base text-[#333333]">
+          <Label htmlFor="company-mobile" className="text-fluid-base text-[#333333]">
             {t('form_company')}
             *
           </Label>
           <Input
+            id="company-mobile"
             type="text"
             value={formData.company}
             onChange={e => handleInputChange(e, 'company')}
@@ -370,11 +371,12 @@ export default function ContactContentMobile() {
           viewport={{ once: true }}
           transition={{ duration: 0.6, delay: 0.15, ease: 'easeOut' }}
         >
-          <Label className="text-fluid-base text-[#333333]">
+          <Label htmlFor="address-mobile" className="text-fluid-base text-[#333333]">
             {t('form_address')}
             *
           </Label>
           <Input
+            id="address-mobile"
             type="text"
             value={formData.address}
             onChange={e => handleInputChange(e, 'address')}
@@ -389,11 +391,12 @@ export default function ContactContentMobile() {
           viewport={{ once: true }}
           transition={{ duration: 0.6, delay: 0.2, ease: 'easeOut' }}
         >
-          <Label className="text-fluid-base text-[#333333]">
+          <Label htmlFor="name-mobile" className="text-fluid-base text-[#333333]">
             {t('form_name')}
             *
           </Label>
           <Input
+            id="name-mobile"
             type="text"
             value={formData.name}
             onChange={e => handleInputChange(e, 'name')}
@@ -408,11 +411,12 @@ export default function ContactContentMobile() {
           viewport={{ once: true }}
           transition={{ duration: 0.6, delay: 0.25, ease: 'easeOut' }}
         >
-          <Label className="text-fluid-base text-[#333333]">
+          <Label htmlFor="email-mobile" className="text-fluid-base text-[#333333]">
             {t('form_email')}
             *
           </Label>
           <Input
+            id="email-mobile"
             type="email"
             value={formData.email}
             onChange={e => handleInputChange(e, 'email')}
@@ -427,11 +431,12 @@ export default function ContactContentMobile() {
           viewport={{ once: true }}
           transition={{ duration: 0.6, delay: 0.3, ease: 'easeOut' }}
         >
-          <Label className="text-fluid-base text-[#333333]">
+          <Label htmlFor="phone-mobile" className="text-fluid-base text-[#333333]">
             {t('form_phone')}
             *
           </Label>
           <Input
+            id="phone-mobile"
             type="tel"
             value={formData.phone}
             onChange={e => handleInputChange(e, 'phone')}
@@ -446,10 +451,11 @@ export default function ContactContentMobile() {
           viewport={{ once: true }}
           transition={{ duration: 0.6, delay: 0.35, ease: 'easeOut' }}
         >
-          <Label className="text-fluid-base text-[#333333]">
+          <Label htmlFor="project-mobile" className="text-fluid-base text-[#333333]">
             {t('form_project')}
           </Label>
           <Input
+            id="project-mobile"
             type="text"
             placeholder={t('form_project_placeholder')}
             value={formData.project}

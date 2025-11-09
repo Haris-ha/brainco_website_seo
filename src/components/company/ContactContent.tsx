@@ -129,9 +129,9 @@ export default function ContactContent() {
           backgroundImage:
             'url(https://website-www-brainco-cn.oss-cn-hangzhou.aliyuncs.com/images/jnBeGhhj5wSkShKc.webp)',
         }}
-        role="img"
-        aria-label="BrainCo 联系我们背景图 / BrainCo Contact Us Background"
       >
+        {/* 背景图描述（仅对屏幕阅读器可见） */}
+        <span className="sr-only">BrainCo 联系我们背景图 / BrainCo Contact Us Background</span>
         <motion.h1
           className="text-fluid-6xl leading-[92px] text-white"
           initial={{ opacity: 0, y: 30 }}
@@ -314,12 +314,13 @@ export default function ContactContent() {
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.1, ease: 'easeOut' }}
           >
-            <Label className="text-2xl font-medium text-[#333333]">
+            <Label htmlFor="company" className="text-2xl font-medium text-[#333333]">
               {t('form_company')}
               {' '}
               *
             </Label>
             <Input
+              id="company"
               type="text"
               value={formData.company}
               onChange={e => handleInputChange(e, 'company')}
@@ -334,12 +335,13 @@ export default function ContactContent() {
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.15, ease: 'easeOut' }}
           >
-            <Label className="text-2xl font-medium text-[#333333]">
+            <Label htmlFor="address" className="text-2xl font-medium text-[#333333]">
               {t('form_address')}
               {' '}
               *
             </Label>
             <Input
+              id="address"
               type="text"
               value={formData.address}
               onChange={e => handleInputChange(e, 'address')}
@@ -354,12 +356,13 @@ export default function ContactContent() {
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.2, ease: 'easeOut' }}
           >
-            <Label className="text-2xl font-medium text-[#333333]">
+            <Label htmlFor="name" className="text-2xl font-medium text-[#333333]">
               {t('form_name')}
               {' '}
               *
             </Label>
             <Input
+              id="name"
               type="text"
               value={formData.name}
               onChange={e => handleInputChange(e, 'name')}
@@ -374,12 +377,13 @@ export default function ContactContent() {
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.25, ease: 'easeOut' }}
           >
-            <Label className="text-2xl font-medium text-[#333333]">
+            <Label htmlFor="email" className="text-2xl font-medium text-[#333333]">
               {t('form_email')}
               {' '}
               *
             </Label>
             <Input
+              id="email"
               type="email"
               value={formData.email}
               onChange={e => handleInputChange(e, 'email')}
@@ -394,12 +398,13 @@ export default function ContactContent() {
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.3, ease: 'easeOut' }}
           >
-            <Label className="text-2xl font-medium text-[#333333]">
+            <Label htmlFor="phone" className="text-2xl font-medium text-[#333333]">
               {t('form_phone')}
               {' '}
               *
             </Label>
             <Input
+              id="phone"
               type="tel"
               value={formData.phone}
               onChange={e => handleInputChange(e, 'phone')}
@@ -414,10 +419,11 @@ export default function ContactContent() {
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.35, ease: 'easeOut' }}
           >
-            <Label className="text-2xl font-medium text-[#333333]">
+            <Label htmlFor="project" className="text-2xl font-medium text-[#333333]">
               {t('form_project')}
             </Label>
             <Input
+              id="project"
               type="text"
               placeholder={t('form_project_placeholder')}
               value={formData.project}
