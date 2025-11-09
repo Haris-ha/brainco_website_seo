@@ -10,15 +10,9 @@ export default function AboutContent() {
   return (
     <main className="w-full bg-white">
       {/* Top Banner */}
-      <header
-        className="relative flex h-screen w-full flex-col items-center justify-end bg-cover bg-center"
-        style={{
-          backgroundImage:
-            'url(https://website-www-brainco-cn.oss-cn-hangzhou.aliyuncs.com/images/lQh40fjPTJJQ5w5y.webp)',
-        }}
-        role="img"
-        aria-label="BrainCo 团队办公场景 / BrainCo Team Office Scene"
-      >
+      <header className="relative flex h-screen w-full flex-col items-center justify-end bg-cover bg-center" style={{ backgroundImage: 'url(https://website-www-brainco-cn.oss-cn-hangzhou.aliyuncs.com/images/lQh40fjPTJJQ5w5y.webp)' }}>
+        {/* 背景图描述（仅对屏幕阅读器可见） */}
+        <span className="sr-only">BrainCo 团队办公场景 / BrainCo Team Office Scene</span>
         <motion.div
           className="flex flex-col items-center pb-[60px] 2xl:pb-[120px]"
           initial={{ opacity: 0, y: 50 }}

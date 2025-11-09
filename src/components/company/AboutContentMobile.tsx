@@ -10,7 +10,7 @@ export default function AboutContentMobile() {
   return (
     <main className="w-full bg-white">
       {/* Top Banner */}
-      <header className="relative" role="img" aria-label="BrainCo 团队办公场景 - 移动端 / BrainCo Team Office Scene - Mobile">
+      <header className="relative">
         <Image
           src="https://website-www-brainco-cn.oss-cn-hangzhou.aliyuncs.com/images/8YPFxdcLUlb4CDa7.webp"
           alt="BrainCo 关于我们页面背景 - 团队办公场景 / BrainCo About Us Background - Team Office"
