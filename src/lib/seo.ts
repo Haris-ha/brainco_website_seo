@@ -226,26 +226,16 @@ export function convertToMetadata(
 
   const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://www.brainco.cn';
 
-  // 构建当前语言版本的 canonical URL
-  // 确保 canonical URL 指向当前语言版本，而不是另一个 hreflang 位置
-  const localePrefix = _currentLocale === AppConfig.defaultLocale ? '' : `/${_currentLocale}`;
-  const currentPageCanonical = `${baseUrl}${localePrefix}${seoData.pagePath}`;
-
-  // 优先使用 CMS 中配置的 canonical URL，但如果它指向另一个语言版本，则使用当前语言版本
-  if (seoData.canonicalURL) {
-    // 检查 canonical URL 是否指向当前语言版本
-    const canonicalLocale = seoData.canonicalURL.includes(`/${_currentLocale}/`)
-      || (seoData.canonicalURL.includes(`/${_currentLocale}`) && !seoData.canonicalURL.includes(`/${AppConfig.defaultLocale}/`));
-
-    if (canonicalLocale || seoData.canonicalURL === currentPageCanonical) {
-      // 如果 canonical URL 指向当前语言版本，使用它
-      metadata.alternates.canonical = seoData.canonicalURL;
-    } else {
-      // 否则使用当前语言版本的 URL 作为 canonical
-      metadata.alternates.canonical = currentPageCanonical;
-    }
+  // 优先使用 CMS 中配置的 canonical URL（如果存在且有效）
+  // 这样可以确保使用 CMS 中配置的 URL（可能是 vercel 或其他域名）
+  if (seoData.canonicalURL && seoData.canonicalURL.trim()) {
+    // 直接使用 CMS 配置的 canonical URL，不做语言检查
+    // 因为 CMS 中应该已经配置了正确的语言版本
+    metadata.alternates.canonical = seoData.canonicalURL.trim();
   } else {
-    // 如果没有配置 canonical URL，使用当前语言版本的 URL
+    // 如果没有配置 canonical URL，构建当前语言版本的 URL
+    const localePrefix = _currentLocale === AppConfig.defaultLocale ? '' : `/${_currentLocale}`;
+    const currentPageCanonical = `${baseUrl}${localePrefix}${seoData.pagePath}`;
     metadata.alternates.canonical = currentPageCanonical;
   }
 
