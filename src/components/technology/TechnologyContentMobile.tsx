@@ -29,17 +29,19 @@ export default function TechnologyContentMobile() {
           className="h-auto w-full object-cover"
           style={{ minHeight: '700px', objectPosition: 'center' }}
         />
+        {/* 半透明遮罩层，确保文字对比度 */}
+        <div className="absolute inset-0 bg-black/20" aria-hidden="true" />
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 0.8 }}
-          className="absolute top-0 left-0 flex min-h-full w-full flex-col justify-center px-[10vw] pt-[58px] text-left text-white"
+          className="relative z-10 flex min-h-full w-full flex-col justify-center px-[10vw] pt-[58px] text-left text-white"
         >
           <motion.h1
             initial={{ scale: 0.8, opacity: 0 }}
             animate={{ scale: 1, opacity: 1 }}
             transition={{ duration: 0.6, delay: 0.1 }}
-            className="text-fluid-4xl mb-6 text-left font-bold"
+            className="text-fluid-4xl mb-6 text-left font-bold drop-shadow-[0_2px_8px_rgba(0,0,0,0.5)]"
           >
             {t('page_title')}
           </motion.h1>
@@ -47,7 +49,7 @@ export default function TechnologyContentMobile() {
             initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.4 }}
-            className="text-fluid-base leading-[1.7]"
+            className="text-fluid-base leading-[1.7] drop-shadow-[0_2px_6px_rgba(0,0,0,0.4)]"
           >
             {t('page_intro')}
           </motion.p>
@@ -113,7 +115,7 @@ export default function TechnologyContentMobile() {
                     >
                       <Image
                         src="https://website-www-brainco-cn.oss-cn-hangzhou.aliyuncs.com/images/dXLzUFuSgVRtErQb.png"
-                        alt="arrow"
+                        alt="箭头图标 / Arrow icon"
                         width={17}
                         height={17}
                       />
@@ -149,7 +151,7 @@ export default function TechnologyContentMobile() {
             <div className="w-full">
               <Image
                 src={item.img}
-                alt={item.title}
+                alt={`${item.title} - 合作机构 / ${item.title} - Cooperating Institution`}
                 width={400}
                 height={250}
                 className="h-auto w-full"
@@ -215,9 +217,8 @@ export default function TechnologyContentMobile() {
           className="flex"
         >
           {process.map((item, index) => (
-            <button
+            <li
               key={item.year}
-              type="button"
               className={`
                 relative flex items-center justify-center overflow-hidden
                 transition-all duration-300
@@ -228,48 +229,54 @@ export default function TechnologyContentMobile() {
                 : 'w-0 flex-[0_0_0]'
             }
               `}
-              onClick={() => setProcessIndex(index)}
-              aria-label={`查看 ${item.year} 年的历程`}
             >
-              {processIndex !== index && (
-                <h3 className="absolute flex h-full items-center text-lg text-[#bebebe]">
-                  {item.year}
-                </h3>
-              )}
-              {processIndex === index && (
-                <motion.div
-                  initial={{ opacity: 0 }}
-                  animate={{ opacity: 1 }}
-                  transition={{ duration: 0.5 }}
-                  className="w-full"
-                >
-                  <SimpleCarousel
-                    items={item.data.map(data => (
-                      <div key={data.url} className="flex flex-col justify-start px-6">
-                        <div className="flex h-[170px] items-center overflow-hidden">
-                          <Image
-                            src={data.url}
-                            alt={item.year}
-                            width={300}
-                            height={170}
-                            className="h-auto w-full object-contain"
-                          />
+              <button
+                type="button"
+                className="flex h-full w-full items-center justify-center"
+                onClick={() => setProcessIndex(index)}
+                aria-label={`查看 ${item.year} 年的历程 / View ${item.year} timeline`}
+                aria-pressed={processIndex === index}
+              >
+                {processIndex !== index && (
+                  <h3 className="absolute flex h-full items-center text-lg text-[#bebebe]">
+                    {item.year}
+                  </h3>
+                )}
+                {processIndex === index && (
+                  <motion.div
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    transition={{ duration: 0.5 }}
+                    className="w-full"
+                  >
+                    <SimpleCarousel
+                      items={item.data.map(data => (
+                        <div key={data.url} className="flex flex-col justify-start px-6">
+                          <div className="flex h-[170px] items-center overflow-hidden">
+                            <Image
+                              src={data.url}
+                              alt={`${item.year} 年历程图片 / ${item.year} timeline image`}
+                              width={300}
+                              height={170}
+                              className="h-auto w-full object-contain"
+                            />
+                          </div>
+                          <h3 className="text-fluid-4xl my-[14px] flex items-end leading-[1.2]">
+                            {item.year}
+                            {t('year_suffix') && <span className="text-fluid-lg mb-2 no-underline">{t('year_suffix')}</span>}
+                          </h3>
+                          <p className="text-fluid-lg w-full text-left leading-relaxed">
+                            {data.desc}
+                          </p>
                         </div>
-                        <h3 className="text-fluid-4xl my-[14px] flex items-end leading-[1.2]">
-                          {item.year}
-                          {t('year_suffix') && <span className="text-fluid-lg mb-2 no-underline">{t('year_suffix')}</span>}
-                        </h3>
-                        <p className="text-fluid-lg w-full text-left leading-relaxed">
-                          {data.desc}
-                        </p>
-                      </div>
-                    ))}
-                    autoplay={false}
-                    showIndicators
-                  />
-                </motion.div>
-              )}
-            </button>
+                      ))}
+                      autoplay={false}
+                      showIndicators
+                    />
+                  </motion.div>
+                )}
+              </button>
+            </li>
           ))}
         </motion.ul>
       </section>

@@ -67,15 +67,17 @@ export default function TechnologyContent() {
           backgroundSize: '100% 1196px',
           backgroundPosition: 'center',
         }}
-        role="img"
-        aria-label="BrainCo 脑机接口技术研究背景 / BrainCo Brain-Computer Interface Technology Research Background"
       >
-        <div className="w-4/5 text-white">
+        {/* 背景图描述（仅对屏幕阅读器可见） */}
+        <span className="sr-only">BrainCo 脑机接口技术研究背景 / BrainCo Brain-Computer Interface Technology Research Background</span>
+        {/* 半透明遮罩层，确保文字对比度 */}
+        <div className="absolute inset-0 bg-black/20" aria-hidden="true" />
+        <div className="relative z-10 w-4/5 text-white">
           <motion.h1
             initial={{ scale: 0.8, opacity: 0 }}
             animate={{ scale: 1, opacity: 1 }}
             transition={{ duration: 0.6, delay: 0.3 }}
-            className="text-fluid-7xl mb-[62px] leading-[70px] font-bold"
+            className="text-fluid-7xl mb-[62px] leading-[70px] font-bold drop-shadow-[0_2px_8px_rgba(0,0,0,0.5)]"
           >
             {t('page_title')}
           </motion.h1>
@@ -83,7 +85,7 @@ export default function TechnologyContent() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.6 }}
-            className="text-fluid-2xl max-w-[708px]"
+            className="text-fluid-2xl max-w-[708px] drop-shadow-[0_2px_6px_rgba(0,0,0,0.4)]"
           >
             {t('page_intro')}
           </motion.p>
@@ -161,7 +163,7 @@ export default function TechnologyContent() {
                   >
                     <Image
                       src="https://website-www-brainco-cn.oss-cn-hangzhou.aliyuncs.com/images/dXLzUFuSgVRtErQb.png"
-                      alt="arrow"
+                      alt="箭头图标 / Arrow icon"
                       width={18}
                       height={18}
                       className="transition-transform duration-300 group-hover:translate-x-1"
@@ -195,7 +197,7 @@ export default function TechnologyContent() {
                 <div className="h-auto w-full">
                   <Image
                     src={institution.img}
-                    alt={institution.title}
+                    alt={`${institution.title} - 合作机构 / ${institution.title} - Cooperating Institution`}
                     width={500}
                     height={300}
                     className="h-auto w-full object-cover"
@@ -268,12 +270,8 @@ export default function TechnologyContent() {
         >
           <ul className="flex border-l border-[#d6d6d6]">
             {process.map((item, index) => (
-              <button
+              <li
                 key={item.year}
-                onClick={() => setSelectedYear(index)}
-                type="button"
-                aria-pressed={selectedYear === index}
-                aria-label={`选择年份 ${item.year}`}
                 className={`
                   flex cursor-pointer flex-col items-center
                   justify-center overflow-hidden border-r
@@ -284,44 +282,52 @@ export default function TechnologyContent() {
               }
                 `}
               >
-                {selectedYear !== index
-                  ? (
-                      <h3 className="cursor-target text-xl text-[#bebebe]">{item.year}</h3>
-                    )
-                  : (
-                      <div className="w-full pb-10">
-                        <SimpleCarousel
-                          items={item.data.map(data => (
-                            <motion.div
-                              key={data.url}
-                              initial={{ opacity: 0 }}
-                              animate={{ opacity: 1 }}
-                              transition={{ duration: 0.5 }}
-                            >
-                              <div className="mb-[20px] flex h-[320px] w-full items-center justify-center overflow-hidden">
-                                <Image
-                                  src={data.url}
-                                  alt={item.year}
-                                  width={480}
-                                  height={320}
-                                  className="h-full w-full object-cover"
-                                />
-                              </div>
-                              <h3 className="text-fluid-5xl mb-6 font-normal">
-                                {item.year}
-                                {t('year_suffix') && <span className="ml-1 text-xl">{t('year_suffix')}</span>}
-                              </h3>
-                              <p className="text-fluid-xl leading-[1.7] font-light">
-                                {data.desc}
-                              </p>
-                            </motion.div>
-                          ))}
-                          autoplay={false}
-                          showIndicators
-                        />
-                      </div>
-                    )}
-              </button>
+                <button
+                  onClick={() => setSelectedYear(index)}
+                  type="button"
+                  aria-pressed={selectedYear === index}
+                  aria-label={`选择年份 ${item.year} / Select year ${item.year}`}
+                  className="flex h-full w-full flex-col items-center justify-center"
+                >
+                  {selectedYear !== index
+                    ? (
+                        <h3 className="cursor-target text-xl text-[#bebebe]">{item.year}</h3>
+                      )
+                    : (
+                        <div className="w-full pb-10">
+                          <SimpleCarousel
+                            items={item.data.map(data => (
+                              <motion.div
+                                key={data.url}
+                                initial={{ opacity: 0 }}
+                                animate={{ opacity: 1 }}
+                                transition={{ duration: 0.5 }}
+                              >
+                                <div className="mb-[20px] flex h-[320px] w-full items-center justify-center overflow-hidden">
+                                  <Image
+                                    src={data.url}
+                                    alt={`${item.year} 年历程图片 / ${item.year} timeline image`}
+                                    width={480}
+                                    height={320}
+                                    className="h-full w-full object-cover"
+                                  />
+                                </div>
+                                <h3 className="text-fluid-5xl mb-6 font-normal">
+                                  {item.year}
+                                  {t('year_suffix') && <span className="ml-1 text-xl">{t('year_suffix')}</span>}
+                                </h3>
+                                <p className="text-fluid-xl leading-[1.7] font-light">
+                                  {data.desc}
+                                </p>
+                              </motion.div>
+                            ))}
+                            autoplay={false}
+                            showIndicators
+                          />
+                        </div>
+                      )}
+                </button>
+              </li>
             ))}
           </ul>
         </motion.div>
