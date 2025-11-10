@@ -28,14 +28,16 @@ export default function NewsHero({ isMobile = false }: NewsHeroProps) {
         backgroundPosition: 'center',
         marginTop: isMobile ? 24 : '0',
       }}
-      role="img"
-      aria-label="BrainCo 新闻中心背景 / BrainCo News Center Background"
     >
+      {/* 背景图描述（仅对屏幕阅读器可见） */}
+      <span className="sr-only">BrainCo 新闻中心背景 / BrainCo News Center Background</span>
+      {/* 半透明遮罩层，确保文字对比度 */}
+      <div className="absolute inset-0 bg-black/30" aria-hidden="true" />
       <motion.h1
         initial={{ scale: 0.9, opacity: 0 }}
         animate={{ scale: 1, opacity: 1 }}
         transition={{ duration: 0.6, delay: 0.3 }}
-        className={`text-center font-bold text-white  ${
+        className={`relative z-10 text-center font-bold text-white drop-shadow-[0_2px_8px_rgba(0,0,0,0.5)] ${
           isMobile
             ? 'text-fluid-5xl'
             : 'text-fluid-7xl'
