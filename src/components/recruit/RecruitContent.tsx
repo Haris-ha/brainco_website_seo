@@ -36,9 +36,9 @@ export default function RecruitContent() {
           backgroundImage:
             'url(https://website-www-brainco-cn.oss-cn-hangzhou.aliyuncs.com/images/fwXXuwCQ9Z0O636D.webp)',
         }}
-        role="img"
-        aria-label="BrainCo 招聘页背景 - 加入我们 / BrainCo Recruitment Background - Join Us"
       >
+        {/* 背景图描述（仅对屏幕阅读器可见） */}
+        <span className="sr-only">BrainCo 招聘页背景 - 加入我们 / BrainCo Recruitment Background - Join Us</span>
         <motion.div
           className="flex flex-col items-center justify-center gap-6"
           initial={{ opacity: 0, y: 30 }}
@@ -158,7 +158,7 @@ export default function RecruitContent() {
             >
               <Image
                 src="https://website-www-brainco-cn.oss-cn-hangzhou.aliyuncs.com/images/KBEw9rk75UDa0f27.webp"
-                alt={t('personalized_training')}
+                alt="个性化定制化培养图标 / Personalized and Customized Training Icon"
                 width={100}
                 height={100}
               />
@@ -176,7 +176,7 @@ export default function RecruitContent() {
             >
               <Image
                 src="https://website-www-brainco-cn.oss-cn-hangzhou.aliyuncs.com/images/7FkZy7Pqx6Mc3qW2.webp"
-                alt={t('competitive_salary')}
+                alt="有竞争力薪资待遇图标 / Competitive Compensation Icon"
                 width={100}
                 height={100}
               />
@@ -194,7 +194,7 @@ export default function RecruitContent() {
             >
               <Image
                 src="https://website-www-brainco-cn.oss-cn-hangzhou.aliyuncs.com/images/rqnSfilDvu8b7CBh.webp"
-                alt={t('elite_environment')}
+                alt="小而美精英研发环境图标 / Small but Excellent Elite R&D Environment Icon"
                 width={100}
                 height={100}
               />
@@ -268,7 +268,7 @@ export default function RecruitContent() {
                 >
                   <Image
                     src="https://website-www-brainco-cn.oss-cn-hangzhou.aliyuncs.com/images/sIZR2ml7GHJWwlMx.webp"
-                    alt="Office 1"
+                    alt="BrainCo 办公环境场景 - 团队协作 / BrainCo Office Environment - Team Collaboration"
                     width={1020}
                     height={405}
                     className="rounded-[10px] object-cover shadow-[6px_7px_62px_1px_#ededed]"
@@ -283,7 +283,7 @@ export default function RecruitContent() {
                 >
                   <Image
                     src="https://website-www-brainco-cn.oss-cn-hangzhou.aliyuncs.com/images/q68z09sE7HdzUPWy.webp"
-                    alt="Office 2"
+                    alt="BrainCo 办公环境场景 - 工作空间 / BrainCo Office Environment - Workspace"
                     width={1020}
                     height={405}
                     className="rounded-[10px] object-cover shadow-[6px_7px_62px_1px_#ededed]"
@@ -295,13 +295,13 @@ export default function RecruitContent() {
               <button
                 type="button"
                 onClick={handlePrev}
-                aria-label="Previous slide"
+                aria-label="上一张图片 / Previous slide"
                 className="cursor-target absolute top-1/2 left-[30px] z-[3] h-[62px] w-[62px] -translate-y-1/2 bg-[url('https://website-www-brainco-cn.oss-cn-hangzhou.aliyuncs.com/images/pwdX3SFceyMKwR6G.webp')] bg-[length:62px_62px]"
               />
               <button
                 type="button"
                 onClick={handleNext}
-                aria-label="Next slide"
+                aria-label="下一张图片 / Next slide"
                 className="cursor-target absolute top-1/2 right-[30px] z-[3] h-[62px] w-[62px] -translate-y-1/2 bg-[url('https://website-www-brainco-cn.oss-cn-hangzhou.aliyuncs.com/images/s9xb8MwzcxMcD01n.webp')] bg-[length:62px_62px]"
               />
             </div>

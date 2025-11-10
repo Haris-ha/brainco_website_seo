@@ -13,7 +13,7 @@ export default function RecruitContentMobile() {
       <header className="relative pb-[40px]">
         <Image
           src="https://website-www-brainco-cn.oss-cn-hangzhou.aliyuncs.com/images/8A2MXC4jP6f5cPJc.webp"
-          alt="BrainCo 招聘页背景 - 加入我们改变世界 / BrainCo Recruitment - Join Us to Change the World"
+          alt="BrainCo 招聘页面背景图 - 加入我们改变世界 / BrainCo Recruitment Page Background - Join Us to Change the World"
           width={750}
           height={600}
           className="w-full"
@@ -139,7 +139,7 @@ export default function RecruitContentMobile() {
             >
               <Image
                 src="https://website-www-brainco-cn.oss-cn-hangzhou.aliyuncs.com/images/KBEw9rk75UDa0f27.webp"
-                alt={t('personalized_training')}
+                alt="个性化定制化培养图标 / Personalized and Customized Training Icon"
                 width={26}
                 height={26}
                 className="mb-[10px]"
@@ -158,7 +158,7 @@ export default function RecruitContentMobile() {
             >
               <Image
                 src="https://website-www-brainco-cn.oss-cn-hangzhou.aliyuncs.com/images/7FkZy7Pqx6Mc3qW2.webp"
-                alt={t('competitive_salary')}
+                alt="有竞争力薪资待遇图标 / Competitive Compensation Icon"
                 width={26}
                 height={26}
                 className="mb-[10px]"
@@ -177,7 +177,7 @@ export default function RecruitContentMobile() {
             >
               <Image
                 src="https://website-www-brainco-cn.oss-cn-hangzhou.aliyuncs.com/images/rqnSfilDvu8b7CBh.webp"
-                alt={t('elite_environment')}
+                alt="小而美精英研发环境图标 / Small but Excellent Elite R&D Environment Icon"
                 width={26}
                 height={26}
                 className="mb-[10px]"
@@ -241,7 +241,7 @@ export default function RecruitContentMobile() {
             >
               <Image
                 src="https://website-www-brainco-cn.oss-cn-hangzhou.aliyuncs.com/images/sIZR2ml7GHJWwlMx.webp"
-                alt="Office 1"
+                alt="BrainCo 办公环境场景 - 团队协作 / BrainCo Office Environment - Team Collaboration"
                 width={360}
                 height={120}
                 className="rounded-[10px]"
@@ -255,7 +255,7 @@ export default function RecruitContentMobile() {
             >
               <Image
                 src="https://website-www-brainco-cn.oss-cn-hangzhou.aliyuncs.com/images/q68z09sE7HdzUPWy.webp"
-                alt="Office 2"
+                alt="BrainCo 办公环境场景 - 工作空间 / BrainCo Office Environment - Workspace"
                 width={360}
                 height={120}
                 className="mb-[10px] rounded-[10px]"
