@@ -582,7 +582,7 @@ export function HomeContent() {
                   aria-label={`查看 ${t('product_revo1_name')} 产品详情 / View ${t('product_revo1_name')} details`}
                 >
                   <ProductImageWithLabel
-                    src="https://www.brainco.cn/news-images/revo.png"
+                    src="https://www.brainco.cn/news-images/stark.png"
                     alt={`${t('product_revo1_name')} - BrainCo 智能灵巧手 / BrainCo intelligent dexterous hand`}
                     label={t('product_revo1_name')}
                     width={140}
@@ -603,7 +603,7 @@ export function HomeContent() {
                   aria-label={`查看 ${t('product_revo2_name')} 产品详情 / View ${t('product_revo2_name')} details`}
                 >
                   <ProductImageWithLabel
-                    src="https://www.brainco.cn/news-images/stark.png"
+                    src="https://www.brainco.cn/news-images/revo.png"
                     alt={`${t('product_revo2_name')} - BrainCo 智能灵巧手 / BrainCo intelligent dexterous hand`}
                     label={t('product_revo2_name')}
                     width={140}

@@ -295,7 +295,7 @@ export function ProductsMenuDesktop({ onClose }: ProductsMenuDesktopProps) {
                       >
                         <Link href="/products/revo1" onClick={onClose} className="cursor-target block overflow-hidden rounded-2xl">
                           <ProductImageWithLabel
-                            src="https://www.brainco.cn/news-images/revo.png"
+                            src="https://www.brainco.cn/news-images/stark.png"
                             alt="Revo 1"
                             label={t('product_revo1_name')}
                             width={320}
@@ -310,7 +310,7 @@ export function ProductsMenuDesktop({ onClose }: ProductsMenuDesktopProps) {
                       >
                         <Link href="/products/revo2" onClick={onClose} className="cursor-target block overflow-hidden rounded-2xl">
                           <ProductImageWithLabel
-                            src="https://www.brainco.cn/news-images/stark.png"
+                            src="https://www.brainco.cn/news-images/revo.png"
                             alt="Revo 2"
                             label={t('product_revo2_name')}
                             width={320}
