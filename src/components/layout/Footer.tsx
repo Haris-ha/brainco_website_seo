@@ -186,12 +186,12 @@ export function Footer({ locale }: FooterProps) {
           <nav aria-label="产品和服务导航 / Products and services navigation" className="mt-16 flex justify-between">
             {/* 产品栏 */}
             <div>
-              <p className="mb-10 text-2xl font-medium !text-[#666]">
+              <p className="mb-10 text-2xl font-medium !text-[#1F1F1F]">
                 {t('products')}
               </p>
               {productNavigation.map(section => (
                 <div key={section.title} className="mt-10 first:mt-0">
-                  <p className="mb-4 text-xl font-medium !text-[#666]">
+                  <p className="mb-4 text-xl font-medium !text-[#1F1F1F]">
                     {section.title}
                   </p>
                   {section.items.map(item => (
@@ -220,7 +220,7 @@ export function Footer({ locale }: FooterProps) {
             <div>
               {otherNavigation.slice(0, 1).map(section => (
                 <div key={section.title} className="mb-20">
-                  <p className="mb-10 text-2xl font-medium !text-[#666]">
+                  <p className="mb-10 text-2xl font-medium !text-[#1F1F1F]">
                     {section.title}
                   </p>
                   {section.items.map(item => (
@@ -249,7 +249,7 @@ export function Footer({ locale }: FooterProps) {
             <div className="flex flex-col justify-between">
               {otherNavigation.slice(1).map((section, index) => (
                 <div key={section.title} className={index > 0 ? 'mt-20' : ''}>
-                  <p className="mb-10 text-2xl font-medium !text-[#666]">
+                  <p className="mb-10 text-2xl font-medium !text-[#1F1F1F]">
                     {section.title}
                   </p>
                   {section.items.map(item => (
@@ -275,7 +275,7 @@ export function Footer({ locale }: FooterProps) {
 
               {/* 语言切换 */}
               <div className="mt-10">
-                <p className="mb-6 text-2xl font-medium !text-[#666]">
+                <p className="mb-6 text-2xl font-medium !text-[#1F1F1F]">
                   {locale === 'zh-CN' ? '语言' : locale === 'en-US' ? 'Language' : '語言'}
                 </p>
                 <LanguageSelector />

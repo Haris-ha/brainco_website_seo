@@ -356,6 +356,11 @@ export function HomeContent() {
             aria-label="BrainCo 产品列表 / BrainCo product list"
           >
             {productList.map((item, index) => {
+              const isBrainAIProduct = item.nameKey === 'product_brain_ai_name';
+              const baseImageClass = `absolute inset-0 h-full w-full transition-opacity duration-100 ease-in-out ${isBrainAIProduct ? 'object-contain' : 'object-cover'}`;
+              const titleClass = 'mb-2 text-2xl leading-tight font-semibold text-[#0B1324]';
+              const descClass = 'text-lg leading-snug text-[#5F6472]';
+
               // 如果路由是 /products/revo1，不创建链接（根据原始逻辑）
               if (item.router === '/products/revo1') {
                 return (
@@ -388,14 +393,14 @@ export function HomeContent() {
                         alt={`${t(item.nameKey)} - BrainCo 脑机接口产品 / BrainCo BCI product`}
                         width={140}
                         height={160}
-                        className="absolute inset-0 h-full w-full object-cover transition-opacity duration-100 ease-in-out group-hover/product:opacity-0"
+                        className={`${baseImageClass} group-hover/product:opacity-0`}
                       />
                       <Image
                         src={item.hoverImg}
                         alt={`${t(item.nameKey)} - 产品特写 / Product close-up`}
                         width={140}
                         height={160}
-                        className="absolute inset-0 h-full w-full object-cover opacity-0 transition-opacity duration-100 ease-in-out group-hover/product:opacity-100"
+                        className={`${baseImageClass} opacity-0 group-hover/product:opacity-100`}
                       />
                     </div>
                     <div
@@ -403,11 +408,11 @@ export function HomeContent() {
                         index === 1 || index === 4 ? '-ml-8' : ''
                       }`}
                     >
-                      <h3 className="mb-2 text-2xl leading-tight font-medium">
+                      <h3 className={titleClass}>
                         {t(item.nameKey)}
                       </h3>
                       <p
-                        className="text-lg leading-snug"
+                        className={descClass}
                         dangerouslySetInnerHTML={{ __html: t(item.descKey) }}
                       />
                     </div>
@@ -441,20 +446,20 @@ export function HomeContent() {
                     }}
                     onMouseLeave={() => setProductCount(0)}
                   >
-                    <div className="relative mr-3 h-40 w-[110px] flex-shrink-0 overflow-hidden 2xl:w-[140px]">
+                    <div className="relative mr-3 h-48 w-[110px] flex-shrink-0 overflow-hidden 2xl:w-[140px]">
                       <Image
                         src={item.img}
                         alt={`${t(item.nameKey)} - BrainCo 脑机接口产品 / BrainCo BCI product`}
                         width={140}
-                        height={160}
-                        className="absolute inset-0 h-full w-full object-cover transition-opacity duration-100 ease-in-out group-hover/product:opacity-0"
+                        height={180}
+                        className={`${baseImageClass} group-hover/product:opacity-0`}
                       />
                       <Image
                         src={item.hoverImg}
                         alt={`${t(item.nameKey)} - 产品特写 / Product close-up`}
                         width={140}
-                        height={160}
-                        className="absolute inset-0 h-full w-full object-cover opacity-0 transition-opacity duration-100 ease-in-out group-hover/product:opacity-100"
+                        height={180}
+                        className={`${baseImageClass} opacity-0 group-hover/product:opacity-100`}
                       />
                     </div>
                     <div
@@ -462,11 +467,11 @@ export function HomeContent() {
                         index === 1 || index === 4 ? '-ml-8' : ''
                       }`}
                     >
-                      <h3 className="mb-2 text-2xl leading-tight font-medium">
+                      <h3 className={titleClass}>
                         {t(item.nameKey)}
                       </h3>
                       <p
-                        className="text-lg leading-snug"
+                        className={descClass}
                         dangerouslySetInnerHTML={{ __html: t(item.descKey) }}
                       />
                     </div>
@@ -639,7 +644,7 @@ export function HomeContent() {
                       }
                     }}
                   >
-                    <div className="flex flex-1 items-center justify-center">
+                    <div className="flex items-center justify-center">
                       <Image
                         src={item.img}
                         alt={`${t(item.nameKey)} - BrainCo 神经调控设备 / BrainCo neuromodulation device`}
@@ -648,11 +653,11 @@ export function HomeContent() {
                         className="max-h-[80px] w-auto"
                       />
                     </div>
-                    <div className="flex w-full flex-col items-center px-2 pb-3">
+                    <div className="flex w-full flex-col items-center px-2">
                       <h4 className="text-base font-bold text-[#555]">
                         {t(item.nameKey)}
                       </h4>
-                      <span className="h-10 text-center text-sm text-[#666]">{t(item.descKey)}</span>
+                      <span className="text-center text-sm text-[#666]">{t(item.descKey)}</span>
                     </div>
                   </div>
                 ))}
