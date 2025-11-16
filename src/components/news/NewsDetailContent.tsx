@@ -369,7 +369,7 @@ export default function NewsDetailContent({ news, locale, allNews = EMPTY_NEWS_A
               className="flex items-center gap-2 rounded-lg border border-[#2563eb] px-4 py-2 text-[#2563eb] hover:!text-[#1d4ed8] transition-colors hover:bg-[#f0f7ff]"
             >
               <svg
-                className="h-5 w-5"
+                className="h-6 w-7"
                 fill="currentColor"
                 viewBox="0 0 28 28"
               >

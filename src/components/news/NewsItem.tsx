@@ -155,7 +155,7 @@ export default function NewsItem({ item, index = 0, isMobile = false }: NewsItem
                       className="flex items-center justify-center gap-3 rounded-[10px] border-2 border-[#2563eb] bg-white px-6 py-4 text-lg font-medium text-[#2563eb] transition-colors hover:bg-[#f0f7ff]"
                     >
                       <svg
-                        className="h-6 w-6"
+                        className="h-6 w-7"
                         fill="currentColor"
                         viewBox="0 0 28 28"
                       >
