@@ -308,7 +308,7 @@ export default function OxyZenContent({ productInfo }: OxyZenContentProps) {
             {t('indicators_title')}
           </motion.h2>
           <motion.p
-            className="text-fluid-2xl mb-5 font-thin"
+            className="text-fluid-2xl mb-5 font-normal"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -317,7 +317,7 @@ export default function OxyZenContent({ productInfo }: OxyZenContentProps) {
             {t('indicators_desc_1')}
           </motion.p>
           <motion.p
-            className="text-fluid-2xl font-thin"
+            className="text-fluid-2xl font-normal"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -342,8 +342,8 @@ export default function OxyZenContent({ productInfo }: OxyZenContentProps) {
                 <Image
                   src={item.icon}
                   alt={`${t(item.label as any)} - OxyZen 3D指标功能图标 / ${t(item.label as any)} - OxyZen 3D Indicator Feature Icon`}
-                  width={60}
-                  height={60}
+                  width={48}
+                  height={48}
                   className="mr-4 h-auto w-auto"
                 />
                 <span className="text-fluid-3xl">{t(item.label as any)}</span>
@@ -353,7 +353,7 @@ export default function OxyZenContent({ productInfo }: OxyZenContentProps) {
         </div>
 
         <motion.div
-          className="w-[27.6vw]"
+          className="w-[24.6vw]"
           initial={{ opacity: 0, scale: 0.9 }}
           whileInView={{ opacity: 1, scale: 1 }}
           viewport={{ once: true }}
@@ -362,8 +362,8 @@ export default function OxyZenContent({ productInfo }: OxyZenContentProps) {
           <Image
             src="https://website-www-brainco-cn.oss-cn-hangzhou.aliyuncs.com/images/fHPc2QXmcbrsKvHA.webp"
             alt="OxyZen 3D指标应用界面展示 - 健康数据可视化 / OxyZen 3D Indicators App Interface Display - Health Data Visualization"
-            width={530}
-            height={600}
+            width={400}
+            height={500}
             className="h-auto w-full"
           />
         </motion.div>
@@ -428,11 +428,11 @@ export default function OxyZenContent({ productInfo }: OxyZenContentProps) {
 
           <ul className="absolute top-0 left-0 h-full w-full">
             {[
-              { label: 'dimension_1', style: 'top-[2.34vw] left-[5.52vw]' },
+              { label: 'dimension_1', style: 'top-[2.34vw] left-[3.52vw]' },
               { label: 'dimension_2', style: 'top-[12.76vw] left-[-3.125vw]' },
               { label: 'dimension_3', style: 'top-[24.06vw] left-0' },
-              { label: 'dimension_4', style: 'top-[30vw] left-[12.5vw]' },
-              { label: 'dimension_5', style: 'top-[31.25vw] left-[30.62vw]' },
+              { label: 'dimension_4', style: 'top-[32vw] left-[12.5vw]' },
+              { label: 'dimension_5', style: 'top-[32vw] left-[30.62vw]' },
               { label: 'dimension_6', style: 'left-[45.83vw] top-[26.82vw]' },
               { label: 'dimension_7', style: 'top-[18.02vw] left-[52.29vw]' },
               { label: 'dimension_8', style: 'left-[50.93vw] top-[7.29vw]' },
@@ -440,7 +440,7 @@ export default function OxyZenContent({ productInfo }: OxyZenContentProps) {
             ].map((item, index) => (
               <motion.li
                 key={item.label}
-                className={`text-fluid-xl absolute flex h-[4vw] w-[8vw] items-center justify-center rounded-[1.35vw] bg-gradient-to-b from-[#edfdfd] to-[#82c8c4] font-light ${item.style}`}
+                className={`text-fluid-xl absolute flex h-[3vw] min-w-[8vw] items-center justify-center rounded-full bg-gradient-to-b from-[#edfdfd] to-[#82c8c4] px-2 px-4 ${item.style}`}
                 initial={{ opacity: 0, scale: 0 }}
                 whileInView={{ opacity: 1, scale: 1 }}
                 viewport={{ once: true }}
@@ -541,7 +541,7 @@ export default function OxyZenContent({ productInfo }: OxyZenContentProps) {
 
         {/* Main Image */}
         <div className="ml-[0.41vw] w-[13.54vw] pt-[3.85vw]">
-          <div className="flex h-full items-center justify-center bg-white">
+          <div className="flex h-full items-center justify-center bg-white pt-2">
             <Image
               src={socialMediaData.mainImage}
               alt="OxyZen 产品主图 - 氧气能量补充设备 / OxyZen Product Main Image - Oxygen Energy Device"
@@ -595,7 +595,7 @@ export default function OxyZenContent({ productInfo }: OxyZenContentProps) {
           </div>
 
           {/* Purchase Link */}
-          <div className="mt-2">
+          <div className="mt-6">
             <h3 className="text-fluid-2xl mb-2 font-normal">{t('purchase_link')}</h3>
             <div className="text-fluid-base flex h-[5.46vw] items-center justify-center bg-white">
               {purchaseLink}

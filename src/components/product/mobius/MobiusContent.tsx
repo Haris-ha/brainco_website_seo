@@ -46,7 +46,7 @@ export default function MobiusContent() {
           priority
         />
         <div className="absolute right-[40px] bottom-52 flex h-full w-[380px] flex-col justify-center pt-[250px] 2xl:right-[100px]">
-          <motion.div
+          {/* <motion.div
             initial={{ opacity: 0, scale: 0.8 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.8, ease: 'easeOut' }}
@@ -59,7 +59,7 @@ export default function MobiusContent() {
               sizes="116px"
               className="mb-[30px] h-auto w-[116px]"
             />
-          </motion.div>
+          </motion.div> */}
           <motion.h1
             className="text-fluid-6xl mb-[30px] font-medium text-black"
             initial={{ opacity: 0, y: 30 }}
