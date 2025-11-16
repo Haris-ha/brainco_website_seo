@@ -315,14 +315,14 @@ export default function EASleepContent() {
                     className="text-fluid-5xl flex items-end leading-none font-light"
                   >
                     <span>{t('research_improvement')}</span>
-                    <Image
+                    {/* <Image
                       src="https://website-www-brainco-cn.oss-cn-hangzhou.aliyuncs.com/images/4CJ2D4wzks5eenp6.webp"
                       alt="EASleep 改善趋势上升箭头图标 / EASleep Improvement Trend Up Arrow Icon"
                       width={68}
                       height={68}
                       className="ml-2"
                       role="presentation"
-                    />
+                    /> */}
                   </motion.div>
                 </div>
               </div>

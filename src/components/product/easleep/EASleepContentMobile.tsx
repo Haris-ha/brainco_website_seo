@@ -307,14 +307,14 @@ export default function EASleepContentMobile() {
         <div className="text-fluid-5xl text-center">{t('research_percentage')}</div>
         <div className="text-fluid-xl flex items-center">
           <span>{t('research_improvement')}</span>
-          <Image
+          {/* <Image
             className="transition-transform duration-300 hover:scale-105"
             src="https://website-www-brainco-cn.oss-cn-hangzhou.aliyuncs.com/images/product/easleep/round_up.webp"
             alt="EASleep 改善趋势上升箭头图标 / EASleep Improvement Trend Up Arrow Icon"
             width={22}
             height={22}
             role="presentation"
-          />
+          /> */}
         </div>
       </div>
 

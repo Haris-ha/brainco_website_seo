@@ -241,7 +241,7 @@ export function ProductsMenuDesktop({ onClose }: ProductsMenuDesktopProps) {
                     initial={{ opacity: 0, scale: 0.9 }}
                     animate={{ opacity: 1, scale: 1 }}
                     transition={{ duration: 0.3 }}
-                    className="flex h-[400px] w-[280px] flex-shrink-0 flex-col items-center justify-center rounded-2xl bg-[#f5f5f5] p-4 shadow-md md:h-[500px] md:w-[240px] md:p-8"
+                    className="flex h-[400px] w-[280px] flex-shrink-0 flex-col items-center justify-center rounded-2xl bg-[#f5f5f5] p-4 md:h-[500px] md:w-[240px] md:p-8"
                   >
                     <Link
                       href={category.products[hoveredProduct[category.title]!]!.href}
@@ -286,7 +286,7 @@ export function ProductsMenuDesktop({ onClose }: ProductsMenuDesktopProps) {
                     initial={{ opacity: 0, scale: 0.9 }}
                     animate={{ opacity: 1, scale: 1 }}
                     transition={{ duration: 0.3 }}
-                    className="flex h-[400px] w-[280px] flex-shrink-0 flex-col items-center justify-center rounded-2xl bg-[#f5f5f5] p-4 shadow-md md:h-[500px] md:w-[240px] md:p-8"
+                    className="flex h-[400px] w-[280px] flex-shrink-0 flex-col items-center justify-center rounded-2xl bg-[#f5f5f5] p-4 md:h-[500px] md:w-[240px] md:p-8"
                   >
                     <div className="flex w-full flex-col gap-2 md:gap-4">
                       <motion.div
