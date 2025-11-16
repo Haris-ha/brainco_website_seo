@@ -75,8 +75,12 @@ export function generateGridItems(
 
   // 将每个图片的副本分配到队列中
   shuffledImages.forEach((image, index) => {
-    for (let i = 0; i < imageCounts[index] ?? 0; i++) {
-      imageQueues[index].push(image);
+    const count = imageCounts[index];
+    const queue = imageQueues[index];
+    if (count !== undefined && queue) {
+      for (let i = 0; i < count; i++) {
+        queue.push(image);
+      }
     }
   });
 
@@ -90,9 +94,12 @@ export function generateGridItems(
 
     // 找到距离上次使用位置最远的图片
     for (let j = 0; j < imageQueues.length; j++) {
-      if (imageQueues[j].length === 0) continue;
+      const queue = imageQueues[j];
+      if (!queue || queue.length === 0) continue;
 
-      const image = imageQueues[j][0];
+      const image = queue[0];
+      if (!image) continue;
+
       const lastUsed = lastUsedIndex.get(image) ?? -Infinity;
       const distance = i - lastUsed;
 
@@ -107,19 +114,26 @@ export function generateGridItems(
     if (bestImage === null || bestQueueIndex === -1) {
       let maxLength = 0;
       for (let j = 0; j < imageQueues.length; j++) {
-        if (imageQueues[j].length > maxLength) {
-          maxLength = imageQueues[j].length;
-          bestQueueIndex = j;
-          bestImage = imageQueues[j][0];
+        const queue = imageQueues[j];
+        if (queue && queue.length > maxLength) {
+          const firstImage = queue[0];
+          if (firstImage) {
+            maxLength = queue.length;
+            bestQueueIndex = j;
+            bestImage = firstImage;
+          }
         }
       }
     }
 
     if (bestImage && bestQueueIndex >= 0) {
-      result.push(bestImage);
-      lastUsedIndex.set(bestImage, i);
-      // 从队列中移除已使用的图片
-      imageQueues[bestQueueIndex].shift();
+      const queue = imageQueues[bestQueueIndex];
+      if (queue) {
+        result.push(bestImage);
+        lastUsedIndex.set(bestImage, i);
+        // 从队列中移除已使用的图片
+        queue.shift();
+      }
     }
   }
 

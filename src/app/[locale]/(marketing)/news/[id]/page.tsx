@@ -84,7 +84,7 @@ export default async function NewsDetailPage(props: NewsDetailPageProps) {
       <StructuredData
         seoData={{
           pagePath: `/news/${id}`,
-          locale,
+          locale: locale as 'zh-Hans' | 'en' | 'zh-Hant',
           metaTitle: news.title,
           metaDescription: news.content
             ? news.content.replace(/<[^>]*>/g, '').substring(0, 160) + '...'

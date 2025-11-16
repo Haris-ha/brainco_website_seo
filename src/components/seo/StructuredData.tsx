@@ -9,14 +9,14 @@
 import type { PageSEO } from '@/types/seo';
 
 type StructuredDataProps = {
-  seoData: PageSEO | null;
+  seoData: (Pick<PageSEO, 'locale' | 'metaTitle' | 'metaDescription' | 'pagePath' | 'structuredData' | 'canonicalURL'>) | null;
 };
 
 /**
  * 生成默认的网页信息结构化数据（作为后备）
  * 仅在 CMS 中没有配置 structuredData 时使用
  */
-function generateWebPageSchema(seoData: PageSEO) {
+function generateWebPageSchema(seoData: Pick<PageSEO, 'locale' | 'metaTitle' | 'metaDescription' | 'canonicalURL'>) {
   const publisherName = 'BrainCo';
 
   return {
