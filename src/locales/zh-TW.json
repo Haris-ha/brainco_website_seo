@@ -163,7 +163,12 @@
     "wechat_follow": "該公眾號",
     "loading": "加載中...",
     "no_news": "暫無新聞",
-    "read_more": "查看詳情"
+    "read_more": "查看詳情",
+    "open_modal_title": "選擇打開方式",
+    "open_in_site": "站內打開",
+    "open_wechat": "微信公眾號打開",
+    "back_to_list": "返回新聞列表",
+    "no_content": "該新聞暫無正文內容，請訪問微信公眾號查看完整內容。"
   },
   "Footer": {
     "follow_us": "關注我們",

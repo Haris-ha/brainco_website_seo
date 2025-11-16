@@ -163,7 +163,12 @@
     "wechat_follow": "该公众号",
     "loading": "加载中...",
     "no_news": "暂无新闻",
-    "read_more": "查看详情"
+    "read_more": "查看详情",
+    "open_modal_title": "选择打开方式",
+    "open_in_site": "站内打开",
+    "open_wechat": "微信公众号打开",
+    "back_to_list": "返回新闻列表",
+    "no_content": "该新闻暂无正文内容，请访问微信公众号查看完整内容。"
   },
   "Footer": {
     "follow_us": "关注我们",

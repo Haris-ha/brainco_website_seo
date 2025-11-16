@@ -271,6 +271,366 @@ select {
   }
 }
 
+/* 新闻详情页富文本内容样式 */
+.news-content {
+  line-height: 1.8;
+  color: #555555;
+  font-size: 1.125rem;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+}
+
+/* 段落间距优化 */
+.news-content > *:first-child {
+  margin-top: 0;
+}
+
+.news-content > *:last-child {
+  margin-bottom: 0;
+}
+
+.news-content h1,
+.news-content h2,
+.news-content h3,
+.news-content h4,
+.news-content h5,
+.news-content h6 {
+  font-weight: 600;
+  color: #333333;
+  margin-top: 2.5rem;
+  margin-bottom: 1rem;
+  line-height: 1.4;
+  scroll-margin-top: 2rem;
+}
+
+.news-content h1:first-child,
+.news-content h2:first-child,
+.news-content h3:first-child,
+.news-content h4:first-child,
+.news-content h5:first-child,
+.news-content h6:first-child {
+  margin-top: 0;
+}
+
+.news-content h1 {
+  font-size: 2.25rem;
+  margin-top: 3rem;
+  border-bottom: 2px solid #e5e7eb;
+  padding-bottom: 0.5rem;
+}
+
+.news-content h2 {
+  font-size: 1.875rem;
+  margin-top: 2.5rem;
+  border-bottom: 1px solid #e5e7eb;
+  padding-bottom: 0.5rem;
+}
+
+.news-content h3 {
+  font-size: 1.5rem;
+  margin-top: 2rem;
+}
+
+.news-content h4 {
+  font-size: 1.25rem;
+  margin-top: 1.5rem;
+}
+
+.news-content h5 {
+  font-size: 1.125rem;
+  margin-top: 1.5rem;
+}
+
+.news-content h6 {
+  font-size: 1rem;
+  margin-top: 1.5rem;
+}
+
+.news-content p {
+  margin-bottom: 1.5rem;
+  margin-top: 0;
+  line-height: 1.8;
+  color: #555555;
+}
+
+/* 段落之间的间距 */
+.news-content p + p {
+  margin-top: 1rem;
+}
+
+.news-content a {
+  color: #2563eb;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.news-content a:hover {
+  color: #1d4ed8;
+  text-decoration: underline;
+}
+
+.news-content img {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1);
+  margin: 0;
+  display: block;
+}
+
+/* 图片和视频包装容器 */
+.news-content .news-media-wrapper {
+  margin: 2rem 0;
+  display: block;
+}
+
+.news-content .news-media-wrapper img,
+.news-content .news-media-wrapper video {
+  margin: 0;
+}
+
+/* 图片和视频标题 */
+.news-content .news-media-caption {
+  margin-top: 0.75rem;
+  font-size: 1.25rem;
+  color: #666666;
+  text-align: center;
+  line-height: 1.5;
+}
+
+/* 视频样式 - 支持 video 标签和 mp4 链接 */
+.news-content video {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1);
+  margin: 0;
+  display: block;
+}
+
+/* 不在 figure 中的视频（向后兼容） */
+.news-content video:not(.news-media-wrapper video) {
+  margin: 2rem 0;
+}
+
+/* 处理 markdown 中的视频链接，转换为视频（支持多种格式） */
+.news-content a[href$='.mp4'],
+.news-content a[href$='.webm'],
+.news-content a[href$='.mov'],
+.news-content a[href$='.avi'],
+.news-content a[href$='.ogv'],
+.news-content a[href$='.m4v'],
+.news-content a[href$='.mkv'] {
+  display: block;
+  width: 100%;
+  margin: 2rem 0;
+}
+
+.news-content a[href$='.mp4'] video,
+.news-content a[href$='.webm'] video,
+.news-content a[href$='.mov'] video,
+.news-content a[href$='.avi'] video,
+.news-content a[href$='.ogv'] video,
+.news-content a[href$='.m4v'] video,
+.news-content a[href$='.mkv'] video {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1);
+}
+
+.news-content ul,
+.news-content ol {
+  margin: 1.5rem 0;
+  padding-left: 2rem;
+  color: #555555;
+}
+
+.news-content ul {
+  list-style-type: disc;
+}
+
+.news-content ol {
+  list-style-type: decimal;
+}
+
+.news-content li {
+  margin-bottom: 0.75rem;
+  margin-top: 0.5rem;
+  line-height: 1.8;
+  padding-left: 0.5rem;
+}
+
+.news-content li > p {
+  margin-bottom: 0.5rem;
+  margin-top: 0.5rem;
+}
+
+.news-content ul ul,
+.news-content ol ol,
+.news-content ul ol,
+.news-content ol ul {
+  margin-top: 0.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.news-content strong {
+  font-weight: 600;
+  color: #333333;
+}
+
+.news-content blockquote {
+  border-left: 4px solid #2563eb;
+  background-color: #f8f9fa;
+  padding: 1rem 1.5rem;
+  margin: 2rem 0;
+  border-radius: 0 8px 8px 0;
+  font-style: italic;
+  color: #666666;
+}
+
+.news-content blockquote p {
+  margin-bottom: 0.75rem;
+}
+
+.news-content blockquote p:last-child {
+  margin-bottom: 0;
+}
+
+.news-content code {
+  background-color: #f3f4f6;
+  padding: 0.25rem 0.5rem;
+  border-radius: 4px;
+  font-size: 0.875em;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, 'Liberation Mono', 'Courier New', monospace;
+}
+
+.news-content pre {
+  background-color: #1f2937;
+  color: #f9fafb;
+  padding: 1.5rem;
+  border-radius: 8px;
+  overflow-x: auto;
+  margin: 2rem 0;
+}
+
+.news-content pre code {
+  background-color: transparent;
+  padding: 0;
+  color: inherit;
+}
+
+.news-content hr {
+  border: none;
+  border-top: 2px solid #e5e7eb;
+  margin: 3rem 0;
+  height: 0;
+}
+
+/* 表格样式 */
+.news-content table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 2rem 0;
+  overflow-x: auto;
+  display: block;
+}
+
+.news-content table thead {
+  background-color: #f8f9fa;
+}
+
+.news-content table th,
+.news-content table td {
+  padding: 0.75rem 1rem;
+  border: 1px solid #e5e7eb;
+  text-align: left;
+}
+
+.news-content table th {
+  font-weight: 600;
+  color: #333333;
+  background-color: #f8f9fa;
+}
+
+.news-content table tr:nth-child(even) {
+  background-color: #f9fafb;
+}
+
+/* 内联代码和代码块之间的间距 */
+.news-content p code,
+.news-content li code {
+  margin: 0 0.25rem;
+}
+
+/* 确保代码块前后有足够间距 */
+.news-content pre {
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+}
+
+.news-content pre + p,
+.news-content p + pre {
+  margin-top: 2rem;
+}
+
+@media (max-width: 768px) {
+  .news-content {
+    font-size: 1rem;
+  }
+
+  .news-content h1 {
+    font-size: 1.75rem;
+    margin-top: 2rem;
+    padding-bottom: 0.5rem;
+  }
+
+  .news-content h2 {
+    font-size: 1.5rem;
+    margin-top: 2rem;
+    padding-bottom: 0.5rem;
+  }
+
+  .news-content h3 {
+    font-size: 1.25rem;
+    margin-top: 1.5rem;
+  }
+
+  .news-content h4 {
+    font-size: 1.125rem;
+    margin-top: 1.25rem;
+  }
+
+  .news-content p {
+    margin-bottom: 1.25rem;
+  }
+
+  .news-content ul,
+  .news-content ol {
+    padding-left: 1.5rem;
+    margin: 1.25rem 0;
+  }
+
+  .news-content blockquote {
+    padding: 0.75rem 1rem;
+    margin: 1.5rem 0;
+  }
+
+  .news-content table {
+    font-size: 0.875rem;
+  }
+
+  .news-content table th,
+  .news-content table td {
+    padding: 0.5rem 0.75rem;
+  }
+
+  .news-content pre {
+    padding: 1rem;
+    font-size: 0.875rem;
+  }
+}
+
 /* 响应式隐藏 */
 @media (max-width: 639px) {
   .hidden-mobile {

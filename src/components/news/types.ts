@@ -1,9 +1,11 @@
 export type NewsItem = {
   id: number;
+  documentId?: string;
   title: string;
   time: string;
   img: string;
   url: string;
+  externalUrl?: string;
   hot: boolean;
   sortIndex: number;
 };
@@ -42,6 +44,7 @@ export type StrapiNewsItem = {
   createdAt: string;
   updatedAt: string;
   publishedAt: string;
+  content?: string;
 };
 
 export type StrapiNewsResponse = {

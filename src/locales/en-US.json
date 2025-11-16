@@ -163,7 +163,12 @@
     "wechat_follow": "WeChat Official Account",
     "loading": "Loading...",
     "no_news": "No news available",
-    "read_more": "Read More"
+    "read_more": "Read More",
+    "open_modal_title": "Choose how to open",
+    "open_in_site": "Open in site",
+    "open_wechat": "Open in WeChat",
+    "back_to_list": "Back to news list",
+    "no_content": "This news has no content yet. Please visit WeChat official account to read the full article."
   },
   "Footer": {
     "follow_us": "Follow Us",

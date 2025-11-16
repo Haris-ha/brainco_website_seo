@@ -39,10 +39,12 @@ export default async function NewsPage(props: NewsPageProps) {
     .filter(item => item?.isHot)
     .map(item => ({
       id: item.id,
+      documentId: item.documentId,
       title: item.title,
       time: formatDate(item.newsDate, 'YYYY-MM-DD'),
       img: item.coverImage,
       url: item.externalUrl,
+      externalUrl: item.externalUrl,
       hot: item.isHot,
       sortIndex: item.sortIndex,
     }));
@@ -51,10 +53,12 @@ export default async function NewsPage(props: NewsPageProps) {
     .filter(item => item && !item.isHot)
     .map(item => ({
       id: item.id,
+      documentId: item.documentId,
       title: item.title,
       time: formatDate(item.newsDate, 'YYYY-MM-DD'),
       img: item.coverImage,
       url: item.externalUrl,
+      externalUrl: item.externalUrl,
       hot: item.isHot,
       sortIndex: item.sortIndex,
     }));
