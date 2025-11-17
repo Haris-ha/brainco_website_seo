@@ -1,5 +1,5 @@
 import type { Metadata } from 'next';
-import { notFound, redirect } from 'next/navigation';
+import { redirect } from 'next/navigation';
 import { setRequestLocale } from 'next-intl/server';
 import NewsDetailContent from '@/components/news/NewsDetailContent';
 import DynamicCanonical from '@/components/seo/DynamicCanonical';
