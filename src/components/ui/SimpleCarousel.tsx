@@ -2,7 +2,7 @@
 
 import type { ReactNode } from 'react';
 import { motion } from 'framer-motion';
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useRef, useCallback } from 'react';
 
 const DRAG_BUFFER = 50;
 const VELOCITY_THRESHOLD = 500;
@@ -37,6 +37,8 @@ export function SimpleCarousel({
   const [isHovered, setIsHovered] = useState(false);
   const [isDragging, setIsDragging] = useState(false);
   const [isMobile, setIsMobile] = useState(false);
+  const autoplayTimerRef = useRef<NodeJS.Timeout | null>(null);
+  const isAutoplayChangingRef = useRef(false); // 标记是否由自动播放引起的索引变化
 
   // 检测移动端
   useEffect(() => {
@@ -49,22 +51,65 @@ export function SimpleCarousel({
     return () => window.removeEventListener('resize', checkMobile);
   }, []);
 
+  // 停止自动播放
+  const stopAutoplay = useCallback(() => {
+    if (autoplayTimerRef.current) {
+      clearInterval(autoplayTimerRef.current);
+      autoplayTimerRef.current = null;
+    }
+  }, []);
+
+  // 启动自动播放
+  const startAutoplay = useCallback(() => {
+    stopAutoplay();
+    if (autoplay && !isHovered) {
+      autoplayTimerRef.current = setInterval(() => {
+        isAutoplayChangingRef.current = true; // 标记这是自动播放引起的
+        setCurrentIndex(prev => (prev === items.length - 1 ? 0 : prev + 1));
+        // 重置标记
+        setTimeout(() => {
+          isAutoplayChangingRef.current = false;
+        }, 0);
+      }, autoplayDelay);
+    }
+  }, [autoplay, autoplayDelay, items.length, isHovered, stopAutoplay]);
+
+  // 管理自动播放
   useEffect(() => {
     if (autoplay && !isHovered) {
-      const timer = setInterval(() => {
-        setCurrentIndex(prev => (prev === items.length - 1 ? 0 : prev + 1));
-      }, autoplayDelay);
-      return () => clearInterval(timer);
+      startAutoplay();
+    } else {
+      stopAutoplay();
     }
-    return undefined;
-  }, [autoplay, autoplayDelay, items.length, isHovered]);
+    return () => {
+      stopAutoplay();
+    };
+  }, [autoplay, autoplayDelay, items.length, isHovered, startAutoplay, stopAutoplay]);
+
+  // 当 currentIndex 手动变化时，重新启动自动播放
+  useEffect(() => {
+    // 如果不是由自动播放引起的索引变化，且自动播放开启且未悬停，则重新启动
+    if (!isAutoplayChangingRef.current && autoplay && !isHovered) {
+      startAutoplay();
+    }
+  }, [currentIndex, autoplay, isHovered, startAutoplay]);
 
   const goToPrevious = () => {
     setCurrentIndex(prev => Math.max(prev - 1, 0));
+    // 重置自动播放计时器，继续自动播放
+    // 使用 setTimeout 确保状态更新后再启动
+    setTimeout(() => {
+      startAutoplay();
+    }, 0);
   };
 
   const goToNext = () => {
     setCurrentIndex(prev => Math.min(prev + 1, items.length - 1));
+    // 重置自动播放计时器，继续自动播放
+    // 使用 setTimeout 确保状态更新后再启动
+    setTimeout(() => {
+      startAutoplay();
+    }, 0);
   };
 
   const handleDragStart = () => {
@@ -77,8 +122,16 @@ export function SimpleCarousel({
 
     if (offset < -DRAG_BUFFER || velocity < -VELOCITY_THRESHOLD) {
       setCurrentIndex(prev => Math.min(prev + 1, items.length - 1));
+      // 重置自动播放计时器，继续自动播放
+      setTimeout(() => {
+        startAutoplay();
+      }, 0);
     } else if (offset > DRAG_BUFFER || velocity > VELOCITY_THRESHOLD) {
       setCurrentIndex(prev => Math.max(prev - 1, 0));
+      // 重置自动播放计时器，继续自动播放
+      setTimeout(() => {
+        startAutoplay();
+      }, 0);
     }
 
     // 延迟重置拖动状态，防止拖动后立即触发点击
@@ -195,7 +248,13 @@ export function SimpleCarousel({
                 animate={{
                   scale: currentIndex === index ? 1 : 0.8,
                 }}
-                onClick={() => setCurrentIndex(index)}
+                onClick={() => {
+                  setCurrentIndex(index);
+                  // 重置自动播放计时器，继续自动播放
+                  setTimeout(() => {
+                    startAutoplay();
+                  }, 0);
+                }}
                 transition={{ duration: 0.3 }}
                 aria-label={`跳转到第 ${index + 1} 页`}
               />
