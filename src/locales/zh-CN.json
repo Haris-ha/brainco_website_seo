@@ -764,6 +764,7 @@
     "min_quantity_error": "商品数量不能小于1",
     "add_to_cart": "加入购物车",
     "buy_now": "立即购买",
+    "back": "返回",
     "copyright": "Copyright ©️2023 BrainCo Inc.",
     "privacy_legal": "隐私和法律",
     "icp_number": "粤ICP备17159775号-1"
@@ -854,6 +855,7 @@
     "meta_title": "我的订单 - 强脑科技BrainCo",
     "meta_description": "查看和管理您的BrainCo订单",
     "page_title": "我的订单",
+    "back": "返回",
     "login_title": "您的订单记录？",
     "login_subtitle": "输入您的电话号码，以查询相关的订单通知。",
     "phone_label": "手机号",

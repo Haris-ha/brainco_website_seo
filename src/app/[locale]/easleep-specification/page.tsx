@@ -4,6 +4,7 @@ import Image from 'next/image';
 import EASleepSpecificationPageClient from '@/components/easleep/EASleepSpecificationPageClient';
 import { getBraincoProducts } from '@/lib/api';
 import { createPageMetadata } from '@/lib/metadata';
+import { BackButton } from '@/components/common/BackButton';
 
 export async function generateMetadata(props: {
   params: Promise<{ locale: string }>;
@@ -58,7 +59,7 @@ export default async function EASleepSpecificationPage() {
   return (
     <div className="min-h-screen bg-white">
       {/* Logo导航栏 */}
-      <header className="sticky top-0 z-40 flex items-center border-b border-gray-100 bg-white px-6 py-4 md:px-12">
+      <header className="sticky top-0 z-40 flex items-center justify-between border-b border-gray-100 bg-white px-6 py-4 md:px-12">
         <div className="flex items-center gap-1 md:gap-8">
           <Image
             src="https://website-www-brainco-cn.oss-cn-hangzhou.aliyuncs.com/images/icon.webp"
@@ -75,6 +76,8 @@ export default async function EASleepSpecificationPage() {
             </span>
           </div>
         </div>
+        {/* 返回按钮 */}
+        <BackButton />
       </header>
 
       {/* 使用JS条件渲染，避免PC和移动端H标签同时被搜索引擎收录 */}

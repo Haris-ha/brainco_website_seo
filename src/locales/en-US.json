@@ -764,6 +764,7 @@
     "min_quantity_error": "Quantity cannot be less than 1",
     "add_to_cart": "Add to Cart",
     "buy_now": "Buy Now",
+    "back": "Back",
     "copyright": "Copyright ©️2023 BrainCo Inc.",
     "privacy_legal": "Privacy & Legal",
     "icp_number": "粤ICP备17159775号-1"
@@ -854,6 +855,7 @@
     "meta_title": "My Orders - BrainCo",
     "meta_description": "View and manage your BrainCo orders",
     "page_title": "My Orders",
+    "back": "Back",
     "login_title": "Your Order Records?",
     "login_subtitle": "Enter your phone number to check your order notifications.",
     "phone_label": "Phone Number",

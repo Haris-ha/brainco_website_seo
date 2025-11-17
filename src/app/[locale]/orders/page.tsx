@@ -5,6 +5,7 @@ import type { Order, OrderListResponse } from '@/types/order';
 import { motion } from 'framer-motion';
 import { useTranslations } from 'next-intl';
 import Image from 'next/image';
+import { useRouter } from 'next/navigation';
 import { useEffect, useState } from 'react';
 import toast from 'react-hot-toast';
 
@@ -25,6 +26,7 @@ import request from '@/lib/request';
  */
 export default function OrdersPage() {
   const t = useTranslations('Orders');
+  const router = useRouter();
   const [isAuthenticated, setIsAuthenticated] = useState(false);
   const [isLoading, setIsLoading] = useState(true);
   const [orders, setOrders] = useState<Order[]>([]);
@@ -124,7 +126,7 @@ export default function OrdersPage() {
         initial={{ opacity: 0, y: -20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5 }}
-        className="sticky top-0 z-40 flex items-center border-b border-gray-100 bg-white px-6 py-4 md:px-12"
+        className="sticky top-0 z-40 flex items-center justify-between border-b border-gray-100 bg-white px-6 py-4 md:px-12"
       >
         <div className="flex items-center gap-3 md:gap-8">
           <Image
@@ -142,6 +144,33 @@ export default function OrdersPage() {
             </span>
           </div>
         </div>
+        {/* 返回按钮 */}
+        <motion.button
+          type="button"
+          onClick={() => router.back()}
+          initial={{ opacity: 0, x: 20 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{ duration: 0.3, delay: 0.2 }}
+          className="flex items-center text-gray-700 transition-colors hover:text-gray-900"
+          aria-label="返回上一页 / Back to previous page"
+        >
+          <svg
+            className="h-5 w-5 md:h-7 md:w-7"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+          >
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth={2}
+              d="M15 19l-7-7 7-7"
+            />
+          </svg>
+          <span className="font-medium text-gray-800" style={{ fontSize: 'clamp(0.875rem, 1.5vw, 1.5rem)' }}>
+            {t('back')}
+          </span>
+        </motion.button>
       </motion.header>
 
       {/* 主内容区 */}
