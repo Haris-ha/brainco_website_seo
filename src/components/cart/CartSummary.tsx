@@ -75,7 +75,7 @@ export function CartSummary({ totalPrice, hasCheckedItems }: CartSummaryProps) {
           onClick={handleCheckout}
           disabled={!hasCheckedItems}
           aria-label={hasCheckedItems ? t('checkout') : `${t('checkout')} - ${t('selected_items', { count: 0 })}`}
-          className={`text-fluid-xl  cursor-target h-[36px] w-[120px] rounded-[28px] font-medium text-white shadow-lg transition-all md:h-[48px] md:w-[160px] md:rounded-[32px] ${
+          className={`text-fluid-xl  cursor-target h-[36px] w-[120px] rounded-[28px] font-medium !text-white shadow-lg transition-all md:h-[48px] md:w-[160px] md:rounded-[32px] ${
             hasCheckedItems
               ? 'bg-[#4F68D2] hover:bg-[#3d52a8]'
               : 'cursor-not-allowed bg-[rgba(0,0,0,0.16)]'

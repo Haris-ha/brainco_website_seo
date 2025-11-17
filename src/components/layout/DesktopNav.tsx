@@ -4,7 +4,7 @@ import { useTranslations } from 'next-intl';
 import Image from 'next/image';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { ProductsMenuDesktop } from './ProductsMenuDesktop';
 
 type NavItem = {
@@ -25,6 +25,12 @@ export function DesktopNav({ locale }: { locale: string }) {
   // 判断是否是灵巧手产品页面
   const isRevoPage = pathname?.includes('/products/revo1') || pathname?.includes('/products/revo2');
 
+  // 当路径变化时，重置下拉菜单状态，避免状态累积
+  useEffect(() => {
+    setActiveDropdown(null);
+    setShowProductMenu(false);
+  }, [pathname]);
+
   // 导航菜单配置
   const navItems: NavItem[] = [
     { key: 'home', href: `/${locale}` },
@@ -43,7 +49,7 @@ export function DesktopNav({ locale }: { locale: string }) {
 
   return (
     <>
-      <nav className="fixed top-0 left-0 z-50 hidden w-full md:flex" aria-label="主导航 / Main navigation">
+      <nav key={pathname} className="fixed top-0 left-0 z-50 hidden w-full md:flex" aria-label="主导航 / Main navigation">
         <div className={`absolute inset-0 backdrop-blur-[10px] ${isRevoPage ? 'bg-black/80' : 'bg-white/30'}`} />
 
         {/* 导航内容 */}
@@ -64,7 +70,7 @@ export function DesktopNav({ locale }: { locale: string }) {
 
           {/* 导航菜单 */}
           <div className="flex flex-1">
-            <ul className="mr-8 flex w-full justify-center px-48 2xl:mr-16 2xl:px-32">
+            <ul className="!mr-8 flex w-full justify-center !px-48 2xl:!mr-16 2xl:!px-32">
               {navItems.map((item, _index) => (
                 <li
                   key={item.key}

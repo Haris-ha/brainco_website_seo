@@ -39,6 +39,11 @@ export function Header({ locale }: HeaderProps) {
     return () => window.removeEventListener('resize', checkMobile);
   }, []);
 
+  // 当路径变化时，重置菜单状态，避免状态累积
+  useEffect(() => {
+    setMobileMenuOpen(false);
+  }, [pathname]);
+
   return (
     <header>
       {/* 桌面端导航 - 使用CSS隐藏/显示以避免初始渲染问题 */}
@@ -62,7 +67,7 @@ export function Header({ locale }: HeaderProps) {
             : (
               // 其他页面：显示固定白色导航栏
                 <>
-                  <div className="fixed top-0 left-0 z-50 flex h-24 w-full items-center justify-between bg-white px-8 shadow-sm">
+                  <div key={pathname} className="fixed top-0 left-0 z-50 flex h-24 w-full items-center justify-between bg-white px-8 shadow-sm">
                     {/* 左侧：汉堡菜单按钮 */}
                     <div className="flex items-center gap-2">
                       <button
