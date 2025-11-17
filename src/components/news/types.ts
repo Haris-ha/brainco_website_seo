@@ -45,6 +45,17 @@ export type StrapiNewsItem = {
   updatedAt: string;
   publishedAt: string;
   content?: string;
+  // SEO 配置字段
+  seoMetaTitle?: string;
+  seoMetaDescription?: string;
+  seoKeywords?: string;
+  seoOgTitle?: string;
+  seoOgDescription?: string;
+  seoOgImage?: string;
+  seoTwitterTitle?: string;
+  seoTwitterDescription?: string;
+  seoTwitterImage?: string;
+  seoMetaRobots?: string;
 };
 
 export type StrapiNewsResponse = {
