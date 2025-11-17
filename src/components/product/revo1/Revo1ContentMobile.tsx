@@ -163,7 +163,7 @@ export default function Revo1ContentMobile() {
                 alt={`${t(`industry_${index + 1}_title` as any)} - Revo1 行业应用图标 / ${t(`industry_${index + 1}_title` as any)} - Revo1 Industry Application Icon`}
                 width={40}
                 height={40}
-                className="-ml-3 block h-10 w-auto"
+                className="-ml-3 block h-10"
               />
               <h3 className="text-fluid-xl mt-3 font-medium">
                 {t(`industry_${index + 1}_title` as any)}
@@ -210,7 +210,7 @@ export default function Revo1ContentMobile() {
             alt="Revo1 智能灵巧手产品主图 - 产品外观展示 / Revo1 Intelligent Dexterous Hand Main Product Image - Product Appearance Display"
             width={210}
             height={210}
-            className="mx-auto mt-10 block h-52 w-auto"
+            className="mx-auto mt-10 block h-52"
           />
           <dl className="mt-10 flex justify-center">
             <div className="mr-18">
@@ -240,7 +240,7 @@ export default function Revo1ContentMobile() {
       {/* Ability Showcase Section */}
       <section className="bg-[#07111b] py-14 pb-12 text-white" aria-labelledby="ability-title-mobile">
         <div className="w-full">
-          <div className="px-4 text-center">
+          <div className="px-8 text-center">
             {abilityList.map(
               (item, index) =>
                 index === swiperIndex && (
@@ -303,7 +303,7 @@ export default function Revo1ContentMobile() {
         >
           {t('version_title')}
         </motion.h2>
-        <div className="sticky top-28 z-[40] h-[65px]">
+        <div className="sticky top-28 z-[30] h-[65px]">
           <ul className="flex gap-3 bg-[#07111b] px-6 pb-5">
             <li className="flex h-[45px] flex-1 items-center justify-center rounded-lg border border-[#bbb]">
               {t('version_basic')}
@@ -368,6 +368,7 @@ export default function Revo1ContentMobile() {
           {t('experience_desc')}
         </motion.p>
         <motion.div
+        className='px-8'
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}

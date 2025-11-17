@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
 import { setRequestLocale } from 'next-intl/server';
+import OnlineServiceClient from '@/components/common/OnlineServiceClient';
 import StarKidsPageClient from '@/components/product/starkids/StarKidsPageClient';
 import DynamicCanonical from '@/components/seo/DynamicCanonical';
 import StructuredData from '@/components/seo/StructuredData';
@@ -36,6 +37,7 @@ export default async function StarKidsPage({ params }: Props) {
 
       {/* 使用JS条件渲染，避免PC和移动端H标签同时被搜索引擎收录 */}
       <StarKidsPageClient />
+      <OnlineServiceClient />
     </>
   );
 }

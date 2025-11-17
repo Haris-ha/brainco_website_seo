@@ -261,7 +261,7 @@ export default function Revo2ContentMobile() {
               }}
               transition={{ duration: 0.5, ease: 'easeOut' }}
               style={{
-                zIndex: selectedColorIndex === index ? 10 : 1,
+                zIndex: selectedColorIndex === index ? 5 : 1,
               }}
             >
               <Image

@@ -135,7 +135,7 @@ export default function BrainAIContentMobile() {
       {/* Video Section */}
       <section
         aria-label="产品介绍视频 / Product Introduction Video"
-        className="relative mt-[10px]"
+        className="relative mt-[10px] aspect-video w-full overflow-hidden"
         onClick={handleVideoClick}
         onKeyDown={(e) => {
           if (e.key === 'Enter' || e.key === ' ') {
@@ -146,7 +146,7 @@ export default function BrainAIContentMobile() {
       >
         <video
           ref={videoRef}
-          className="w-full"
+          className="h-full w-full object-cover"
           poster="https://website-www-brainco-cn.oss-cn-hangzhou.aliyuncs.com/images/KHrCVEKngEWuXAoA.webp"
           playsInline
           webkit-playsinline="true"
@@ -179,7 +179,7 @@ export default function BrainAIContentMobile() {
               className="pointer-events-auto mt-[10px] flex h-[33px] items-center justify-center rounded-[22px] border border-white px-[14px]"
             >
               <span className="text-fluid-base">
-                {isPlaying ? '暂停' : t('video_button')}
+                {isPlaying ? t('video_pause') : t('video_play')}
               </span>
               <Image
                 src="https://website-www-brainco-cn.oss-cn-hangzhou.aliyuncs.com/images/FE534C95-5853-44D5-ABDB-13596C84DA5A.png"

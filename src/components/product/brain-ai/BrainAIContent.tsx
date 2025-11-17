@@ -134,7 +134,7 @@ export default function BrainAIContent() {
 
       {/* Video Section */}
       <div
-        className="relative cursor-pointer"
+        className="relative aspect-video w-full cursor-pointer overflow-hidden"
         onClick={handleVideoClick}
         onKeyDown={(e) => {
           if (e.key === 'Enter' || e.key === ' ') {
@@ -148,7 +148,7 @@ export default function BrainAIContent() {
       >
         <video
           ref={videoRef}
-          className="w-full"
+          className="h-full w-full object-cover"
           poster="https://website-www-brainco-cn.oss-cn-hangzhou.aliyuncs.com/images/KHrCVEKngEWuXAoA.webp"
           playsInline
           webkit-playsinline="true"
