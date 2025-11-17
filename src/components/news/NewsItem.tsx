@@ -131,7 +131,7 @@ export default function NewsItem({ item, index = 0, isMobile = false }: NewsItem
                       whileHover={{ scale: 1.02 }}
                       whileTap={{ scale: 0.98 }}
                       onClick={handleOpenInSite}
-                      className="flex items-center justify-center gap-3 rounded-[10px] bg-[#2563eb] px-6 py-4 text-lg font-medium text-white transition-colors hover:bg-[#1d4ed8]"
+                      className="flex items-center justify-center gap-3 rounded-[10px] bg-[#2563eb] px-6 py-4 text-lg font-medium !text-white transition-colors hover:bg-[#1d4ed8]"
                     >
                       <svg
                         className="h-6 w-6"

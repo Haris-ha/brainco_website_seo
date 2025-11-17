@@ -1,5 +1,5 @@
 import type { Metadata } from 'next';
-import { notFound } from 'next/navigation';
+import { notFound, redirect } from 'next/navigation';
 import { setRequestLocale } from 'next-intl/server';
 import NewsDetailContent from '@/components/news/NewsDetailContent';
 import DynamicCanonical from '@/components/seo/DynamicCanonical';
@@ -42,7 +42,9 @@ export default async function NewsDetailPage(props: NewsDetailPageProps) {
   const news = await getNewsDetail(id, locale);
 
   if (!news) {
-    notFound();
+    // 如果找不到对应语言的新闻，重定向到新闻列表页而不是显示404
+    // 这样可以避免在切换语言时出现404错误
+    redirect(`/${locale}/news`);
   }
 
   // 获取其他新闻列表（用于生成 GridMotion 的 items）
