@@ -32,11 +32,16 @@
   "prettier.enable": false,
   "editor.formatOnSave": false,
 
-  // Auto fix with ESLint on save
+  // Auto fix with ESLint on save (disabled to prevent blocking)
+  // Use "Format Document" command (Shift+Alt+F / Shift+Option+F) or "Fix All" command manually instead
   "editor.codeActionsOnSave": {
-    "source.addMissingImports": "explicit",
-    "source.fixAll.eslint": "explicit"
+    "source.addMissingImports": "never",
+    "source.fixAll.eslint": "never"
   },
+  
+  // ESLint settings (linting still works, just not auto-fix on save)
+  "eslint.format.enable": true,
+  "eslint.lintTask.enable": true,
 
   // Enable eslint for all supported languages
   "eslint.validate": [

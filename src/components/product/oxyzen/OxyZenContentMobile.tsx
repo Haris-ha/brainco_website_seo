@@ -1,7 +1,7 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import { useTranslations } from 'next-intl';
+import { useLocale, useTranslations } from 'next-intl';
 import Image from 'next/image';
 import { useEffect, useState } from 'react';
 import AfterSalesMobile from '@/components/common/AfterSalesMobile';
@@ -13,8 +13,45 @@ type OxyZenContentMobileProps = {
 
 export default function OxyZenContentMobile({ productInfo }: OxyZenContentMobileProps) {
   const t = useTranslations('OxyZen');
+  const locale = useLocale();
   const [isScrolling, setIsScrolling] = useState(false);
   const [isAtBottom, setIsAtBottom] = useState(false);
+
+  // 9D解析维度位置配置 - 根据语言调整每个圈的水平定位
+  // 你可以在这里调整每个维度的 left/right 值来适配不同语言的文本宽度
+  const dimensionPositions: Record<string, Record<string, string>> = {
+    'zh-CN': {
+      dimension_1: 'top-0 left-[-3.33vw]',
+      dimension_2: 'top-1/4 left-[-8.33vw]',
+      dimension_3: 'top-1/2 left-[-7.33vw]',
+      dimension_4: 'bottom-[5.33vw] left-[6vw]',
+      dimension_5: 'bottom-[-4] left-[40%]',
+      dimension_6: 'right-[0] bottom-[5.33vw]',
+      dimension_7: 'right-[-6.33vw] top-1/2',
+      dimension_8: 'right-[-6.33vw] top-1/4',
+      dimension_9: 'right-[0] top-0',
+    },
+    'en-US': {
+      dimension_1: 'top-0 left-[-9.33vw]',
+      dimension_2: 'top-1/4 left-[-12.33vw]',
+      dimension_3: 'top-1/2 left-[-7.33vw]',
+      dimension_4: 'bottom-[5.33vw] left-[-5vw]',
+      dimension_5: 'bottom-[-4] left-[40%]',
+      dimension_6: 'right-[-10.33vw] bottom-[5.33vw]',
+      dimension_7: 'right-[-8.33vw] top-1/2',
+      dimension_8: 'right-[-10.33vw] top-1/4',
+      dimension_9: 'right-[-10.33vw] top-0',
+    },
+    // 可以添加更多语言配置
+    // 'zh-TW': { ... },
+  };
+
+  // 获取当前语言的配置，如果没有则使用默认配置（中文）
+  const getDimensionStyle = (label: string) => {
+    const defaultConfig = dimensionPositions['zh-CN']!;
+    const langConfig = dimensionPositions[locale] || defaultConfig;
+    return langConfig[label] || defaultConfig[label] || '';
+  };
 
   // Handle scroll detection and bottom detection
   useEffect(() => {
@@ -385,25 +422,25 @@ export default function OxyZenContentMobile({ productInfo }: OxyZenContentMobile
 
           <ul className="absolute top-0 left-0 h-full w-full">
             {[
-              { label: 'dimension_1', style: 'top-0 left-[5.33vw]' },
-              { label: 'dimension_2', style: 'top-1/4 left-[-5.33vw]' },
-              { label: 'dimension_3', style: 'top-1/2 left-[-5.33vw]' },
-              { label: 'dimension_4', style: 'bottom-[5.33vw] left-8vw]' },
-              { label: 'dimension_5', style: 'bottom-0 left-[40%]' },
-              { label: 'dimension_6', style: 'right-[6%] bottom-[5.33vw]' },
-              { label: 'dimension_7', style: 'right-[-5.33vw] top-1/2' },
-              { label: 'dimension_8', style: 'right-[-5.33vw] top-1/4' },
-              { label: 'dimension_9', style: 'right-[5.33vw] top-0' },
-            ].map((item, index) => (
+              'dimension_1',
+              'dimension_2',
+              'dimension_3',
+              'dimension_4',
+              'dimension_5',
+              'dimension_6',
+              'dimension_7',
+              'dimension_8',
+              'dimension_9',
+            ].map((label, index) => (
               <motion.li
-                key={item.label}
-                className={`text-fluid-base absolute flex h-10 w-[18.66vw] items-center justify-center rounded-2xl bg-gradient-to-b from-[#edfdfd] to-[#82c8c4] font-light ${item.style}`}
+                key={label}
+                className={`text-fluid-xl absolute flex h-10 px-4 items-center justify-center rounded-full bg-gradient-to-b from-[#edfdfd] to-[#82c8c4] ${getDimensionStyle(label)}`}
                 initial={{ opacity: 0, scale: 0 }}
                 whileInView={{ opacity: 1, scale: 0.5 }}
                 viewport={{ once: true }}
                 transition={{ delay: 0.4 + index * 0.1, duration: 0.5 }}
               >
-                {t(item.label as any)}
+                {t(label as any)}
               </motion.li>
             ))}
           </ul>

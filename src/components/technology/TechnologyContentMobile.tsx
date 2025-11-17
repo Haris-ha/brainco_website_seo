@@ -26,16 +26,16 @@ export default function TechnologyContentMobile() {
           alt="BrainCo 脑机接口技术研究 - 移动端背景 / BrainCo Brain-Computer Interface Technology Research - Mobile Background"
           width={750}
           height={700}
-          className="h-auto w-full object-cover"
+          className="absolute inset-0 z-0 h-full w-full object-cover"
           style={{ minHeight: '700px', objectPosition: 'center' }}
         />
         {/* 半透明遮罩层，确保文字对比度 */}
-        <div className="absolute inset-0 bg-black/20" aria-hidden="true" />
+        <div className="absolute inset-0 z-[1] bg-black/5" aria-hidden="true" />
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 0.8 }}
-          className="relative z-10 flex min-h-full w-full flex-col justify-center px-[10vw] pt-[58px] text-left text-white"
+          className="relative z-10 flex min-h-full w-full flex-col justify-center px-[10vw] text-left text-white h-[700px]"
         >
           <motion.h1
             initial={{ scale: 0.8, opacity: 0 }}
