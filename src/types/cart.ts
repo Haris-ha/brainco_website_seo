@@ -15,6 +15,9 @@ export type UserInfo = {
   phone: string;
   address: string;
   email?: string;
+  province?: string; // 省
+  city?: string; // 市
+  district?: string; // 区
 };
 
 export type OrderData = {

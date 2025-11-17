@@ -225,6 +225,7 @@ export default function CheckoutPage() {
                 orderNumber={orderNumber}
                 totalAmount={total}
                 onSubmit={handlePaymentSubmit}
+                onBack={handleBack}
               />
             )}
 
