@@ -18,17 +18,26 @@ dotenv.config({ path: path.join(__dirname, '..', '.env') });
 
 // 获取基础 URL（与 src/utils/Helpers.ts 保持一致）
 function getBaseUrl() {
-  if (process.env.NEXT_PUBLIC_APP_URL) {
+  // 优先使用配置的生产域名
+  if (process.env.NEXT_PUBLIC_SITE_URL_CN) {
+    return process.env.NEXT_PUBLIC_SITE_URL_CN;
+  }
+
+  // 其次使用 APP_URL（但排除 demo 域名）
+  if (process.env.NEXT_PUBLIC_APP_URL && !process.env.NEXT_PUBLIC_APP_URL.includes('demo.nextjs-boilerplate.com')) {
     return process.env.NEXT_PUBLIC_APP_URL;
   }
+
   if (process.env.VERCEL_ENV === 'production' && process.env.VERCEL_PROJECT_PRODUCTION_URL) {
     return `https://${process.env.VERCEL_PROJECT_PRODUCTION_URL}`;
   }
+
   if (process.env.VERCEL_URL) {
     return `https://${process.env.VERCEL_URL}`;
   }
+
   // 生产环境默认使用配置的域名
-  return process.env.NEXT_PUBLIC_SITE_URL_CN || 'https://www.brainco.cn';
+  return 'https://www.brainco.cn';
 }
 
 // 语言配置

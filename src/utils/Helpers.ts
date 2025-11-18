@@ -1,7 +1,13 @@
 import { routing } from '@/libs/I18nRouting';
 
 export const getBaseUrl = () => {
-  if (process.env.NEXT_PUBLIC_APP_URL) {
+  // 优先使用配置的生产域名
+  if (process.env.NEXT_PUBLIC_SITE_URL_CN) {
+    return process.env.NEXT_PUBLIC_SITE_URL_CN;
+  }
+
+  // 其次使用 APP_URL（但排除 demo 域名）
+  if (process.env.NEXT_PUBLIC_APP_URL && !process.env.NEXT_PUBLIC_APP_URL.includes('demo.nextjs-boilerplate.com')) {
     return process.env.NEXT_PUBLIC_APP_URL;
   }
 
@@ -16,7 +22,7 @@ export const getBaseUrl = () => {
     return `https://${process.env.VERCEL_URL}`;
   }
 
-  return 'http://localhost:3000';
+  return 'https://www.brainco.cn';
 };
 
 export const getI18nPath = (url: string, locale: string) => {
