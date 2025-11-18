@@ -1,0 +1,1078 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>BrainCo Lighthouse 测试报告</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      background: #f5f5f5;
+      padding: 20px;
+      line-height: 1.6;
+    }
+    .container { max-width: 1400px; margin: 0 auto; }
+    h1 {
+      color: #1f2937;
+      margin-bottom: 30px;
+      font-size: 2rem;
+    }
+    .summary {
+      background: white;
+      padding: 20px;
+      border-radius: 8px;
+      margin-bottom: 30px;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    }
+    .summary h2 { margin-bottom: 15px; color: #374151; }
+    .summary-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 15px;
+    }
+    .summary-item {
+      padding: 15px;
+      background: #f9fafb;
+      border-radius: 6px;
+    }
+    .summary-item strong { display: block; margin-bottom: 5px; color: #6b7280; }
+    .summary-item .score {
+      font-size: 2rem;
+      font-weight: bold;
+      color: #1f2937;
+    }
+    table {
+      width: 100%;
+      background: white;
+      border-collapse: collapse;
+      border-radius: 8px;
+      overflow: hidden;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    }
+    th {
+      background: #1f2937;
+      color: white;
+      padding: 12px;
+      text-align: left;
+      font-weight: 600;
+    }
+    td {
+      padding: 12px;
+      border-bottom: 1px solid #e5e7eb;
+    }
+    tr:hover { background: #f9fafb; }
+    .score {
+      font-weight: bold;
+      padding: 4px 8px;
+      border-radius: 4px;
+      display: inline-block;
+    }
+    .score.excellent { background: #10b981; color: white; }
+    .score.good { background: #3b82f6; color: white; }
+    .score.needs-improvement { background: #f59e0b; color: white; }
+    .score.poor { background: #ef4444; color: white; }
+    .url { color: #3b82f6; word-break: break-all; }
+    .warning {
+      background: #fef3c7;
+      border-left: 4px solid #f59e0b;
+      padding: 15px;
+      margin: 20px 0;
+      border-radius: 4px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>🚀 BrainCo Lighthouse 测试报告</h1>
+    <p style="color: #6b7280; margin-bottom: 30px;">生成时间: 2025/11/18 18:05:36</p>
+    
+    
+    <div class="summary">
+      <h2>📈 总体统计</h2>
+      <div class="summary-grid">
+        <div class="summary-item">
+          <strong>移动端平均性能</strong>
+          <span class="score good">71</span>
+        </div>
+        <div class="summary-item">
+          <strong>桌面端平均性能</strong>
+          <span class="score good">78</span>
+        </div>
+        <div class="summary-item">
+          <strong>移动端平均 SEO</strong>
+          <span class="score excellent">94</span>
+        </div>
+        <div class="summary-item">
+          <strong>桌面端平均 SEO</strong>
+          <span class="score excellent">94</span>
+        </div>
+        <div class="summary-item">
+          <strong>移动端平均可访问性</strong>
+          <span class="score excellent">98</span>
+        </div>
+        <div class="summary-item">
+          <strong>桌面端平均可访问性</strong>
+          <span class="score excellent">99</span>
+        </div>
+      </div>
+    </div>
+  
+    
+    <h2 style="margin: 30px 0 15px; color: #1f2937;">📊 详细测试结果</h2>
+    
+    <table>
+      <thead>
+        <tr>
+          <th>URL</th>
+          <th>设备</th>
+          <th>性能</th>
+          <th>可访问性</th>
+          <th>最佳实践</th>
+          <th>SEO</th>
+          <th>LCP</th>
+          <th>CLS</th>
+        </tr>
+      </thead>
+      <tbody>
+        
+      <tr>
+        <td class="url">https://brainco-website-seo.vercel.app</td>
+        <td>mobile</td>
+        <td><span class="score good">70</span></td>
+        <td><span class="score excellent">100</span></td>
+        <td><span class="score excellent">96</span></td>
+        <td><span class="score excellent">100</span></td>
+        <td>2101ms</td>
+        <td>0.878</td>
+      </tr>
+    
+      <tr>
+        <td class="url">https://brainco-website-seo.vercel.app</td>
+        <td>desktop</td>
+        <td><span class="score good">70</span></td>
+        <td><span class="score excellent">100</span></td>
+        <td><span class="score excellent">96</span></td>
+        <td><span class="score excellent">100</span></td>
+        <td>601ms</td>
+        <td>0.888</td>
+      </tr>
+    
+      <tr>
+        <td class="url">https://brainco-website-seo.vercel.app/products</td>
+        <td>mobile</td>
+        <td><span class="score excellent">95</span></td>
+        <td><span class="score excellent">98</span></td>
+        <td><span class="score excellent">96</span></td>
+        <td><span class="score excellent">100</span></td>
+        <td>2776ms</td>
+        <td>0.000</td>
+      </tr>
+    
+      <tr>
+        <td class="url">https://brainco-website-seo.vercel.app/products</td>
+        <td>desktop</td>
+        <td><span class="score excellent">100</span></td>
+        <td><span class="score excellent">98</span></td>
+        <td><span class="score excellent">96</span></td>
+        <td><span class="score excellent">100</span></td>
+        <td>601ms</td>
+        <td>0.004</td>
+      </tr>
+    
+      <tr>
+        <td class="url">https://brainco-website-seo.vercel.app/products/brain-robotics</td>
+        <td>mobile</td>
+        <td><span class="score good">57</span></td>
+        <td><span class="score excellent">100</span></td>
+        <td><span class="score excellent">96</span></td>
+        <td><span class="score excellent">92</span></td>
+        <td>3826ms</td>
+        <td>1.003</td>
+      </tr>
+    
+      <tr>
+        <td class="url">https://brainco-website-seo.vercel.app/products/brain-robotics</td>
+        <td>desktop</td>
+        <td><span class="score needs-improvement">48</span></td>
+        <td><span class="score excellent">100</span></td>
+        <td><span class="score excellent">96</span></td>
+        <td><span class="score excellent">92</span></td>
+        <td>3849ms</td>
+        <td>0.882</td>
+      </tr>
+    
+      <tr>
+        <td class="url">https://brainco-website-seo.vercel.app/products/mobius</td>
+        <td>mobile</td>
+        <td><span class="score needs-improvement">49</span></td>
+        <td><span class="score excellent">100</span></td>
+        <td><span class="score excellent">96</span></td>
+        <td><span class="score excellent">92</span></td>
+        <td>5102ms</td>
+        <td>1.003</td>
+      </tr>
+    
+      <tr>
+        <td class="url">https://brainco-website-seo.vercel.app/products/mobius</td>
+        <td>desktop</td>
+        <td><span class="score good">64</span></td>
+        <td><span class="score excellent">100</span></td>
+        <td><span class="score excellent">96</span></td>
+        <td><span class="score excellent">92</span></td>
+        <td>1603ms</td>
+        <td>0.882</td>
+      </tr>
+    
+      <tr>
+        <td class="url">https://brainco-website-seo.vercel.app/products/revo1</td>
+        <td>mobile</td>
+        <td><span class="score excellent">90</span></td>
+        <td><span class="score excellent">100</span></td>
+        <td><span class="score excellent">92</span></td>
+        <td><span class="score excellent">92</span></td>
+        <td>2401ms</td>
+        <td>0.104</td>
+      </tr>
+    
+      <tr>
+        <td class="url">https://brainco-website-seo.vercel.app/products/revo1</td>
+        <td>desktop</td>
+        <td><span class="score good">70</span></td>
+        <td><span class="score excellent">96</span></td>
+        <td><span class="score excellent">92</span></td>
+        <td><span class="score excellent">92</span></td>
+        <td>1175ms</td>
+        <td>0.852</td>
+      </tr>
+    
+      <tr>
+        <td class="url">https://brainco-website-seo.vercel.app/products/revo2</td>
+        <td>mobile</td>
+        <td><span class="score good">56</span></td>
+        <td><span class="score excellent">96</span></td>
+        <td><span class="score excellent">92</span></td>
+        <td><span class="score excellent">92</span></td>
+        <td>4201ms</td>
+        <td>1.003</td>
+      </tr>
+    
+      <tr>
+        <td class="url">https://brainco-website-seo.vercel.app/products/revo2</td>
+        <td>desktop</td>
+        <td><span class="score good">71</span></td>
+        <td><span class="score excellent">100</span></td>
+        <td><span class="score excellent">92</span></td>
+        <td><span class="score excellent">92</span></td>
+        <td>1320ms</td>
+        <td>0.882</td>
+      </tr>
+    
+      <tr>
+        <td class="url">https://brainco-website-seo.vercel.app/health/easleep</td>
+        <td>mobile</td>
+        <td><span class="score good">56</span></td>
+        <td><span class="score excellent">96</span></td>
+        <td><span class="score excellent">96</span></td>
+        <td><span class="score excellent">92</span></td>
+        <td>4107ms</td>
+        <td>1.003</td>
+      </tr>
+    
+      <tr>
+        <td class="url">https://brainco-website-seo.vercel.app/health/easleep</td>
+        <td>desktop</td>
+        <td><span class="score needs-improvement">43</span></td>
+        <td><span class="score excellent">100</span></td>
+        <td><span class="score excellent">96</span></td>
+        <td><span class="score excellent">92</span></td>
+        <td>5883ms</td>
+        <td>0.882</td>
+      </tr>
+    
+      <tr>
+        <td class="url">https://brainco-website-seo.vercel.app/health/oxyzen</td>
+        <td>mobile</td>
+        <td><span class="score good">89</span></td>
+        <td><span class="score excellent">100</span></td>
+        <td><span class="score excellent">92</span></td>
+        <td><span class="score excellent">92</span></td>
+        <td>2176ms</td>
+        <td>0.003</td>
+      </tr>
+    
+      <tr>
+        <td class="url">https://brainco-website-seo.vercel.app/health/oxyzen</td>
+        <td>desktop</td>
+        <td><span class="score good">59</span></td>
+        <td><span class="score excellent">100</span></td>
+        <td><span class="score excellent">96</span></td>
+        <td><span class="score excellent">92</span></td>
+        <td>1821ms</td>
+        <td>0.882</td>
+      </tr>
+    
+      <tr>
+        <td class="url">https://brainco-website-seo.vercel.app/health/focus-zen</td>
+        <td>mobile</td>
+        <td><span class="score needs-improvement">41</span></td>
+        <td><span class="score excellent">100</span></td>
+        <td><span class="score excellent">92</span></td>
+        <td><span class="score excellent">92</span></td>
+        <td>10113ms</td>
+        <td>1.003</td>
+      </tr>
+    
+      <tr>
+        <td class="url">https://brainco-website-seo.vercel.app/health/focus-zen</td>
+        <td>desktop</td>
+        <td><span class="score excellent">90</span></td>
+        <td><span class="score excellent">100</span></td>
+        <td><span class="score excellent">92</span></td>
+        <td><span class="score excellent">92</span></td>
+        <td>404ms</td>
+        <td>0.000</td>
+      </tr>
+    
+      <tr>
+        <td class="url">https://brainco-website-seo.vercel.app/health/focus-xin</td>
+        <td>mobile</td>
+        <td><span class="score good">53</span></td>
+        <td><span class="score excellent">96</span></td>
+        <td><span class="score excellent">92</span></td>
+        <td><span class="score excellent">92</span></td>
+        <td>5029ms</td>
+        <td>1.003</td>
+      </tr>
+    
+      <tr>
+        <td class="url">https://brainco-website-seo.vercel.app/health/focus-xin</td>
+        <td>desktop</td>
+        <td><span class="score good">69</span></td>
+        <td><span class="score excellent">95</span></td>
+        <td><span class="score excellent">96</span></td>
+        <td><span class="score excellent">92</span></td>
+        <td>1201ms</td>
+        <td>0.882</td>
+      </tr>
+    
+      <tr>
+        <td class="url">https://brainco-website-seo.vercel.app/health/starkids</td>
+        <td>mobile</td>
+        <td><span class="score good">67</span></td>
+        <td><span class="score excellent">95</span></td>
+        <td><span class="score excellent">92</span></td>
+        <td><span class="score excellent">92</span></td>
+        <td>2401ms</td>
+        <td>1.003</td>
+      </tr>
+    
+      <tr>
+        <td class="url">https://brainco-website-seo.vercel.app/health/starkids</td>
+        <td>desktop</td>
+        <td><span class="score good">61</span></td>
+        <td><span class="score excellent">95</span></td>
+        <td><span class="score excellent">92</span></td>
+        <td><span class="score excellent">92</span></td>
+        <td>2022ms</td>
+        <td>1.225</td>
+      </tr>
+    
+      <tr>
+        <td class="url">https://brainco-website-seo.vercel.app/education/brain-ai</td>
+        <td>mobile</td>
+        <td><span class="score excellent">91</span></td>
+        <td><span class="score excellent">100</span></td>
+        <td><span class="score excellent">92</span></td>
+        <td><span class="score excellent">92</span></td>
+        <td>1876ms</td>
+        <td>0.045</td>
+      </tr>
+    
+      <tr>
+        <td class="url">https://brainco-website-seo.vercel.app/education/brain-ai</td>
+        <td>desktop</td>
+        <td><span class="score good">56</span></td>
+        <td><span class="score excellent">100</span></td>
+        <td><span class="score excellent">92</span></td>
+        <td><span class="score excellent">92</span></td>
+        <td>2602ms</td>
+        <td>0.882</td>
+      </tr>
+    
+      <tr>
+        <td class="url">https://brainco-website-seo.vercel.app/about</td>
+        <td>mobile</td>
+        <td><span class="score good">70</span></td>
+        <td><span class="score excellent">100</span></td>
+        <td><span class="score excellent">96</span></td>
+        <td><span class="score excellent">100</span></td>
+        <td>5326ms</td>
+        <td>0.161</td>
+      </tr>
+    
+      <tr>
+        <td class="url">https://brainco-website-seo.vercel.app/about</td>
+        <td>desktop</td>
+        <td><span class="score excellent">93</span></td>
+        <td><span class="score excellent">100</span></td>
+        <td><span class="score excellent">96</span></td>
+        <td><span class="score excellent">100</span></td>
+        <td>1562ms</td>
+        <td>0.000</td>
+      </tr>
+    
+      <tr>
+        <td class="url">https://brainco-website-seo.vercel.app/contact</td>
+        <td>mobile</td>
+        <td><span class="score good">63</span></td>
+        <td><span class="score excellent">94</span></td>
+        <td><span class="score excellent">96</span></td>
+        <td><span class="score excellent">100</span></td>
+        <td>6677ms</td>
+        <td>0.173</td>
+      </tr>
+    
+      <tr>
+        <td class="url">https://brainco-website-seo.vercel.app/contact</td>
+        <td>desktop</td>
+        <td><span class="score excellent">93</span></td>
+        <td><span class="score excellent">100</span></td>
+        <td><span class="score excellent">100</span></td>
+        <td><span class="score excellent">100</span></td>
+        <td>781ms</td>
+        <td>0.000</td>
+      </tr>
+    
+      <tr>
+        <td class="url">https://brainco-website-seo.vercel.app/company</td>
+        <td>mobile</td>
+        <td><span class="score excellent">96</span></td>
+        <td><span class="score excellent">100</span></td>
+        <td><span class="score excellent">96</span></td>
+        <td><span class="score excellent">92</span></td>
+        <td>2626ms</td>
+        <td>0.000</td>
+      </tr>
+    
+      <tr>
+        <td class="url">https://brainco-website-seo.vercel.app/company</td>
+        <td>desktop</td>
+        <td><span class="score excellent">100</span></td>
+        <td><span class="score excellent">100</span></td>
+        <td><span class="score excellent">96</span></td>
+        <td><span class="score excellent">92</span></td>
+        <td>561ms</td>
+        <td>0.007</td>
+      </tr>
+    
+      <tr>
+        <td class="url">https://brainco-website-seo.vercel.app/technology</td>
+        <td>mobile</td>
+        <td><span class="score excellent">92</span></td>
+        <td><span class="score excellent">95</span></td>
+        <td><span class="score excellent">92</span></td>
+        <td><span class="score excellent">100</span></td>
+        <td>2926ms</td>
+        <td>0.001</td>
+      </tr>
+    
+      <tr>
+        <td class="url">https://brainco-website-seo.vercel.app/technology</td>
+        <td>desktop</td>
+        <td><span class="score excellent">96</span></td>
+        <td><span class="score excellent">100</span></td>
+        <td><span class="score excellent">92</span></td>
+        <td><span class="score excellent">100</span></td>
+        <td>731ms</td>
+        <td>0.000</td>
+      </tr>
+    
+      <tr>
+        <td class="url">https://brainco-website-seo.vercel.app/news</td>
+        <td>mobile</td>
+        <td><span class="score good">68</span></td>
+        <td><span class="score excellent">92</span></td>
+        <td><span class="score excellent">96</span></td>
+        <td><span class="score excellent">100</span></td>
+        <td>6055ms</td>
+        <td>0.000</td>
+      </tr>
+    
+      <tr>
+        <td class="url">https://brainco-website-seo.vercel.app/news</td>
+        <td>desktop</td>
+        <td><span class="score excellent">91</span></td>
+        <td><span class="score excellent">96</span></td>
+        <td><span class="score excellent">100</span></td>
+        <td><span class="score excellent">100</span></td>
+        <td>778ms</td>
+        <td>0.000</td>
+      </tr>
+    
+      <tr>
+        <td class="url">https://brainco-website-seo.vercel.app/recruit</td>
+        <td>mobile</td>
+        <td><span class="score good">54</span></td>
+        <td><span class="score excellent">100</span></td>
+        <td><span class="score excellent">96</span></td>
+        <td><span class="score excellent">100</span></td>
+        <td>9152ms</td>
+        <td>0.336</td>
+      </tr>
+    
+      <tr>
+        <td class="url">https://brainco-website-seo.vercel.app/recruit</td>
+        <td>desktop</td>
+        <td><span class="score good">85</span></td>
+        <td><span class="score excellent">100</span></td>
+        <td><span class="score excellent">96</span></td>
+        <td><span class="score excellent">100</span></td>
+        <td>1878ms</td>
+        <td>0.000</td>
+      </tr>
+    
+      <tr>
+        <td class="url">https://brainco-website-seo.vercel.app/recruit/jobs</td>
+        <td>mobile</td>
+        <td><span class="score excellent">98</span></td>
+        <td><span class="score excellent">100</span></td>
+        <td><span class="score excellent">92</span></td>
+        <td><span class="score excellent">92</span></td>
+        <td>2326ms</td>
+        <td>0.000</td>
+      </tr>
+    
+      <tr>
+        <td class="url">https://brainco-website-seo.vercel.app/recruit/jobs</td>
+        <td>desktop</td>
+        <td><span class="score excellent">100</span></td>
+        <td><span class="score excellent">97</span></td>
+        <td><span class="score excellent">96</span></td>
+        <td><span class="score excellent">92</span></td>
+        <td>495ms</td>
+        <td>0.000</td>
+      </tr>
+    
+      <tr>
+        <td class="url">https://brainco-website-seo.vercel.app/easleep-specification</td>
+        <td>mobile</td>
+        <td><span class="score good">78</span></td>
+        <td><span class="score excellent">100</span></td>
+        <td><span class="score excellent">100</span></td>
+        <td><span class="score excellent">100</span></td>
+        <td>4417ms</td>
+        <td>0.037</td>
+      </tr>
+    
+      <tr>
+        <td class="url">https://brainco-website-seo.vercel.app/easleep-specification</td>
+        <td>desktop</td>
+        <td><span class="score excellent">93</span></td>
+        <td><span class="score excellent">97</span></td>
+        <td><span class="score excellent">100</span></td>
+        <td><span class="score excellent">100</span></td>
+        <td>1067ms</td>
+        <td>0.008</td>
+      </tr>
+    
+      <tr>
+        <td class="url">https://brainco-website-seo.vercel.app/en-US</td>
+        <td>mobile</td>
+        <td><span class="score good">69</span></td>
+        <td><span class="score excellent">100</span></td>
+        <td><span class="score excellent">92</span></td>
+        <td><span class="score excellent">100</span></td>
+        <td>3076ms</td>
+        <td>0.877</td>
+      </tr>
+    
+      <tr>
+        <td class="url">https://brainco-website-seo.vercel.app/en-US</td>
+        <td>desktop</td>
+        <td><span class="score good">75</span></td>
+        <td><span class="score excellent">100</span></td>
+        <td><span class="score excellent">96</span></td>
+        <td><span class="score excellent">100</span></td>
+        <td>561ms</td>
+        <td>0.888</td>
+      </tr>
+    
+      <tr>
+        <td class="url">https://brainco-website-seo.vercel.app/en-US/products</td>
+        <td>mobile</td>
+        <td><span class="score excellent">97</span></td>
+        <td><span class="score excellent">98</span></td>
+        <td><span class="score excellent">92</span></td>
+        <td><span class="score excellent">100</span></td>
+        <td>2251ms</td>
+        <td>0.001</td>
+      </tr>
+    
+      <tr>
+        <td class="url">https://brainco-website-seo.vercel.app/en-US/products</td>
+        <td>desktop</td>
+        <td><span class="score excellent">100</span></td>
+        <td><span class="score excellent">98</span></td>
+        <td><span class="score excellent">96</span></td>
+        <td><span class="score excellent">100</span></td>
+        <td>529ms</td>
+        <td>0.004</td>
+      </tr>
+    
+      <tr>
+        <td class="url">https://brainco-website-seo.vercel.app/en-US/products/brain-robotics</td>
+        <td>mobile</td>
+        <td><span class="score good">61</span></td>
+        <td><span class="score excellent">100</span></td>
+        <td><span class="score excellent">92</span></td>
+        <td><span class="score excellent">92</span></td>
+        <td>2837ms</td>
+        <td>1.002</td>
+      </tr>
+    
+      <tr>
+        <td class="url">https://brainco-website-seo.vercel.app/en-US/products/brain-robotics</td>
+        <td>desktop</td>
+        <td><span class="score needs-improvement">49</span></td>
+        <td><span class="score excellent">100</span></td>
+        <td><span class="score excellent">96</span></td>
+        <td><span class="score excellent">92</span></td>
+        <td>3664ms</td>
+        <td>0.882</td>
+      </tr>
+    
+      <tr>
+        <td class="url">https://brainco-website-seo.vercel.app/en-US/products/mobius</td>
+        <td>mobile</td>
+        <td><span class="score needs-improvement">45</span></td>
+        <td><span class="score excellent">100</span></td>
+        <td><span class="score excellent">96</span></td>
+        <td><span class="score excellent">100</span></td>
+        <td>6228ms</td>
+        <td>1.002</td>
+      </tr>
+    
+      <tr>
+        <td class="url">https://brainco-website-seo.vercel.app/en-US/products/mobius</td>
+        <td>desktop</td>
+        <td><span class="score good">61</span></td>
+        <td><span class="score excellent">100</span></td>
+        <td><span class="score excellent">96</span></td>
+        <td><span class="score excellent">100</span></td>
+        <td>1742ms</td>
+        <td>0.882</td>
+      </tr>
+    
+      <tr>
+        <td class="url">https://brainco-website-seo.vercel.app/en-US/products/revo1</td>
+        <td>mobile</td>
+        <td><span class="score good">56</span></td>
+        <td><span class="score excellent">100</span></td>
+        <td><span class="score excellent">92</span></td>
+        <td><span class="score excellent">92</span></td>
+        <td>4426ms</td>
+        <td>1.002</td>
+      </tr>
+    
+      <tr>
+        <td class="url">https://brainco-website-seo.vercel.app/en-US/products/revo1</td>
+        <td>desktop</td>
+        <td><span class="score good">70</span></td>
+        <td><span class="score excellent">96</span></td>
+        <td><span class="score excellent">92</span></td>
+        <td><span class="score excellent">92</span></td>
+        <td>1301ms</td>
+        <td>0.882</td>
+      </tr>
+    
+      <tr>
+        <td class="url">https://brainco-website-seo.vercel.app/en-US/products/revo2</td>
+        <td>mobile</td>
+        <td><span class="score good">62</span></td>
+        <td><span class="score excellent">96</span></td>
+        <td><span class="score excellent">92</span></td>
+        <td><span class="score excellent">92</span></td>
+        <td>3976ms</td>
+        <td>1.002</td>
+      </tr>
+    
+      <tr>
+        <td class="url">https://brainco-website-seo.vercel.app/en-US/products/revo2</td>
+        <td>desktop</td>
+        <td><span class="score good">74</span></td>
+        <td><span class="score excellent">100</span></td>
+        <td><span class="score excellent">92</span></td>
+        <td><span class="score excellent">92</span></td>
+        <td>1021ms</td>
+        <td>0.882</td>
+      </tr>
+    
+      <tr>
+        <td class="url">https://brainco-website-seo.vercel.app/en-US/health/easleep</td>
+        <td>mobile</td>
+        <td><span class="score needs-improvement">48</span></td>
+        <td><span class="score excellent">96</span></td>
+        <td><span class="score excellent">96</span></td>
+        <td><span class="score excellent">92</span></td>
+        <td>5829ms</td>
+        <td>1.002</td>
+      </tr>
+    
+      <tr>
+        <td class="url">https://brainco-website-seo.vercel.app/en-US/health/easleep</td>
+        <td>desktop</td>
+        <td><span class="score needs-improvement">44</span></td>
+        <td><span class="score excellent">100</span></td>
+        <td><span class="score excellent">96</span></td>
+        <td><span class="score excellent">92</span></td>
+        <td>4802ms</td>
+        <td>1.484</td>
+      </tr>
+    
+      <tr>
+        <td class="url">https://brainco-website-seo.vercel.app/en-US/health/oxyzen</td>
+        <td>mobile</td>
+        <td><span class="score needs-improvement">44</span></td>
+        <td><span class="score excellent">100</span></td>
+        <td><span class="score excellent">96</span></td>
+        <td><span class="score excellent">92</span></td>
+        <td>7052ms</td>
+        <td>1.002</td>
+      </tr>
+    
+      <tr>
+        <td class="url">https://brainco-website-seo.vercel.app/en-US/health/oxyzen</td>
+        <td>desktop</td>
+        <td><span class="score good">66</span></td>
+        <td><span class="score excellent">100</span></td>
+        <td><span class="score excellent">92</span></td>
+        <td><span class="score excellent">92</span></td>
+        <td>674ms</td>
+        <td>0.883</td>
+      </tr>
+    
+      <tr>
+        <td class="url">https://brainco-website-seo.vercel.app/en-US/health/focus-zen</td>
+        <td>mobile</td>
+        <td><span class="score good">58</span></td>
+        <td><span class="score excellent">100</span></td>
+        <td><span class="score excellent">92</span></td>
+        <td><span class="score excellent">92</span></td>
+        <td>3267ms</td>
+        <td>1.002</td>
+      </tr>
+    
+      <tr>
+        <td class="url">https://brainco-website-seo.vercel.app/en-US/health/focus-zen</td>
+        <td>desktop</td>
+        <td><span class="score good">66</span></td>
+        <td><span class="score excellent">98</span></td>
+        <td><span class="score good">88</span></td>
+        <td><span class="score excellent">92</span></td>
+        <td>1541ms</td>
+        <td>0.889</td>
+      </tr>
+    
+      <tr>
+        <td class="url">https://brainco-website-seo.vercel.app/en-US/health/focus-xin</td>
+        <td>mobile</td>
+        <td><span class="score good">54</span></td>
+        <td><span class="score excellent">96</span></td>
+        <td><span class="score excellent">96</span></td>
+        <td><span class="score excellent">92</span></td>
+        <td>4901ms</td>
+        <td>1.002</td>
+      </tr>
+    
+      <tr>
+        <td class="url">https://brainco-website-seo.vercel.app/en-US/health/focus-xin</td>
+        <td>desktop</td>
+        <td><span class="score good">68</span></td>
+        <td><span class="score excellent">95</span></td>
+        <td><span class="score excellent">92</span></td>
+        <td><span class="score excellent">92</span></td>
+        <td>1524ms</td>
+        <td>0.974</td>
+      </tr>
+    
+      <tr>
+        <td class="url">https://brainco-website-seo.vercel.app/en-US/health/starkids</td>
+        <td>mobile</td>
+        <td><span class="score good">52</span></td>
+        <td><span class="score excellent">95</span></td>
+        <td><span class="score excellent">92</span></td>
+        <td><span class="score excellent">92</span></td>
+        <td>5151ms</td>
+        <td>1.002</td>
+      </tr>
+    
+      <tr>
+        <td class="url">https://brainco-website-seo.vercel.app/en-US/health/starkids</td>
+        <td>desktop</td>
+        <td><span class="score good">72</span></td>
+        <td><span class="score excellent">94</span></td>
+        <td><span class="score excellent">92</span></td>
+        <td><span class="score excellent">92</span></td>
+        <td>744ms</td>
+        <td>0.882</td>
+      </tr>
+    
+      <tr>
+        <td class="url">https://brainco-website-seo.vercel.app/en-US/education/brain-ai</td>
+        <td>mobile</td>
+        <td><span class="score good">51</span></td>
+        <td><span class="score excellent">100</span></td>
+        <td><span class="score excellent">96</span></td>
+        <td><span class="score excellent">92</span></td>
+        <td>5087ms</td>
+        <td>1.002</td>
+      </tr>
+    
+      <tr>
+        <td class="url">https://brainco-website-seo.vercel.app/en-US/education/brain-ai</td>
+        <td>desktop</td>
+        <td><span class="score good">55</span></td>
+        <td><span class="score excellent">100</span></td>
+        <td><span class="score excellent">92</span></td>
+        <td><span class="score excellent">92</span></td>
+        <td>2683ms</td>
+        <td>0.882</td>
+      </tr>
+    
+      <tr>
+        <td class="url">https://brainco-website-seo.vercel.app/en-US/about</td>
+        <td>mobile</td>
+        <td><span class="score excellent">92</span></td>
+        <td><span class="score excellent">100</span></td>
+        <td><span class="score excellent">92</span></td>
+        <td><span class="score excellent">92</span></td>
+        <td>2776ms</td>
+        <td>0.001</td>
+      </tr>
+    
+      <tr>
+        <td class="url">https://brainco-website-seo.vercel.app/en-US/about</td>
+        <td>desktop</td>
+        <td><span class="score excellent">94</span></td>
+        <td><span class="score excellent">100</span></td>
+        <td><span class="score excellent">96</span></td>
+        <td><span class="score excellent">92</span></td>
+        <td>816ms</td>
+        <td>0.000</td>
+      </tr>
+    
+      <tr>
+        <td class="url">https://brainco-website-seo.vercel.app/en-US/contact</td>
+        <td>mobile</td>
+        <td><span class="score excellent">93</span></td>
+        <td><span class="score excellent">98</span></td>
+        <td><span class="score excellent">92</span></td>
+        <td><span class="score excellent">92</span></td>
+        <td>2739ms</td>
+        <td>0.001</td>
+      </tr>
+    
+      <tr>
+        <td class="url">https://brainco-website-seo.vercel.app/en-US/contact</td>
+        <td>desktop</td>
+        <td><span class="score excellent">94</span></td>
+        <td><span class="score excellent">100</span></td>
+        <td><span class="score excellent">100</span></td>
+        <td><span class="score excellent">92</span></td>
+        <td>762ms</td>
+        <td>0.000</td>
+      </tr>
+    
+      <tr>
+        <td class="url">https://brainco-website-seo.vercel.app/en-US/company</td>
+        <td>mobile</td>
+        <td><span class="score excellent">99</span></td>
+        <td><span class="score excellent">100</span></td>
+        <td><span class="score excellent">96</span></td>
+        <td><span class="score excellent">92</span></td>
+        <td>1951ms</td>
+        <td>0.000</td>
+      </tr>
+    
+      <tr>
+        <td class="url">https://brainco-website-seo.vercel.app/en-US/company</td>
+        <td>desktop</td>
+        <td><span class="score excellent">100</span></td>
+        <td><span class="score excellent">100</span></td>
+        <td><span class="score excellent">96</span></td>
+        <td><span class="score excellent">92</span></td>
+        <td>521ms</td>
+        <td>0.006</td>
+      </tr>
+    
+      <tr>
+        <td class="url">https://brainco-website-seo.vercel.app/en-US/technology</td>
+        <td>mobile</td>
+        <td><span class="score excellent">94</span></td>
+        <td><span class="score excellent">95</span></td>
+        <td><span class="score excellent">92</span></td>
+        <td><span class="score good">85</span></td>
+        <td>2851ms</td>
+        <td>0.001</td>
+      </tr>
+    
+      <tr>
+        <td class="url">https://brainco-website-seo.vercel.app/en-US/technology</td>
+        <td>desktop</td>
+        <td><span class="score excellent">97</span></td>
+        <td><span class="score excellent">100</span></td>
+        <td><span class="score excellent">92</span></td>
+        <td><span class="score good">85</span></td>
+        <td>806ms</td>
+        <td>0.000</td>
+      </tr>
+    
+      <tr>
+        <td class="url">https://brainco-website-seo.vercel.app/en-US/news</td>
+        <td>mobile</td>
+        <td><span class="score good">70</span></td>
+        <td><span class="score excellent">92</span></td>
+        <td><span class="score excellent">96</span></td>
+        <td><span class="score excellent">92</span></td>
+        <td>5495ms</td>
+        <td>0.000</td>
+      </tr>
+    
+      <tr>
+        <td class="url">https://brainco-website-seo.vercel.app/en-US/news</td>
+        <td>desktop</td>
+        <td><span class="score excellent">91</span></td>
+        <td><span class="score excellent">96</span></td>
+        <td><span class="score excellent">100</span></td>
+        <td><span class="score excellent">92</span></td>
+        <td>724ms</td>
+        <td>0.000</td>
+      </tr>
+    
+      <tr>
+        <td class="url">https://brainco-website-seo.vercel.app/en-US/recruit</td>
+        <td>mobile</td>
+        <td><span class="score good">87</span></td>
+        <td><span class="score excellent">100</span></td>
+        <td><span class="score excellent">92</span></td>
+        <td><span class="score excellent">100</span></td>
+        <td>3545ms</td>
+        <td>0.001</td>
+      </tr>
+    
+      <tr>
+        <td class="url">https://brainco-website-seo.vercel.app/en-US/recruit</td>
+        <td>desktop</td>
+        <td><span class="score excellent">91</span></td>
+        <td><span class="score excellent">100</span></td>
+        <td><span class="score excellent">96</span></td>
+        <td><span class="score excellent">100</span></td>
+        <td>891ms</td>
+        <td>0.017</td>
+      </tr>
+    
+      <tr>
+        <td class="url">https://brainco-website-seo.vercel.app/en-US/recruit/jobs</td>
+        <td>mobile</td>
+        <td><span class="score excellent">95</span></td>
+        <td><span class="score excellent">96</span></td>
+        <td><span class="score excellent">96</span></td>
+        <td><span class="score excellent">92</span></td>
+        <td>2811ms</td>
+        <td>0.000</td>
+      </tr>
+    
+      <tr>
+        <td class="url">https://brainco-website-seo.vercel.app/en-US/recruit/jobs</td>
+        <td>desktop</td>
+        <td><span class="score excellent">100</span></td>
+        <td><span class="score excellent">100</span></td>
+        <td><span class="score excellent">92</span></td>
+        <td><span class="score excellent">92</span></td>
+        <td>538ms</td>
+        <td>0.000</td>
+      </tr>
+    
+      <tr>
+        <td class="url">https://brainco-website-seo.vercel.app/en-US/easleep-specification</td>
+        <td>mobile</td>
+        <td><span class="score good">80</span></td>
+        <td><span class="score excellent">100</span></td>
+        <td><span class="score excellent">96</span></td>
+        <td><span class="score excellent">100</span></td>
+        <td>3301ms</td>
+        <td>0.106</td>
+      </tr>
+    
+      <tr>
+        <td class="url">https://brainco-website-seo.vercel.app/en-US/easleep-specification</td>
+        <td>desktop</td>
+        <td><span class="score excellent">92</span></td>
+        <td><span class="score excellent">97</span></td>
+        <td><span class="score excellent">96</span></td>
+        <td><span class="score excellent">100</span></td>
+        <td>780ms</td>
+        <td>0.004</td>
+      </tr>
+    
+      </tbody>
+    </table>
+  
+    
+    
+    <div class="warning">
+      <h3>⚠️ 需要优化的页面 (9 个)</h3>
+      <ul style="margin-left: 20px; margin-top: 10px;">
+        
+    <li>
+      <strong>https://brainco-website-seo.vercel.app/products/brain-robotics</strong> (desktop) - 
+      性能: 48, SEO: 92
+    </li>
+  
+    <li>
+      <strong>https://brainco-website-seo.vercel.app/products/mobius</strong> (mobile) - 
+      性能: 49, SEO: 92
+    </li>
+  
+    <li>
+      <strong>https://brainco-website-seo.vercel.app/health/easleep</strong> (desktop) - 
+      性能: 43, SEO: 92
+    </li>
+  
+    <li>
+      <strong>https://brainco-website-seo.vercel.app/health/focus-zen</strong> (mobile) - 
+      性能: 41, SEO: 92
+    </li>
+  
+    <li>
+      <strong>https://brainco-website-seo.vercel.app/en-US/products/brain-robotics</strong> (desktop) - 
+      性能: 49, SEO: 92
+    </li>
+  
+    <li>
+      <strong>https://brainco-website-seo.vercel.app/en-US/products/mobius</strong> (mobile) - 
+      性能: 45, SEO: 100
+    </li>
+  
+    <li>
+      <strong>https://brainco-website-seo.vercel.app/en-US/health/easleep</strong> (mobile) - 
+      性能: 48, SEO: 92
+    </li>
+  
+    <li>
+      <strong>https://brainco-website-seo.vercel.app/en-US/health/easleep</strong> (desktop) - 
+      性能: 44, SEO: 92
+    </li>
+  
+    <li>
+      <strong>https://brainco-website-seo.vercel.app/en-US/health/oxyzen</strong> (mobile) - 
+      性能: 44, SEO: 92
+    </li>
+  
+      </ul>
+    </div>
+  
+  </div>
+</body>
+</html>
