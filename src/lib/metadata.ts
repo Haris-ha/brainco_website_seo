@@ -20,7 +20,6 @@ const PAGE_PATH_MAP: Record<string, string> = {
   'company': '/company',
 
   // 产品页面
-  'products': '/products',
   'brain-ai': '/education/brain-ai',
   'brain-robotics': '/products/brain-robotics',
   'mobius': '/products/mobius',

@@ -7,121 +7,115 @@
         xmlns:video="http://www.google.com/schemas/sitemap-video/1.1">
   <url>
     <loc>https://brainco-website-seo.vercel.app/</loc>
-    <lastmod>2025-11-18T12:54:23.728Z</lastmod>
+    <lastmod>2025-11-18T13:12:23.490Z</lastmod>
     <changefreq>daily</changefreq>
     <priority>1</priority>
   </url>
   <url>
-    <loc>https://brainco-website-seo.vercel.app/products</loc>
-    <lastmod>2025-11-18T12:54:23.728Z</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
-  </url>
-  <url>
     <loc>https://brainco-website-seo.vercel.app/products/brain-robotics</loc>
-    <lastmod>2025-11-18T12:54:23.728Z</lastmod>
+    <lastmod>2025-11-18T13:12:23.490Z</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://brainco-website-seo.vercel.app/products/mobius</loc>
-    <lastmod>2025-11-18T12:54:23.728Z</lastmod>
+    <lastmod>2025-11-18T13:12:23.490Z</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://brainco-website-seo.vercel.app/products/revo1</loc>
-    <lastmod>2025-11-18T12:54:23.728Z</lastmod>
+    <lastmod>2025-11-18T13:12:23.490Z</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://brainco-website-seo.vercel.app/products/revo2</loc>
-    <lastmod>2025-11-18T12:54:23.728Z</lastmod>
+    <lastmod>2025-11-18T13:12:23.490Z</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://brainco-website-seo.vercel.app/health/easleep</loc>
-    <lastmod>2025-11-18T12:54:23.728Z</lastmod>
+    <lastmod>2025-11-18T13:12:23.490Z</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://brainco-website-seo.vercel.app/health/oxyzen</loc>
-    <lastmod>2025-11-18T12:54:23.728Z</lastmod>
+    <lastmod>2025-11-18T13:12:23.490Z</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://brainco-website-seo.vercel.app/health/focus-zen</loc>
-    <lastmod>2025-11-18T12:54:23.728Z</lastmod>
+    <lastmod>2025-11-18T13:12:23.490Z</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://brainco-website-seo.vercel.app/health/focus-xin</loc>
-    <lastmod>2025-11-18T12:54:23.728Z</lastmod>
+    <lastmod>2025-11-18T13:12:23.490Z</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://brainco-website-seo.vercel.app/health/starkids</loc>
-    <lastmod>2025-11-18T12:54:23.728Z</lastmod>
+    <lastmod>2025-11-18T13:12:23.490Z</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://brainco-website-seo.vercel.app/education/brain-ai</loc>
-    <lastmod>2025-11-18T12:54:23.728Z</lastmod>
+    <lastmod>2025-11-18T13:12:23.490Z</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://brainco-website-seo.vercel.app/about</loc>
-    <lastmod>2025-11-18T12:54:23.728Z</lastmod>
+    <lastmod>2025-11-18T13:12:23.490Z</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://brainco-website-seo.vercel.app/contact</loc>
-    <lastmod>2025-11-18T12:54:23.728Z</lastmod>
+    <lastmod>2025-11-18T13:12:23.490Z</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://brainco-website-seo.vercel.app/company</loc>
-    <lastmod>2025-11-18T12:54:23.728Z</lastmod>
+    <lastmod>2025-11-18T13:12:23.490Z</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://brainco-website-seo.vercel.app/technology</loc>
-    <lastmod>2025-11-18T12:54:23.728Z</lastmod>
+    <lastmod>2025-11-18T13:12:23.490Z</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://brainco-website-seo.vercel.app/news</loc>
-    <lastmod>2025-11-18T12:54:23.728Z</lastmod>
+    <lastmod>2025-11-18T13:12:23.490Z</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://brainco-website-seo.vercel.app/recruit</loc>
-    <lastmod>2025-11-18T12:54:23.728Z</lastmod>
+    <lastmod>2025-11-18T13:12:23.490Z</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://brainco-website-seo.vercel.app/recruit/jobs</loc>
-    <lastmod>2025-11-18T12:54:23.728Z</lastmod>
+    <lastmod>2025-11-18T13:12:23.490Z</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://brainco-website-seo.vercel.app/easleep-specification</loc>
-    <lastmod>2025-11-18T12:54:23.728Z</lastmod>
+    <lastmod>2025-11-18T13:12:23.490Z</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
@@ -727,121 +721,115 @@
   </url>
   <url>
     <loc>https://brainco-website-seo.vercel.app/en-US/</loc>
-    <lastmod>2025-11-18T12:54:23.775Z</lastmod>
+    <lastmod>2025-11-18T13:12:23.638Z</lastmod>
     <changefreq>daily</changefreq>
     <priority>1</priority>
   </url>
   <url>
-    <loc>https://brainco-website-seo.vercel.app/en-US/products</loc>
-    <lastmod>2025-11-18T12:54:23.775Z</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
-  </url>
-  <url>
     <loc>https://brainco-website-seo.vercel.app/en-US/products/brain-robotics</loc>
-    <lastmod>2025-11-18T12:54:23.775Z</lastmod>
+    <lastmod>2025-11-18T13:12:23.638Z</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://brainco-website-seo.vercel.app/en-US/products/mobius</loc>
-    <lastmod>2025-11-18T12:54:23.775Z</lastmod>
+    <lastmod>2025-11-18T13:12:23.638Z</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://brainco-website-seo.vercel.app/en-US/products/revo1</loc>
-    <lastmod>2025-11-18T12:54:23.775Z</lastmod>
+    <lastmod>2025-11-18T13:12:23.638Z</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://brainco-website-seo.vercel.app/en-US/products/revo2</loc>
-    <lastmod>2025-11-18T12:54:23.775Z</lastmod>
+    <lastmod>2025-11-18T13:12:23.638Z</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://brainco-website-seo.vercel.app/en-US/health/easleep</loc>
-    <lastmod>2025-11-18T12:54:23.775Z</lastmod>
+    <lastmod>2025-11-18T13:12:23.638Z</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://brainco-website-seo.vercel.app/en-US/health/oxyzen</loc>
-    <lastmod>2025-11-18T12:54:23.775Z</lastmod>
+    <lastmod>2025-11-18T13:12:23.638Z</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://brainco-website-seo.vercel.app/en-US/health/focus-zen</loc>
-    <lastmod>2025-11-18T12:54:23.775Z</lastmod>
+    <lastmod>2025-11-18T13:12:23.638Z</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://brainco-website-seo.vercel.app/en-US/health/focus-xin</loc>
-    <lastmod>2025-11-18T12:54:23.775Z</lastmod>
+    <lastmod>2025-11-18T13:12:23.638Z</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://brainco-website-seo.vercel.app/en-US/health/starkids</loc>
-    <lastmod>2025-11-18T12:54:23.775Z</lastmod>
+    <lastmod>2025-11-18T13:12:23.638Z</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://brainco-website-seo.vercel.app/en-US/education/brain-ai</loc>
-    <lastmod>2025-11-18T12:54:23.775Z</lastmod>
+    <lastmod>2025-11-18T13:12:23.638Z</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://brainco-website-seo.vercel.app/en-US/about</loc>
-    <lastmod>2025-11-18T12:54:23.775Z</lastmod>
+    <lastmod>2025-11-18T13:12:23.638Z</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://brainco-website-seo.vercel.app/en-US/contact</loc>
-    <lastmod>2025-11-18T12:54:23.775Z</lastmod>
+    <lastmod>2025-11-18T13:12:23.638Z</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://brainco-website-seo.vercel.app/en-US/company</loc>
-    <lastmod>2025-11-18T12:54:23.775Z</lastmod>
+    <lastmod>2025-11-18T13:12:23.638Z</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://brainco-website-seo.vercel.app/en-US/technology</loc>
-    <lastmod>2025-11-18T12:54:23.775Z</lastmod>
+    <lastmod>2025-11-18T13:12:23.638Z</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://brainco-website-seo.vercel.app/en-US/news</loc>
-    <lastmod>2025-11-18T12:54:23.775Z</lastmod>
+    <lastmod>2025-11-18T13:12:23.638Z</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://brainco-website-seo.vercel.app/en-US/recruit</loc>
-    <lastmod>2025-11-18T12:54:23.775Z</lastmod>
+    <lastmod>2025-11-18T13:12:23.638Z</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://brainco-website-seo.vercel.app/en-US/recruit/jobs</loc>
-    <lastmod>2025-11-18T12:54:23.775Z</lastmod>
+    <lastmod>2025-11-18T13:12:23.638Z</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://brainco-website-seo.vercel.app/en-US/easleep-specification</loc>
-    <lastmod>2025-11-18T12:54:23.775Z</lastmod>
+    <lastmod>2025-11-18T13:12:23.638Z</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>

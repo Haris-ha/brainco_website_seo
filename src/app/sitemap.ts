@@ -17,7 +17,6 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     { path: '/', priority: 1.0, changefreq: 'daily' },
     
     // 产品页面
-    { path: '/products', priority: 0.9, changefreq: 'weekly' },
     { path: '/products/brain-robotics', priority: 0.9, changefreq: 'weekly' },
     { path: '/products/mobius', priority: 0.9, changefreq: 'weekly' },
     { path: '/products/revo1', priority: 0.9, changefreq: 'weekly' },

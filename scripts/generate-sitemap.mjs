@@ -87,7 +87,6 @@ async function generateSitemap() {
   // 静态页面路由
   const staticPages = [
     { path: '/', priority: 1.0, changefreq: 'daily' },
-    { path: '/products', priority: 0.9, changefreq: 'weekly' },
     { path: '/products/brain-robotics', priority: 0.9, changefreq: 'weekly' },
     { path: '/products/mobius', priority: 0.9, changefreq: 'weekly' },
     { path: '/products/revo1', priority: 0.9, changefreq: 'weekly' },
