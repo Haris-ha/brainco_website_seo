@@ -112,7 +112,7 @@ export function MobileNav({ locale, isOpen, onToggle, showHeader = true }: Mobil
 
             {/* Logo - 只在菜单打开时显示 */}
             {isOpen && (
-              <Link href={`/${locale}`} className="animate-slide-in-right flex-shrink-0" aria-label="BrainCo 首页 / BrainCo Homepage">
+              <Link href={`/${locale}`} prefetch={true} className="animate-slide-in-right flex-shrink-0" aria-label="BrainCo 首页 / BrainCo Homepage">
                 <Image
                   src="/logo.webp"
                   alt="BrainCo - 强脑科技 Logo / BrainCo Logo"
@@ -127,7 +127,7 @@ export function MobileNav({ locale, isOpen, onToggle, showHeader = true }: Mobil
 
           {/* 右侧：购物车 - 只在菜单打开时显示 */}
           {isOpen && (
-            <Link href={`/${locale}/cart`} className="animate-slide-in-left flex items-center" aria-label="查看购物车 / View shopping cart">
+            <Link href={`/${locale}/cart`} prefetch={true}  className="animate-slide-in-left flex items-center" aria-label="查看购物车 / View shopping cart">
               <Image
                 src="https://website-www-brainco-cn.oss-cn-hangzhou.aliyuncs.com/images/G7UDx0MHZvyebaSK.png"
                 alt="购物车图标 / Shopping cart icon"
@@ -173,6 +173,7 @@ export function MobileNav({ locale, isOpen, onToggle, showHeader = true }: Mobil
                       ? (
                           <Link
                             href={item.href}
+                            prefetch={true}
                             className="text-fluid-2xl flex-1 !text-[#333] no-underline hover:!text-[#333]"
                             onClick={onToggle}
                           >
@@ -212,6 +213,7 @@ export function MobileNav({ locale, isOpen, onToggle, showHeader = true }: Mobil
                           {child.key && child.href && !child.children && (
                             <Link
                               href={child.href}
+                              prefetch={true}
                               onClick={onToggle}
                               className="text-fluid-lg mt-3 block min-h-[48px] leading-[48px] !text-[#333] no-underline hover:!text-[#333] active:bg-gray-50"
                             >
@@ -230,6 +232,7 @@ export function MobileNav({ locale, isOpen, onToggle, showHeader = true }: Mobil
                                 >
                                   <Link
                                     href={product.href}
+                                    prefetch={true}
                                     className="text-fluid-lg block min-h-[42px] pl-5 leading-[42px] !text-[#666] no-underline transition-colors hover:!text-[#333] active:bg-gray-50"
                                     onClick={onToggle}
                                   >

@@ -138,6 +138,7 @@ export function DesktopNav({ locale }: { locale: string }) {
                           <div className={isRevoPage ? 'group-hover:!text-gray-200' : 'group-hover:!text-[#000]'}>
                             <Link
                               href={item.href || `/${locale}`}
+                              prefetch={true}
                               className={`cursor-target transition-colors duration-200 ${isRevoPage ? '!text-white' : '!text-[#333]'}`}
                             >
                               {t(item.key)}
@@ -156,7 +157,7 @@ export function DesktopNav({ locale }: { locale: string }) {
 
           {/* 购物车图标 - 右侧对齐 */}
           <div className="flex items-center">
-            <Link href={`/${locale}/cart`} className="cursor-target block" aria-label="查看购物车 / View shopping cart">
+            <Link href={`/${locale}/cart`} prefetch={true} className="cursor-target block" aria-label="查看购物车 / View shopping cart">
               <Image
                 src="https://website-www-brainco-cn.oss-cn-hangzhou.aliyuncs.com/images/G7UDx0MHZvyebaSK.png"
                 alt="购物车图标 / Shopping cart icon"

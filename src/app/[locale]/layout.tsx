@@ -5,6 +5,7 @@ import { Inter } from 'next/font/google';
 import { notFound } from 'next/navigation';
 import { Toaster } from 'react-hot-toast';
 import PublisherMeta from '@/components/seo/PublisherMeta';
+import { NavigationLoadingBar } from '@/components/common/NavigationLoadingBar';
 // TargetCursor 已暂时禁用 - 如需恢复，请取消下面注释并取消下方使用位置的注释
 // import TargetCursor from '@/components/ui/TargetCursor/TargetCursor';
 import { getPublisher } from '@/lib/seo';
@@ -120,6 +121,7 @@ export default async function RootLayout(props: {
           }}
         />
         <NextIntlClientProvider>
+          <NavigationLoadingBar />
           {props.children}
         </NextIntlClientProvider>
       </body>

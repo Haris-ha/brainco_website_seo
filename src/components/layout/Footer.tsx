@@ -205,6 +205,7 @@ export function Footer({ locale }: FooterProps) {
                     >
                       <Link
                         href={item.href}
+                        prefetch={true}
                         className="cursor-target group relative inline-block text-xl !text-[#666] transition-colors duration-200"
                       >
                         {item.title}
@@ -234,6 +235,7 @@ export function Footer({ locale }: FooterProps) {
                     >
                       <Link
                         href={item.href}
+                        prefetch={true}
                         className="cursor-target group relative inline-block text-xl !text-[#666] transition-colors duration-200"
                       >
                         {item.title}
@@ -263,6 +265,7 @@ export function Footer({ locale }: FooterProps) {
                     >
                       <Link
                         href={item.href}
+                        prefetch={true}
                         className="cursor-target group relative inline-block text-xl !text-[#666] transition-colors duration-200"
                       >
                         {item.title}
@@ -333,6 +336,7 @@ export function Footer({ locale }: FooterProps) {
                     <Link
                       key={item.href}
                       href={item.href}
+                      prefetch={true}
                       className="text-fluid-lg mb-2.5 block !text-[#666]"
                     >
                       {item.title}
@@ -353,6 +357,7 @@ export function Footer({ locale }: FooterProps) {
                     <Link
                       key={item.href}
                       href={item.href}
+                      prefetch={true}
                       className="text-fluid-lg mb-2.5 block !text-[#666]"
                     >
                       {item.title}
