@@ -2,19 +2,21 @@
 User-agent: *
 Allow: /
 Disallow: /api
-Disallow: /purchase/orders
-Disallow: /purchase/cart
+Disallow: /cart
+Disallow: /checkout
+Disallow: /orders
 
 # Baiduspider
 User-agent: Baiduspider
 Allow: /
 Disallow: /api
-Disallow: /purchase
+Disallow: /cart
+Disallow: /checkout
+Disallow: /orders
 Crawl-delay: 1
 
 # Host
-Host: https://www.brainco.cn
+Host: https://brainco-website-seo.vercel.app
 
 # Sitemaps
 Sitemap: https://www.brainco.cn/sitemap.xml
-Sitemap: https://www.brainco.tech/sitemap.xml
