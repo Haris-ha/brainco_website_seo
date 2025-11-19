@@ -207,8 +207,21 @@ export function HomeContent() {
   );
 
   return (
-    <main>
-      {/* Hero 视频轮播区域 */}
+    <>
+      <style dangerouslySetInnerHTML={{ __html: `
+        @media (min-width: 1536px) {
+          .product-image-container-160 {
+            width: 140px !important;
+            height: 160px !important;
+          }
+          .product-image-container-180 {
+            width: 140px !important;
+            height: 180px !important;
+          }
+        }
+      ` }} />
+      <main>
+        {/* Hero 视频轮播区域 */}
       <header className="relative bg-white">
         <div className="relative aspect-video max-h-screen w-full overflow-hidden">
           <motion.h1
@@ -356,8 +369,6 @@ export function HomeContent() {
             aria-label="BrainCo 产品列表 / BrainCo product list"
           >
             {productList.map((item, index) => {
-              const isBrainAIProduct = item.nameKey === 'product_brain_ai_name';
-              const baseImageClass = `absolute inset-0 h-full w-full transition-opacity duration-100 ease-in-out ${isBrainAIProduct ? 'object-contain' : 'object-cover'}`;
               const titleClass = 'mb-2 text-2xl leading-tight font-semibold text-[#0B1324]';
               const descClass = 'text-lg leading-snug text-[#5F6472]';
 
@@ -387,20 +398,18 @@ export function HomeContent() {
                     }}
                     onMouseLeave={() => setProductCount(0)}
                   >
-                    <div className="relative mr-3 h-40 w-[110px] flex-shrink-0 overflow-hidden 2xl:w-[140px]">
-                      <Image
-                        src={item.img}
-                        alt={`${t(item.nameKey)} - BrainCo 脑机接口产品 / BrainCo BCI product`}
-                        width={140}
-                        height={160}
-                        className={`${baseImageClass} group-hover/product:opacity-0`}
+                    <div className="product-image-container-160 relative mr-3 w-[110px] flex-shrink-0 overflow-hidden 2xl:w-[140px]" style={{ height: 'calc(110px * 160 / 140)' }}>
+                      <div
+                        className="absolute inset-0 bg-cover bg-center bg-no-repeat transition-opacity group-hover/product:opacity-0"
+                        style={{
+                          backgroundImage: `url(${item.img})`,
+                        }}
                       />
-                      <Image
-                        src={item.hoverImg}
-                        alt={`${t(item.nameKey)} - 产品特写 / Product close-up`}
-                        width={140}
-                        height={160}
-                        className={`${baseImageClass} opacity-0 group-hover/product:opacity-100`}
+                      <div
+                        className="absolute inset-0 bg-cover bg-center bg-no-repeat transition-opacity opacity-0 group-hover/product:opacity-100"
+                        style={{
+                          backgroundImage: `url(${item.hoverImg})`,
+                        }}
                       />
                     </div>
                     <div
@@ -446,20 +455,18 @@ export function HomeContent() {
                     }}
                     onMouseLeave={() => setProductCount(0)}
                   >
-                    <div className="relative mr-3 h-48 w-[110px] flex-shrink-0 overflow-hidden 2xl:w-[140px]">
-                      <Image
-                        src={item.img}
-                        alt={`${t(item.nameKey)} - BrainCo 脑机接口产品 / BrainCo BCI product`}
-                        width={140}
-                        height={180}
-                        className={`${baseImageClass} group-hover/product:opacity-0`}
+                    <div className="product-image-container-180 relative mr-3 w-[110px] flex-shrink-0 overflow-hidden 2xl:w-[140px]" style={{ height: 'calc(110px * 180 / 140)' }}>
+                      <div
+                        className="absolute inset-0 bg-cover bg-center bg-no-repeat transition-opacity duration-150 ease-out group-hover/product:opacity-0"
+                        style={{
+                          backgroundImage: `url(${item.img})`,
+                        }}
                       />
-                      <Image
-                        src={item.hoverImg}
-                        alt={`${t(item.nameKey)} - 产品特写 / Product close-up`}
-                        width={140}
-                        height={180}
-                        className={`${baseImageClass} opacity-0 group-hover/product:opacity-100`}
+                      <div
+                        className="absolute inset-0 bg-cover bg-center bg-no-repeat transition-opacity duration-150 ease-in opacity-0 group-hover/product:opacity-100"
+                        style={{
+                          backgroundImage: `url(${item.hoverImg})`,
+                        }}
                       />
                     </div>
                     <div
@@ -672,7 +679,12 @@ export function HomeContent() {
         {mapping.map(img => (
           <Image key={img} src={img} alt="BrainCo 脑机接口产品展示 - 智能仿生与健康设备 / BrainCo brain-computer interface products - Intelligent bionics and health devices" width={1} height={1} role="presentation" />
         ))}
+        {/* 预加载产品悬浮图片 */}
+        {productList.map(item => (
+          <div key={`hover-${item.img}`} style={{ backgroundImage: `url(${item.hoverImg})` }} />
+        ))}
       </div>
     </main>
+    </>
   );
 }

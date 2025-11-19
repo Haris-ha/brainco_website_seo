@@ -1,7 +1,7 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import { useLocale, useTranslations } from 'next-intl';
+import { useTranslations } from 'next-intl';
 import Image from 'next/image';
 import AfterSales from '@/components/common/AfterSales';
 import { appDownloadData, purchaseLink, socialMediaData } from './data';
@@ -13,8 +13,6 @@ type OxyZenContentProps = {
 
 export default function OxyZenContent({ productInfo }: OxyZenContentProps) {
   const t = useTranslations('OxyZen');
-  const locale = useLocale();
-  const isChineseLocale = locale.startsWith('zh');
 
   return (
     <main className="bg-white text-[#333]">
@@ -38,7 +36,7 @@ export default function OxyZenContent({ productInfo }: OxyZenContentProps) {
 
         <div className="absolute top-0 left-1/2 flex h-full w-full max-w-[332px] -translate-x-[-80px] flex-col items-center justify-center">
           <motion.h1
-            className={`text-fluid-6xl font-normal ${isChineseLocale ? 'text-white' : 'text-[#1F1F1F]'}`}
+            className="text-fluid-6xl font-normal text-[#1F1F1F]"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
@@ -89,7 +87,7 @@ export default function OxyZenContent({ productInfo }: OxyZenContentProps) {
               transition={{ delay: 1.4, duration: 0.8 }}
             >
               <div className="flex justify-center">
-                <span className="text-fluid-5xl mr-7 text-[#333]">
+                <span className="text-fluid-5xl text-[#333]">
                   ¥
                   {productInfo.price / 100}
                 </span>
