@@ -27,7 +27,7 @@ export function SalonImageWithLabel({
         className="w-full"
       />
       <div className="absolute top-1/2 right-0 left-0 -translate-y-1/2 bg-black/30 py-4">
-        <span className="block text-center text-2xl font-medium text-white drop-shadow-lg md:text-3xl">
+        <span className="block text-center text-2xl font-medium !text-white drop-shadow-lg md:text-3xl">
           {label}
         </span>
       </div>

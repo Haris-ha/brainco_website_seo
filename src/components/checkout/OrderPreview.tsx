@@ -12,6 +12,7 @@ type OrderPreviewProps = {
   discountAmount?: number;
   currentStep: number;
   onDiscountApplied?: (amount: number) => void;
+  orderPayAmount?: number | null; // 订单实际支付金额（分），如果提供则优先使用
 };
 
 /**
@@ -23,13 +24,16 @@ export function OrderPreview({
   discountAmount = 0,
   currentStep,
   onDiscountApplied: _onDiscountApplied,
+  orderPayAmount,
 }: OrderPreviewProps) {
   const t = useTranslations('Checkout');
   const [showMore, setShowMore] = useState(false);
   const [showQrCode, setShowQrCode] = useState(false);
 
   const subtotal = items.reduce((sum, item) => sum + item.price * item.quantity, 0);
-  const total = subtotal - discountAmount;
+  const calculatedTotal = subtotal - discountAmount;
+  // 如果有订单实际支付金额，优先使用订单金额（单位：分）
+  const total = orderPayAmount !== null && orderPayAmount !== undefined ? orderPayAmount : calculatedTotal;
 
   return (
     <motion.section
@@ -48,11 +52,11 @@ export function OrderPreview({
       </header>
 
       {/* 商品列表 */}
-      <ul className="px-4 md:px-6 lg:px-8">
+      <ul className="px-4 md:px-12">
         {(showMore ? items : items.slice(0, 2)).map(item => (
           <li
             key={item.id}
-            className="mb-4 flex md:mb-6 lg:mb-8"
+            className="mb-4 flex md:mb-6 lg:mb-8 mx-8"
           >
             {/* 商品图片 */}
             <div className="mr-3 size-[50px] flex-shrink-0 overflow-hidden rounded-xl md:mr-3.5 md:size-[70px] md:rounded-[14px] lg:mr-4 lg:size-[80px] lg:rounded-[16px]">

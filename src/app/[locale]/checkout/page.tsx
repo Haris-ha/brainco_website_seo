@@ -1,6 +1,7 @@
 'use client';
 
 import type { CartItem, UserInfo } from '@/types/cart';
+import type { Order } from '@/types/order';
 
 import { AnimatePresence, motion } from 'framer-motion';
 import { useTranslations } from 'next-intl';
@@ -14,6 +15,8 @@ import { StepShipping } from '@/components/checkout/StepShipping';
 import { StepSuccess } from '@/components/checkout/StepSuccess';
 import { StepUserInfo } from '@/components/checkout/StepUserInfo';
 import { useCart } from '@/hooks/useCart';
+import { createOrder } from '@/lib/api';
+import { Request as RequestClass } from '@/lib/request';
 import { useRouter } from '@/libs/I18nNavigation';
 
 /**
@@ -21,6 +24,9 @@ import { useRouter } from '@/libs/I18nNavigation';
  * 左侧：订单预览
  * 右侧：步骤表单（基本信息 -> 收货信息 -> 支付方式 -> 成功）
  */
+// 创建用于订单 API 的请求实例
+const orderApiRequest = new RequestClass('https://bc-api.brainco.cn');
+
 export default function CheckoutPage() {
   const t = useTranslations('Checkout');
   const router = useRouter();
@@ -32,16 +38,119 @@ export default function CheckoutPage() {
   const [orderNumber, setOrderNumber] = useState('');
   const [checkedItems, setCheckedItems] = useState<CartItem[]>([]);
   const [discountAmount, setDiscountAmount] = useState(0);
+  const [orderPayAmount, setOrderPayAmount] = useState<number | null>(null); // 订单实际支付金额（分）
   const [showOrderPreviewModal, setShowOrderPreviewModal] = useState(false);
 
-  useEffect(() => {
-    const items = getCheckedItems();
-    setCheckedItems(items);
+  // 从订单详情加载商品到购物车格式
+  const convertOrderItemsToCartItems = (order: Order): CartItem[] => {
+    return order.orderItems.map(item => ({
+      id: item.productId,
+      name: item.productName,
+      price: item.productAmount, // 单位：分
+      quantity: item.quantity,
+      pictureUrl: item.productPictureUrl,
+      code: item.product.code,
+      checked: true,
+    }));
+  };
 
-    // 检查是否有选中的商品
-    if (items.length === 0) {
-      toast.error(t('Cart.selected_items', { count: 0 }));
-      router.push('/cart');
+  // 加载订单详情
+  const loadOrderByNo = async (orderNo: string) => {
+    try {
+      const response = await orderApiRequest.get<{ list: Order[] }>(
+        `/rsc/api/brainco-orders?orderNo=${orderNo}&pageNo=1&pageSize=10`,
+      );
+
+      if (!response.success || !response.data?.list?.length) {
+        throw new Error('订单不存在');
+      }
+
+      const order = response.data.list[0];
+      if (!order) {
+        throw new Error('订单不存在');
+      }
+
+      // 检查订单状态
+      if (order.status === 'CLOSED') {
+        toast.error('订单已关闭');
+        router.push('/orders');
+        return;
+      }
+      if (order.status === 'SHIPPED') {
+        toast.error('订单已发货');
+        router.push('/orders');
+        return;
+      }
+      if (order.status === 'PAID') {
+        toast.error('订单已支付');
+        router.push('/orders');
+        return;
+      }
+
+      // 只有 WAITING 状态的订单才能继续支付
+      if (order.status !== 'WAITING') {
+        toast.error('订单状态异常，无法继续支付');
+        router.push('/orders');
+        return;
+      }
+
+      // 填充订单数据
+      const cartItems = convertOrderItemsToCartItems(order);
+      setCheckedItems(cartItems);
+      setDiscountAmount((order.discountAmount || 0) / 100); // 转换为元
+      setOrderNumber(order.no);
+      // 使用订单的实际支付金额（payAmount，单位：分）
+      setOrderPayAmount(order.payAmount);
+
+      // 填充用户信息（从收货信息中获取，因为订单中没有单独的 name 和 phone 字段）
+      if (order.consigneeName && order.consigneePhone) {
+        setBasicInfo({
+          name: order.consigneeName,
+          phone: order.consigneePhone,
+        });
+      }
+
+      // 填充收货信息
+      if (order.consigneeName && order.consigneePhone) {
+        setShippingInfo({
+          name: order.consigneeName,
+          phone: order.consigneePhone,
+          address: order.consigneeAddress || '',
+          province: order.consigneeState || '',
+          city: order.consigneeCity || '',
+          district: order.consigneeDistrict || '',
+          email: '',
+        });
+      }
+
+      // 直接跳转到支付步骤
+      setCurrentStep(2);
+    } catch (error) {
+      console.error('加载订单失败:', error);
+      const errorMessage = error instanceof Error ? error.message : '加载订单失败';
+      toast.error(errorMessage);
+      router.push('/orders');
+    }
+  };
+
+  useEffect(() => {
+    // 检查 URL 参数中是否有 orderNo
+    const searchParams = new URLSearchParams(window.location.search);
+    const orderNo = searchParams.get('orderNo');
+
+    if (orderNo) {
+      // 如果有 orderNo，加载订单详情
+      loadOrderByNo(orderNo);
+    } else {
+      // 否则，从购物车加载商品
+      const items = getCheckedItems();
+      setCheckedItems(items);
+
+      // 检查是否有选中的商品
+      if (items.length === 0) {
+        toast.error(t('Cart.selected_items', { count: 0 }));
+        router.push('/cart');
+      }
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
@@ -55,24 +164,56 @@ export default function CheckoutPage() {
     try {
       setShippingInfo(data);
 
-      // TODO: 调用订单创建 API
-      // const response = await orderApi.createOrder({
-      //   items: checkedItems,
-      //   basicInfo,
-      //   shippingInfo: data,
-      // });
+      if (!basicInfo) {
+        toast.error('请先完成基本信息填写');
+        return;
+      }
 
-      // 模拟订单创建
-      await new Promise((resolve) => {
-        setTimeout(resolve, 500);
+      // 计算总价
+      const subtotal = checkedItems.reduce((sum, item) => sum + item.price * item.quantity, 0);
+      const total = subtotal - discountAmount;
+
+      // 调用订单创建 API
+      const response = await createOrder({
+        items: checkedItems,
+        userInfo: {
+          ...data,
+          name: basicInfo.name,
+          phone: basicInfo.phone,
+        },
+        paymentMethod: '', // 支付方式在下一步选择
+        discountAmount,
+        totalAmount: total,
       });
-      const mockOrderNumber = `ORD${Date.now()}`;
-      setOrderNumber(mockOrderNumber);
+
+      if (!response.orderNo) {
+        throw new Error('订单创建失败：未返回订单号');
+      }
+
+      setOrderNumber(response.orderNo);
+
+      // 获取订单详情，获取实际的支付金额
+      try {
+        const orderDetailResponse = await orderApiRequest.get<{ list: Order[] }>(
+          `/rsc/api/brainco-orders?orderNo=${response.orderNo}&pageNo=1&pageSize=10`,
+        );
+
+        if (orderDetailResponse.success && orderDetailResponse.data?.list?.[0]) {
+          const order = orderDetailResponse.data.list[0];
+          // 使用订单的实际支付金额（payAmount，单位：分）
+          setOrderPayAmount(order.payAmount);
+        }
+      } catch (error) {
+        // 如果获取订单详情失败，使用前端计算的金额
+        console.error('获取订单详情失败，使用前端计算的金额:', error);
+        setOrderPayAmount(total);
+      }
 
       setCurrentStep(2);
     } catch (error) {
       console.error('Order creation failed:', error);
-      toast.error(t('Checkout.submit_error') || 'Order creation failed');
+      const errorMessage = error instanceof Error ? error.message : '订单创建失败';
+      toast.error(errorMessage);
       throw error;
     }
   };
@@ -113,6 +254,8 @@ export default function CheckoutPage() {
   // 计算总价
   const subtotal = checkedItems.reduce((sum, item) => sum + item.price * item.quantity, 0);
   const total = subtotal - discountAmount;
+  // 如果有订单实际支付金额，优先使用订单金额（单位：分）
+  const displayTotal = orderPayAmount !== null ? orderPayAmount : total;
 
   return (
     <main className="flex min-h-screen flex-col bg-white">
@@ -184,6 +327,7 @@ export default function CheckoutPage() {
                 discountAmount={discountAmount}
                 currentStep={currentStep}
                 onDiscountApplied={setDiscountAmount}
+                orderPayAmount={orderPayAmount}
               />
             </div>
           )}
@@ -198,7 +342,7 @@ export default function CheckoutPage() {
                   whileHover={{ scale: 1.02 }}
                   whileTap={{ scale: 0.98 }}
                   onClick={() => setShowOrderPreviewModal(true)}
-                  className="rounded-lg border border-[#4F68D2] bg-white px-4 py-2 text-base font-medium text-[#4F68D2] transition-colors hover:bg-[#4F68D2] hover:text-white"
+                  className="rounded-lg border border-[#4F68D2] bg-white px-4 py-2 text-base font-medium text-[#4F68D2] transition-colors hover:bg-[#4F68D2] hover:!text-white"
                 >
                   {t('view_order_preview')}
                 </motion.button>
@@ -223,7 +367,7 @@ export default function CheckoutPage() {
             {currentStep === 2 && orderNumber && (
               <StepPaymentMethod
                 orderNumber={orderNumber}
-                totalAmount={total}
+                totalAmount={displayTotal}
                 onSubmit={handlePaymentSubmit}
                 onBack={handleBack}
               />
@@ -284,6 +428,7 @@ export default function CheckoutPage() {
                 discountAmount={discountAmount}
                 currentStep={currentStep}
                 onDiscountApplied={setDiscountAmount}
+                orderPayAmount={orderPayAmount}
               />
             </motion.div>
           </motion.div>

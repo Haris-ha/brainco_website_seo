@@ -35,7 +35,7 @@ export function CartEmpty() {
         whileTap={{ scale: 0.95 }}
         onClick={() => router.push('/')}
         aria-label={t('continue_shopping')}
-        className="text-fluid-xl cursor-target h-[72px] w-[260px] rounded-[41px] bg-[rgba(0,0,0,0.16)] font-medium text-white shadow-lg transition-all hover:bg-[rgba(0,0,0,0.24)] md:h-[72px] md:w-[260px]"
+        className="text-fluid-xl cursor-target h-[72px] w-[260px] rounded-[41px] bg-[rgba(0,0,0,0.16)] font-medium !text-white shadow-lg transition-all hover:bg-[rgba(0,0,0,0.24)] md:h-[72px] md:w-[260px]"
       >
         {t('continue_shopping')}
       </motion.button>

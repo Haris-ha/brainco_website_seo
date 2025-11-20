@@ -99,7 +99,7 @@ export default function OxyZenContentMobile({ productInfo }: OxyZenContentMobile
         />
         <div className="absolute top-0 right-0 left-0 pt-10 text-center">
           <motion.h1
-            className="text-fluid-4xl font-normal text-white"
+            className="text-fluid-4xl font-normal !text-white"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
@@ -457,7 +457,7 @@ export default function OxyZenContentMobile({ productInfo }: OxyZenContentMobile
           className="h-auto w-full"
           role="presentation"
         />
-        <div className="absolute top-0 right-0 left-0 px-4 pt-10 text-center text-white">
+        <div className="absolute top-0 right-0 left-0 px-4 pt-10 text-center !text-white">
           <motion.h2
             id="content-title-mobile"
             className="text-fluid-3xl mb-2.5 font-medium"

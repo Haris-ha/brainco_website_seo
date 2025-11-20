@@ -32,19 +32,23 @@ export class Request {
   // 请求拦截器
   private async requestInterceptor(config: RequestConfig): Promise<RequestConfig> {
     // 在这里添加请求前的操作，例如添加认证头
-    console.warn('Request config:', config);
+    const token = typeof window !== 'undefined' ? localStorage.getItem('token') : null;
+    if (token) {
+      config.headers = {
+        ...config.headers,
+        token,
+      };
+    }
     return config;
   }
 
   // 响应拦截器
-  private async responseInterceptor(response: Response): Promise<any> {
-    const data: ApiResponse = await response.json();
-
+  private async responseInterceptor(responseData: ApiResponse): Promise<any> {
     // 在这里添加对响应数据的操作，例如格式化数据
-    if (data && data.success) {
-      return data;
+    if (responseData && responseData.success) {
+      return responseData;
     } else {
-      return Promise.reject(data.message || '请求失败');
+      return Promise.reject(new Error(responseData.message || '请求失败'));
     }
   }
 
@@ -77,12 +81,27 @@ export class Request {
       const response = await fetch(url, options);
       clearTimeout(timeoutId);
 
+      // 尝试解析响应数据（即使状态码不是 200）
+      let responseData: ApiResponse;
+      try {
+        responseData = await response.json();
+      } catch {
+        // 如果无法解析 JSON，使用默认错误信息
+        if (!response.ok) {
+          throw new Error(`HTTP error! status: ${response.status}`);
+        }
+        throw new Error('响应数据格式错误');
+      }
+
+      // 如果状态码不是 200，但能解析 JSON，返回解析的数据
       if (!response.ok) {
-        throw new Error(`HTTP error! status: ${response.status}`);
+        // 如果响应中有错误信息，使用它
+        const errorMessage = responseData.message || `HTTP error! status: ${response.status}`;
+        return Promise.reject(new Error(errorMessage));
       }
 
       // 响应拦截
-      return await this.responseInterceptor(response);
+      return await this.responseInterceptor(responseData);
     } catch (error) {
       clearTimeout(timeoutId);
       if (error instanceof Error) {

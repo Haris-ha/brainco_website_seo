@@ -108,7 +108,7 @@ export default function EASleepSpecificationContent({ products }: EASleepSpecifi
             whileHover={{ scale: 1.1 }}
             whileTap={{ scale: 0.9 }}
             onClick={handlePrev}
-            className="cursor-target absolute top-1/2 left-[20px] z-[50] flex h-[40px] w-[40px] -translate-y-1/2 cursor-pointer items-center justify-center rounded-full border border-white text-[30px] text-white transition-all hover:bg-white/20"
+            className="cursor-target absolute top-1/2 left-[20px] z-[50] flex h-[40px] w-[40px] -translate-y-1/2 cursor-pointer items-center justify-center rounded-full border border-white text-[30px] !text-white transition-all hover:bg-white/20"
             aria-label="上一张图片 / Previous image"
           >
             ←
@@ -118,7 +118,7 @@ export default function EASleepSpecificationContent({ products }: EASleepSpecifi
             whileHover={{ scale: 1.1 }}
             whileTap={{ scale: 0.9 }}
             onClick={handleNext}
-            className="cursor-target absolute top-1/2 right-[20px] z-[50] flex h-[40px] w-[40px] -translate-y-1/2 cursor-pointer items-center justify-center rounded-full border border-white text-[30px] text-white transition-all hover:bg-white/20"
+            className="cursor-target absolute top-1/2 right-[20px] z-[50] flex h-[40px] w-[40px] -translate-y-1/2 cursor-pointer items-center justify-center rounded-full border border-white text-[30px] !text-white transition-all hover:bg-white/20"
             aria-label="下一张图片 / Next image"
           >
             →

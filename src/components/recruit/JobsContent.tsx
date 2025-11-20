@@ -104,7 +104,7 @@ export default function JobsContent() {
           <button
             type="button"
             onClick={handleSearch}
-            className="h-[78px] w-[167px] cursor-pointer rounded-r-[39px] border-0 bg-[#333333] text-center text-xl text-white outline-none"
+            className="h-[78px] w-[167px] cursor-pointer rounded-r-[39px] border-0 bg-[#333333] text-center text-xl !text-white outline-none"
           >
             {t('search')}
           </button>

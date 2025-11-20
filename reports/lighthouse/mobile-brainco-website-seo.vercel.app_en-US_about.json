@@ -4153,7 +4153,7 @@
             {
               "selector": "main.w-full > header.relative > div.absolute > p.text-fluid-base",
               "path": "1,HTML,1,BODY,1,DIV,1,MAIN,1,MAIN,0,HEADER,1,DIV,1,P",
-              "snippet": "<p class=\"text-fluid-base mt-5 text-center text-white\" style=\"opacity: 1; transform: none;\">",
+              "snippet": "<p class=\"text-fluid-base mt-5 text-center !text-white\" style=\"opacity: 1; transform: none;\">",
               "nodeLabel": "Founded in 2015, BrainCo is the first Chinese team selected by Harvard Innovati…",
               "boundingRect": {
                 "width": 292,

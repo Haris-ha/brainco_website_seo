@@ -14906,7 +14906,7 @@
                 "left": 563
               },
               "lhId": "page-0-H1",
-              "snippet": "<h1 class=\"relative z-10 text-center font-bold text-white drop-shadow-[0_2px_8px_rgba…\" style=\"opacity: 1; transform: none;\">",
+              "snippet": "<h1 class=\"relative z-10 text-center font-bold !text-white drop-shadow-[0_2px_8px_rgba…\" style=\"opacity: 1; transform: none;\">",
               "selector": "main > main.w-full > header.relative > h1.relative"
             }
           ],

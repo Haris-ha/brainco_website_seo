@@ -758,6 +758,7 @@
     "checkout": "Checkout",
     "delete": "Delete",
     "select_all": "Select All",
+    "deselect": "Deselect All",
     "selected_items": "{count} item(s) selected",
     "added_to_cart": "Added to cart",
     "removed_from_cart": "Removed from cart",

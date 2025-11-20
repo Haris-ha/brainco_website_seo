@@ -37,7 +37,7 @@ export default function NewsHero({ isMobile = false }: NewsHeroProps) {
         initial={{ scale: 0.9, opacity: 0 }}
         animate={{ scale: 1, opacity: 1 }}
         transition={{ duration: 0.6, delay: 0.3 }}
-        className={`relative z-10 text-center font-bold text-white drop-shadow-[0_2px_8px_rgba(0,0,0,0.5)] ${
+        className={`relative z-10 text-center font-bold !text-white drop-shadow-[0_2px_8px_rgba(0,0,0,0.5)] ${
           isMobile
             ? 'text-fluid-5xl'
             : 'text-fluid-7xl'

@@ -38,7 +38,7 @@ export function OrderList({ orders, onSelectOrder }: OrderListProps) {
         initial={{ opacity: 0, y: -20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5 }}
-        className="mb-6 text-center font-medium"
+        className="mb-12 text-center font-medium"
         style={{ fontSize: 'clamp(1.25rem, 2vw, 1.5rem)' }}
       >
         {t('order_overview')}
@@ -54,7 +54,7 @@ export function OrderList({ orders, onSelectOrder }: OrderListProps) {
             onClick={() => isOrderClickable(order) && onSelectOrder(order)}
             className={`overflow-hidden rounded-2xl bg-white shadow-md transition-all ${
               isOrderClickable(order)
-                ? 'cursor-pointer hover:shadow-lg md:cursor-none'
+                ? 'cursor-pointer hover:shadow-lg'
                 : 'cursor-not-allowed opacity-70'
             }`}
           >

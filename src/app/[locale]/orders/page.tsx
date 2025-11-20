@@ -12,18 +12,11 @@ import toast from 'react-hot-toast';
 import { OrderAuth } from '@/components/orders/OrderAuth';
 import { OrderDetail } from '@/components/orders/OrderDetail';
 import { OrderList } from '@/components/orders/OrderList';
-import request from '@/lib/request';
+import { Request as RequestClass } from '@/lib/request';
 
-/**
- * 订单页面
- * 包含登录验证、订单列表和订单详情
- *
- * 特点:
- * - 无Header和Footer的简洁布局
- * - 使用framer-motion动画
- * - fluid响应式文字
- * - 完整的国际化支持
- */
+// 创建用于订单 API 的请求实例（使用 bc-api.brainco.cn）
+const orderApiRequest = new RequestClass('https://bc-api.brainco.cn');
+
 export default function OrdersPage() {
   const t = useTranslations('Orders');
   const router = useRouter();
@@ -44,15 +37,16 @@ export default function OrdersPage() {
       }
 
       try {
-        const response = await request.get<OrderListResponse>(
+        const response = await orderApiRequest.get<OrderListResponse>(
           '/rsc/api/brainco-orders?pageNo=1&pageSize=100',
-          {
-            headers: { token },
-          },
         );
 
-        setOrders(response.data.list);
-        setIsAuthenticated(true);
+        if (response.success && response.data) {
+          setOrders(response.data.list || []);
+          setIsAuthenticated(true);
+        } else {
+          throw new Error(response.message || '获取订单列表失败');
+        }
       } catch (err) {
         // Token失效或其他错误
         if ((err as any)?.response?.status === 401 || (err as any)?.response?.status === 403) {
@@ -77,15 +71,16 @@ export default function OrdersPage() {
     }
 
     try {
-      const response = await request.get<OrderListResponse>(
+      const response = await orderApiRequest.get<OrderListResponse>(
         '/rsc/api/brainco-orders?pageNo=1&pageSize=100',
-        {
-          headers: { token },
-        },
       );
 
-      setOrders(response.data.list);
-      setIsAuthenticated(true);
+      if (response.success && response.data) {
+        setOrders(response.data.list || []);
+        setIsAuthenticated(true);
+      } else {
+        throw new Error(response.message || '获取订单列表失败');
+      }
     } catch {
       toast.error(t('network_error'));
     }
@@ -174,7 +169,7 @@ export default function OrdersPage() {
       </motion.header>
 
       {/* 主内容区 */}
-      <main className="flex min-h-[calc(100vh-80px)] items-center justify-center py-8">
+      <main className="flex min-h-[calc(100vh-80px)] items-center justify-center overflow-y-auto py-8">
         {!isAuthenticated && <OrderAuth onAuthSuccess={handleAuthSuccess} />}
 
         {isAuthenticated && !selectedOrder && (

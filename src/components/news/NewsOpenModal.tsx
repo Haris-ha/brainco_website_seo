@@ -91,7 +91,7 @@ export default function NewsOpenModal({
                   e.stopPropagation();
                   handleOpenInSite(e as any);
                 }}
-                className="flex items-center justify-center gap-3 rounded-[10px] bg-[#2563eb] px-6 py-4 text-lg font-medium text-white transition-colors hover:bg-[#1d4ed8]"
+                className="flex items-center justify-center gap-3 rounded-[10px] bg-[#2563eb] px-6 py-4 text-lg font-medium !text-white transition-colors hover:bg-[#1d4ed8]"
               >
                 <svg
                   className="h-6 w-6"

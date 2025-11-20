@@ -187,7 +187,7 @@ export function SimpleCarousel({
             aria-label="上一张"
           >
             <svg
-              className="h-6 w-6 text-white md:h-7 md:w-7"
+              className="h-6 w-6 !text-white md:h-7 md:w-7"
               fill="none"
               stroke="currentColor"
               viewBox="0 0 24 24"
@@ -217,7 +217,7 @@ export function SimpleCarousel({
             aria-label="下一张"
           >
             <svg
-              className="h-6 w-6 text-white md:h-7 md:w-7"
+              className="h-6 w-6 !text-white md:h-7 md:w-7"
               fill="none"
               stroke="currentColor"
               viewBox="0 0 24 24"

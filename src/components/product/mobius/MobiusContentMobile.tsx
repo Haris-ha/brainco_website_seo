@@ -92,8 +92,8 @@ export default function MobiusContentMobile() {
               viewport={{ once: true }}
               transition={{ duration: 0.6, delay: 0.2 }}
             >
-              <h3 className="text-fluid-3xl mb-[10px] font-medium text-white">{item.title}</h3>
-              <p className="text-fluid-sm leading-[1.6] text-white">
+              <h3 className="text-fluid-3xl mb-[10px] font-medium !text-white">{item.title}</h3>
+              <p className="text-fluid-sm leading-[1.6] !text-white">
                 {item.text}
               </p>
             </motion.div>
@@ -371,7 +371,7 @@ export default function MobiusContentMobile() {
             {[t('feature_shell_1'), t('feature_shell_2'), t('feature_shell_3')].map((text, idx) => (
               <motion.div
                 key={text}
-                className="text-fluid-sm flex h-[30px] w-[62px] items-center justify-center rounded-[15px] bg-[#707070] text-white"
+                className="text-fluid-sm flex h-[30px] w-[62px] items-center justify-center rounded-[15px] bg-[#707070] !text-white"
                 initial={{ opacity: 0, scale: 0.8 }}
                 whileInView={{ opacity: 1, scale: 1 }}
                 viewport={{ once: true }}

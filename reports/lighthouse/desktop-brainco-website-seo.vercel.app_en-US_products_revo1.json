@@ -745,7 +745,7 @@
             {
               "score": 0.5,
               "node": {
-                "snippet": "<section aria-labelledby=\"industry-title\" class=\"jsx-ce2e3e8c2258a838 bg-black pt-40 pb-20 text-white\">",
+                "snippet": "<section aria-labelledby=\"industry-title\" class=\"jsx-ce2e3e8c2258a838 bg-black pt-40 pb-20 !text-white\">",
                 "type": "node",
                 "selector": "div.min-h-screen > main > main.jsx-ce2e3e8c2258a838 > section.jsx-ce2e3e8c2258a838",
                 "path": "1,HTML,1,BODY,1,DIV,1,MAIN,1,MAIN,1,SECTION",
@@ -2737,7 +2737,7 @@
                     "type": "node",
                     "selector": "div.min-h-screen > main > main.jsx-ce2e3e8c2258a838 > section.jsx-ce2e3e8c2258a838",
                     "nodeLabel": "Empowering the Industrial Future\nStrong Grip, Excellent Load Capacity\n\nSingle h…",
-                    "snippet": "<section aria-labelledby=\"industry-title\" class=\"jsx-ce2e3e8c2258a838 bg-black pt-40 pb-20 text-white\">",
+                    "snippet": "<section aria-labelledby=\"industry-title\" class=\"jsx-ce2e3e8c2258a838 bg-black pt-40 pb-20 !text-white\">",
                     "lhId": "page-11-SECTION"
                   }
                 },

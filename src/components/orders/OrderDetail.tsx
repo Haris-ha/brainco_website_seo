@@ -4,6 +4,7 @@ import type { Order } from '@/types/order';
 
 import { motion } from 'framer-motion';
 import { useTranslations } from 'next-intl';
+import { useRouter } from 'next/navigation';
 import toast from 'react-hot-toast';
 
 type OrderDetailProps = {
@@ -18,6 +19,7 @@ type OrderDetailProps = {
 export function OrderDetail({ order, onBack }: OrderDetailProps) {
   const t = useTranslations('Orders');
   const tCheckout = useTranslations('Checkout');
+  const router = useRouter();
 
   // 复制到剪贴板
   const handleCopy = async (text: string) => {
@@ -89,19 +91,19 @@ export function OrderDetail({ order, onBack }: OrderDetailProps) {
 
   return (
     <motion.div
-      initial={{ x: '100%' }}
-      animate={{ x: 0 }}
-      exit={{ x: '100%' }}
-      transition={{ type: 'spring', damping: 25, stiffness: 200 }}
-      className="fixed inset-0 z-50 flex flex-col overflow-y-auto bg-white"
+      initial={{ opacity: 0, y: 20 }}
+      animate={{ opacity: 1, y: 0 }}
+      exit={{ opacity: 0, y: 20 }}
+      transition={{ duration: 0.3 }}
+      className="w-full max-w-[90vw] px-4 py-6 md:max-w-[810px] md:px-6 md:py-8"
     >
-      {/* 头部 */}
-      <div className="sticky top-0 z-10 border-b border-gray-100 bg-white px-6 py-4 md:px-8">
+      {/* 返回按钮 */}
+      <div className="mb-6 border-b border-gray-100 pb-4">
         <motion.button
           type="button"
           onClick={onBack}
           whileHover={{ x: -5 }}
-          className="flex cursor-pointer items-center gap-2 text-gray-700 transition-colors hover:text-gray-900 md:cursor-none"
+          className="flex cursor-pointer items-center gap-2 text-gray-700 transition-colors hover:text-gray-900"
           style={{ fontSize: 'clamp(1rem, 1.5vw, 1.125rem)' }}
         >
           <span>←</span>
@@ -109,7 +111,7 @@ export function OrderDetail({ order, onBack }: OrderDetailProps) {
         </motion.button>
       </div>
 
-      <div className="flex-1 px-6 py-6 md:px-12 md:py-8">
+      <div className="w-full space-y-8">
         {/* 已发货包裹 */}
         {order.logistics?.map((logistics, index) => (
           <motion.div
@@ -252,7 +254,7 @@ export function OrderDetail({ order, onBack }: OrderDetailProps) {
               </span>
             </div>
 
-            <div className="space-y-6 border-b border-gray-100 pb-6">
+            <div className="space-y-6">
               {order.orderItems.map((item, index) => (
                 <div key={`${item.productId}-${index}`} className="flex items-center gap-4 md:gap-6">
                   <div className="h-[100px] w-[100px] flex-shrink-0 overflow-hidden rounded-lg md:h-[120px] md:w-[120px]">
@@ -289,26 +291,30 @@ export function OrderDetail({ order, onBack }: OrderDetailProps) {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 0.5, delay: 0.3 }}
-          className="mb-8 space-y-3 px-6 py-6 md:px-12"
+          className="mb-8 space-y-3 pb-6"
         >
-          {order.discountAmount && order.discountAmount > 0 && (
-            <div className="flex items-center justify-between" style={{ fontSize: 'clamp(0.875rem, 1.2vw, 1.125rem)' }}>
-              <span className="text-gray-600">{tCheckout('discount_code')}</span>
-              <span className="text-gray-900">
-                ¥
-                {(order.discountAmount / 100).toFixed(2)}
-              </span>
-            </div>
-          )}
-          {order.changeAmount && order.changeAmount !== 0 && (
-            <div className="flex items-center justify-between" style={{ fontSize: 'clamp(0.875rem, 1.2vw, 1.125rem)' }}>
-              <span className="text-gray-600">{tCheckout('merchant_price_adjustment')}</span>
-              <span className="text-gray-900">
-                ¥
-                {(order.changeAmount / 100).toFixed(2)}
-              </span>
-            </div>
-          )}
+          {order.discountAmount && order.discountAmount > 0
+            ? (
+                <div className="flex items-center justify-between" style={{ fontSize: 'clamp(0.875rem, 1.2vw, 1.125rem)' }}>
+                  <span className="text-gray-600">{tCheckout('discount_code')}</span>
+                  <span className="text-gray-900">
+                    ¥
+                    {(order.discountAmount / 100).toFixed(2)}
+                  </span>
+                </div>
+              )
+            : null}
+          {order.changeAmount && order.changeAmount !== 0
+            ? (
+                <div className="flex items-center justify-between" style={{ fontSize: 'clamp(0.875rem, 1.2vw, 1.125rem)' }}>
+                  <span className="text-gray-600">{tCheckout('merchant_price_adjustment')}</span>
+                  <span className="text-gray-900">
+                    ¥
+                    {(order.changeAmount / 100).toFixed(2)}
+                  </span>
+                </div>
+              )
+            : null}
           <div className="flex items-center justify-between border-t border-gray-100 pt-3">
             <span className="text-gray-600" style={{ fontSize: 'clamp(0.875rem, 1.2vw, 1.125rem)' }}>
               {t('actual_payment')}
@@ -319,6 +325,30 @@ export function OrderDetail({ order, onBack }: OrderDetailProps) {
             </span>
           </div>
         </motion.div>
+
+        {/* 未支付时的去付款按钮 */}
+        {order.status === 'WAITING' && (
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 0.4 }}
+            className="mb-8 flex justify-center"
+          >
+            <motion.button
+              type="button"
+              onClick={() => {
+                // 跳转到结算页面，带上订单号参数
+                router.push(`/checkout?orderNo=${order.no}`);
+              }}
+              whileHover={{ scale: 1.02 }}
+              whileTap={{ scale: 0.98 }}
+              className="cursor-pointer rounded-full bg-[#4f68d2] px-18 py-3 font-medium !text-white shadow-md transition-all hover:bg-[#3d52a8] hover:shadow-lg"
+              style={{ fontSize: 'clamp(1rem, 1.5vw, 1.25rem)' }}
+            >
+              {t('go_to_payment')}
+            </motion.button>
+          </motion.div>
+        )}
 
         {/* VIP服务 */}
         {vipServiceItems.length > 0 && (order.status === 'SHIPPED' || order.status === 'PAID') && (

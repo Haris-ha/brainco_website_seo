@@ -112,8 +112,8 @@ export default function MobiusContent() {
             viewport={{ once: true }}
             transition={{ duration: 0.8, delay: 0.3, ease: 'easeOut' }}
           >
-            <h3 className="text-fluid-5xl mb-[20px] font-medium text-white">{t('m2_title')}</h3>
-            <p className="text-fluid-xl leading-[1.8] text-white">
+            <h3 className="text-fluid-5xl mb-[20px] font-medium !text-white">{t('m2_title')}</h3>
+            <p className="text-fluid-xl leading-[1.8] !text-white">
               {t('m2_desc')}
             </p>
           </motion.div>
@@ -140,8 +140,8 @@ export default function MobiusContent() {
             viewport={{ once: true }}
             transition={{ duration: 0.8, delay: 0.3, ease: 'easeOut' }}
           >
-            <h3 className="text-fluid-5xl mb-[20px] font-medium text-white">{t('m3_title')}</h3>
-            <p className="text-fluid-xl leading-[1.8] text-white">
+            <h3 className="text-fluid-5xl mb-[20px] font-medium !text-white">{t('m3_title')}</h3>
+            <p className="text-fluid-xl leading-[1.8] !text-white">
               {t('m3_desc')}
             </p>
           </motion.div>
@@ -628,13 +628,13 @@ export default function MobiusContent() {
             {t('feature_shell_subtitle')}
           </h3>
           <div className="flex gap-[20px] text-center">
-            <span className="text-fluid-3xl rounded-full bg-black/60 px-8 py-3 text-white">
+            <span className="text-fluid-3xl rounded-full bg-black/60 px-8 py-3 !text-white">
               {t('feature_shell_1')}
             </span>
-            <span className="text-fluid-3xl rounded-full bg-black/60 px-8 py-3 text-white">
+            <span className="text-fluid-3xl rounded-full bg-black/60 px-8 py-3 !text-white">
               {t('feature_shell_2')}
             </span>
-            <span className="text-fluid-3xl rounded-full bg-black/60 px-8 py-3 text-white">
+            <span className="text-fluid-3xl rounded-full bg-black/60 px-8 py-3 !text-white">
               {t('feature_shell_3')}
             </span>
           </div>

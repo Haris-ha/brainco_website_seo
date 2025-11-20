@@ -20,7 +20,7 @@ export default function AboutContent() {
           transition={{ duration: 0.8, delay: 0.3, ease: 'easeOut' }}
         >
           <motion.h1
-            className="text-fluid-7xl leading-[92px] text-white"
+            className="text-fluid-7xl leading-[92px] !text-white"
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.5, ease: 'easeOut' }}
@@ -28,7 +28,7 @@ export default function AboutContent() {
             {t('page_title')}
           </motion.h1>
           <motion.p
-            className="text-fluid-2xl mt-[36px] w-[740px] text-center leading-[34px] text-white 2xl:mt-[47px]"
+            className="text-fluid-2xl mt-[36px] w-[740px] text-center leading-[34px] !text-white 2xl:mt-[47px]"
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.7, ease: 'easeOut' }}

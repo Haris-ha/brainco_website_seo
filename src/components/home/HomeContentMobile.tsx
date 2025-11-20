@@ -155,7 +155,7 @@ export function HomeContentMobile() {
     <main className="relative h-full">
       <header className="relative h-full min-h-[720px] overflow-hidden bg-white">
         <motion.div
-          className="absolute top-[60%] left-1/2 z-10 flex w-full -translate-x-1/2 -translate-y-1/2 flex-col items-center text-white"
+          className="absolute top-[60%] left-1/2 z-10 flex w-full -translate-x-1/2 -translate-y-1/2 flex-col items-center !text-white"
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, ease: 'easeOut' }}
@@ -223,7 +223,7 @@ export function HomeContentMobile() {
         {videoList.map((item, index) => (
           <motion.li
             key={item.titleKey}
-            className="ml-[22px] flex flex-col items-center text-white first:ml-0"
+            className="ml-[22px] flex flex-col items-center !text-white first:ml-0"
             initial={{ opacity: 0, y: 15 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{

@@ -25,7 +25,7 @@ export default function AboutContentMobile() {
           transition={{ duration: 0.8, delay: 0.3, ease: 'easeOut' }}
         >
           <motion.h1
-            className="text-fluid-5xl text-center font-bold text-white"
+            className="text-fluid-5xl text-center font-bold !text-white"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.5, ease: 'easeOut' }}
@@ -33,7 +33,7 @@ export default function AboutContentMobile() {
             {t('page_title')}
           </motion.h1>
           <motion.p
-            className="text-fluid-base mt-5 text-center text-white"
+            className="text-fluid-base mt-5 text-center !text-white"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.7, ease: 'easeOut' }}

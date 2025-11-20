@@ -258,7 +258,7 @@ export default function BrainRoboticsContentMobile() {
           </div>
 
           {/* Product Introduction - Bottom Left */}
-          <div className="absolute bottom-0 left-[35px] mb-6 flex w-[305px] flex-col justify-end rounded-2xl p-8 text-center text-white backdrop-blur-xs">
+          <div className="absolute bottom-0 left-[35px] mb-6 flex w-[305px] flex-col justify-end rounded-2xl p-8 text-center !text-white backdrop-blur-xs">
             <motion.p
               className="text-fluid-2xl"
               initial={{ opacity: 0, y: 20 }}

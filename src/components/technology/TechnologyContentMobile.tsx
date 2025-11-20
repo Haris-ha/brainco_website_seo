@@ -35,7 +35,7 @@ export default function TechnologyContentMobile() {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 0.8 }}
-          className="relative z-10 flex min-h-full w-full flex-col justify-center px-[10vw] text-left text-white h-[700px]"
+          className="relative z-10 flex min-h-full w-full flex-col justify-center px-[10vw] text-left !text-white h-[700px]"
         >
           <motion.h1
             initial={{ scale: 0.8, opacity: 0 }}

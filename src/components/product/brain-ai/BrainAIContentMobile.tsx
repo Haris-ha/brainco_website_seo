@@ -97,7 +97,7 @@ export default function BrainAIContentMobile() {
         </picture>
         <div className="absolute right-0 bottom-0 left-0 flex flex-col items-center justify-center">
           <div
-            className="mb-40 w-[90%] rounded-3xl px-8 py-8 text-center text-white"
+            className="mb-40 w-[90%] rounded-3xl px-8 py-8 text-center !text-white"
             style={{
               background: 'linear-gradient(to top, rgba(0, 0, 0, 0.25) 0%, rgba(0, 0, 0, 0.15) 70%, transparent 100%)',
               backdropFilter: 'blur(6px)',
@@ -165,7 +165,7 @@ export default function BrainAIContentMobile() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            className="pointer-events-none absolute top-0 left-0 flex h-full w-full flex-col items-center justify-center text-white"
+            className="pointer-events-none absolute top-0 left-0 flex h-full w-full flex-col items-center justify-center !text-white"
           >
             <h2 className="text-fluid-xl">{t('video_title')}</h2>
             <p className="text-fluid-xl">{t('video_subtitle')}</p>
@@ -197,7 +197,7 @@ export default function BrainAIContentMobile() {
         {isPlaying && !showControls && (
           <div className="absolute inset-0 flex items-center justify-center">
             <div className="rounded-full bg-black/50 p-3">
-              <svg className="h-8 w-8 text-white" fill="currentColor" viewBox="0 0 24 24">
+              <svg className="h-8 w-8 !text-white" fill="currentColor" viewBox="0 0 24 24">
                 <path d="M6 4h4v16H6V4zm8 0h4v16h-4V4z" />
               </svg>
             </div>

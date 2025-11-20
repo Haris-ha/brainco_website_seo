@@ -65,10 +65,10 @@ export default function DiscountBanner({ product, isMobile = false }: DiscountBa
 
           {/* 右侧内容区域 - 白色文字，无椭圆背景 */}
           <div className="flex flex-1 flex-col justify-center px-4 py-2 text-left">
-            <h3 className="text-fluid-lg font-semibold text-white">
+            <h3 className="text-fluid-lg font-semibold !text-white">
               {t('first_purchase_gift')}
             </h3>
-            <p className="text-fluid-sm text-white/95">
+            <p className="text-fluid-sm !text-white/95">
               {t('offer_description')}
             </p>
           </div>
@@ -153,10 +153,10 @@ export default function DiscountBanner({ product, isMobile = false }: DiscountBa
 
         {/* 右侧内容区域 - 白色文字，无椭圆背景 */}
         <div className="flex flex-1 flex-col justify-center px-6 py-3 text-left">
-          <h3 className="text-xl font-bold text-white drop-shadow-sm">
+          <h3 className="text-xl font-bold !text-white drop-shadow-sm">
             {t('first_purchase_gift')}
           </h3>
-          <p className="text-sm text-white/95">
+          <p className="text-sm !text-white/95">
             {t('offer_description')}
           </p>
         </div>

@@ -59,7 +59,7 @@ export const CartItem = memo(({
             <motion.svg
               initial={{ scale: 0 }}
               animate={{ scale: 1 }}
-              className="size-[12px] text-white md:size-[24px]"
+              className="size-[12px] !text-white md:size-[24px]"
               fill="none"
               stroke="currentColor"
               viewBox="0 0 24 24"

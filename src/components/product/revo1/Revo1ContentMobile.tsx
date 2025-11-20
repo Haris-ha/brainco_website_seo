@@ -54,7 +54,7 @@ export default function Revo1ContentMobile() {
   };
 
   return (
-    <main className="bg-black text-white">
+    <main className="bg-black !text-white">
       {/* Banner Section */}
       <motion.header
         className="relative"
@@ -137,7 +137,7 @@ export default function Revo1ContentMobile() {
       </section>
 
       {/* Industry Section */}
-      <section className="bg-[#07111b] py-12 text-white" aria-labelledby="industry-title-mobile">
+      <section className="bg-[#07111b] py-12 !text-white" aria-labelledby="industry-title-mobile">
         <motion.h2
           id="industry-title-mobile"
           className="text-fluid-3xl text-center font-bold"
@@ -238,7 +238,7 @@ export default function Revo1ContentMobile() {
       </section>
 
       {/* Ability Showcase Section */}
-      <section className="bg-[#07111b] py-14 pb-12 text-white" aria-labelledby="ability-title-mobile">
+      <section className="bg-[#07111b] py-14 pb-12 !text-white" aria-labelledby="ability-title-mobile">
         <div className="w-full">
           <div className="px-8 text-center">
             {abilityList.map(
@@ -292,7 +292,7 @@ export default function Revo1ContentMobile() {
       </section>
 
       {/* Product Version Section */}
-      <section className="bg-[#07111b] pt-12 pb-23 text-white" aria-labelledby="version-title-mobile">
+      <section className="bg-[#07111b] pt-12 pb-23 !text-white" aria-labelledby="version-title-mobile">
         <motion.h2
           id="version-title-mobile"
           className="text-fluid-3xl mb-6 text-center font-bold"
@@ -392,7 +392,7 @@ export default function Revo1ContentMobile() {
       </section>
 
       {/* Quality Section */}
-      <section className="bg-black pt-6 text-center text-white" aria-labelledby="quality-title-mobile">
+      <section className="bg-black pt-6 text-center !text-white" aria-labelledby="quality-title-mobile">
         <motion.h2
           id="quality-title-mobile"
           className="text-fluid-3xl font-medium"

@@ -158,7 +158,7 @@ export function OrderAuth({ onAuthSuccess }: OrderAuthProps) {
             disabled={!phone || !code}
             whileHover={{ scale: !phone || !code ? 1 : 1.02 }}
             whileTap={{ scale: !phone || !code ? 1 : 0.98 }}
-            className="mx-auto mt-10 flex cursor-pointer items-center justify-center rounded-full bg-[#4f68d2] px-12 py-4 font-medium text-white transition-all disabled:cursor-not-allowed disabled:bg-gray-200 disabled:text-gray-500 disabled:shadow-none md:mt-16 md:cursor-none md:px-16 md:py-5"
+            className="mx-auto mt-10 flex cursor-pointer items-center justify-center rounded-full bg-[#4f68d2] px-12 py-4 font-medium !text-white transition-all disabled:cursor-not-allowed disabled:bg-gray-200 disabled:text-gray-500 disabled:shadow-none md:mt-16 md:cursor-none md:px-16 md:py-5"
             style={{
               fontSize: 'clamp(1rem, 1.8vw, 1.5rem)',
               boxShadow: !phone || !code ? 'none' : '0px 3px 20px 1px rgba(0, 0, 0, 0.16)',

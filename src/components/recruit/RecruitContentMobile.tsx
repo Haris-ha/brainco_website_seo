@@ -19,7 +19,7 @@ export default function RecruitContentMobile() {
           className="w-full"
         />
         <motion.div
-          className="absolute top-0 left-1/2 flex h-full w-[230px] -translate-x-1/2 flex-col items-start justify-center pt-[130px] text-white"
+          className="absolute top-0 left-1/2 flex h-full w-[230px] -translate-x-1/2 flex-col items-start justify-center pt-[130px] !text-white"
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.3, ease: 'easeOut' }}

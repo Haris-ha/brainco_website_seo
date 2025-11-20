@@ -1,8 +1,14 @@
 'use client';
 
+import type { PaymentResponse } from '@/lib/api';
+import type { PaymentType } from '@/types/order';
 import { motion } from 'framer-motion';
 import { useTranslations } from 'next-intl';
-import { useState } from 'react';
+import { QRCodeSVG } from 'qrcode.react';
+
+import { useEffect, useRef, useState } from 'react';
+import toast from 'react-hot-toast';
+import { checkPaymentStatus, createPayment } from '@/lib/api';
 
 type StepPaymentMethodProps = {
   orderNumber: string;
@@ -12,42 +18,150 @@ type StepPaymentMethodProps = {
 };
 
 export function StepPaymentMethod({
-  orderNumber: _orderNumber,
+  orderNumber,
   totalAmount: _totalAmount,
-  onSubmit: _onSubmit,
+  onSubmit,
   onBack,
 }: StepPaymentMethodProps) {
   const t = useTranslations('Checkout');
 
-  const [paymentMethod, setPaymentMethod] = useState('');
+  const [paymentMethod, setPaymentMethod] = useState<PaymentType | ''>('');
   const [qrValue, setQrValue] = useState('');
+  const [paymentResponse, setPaymentResponse] = useState<PaymentResponse | null>(null);
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [isPolling, setIsPolling] = useState(false);
+  const pollingIntervalRef = useRef<NodeJS.Timeout | null>(null);
+  const alipayFormRef = useRef<HTMLDivElement>(null);
 
   const paymentMethods = [
-    { name: t('wechat_pay'), value: 'WECHAT_PAY_NATIVE' },
-    { name: t('alipay'), value: 'ALIPAY_PAGE' },
+    { name: t('wechat_pay'), value: 'WECHAT_PAY_NATIVE' as PaymentType },
+    { name: t('alipay'), value: 'ALIPAY_PAGE' as PaymentType },
   ];
+
+  // 清理轮询
+  useEffect(() => {
+    return () => {
+      if (pollingIntervalRef.current) {
+        clearInterval(pollingIntervalRef.current);
+      }
+    };
+  }, []);
+
+  // 渲染支付宝表单
+  useEffect(() => {
+    if (paymentResponse?.formHtml && paymentMethod === 'ALIPAY_PAGE' && alipayFormRef.current) {
+      // 清空容器
+      alipayFormRef.current.innerHTML = '';
+      // 创建 iframe 来显示支付宝表单（参考原网站实现）
+      const iframe = document.createElement('iframe');
+      iframe.style.width = '100%';
+      iframe.style.height = '100%';
+      iframe.style.minHeight = '300px';
+      iframe.style.border = '0';
+      alipayFormRef.current.appendChild(iframe);
+      const iframeDoc = iframe.contentWindow?.document;
+      if (iframeDoc) {
+        iframeDoc.open();
+        iframeDoc.write(paymentResponse.formHtml);
+        iframeDoc.close();
+      }
+    }
+  }, [paymentResponse, paymentMethod]);
+
+  // 轮询支付状态
+  const startPaymentPolling = async () => {
+    if (!orderNumber || isPolling) {
+      return;
+    }
+
+    setIsPolling(true);
+
+    pollingIntervalRef.current = setInterval(async () => {
+      try {
+        const status = await checkPaymentStatus(orderNumber);
+        if (status.paid) {
+          // 支付成功
+          if (pollingIntervalRef.current) {
+            clearInterval(pollingIntervalRef.current);
+            pollingIntervalRef.current = null;
+          }
+          setIsPolling(false);
+          toast.success(t('order_success'));
+          await onSubmit();
+        }
+      } catch (error) {
+        console.error('查询支付状态失败:', error);
+      }
+    }, 3000); // 每3秒查询一次
+
+    // 30分钟后停止轮询
+    setTimeout(() => {
+      if (pollingIntervalRef.current) {
+        clearInterval(pollingIntervalRef.current);
+        pollingIntervalRef.current = null;
+        setIsPolling(false);
+      }
+    }, 30 * 60 * 1000);
+  };
 
   // 提交支付
   const handleSubmit = async () => {
-    if (!paymentMethod) {
+    if (!paymentMethod || !orderNumber) {
       return;
     }
 
     try {
       setIsSubmitting(true);
+      // 清空之前的二维码（参考原网站实现）
+      setQrValue('');
+      if (alipayFormRef.current) {
+        alipayFormRef.current.innerHTML = '';
+      }
 
-      // TODO: 调用支付 API
-      // const response = await createPayment(orderNumber, paymentMethod);
-      // setQrValue(response.codeUrl);
+      // 调用支付 API
+      const response = await createPayment(orderNumber, paymentMethod as PaymentType);
 
-      // 模拟生成二维码
-      setQrValue('mock-qr-code');
+      setPaymentResponse(response);
 
-      // 开始轮询支付状态
-      // startPaymentPolling(orderNumber, onSubmit);
+      if (paymentMethod === 'WECHAT_PAY_NATIVE') {
+        if (response?.codeUrl) {
+          setQrValue(response.codeUrl);
+          // 开始轮询支付状态
+          await startPaymentPolling();
+        } else {
+          toast.error('获取微信支付二维码失败：未返回 codeUrl');
+        }
+      } else if (paymentMethod === 'ALIPAY_PAGE') {
+        if (response?.formHtml) {
+          // 设置 qrValue 为 'ALIPAY_PAGE' 以显示支付宝区域（参考原网站）
+          setQrValue('ALIPAY_PAGE');
+          // 立即渲染支付宝表单（参考原网站实现）
+          if (alipayFormRef.current) {
+            alipayFormRef.current.innerHTML = '';
+            const iframe = document.createElement('iframe');
+            iframe.style.width = '100%';
+            iframe.style.height = '100%';
+            iframe.style.minHeight = '300px';
+            iframe.style.border = '0';
+            alipayFormRef.current.appendChild(iframe);
+            const iframeDoc = iframe.contentWindow?.document;
+            if (iframeDoc) {
+              iframeDoc.open();
+              iframeDoc.write(response.formHtml);
+              iframeDoc.close();
+            }
+          }
+          // 支付宝表单会在 useEffect 中自动渲染
+          await startPaymentPolling();
+        } else {
+          toast.error('获取支付宝支付页面失败：未返回 formHtml');
+        }
+      } else {
+        toast.error('获取支付二维码失败');
+      }
     } catch (error) {
-      console.error('Payment failed:', error);
+      const errorMessage = error instanceof Error ? error.message : '创建支付失败';
+      toast.error(errorMessage);
     } finally {
       setIsSubmitting(false);
     }
@@ -119,27 +233,42 @@ export function StepPaymentMethod({
         <section className="flex flex-col items-center" aria-labelledby="qr-code-title">
           <h2 id="qr-code-title" className="sr-only">{t('scan_to_pay', { method: paymentMethod === 'WECHAT_PAY_NATIVE' ? t('wechat_pay') : t('alipay') })}</h2>
           <p className="my-1.5 text-sm text-[#707070] md:text-base">
-            {t('scan_to_pay', { method: paymentMethod === 'WECHAT_PAY_NATIVE' ? t('wechat_pay') : t('alipay') })}
+            {paymentMethod === 'WECHAT_PAY_NATIVE' ? '请使用微信扫码支付' : '正在跳转到支付宝支付页面...'}
           </p>
 
           {/* 二维码 */}
           <figure className="flex h-[180px] w-[180px] items-center justify-center md:h-[200px] md:w-[200px] lg:h-[240px] lg:w-[240px]">
-            {paymentMethod === 'WECHAT_PAY_NATIVE' && (
+            {paymentMethod === 'WECHAT_PAY_NATIVE' && qrValue && qrValue !== 'ALIPAY_PAGE' && (
               <div className="flex items-center justify-center bg-white p-3 md:p-4" role="img" aria-label={t('scan_to_pay', { method: t('wechat_pay') })}>
-                {/* 这里应该使用 QRCode 组件生成二维码 */}
-                <div className="size-[150px] bg-gray-200 md:size-[180px] lg:size-[200px]" />
+                {/* 使用 qrcode.react 生成二维码（codeUrl 是微信支付 URL，需要生成二维码） */}
+                <QRCodeSVG
+                  value={qrValue}
+                  size={180}
+                  level="H"
+                  className="size-[150px] md:size-[180px] lg:size-[200px]"
+                />
               </div>
             )}
 
-            {paymentMethod === 'ALIPAY_PAGE' && (
-              <div id="payCode" className="flex items-center justify-center" role="img" aria-label={t('scan_to_pay', { method: t('alipay') })}>
-                {/* 支付宝表单将在这里渲染 */}
-                <iframe className="size-[180px] border-0 md:size-[200px] lg:size-[250px]" title={t('scan_to_pay', { method: t('alipay') })} />
+            {paymentMethod === 'ALIPAY_PAGE' && qrValue === 'ALIPAY_PAGE' && (
+              <div
+                ref={alipayFormRef}
+                id="payCode"
+                className="flex min-h-[300px] w-full items-center justify-center md:min-h-[350px] lg:min-h-[400px]"
+                role="img"
+                aria-label={t('scan_to_pay', { method: t('alipay') })}
+              >
+                {/* 支付宝表单将在这里通过 iframe 渲染 */}
+                {!paymentResponse?.formHtml && (
+                  <div className="flex min-h-[300px] w-full items-center justify-center border border-gray-200 md:min-h-[350px] lg:min-h-[400px]">
+                    <p className="text-sm text-gray-500">正在加载支付页面...</p>
+                  </div>
+                )}
               </div>
             )}
           </figure>
 
-          <p className="my-1.5 text-sm text-[#707070] md:text-base text-center">
+          <p className="my-1.5 text-center text-sm text-[#707070] md:text-base">
             {t('pay_within_30_min')}
           </p>
         </section>

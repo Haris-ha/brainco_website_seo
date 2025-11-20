@@ -133,7 +133,7 @@ export default function ContactContent() {
         {/* 背景图描述（仅对屏幕阅读器可见） */}
         <span className="sr-only">BrainCo 联系我们背景图 / BrainCo Contact Us Background</span>
         <motion.h1
-          className="text-fluid-6xl leading-[92px] text-white"
+          className="text-fluid-6xl leading-[92px] !text-white"
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.3, ease: 'easeOut' }}
@@ -141,7 +141,7 @@ export default function ContactContent() {
           {t('page_title')}
         </motion.h1>
         <motion.p
-          className="text-fluid-xl mt-[26px] w-[380px] leading-[34px] text-white"
+          className="text-fluid-xl mt-[26px] w-[380px] leading-[34px] !text-white"
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.5, ease: 'easeOut' }}

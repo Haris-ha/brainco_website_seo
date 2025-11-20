@@ -88,7 +88,7 @@ export default function JobsContentMobile() {
           <button
             type="button"
             onClick={handleSearch}
-            className="h-10 w-[60px] flex-[60px_0_0] cursor-pointer border-0 bg-[#333333] text-center text-[12px] text-white outline-none"
+            className="h-10 w-[60px] flex-[60px_0_0] cursor-pointer border-0 bg-[#333333] text-center text-[12px] !text-white outline-none"
           >
             {t('search')}
           </button>

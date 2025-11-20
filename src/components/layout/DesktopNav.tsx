@@ -93,7 +93,7 @@ export function DesktopNav({ locale }: { locale: string }) {
                   {item.key === 'products'
                     ? (
                         <>
-                          <span className={`cursor-target transition-colors duration-200 ${isRevoPage ? 'text-white hover:text-gray-200' : 'text-[#333] hover:text-black'}`}>{t(item.key)}</span>
+                          <span className={`cursor-target transition-colors duration-200 ${isRevoPage ? '!text-white hover:text-gray-200' : 'text-[#333] hover:text-black'}`}>{t(item.key)}</span>
                           {/* Hover 下划线 */}
                           <div
                             className={`absolute bottom-2 left-1/2 h-0.5 w-20 -translate-x-1/2 rounded-sm transition-all duration-200 ${
@@ -107,7 +107,7 @@ export function DesktopNav({ locale }: { locale: string }) {
                       ? (
                           /* 公司菜单 */
                           <>
-                            <span className={`cursor-target transition-colors duration-200 ${isRevoPage ? 'text-white hover:text-gray-200' : 'text-[#333] hover:text-black'}`}>{t(item.key)}</span>
+                            <span className={`cursor-target transition-colors duration-200 ${isRevoPage ? '!text-white hover:text-gray-200' : 'text-[#333] hover:text-black'}`}>{t(item.key)}</span>
                             {/* Hover 下划线 */}
                             <div
                               className={`absolute bottom-2 left-1/2 h-0.5 w-20 -translate-x-1/2 scale-x-0 rounded-sm transition-all duration-200 group-hover:scale-x-100 ${isRevoPage ? 'bg-white' : 'bg-[#333]'}`}

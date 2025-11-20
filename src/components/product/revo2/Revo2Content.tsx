@@ -12,7 +12,7 @@ export default function Revo2Content() {
   const [selectedColorIndex, setSelectedColorIndex] = useState(1); // Default to middle (流光银)
 
   return (
-    <main className="bg-black text-white">
+    <main className="bg-black !text-white">
       {/* Hero Video Section */}
       <motion.header
         className="relative"
@@ -32,7 +32,7 @@ export default function Revo2Content() {
         </video>
         <div className="absolute top-0 left-0 flex h-full w-full flex-col items-center justify-center">
           <motion.h1
-            className="text-fluid-6xl font-bold text-white"
+            className="text-fluid-6xl font-bold !text-white"
             initial={{ y: 20, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
             transition={{ delay: 0.3, duration: 0.8 }}
@@ -43,7 +43,7 @@ export default function Revo2Content() {
             </span>
           </motion.h1>
           <motion.p
-            className="text-fluid-3xl mt-5 text-white"
+            className="text-fluid-3xl mt-5 !text-white"
             initial={{ y: 20, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
             transition={{ delay: 0.5, duration: 0.8 }}
@@ -280,7 +280,7 @@ export default function Revo2Content() {
                 }}
                 transition={{ duration: 0.3 }}
               />
-              <span className="text-fluid-lg whitespace-nowrap text-white">
+              <span className="text-fluid-lg whitespace-nowrap !text-white">
                 {t(item.name as any)}
               </span>
             </button>
@@ -371,7 +371,7 @@ export default function Revo2Content() {
       <section className="mx-auto mt-20 w-[1200px] border-b border-[#666] pb-20" aria-labelledby="version-title">
         <motion.h2
           id="version-title"
-          className="text-fluid-5xl mb-14 text-center font-bold text-white"
+          className="text-fluid-5xl mb-14 text-center font-bold !text-white"
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
@@ -414,7 +414,7 @@ export default function Revo2Content() {
       <section className="mx-auto mt-20 max-w-[90%] text-center" aria-labelledby="summary-title">
         <motion.h2
           id="summary-title"
-          className="text-fluid-6xl font-semibold text-white"
+          className="text-fluid-6xl font-semibold !text-white"
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}

@@ -3761,7 +3761,7 @@
                 "type": "node",
                 "lhId": "page-6-SECTION",
                 "selector": "div.min-h-screen > main > main.jsx-18b33e48e55f5697 > section.jsx-18b33e48e55f5697",
-                "snippet": "<section aria-labelledby=\"industry-title-mobile\" class=\"jsx-18b33e48e55f5697 bg-[#07111b] py-12 text-white\">",
+                "snippet": "<section aria-labelledby=\"industry-title-mobile\" class=\"jsx-18b33e48e55f5697 bg-[#07111b] py-12 !text-white\">",
                 "path": "1,HTML,1,BODY,1,DIV,1,MAIN,1,MAIN,2,SECTION",
                 "nodeLabel": "赋能产业未来\n强劲抓握，卓越承载能力\n\n单手抓握力高达6公斤，承载能力可达30公斤\n\n单手承载\n30\nkg\n单手握力\n6\nkg\n单指捏力\n30\nN\n高速精确控…"
               }
@@ -4404,7 +4404,7 @@
                     },
                     "nodeLabel": "赋能产业未来\n强劲抓握，卓越承载能力\n\n单手抓握力高达6公斤，承载能力可达30公斤\n\n单手承载\n30\nkg\n单手握力\n6\nkg\n单指捏力\n30\nN\n高速精确控…",
                     "lhId": "page-6-SECTION",
-                    "snippet": "<section aria-labelledby=\"industry-title-mobile\" class=\"jsx-18b33e48e55f5697 bg-[#07111b] py-12 text-white\">"
+                    "snippet": "<section aria-labelledby=\"industry-title-mobile\" class=\"jsx-18b33e48e55f5697 bg-[#07111b] py-12 !text-white\">"
                   },
                   "subItems": {
                     "type": "subitems",

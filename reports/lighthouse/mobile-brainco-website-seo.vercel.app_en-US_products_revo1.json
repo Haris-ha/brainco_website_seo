@@ -4990,7 +4990,7 @@
             },
             {
               "node": {
-                "snippet": "<section aria-labelledby=\"industry-title-mobile\" class=\"jsx-18b33e48e55f5697 bg-[#07111b] py-12 text-white\">",
+                "snippet": "<section aria-labelledby=\"industry-title-mobile\" class=\"jsx-18b33e48e55f5697 bg-[#07111b] py-12 !text-white\">",
                 "boundingRect": {
                   "width": 412,
                   "height": 1519,
@@ -5550,7 +5550,7 @@
                       "left": 0
                     },
                     "lhId": "page-8-SECTION",
-                    "snippet": "<section aria-labelledby=\"industry-title-mobile\" class=\"jsx-18b33e48e55f5697 bg-[#07111b] py-12 text-white\">",
+                    "snippet": "<section aria-labelledby=\"industry-title-mobile\" class=\"jsx-18b33e48e55f5697 bg-[#07111b] py-12 !text-white\">",
                     "path": "1,HTML,1,BODY,1,DIV,1,MAIN,1,MAIN,2,SECTION",
                     "nodeLabel": "Empowering the Industrial Future\nStrong Grip, Excellent Load Capacity\n\nSingle h…"
                   },

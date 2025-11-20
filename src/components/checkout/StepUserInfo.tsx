@@ -2,8 +2,10 @@
 
 import { motion } from 'framer-motion';
 import { useTranslations } from 'next-intl';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import toast from 'react-hot-toast';
+
+import { sendVerificationCode, verifyCode } from '@/lib/api';
 
 type StepUserInfoProps = {
   onContinue: (data: { name: string; phone: string }) => void;
@@ -22,9 +24,42 @@ export function StepUserInfo({ onContinue, initialData }: StepUserInfoProps) {
     phone: initialData?.phone || '',
     code: '',
   });
-  const [codeText, setCodeText] = useState(t('get_code'));
+  const [codeText, setCodeText] = useState(() => t('get_code'));
   const [countdown, setCountdown] = useState(0);
   const [validation, setValidation] = useState('');
+
+  // 捕获并忽略浏览器扩展错误
+  useEffect(() => {
+    const handleError = (event: ErrorEvent) => {
+      // 忽略浏览器扩展（content script）导致的错误
+      if (
+        event.filename?.includes('content.js')
+        || event.filename?.includes('extension://')
+        || event.message?.includes('substring')
+      ) {
+        event.preventDefault();
+        event.stopPropagation();
+      }
+    };
+
+    const handleUnhandledRejection = (event: PromiseRejectionEvent) => {
+      // 忽略浏览器扩展导致的 Promise 拒绝
+      if (
+        event.reason?.message?.includes('substring')
+        || event.reason?.stack?.includes('content.js')
+      ) {
+        event.preventDefault();
+      }
+    };
+
+    window.addEventListener('error', handleError, true);
+    window.addEventListener('unhandledrejection', handleUnhandledRejection);
+
+    return () => {
+      window.removeEventListener('error', handleError, true);
+      window.removeEventListener('unhandledrejection', handleUnhandledRejection);
+    };
+  }, []);
 
   // 获取验证码
   const handleGetCode = async () => {
@@ -43,9 +78,7 @@ export function StepUserInfo({ onContinue, initialData }: StepUserInfoProps) {
     }
 
     try {
-      // TODO: 调用发送验证码 API
-      // await sendVerificationCode(formData.phone);
-
+      await sendVerificationCode(formData.phone);
       toast.success('验证码已发送');
       setValidation('');
 
@@ -65,13 +98,15 @@ export function StepUserInfo({ onContinue, initialData }: StepUserInfoProps) {
           setCodeText(t('code_countdown', { count }));
         }
       }, 1000);
-    } catch {
-      setValidation('验证码发送失败');
+    } catch (error) {
+      const errorMessage = error instanceof Error ? error.message : '验证码发送失败';
+      setValidation(errorMessage);
+      toast.error(errorMessage);
     }
   };
 
   // 提交表单
-  const handleSubmit = () => {
+  const handleSubmit = async () => {
     if (!formData.name) {
       setValidation('请输入姓名');
       return;
@@ -95,13 +130,24 @@ export function StepUserInfo({ onContinue, initialData }: StepUserInfoProps) {
 
     setValidation('');
 
-    // TODO: 调用验证验证码 API
-    // await verifyCode(formData.phone, formData.code);
+    try {
+      // 验证验证码（会返回 token 并保存到 localStorage）
+      await verifyCode(formData.phone, formData.code);
 
-    onContinue({
-      name: formData.name,
-      phone: formData.phone,
-    });
+      // 保存购买人姓名到 localStorage（原网站的做法）
+      if (typeof window !== 'undefined') {
+        localStorage.setItem('purchaseName', formData.name);
+      }
+
+      onContinue({
+        name: formData.name,
+        phone: formData.phone,
+      });
+    } catch (error) {
+      const errorMessage = error instanceof Error ? error.message : '验证码验证失败';
+      setValidation(errorMessage);
+      toast.error(errorMessage);
+    }
   };
 
   const isSubmitDisabled = !formData.name || !/^1[3-9]\d{9}$/.test(formData.phone) || !/^\d{6}$/.test(formData.code);
@@ -138,6 +184,8 @@ export function StepUserInfo({ onContinue, initialData }: StepUserInfoProps) {
           e.preventDefault();
           handleSubmit();
         }}
+        autoComplete="off"
+        data-form-type="checkout"
       >
         <fieldset>
           <legend className="sr-only">{t('step_1_title')}</legend>
@@ -154,6 +202,8 @@ export function StepUserInfo({ onContinue, initialData }: StepUserInfoProps) {
                 onChange={e => setFormData({ ...formData, name: e.target.value })}
                 placeholder={t('name_placeholder')}
                 aria-required="true"
+                autoComplete="name"
+                data-form-type="other"
                 className="cursor-target h-[44px] w-full rounded-[22px] border border-[#707070] px-4 text-sm focus:border-[#4F68D2] focus:outline-none md:h-[48px] md:rounded-[24px] md:px-5 md:text-[15px] lg:h-[52px] lg:rounded-[26px] lg:px-6 lg:text-base"
               />
             </li>
@@ -170,6 +220,9 @@ export function StepUserInfo({ onContinue, initialData }: StepUserInfoProps) {
                 onChange={e => setFormData({ ...formData, phone: e.target.value })}
                 placeholder={t('phone_placeholder')}
                 aria-required="true"
+                autoComplete="tel"
+                inputMode="numeric"
+                data-form-type="other"
                 className="cursor-target h-[44px] w-full rounded-[22px] border border-[#707070] px-4 text-sm focus:border-[#4F68D2] focus:outline-none md:h-[48px] md:rounded-[24px] md:px-5 md:text-[15px] lg:h-[52px] lg:rounded-[26px] lg:px-6 lg:text-base"
               />
             </li>
@@ -187,6 +240,10 @@ export function StepUserInfo({ onContinue, initialData }: StepUserInfoProps) {
                   onChange={e => setFormData({ ...formData, code: e.target.value })}
                   placeholder={t('verification_code_placeholder')}
                   aria-required="true"
+                  autoComplete="one-time-code"
+                  inputMode="numeric"
+                  maxLength={6}
+                  data-form-type="other"
                   className="cursor-target h-[44px] w-full rounded-[22px] border border-[#707070] px-4 pr-[100px] text-sm focus:border-[#4F68D2] focus:outline-none md:h-[48px] md:rounded-[24px] md:px-5 md:pr-[110px] md:text-[15px] lg:h-[52px] lg:rounded-[26px] lg:px-6 lg:pr-[120px] lg:text-base"
                 />
                 <button

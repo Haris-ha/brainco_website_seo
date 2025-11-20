@@ -28,10 +28,12 @@ export default function PurchaseButton({
 
     try {
       // 使用新的购物车系统添加商品
+      // 根据API数据，easleep产品的价格单位是"分"（如249900 = 2499元）
+      // 购物车系统要求价格单位为"分"，所以直接使用API返回的价格
       addToCart({
         id: product.id,
         name: product.name,
-        price: product.price,
+        price: product.price, // API返回的价格已经是"分"单位
         pictureUrl: product.pictureUrl || product.image || 'https://website-www-brainco-cn.oss-cn-hangzhou.aliyuncs.com/images/DJqKOvlTBcFyidSf.webp',
         code: product.code || product.id.toString(),
       });
@@ -66,7 +68,7 @@ export default function PurchaseButton({
           whileTap={{ scale: 0.95 }}
           onClick={handleAddToCart}
           disabled={isLoading}
-          className="cursor-target text-fluid-2xl md:text-fluid-3xl h-[50px] w-full cursor-pointer self-center rounded-[25px] border-0 bg-[#4f68d2] font-medium text-white shadow-lg transition-all hover:bg-[#3d52a8] disabled:cursor-not-allowed disabled:opacity-50 md:h-[60px] md:w-[260px] md:rounded-[40px]"
+          className="cursor-target text-fluid-2xl md:text-fluid-3xl h-[50px] w-full cursor-pointer self-center rounded-[25px] border-0 bg-[#4f68d2] font-medium !text-white shadow-lg transition-all hover:bg-[#3d52a8] disabled:cursor-not-allowed disabled:opacity-50 md:h-[60px] md:w-[260px] md:rounded-[40px]"
         >
           {isLoading ? t('submitting') : displayText}
         </motion.button>
@@ -79,7 +81,7 @@ export default function PurchaseButton({
           whileTap={{ scale: 0.95 }}
           onClick={handleAddToCart}
           disabled={isLoading}
-          className="cursor-target text-fluid-2xl md:text-fluid-3xl h-[50px] w-full cursor-pointer self-center rounded-[25px] border-2 border-[#4f68d2] bg-white font-medium text-[#4f68d2] transition-all hover:bg-[#4f68d2] hover:text-white disabled:cursor-not-allowed disabled:opacity-50 md:h-[60px] md:w-[260px] md:rounded-[40px]"
+          className="cursor-target text-fluid-2xl md:text-fluid-3xl h-[50px] w-full cursor-pointer self-center rounded-[25px] border-2 border-[#4f68d2] bg-white font-medium text-[#4f68d2] transition-all hover:bg-[#4f68d2] hover:!text-white disabled:cursor-not-allowed disabled:opacity-50 md:h-[60px] md:w-[260px] md:rounded-[40px]"
         >
           {isLoading ? t('submitting') : displayText}
         </motion.button>

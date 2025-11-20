@@ -175,7 +175,7 @@ export default function EASleepContent() {
           />
         </picture>
         <div className="absolute inset-0 flex items-end justify-center pb-[120px] 2xl:pb-[200px]">
-          <div className="flex flex-col items-center text-center text-white">
+          <div className="flex flex-col items-center text-center !text-white">
             <motion.div
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
@@ -206,7 +206,7 @@ export default function EASleepContent() {
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
               onClick={handlePurchase}
-              className="text-fluid-2xl cursor-target h-[72px] w-[260px] cursor-pointer rounded-[41px] bg-[#4f68d2] font-medium text-white transition-all hover:scale-105"
+              className="text-fluid-2xl cursor-target h-[72px] w-[260px] cursor-pointer rounded-[41px] bg-[#4f68d2] font-medium !text-white transition-all hover:scale-105"
               aria-label={`${t('hero_buy_button')} - EASleep 智能助眠设备 / ${t('hero_buy_button')} - EASleep Smart Sleep Aid Device`}
             >
               {t('hero_buy_button')}
@@ -239,7 +239,7 @@ export default function EASleepContent() {
                     height={600}
                     className="w-full"
                   />
-                  <div className="absolute top-[280px] left-[200px] text-white">
+                  <div className="absolute top-[280px] left-[200px] !text-white">
                     <motion.h2
                       initial={{ opacity: 0, y: 30 }}
                       whileInView={{ opacity: 1, y: 0 }}
@@ -576,7 +576,7 @@ export default function EASleepContent() {
                     className="absolute left-1/2 -translate-x-1/2 -translate-y-[70%]"
                     role="presentation"
                   />
-                  <span className="text-fluid-2xl flex h-[64px] w-[250px] items-center justify-center rounded-[32px] bg-[#9686ac] font-normal text-white">
+                  <span className="text-fluid-2xl flex h-[64px] w-[250px] items-center justify-center rounded-[32px] bg-[#9686ac] font-normal !text-white">
                     {t('ces_effect_1')}
                   </span>
                 </motion.li>
@@ -587,7 +587,7 @@ export default function EASleepContent() {
                   transition={{ duration: 0.8, delay: 0.2 }}
                   className="relative flex flex-col items-center"
                 >
-                  <span className="text-fluid-2xl mb-4 flex h-[64px] w-[250px] items-center justify-center rounded-[32px] bg-[#b1b1b1] font-normal text-white">
+                  <span className="text-fluid-2xl mb-4 flex h-[64px] w-[250px] items-center justify-center rounded-[32px] bg-[#b1b1b1] font-normal !text-white">
                     {t('ces_effect_2')}
                   </span>
                   <Image
@@ -615,7 +615,7 @@ export default function EASleepContent() {
           className="w-full"
           role="presentation"
         />
-        <div className="absolute inset-0 flex flex-col items-center justify-center pt-[400px] text-center text-white">
+        <div className="absolute inset-0 flex flex-col items-center justify-center pt-[400px] text-center !text-white">
           <motion.h3
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}

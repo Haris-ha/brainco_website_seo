@@ -3752,7 +3752,7 @@
                 "bottom": 729
               },
               "selector": "main > main.w-full > header.flex > p.text-fluid-xl",
-              "snippet": "<p class=\"text-fluid-xl mt-[26px] w-[380px] leading-[34px] text-white\" style=\"opacity: 1; transform: none;\">"
+              "snippet": "<p class=\"text-fluid-xl mt-[26px] w-[380px] leading-[34px] !text-white\" style=\"opacity: 1; transform: none;\">"
             }
           ],
           "type": "list"

@@ -138,14 +138,14 @@ export default function FocusXinContentMobile() {
                   whileInView={{ opacity: 1, scale: 1 }}
                   viewport={{ once: true }}
                   transition={{ duration: 0.5, delay: index * 0.1 }}
-                  className={`text-fluid-sm absolute flex items-center justify-center rounded-full text-white ${positions[index]} ${backgrounds[index]}`}
+                  className={`text-fluid-sm absolute flex items-center justify-center rounded-full !text-white ${positions[index]} ${backgrounds[index]}`}
                   dangerouslySetInnerHTML={{ __html: t(problem.textKey) }}
                 />
               );
             })}
           </ul>
 
-          <p className="text-fluid-lg absolute top-[calc(100%+8vw)] rounded-[9.6vw] bg-[#4F59A5] px-[9.6vw] py-4 font-medium text-white">
+          <p className="text-fluid-lg absolute top-[calc(100%+8vw)] rounded-[9.6vw] bg-[#4F59A5] px-[9.6vw] py-4 font-medium !text-white">
             {t('problem_conclusion')}
           </p>
         </div>

@@ -21,7 +21,8 @@ export type PaymentType
   = | 'WECHAT_PAY_NATIVE'
     | 'WECHAT_PAY_JSAPI'
     | 'WECHAT_PAY_H5'
-    | 'ALIPAY';
+    | 'ALIPAY'
+    | 'ALIPAY_PAGE';
 
 // 订单商品项
 export type OrderItem = {

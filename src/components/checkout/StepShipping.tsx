@@ -1,11 +1,13 @@
 'use client';
 
 import type { UserInfo } from '@/types/cart';
+import { areaList } from '@vant/area-data';
 import { motion } from 'framer-motion';
 import { useTranslations } from 'next-intl';
-import { useState, useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { Area, Popup } from 'react-vant';
-import { areaList } from '@vant/area-data';
+
+import { getDefaultAddress, saveDefaultAddress } from '@/lib/api';
 
 type StepShippingProps = {
   basicInfo: { name: string; phone: string };
@@ -42,41 +44,78 @@ export function StepShipping({
 
   // 根据省市区名称查找代码
   const findAreaCode = (name: string, type: 'province' | 'city' | 'district'): string => {
-    if (!name) return '';
-    
+    if (!name) {
+      return '';
+    }
+
     if (type === 'province') {
       return Object.keys(areaList.province_list).find(
-        key => areaList.province_list[key] === name
+        key => areaList.province_list[key] === name,
       ) || '';
     }
-    
+
     if (type === 'city') {
       return Object.keys(areaList.city_list).find(
-        key => areaList.city_list[key] === name
+        key => areaList.city_list[key] === name,
       ) || '';
     }
-    
+
     if (type === 'district') {
       return Object.keys(areaList.county_list).find(
-        key => areaList.county_list[key] === name
+        key => areaList.county_list[key] === name,
       ) || '';
     }
-    
+
     return '';
   };
 
-  // 初始化 areaValue
+  // 初始化 areaValue 和加载默认地址
   useEffect(() => {
+    let isMounted = true;
+
+    // 如果有初始数据，使用初始数据
     if (initialData?.province && initialData?.city && initialData?.district) {
       const provinceCode = findAreaCode(initialData.province, 'province');
       const cityCode = findAreaCode(initialData.city, 'city');
       const districtCode = findAreaCode(initialData.district, 'district');
-      
+
       if (provinceCode && cityCode && districtCode) {
         setAreaValue([provinceCode, cityCode, districtCode]);
       }
+    } else {
+      // 如果没有初始数据，尝试加载默认地址
+      const loadDefaultAddress = async () => {
+        const defaultAddr = await getDefaultAddress();
+        if (isMounted && defaultAddr) {
+          setFormData({
+            name: defaultAddr.consigneeName || basicInfo.name,
+            phone: defaultAddr.consigneePhone || basicInfo.phone,
+            address: defaultAddr.consigneeAddress || '',
+            email: '',
+            province: defaultAddr.consigneeState || '',
+            city: defaultAddr.consigneeCity || '',
+            district: defaultAddr.consigneeDistrict || '',
+          });
+
+          // 设置省市区代码
+          if (defaultAddr.consigneeStateCode && defaultAddr.consigneeCityCode && defaultAddr.consigneeDistrictCode) {
+            setAreaValue([
+              defaultAddr.consigneeStateCode,
+              defaultAddr.consigneeCityCode,
+              defaultAddr.consigneeDistrictCode,
+            ]);
+          }
+        }
+      };
+
+      loadDefaultAddress();
     }
-  }, [initialData]);
+
+    return () => {
+      isMounted = false;
+    };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []); // 只在组件挂载时执行一次
 
   // 处理省市区选择
   const handleAreaConfirm = (value: string[]) => {
@@ -84,7 +123,7 @@ export function StepShipping({
     const province = (provinceCode && areaList.province_list[provinceCode]) || '';
     const city = (cityCode && areaList.city_list[cityCode]) || '';
     const district = (districtCode && areaList.county_list[districtCode]) || '';
-    
+
     setFormData({
       ...formData,
       province,
@@ -117,9 +156,26 @@ export function StepShipping({
     try {
       setIsSubmitting(true);
 
-      // TODO: 如果设置为默认地址，保存地址
+      // 如果设置为默认地址，先保存地址
       if (defaultAddress) {
-        // await saveDefaultAddress(formData);
+        const purchaseName = typeof window !== 'undefined' ? localStorage.getItem('purchaseName') || basicInfo.name : basicInfo.name;
+        const provinceCode = findAreaCode(formData.province, 'province');
+        const cityCode = findAreaCode(formData.city, 'city');
+        const districtCode = findAreaCode(formData.district, 'district');
+
+        await saveDefaultAddress({
+          name: purchaseName,
+          consigneeName: formData.name,
+          consigneePhone: formData.phone,
+          consigneeState: formData.province,
+          consigneeCity: formData.city,
+          consigneeDistrict: formData.district,
+          consigneeAddress: formData.address,
+          consigneeStateCode: provinceCode,
+          consigneeCityCode: cityCode,
+          consigneeDistrictCode: districtCode,
+          defaultAddress: true,
+        });
       }
 
       await onSubmit(formData);
@@ -184,7 +240,8 @@ export function StepShipping({
         id="step-2-form"
         className="mt-3 w-full md:mt-4"
         onSubmit={(e) => {
-          e.preventDefault(); handleSubmit();
+          e.preventDefault();
+          handleSubmit();
         }}
       >
         <fieldset>
@@ -208,7 +265,7 @@ export function StepShipping({
 
             {/* 收货地址（省市区选择器） */}
             <li className="mb-3 md:mb-4 lg:mb-4">
-              <label htmlFor="shipping-region" className="mb-1 block text-sm text-[#333] md:mb-1.5 md:text-[15px] lg:text-base">
+              <label id="shipping-region-label" htmlFor="shipping-region" className="mb-1 block text-sm text-[#333] md:mb-1.5 md:text-[15px] lg:text-base" aria-required="true">
                 {t('province_city_district')}
               </label>
               <div
@@ -221,7 +278,7 @@ export function StepShipping({
                     setShowAreaPicker(true);
                   }
                 }}
-                aria-required="true"
+                aria-labelledby="shipping-region-label"
                 className="cursor-target flex h-[44px] w-full items-center rounded-[22px] border border-[#707070] px-4 text-sm focus-within:border-[#4F68D2] focus-within:outline-none md:h-[48px] md:rounded-[24px] md:px-5 md:text-[15px] lg:h-[52px] lg:rounded-[26px] lg:px-6 lg:text-base"
               >
                 <span className={getAreaDisplayText() ? 'text-[#333]' : 'text-gray-400'}>

@@ -435,7 +435,7 @@
             {
               "path": "1,HTML,1,BODY,1,DIV,1,MAIN,1,MAIN,0,HEADER,1,DIV,1,P",
               "nodeLabel": "BrainCo 强脑科技创立于2015年，是首家入选哈佛大学创新实验室(Harvard Innovation Lab)的中国团队，致力于成为全球领先的非侵入式…",
-              "snippet": "<p class=\"text-fluid-2xl mt-[36px] w-[740px] text-center leading-[34px] text-white 2…\" style=\"opacity: 1; transform: none;\">",
+              "snippet": "<p class=\"text-fluid-2xl mt-[36px] w-[740px] text-center leading-[34px] !text-white 2…\" style=\"opacity: 1; transform: none;\">",
               "type": "node",
               "lhId": "page-0-P",
               "selector": "main.w-full > header.relative > div.flex > p.text-fluid-2xl",

@@ -290,7 +290,7 @@
               "type": "node",
               "nodeLabel": "Founded in 2015, BrainCo is the first Chinese team selected by Harvard Innovati…",
               "path": "1,HTML,1,BODY,1,DIV,1,MAIN,1,MAIN,0,HEADER,1,DIV,1,P",
-              "snippet": "<p class=\"text-fluid-2xl mt-[36px] w-[740px] text-center leading-[34px] text-white 2…\" style=\"opacity: 1; transform: none;\">",
+              "snippet": "<p class=\"text-fluid-2xl mt-[36px] w-[740px] text-center leading-[34px] !text-white 2…\" style=\"opacity: 1; transform: none;\">",
               "boundingRect": {
                 "right": 1041,
                 "bottom": 880,

@@ -142,7 +142,7 @@ export default function FocusXinContent() {
                   whileInView={{ opacity: 1, scale: 1 }}
                   viewport={{ once: true }}
                   transition={{ duration: 0.5, delay: index * 0.1 }}
-                  className={`text-fluid-xl absolute flex items-center justify-center rounded-full text-white ${positions[index]} ${backgrounds[index]}`}
+                  className={`text-fluid-xl absolute flex items-center justify-center rounded-full !text-white ${positions[index]} ${backgrounds[index]}`}
                   dangerouslySetInnerHTML={{ __html: t(problem.textKey) }}
                 />
               );
@@ -154,7 +154,7 @@ export default function FocusXinContent() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.5 }}
-            className="text-fluid-3xl absolute top-[calc(100%+3vw)] rounded-[2.25vw] bg-[#4F59A5] px-[4.7vw] py-[1.25vw] font-medium text-white"
+            className="text-fluid-3xl absolute top-[calc(100%+3vw)] rounded-[2.25vw] bg-[#4F59A5] px-[4.7vw] py-[1.25vw] font-medium !text-white"
           >
             {t('problem_conclusion')}
           </motion.p>
@@ -488,7 +488,7 @@ export default function FocusXinContent() {
               <button
                 type="button"
                 onClick={() => setShowPrincipleVideo(false)}
-                className="absolute top-5 right-5 z-10 cursor-pointer text-6xl text-white hover:text-gray-300"
+                className="absolute top-5 right-5 z-10 cursor-pointer text-6xl !text-white hover:text-gray-300"
                 aria-label="关闭视频 / Close video"
               >
                 ×
@@ -526,7 +526,7 @@ export default function FocusXinContent() {
               <button
                 type="button"
                 onClick={() => setShowIntroVideo(false)}
-                className="absolute top-5 right-5 z-10 cursor-pointer text-6xl text-white hover:text-gray-300"
+                className="absolute top-5 right-5 z-10 cursor-pointer text-6xl !text-white hover:text-gray-300"
                 aria-label="关闭视频 / Close video"
               >
                 ×

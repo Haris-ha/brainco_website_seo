@@ -72,7 +72,7 @@ export default function TechnologyContent() {
         <span className="sr-only">BrainCo 脑机接口技术研究背景 / BrainCo Brain-Computer Interface Technology Research Background</span>
         {/* 半透明遮罩层，确保文字对比度 */}
         <div className="absolute inset-0 bg-black/20" aria-hidden="true" />
-        <div className="relative z-10 w-4/5 text-white">
+        <div className="relative z-10 w-4/5 !text-white">
           <motion.h1
             initial={{ scale: 0.8, opacity: 0 }}
             animate={{ scale: 1, opacity: 1 }}

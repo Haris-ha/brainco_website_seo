@@ -758,6 +758,7 @@
     "checkout": "结算",
     "delete": "删除",
     "select_all": "全选",
+    "deselect": "取消全选",
     "selected_items": "已选 {count} 件商品",
     "added_to_cart": "已添加到购物车",
     "removed_from_cart": "已从购物车移除",

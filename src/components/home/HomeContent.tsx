@@ -213,7 +213,7 @@ export function HomeContent() {
         <header className="relative bg-white">
           <div className="relative aspect-video max-h-screen w-full overflow-hidden">
             <motion.h1
-              className="text-fluid-7xl absolute top-[55%] left-1/2 z-10 w-[90%] -translate-x-1/2 -translate-y-1/2 text-center text-white md:top-[60%] md:w-auto"
+              className="text-fluid-7xl absolute top-[55%] left-1/2 z-10 w-[90%] -translate-x-1/2 -translate-y-1/2 text-center !text-white md:top-[60%] md:w-auto"
               initial={{ opacity: 0, y: 50 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 1, delay: 0.3, ease: 'easeOut' }}
@@ -287,7 +287,7 @@ export function HomeContent() {
                   ease: 'easeOut',
                 }}
               >
-                <span className="text-xl whitespace-nowrap text-white md:text-2xl">{t(item.titleKey)}</span>
+                <span className="text-xl whitespace-nowrap !text-white md:text-2xl">{t(item.titleKey)}</span>
                 <s
                   className={`mt-[18px] flex h-2 overflow-hidden rounded bg-[rgba(227,227,227,0.4)] no-underline ${
                     index === 3 ? 'w-[180px]' : 'w-[120px] md:w-[148px]'

@@ -97,7 +97,7 @@ export default function BrainAIContent() {
         </picture>
         <div className="absolute top-0 right-0 bottom-0 flex items-end">
           <div
-            className="relative my-auto mr-[100px] w-[50vw] rounded-3xl p-12 text-white"
+            className="relative my-auto mr-[100px] w-[50vw] rounded-3xl p-12 !text-white"
             style={{
               background: 'linear-gradient(to left, rgba(0, 0, 0, 0.25) 0%, rgba(0, 0, 0, 0.15) 60%, transparent 100%)',
               backdropFilter: 'blur(6px)',
@@ -169,10 +169,10 @@ export default function BrainAIContent() {
             exit={{ opacity: 0 }}
             className="pointer-events-none absolute right-[40px] bottom-[62px] flex w-[560px] flex-col items-end"
           >
-            <h3 className="text-fluid-4xl w-full text-right font-normal text-white">
+            <h3 className="text-fluid-4xl w-full text-right font-normal !text-white">
               {t('video_title')}
             </h3>
-            <h4 className="text-fluid-4xl w-full text-right font-normal text-white">
+            <h4 className="text-fluid-4xl w-full text-right font-normal !text-white">
               {t('video_subtitle')}
             </h4>
             <motion.button
@@ -183,7 +183,7 @@ export default function BrainAIContent() {
                 e.stopPropagation();
                 handlePlay();
               }}
-              className="pointer-events-auto mt-[32px] flex h-[78px] w-[206px] cursor-pointer items-center justify-center rounded-[39px] border border-white text-white transition-all hover:scale-105"
+              className="pointer-events-auto mt-[32px] flex h-[78px] w-[206px] cursor-pointer items-center justify-center rounded-[39px] border border-white !text-white transition-all hover:scale-105"
             >
               <span className="text-fluid-xl">
                 {isPlaying ? t('video_pause') : t('video_button')}
@@ -203,7 +203,7 @@ export default function BrainAIContent() {
         {isPlaying && !showControls && (
           <div className="absolute inset-0 flex items-center justify-center opacity-0 transition-opacity hover:opacity-100">
             <div className="rounded-full bg-black/50 p-4">
-              <svg className="h-12 w-12 text-white" fill="currentColor" viewBox="0 0 24 24">
+              <svg className="h-12 w-12 !text-white" fill="currentColor" viewBox="0 0 24 24">
                 <path d="M6 4h4v16H6V4zm8 0h4v16h-4V4z" />
               </svg>
             </div>

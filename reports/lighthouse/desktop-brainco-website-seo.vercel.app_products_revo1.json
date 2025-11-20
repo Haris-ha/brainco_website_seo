@@ -2742,7 +2742,7 @@
                   "node": {
                     "type": "node",
                     "lhId": "page-11-SECTION",
-                    "snippet": "<section aria-labelledby=\"industry-title\" class=\"jsx-ce2e3e8c2258a838 bg-black pt-40 pb-20 text-white\">",
+                    "snippet": "<section aria-labelledby=\"industry-title\" class=\"jsx-ce2e3e8c2258a838 bg-black pt-40 pb-20 !text-white\">",
                     "boundingRect": {
                       "bottom": 2039,
                       "top": 671,
@@ -5880,7 +5880,7 @@
             {
               "score": 0.5,
               "node": {
-                "snippet": "<section aria-labelledby=\"industry-title\" class=\"jsx-ce2e3e8c2258a838 bg-black pt-40 pb-20 text-white\">",
+                "snippet": "<section aria-labelledby=\"industry-title\" class=\"jsx-ce2e3e8c2258a838 bg-black pt-40 pb-20 !text-white\">",
                 "nodeLabel": "赋能产业未来\n强劲抓握，卓越承载能力\n\n单手抓握力高达6公斤，承载能力可达30公斤\n\n单手承载\n30\nkg\n单手握力\n6\nkg\n单指捏力\n30\nN\n高速精确控…",
                 "lhId": "page-11-SECTION",
                 "selector": "div.min-h-screen > main > main.jsx-ce2e3e8c2258a838 > section.jsx-ce2e3e8c2258a838",

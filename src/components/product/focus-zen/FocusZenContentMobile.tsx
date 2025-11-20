@@ -84,7 +84,7 @@ export default function FocusZenContentMobile() {
           backgroundImage: `url(${imageUrls.heroBannerMobile})`,
         }}
       >
-        <div className="flex h-full flex-col items-center px-4 pb-16 text-center text-white">
+        <div className="flex h-full flex-col items-center px-4 pb-16 text-center !text-white">
           {/* 毛玻璃背景容器 */}
           <div className="rounded-2xl px-6 py-8">
             <motion.h1
@@ -241,7 +241,7 @@ export default function FocusZenContentMobile() {
                     height={58}
                     className="rounded"
                   />
-                  <div className="absolute inset-0 flex flex-col items-center justify-center text-white">
+                  <div className="absolute inset-0 flex flex-col items-center justify-center !text-white">
                     <Image
                       src={scene.icon}
                       alt={`${t(scene.nameKey)} 场景图标 / ${t(scene.nameKey)} Scene Icon`}
@@ -527,7 +527,7 @@ export default function FocusZenContentMobile() {
           role="presentation"
         />
         <div className="absolute inset-0 flex w-full items-center justify-end px-8">
-          <div className="max-w-[180px] text-right text-white">
+          <div className="max-w-[180px] text-right !text-white">
             <motion.h2
               id="business-solution-title-mobile"
               initial={{ opacity: 0, y: 20 }}
@@ -751,7 +751,7 @@ export default function FocusZenContentMobile() {
                 />
                 {img.labelKey && (
                   <div className="absolute top-1/2 right-0 left-0 -translate-y-1/2 bg-black/30 py-2">
-                    <span className="text-fluid-base block text-center font-medium text-white drop-shadow-lg">
+                    <span className="text-fluid-base block text-center font-medium !text-white drop-shadow-lg">
                       {t(img.labelKey)}
                     </span>
                   </div>

@@ -63,7 +63,7 @@ export function CartList({
               <motion.svg
                 initial={{ scale: 0 }}
                 animate={{ scale: 1 }}
-                className="size-[12px] text-white"
+                className="size-[12px] !text-white"
                 fill="none"
                 stroke="currentColor"
                 viewBox="0 0 24 24"

@@ -252,7 +252,7 @@ export default function StarKidsContent() {
                     style={{ background: PRIMARY_COLOR }}
                   >
                     <div className="flex h-full w-full items-center justify-center rounded-[1.3vw] border border-dashed border-white">
-                      <span className="text-fluid-2xl font-medium text-white">
+                      <span className="text-fluid-2xl font-medium !text-white">
                         {t(module.name)}
                       </span>
                     </div>
@@ -413,7 +413,7 @@ export default function StarKidsContent() {
             {/* Assessment Title */}
             <div className="mt-[8.6vw] flex items-center justify-center">
               <div
-                className="flex h-[8vw] w-[40vw] items-center justify-center rounded-[2vw] px-[4.2vw] text-center text-white"
+                className="flex h-[8vw] w-[40vw] items-center justify-center rounded-[2vw] px-[4.2vw] text-center !text-white"
                 style={{ background: '#F06F67', width: '40vw' }}
               >
                 <h5 className="text-fluid-3xl font-medium">
@@ -461,7 +461,7 @@ export default function StarKidsContent() {
                 <i className="h-[0.21vw] w-[0.21vw] rounded-full bg-white" />
               </div>
               <div
-                className="flex items-center justify-center rounded-[2vw] px-[1.6vw] py-[1vw] text-center text-white"
+                className="flex items-center justify-center rounded-[2vw] px-[1.6vw] py-[1vw] text-center !text-white"
                 style={{ background: '#F06F67' }}
               >
                 <h5 className="text-fluid-3xl font-medium">

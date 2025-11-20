@@ -461,7 +461,7 @@ export default function OxyZenContent({ productInfo }: OxyZenContentProps) {
           className="h-auto w-full"
           role="presentation"
         />
-        <div className="absolute top-0 left-0 h-full w-full pt-[5.83vw] text-center text-white">
+        <div className="absolute top-0 left-0 h-full w-full pt-[5.83vw] text-center !text-white">
           <motion.h2
             className="text-fluid-5xl mb-5 font-medium"
             initial={{ opacity: 0, y: 30 }}

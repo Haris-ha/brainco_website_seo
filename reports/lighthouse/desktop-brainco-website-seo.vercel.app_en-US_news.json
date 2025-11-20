@@ -13539,7 +13539,7 @@
             {
               "selector": "main > main.w-full > header.relative > h1.relative",
               "lhId": "page-0-H1",
-              "snippet": "<h1 class=\"relative z-10 text-center font-bold text-white drop-shadow-[0_2px_8px_rgba…\" style=\"opacity: 1; transform: none;\">",
+              "snippet": "<h1 class=\"relative z-10 text-center font-bold !text-white drop-shadow-[0_2px_8px_rgba…\" style=\"opacity: 1; transform: none;\">",
               "path": "1,HTML,1,BODY,1,DIV,1,MAIN,2,MAIN,0,HEADER,2,H1",
               "nodeLabel": "News Center",
               "boundingRect": {

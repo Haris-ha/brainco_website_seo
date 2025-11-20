@@ -3907,7 +3907,7 @@
                 "top": 474
               },
               "nodeLabel": "BrainCo 致力于开发脑机接口技术和产品，通过在可穿戴脑机接口设备、人工智能AI算法，脑科学、交互设计等专业领域的长期积累，为用户提供创新的脑机接口+解决…",
-              "snippet": "<p class=\"text-fluid-xl mt-[26px] w-[380px] leading-[34px] text-white\" style=\"opacity: 1; transform: none;\">",
+              "snippet": "<p class=\"text-fluid-xl mt-[26px] w-[380px] leading-[34px] !text-white\" style=\"opacity: 1; transform: none;\">",
               "lhId": "page-0-P",
               "type": "node",
               "selector": "main > main.w-full > header.flex > p.text-fluid-xl"

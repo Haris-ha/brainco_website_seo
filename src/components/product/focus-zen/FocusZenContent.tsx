@@ -46,7 +46,7 @@ export default function FocusZenContent() {
           priority
         />
         <div className="absolute inset-0 flex items-center justify-start px-8 lg:px-20 xl:px-32">
-          <div className="flex max-w-[40vw] flex-col items-center text-center text-white">
+          <div className="flex max-w-[40vw] flex-col items-center text-center !text-white">
             {/* 毛玻璃背景容器 */}
             <div className="rounded-3xl bg-white/10 px-12 py-10 backdrop-blur-sm lg:px-16 lg:py-14">
               <motion.h1
@@ -91,12 +91,12 @@ export default function FocusZenContent() {
                     transition={{ duration: 0.8, delay: 0.7 }}
                     className="mb-6 flex items-baseline justify-center"
                   >
-                    <span className="text-fluid-5xl font-medium text-white">
+                    <span className="text-fluid-5xl font-medium !text-white">
                       ¥
                       {product.price / 100}
                     </span>
                     {product.oldPrice && (
-                      <span className="text-fluid-2xl ml-4 text-white/70 line-through">
+                      <span className="text-fluid-2xl ml-4 !text-white/70 line-through">
                         ¥
                         {product.oldPrice / 100}
                       </span>
@@ -263,7 +263,7 @@ export default function FocusZenContent() {
                   height={88}
                   className="cursor-target rounded-lg transition-transform hover:scale-105"
                 />
-                <div className="absolute inset-0 flex flex-col items-center justify-center text-white">
+                <div className="absolute inset-0 flex flex-col items-center justify-center !text-white">
                   <Image
                     src={scene.icon}
                     alt={`${t(scene.nameKey)} 场景图标 / ${t(scene.nameKey)} Scene Icon`}
@@ -484,7 +484,7 @@ export default function FocusZenContent() {
             </motion.div>
 
             {/* Text content */}
-            <div className="text-white">
+            <div className="!text-white">
               <motion.h2
                 id="group-mode-title"
                 initial={{ opacity: 0, y: 30 }}
@@ -627,7 +627,7 @@ export default function FocusZenContent() {
           role="presentation"
         />
         <div className="absolute inset-0 flex items-center justify-end px-32 2xl:px-64">
-          <div className="max-w-[40vw] text-right text-white">
+          <div className="max-w-[40vw] text-right !text-white">
             <motion.h2
               id="business-solution-title"
               initial={{ opacity: 0, y: 30 }}

@@ -115,7 +115,7 @@ export default function Revo1Content() {
   }, [swiperIndex]);
 
   return (
-    <main className="bg-black text-white">
+    <main className="bg-black !text-white">
       {/* Banner Section */}
       <motion.header
         className="relative"
@@ -196,7 +196,7 @@ export default function Revo1Content() {
       </motion.header>
 
       {/* Industry Empowerment Section */}
-      <section className="bg-black pt-40 pb-20 text-white" aria-labelledby="industry-title">
+      <section className="bg-black pt-40 pb-20 !text-white" aria-labelledby="industry-title">
         <motion.h2
           id="industry-title"
           className="text-fluid-5xl text-center font-medium"
@@ -300,7 +300,7 @@ export default function Revo1Content() {
       </section>
 
       {/* Ability Showcase Section */}
-      <section className="bg-black py-36 pb-25 text-white" aria-labelledby="ability-title">
+      <section className="bg-black py-36 pb-25 !text-white" aria-labelledby="ability-title">
         <div className="mx-auto w-[90%] max-w-[960px] px-4">
           <div className="text-center">
             {abilityList.map(
@@ -368,7 +368,7 @@ export default function Revo1Content() {
       </section>
 
       {/* Product Version Section */}
-      <section className="bg-black py-20 text-white" aria-labelledby="version-title">
+      <section className="bg-black py-20 !text-white" aria-labelledby="version-title">
         <div className="mx-auto w-[90%] max-w-[1200px] border-t border-[#666] pt-20">
           <motion.h2
             id="version-title"
@@ -384,10 +384,10 @@ export default function Revo1Content() {
             <div className="mx-auto w-full max-w-[95%] xl:max-w-[90%]">
               <ul className="flex flex-wrap items-start gap-8">
                 <span className="mr-4 w-full flex-[100%_0_0] font-medium xl:mr-0 xl:w-[280px] xl:flex-[280px_0_0]" />
-                <li className="text-fluid-2xl xl:text-fluid-3xl flex h-[60px] flex-1 items-center justify-center rounded-xl bg-white/10 text-white xl:h-[76px]">
+                <li className="text-fluid-2xl xl:text-fluid-3xl flex h-[60px] flex-1 items-center justify-center rounded-xl bg-white/10 !text-white xl:h-[76px]">
                   {t('version_basic')}
                 </li>
-                <li className="text-fluid-2xl xl:text-fluid-3xl flex h-[60px] flex-1 items-center justify-center rounded-xl bg-white/10 text-white xl:h-[76px]">
+                <li className="text-fluid-2xl xl:text-fluid-3xl flex h-[60px] flex-1 items-center justify-center rounded-xl bg-white/10 !text-white xl:h-[76px]">
                   {t('version_tactile')}
                 </li>
               </ul>
@@ -482,7 +482,7 @@ export default function Revo1Content() {
       </section>
 
       {/* Quality Section */}
-      <section className="bg-black py-20 pb-34 text-white" aria-labelledby="quality-title">
+      <section className="bg-black py-20 pb-34 !text-white" aria-labelledby="quality-title">
         <motion.h2
           id="quality-title"
           className="text-fluid-5xl mb-16 text-center"

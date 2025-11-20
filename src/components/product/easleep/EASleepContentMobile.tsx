@@ -201,7 +201,7 @@ export default function EASleepContentMobile() {
           width={375}
           height={400}
         />
-        <div className="absolute inset-0 flex flex-col items-center justify-end pb-32 text-center text-white">
+        <div className="absolute inset-0 flex flex-col items-center justify-end pb-32 text-center !text-white">
           <motion.h1
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
@@ -481,7 +481,7 @@ export default function EASleepContentMobile() {
         </motion.p>
       </section>
 
-      <div className="relative text-white">
+      <div className="relative !text-white">
         <Image
           className="w-full"
           src="https://website-www-brainco-cn.oss-cn-hangzhou.aliyuncs.com/images/product/easleep/brain.webp"
@@ -514,7 +514,7 @@ export default function EASleepContentMobile() {
             transition={{ duration: 0.8, delay: 0.2 }}
             className="flex h-[32px] w-[124px] items-center justify-center rounded-[16px] bg-[#9686ac] text-center"
           >
-            <span className="text-fluid-sm font-normal text-white">{t('ces_effect_1')}</span>
+            <span className="text-fluid-sm font-normal !text-white">{t('ces_effect_1')}</span>
           </motion.div>
         </div>
 
@@ -527,7 +527,7 @@ export default function EASleepContentMobile() {
             transition={{ duration: 0.8, delay: 0.2 }}
             className="flex h-[32px] w-[124px] items-center justify-center rounded-[16px] bg-[#b1b1b1] text-center"
           >
-            <span className="text-fluid-sm font-normal text-white">{t('ces_effect_2')}</span>
+            <span className="text-fluid-sm font-normal !text-white">{t('ces_effect_2')}</span>
           </motion.div>
           <motion.div
             initial={{ opacity: 0, scale: 0.8 }}
@@ -731,7 +731,7 @@ export default function EASleepContentMobile() {
             whileHover={{ scale: 1.02 }}
             whileTap={{ scale: 0.98 }}
             onClick={handlePurchase}
-            className="text-fluid-lg h-[40px] w-[120px] cursor-pointer rounded-[22px] bg-[#4f68d2] font-medium text-white transition-all"
+            className="text-fluid-lg h-[40px] w-[120px] cursor-pointer rounded-[22px] bg-[#4f68d2] font-medium !text-white transition-all"
             aria-label={`${t('hero_buy_button')} - EASleep 智能助眠设备 / ${t('hero_buy_button')} - EASleep Smart Sleep Aid Device`}
           >
             {t('hero_buy_button')}

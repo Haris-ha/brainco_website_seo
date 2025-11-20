@@ -46,7 +46,7 @@ export default function RecruitContent() {
           transition={{ duration: 0.8, delay: 0.3, ease: 'easeOut' }}
         >
           <motion.h1
-            className="flex flex-col items-center text-center text-[76px] leading-tight text-white"
+            className="flex flex-col items-center text-center text-[76px] leading-tight !text-white"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.5, ease: 'easeOut' }}
@@ -67,7 +67,7 @@ export default function RecruitContent() {
             </motion.span>
           </motion.h1>
           <motion.span
-            className="mt-8 text-2xl text-white"
+            className="mt-8 text-2xl !text-white"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 1.1, ease: 'easeOut' }}
