@@ -1,25 +1,17 @@
 'use client';
 
 import { useEffect, useState } from 'react';
+import { useIsMobile } from '@/hooks/useIsMobile';
 import RecruitContent from '@/components/recruit/RecruitContent';
 import RecruitContentMobile from '@/components/recruit/RecruitContentMobile';
 import ShapeBlur from '@/components/ShapeBlur';
 
 export default function RecruitPageClient() {
-  const [isMobile, setIsMobile] = useState(false);
+  const isMobile = useIsMobile();
   const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
-    const checkMobile = () => {
-      setIsMobile(window.innerWidth < 768);
-    };
-
     setMounted(true);
-    checkMobile();
-
-    window.addEventListener('resize', checkMobile);
-
-    return () => window.removeEventListener('resize', checkMobile);
   }, []);
 
   if (isMobile) {

@@ -3,6 +3,7 @@
 import type { ReactNode } from 'react';
 import { motion } from 'framer-motion';
 import { useEffect, useState, useRef, useCallback } from 'react';
+import { useIsMobile } from '@/hooks/useIsMobile';
 
 const DRAG_BUFFER = 50;
 const VELOCITY_THRESHOLD = 500;
@@ -36,20 +37,9 @@ export function SimpleCarousel({
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isHovered, setIsHovered] = useState(false);
   const [isDragging, setIsDragging] = useState(false);
-  const [isMobile, setIsMobile] = useState(false);
+  const isMobile = useIsMobile();
   const autoplayTimerRef = useRef<NodeJS.Timeout | null>(null);
   const isAutoplayChangingRef = useRef(false); // 标记是否由自动播放引起的索引变化
-
-  // 检测移动端
-  useEffect(() => {
-    const checkMobile = () => {
-      setIsMobile(window.innerWidth < 768);
-    };
-
-    checkMobile();
-    window.addEventListener('resize', checkMobile);
-    return () => window.removeEventListener('resize', checkMobile);
-  }, []);
 
   // 停止自动播放
   const stopAutoplay = useCallback(() => {

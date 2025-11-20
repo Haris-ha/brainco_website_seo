@@ -1,22 +1,12 @@
 'use client';
 
-import { useEffect, useState } from 'react';
+import { useEffect } from 'react';
+import { useIsMobile } from '@/hooks/useIsMobile';
 import ContactContent from '@/components/company/ContactContent';
 import ContactContentMobile from '@/components/company/ContactContentMobile';
 
 export default function ContactPageClient() {
-  const [isMobile, setIsMobile] = useState(false);
-
-  useEffect(() => {
-    const checkMobile = () => {
-      setIsMobile(window.innerWidth < 768);
-    };
-
-    checkMobile();
-    window.addEventListener('resize', checkMobile);
-
-    return () => window.removeEventListener('resize', checkMobile);
-  }, []);
+  const isMobile = useIsMobile();
 
   useEffect(() => {
     // 检查URL中是否有#contact hash

@@ -3,6 +3,7 @@
 import Image from 'next/image';
 import { usePathname } from 'next/navigation';
 import { useEffect, useState } from 'react';
+import { useIsMobile } from '@/hooks/useIsMobile';
 import { DesktopNav } from '@/components/layout/DesktopNav';
 import { MobileNav } from '@/components/layout/MobileNav';
 
@@ -13,7 +14,7 @@ type HeaderProps = {
 export function Header({ locale }: HeaderProps) {
   const pathname = usePathname();
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-  const [isMobile, setIsMobile] = useState(false);
+  const isMobile = useIsMobile();
   const [mounted, setMounted] = useState(false);
 
   // 判断是否是首页
@@ -22,21 +23,6 @@ export function Header({ locale }: HeaderProps) {
   useEffect(() => {
     // eslint-disable-next-line react-hooks-extra/no-direct-set-state-in-use-effect
     setMounted(true);
-
-    // 检测是否是移动设备
-    const checkMobile = () => {
-      const userAgent = navigator.userAgent.toLowerCase();
-      const mobileKeywords = ['android', 'iphone', 'ipad', 'ipod', 'blackberry', 'windows phone'];
-      const isMobileDevice = mobileKeywords.some(keyword => userAgent.includes(keyword));
-      const isSmallScreen = window.innerWidth < 768;
-      // eslint-disable-next-line react-hooks-extra/no-direct-set-state-in-use-effect
-      setIsMobile(isMobileDevice || isSmallScreen);
-    };
-
-    checkMobile();
-
-    window.addEventListener('resize', checkMobile);
-    return () => window.removeEventListener('resize', checkMobile);
   }, []);
 
   // 当路径变化时，重置菜单状态，避免状态累积

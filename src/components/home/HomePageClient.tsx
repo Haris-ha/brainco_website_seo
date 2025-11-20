@@ -1,6 +1,7 @@
 'use client';
 
 import { useEffect, useState } from 'react';
+import { useIsMobile } from '@/hooks/useIsMobile';
 import { HomeContent } from '@/components/home/HomeContent';
 import { HomeContentMobile } from '@/components/home/HomeContentMobile';
 import { Footer } from '../layout/Footer';
@@ -10,35 +11,11 @@ type HomePageClientProps = {
 };
 
 export function HomePageClient({ locale }: HomePageClientProps) {
-  const [isMobile, setIsMobile] = useState(false);
+  const isMobile = useIsMobile();
   const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
-    let isMountedLocal = true;
     setMounted(true);
-
-    // 检测是否是移动设备
-    const checkMobile = () => {
-      if (!isMountedLocal) {
-        return;
-      }
-
-      const userAgent = navigator.userAgent.toLowerCase();
-      const mobileKeywords = ['android', 'iphone', 'ipad', 'ipod', 'blackberry', 'windows phone'];
-      const isMobileDevice = mobileKeywords.some(keyword => userAgent.includes(keyword));
-      const isSmallScreen = window.innerWidth < 768;
-
-      setIsMobile(isMobileDevice || isSmallScreen);
-    };
-
-    checkMobile();
-
-    // 监听窗口大小变化
-    window.addEventListener('resize', checkMobile);
-    return () => {
-      isMountedLocal = false;
-      window.removeEventListener('resize', checkMobile);
-    };
   }, []);
 
   return (

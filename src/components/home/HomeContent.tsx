@@ -349,7 +349,7 @@ export function HomeContent() {
 
             {/* 产品网格 */}
             <motion.ul
-              className="mt-16 grid max-w-[1200px] grid-cols-3 gap-y-6"
+              className="mt-16 grid max-w-[1200px] grid-cols-3 gap-y-16"
               initial={{ opacity: 0 }}
               whileInView={{ opacity: 1 }}
               viewport={{ once: true, amount: 0.1 }}
@@ -459,7 +459,7 @@ export function HomeContent() {
                       </div>
                       <div
                         className={`flex flex-1 flex-col ${
-                          index === 1 || index === 4 ? '-ml-8' : ''
+                          index === 1 || index === 4 ? '-ml-4' : ''
                         }`}
                       >
                         <h3 className={titleClass}>
@@ -492,7 +492,7 @@ export function HomeContent() {
                 }}
                 onMouseEnter={() => setExpandType('dexterous')}
               >
-                <div className="relative mr-3 h-40 w-[130px] flex-shrink-0 overflow-hidden">
+                <div className="relative mr-5 w-[100px] flex-shrink-0 overflow-hidden" style={{ height: 'calc(100px * 150 / 140)' }}>
                   <Image
                     src={`${imgPath}pKlkrsJEDIgBCYRy.webp`}
                     alt="BrainCo 工业灵巧手 - 智能仿生手部假肢 / BrainCo industrial dexterous hand - Intelligent bionic prosthetic hand"
