@@ -5,7 +5,7 @@ import { useTranslations } from 'next-intl';
 import { useState } from 'react';
 import toast from 'react-hot-toast';
 
-import request from '@/lib/request';
+import { sendVerificationCode, verifyCode } from '@/lib/api';
 
 type OrderAuthProps = {
   onAuthSuccess: () => void;
@@ -37,10 +37,8 @@ export function OrderAuth({ onAuthSuccess }: OrderAuthProps) {
     }
 
     try {
-      await request.post('/uac/captcha/send', {
-        login: phone,
-        channel: 7,
-      });
+      // 使用封装好的 API 函数，使用正确的 base URL (https://bc-api.brainco.cn)
+      await sendVerificationCode(phone, 7);
 
       let time = 60;
       setCountdown(time);
@@ -57,29 +55,48 @@ export function OrderAuth({ onAuthSuccess }: OrderAuthProps) {
         }
       }, 1000);
     } catch (err) {
-      setValidation(err instanceof Error ? err.message : String(err));
+      const errorMessage = err instanceof Error ? err.message : String(err);
+      setValidation(errorMessage);
+      toast.error(errorMessage);
     }
   };
 
   const handleLogin = async () => {
     setValidation('');
 
-    try {
-      const res = await request.post<string>('/uac/auth/standing', {
-        contact: phone,
-        code,
-      });
+    if (!phone) {
+      setValidation(t('enter_phone'));
+      return;
+    }
 
-      localStorage.setItem('token', res.data);
+    if (!code) {
+      setValidation(t('verification_code_placeholder'));
+      return;
+    }
+
+    try {
+      // verifyCode 会自动保存 token 到 localStorage
+      await verifyCode(phone, code);
       toast.success(t('view_orders'));
       onAuthSuccess();
     } catch (err) {
-      setValidation(err instanceof Error ? err.message : String(err));
+      const errorMessage = err instanceof Error ? err.message : String(err);
+      setValidation(errorMessage);
+      toast.error(errorMessage);
     }
   };
 
   return (
     <div className="flex min-h-[60vh] flex-col items-center justify-center">
+      <style>
+        {`
+          input:focus,
+          input:focus-visible {
+            outline: none !important;
+            box-shadow: none !important;
+          }
+        `}
+      </style>
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
@@ -93,35 +110,43 @@ export function OrderAuth({ onAuthSuccess }: OrderAuthProps) {
           {t('login_subtitle')}
         </p>
 
-        <div className="space-y-5 md:space-y-7">
+        <div className="space-y-5 md:space-y-6">
           {/* 手机号输入 */}
           <div className="flex flex-col">
-            <div className="rounded bg-gray-100 px-5 py-4 md:px-6 md:py-5">
-              <span className="text-gray-600" style={{ fontSize: 'clamp(0.875rem, 1.2vw, 1.125rem)' }}>{t('phone_label')}</span>
+            <label className="mb-2 text-gray-700" style={{ fontSize: 'clamp(0.875rem, 1.2vw, 1rem)' }}>
+              {t('phone_label')}
+            </label>
+            <div className="group relative rounded-lg border-2 border-gray-200 bg-white px-4 py-3 transition-all focus-within:border-[#4f68d2] focus-within:shadow-md md:px-5 md:py-4">
               <input
-                type="text"
+                type="tel"
                 value={phone}
-                onChange={e => setPhone(e.target.value)}
+                onChange={(e) => setPhone(e.target.value)}
                 placeholder={t('phone_placeholder')}
-                className="w-full border-none bg-transparent text-base outline-none"
-                style={{ fontSize: 'clamp(0.875rem, 1.5vw, 1.25rem)' }}
+                inputMode="numeric"
+                className="w-full border-none bg-transparent text-gray-900 placeholder:text-gray-400 
+                          outline-none focus:outline-none ring-0 focus:ring-0
+                          transition-colors"
+                style={{ fontSize: 'clamp(0.875rem, 1.5vw, 1.125rem)' }}
               />
             </div>
           </div>
 
           {/* 验证码输入 */}
           <div className="flex flex-col">
-            <div className="flex items-center gap-3 rounded bg-gray-100 px-5 py-4 md:gap-4 md:px-6 md:py-5">
-              <div className="flex-1">
-                <span className="text-gray-600" style={{ fontSize: 'clamp(0.875rem, 1.2vw, 1.125rem)' }}>{t('verification_code_label')}</span>
+            <label className="mb-2 text-gray-700" style={{ fontSize: 'clamp(0.875rem, 1.2vw, 1rem)' }}>
+              {t('verification_code_label')}
+            </label>
+            <div className="flex items-stretch gap-3 md:gap-4">
+              <div className="group relative flex-1 rounded-lg border-2 border-gray-200 bg-white px-4 py-3 transition-all focus-within:border-[#4f68d2] focus-within:shadow-md md:px-5 md:py-4">
                 <input
                   type="text"
                   value={code}
                   onChange={e => setCode(e.target.value)}
                   maxLength={6}
                   placeholder={t('verification_code_placeholder')}
-                  className="w-full border-none bg-transparent text-base outline-none"
-                  style={{ fontSize: 'clamp(0.875rem, 1.5vw, 1.25rem)' }}
+                  inputMode="numeric"
+                  className="w-full border-none bg-transparent text-gray-900 placeholder:text-gray-400 outline-none transition-colors"
+                  style={{ fontSize: 'clamp(0.875rem, 1.5vw, 1.125rem)' }}
                 />
               </div>
               <motion.button
@@ -130,8 +155,8 @@ export function OrderAuth({ onAuthSuccess }: OrderAuthProps) {
                 disabled={codeDisabled}
                 whileHover={{ scale: codeDisabled ? 1 : 1.02 }}
                 whileTap={{ scale: codeDisabled ? 1 : 0.98 }}
-                className="flex-shrink-0 cursor-pointer rounded-full border-2 border-black px-6 py-2 font-medium transition-colors disabled:cursor-not-allowed disabled:border-gray-400 disabled:text-gray-400 md:cursor-none md:border-[3px] md:px-10 md:py-3"
-                style={{ fontSize: 'clamp(0.875rem, 1.3vw, 1.125rem)' }}
+                className="flex-shrink-0 cursor-pointer whitespace-nowrap rounded-lg border-2 border-gray-800 bg-white px-6 py-3 font-medium text-gray-900 transition-all hover:bg-gray-50 disabled:cursor-not-allowed disabled:border-gray-300 disabled:bg-gray-100 disabled:text-gray-400 md:cursor-none md:px-8 md:py-4"
+                style={{ fontSize: 'clamp(0.875rem, 1.3vw, 1rem)' }}
               >
                 {countdown > 0 ? t('seconds_remaining', { seconds: countdown }) : t('get_verification_code')}
               </motion.button>
