@@ -34,8 +34,22 @@ export default async function NewsPage(props: NewsPageProps) {
   // 获取新闻数据（服务端渲染）
   const newsListData = await getNewsList(locale, { pageSize: 200 });
 
+  // 计算一个月前的日期
+  const oneMonthAgo = new Date();
+  oneMonthAgo.setMonth(oneMonthAgo.getMonth() - 1);
+
+  // 过滤出最近一个月的新闻
+  const recentNewsListData = newsListData.filter((item) => {
+    if (!item.newsDate) {
+      return false;
+    }
+    const newsDate = new Date(item.newsDate);
+    return newsDate >= oneMonthAgo;
+  });
+
   // 分离热门新闻和普通新闻（Strapi v5 扁平化结构）
-  const hotNews = newsListData
+  // 热门新闻：isHot 为 true 的新闻，用于 carousel
+  const hotNews = recentNewsListData
     .filter(item => item?.isHot)
     .map(item => ({
       id: item.id,
@@ -49,8 +63,9 @@ export default async function NewsPage(props: NewsPageProps) {
       sortIndex: item.sortIndex,
     }));
 
-  const regularNews = newsListData
-    .filter(item => item && !item.isHot)
+  // 列表新闻：包含所有新闻（包括热门和非热门），这样热门新闻会同时显示在列表和 carousel 中
+  const regularNews = recentNewsListData
+    .filter(item => item)
     .map(item => ({
       id: item.id,
       documentId: item.documentId,
@@ -67,7 +82,7 @@ export default async function NewsPage(props: NewsPageProps) {
   const newsStructuredData = {
     '@context': 'https://schema.org',
     '@type': 'ItemList',
-    'itemListElement': newsListData
+    'itemListElement': recentNewsListData
       .filter(news => news?.title)
       .map((news, index) => ({
         '@type': 'ListItem',

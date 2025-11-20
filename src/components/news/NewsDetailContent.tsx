@@ -317,20 +317,8 @@ export default function NewsDetailContent({ news, locale, allNews = EMPTY_NEWS_A
             className="rounded-lg bg-[#f8f9fa] p-16 text-center text-[#666666]"
           >
             <p className="text-xl">
-              {t('no_content') || '该新闻暂无正文内容，请访问微信公众号查看完整内容。'}
+              {t('no_content') || '该新闻暂无正文内容。'}
             </p>
-            {news.externalUrl && (
-              <motion.a
-                href={news.externalUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-                className="mt-4 inline-block rounded-lg bg-[#2563eb] px-6 py-3 !text-white transition-colors hover:bg-[#1d4ed8]"
-              >
-                {t('open_wechat') || '前往微信公众号阅读'}
-              </motion.a>
-            )}
           </motion.div>
         )}
 
@@ -361,23 +349,6 @@ export default function NewsDetailContent({ news, locale, allNews = EMPTY_NEWS_A
             </svg>
             <span className="text-lg md:text-xl">{t('back_to_list') || '返回新闻列表'}</span>
           </button>
-          {news.externalUrl && (
-            <a
-              href={news.externalUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="flex items-center gap-2 rounded-lg border border-[#2563eb] px-4 py-2 text-[#2563eb] hover:!text-[#1d4ed8] transition-colors hover:bg-[#f0f7ff]"
-            >
-              <svg
-                className="h-6 w-7"
-                fill="currentColor"
-                viewBox="0 0 28 28"
-              >
-                <path d="M8.691 2.188C3.891 2.188 0 5.476 0 9.53c0 2.212 1.17 4.203 3.002 5.55a.59.59 0 0 1 .213.665l-.39 1.48c-.019.07-.048.141-.048.213 0 .163.13.295.29.295a.326.326 0 0 0 .167-.054l1.903-1.114a.864.864 0 0 1 .717-.098 10.16 10.16 0 0 0 2.837.403c.276 0 .543-.027.811-.05-.857-2.578.157-4.972 1.932-6.446 1.703-1.415 3.882-1.98 5.853-1.838-.576-3.583-4.196-6.348-8.595-6.348zM5.785 5.991c.642 0 1.162.529 1.162 1.18a1.17 1.17 0 0 1-1.162 1.178A1.17 1.17 0 0 1 4.623 7.17c0-.651.52-1.18 1.162-1.18zm5.813 0c.642 0 1.162.529 1.162 1.18a1.17 1.17 0 0 1-1.162 1.178 1.17 1.17 0 0 1-1.162-1.178c0-.651.52-1.18 1.162-1.18zm6.673 3.036c-1.693 0-3.22.679-4.337 1.77-1.833 1.43-2.737 3.734-1.873 6.204.12.342.208.693.293 1.04.062.255.12.51.186.762.054.21.11.42.174.628.423 1.386 1.038 2.71 1.73 3.957a.744.744 0 0 0 .953.352l2.312-1.353a.864.864 0 0 1 .717-.098c.92.277 1.872.42 2.836.42 4.8 0 8.691-3.288 8.691-7.342 0-4.054-3.891-7.342-8.691-7.342zm-1.435 4.554c.52 0 .94.43.94.96a.95.95 0 0 1-.94.96.95.95 0 0 1-.94-.96c0-.53.42-.96.94-.96zm4.598 0c.52 0 .94.43.94.96a.95.95 0 0 1-.94.96.95.95 0 0 1-.94-.96c0-.53.42-.96.94-.96z" />
-              </svg>
-              <span>{t('open_wechat') || '微信公众号阅读'}</span>
-            </a>
-          )}
         </motion.div>
       </article>
     </main>
