@@ -81,7 +81,7 @@ export default function EASleepSpecificationContent({ products }: EASleepSpecifi
         <h1 id="product-gallery-title" className="sr-only">
           EASleep 产品图片展示 / EASleep Product Gallery
         </h1>
-        <div className="relative h-[480px]">
+        <div className="relative h-[480px] 2xl:h-[600px]">
           <Swiper
             modules={[Controller]}
             onSwiper={setMainSwiper}
@@ -108,26 +108,50 @@ export default function EASleepSpecificationContent({ products }: EASleepSpecifi
             whileHover={{ scale: 1.1 }}
             whileTap={{ scale: 0.9 }}
             onClick={handlePrev}
-            className="cursor-target absolute top-1/2 left-[20px] z-[50] flex h-[40px] w-[40px] -translate-y-1/2 cursor-pointer items-center justify-center rounded-full border border-white text-[30px] !text-white transition-all hover:bg-white/20"
+            className="cursor-target absolute top-1/2 left-[20px] z-[50] flex h-[40px] w-[40px] -translate-y-1/2 cursor-pointer items-center justify-center rounded-full border border-white text-white transition-all hover:bg-white/20"
             aria-label="上一张图片 / Previous image"
           >
-            ←
+            <svg
+              width="20"
+              height="20"
+              viewBox="0 0 20 20"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+              className="stroke-current"
+              strokeWidth="2"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+            >
+              <path d="M12 4L6 10L12 16" />
+            </svg>
           </motion.button>
           <motion.button
             type="button"
             whileHover={{ scale: 1.1 }}
             whileTap={{ scale: 0.9 }}
             onClick={handleNext}
-            className="cursor-target absolute top-1/2 right-[20px] z-[50] flex h-[40px] w-[40px] -translate-y-1/2 cursor-pointer items-center justify-center rounded-full border border-white text-[30px] !text-white transition-all hover:bg-white/20"
+            className="cursor-target absolute top-1/2 right-[20px] z-[50] flex h-[40px] w-[40px] -translate-y-1/2 cursor-pointer items-center justify-center rounded-full border border-white text-white transition-all hover:bg-white/20"
             aria-label="下一张图片 / Next image"
           >
-            →
+            <svg
+              width="20"
+              height="20"
+              viewBox="0 0 20 20"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+              className="stroke-current"
+              strokeWidth="2"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+            >
+              <path d="M8 4L14 10L8 16" />
+            </svg>
           </motion.button>
         </div>
 
         {/* Thumbnail Navigation */}
         <nav aria-label="产品图片缩略图导航 / Product image thumbnail navigation">
-          <ul className="flex gap-[20px]">
+          <ul className="flex gap-[20px] justify-between items-center">
             {(currentImages ?? []).map((image, index) => (
               <motion.li
                 key={`${selectedProductIndex}-thumb-${image}-${index}`}

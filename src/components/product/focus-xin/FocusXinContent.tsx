@@ -453,7 +453,7 @@ export default function FocusXinContent() {
           className="mx-auto mb-7 w-[43vw]"
         />
 
-        <div className="mx-auto flex max-w-6xl flex-wrap gap-x-3 gap-y-3 text-[0.94vw] text-gray-500">
+        <div className="mx-auto grid max-w-6xl grid-cols-[repeat(auto-fit,minmax(160px,1fr))] justify-items-center gap-x-3 gap-y-3 text-[0.94vw] text-gray-500">
           {patentList.map((patentNumber, groupIndex) => (
             <div key={groupIndex} className="flex flex-col space-y-3">
               <span>

@@ -241,13 +241,15 @@ export default function Revo2Content() {
                 zIndex: selectedColorIndex === index ? 10 : 1,
               }}
             >
-              <Image
-                src={item.img}
-                alt={`Revo2 ${t(item.name as any)} 颜色版本 - 智能灵巧手产品展示 / Revo2 ${t(item.name as any)} Color Version - Intelligent Dexterous Hand Product Display`}
-                width={400}
-                height={400}
-                className="h-75 w-auto"
-              />
+              <div className="h-75 w-full flex items-center justify-center overflow-hidden">
+                <Image
+                  src={item.img}
+                  alt={`Revo2 ${t(item.name as any)} 颜色版本 - 智能灵巧手产品展示 / Revo2 ${t(item.name as any)} Color Version - Intelligent Dexterous Hand Product Display`}
+                  width={200}
+                  height={300}
+                  className="max-h-full max-w-full object-contain"
+                />
+              </div>
             </motion.div>
           ))}
         </motion.div>

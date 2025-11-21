@@ -461,13 +461,15 @@ export default function Revo1Content() {
                 viewport={{ once: true }}
                 transition={{ delay: 0.5 + index * 0.1, duration: 0.6 }}
               >
-                <Image
-                  src={img}
-                  alt={`Revo1 应用场景图片 ${index + 1} - ${t('experience_title')} / Revo1 Application Scene Image ${index + 1} - ${t('experience_title')}`}
-                  width={160}
-                  height={120}
-                  className="h-28 w-auto object-contain"
-                />
+                <div className="h-28 w-full flex items-center justify-center overflow-hidden">
+                  <Image
+                    src={img}
+                    alt={`Revo1 应用场景图片 ${index + 1} - ${t('experience_title')} / Revo1 Application Scene Image ${index + 1} - ${t('experience_title')}`}
+                    width={160}
+                    height={120}
+                    className="max-h-full max-w-full object-contain"
+                  />
+                </div>
               </motion.li>
             ))}
           </motion.ul>

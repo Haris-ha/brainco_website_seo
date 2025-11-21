@@ -787,13 +787,15 @@ export default function FocusZenContent() {
                 viewport={{ once: true }}
                 transition={{ duration: 0.6, delay: index * 0.1 }}
               >
-                <Image
-                  src={img.url}
-                  alt={`FocusZen 冥想角落场景 ${index + 1} - 正念冥想环境展示 / FocusZen Meditation Corner Scene ${index + 1} - Mindfulness Meditation Environment Display`}
-                  width={600}
-                  height={1000}
-                  className="h-full w-full rounded-lg object-cover transition-transform hover:scale-105"
-                />
+                <div className="h-full w-full flex items-center justify-center overflow-hidden">
+                  <Image
+                    src={img.url}
+                    alt={`FocusZen 冥想角落场景 ${index + 1} - 正念冥想环境展示 / FocusZen Meditation Corner Scene ${index + 1} - Mindfulness Meditation Environment Display`}
+                    width={600}
+                    height={1000}
+                    className="max-h-full max-w-full rounded-lg object-cover transition-transform hover:scale-105"
+                  />
+                </div>
               </motion.div>
             ))}
           </div>

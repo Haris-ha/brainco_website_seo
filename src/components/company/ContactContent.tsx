@@ -122,6 +122,15 @@ export default function ContactContent() {
 
   return (
     <main className="w-full bg-white">
+      <style>
+        {`
+        input:focus,
+        input:focus-visible {
+          outline: none !important;
+          box-shadow: none !important;
+        }
+        `}
+      </style>
       {/* Top Banner */}
       <header
         className="flex h-screen w-full flex-col items-start justify-center bg-cover bg-center px-[240px] pt-20 2xl:px-[300px]"
