@@ -8,7 +8,7 @@ export default function RecruitContentMobile() {
   const t = useTranslations('Recruit');
 
   return (
-    <main className="w-full bg-white">
+    <main className="w-full bg-white overflow-hidden">
       {/* Top Banner */}
       <header className="relative pb-[40px]">
         <Image
@@ -16,16 +16,16 @@ export default function RecruitContentMobile() {
           alt="BrainCo 招聘页面背景图 - 加入我们改变世界 / BrainCo Recruitment Page Background - Join Us to Change the World"
           width={750}
           height={600}
-          className="w-full"
+          className="w-full md:object-cover md:max-h-[800px]"
         />
         <motion.div
-          className="absolute top-0 left-1/2 flex h-full w-[230px] -translate-x-1/2 flex-col items-start justify-center pt-[130px] !text-white"
+          className="absolute top-0 left-1/2 flex h-full w-[230px] -translate-x-1/2 flex-col items-start justify-center pt-[130px] !text-white md:scale-130"
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.3, ease: 'easeOut' }}
         >
           <motion.h1
-            className="text-fluid-5xl mb-[34px] flex w-full flex-col items-center justify-center text-center"
+            className="text-fluid-5xl mb-[34px] flex w-full flex-col items-center justify-center text-center md:scale-130"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.5, ease: 'easeOut' }}
@@ -59,7 +59,7 @@ export default function RecruitContentMobile() {
       {/* Content List */}
       <section className="w-full" aria-labelledby="recruit-mobile-content-title">
         <h2 id="recruit-mobile-content-title" className="sr-only">招聘信息 / Recruitment Information</h2>
-        <div className="flex flex-col">
+        <div className="flex flex-col md:scale-130 md:px-40 md:mt-100">
           {/* Titles */}
           <motion.span
             className="text-fluid-2xl mx-auto block px-[42px] text-center font-bold"
@@ -123,7 +123,7 @@ export default function RecruitContentMobile() {
 
           {/* Cards */}
           <motion.div
-            className="mt-[20px] flex justify-center"
+            className="mt-[20px] flex justify-center md:scale-130 md:py-10"
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -227,7 +227,7 @@ export default function RecruitContentMobile() {
 
           {/* Pictures */}
           <motion.div
-            className="flex flex-col items-center justify-center"
+            className="flex flex-col items-center justify-center md:scale-130 md:mt-10 md:h-full md:mb-80"
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
