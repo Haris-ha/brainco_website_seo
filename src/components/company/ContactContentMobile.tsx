@@ -178,24 +178,33 @@ export default function ContactContentMobile() {
   ];
 
   return (
-    <main className="w-full bg-white">
+    <main className="w-full bg-white overflow-hidden">
       {/* Top Banner */}
+      <style>
+        {`
+        input:focus,
+        input:focus-visible {
+          outline: none !important;
+          box-shadow: none !important;
+        }
+        `}
+      </style>
       <header className="relative">
         <Image
           src="https://website-www-brainco-cn.oss-cn-hangzhou.aliyuncs.com/images/aiz6TJnJ7iWSNVJ1.webp"
           alt="BrainCo 联系我们页面背景 / BrainCo Contact Us Background"
           width={750}
           height={800}
-          className="w-full object-cover"
+          className="w-full object-cover md:max-h-[800px]"
         />
         <motion.div
-          className="absolute top-0 left-0 flex h-[calc(100vh-80px)] w-full flex-col justify-center px-20"
+          className="absolute top-0 left-0 flex h-full w-full flex-col justify-center px-20 md:max-h-[800px] md:px-60"
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.3, ease: 'easeOut' }}
         >
           <motion.h1
-            className="text-fluid-5xl font-bold !text-white"
+            className="text-fluid-5xl font-bold !text-white md:scale-130"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.5, ease: 'easeOut' }}
@@ -203,7 +212,7 @@ export default function ContactContentMobile() {
             {t('page_title')}
           </motion.h1>
           <motion.p
-            className="text-fluid-base mt-3 !text-white"
+            className="text-fluid-base mt-3 !text-white md:scale-130 md:mt-10"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.7, ease: 'easeOut' }}
@@ -217,7 +226,7 @@ export default function ContactContentMobile() {
       <section className="w-full bg-white" aria-labelledby="contact-details-mobile-title">
         <h2 id="contact-details-mobile-title" className="sr-only">联系方式 / Contact Information</h2>
         <motion.address
-          className="mt-[30px] px-10 not-italic"
+          className="mt-[30px] px-10 not-italic md:scale-130 md:px-60 md:pt-20"
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
@@ -273,7 +282,7 @@ export default function ContactContentMobile() {
         </motion.address>
 
         <motion.div
-          className="mt-[30px] px-10"
+          className="mt-[30px] px-10 md:scale-130 md:px-60 md:mt-40 md:pb-14"
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
@@ -321,7 +330,7 @@ export default function ContactContentMobile() {
               height={500}
               className="w-full object-cover"
             />
-            <div className="absolute top-0 left-0 h-full w-full px-10">
+            <div className="absolute top-0 left-0 h-full w-full px-10 md:px-60 md:scale-130 md:mt-40">
               <h4 className="text-fluid-2xl relative mt-12 mb-[18px] pb-6 font-bold after:absolute after:bottom-0 after:left-0 after:h-0 after:w-[76px] after:border-b-[3px] after:border-[#333] after:content-['']">
                 {area.title}
               </h4>
@@ -334,7 +343,7 @@ export default function ContactContentMobile() {
       {/* Cooperation Form */}
       <motion.div
         id="contact"
-        className="mt-20 mb-[50px] w-full bg-white px-10"
+        className="mt-20 mb-[50px] w-full bg-white px-10 md:scale-130 md:px-50 md:pb-40 md:pt-20"
         initial={{ opacity: 0, y: 30 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
