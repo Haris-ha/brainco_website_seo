@@ -161,7 +161,7 @@ export function HomeContentMobile() {
           transition={{ duration: 0.8, ease: 'easeOut' }}
         >
           <motion.h1
-            className="text-fluid-5xl text-center leading-none font-bold"
+            className="text-fluid-5xl text-center leading-none font-bold md:scale-120"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.2, ease: 'easeOut' }}
@@ -169,7 +169,7 @@ export function HomeContentMobile() {
             {t('hero_title_1_mobile')}
           </motion.h1>
           <motion.p
-            className="text-fluid-3xl mt-6"
+            className="text-fluid-3xl mt-6 md:scale-120"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.4, ease: 'easeOut' }}
@@ -214,7 +214,7 @@ export function HomeContentMobile() {
 
       {/* 视频标签和进度条 */}
       <motion.ul
-        className="absolute bottom-[140px] left-0 flex w-full justify-center"
+        className="absolute bottom-[140px] left-0 flex w-full justify-center md:scale-120"
         aria-label="视频分类导航 / Video category navigation"
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}

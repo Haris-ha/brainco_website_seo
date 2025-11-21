@@ -84,7 +84,7 @@ export function MobileNav({ locale, isOpen, onToggle, showHeader = true }: Mobil
     <>
       {/* 顶部导航栏 - 仅在首页显示 */}
       {showHeader && (
-        <div className={`fixed top-0 left-0 z-[60] flex h-24 w-full items-center justify-between px-8 transition-all duration-300 md:hidden ${isOpen ? 'bg-white shadow-sm' : ''}`}>
+        <div className={`fixed top-0 left-0 z-[60] flex h-24 w-full items-center justify-between px-8 transition-all duration-300 lg:hidden ${isOpen ? 'bg-white shadow-sm' : ''}`}>
           {/* 左侧：汉堡菜单按钮和 Logo */}
           <div className="flex items-center gap-2">
             {/* 菜单按钮 */}
@@ -142,7 +142,7 @@ export function MobileNav({ locale, isOpen, onToggle, showHeader = true }: Mobil
 
       {/* 移动端菜单 */}
       {isOpen && (
-        <nav className="animate-fade-in fixed top-24 left-0 z-[55] h-screen w-full overflow-y-auto bg-black/30" aria-label="移动端主导航菜单 / Mobile main navigation menu">
+        <nav className="animate-fade-in fixed top-24 left-0 z-[55] h-screen w-full overflow-y-auto bg-black/30 lg:hidden" aria-label="移动端主导航菜单 / Mobile main navigation menu">
           <div className="animate-slide-down bg-white px-8 pb-8">
             <ul>
               {navItems.map((item, itemIndex) => (

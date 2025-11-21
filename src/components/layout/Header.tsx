@@ -32,12 +32,10 @@ export function Header({ locale }: HeaderProps) {
 
   return (
     <header>
-      {/* 桌面端导航 - 使用CSS隐藏/显示以避免初始渲染问题 */}
-      <div className={isMobile && mounted ? 'hidden' : ''}>
-        <DesktopNav locale={locale} />
-      </div>
+      {/* 桌面端导航 - 使用CSS类控制显示/隐藏（>= 1024px 显示） */}
+      {mounted && <DesktopNav locale={locale} />}
 
-      {/* 移动端导航 */}
+      {/* 移动端导航 - 在 < 1024px 时显示 */}
       {isMobile && (
         <>
           {isHomePage
@@ -53,7 +51,7 @@ export function Header({ locale }: HeaderProps) {
             : (
               // 其他页面：显示固定白色导航栏
                 <>
-                  <div key={pathname} className="fixed top-0 left-0 z-50 flex h-24 w-full items-center justify-between bg-white px-8 shadow-sm">
+                  <div key={pathname} className="fixed top-0 left-0 z-50 flex h-24 w-full items-center justify-between bg-white px-8 shadow-sm lg:hidden">
                     {/* 左侧：汉堡菜单按钮 */}
                     <div className="flex items-center gap-2">
                       <button

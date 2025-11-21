@@ -82,7 +82,7 @@ export function Footer({ locale }: FooterProps) {
   return (
     <>
       {/* 桌面端Footer */}
-      <footer className="hidden bg-gray-50 md:block">
+      <footer className="hidden bg-gray-50 lg:block">
         <div className="mx-auto w-full max-w-7xl px-4 pt-12">
           {/* Logo和社交媒体图标 */}
           <div className="flex items-center justify-between border-b border-gray-300 pb-12">
@@ -308,7 +308,7 @@ export function Footer({ locale }: FooterProps) {
       </footer>
 
       {/* 移动端Footer */}
-      <footer className="bg-gray-50 md:hidden">
+      <footer className="bg-gray-50 lg:hidden">
         <div className="w-full px-10 py-5">
           {/* 返回顶部 */}
           <button
@@ -321,9 +321,9 @@ export function Footer({ locale }: FooterProps) {
           </button>
 
           {/* 导航链接 */}
-          <div className="mt-9 flex gap-8">
+          <div className="mt-9 flex gap-8 md:mt-20">
             {/* 产品栏 */}
-            <div className="flex-[3]">
+            <div className="flex-[3] md:flex-[4] md:pl-40">
               <p className="text-fluid-2xl mb-6 font-semibold !text-[#333]">
                 {t('products')}
               </p>
@@ -347,7 +347,7 @@ export function Footer({ locale }: FooterProps) {
             </div>
 
             {/* 其他栏 */}
-            <div className="flex-[2]">
+            <div className="flex-[2] md:flex-[3]">
               {otherNavigation.map(section => (
                 <div key={section.title} className="mb-6 first:mb-2">
                   <p className="text-fluid-2xl mb-2 font-semibold !text-[#333]">
@@ -437,7 +437,7 @@ export function Footer({ locale }: FooterProps) {
           </div>
 
           {/* 版权信息 */}
-          <div className="mt-2.5 px-5 pb-5 text-center">
+          <div className="mt-2.5 px-5 pb-5 text-center md:px-20 md:mt-5">
             <p className="text-fluid-base !text-gray-500">
               {isHangzhou
                 ? t('copyright_hangzhou')

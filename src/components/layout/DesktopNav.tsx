@@ -49,7 +49,7 @@ export function DesktopNav({ locale }: { locale: string }) {
 
   return (
     <>
-      <nav key={pathname} className="fixed top-0 left-0 z-50 hidden w-full md:flex" aria-label="主导航 / Main navigation">
+      <nav key={pathname} className="fixed top-0 left-0 z-50 hidden w-full lg:flex" aria-label="主导航 / Main navigation">
         <div className={`absolute inset-0 backdrop-blur-[10px] ${isRevoPage ? 'bg-black/80' : 'bg-white/30'}`} />
 
         {/* 导航内容 */}
