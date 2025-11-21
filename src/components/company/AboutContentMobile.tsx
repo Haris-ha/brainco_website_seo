@@ -8,7 +8,7 @@ export default function AboutContentMobile() {
   const t = useTranslations('About');
 
   return (
-    <main className="w-full bg-white">
+    <main className="w-full bg-white overflow-hidden">
       {/* Top Banner */}
       <header className="relative">
         <Image
@@ -16,16 +16,16 @@ export default function AboutContentMobile() {
           alt="BrainCo 关于我们页面背景 - 团队办公场景 / BrainCo About Us Background - Team Office"
           width={750}
           height={800}
-          className="w-full object-cover"
+          className="w-full object-cover md:max-h-[800px]"
         />
         <motion.div
-          className="absolute top-0 left-0 flex h-[calc(100vh-80px)] w-full flex-col justify-center px-20 backdrop-blur-[3px]"
+          className="absolute top-0 left-0 flex h-full w-full flex-col justify-center px-20 backdrop-blur-[3px] md:max-h-[800px] md:backdrop-blur-[6px]"
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.3, ease: 'easeOut' }}
         >
           <motion.h1
-            className="text-fluid-5xl text-center font-bold !text-white"
+            className="text-fluid-5xl text-center font-bold !text-white md:scale-130"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.5, ease: 'easeOut' }}
@@ -33,7 +33,7 @@ export default function AboutContentMobile() {
             {t('page_title')}
           </motion.h1>
           <motion.p
-            className="text-fluid-base mt-5 text-center !text-white"
+            className="text-fluid-base mt-5 text-center !text-white md:scale-130 md:px-40 md:mt-10"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.7, ease: 'easeOut' }}
@@ -45,7 +45,7 @@ export default function AboutContentMobile() {
 
       {/* Brand Culture Section */}
       <motion.section
-        className="px-[42px] text-center"
+        className="px-[42px] text-center md:scale-130 md:py-20"
         initial={{ opacity: 0, y: 30 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
@@ -105,7 +105,7 @@ export default function AboutContentMobile() {
         viewport={{ once: true }}
         transition={{ duration: 0.8, ease: 'easeOut' }}
       >
-        <h2 className="text-fluid-2xl mt-[54px] mb-[14px] text-center font-bold">
+        <h2 className="text-fluid-2xl mt-[54px] mb-[14px] text-center font-bold md:scale-130">
           {t('social_contribution')}
         </h2>
         <ul>
