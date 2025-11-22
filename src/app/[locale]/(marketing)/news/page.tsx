@@ -66,7 +66,7 @@ export default async function NewsPage(props: NewsPageProps) {
       documentId: item.documentId,
       title: item.title,
       time: formatDate(item.newsDate, 'YYYY-MM-DD'),
-      img: item.coverImage,
+      img: item.coverImage || item.coverImageUrl || '',
       url: item.externalUrl,
       externalUrl: item.externalUrl,
       hot: item.isHot,
@@ -81,7 +81,7 @@ export default async function NewsPage(props: NewsPageProps) {
       documentId: item.documentId,
       title: item.title,
       time: formatDate(item.newsDate, 'YYYY-MM-DD'),
-      img: item.coverImage,
+      img: item.coverImage || item.coverImageUrl || '',
       url: item.externalUrl,
       externalUrl: item.externalUrl,
       hot: item.isHot,
@@ -100,7 +100,7 @@ export default async function NewsPage(props: NewsPageProps) {
         'item': {
           '@type': 'NewsArticle',
           'headline': news.title,
-          'image': news.coverImage,
+          'image': news.coverImage || news.coverImageUrl,
           'datePublished': news.newsDate,
           'url': news.externalUrl,
           'publisher': {

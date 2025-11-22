@@ -35,7 +35,8 @@ export type StrapiNewsItem = {
   documentId: string;
   title: string;
   newsDate: string;
-  coverImage: string;
+  coverImage?: string;
+  coverImageUrl?: string; // 新增字段：封面图片URL
   externalUrl: string;
   isHot: boolean;
   sortIndex: number;

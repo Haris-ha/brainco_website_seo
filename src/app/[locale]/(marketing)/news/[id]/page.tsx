@@ -1,6 +1,6 @@
 import type { Metadata } from 'next';
-import { redirect } from 'next/navigation';
 import { setRequestLocale } from 'next-intl/server';
+import { redirect } from 'next/navigation';
 import NewsDetailContent from '@/components/news/NewsDetailContent';
 import DynamicCanonical from '@/components/seo/DynamicCanonical';
 import StructuredData from '@/components/seo/StructuredData';
@@ -16,28 +16,28 @@ type NewsDetailPageProps = {
  */
 function extractKeywords(title: string, content?: string): string {
   const keywords: string[] = ['BrainCo', '脑机接口', 'BCI', '新闻'];
-  
+
   // 从标题中提取关键词（去除常见停用词）
   const titleWords = title
-    .replace(/[，。！？、；：""''（）【】《》]/g, ' ')
+    .replace(/[，。！？、；："'（）【】《》]/g, ' ')
     .split(/\s+/)
     .filter(word => word.length > 1 && !['的', '和', '与', '及', '或', '是', '在', '有', '为', '了', 'the', 'and', 'or', 'is', 'in', 'on', 'at', 'a', 'an'].includes(word.toLowerCase()))
     .slice(0, 5);
-  
+
   keywords.push(...titleWords);
-  
+
   // 从内容中提取关键词（如果有内容）
   if (content) {
     const cleanContent = content.replace(/<[^>]*>/g, ' ').substring(0, 500);
     const contentWords = cleanContent
-      .replace(/[，。！？、；：""''（）【】《》]/g, ' ')
+      .replace(/[，。！？、；："'（）【】《》]/g, ' ')
       .split(/\s+/)
       .filter(word => word.length > 2)
       .slice(0, 3);
-    
+
     keywords.push(...contentWords);
   }
-  
+
   return [...new Set(keywords)].join(', ');
 }
 
@@ -48,15 +48,15 @@ function extractDescription(content?: string, title?: string, maxLength: number 
   if (content) {
     const cleanContent = content.replace(/<[^>]*>/g, '').replace(/\s+/g, ' ').trim();
     if (cleanContent.length > maxLength) {
-      return cleanContent.substring(0, maxLength) + '...';
+      return `${cleanContent.substring(0, maxLength)}...`;
     }
     return cleanContent;
   }
-  
+
   if (title) {
     return `阅读 ${title} 的完整内容，了解 BrainCo 最新动态和行业资讯。`;
   }
-  
+
   return 'BrainCo 新闻详情，了解最新脑机接口技术动态和行业资讯。';
 }
 
@@ -73,29 +73,32 @@ export async function generateMetadata(props: NewsDetailPageProps): Promise<Meta
 
   const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://www.brainco.cn';
   const newsUrl = `${baseUrl}/${locale}/news/${id}`;
-  
+
   // 优先使用 CMS 配置，如果没有则使用自动解析
-  const title = news.seoMetaTitle 
+  const title = news.seoMetaTitle
     ? `${news.seoMetaTitle} - BrainCo`
     : `${news.title} - BrainCo 新闻`;
-  
-  const description = news.seoMetaDescription 
+
+  const description = news.seoMetaDescription
     ? news.seoMetaDescription
     : extractDescription(news.content, news.title);
-  
-  const keywords = news.seoKeywords 
+
+  const keywords = news.seoKeywords
     ? news.seoKeywords
     : extractKeywords(news.title, news.content);
-  
+
   // 处理图片 URL（优先使用 SEO 配置的图片）
+  const coverImage = news.coverImage || news.coverImageUrl;
   const ogImageUrl = news.seoOgImage?.startsWith('http')
     ? news.seoOgImage
     : news.seoOgImage
       ? `${baseUrl}${news.seoOgImage}`
-      : news.coverImage?.startsWith('http')
-        ? news.coverImage
-        : `${baseUrl}${news.coverImage}`;
-  
+      : coverImage?.startsWith('http')
+        ? coverImage
+        : coverImage
+          ? `${baseUrl}${coverImage}`
+          : '';
+
   const twitterImageUrl = news.seoTwitterImage?.startsWith('http')
     ? news.seoTwitterImage
     : news.seoTwitterImage
@@ -103,14 +106,14 @@ export async function generateMetadata(props: NewsDetailPageProps): Promise<Meta
       : ogImageUrl;
 
   // 解析 robots 配置
-  const robotsConfig: Metadata['robots'] = news.seoMetaRobots 
+  const robotsConfig: Metadata['robots'] = news.seoMetaRobots
     ? parseRobotsString(news.seoMetaRobots)
     : {
         index: true,
         follow: true,
         googleBot: {
-          index: true,
-          follow: true,
+          'index': true,
+          'follow': true,
           'max-video-preview': -1,
           'max-image-preview': 'large' as const,
           'max-snippet': -1,
@@ -167,7 +170,7 @@ function parseRobotsString(robots: string): Metadata['robots'] {
   const parts = robots.toLowerCase().split(',').map(s => s.trim());
   const index = !parts.includes('noindex');
   const follow = !parts.includes('nofollow');
-  
+
   return {
     index,
     follow,
@@ -201,23 +204,23 @@ export default async function NewsDetailPage(props: NewsDetailPageProps) {
   const newsStructuredData = {
     '@context': 'https://schema.org',
     '@type': 'NewsArticle',
-    headline: news.title,
-    image: news.coverImage,
-    datePublished: news.newsDate,
-    dateModified: news.updatedAt || news.newsDate,
-    author: {
+    'headline': news.title,
+    'image': news.coverImage || news.coverImageUrl,
+    'datePublished': news.newsDate,
+    'dateModified': news.updatedAt || news.newsDate,
+    'author': {
       '@type': 'Organization',
-      name: 'BrainCo',
+      'name': 'BrainCo',
     },
-    publisher: {
+    'publisher': {
       '@type': 'Organization',
-      name: 'BrainCo',
-      logo: {
+      'name': 'BrainCo',
+      'logo': {
         '@type': 'ImageObject',
-        url: 'https://www.brainco.cn/logo.webp',
+        'url': 'https://www.brainco.cn/logo.webp',
       },
     },
-    mainEntityOfPage: {
+    'mainEntityOfPage': {
       '@type': 'WebPage',
       '@id': `https://www.brainco.cn/${locale}/news/${id}`,
     },
@@ -236,7 +239,7 @@ export default async function NewsDetailPage(props: NewsDetailPageProps) {
           locale: locale as 'zh-Hans' | 'en' | 'zh-Hant',
           metaTitle: news.title,
           metaDescription: news.content
-            ? news.content.replace(/<[^>]*>/g, '').substring(0, 160) + '...'
+            ? `${news.content.replace(/<[^>]*>/g, '').substring(0, 160)}...`
             : `阅读 ${news.title} 的完整内容`,
           structuredData: newsStructuredData,
         }}
@@ -245,4 +248,3 @@ export default async function NewsDetailPage(props: NewsDetailPageProps) {
     </>
   );
 }
-

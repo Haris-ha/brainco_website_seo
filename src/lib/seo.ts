@@ -345,6 +345,73 @@ export function getPublisher(): string {
 }
 
 /**
+ * 从新闻项中提取封面图片 URL
+ * 优先使用 coverImage，如果没有则使用 coverImageUrl
+ * 支持 coverImage 为字符串或对象（Strapi media 类型）
+ */
+function extractCoverImageUrl(item: {
+  coverImage?: string | { data?: { attributes?: { url?: string } } | { url?: string } } | { url?: string };
+  coverImageUrl?: string;
+}): string {
+  // 优先使用 coverImage（可能是字符串或对象）
+  if (item.coverImage) {
+    // 如果是字符串，直接返回
+    if (typeof item.coverImage === 'string') {
+      return item.coverImage;
+    }
+
+    // 如果是对象（Strapi media 类型），提取 URL
+    if (typeof item.coverImage === 'object') {
+      // Strapi v5 格式: { data: { attributes: { url } } }
+      const data = (item.coverImage as { data?: { attributes?: { url?: string } } | { url?: string } }).data;
+      if (data) {
+        if (typeof data === 'object') {
+          // { attributes: { url } }
+          if ('attributes' in data && data.attributes?.url) {
+            return data.attributes.url;
+          }
+          // { url }
+          if ('url' in data && typeof data.url === 'string') {
+            return data.url;
+          }
+        }
+      }
+      // 扁平格式: { url }
+      if ('url' in item.coverImage && typeof (item.coverImage as { url?: string }).url === 'string') {
+        return (item.coverImage as { url: string }).url;
+      }
+    }
+  }
+
+  // 如果没有 coverImage，则使用 coverImageUrl
+  if (item.coverImageUrl && typeof item.coverImageUrl === 'string') {
+    return item.coverImageUrl;
+  }
+
+  return '';
+}
+
+/**
+ * 处理图片 URL，如果是相对路径则拼接 CMS 基础 URL
+ */
+function processImageUrl(imageUrl: string, baseUrl: string): string {
+  if (!imageUrl) {
+    return '';
+  }
+
+  if (imageUrl.startsWith('http://') || imageUrl.startsWith('https://')) {
+    // 已经是完整 URL，直接使用
+    return imageUrl;
+  }
+
+  // 相对路径，需要拼接 CMS 基础 URL
+  // 确保 baseUrl 不以 / 结尾，imageUrl 以 / 开头
+  const normalizedBaseUrl = baseUrl.endsWith('/') ? baseUrl.slice(0, -1) : baseUrl;
+  const normalizedPath = imageUrl.startsWith('/') ? imageUrl : `/${imageUrl}`;
+  return `${normalizedBaseUrl}${normalizedPath}`;
+}
+
+/**
  * 从 Strapi CMS 获取新闻列表
  * @param locale Next.js locale（例如：'zh-CN', 'en-US', 'zh-TW'）
  * @param options 查询选项
@@ -369,6 +436,7 @@ export async function getNewsList(
       'pagination[pageSize]': String(options?.pageSize || 100),
       'pagination[page]': String(options?.page || 1),
       'publicationState': 'live',
+      'populate': 'coverImage', // 重要：populate coverImage 字段才能获取图片数据
     });
 
     // 如果指定了热门新闻筛选
@@ -404,15 +472,22 @@ export async function getNewsList(
 
     const data: StrapiNewsResponse = await response.json();
 
-    // 开发环境日志（使用 console.warn 以符合 linter 规则）
-    if (process.env.NODE_ENV === 'development') {
-      console.warn(`✅ 获取到 ${data.data?.length || 0} 条新闻数据 (locale: ${strapiLocale})`);
-      if (data.data?.length > 0) {
-        console.warn(`   第一条新闻: ${data.data[0]?.title || 'N/A'}`);
-      }
-    }
+    // 处理图片URL：优先使用 coverImage，如果没有则使用 coverImageUrl
+    const processedData = (data.data || []).map((item) => {
+      // 提取封面图片 URL（支持 coverImage 为字符串或对象）
+      const imageUrl = extractCoverImageUrl(item);
 
-    return data.data || [];
+      // 处理图片 URL（如果是相对路径则拼接 CMS 基础 URL）
+      const processedImageUrl = processImageUrl(imageUrl, CMS_API_URL);
+
+      return {
+        ...item,
+        coverImage: processedImageUrl,
+        coverImageUrl: processedImageUrl,
+      };
+    });
+
+    return processedData;
   } catch (error) {
     if (process.env.NODE_ENV === 'development') {
       const err = error as NodeJS.ErrnoException;
@@ -443,7 +518,7 @@ export async function getNewsDetail(
   try {
     const strapiLocale = mapLocaleToStrapi(locale);
 
-    const url = `${CMS_API_URL}/api/newses/${id}?locale=${strapiLocale}&publicationState=live`;
+    const url = `${CMS_API_URL}/api/newses/${id}?locale=${strapiLocale}&publicationState=live&populate=coverImage`;
 
     const response = await fetch(url, {
       headers: {
@@ -465,11 +540,23 @@ export async function getNewsDetail(
 
     const data: { data: StrapiNewsItem } = await response.json();
 
-    if (process.env.NODE_ENV === 'development') {
-      console.warn(`✅ 获取到新闻详情: ${data.data?.title || 'N/A'}`);
+    // 处理图片URL：优先使用 coverImage，如果没有则使用 coverImageUrl
+    if (data.data) {
+      const item = data.data;
+      // 提取封面图片 URL（支持 coverImage 为字符串或对象）
+      const imageUrl = extractCoverImageUrl(item);
+
+      // 处理图片 URL（如果是相对路径则拼接 CMS 基础 URL）
+      const processedImageUrl = processImageUrl(imageUrl, CMS_API_URL);
+
+      return {
+        ...item,
+        coverImage: processedImageUrl,
+        coverImageUrl: processedImageUrl,
+      };
     }
 
-    return data.data || null;
+    return null;
   } catch (error) {
     if (process.env.NODE_ENV === 'development') {
       const err = error as NodeJS.ErrnoException;

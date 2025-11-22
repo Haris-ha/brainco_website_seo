@@ -1,5 +1,5 @@
-import type { StrapiNewsItem } from './types';
 import type { ReactElement } from 'react';
+import type { StrapiNewsItem } from './types';
 
 /**
  * Fisher-Yates 洗牌算法，用于随机打乱数组
@@ -26,14 +26,15 @@ export function generateGridItems(
 ): (string | ReactElement)[] {
   // 过滤掉当前新闻，并提取有封面图的新闻
   const otherNews = newsList.filter(
-    news => news.coverImage && news.id.toString() !== currentNewsId?.toString(),
+    news => (news.coverImage || news.coverImageUrl) && news.id.toString() !== currentNewsId?.toString(),
   );
 
   // 提取封面图 URL 并去重（使用 Set 确保每个 URL 只出现一次）
+  // 优先使用 coverImage，如果没有则使用 coverImageUrl
   const uniqueCoverImages = Array.from(
     new Set(
       otherNews
-        .map(news => news.coverImage)
+        .map(news => news.coverImage || news.coverImageUrl)
         .filter((url): url is string => Boolean(url)),
     ),
   );
@@ -65,8 +66,8 @@ export function generateGridItems(
   const remainder = totalItems % imageCount;
 
   // 为每个图片分配出现次数，确保总数等于 28
-  const imageCounts: number[] = shuffledImages.map((_, index) => 
-    timesPerImage + (index < remainder ? 1 : 0)
+  const imageCounts: number[] = shuffledImages.map((_, index) =>
+    timesPerImage + (index < remainder ? 1 : 0),
   );
 
   // 使用轮询方式填充，确保相同图片之间有最大间隔
@@ -95,10 +96,14 @@ export function generateGridItems(
     // 找到距离上次使用位置最远的图片
     for (let j = 0; j < imageQueues.length; j++) {
       const queue = imageQueues[j];
-      if (!queue || queue.length === 0) continue;
+      if (!queue || queue.length === 0) {
+        continue;
+      }
 
       const image = queue[0];
-      if (!image) continue;
+      if (!image) {
+        continue;
+      }
 
       const lastUsed = lastUsedIndex.get(image) ?? -Infinity;
       const distance = i - lastUsed;
@@ -139,4 +144,3 @@ export function generateGridItems(
 
   return result;
 }
-

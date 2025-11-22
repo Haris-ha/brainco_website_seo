@@ -2,11 +2,11 @@
 
 import type { StrapiNewsItem } from './types';
 import { motion } from 'framer-motion';
+import { marked } from 'marked';
 import { useTranslations } from 'next-intl';
 import Image from 'next/image';
 import { useRouter } from 'next/navigation';
-import { useEffect, useRef, useMemo } from 'react';
-import { marked } from 'marked';
+import { useEffect, useMemo, useRef } from 'react';
 import GridMotion from '@/components/ui/GridMotion/GridMotion.jsx';
 import { formatDate } from '@/lib/utils';
 import { generateGridItems } from './generateGridItems';
@@ -58,7 +58,7 @@ export default function NewsDetailContent({ news, locale, allNews = EMPTY_NEWS_A
         // 提取 alt 属性
         const altMatch = attrs.match(/alt=["']([^"']*)["']/i);
         const altText = altMatch ? altMatch[1] : '';
-        
+
         // 如果已经有 style 属性，更新它；否则添加
         let imgTag = _match;
         if (attrs.includes('style=')) {
@@ -76,7 +76,7 @@ export default function NewsDetailContent({ news, locale, allNews = EMPTY_NEWS_A
         if (altText) {
           return `<figure class="news-media-wrapper">${imgTag}<figcaption class="news-media-caption">${altText}</figcaption></figure>`;
         }
-        
+
         return imgTag;
       });
 
@@ -89,12 +89,12 @@ export default function NewsDetailContent({ news, locale, allNews = EMPTY_NEWS_A
       html = html.replace(videoPattern, (_match, _attrs, videoUrl, _ext, linkText) => {
         const caption = linkText && linkText.trim() ? linkText.trim() : '';
         const videoTag = `<video src="${videoUrl}" controls style="width: 100%; height: auto; border-radius: 8px; box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1); margin: 0; display: block;"></video>`;
-        
+
         // 如果有链接文本，包装在 figure 中并添加 figcaption
         if (caption) {
           return `<figure class="news-media-wrapper">${videoTag}<figcaption class="news-media-caption">${caption}</figcaption></figure>`;
         }
-        
+
         // 如果没有标题，也需要包装在 figure 中以保持一致的间距
         return `<figure class="news-media-wrapper">${videoTag}</figure>`;
       });
@@ -129,11 +129,11 @@ export default function NewsDetailContent({ news, locale, allNews = EMPTY_NEWS_A
       if (altText && altText.trim()) {
         const figure = document.createElement('figure');
         figure.className = 'news-media-wrapper';
-        
+
         const figcaption = document.createElement('figcaption');
         figcaption.className = 'news-media-caption';
         figcaption.textContent = altText;
-        
+
         img.parentNode?.insertBefore(figure, img);
         figure.appendChild(img);
         figure.appendChild(figcaption);
@@ -155,15 +155,15 @@ export default function NewsDetailContent({ news, locale, allNews = EMPTY_NEWS_A
       // 检查视频是否有 title 属性，如果没有在 figure 中，则包装
       if (!video.closest('figure.news-media-wrapper')) {
         const title = video.getAttribute('title');
-        
+
         const figure = document.createElement('figure');
         figure.className = 'news-media-wrapper';
-        
+
         if (title && title.trim()) {
           const figcaption = document.createElement('figcaption');
           figcaption.className = 'news-media-caption';
           figcaption.textContent = title;
-          
+
           video.parentNode?.insertBefore(figure, video);
           figure.appendChild(video);
           figure.appendChild(figcaption);
@@ -177,7 +177,7 @@ export default function NewsDetailContent({ news, locale, allNews = EMPTY_NEWS_A
 
     // 处理剩余的视频链接（如果还有）- 支持多种视频格式
     const videoExtensions = ['mp4', 'webm', 'mov', 'avi', 'ogv', 'm4v', 'mkv'];
-    const videoLinkSelectors = videoExtensions.map((ext) => `a[href$=".${ext}"]`).join(', ');
+    const videoLinkSelectors = videoExtensions.map(ext => `a[href$=".${ext}"]`).join(', ');
     const videoLinks = contentRef.current.querySelectorAll<HTMLAnchorElement>(videoLinkSelectors);
     videoLinks.forEach((link: HTMLAnchorElement) => {
       const videoUrl = link.getAttribute('href');
@@ -186,7 +186,7 @@ export default function NewsDetailContent({ news, locale, allNews = EMPTY_NEWS_A
       }
 
       const linkText = link.textContent?.trim() || '';
-      
+
       const video = document.createElement('video');
       video.src = videoUrl;
       video.controls = true;
@@ -200,7 +200,7 @@ export default function NewsDetailContent({ news, locale, allNews = EMPTY_NEWS_A
       // 包装在 figure 中
       const figure = document.createElement('figure');
       figure.className = 'news-media-wrapper';
-      
+
       // 如果有链接文本，添加 figcaption
       if (linkText) {
         const figcaption = document.createElement('figcaption');
@@ -211,7 +211,7 @@ export default function NewsDetailContent({ news, locale, allNews = EMPTY_NEWS_A
       } else {
         figure.appendChild(video);
       }
-      
+
       link.replaceWith(figure);
     });
   }, [parsedContent]);
@@ -248,11 +248,11 @@ export default function NewsDetailContent({ news, locale, allNews = EMPTY_NEWS_A
       </div>
 
       <div className="hidden md:block">
-      <GridMotion items={items as any} />
+        <GridMotion items={items as any} />
       </div>
 
       {/* 新闻内容 */}
-      <article className="mx-auto max-w-[90vw] md:max-w-[72vw] px-4 pt-16 pb-16 md:px-8 md:pt-24">
+      <article className="mx-auto max-w-[90vw] px-4 pt-16 pb-16 md:max-w-[72vw] md:px-8 md:pt-24">
         {/* 标题 */}
         <motion.h1
           initial={{ opacity: 0, y: 20 }}
@@ -278,7 +278,7 @@ export default function NewsDetailContent({ news, locale, allNews = EMPTY_NEWS_A
         </motion.div>
 
         {/* 封面图片 */}
-        {news.coverImage && (
+        {(news.coverImage || news.coverImageUrl) && (
           <motion.figure
             initial={{ opacity: 0, scale: 0.95 }}
             animate={{ opacity: 1, scale: 1 }}
@@ -286,7 +286,7 @@ export default function NewsDetailContent({ news, locale, allNews = EMPTY_NEWS_A
             className="relative mb-8 aspect-[16/9] w-full overflow-hidden rounded-[12px] md:mb-12"
           >
             <Image
-              src={news.coverImage}
+              src={news.coverImage || news.coverImageUrl || ''}
               alt={news.title}
               fill
               className="object-cover"
