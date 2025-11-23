@@ -82,17 +82,17 @@ export default function FocusXinContentMobile() {
   }, []);
 
   return (
-    <main className="text-center">
+    <main className="text-center md:mx-auto">
       {/* Hero Section */}
-      <header className="px-4 pt-32" role="img" aria-label="FocusXin 专注力训练产品 - 移动端 / FocusXin Focus Training Product - Mobile">
-        <h1 className="text-fluid-4xl mb-2 font-medium">{t('hero_title')}</h1>
-        <p className="text-fluid-2xl mb-1 font-normal">{t('hero_subtitle')}</p>
-        <p className="text-fluid-base mb-5">{t('hero_description')}</p>
+      <header className="px-4 pt-32 md:px-12 md:pt-48" role="img" aria-label="FocusXin 专注力训练产品 - 移动端 / FocusXin Focus Training Product - Mobile">
+        <h1 className="text-fluid-4xl mb-2 font-medium md:mb-3 md:text-[4.5vw]">{t('hero_title')}</h1>
+        <p className="text-fluid-2xl mb-1 font-normal md:mb-2 md:text-[3vw]">{t('hero_subtitle')}</p>
+        <p className="text-fluid-base mb-5 md:mb-6 md:text-[2vw]">{t('hero_description')}</p>
 
         <motion.button
           whileTap={{ scale: 0.95 }}
           onClick={() => setShowIntroVideo(true)}
-          className="text-fluid-xl mb-5 inline-block rounded-[17px] border border-gray-900 px-5 py-2"
+          className="text-fluid-xl mb-5 inline-block rounded-[17px] border border-gray-900 px-5 py-2 md:mb-6 md:px-6 md:py-3 md:text-[2.5vw]"
         >
           {t('watch_video')}
           <span className="ml-2">›</span>
@@ -103,13 +103,13 @@ export default function FocusXinContentMobile() {
           alt="FocusXin 专注力训练产品展示 / FocusXin Focus Training Product Display"
           width={750}
           height={500}
-          className="w-full"
+          className="w-full md:mx-auto md:max-w-[85%]"
         />
       </header>
 
       {/* Problem Section */}
-      <section className="mb-32 px-4 py-12">
-        <h2 id="problem-title-mobile" className="text-fluid-3xl mb-[8vw] font-medium">{t('problem_title')}</h2>
+      <section className="mb-32 px-4 py-12 md:px-12 md:py-24">
+        <h2 id="problem-title-mobile" className="text-fluid-3xl mb-[8vw] font-medium md:mb-[16vw] md:text-[3.75vw]">{t('problem_title')}</h2>
 
         <div className="relative mx-auto flex justify-center pt-32">
           <Image
@@ -125,7 +125,7 @@ export default function FocusXinContentMobile() {
               const positions = [
                 'left-[calc(50%-46vw)] top-2/3 -translate-y-1/2 h-[22vw] w-[22vw]',
                 'left-[calc(50%-39vw)] top-[calc(50%-26vw)] h-[20vw] w-[20vw]',
-                'left-1/2 top-[calc(50%-38vw)] -translate-x-1/2 h-[22vw] w-[22vw]',
+                'left-1/2 top-[calc(50%-38vw)] -translate-x-1/2 h-[22vw] w-[22vw] md:top-[calc(50%-42vw)]',
                 'left-[calc(50%+22vw)] top-[calc(50%-20vw)] h-[18vw] w-[18vw]',
                 'left-[calc(50%+26vw)] top-2/3 -translate-y-1/2 h-[20vw] w-[20vw]',
               ];
@@ -138,28 +138,28 @@ export default function FocusXinContentMobile() {
                   whileInView={{ opacity: 1, scale: 1 }}
                   viewport={{ once: true }}
                   transition={{ duration: 0.5, delay: index * 0.1 }}
-                  className={`text-fluid-sm absolute flex items-center justify-center rounded-full !text-white ${positions[index]} ${backgrounds[index]}`}
+                  className={`text-fluid-sm absolute flex items-center justify-center rounded-full !text-white md:text-[1.5vw] ${positions[index]} ${backgrounds[index]}`}
                   dangerouslySetInnerHTML={{ __html: t(problem.textKey) }}
                 />
               );
             })}
           </ul>
 
-          <p className="text-fluid-lg absolute top-[calc(100%+8vw)] rounded-[9.6vw] bg-[#4F59A5] px-[9.6vw] py-4 font-medium !text-white">
+          <p className="text-fluid-lg absolute top-[calc(100%+8vw)] rounded-[9.6vw] bg-[#4F59A5] px-[9.6vw] py-4 font-medium !text-white md:rounded-2xl md:px-12 md:py-5 md:text-[2.25vw]">
             {t('problem_conclusion')}
           </p>
         </div>
       </section>
 
       {/* Principle Section */}
-      <section className="relative px-4 pb-48">
-        <div className="px-12">
-          <h2 id="principle-title-mobile" className="text-fluid-3xl mb-5 font-medium" dangerouslySetInnerHTML={{ __html: t('principle_title') }} />
+      <section className="relative px-4 pb-48 md:px-12 md:pb-60">
+        <div className="px-12 md:px-16">
+          <h2 id="principle-title-mobile" className="text-fluid-3xl mb-5 font-medium md:mb-6 md:text-[3.75vw]" dangerouslySetInnerHTML={{ __html: t('principle_title') }} />
 
           <motion.button
             whileTap={{ scale: 0.95 }}
             onClick={() => setShowPrincipleVideo(true)}
-            className="text-fluid-sm inline-block rounded-[17px] border border-gray-900 px-5 py-2"
+            className="text-fluid-sm inline-block rounded-[17px] border border-gray-900 px-5 py-2 md:px-6 md:py-3 md:text-[1.75vw]"
           >
             {t('watch_principle')}
             <span className="ml-2">›</span>
@@ -171,10 +171,10 @@ export default function FocusXinContentMobile() {
           alt="FocusXin 神经反馈训练原理示意图 - 脑电信号实时反馈机制 / FocusXin neurofeedback training principle - Real-time EEG signal feedback mechanism"
           width={300}
           height={300}
-          className="mx-auto mb-4 w-[80vw]"
+          className="mx-auto mb-4 w-[80vw] md:w-[65vw] md:max-w-[600px]"
         />
 
-        <p className="text-fluid-sm px-10 text-right text-gray-500">
+        <p className="text-fluid-sm px-10 text-right text-gray-500 md:px-16 md:text-[1.75vw]">
           {t('principle_footnote')}
           <sup>[1]</sup>
         </p>
@@ -187,21 +187,21 @@ export default function FocusXinContentMobile() {
           alt="FocusXin 训练模式优势展示 - 多种训练模式对比 / FocusXin training mode advantages - Multiple training modes comparison"
           width={750}
           height={500}
-          className="w-full"
+          className="w-full md:mx-auto md:max-w-[85%]"
         />
 
-        <ul className="absolute top-[12vw] right-8 space-y-3">
+        <ul className="absolute top-[12vw] right-8 space-y-3 md:top-[32vw] md:right-16 md:space-y-4">
           {modeList.map(mode => (
-            <li key={mode.titleKey} className="text-fluid-lg flex items-start text-left font-medium">
+            <li key={mode.titleKey} className="text-fluid-lg flex items-start text-left font-medium md:text-[2.25vw]">
               {t(mode.titleKey)}
               {mode.superscriptKey && (
-                <sup className="text-fluid-sm mt-2 ml-1">{t(mode.superscriptKey)}</sup>
+                <sup className="text-fluid-sm mt-2 ml-1 md:mt-3 md:text-[1.5vw]">{t(mode.superscriptKey)}</sup>
               )}
             </li>
           ))}
         </ul>
 
-        <ul className="mt-4 space-y-2 px-8 text-left text-[2.7vw] text-[#929292]">
+        <ul className="mt-4 space-y-2 px-8 text-left text-[2.7vw] text-[#929292] md:text-[1.5vw]">
           {literatureList.map(lit => (
             <li key={lit.key} className="break-words">
               {t(lit.key)}
@@ -211,60 +211,60 @@ export default function FocusXinContentMobile() {
       </section>
 
       {/* Training Modules */}
-      <section className="px-8 py-8">
-        <h2 id="training-title-mobile" className="text-fluid-3xl mb-8 font-medium" dangerouslySetInnerHTML={{ __html: t('training_title') }} />
+      <section className="px-8 py-8 md:px-12 md:py-12">
+        <h2 id="training-title-mobile" className="text-fluid-3xl mb-8 font-medium md:mb-10 md:text-[3.75vw]" dangerouslySetInnerHTML={{ __html: t('training_title') }} />
 
-        <div className="flex justify-center space-x-2">
+        <div className="flex justify-center space-x-2 md:space-x-4">
           {trainingTypes.map(training => (
-            <div key={training.nameKey} className="w-[29.3vw]">
-              <h3 className="text-fluid-base mb-3 font-medium">{t(training.nameKey)}</h3>
+            <div key={training.nameKey} className="w-[29.3vw] md:w-[25vw] md:max-w-[200px]">
+              <h3 className="text-fluid-base mb-3 font-medium md:mb-4 md:text-[2vw]">{t(training.nameKey)}</h3>
               <Image
                 src={training.image}
                 alt={`${t(training.nameKey)} - FocusXin 训练模块示意图 / ${t(training.nameKey)} - FocusXin training module illustration`}
                 width={110}
                 height={110}
-                className="mb-8 w-full"
+                className="mb-8 w-full md:mb-10"
               />
-              <p className="text-fluid-sm text-[#3b3b3b]">{t(training.descKey)}</p>
+              <p className="text-fluid-sm text-[#3b3b3b] md:text-[1.75vw]">{t(training.descKey)}</p>
             </div>
           ))}
         </div>
       </section>
 
       {/* Assessment Section */}
-      <section className="px-8 py-8">
-        <h2 id="assessment-title-mobile" className="text-fluid-3xl mb-3 font-medium">{t('assessment_title')}</h2>
-        <p className="text-fluid-base mb-7" dangerouslySetInnerHTML={{ __html: t('assessment_description') }} />
+      <section className="px-8 py-8 md:px-12 md:py-12">
+        <h2 id="assessment-title-mobile" className="text-fluid-3xl mb-3 font-medium md:mb-4 md:text-[3.75vw]">{t('assessment_title')}</h2>
+        <p className="text-fluid-base mb-7 md:mb-8 md:text-[2vw]" dangerouslySetInnerHTML={{ __html: t('assessment_description') }} />
 
-        <div className="relative flex flex-col items-center space-y-6">
+        <div className="relative flex flex-col items-center space-y-6 md:space-y-8">
           <Image
             src={imageUrls.assessment1Mobile}
             alt="FocusXin 能力评估界面 1 - 专注力评估测试展示 / FocusXin ability assessment interface 1 - Focus assessment test display"
             width={280}
             height={280}
-            className="w-[74.7vw]"
+            className="w-[74.7vw] md:w-[60vw] md:max-w-[550px]"
           />
           <Image
             src={imageUrls.assessment2Mobile}
             alt="FocusXin 能力评估界面 2 - 评估结果分析展示 / FocusXin ability assessment interface 2 - Assessment result analysis display"
             width={280}
             height={280}
-            className="w-[74.7vw]"
+            className="w-[74.7vw] md:w-[60vw] md:max-w-[550px]"
           />
           <Image
             src={imageUrls.logoMobile}
             alt="FocusXin Logo - 专注力训练产品标识 / FocusXin Logo - Focus training product logo"
             width={34}
             height={34}
-            className="absolute right-0 -bottom-3 w-[9.1vw]"
+            className="absolute right-0 -bottom-3 w-[9.1vw] md:w-[7vw] md:max-w-[50px]"
           />
         </div>
       </section>
 
       {/* Game Section */}
-      <section className="px-8 py-8">
-        <h2 id="assessment-title-mobile" className="text-fluid-3xl mb-3 font-medium">{t('game_title')}</h2>
-        <p className="text-fluid-base mb-5" dangerouslySetInnerHTML={{ __html: t('game_description') }} />
+      <section className="px-8 py-8 md:px-12 md:py-12">
+        <h2 id="assessment-title-mobile" className="text-fluid-3xl mb-3 font-medium md:mb-4 md:text-[3.75vw]">{t('game_title')}</h2>
+        <p className="text-fluid-base mb-5 md:mb-6 md:text-[2vw]" dangerouslySetInnerHTML={{ __html: t('game_description') }} />
 
         <div className="relative">
           <Image
@@ -272,22 +272,22 @@ export default function FocusXinContentMobile() {
             alt="FocusXin 游戏化训练界面 - 互动训练游戏展示 / FocusXin gamified training interface - Interactive training game display"
             width={270}
             height={270}
-            className="mx-auto w-[72vw]"
+            className="mx-auto w-[72vw] md:w-[58vw] md:max-w-[530px]"
           />
           <Image
             src={imageUrls.logoMobile}
             alt="FocusXin Logo - 专注力训练产品标识 / FocusXin Logo - Focus training product logo"
             width={34}
             height={34}
-            className="absolute right-0 -bottom-3 w-[9.1vw]"
+            className="absolute right-0 -bottom-3 w-[9.1vw] md:w-[7vw] md:max-w-[50px]"
           />
         </div>
       </section>
 
       {/* Tracking Section */}
-      <section className="px-8 py-8">
-        <h2 id="assessment-title-mobile" className="text-fluid-3xl mb-3 font-medium">{t('tracking_title')}</h2>
-        <p className="text-fluid-base mb-5" dangerouslySetInnerHTML={{ __html: t('tracking_description') }} />
+      <section className="px-8 py-8 md:px-12 md:py-12">
+        <h2 id="assessment-title-mobile" className="text-fluid-3xl mb-3 font-medium md:mb-4 md:text-[3.75vw]">{t('tracking_title')}</h2>
+        <p className="text-fluid-base mb-5 md:mb-6 md:text-[2vw]" dangerouslySetInnerHTML={{ __html: t('tracking_description') }} />
 
         <div className="relative">
           <Image
@@ -295,21 +295,21 @@ export default function FocusXinContentMobile() {
             alt="FocusXin 训练效果追踪界面 - 专注力变化趋势图 / FocusXin training effect tracking interface - Focus change trend chart"
             width={280}
             height={280}
-            className="mx-auto w-[74.7vw]"
+            className="mx-auto w-[74.7vw] md:w-[60vw] md:max-w-[550px]"
           />
           <Image
             src={imageUrls.logoMobile}
             alt="FocusXin Logo - 专注力训练产品标识 / FocusXin Logo - Focus training product logo"
             width={34}
             height={34}
-            className="absolute -bottom-3 left-8 w-[9.1vw] scale-x-[-1]"
+            className="absolute -bottom-3 left-8 w-[9.1vw] scale-x-[-1] md:left-12 md:w-[7vw] md:max-w-[50px]"
           />
         </div>
       </section>
 
       {/* Verification Section */}
-      <section className="px-8 py-8">
-        <h2 id="verification-title-mobile" className="text-fluid-3xl mb-5 font-medium">{t('verification_title')}</h2>
+      <section className="px-8 py-8 md:px-12 md:py-12">
+        <h2 id="verification-title-mobile" className="text-fluid-3xl mb-5 font-medium md:mb-6 md:text-[3.75vw]">{t('verification_title')}</h2>
 
         <div className="mx-auto w-[80vw] space-y-12">
           <Image
@@ -330,21 +330,21 @@ export default function FocusXinContentMobile() {
       </section>
 
       {/* Patents Section */}
-      <section className="px-8 py-8">
-        <h2 id="patent-title-mobile" className="text-fluid-3xl mb-5 font-medium" dangerouslySetInnerHTML={{ __html: t('patent_title') }} />
+      <section className="px-8 py-8 md:px-12 md:py-12">
+        <h2 id="patent-title-mobile" className="text-fluid-3xl mb-5 font-medium md:mb-6 md:text-[3.75vw]" dangerouslySetInnerHTML={{ __html: t('patent_title') }} />
 
         <Image
           src={imageUrls.patent}
           alt="FocusXin 产品专利证书 - 技术创新与知识产权 / FocusXin product patents - Technical innovation and intellectual property"
           width={312}
           height={150}
-          className="mx-auto mb-7 w-[83.2vw]"
+          className="mx-auto mb-7 w-[83.2vw] md:mb-8 md:w-[70vw] md:max-w-[650px]"
         />
 
-        <div className="text-fluid-sm flex flex-wrap justify-center gap-y-3 text-gray-500">
+        <div className="text-fluid-sm flex flex-wrap justify-center gap-y-3 text-gray-500 md:grid md:grid-cols-4 md:gap-x-0 md:gap-y-4 md:text-[1.75vw]">
           {patentList.map((patentNumber, groupIndex) => (
-            <div key={groupIndex} className="flex w-[40vw] flex-col items-center space-y-3">
-              <span className="text-fluid-sm text-center">
+            <div key={groupIndex} className="flex w-[40vw] flex-col items-center space-y-3 md:w-full">
+              <span className="text-fluid-sm text-center md:text-[1.75vw]">
                 {t('patent_prefix')}
                 {patentNumber}
               </span>
@@ -388,7 +388,9 @@ export default function FocusXinContentMobile() {
         </motion.div>
       )}
       {/* AfterSales */}
-      <AfterSalesMobile is15Days />
+      <div className="md:px-[60px]">
+        <AfterSalesMobile is15Days />
+      </div>
 
       {/* Spacer for fixed purchase bar to prevent overlap with footer */}
       {/* {product && <div className="h-32" />} */}
