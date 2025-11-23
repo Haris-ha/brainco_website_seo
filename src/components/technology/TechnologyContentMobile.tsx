@@ -20,7 +20,7 @@ export default function TechnologyContentMobile() {
   return (
     <main className="w-full">
       {/* Hero Banner */}
-      <header className="relative min-h-[700px] w-full">
+      <header className="relative min-h-[700px] w-full md:h-[600px] md:overflow-hidden">
         <Image
           src="https://website-www-brainco-cn.oss-cn-hangzhou.aliyuncs.com/images/ftbqmsviOKpgLDrW.webp"
           alt="BrainCo 脑机接口技术研究 - 移动端背景 / BrainCo Brain-Computer Interface Technology Research - Mobile Background"
@@ -30,18 +30,18 @@ export default function TechnologyContentMobile() {
           style={{ minHeight: '700px', objectPosition: 'center' }}
         />
         {/* 半透明遮罩层，确保文字对比度 */}
-        <div className="absolute inset-0 z-[1] bg-black/5" aria-hidden="true" />
+        <div className="absolute inset-0 z-[1] bg-black/5 md:h-[600px]" aria-hidden="true" />
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 0.8 }}
-          className="relative z-10 flex min-h-full w-full flex-col justify-center px-[10vw] text-left !text-white h-[700px]"
+          className="relative z-10 flex min-h-full w-full flex-col justify-center px-[10vw] text-left !text-white md:px-[60px] h-[700px]"
         >
           <motion.h1
             initial={{ scale: 0.8, opacity: 0 }}
             animate={{ scale: 1, opacity: 1 }}
             transition={{ duration: 0.6, delay: 0.1 }}
-            className="text-fluid-4xl mb-6 text-left font-bold drop-shadow-[0_2px_8px_rgba(0,0,0,0.5)]"
+            className="text-fluid-4xl mb-6 text-left font-bold drop-shadow-[0_2px_8px_rgba(0,0,0,0.5)] md:mb-8 md:text-5xl"
           >
             {t('page_title')}
           </motion.h1>
@@ -49,7 +49,7 @@ export default function TechnologyContentMobile() {
             initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.4 }}
-            className="text-fluid-base leading-[1.7] drop-shadow-[0_2px_6px_rgba(0,0,0,0.4)]"
+            className="text-fluid-base leading-[1.7] drop-shadow-[0_2px_6px_rgba(0,0,0,0.4)] md:text-lg md:leading-[1.8]"
           >
             {t('page_intro')}
           </motion.p>
@@ -57,13 +57,13 @@ export default function TechnologyContentMobile() {
       </header>
 
       {/* Research Section */}
-      <section className="mt-[36px] px-4">
+      <section className="relative z-10 mt-[36px] bg-white px-4 md:mt-[50px] md:px-[60px] md:pt-[50px] md:pb-[20px]">
         <motion.h2
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="text-fluid-3xl mb-8 text-center font-bold"
+          className="text-fluid-3xl mb-8 text-center font-bold md:mb-12 md:text-4xl"
         >
           {t('research_collaboration')}
         </motion.h2>
@@ -73,7 +73,7 @@ export default function TechnologyContentMobile() {
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
           transition={{ duration: 0.8 }}
-          className="mx-4"
+          className="mx-4 md:mx-0"
         >
           <SimpleCarousel
             items={researchArticles.map(article => (
@@ -82,15 +82,15 @@ export default function TechnologyContentMobile() {
                 initial={{ opacity: 0, scale: 0.95 }}
                 animate={{ opacity: 1, scale: 1 }}
                 transition={{ duration: 0.5 }}
-                className="relative flex h-[320px] flex-col rounded-lg bg-gradient-to-br from-gray-50 to-white p-5"
+                className="relative flex h-[320px] flex-col rounded-lg bg-gradient-to-br from-gray-50 to-white p-5 md:h-[380px] md:p-8"
               >
                 {/* 装饰性渐变效果 */}
                 <div className="absolute inset-0 rounded-lg bg-gradient-to-br from-blue-400/0 to-blue-400/5 opacity-50" />
 
                 <div className="relative flex flex-1 flex-col justify-between">
                   <div className="flex-1">
-                    <p className="text-fluid-lg line-clamp-8 leading-relaxed text-[#595757]">{article.content}</p>
-                    <h4 className="text-fluid-xl mt-5 line-clamp-3 leading-[1.3] font-bold text-[#333333]">
+                    <p className="text-fluid-lg line-clamp-8 leading-relaxed text-[#595757] md:text-xl md:leading-[1.8]">{article.content}</p>
+                    <h4 className="text-fluid-xl mt-5 line-clamp-3 leading-[1.3] font-bold text-[#333333] md:mt-6 md:text-2xl">
                       {article.title}
                     </h4>
                   </div>
@@ -98,10 +98,10 @@ export default function TechnologyContentMobile() {
                     href={article.link}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="mt-4 flex items-center"
+                    className="mt-4 flex items-center md:mt-6"
                     whileTap={{ scale: 0.95 }}
                   >
-                    <span className="relative text-base font-bold text-[#1A74BF]">
+                    <span className="relative text-base font-bold text-[#1A74BF] md:text-lg">
                       {t('learn_more')}
                     </span>
                     <motion.div
@@ -137,7 +137,7 @@ export default function TechnologyContentMobile() {
         whileInView={{ opacity: 1 }}
         viewport={{ once: true }}
         transition={{ duration: 0.8 }}
-        className="mt-8 px-5"
+        className="mt-8 px-5 md:mt-12 md:px-[60px]"
       >
         {cooperatingInstitutions.map((item, index) => (
           <motion.li
@@ -146,7 +146,7 @@ export default function TechnologyContentMobile() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: index * 0.1 }}
-            className="mb-[30px] overflow-hidden rounded-lg bg-[#f6f6f6] pb-[20px]"
+            className="mb-[30px] overflow-hidden rounded-lg bg-[#f6f6f6] pb-[20px] md:mb-[40px] md:rounded-xl md:pb-[30px]"
           >
             <div className="w-full">
               <Image
@@ -157,21 +157,21 @@ export default function TechnologyContentMobile() {
                 className="h-auto w-full"
               />
             </div>
-            <div className="px-5">
-              <h2 className="text-fluid-xl mt-6 leading-[1.5] font-semibold">
+            <div className="px-5 md:px-8">
+              <h2 className="text-fluid-xl mt-6 leading-[1.5] font-semibold md:mt-8 md:text-2xl">
                 {item.title}
               </h2>
-              <p className="text-fluid-base mt-3 leading-[1.5]">
+              <p className="text-fluid-base mt-3 leading-[1.5] md:mt-4 md:text-lg md:leading-[1.7]">
                 {item.desc}
               </p>
               <motion.a
                 href={item.openUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="mt-10 flex items-center"
+                className="mt-10 flex items-center md:mt-12"
                 whileTap={{ scale: 0.95 }}
               >
-                <span className="relative text-base font-bold text-[#1A74BF]">
+                <span className="relative text-base font-bold text-[#1A74BF] md:text-lg">
                   {t('learn_more')}
                 </span>
                 <motion.div
@@ -198,13 +198,13 @@ export default function TechnologyContentMobile() {
       </motion.ul>
 
       {/* Process Timeline */}
-      <section className="mt-[55px] mb-[60px]">
+      <section className="mt-[55px] mb-[60px] md:mt-[70px] md:mb-[80px] md:px-[60px]">
         <motion.h2
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="text-fluid-3xl mb-10 text-center font-bold"
+          className="text-fluid-3xl mb-10 text-center font-bold md:mb-14 md:text-4xl"
         >
           {t('timeline_title')}
         </motion.h2>
@@ -251,8 +251,8 @@ export default function TechnologyContentMobile() {
                   >
                     <SimpleCarousel
                       items={item.data.map(data => (
-                        <div key={data.url} className="flex flex-col justify-start px-6">
-                          <div className="flex h-[170px] items-center overflow-hidden">
+                        <div key={data.url} className="flex flex-col justify-start px-6 md:px-10">
+                          <div className="flex h-[170px] items-center overflow-hidden md:h-[220px]">
                             <Image
                               src={data.url}
                               alt={`${item.year} 年历程图片 / ${item.year} timeline image`}
@@ -261,11 +261,11 @@ export default function TechnologyContentMobile() {
                               className="h-auto w-full object-contain"
                             />
                           </div>
-                          <h3 className="text-fluid-4xl my-[14px] flex items-end leading-[1.2]">
+                          <h3 className="text-fluid-4xl my-[14px] flex items-end leading-[1.2] md:my-[18px] md:text-5xl">
                             {item.year}
-                            {t('year_suffix') && <span className="text-fluid-lg mb-2 no-underline">{t('year_suffix')}</span>}
+                            {t('year_suffix') && <span className="text-fluid-lg mb-2 no-underline md:mb-2.5 md:text-xl">{t('year_suffix')}</span>}
                           </h3>
-                          <p className="text-fluid-lg w-full text-left leading-relaxed">
+                          <p className="text-fluid-lg w-full text-left leading-relaxed md:text-xl md:leading-[1.8]">
                             {data.desc}
                           </p>
                         </div>
@@ -287,7 +287,7 @@ export default function TechnologyContentMobile() {
         whileInView={{ opacity: 1 }}
         viewport={{ once: true }}
         transition={{ duration: 0.8 }}
-        className="mb-[90px] px-5 break-words"
+        className="mb-[90px] px-5 break-words md:px-[60px]"
       >
         {footnotes.map((item, index) => (
           <motion.li

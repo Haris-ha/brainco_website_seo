@@ -1,9 +1,9 @@
 'use client';
 
 import { useEffect, useState } from 'react';
-import { useIsMobile } from '@/hooks/useIsMobile';
 import TechnologyContent from '@/components/technology/TechnologyContent';
 import TechnologyContentMobile from '@/components/technology/TechnologyContentMobile';
+import { useIsMobile } from '@/hooks/useIsMobile';
 
 export default function TechnologyPageClient() {
   const isMobile = useIsMobile();
