@@ -15,7 +15,7 @@ export default function NewsList({ newsList, isMobile = false }: NewsListProps) 
 
   if (newsList.length === 0) {
     return (
-      <div className="text-fluid-lg py-[4vw] text-center text-[#999999] md:py-[60px]">
+      <div className="text-fluid-lg py-[4vw] text-center text-[#999999] md:py-[60px] md:text-xl">
         {t('no_news')}
       </div>
     );
@@ -38,7 +38,7 @@ export default function NewsList({ newsList, isMobile = false }: NewsListProps) 
       initial="hidden"
       whileInView="visible"
       viewport={{ once: true, margin: '-300px' }}
-      className={`grid auto-rows-fr gap-x-[4vw] gap-y-[6vw] md:gap-x-[38px] md:gap-y-[40px] ${
+      className={`grid auto-rows-fr gap-x-[4vw] gap-y-[6vw] md:gap-x-[30px] md:gap-y-[35px] ${
         isMobile ? 'grid-cols-2' : 'grid-cols-2'
       }`}
     >

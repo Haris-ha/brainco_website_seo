@@ -101,7 +101,7 @@ export default function HotNewsCarousel({ hotNews, isMobile = false }: HotNewsCa
     >
       <div className="mx-auto w-full max-w-full">
         <div
-          className="relative aspect-[16/9] w-full cursor-pointer overflow-hidden rounded-[10px]"
+          className="relative aspect-[16/9] w-full cursor-pointer overflow-hidden rounded-[10px] md:rounded-[12px]"
           onClick={e => handleImageClick(item, e)}
         >
           <Image
@@ -109,7 +109,7 @@ export default function HotNewsCarousel({ hotNews, isMobile = false }: HotNewsCa
             alt={`${item.title} - 热点新闻配图 / Hot news image`}
             fill
             className="object-cover transition-transform duration-500 hover:scale-105"
-            sizes="(max-width: 768px) 90vw, 1200px"
+            sizes="(max-width: 768px) 90vw, (max-width: 1024px) 85vw, 1200px"
             priority={index === 0}
             draggable={false}
             onClick={e => handleImageClick(item, e)}
@@ -118,17 +118,17 @@ export default function HotNewsCarousel({ hotNews, isMobile = false }: HotNewsCa
         </div>
         <div
           className={`text-center ${
-            isMobile ? 'px-[2vw] pt-[2.5vw]' : 'px-[2vw] pt-[24px] md:px-[30px]'
+            isMobile ? 'px-[2vw] pt-[2.5vw] md:px-[30px] md:pt-[30px]' : 'px-[2vw] pt-[24px] md:px-[30px]'
           }`}
         >
           <div
-            className={`font-medium text-[#333333] ${
-              isMobile ? 'text-fluid-base mb-[1vw]' : 'text-fluid-2xl mb-[1.5vw]'
+            className={`mb-[1vw] font-medium text-[#333333] ${
+              isMobile ? 'text-fluid-base md:mb-[12px] md:text-xl' : 'text-fluid-2xl mb-[1.5vw]'
             }`}
           >
             {item.title}
           </div>
-          <div className={`${isMobile ? 'text-fluid-lg' : 'text-fluid-xl'} mb-0 text-[#999999] xl:mb-[1vw]`}>{item.time}</div>
+          <div className={`${isMobile ? 'text-fluid-lg md:text-lg' : 'text-fluid-xl'} mb-0 text-[#999999] xl:mb-[1vw]`}>{item.time}</div>
         </div>
       </div>
     </div>
@@ -141,7 +141,7 @@ export default function HotNewsCarousel({ hotNews, isMobile = false }: HotNewsCa
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true, margin: '-200px' }}
         transition={{ duration: 0.3 }}
-        className="mb-[2vw] bg-[#FAFAFA] pb-[3vw] md:mb-[40px] md:pb-[40px]"
+        className="mb-[2vw] bg-[#FAFAFA] pb-[3vw] md:mb-[50px] md:pb-[50px]"
         aria-label="热点新闻轮播 / Hot news carousel"
       >
         <div ref={carouselRef}>

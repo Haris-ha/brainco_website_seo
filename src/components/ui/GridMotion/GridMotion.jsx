@@ -1,5 +1,5 @@
 import { gsap } from 'gsap';
-import { useEffect, useRef } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import './GridMotion.css';
 
 /**
@@ -13,6 +13,8 @@ const GridMotion = ({ items = [], gradientColor = 'black' } = {}) => {
   const rowRefs = useRef([]);
   // 初始化时使用默认值，避免 SSR 错误
   const mouseXRef = useRef(typeof window !== 'undefined' ? window.innerWidth / 2 : 0);
+  // 使用 state 来标记是否已挂载，避免 hydration 错误
+  const [isMounted, setIsMounted] = useState(false);
 
   const totalItems = 28;
   const defaultItems = Array.from({ length: totalItems }, (_, index) => `Item ${index + 1}`);
@@ -23,6 +25,9 @@ const GridMotion = ({ items = [], gradientColor = 'black' } = {}) => {
     if (typeof window === 'undefined') {
       return;
     }
+
+    // 标记组件已挂载，避免 hydration 错误
+    setIsMounted(true);
 
     // 初始化鼠标位置
     mouseXRef.current = window.innerWidth / 2;
@@ -97,9 +102,13 @@ const GridMotion = ({ items = [], gradientColor = 'black' } = {}) => {
                         ? (
                             <div
                               className="row__item-img"
-                              style={{
-                                backgroundImage: `url(${content})`,
-                              }}
+                              style={
+                                isMounted
+                                  ? {
+                                      backgroundImage: `url(${content})`,
+                                    }
+                                  : {}
+                              }
                             >
                             </div>
                           )

@@ -1,8 +1,6 @@
 import type { Metadata } from 'next';
 import { setRequestLocale } from 'next-intl/server';
-import { headers } from 'next/headers';
-import NewsContent from '@/components/news/NewsContent';
-import NewsContentMobile from '@/components/news/NewsContentMobile';
+import NewsPageClient from '@/components/news/NewsPageClient';
 import DynamicCanonical from '@/components/seo/DynamicCanonical';
 import StructuredData from '@/components/seo/StructuredData';
 import { createPageMetadata } from '@/lib/metadata';
@@ -115,11 +113,6 @@ export default async function NewsPage(props: NewsPageProps) {
       })),
   };
 
-  // Detect mobile device from user agent
-  const headersList = await headers();
-  const userAgent = headersList.get('user-agent') || '';
-  const isMobile = /mobile|android|iphone|ipad|phone/i.test(userAgent);
-
   return (
     <>
       {/* 添加结构化数据 - 直接从 CMS 获取 */}
@@ -132,9 +125,7 @@ export default async function NewsPage(props: NewsPageProps) {
           __html: JSON.stringify(newsStructuredData),
         }}
       />
-      {isMobile
-        ? <NewsContentMobile initialHotNews={hotNews} initialNewsList={regularNews} />
-        : <NewsContent initialHotNews={hotNews} initialNewsList={regularNews} />}
+      <NewsPageClient initialHotNews={hotNews} initialNewsList={regularNews} />
     </>
   );
 }

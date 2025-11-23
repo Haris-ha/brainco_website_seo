@@ -19,7 +19,9 @@ export default function NewsHero({ isMobile = false }: NewsHeroProps) {
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       transition={{ duration: 0.8 }}
-      className="relative flex w-full items-center justify-center"
+      className={`relative flex w-full items-center justify-center ${
+        isMobile ? 'md:h-[50vh] md:min-h-[300px]' : ''
+      }`}
       style={{
         height: isMobile ? '40vh' : '100vh',
         minHeight: isMobile ? '200px' : '320px',
@@ -39,7 +41,7 @@ export default function NewsHero({ isMobile = false }: NewsHeroProps) {
         transition={{ duration: 0.6, delay: 0.3 }}
         className={`relative z-10 text-center font-bold !text-white drop-shadow-[0_2px_8px_rgba(0,0,0,0.5)] ${
           isMobile
-            ? 'text-fluid-5xl'
+            ? 'text-fluid-5xl md:text-5xl lg:text-6xl'
             : 'text-fluid-7xl'
         }`}
       >

@@ -217,7 +217,7 @@ export default function NewsDetailContent({ news, locale, allNews = EMPTY_NEWS_A
   }, [parsedContent]);
 
   return (
-    <main className="min-h-screen bg-white">
+    <main className="bg-white lg:min-h-screen">
       {/* 返回按钮 */}
       <div className="sticky top-0 z-40 bg-white/80 backdrop-blur-sm">
         <div className="mx-auto flex max-w-[1200px] items-center px-4 py-4 md:px-8">
@@ -247,18 +247,18 @@ export default function NewsDetailContent({ news, locale, allNews = EMPTY_NEWS_A
         </div>
       </div>
 
-      <div className="hidden md:block">
+      <div className="hidden lg:block">
         <GridMotion items={items as any} />
       </div>
 
       {/* 新闻内容 */}
-      <article className="mx-auto max-w-[90vw] px-4 pt-16 pb-16 md:max-w-[72vw] md:px-8 md:pt-24">
+      <article className="mx-auto max-w-[90vw] px-4 pt-16 pb-16 md:max-w-[90vw] md:px-4 lg:max-w-[72vw] lg:px-8 lg:pt-24">
         {/* 标题 */}
         <motion.h1
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
-          className="mb-6 text-3xl leading-tight font-semibold text-[#333333] md:mb-8 md:text-4xl lg:text-5xl"
+          className="mb-6 text-3xl leading-tight font-semibold text-[#333333] lg:mb-8 lg:text-4xl xl:text-5xl"
         >
           {news.title}
         </motion.h1>
@@ -268,13 +268,13 @@ export default function NewsDetailContent({ news, locale, allNews = EMPTY_NEWS_A
           initial={{ opacity: 0, y: 10 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: 0.1 }}
-          className="mb-8 flex flex-wrap items-center gap-4 text-[#666] md:mb-12"
+          className="mb-8 flex flex-wrap items-center gap-4 text-[#666] lg:mb-12"
         >
-          <time className="text-base md:text-2xl">
+          <time className="text-base lg:text-2xl">
             {formatDate(news.newsDate, 'YYYY年MM月DD日')}
           </time>
-          <span className="text-base md:text-xl">•</span>
-          <span className="text-base md:text-xl">BrainCo</span>
+          <span className="text-base lg:text-xl">•</span>
+          <span className="text-base lg:text-xl">BrainCo</span>
         </motion.div>
 
         {/* 封面图片 */}
@@ -283,7 +283,7 @@ export default function NewsDetailContent({ news, locale, allNews = EMPTY_NEWS_A
             initial={{ opacity: 0, scale: 0.95 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.6, delay: 0.2 }}
-            className="relative mb-8 aspect-[16/9] w-full overflow-hidden rounded-[12px] md:mb-12"
+            className="relative mb-8 aspect-[16/9] w-full overflow-hidden rounded-[12px] lg:mb-12"
           >
             <Image
               src={news.coverImage || news.coverImageUrl || ''}
@@ -347,7 +347,7 @@ export default function NewsDetailContent({ news, locale, allNews = EMPTY_NEWS_A
                 d="M15 19l-7-7 7-7"
               />
             </svg>
-            <span className="text-lg md:text-xl">{t('back_to_list') || '返回新闻列表'}</span>
+            <span className="text-lg lg:text-xl">{t('back_to_list') || '返回新闻列表'}</span>
           </button>
         </motion.div>
       </article>
