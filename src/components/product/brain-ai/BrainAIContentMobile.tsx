@@ -79,7 +79,7 @@ export default function BrainAIContentMobile() {
   return (
     <main className="w-full bg-white">
       {/* Hero Banner */}
-      <header className="relative w-full pt-24" role="img" aria-label="BrainAI 智能教育产品 - 移动端 / BrainAI Smart Education Product - Mobile">
+      <header className="relative w-full pt-24 md:pt-0" role="img" aria-label="BrainAI 智能教育产品 - 移动端 / BrainAI Smart Education Product - Mobile">
         <picture>
           <source
             media="(min-width: 900px)"
@@ -97,7 +97,7 @@ export default function BrainAIContentMobile() {
         </picture>
         <div className="absolute right-0 bottom-0 left-0 flex flex-col items-center justify-center">
           <div
-            className="mb-40 w-[90%] rounded-3xl px-8 py-8 text-center !text-white"
+            className="mb-40 w-[90%] rounded-3xl px-8 py-8 text-center !text-white md:mb-60 md:w-[85%] md:px-12 md:py-10"
             style={{
               background: 'linear-gradient(to top, rgba(0, 0, 0, 0.25) 0%, rgba(0, 0, 0, 0.15) 70%, transparent 100%)',
               backdropFilter: 'blur(6px)',
@@ -108,7 +108,7 @@ export default function BrainAIContentMobile() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6 }}
-              className="text-fluid-4xl mb-2 text-left font-normal drop-shadow-lg"
+              className="text-fluid-4xl mb-2 text-left font-normal drop-shadow-lg md:mb-3 md:text-5xl"
             >
               {t('hero_title')}
             </motion.h1>
@@ -116,7 +116,7 @@ export default function BrainAIContentMobile() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.2 }}
-              className="text-fluid-3xl mb-2 text-left font-normal drop-shadow-lg"
+              className="text-fluid-3xl mb-2 text-left font-normal drop-shadow-lg md:mb-3 md:text-4xl"
             >
               {t('hero_subtitle')}
             </motion.p>
@@ -124,7 +124,7 @@ export default function BrainAIContentMobile() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.4 }}
-              className="text-fluid-base mx-auto mt-[10px] w-full text-left drop-shadow-md"
+              className="text-fluid-base mx-auto mt-[10px] w-full text-left drop-shadow-md md:mt-4 md:text-lg md:leading-relaxed"
             >
               {t('hero_description')}
             </motion.p>
@@ -135,7 +135,7 @@ export default function BrainAIContentMobile() {
       {/* Video Section */}
       <section
         aria-label="产品介绍视频 / Product Introduction Video"
-        className="relative mt-[10px] aspect-video w-full overflow-hidden"
+        className="relative mt-[10px] aspect-video w-full overflow-hidden md:mt-6"
         onClick={handleVideoClick}
         onKeyDown={(e) => {
           if (e.key === 'Enter' || e.key === ' ') {
@@ -167,8 +167,8 @@ export default function BrainAIContentMobile() {
             exit={{ opacity: 0 }}
             className="pointer-events-none absolute top-0 left-0 flex h-full w-full flex-col items-center justify-center !text-white"
           >
-            <h2 className="text-fluid-xl">{t('video_title')}</h2>
-            <p className="text-fluid-xl">{t('video_subtitle')}</p>
+            <h2 className="text-fluid-xl md:text-2xl">{t('video_title')}</h2>
+            <p className="text-fluid-xl md:text-2xl">{t('video_subtitle')}</p>
             <motion.button
               type="button"
               whileTap={{ scale: 0.95 }}
@@ -176,9 +176,9 @@ export default function BrainAIContentMobile() {
                 e.stopPropagation();
                 handlePlay();
               }}
-              className="pointer-events-auto mt-[10px] flex h-[33px] items-center justify-center rounded-[22px] border border-white px-[14px]"
+              className="pointer-events-auto mt-[10px] flex h-[33px] items-center justify-center rounded-[22px] border border-white px-[14px] md:mt-4 md:h-[40px] md:px-5"
             >
-              <span className="text-fluid-base">
+              <span className="text-fluid-base md:text-lg">
                 {isPlaying ? t('video_pause') : t('video_play')}
               </span>
               <Image
@@ -206,8 +206,8 @@ export default function BrainAIContentMobile() {
       </section>
 
       {/* Three Core Sections */}
-      <section className="mt-[36px] flex flex-wrap px-[15px]">
-        <h2 id="core-sections-title-mobile" className="text-fluid-2xl mb-[25px] w-full text-center font-normal">
+      <section className="mt-[36px] flex flex-wrap px-[15px] md:mt-12 md:px-[60px]">
+        <h2 id="core-sections-title-mobile" className="text-fluid-2xl mb-[25px] w-full text-center font-normal md:mb-8 md:text-3xl">
           {t('sections_title')}
         </h2>
 
@@ -217,24 +217,25 @@ export default function BrainAIContentMobile() {
           whileInView={{ opacity: 1, scale: 1 }}
           viewport={{ once: true }}
           transition={{ duration: 0.4 }}
-          className="relative mb-[25px] w-full rounded-[20px] border p-5"
+          className="relative mb-[25px] w-full rounded-[20px] border p-5 md:mb-8 md:rounded-2xl md:p-8"
           style={{ borderColor: '#7CC0D9' }}
         >
-          <div className="absolute top-0 left-1/2 flex h-[26px] w-[48px] -translate-x-1/2 -translate-y-1/2 items-center justify-center bg-white px-1">
+          <div className="absolute top-0 left-1/2 flex h-[26px] w-[48px] -translate-x-1/2 -translate-y-1/2 items-center justify-center bg-white px-1 md:h-[32px] md:w-[56px]">
             <Image
               src="https://website-www-brainco-cn.oss-cn-hangzhou.aliyuncs.com/images/K6DRed4HiSAPG3jX.webp"
               alt="Icon 1"
               width={20}
               height={20}
+              className="md:h-6 md:w-6"
             />
           </div>
-          <h3 className="text-fluid-2xl my-[15px] pl-[10px] font-normal">
+          <h3 className="text-fluid-2xl my-[15px] pl-[10px] font-normal md:my-6 md:pl-4 md:text-3xl">
             {t('section1_title')}
           </h3>
-          <p className="text-fluid-base mb-2 leading-relaxed">{t('section1_desc1')}</p>
-          <p className="text-fluid-base mb-2 leading-relaxed">{t('section1_desc2')}</p>
-          <p className="text-fluid-base mb-2 leading-relaxed">{t('section1_desc3')}</p>
-          <p className="text-fluid-base leading-relaxed">{t('section1_desc4')}</p>
+          <p className="text-fluid-base mb-2 leading-relaxed md:mb-3 md:text-lg md:leading-relaxed">{t('section1_desc1')}</p>
+          <p className="text-fluid-base mb-2 leading-relaxed md:mb-3 md:text-lg md:leading-relaxed">{t('section1_desc2')}</p>
+          <p className="text-fluid-base mb-2 leading-relaxed md:mb-3 md:text-lg md:leading-relaxed">{t('section1_desc3')}</p>
+          <p className="text-fluid-base leading-relaxed md:text-lg md:leading-relaxed">{t('section1_desc4')}</p>
         </motion.div>
 
         {/* Section 2 */}
@@ -243,24 +244,25 @@ export default function BrainAIContentMobile() {
           whileInView={{ opacity: 1, scale: 1 }}
           viewport={{ once: true }}
           transition={{ duration: 0.4, delay: 0.1 }}
-          className="relative mb-[25px] w-full rounded-[20px] border p-5"
+          className="relative mb-[25px] w-full rounded-[20px] border p-5 md:mb-8 md:rounded-2xl md:p-8"
           style={{ borderColor: '#843D99' }}
         >
-          <div className="absolute top-0 left-1/2 flex h-[26px] w-[48px] -translate-x-1/2 -translate-y-1/2 items-center justify-center bg-white px-1">
+          <div className="absolute top-0 left-1/2 flex h-[26px] w-[48px] -translate-x-1/2 -translate-y-1/2 items-center justify-center bg-white px-1 md:h-[32px] md:w-[56px]">
             <Image
               src="https://website-www-brainco-cn.oss-cn-hangzhou.aliyuncs.com/images/j4cts2sYGTmph83W.webp"
               alt="Icon 2"
               width={26}
               height={26}
+              className="md:h-8 md:w-8"
             />
           </div>
-          <h3 className="text-fluid-2xl my-[15px] pl-[10px] font-normal">
+          <h3 className="text-fluid-2xl my-[15px] pl-[10px] font-normal md:my-6 md:pl-4 md:text-3xl">
             {t('section2_title')}
           </h3>
-          <p className="text-fluid-base mb-2 leading-relaxed">{t('section2_desc1')}</p>
-          <p className="text-fluid-base mb-2 leading-relaxed">{t('section2_desc2')}</p>
-          <p className="text-fluid-base mb-2 leading-relaxed">{t('section2_desc3')}</p>
-          <p className="text-fluid-base leading-relaxed">{t('section2_desc4')}</p>
+          <p className="text-fluid-base mb-2 leading-relaxed md:mb-3 md:text-lg md:leading-relaxed">{t('section2_desc1')}</p>
+          <p className="text-fluid-base mb-2 leading-relaxed md:mb-3 md:text-lg md:leading-relaxed">{t('section2_desc2')}</p>
+          <p className="text-fluid-base mb-2 leading-relaxed md:mb-3 md:text-lg md:leading-relaxed">{t('section2_desc3')}</p>
+          <p className="text-fluid-base leading-relaxed md:text-lg md:leading-relaxed">{t('section2_desc4')}</p>
         </motion.div>
 
         {/* Section 3 */}
@@ -269,37 +271,38 @@ export default function BrainAIContentMobile() {
           whileInView={{ opacity: 1, scale: 1 }}
           viewport={{ once: true }}
           transition={{ duration: 0.4, delay: 0.2 }}
-          className="relative w-full rounded-[20px] border p-5"
+          className="relative w-full rounded-[20px] border p-5 md:rounded-2xl md:p-8"
           style={{ borderColor: '#3199EA' }}
         >
-          <div className="absolute top-0 left-1/2 flex h-[26px] w-[48px] -translate-x-1/2 -translate-y-1/2 items-center justify-center bg-white px-1">
+          <div className="absolute top-0 left-1/2 flex h-[26px] w-[48px] -translate-x-1/2 -translate-y-1/2 items-center justify-center bg-white px-1 md:h-[32px] md:w-[56px]">
             <Image
               src="https://website-www-brainco-cn.oss-cn-hangzhou.aliyuncs.com/images/NZPz4zQrGBw5DieD.webp"
               alt="Icon 3"
               width={48}
               height={26}
+              className="md:h-7 md:w-12"
             />
           </div>
-          <h3 className="text-fluid-2xl my-[15px] pl-[10px] font-normal">
+          <h3 className="text-fluid-2xl my-[15px] pl-[10px] font-normal md:my-6 md:pl-4 md:text-3xl">
             {t('section3_title')}
           </h3>
-          <p className="text-fluid-base mb-2 leading-relaxed">{t('section3_desc1')}</p>
-          <p className="text-fluid-base leading-relaxed">{t('section3_desc2')}</p>
+          <p className="text-fluid-base mb-2 leading-relaxed md:mb-3 md:text-lg md:leading-relaxed">{t('section3_desc1')}</p>
+          <p className="text-fluid-base leading-relaxed md:text-lg md:leading-relaxed">{t('section3_desc2')}</p>
         </motion.div>
       </section>
 
       {/* Course Scheme Section */}
-      <section className="mt-[50px]">
-        <h2 id="course-scheme-title-mobile" className="text-fluid-2xl mb-[25px] text-center font-normal">
+      <section className="mt-[50px] md:mt-16 md:px-[60px]">
+        <h2 id="course-scheme-title-mobile" className="text-fluid-2xl mb-[25px] text-center font-normal md:mb-8 md:text-3xl">
           {t('scheme_title')}
         </h2>
 
         {/* Introductory Course */}
         <div
-          className="mx-auto mb-[15px] flex h-full w-[330px] flex-col rounded-[72px] py-8"
+          className="mx-auto mb-[15px] flex h-full w-[330px] flex-col rounded-[72px] py-8 md:mb-6 md:w-full md:py-10"
           style={{ background: 'linear-gradient(131deg, #FFF2F1 0%, #FFFDF4 52%, #F1FEF6 100%, #F3FFF7 100%)' }}
         >
-          <div className="text-fluid-base mb-[10px] text-center">
+          <div className="text-fluid-base mb-[10px] text-center md:mb-4 md:text-lg">
             <p>{t('course_intro_title')}</p>
             <p>{t('course_intro_grade')}</p>
           </div>
@@ -307,9 +310,9 @@ export default function BrainAIContentMobile() {
             {[1, 2, 3, 4, 5, 6].map(num => (
               <span
                 key={num}
-                className="mr-[22px] mb-[6px] flex h-full w-[68px] items-center justify-center rounded-lg border-2 border-[#e6bcbc] bg-white py-2 text-center shadow-[7px_7px_5px_1px_rgba(206,206,206,0.75)] last:mr-0 [&:nth-child(3n)]:mr-0"
+                className="mr-[22px] mb-[6px] flex h-full w-[68px] items-center justify-center rounded-lg border-2 border-[#e6bcbc] bg-white py-2 text-center shadow-[7px_7px_5px_1px_rgba(206,206,206,0.75)] last:mr-0 md:mr-6 md:mb-3 md:w-[80px] md:py-3 md:last:mr-6 [&:nth-child(3n)]:mr-0 [&:nth-child(3n)]:mr-6"
               >
-                <i className="text-fluid-base scale-[0.8] font-normal not-italic">
+                <i className="text-fluid-base scale-[0.8] font-normal not-italic md:scale-100 md:text-base">
                   {t(`course_intro_${num}` as any)}
                 </i>
               </span>
@@ -319,10 +322,10 @@ export default function BrainAIContentMobile() {
 
         {/* Advanced Course */}
         <div
-          className="mx-auto flex h-full w-[330px] flex-col rounded-[72px] py-8"
+          className="mx-auto flex h-full w-[330px] flex-col rounded-[72px] py-8 md:w-full md:py-10"
           style={{ background: 'linear-gradient(131deg, #FFF2F1 0%, #FFFDF4 52%, #F1FEF6 100%, #F3FFF7 100%)' }}
         >
-          <div className="text-fluid-base mb-[10px] text-center">
+          <div className="text-fluid-base mb-[10px] text-center md:mb-4 md:text-lg">
             <p>{t('course_advanced_title')}</p>
             <p>{t('course_advanced_grade')}</p>
           </div>
@@ -330,9 +333,9 @@ export default function BrainAIContentMobile() {
             {[1, 2, 3, 4, 5, 6].map(num => (
               <span
                 key={num}
-                className="mr-[22px] mb-[6px] flex h-full w-[68px] items-center justify-center rounded-lg border-2 border-[#e6bcbc] bg-white py-2 text-center shadow-[7px_7px_5px_1px_rgba(206,206,206,0.75)] last:mr-0 [&:nth-child(3n)]:mr-0"
+                className="mr-[22px] mb-[6px] flex h-full w-[68px] items-center justify-center rounded-lg border-2 border-[#e6bcbc] bg-white py-2 text-center shadow-[7px_7px_5px_1px_rgba(206,206,206,0.75)] last:mr-0 md:mr-6 md:mb-3 md:w-[80px] md:py-3 md:last:mr-6 [&:nth-child(3n)]:mr-0 [&:nth-child(3n)]:mr-6 "
               >
-                <i className="text-fluid-base scale-[0.8] font-normal not-italic">
+                <i className="text-fluid-base scale-[0.8] font-normal not-italic md:scale-100 md:text-base">
                   {t(`course_advanced_${num}` as any)}
                 </i>
               </span>
@@ -342,11 +345,11 @@ export default function BrainAIContentMobile() {
       </section>
 
       {/* Leadership Camp Section */}
-      <section className="mt-[46px]">
-        <h2 id="leader-title-mobile" className="text-fluid-3xl mb-4 text-center font-normal">
+      <section className="mt-[46px] md:mt-16">
+        <h2 id="leader-title-mobile" className="text-fluid-3xl mb-4 text-center font-normal md:mb-6 md:text-4xl">
           {t('leader_title')}
         </h2>
-        <p className="text-fluid-base mx-auto mb-5 mb-10 px-20 text-center">
+        <p className="text-fluid-base mx-auto mb-10 px-20 text-center md:mb-12 md:max-w-2xl md:px-0 md:text-lg">
           {t('leader_description')}
         </p>
 
@@ -356,6 +359,7 @@ export default function BrainAIContentMobile() {
           spaceBetween={10}
           centeredSlides
           initialSlide={1}
+          className="md:!px-[60px]"
         >
           {carouselImages.map(img => (
             <SwiperSlide key={img}>
@@ -372,12 +376,12 @@ export default function BrainAIContentMobile() {
       </section>
 
       {/* Challenge Section */}
-      <section className="mt-[50px] mb-[50px]">
-        <h2 id="challenge-title-mobile" className="text-fluid-3xl mb-6 text-center font-normal">
+      <section className="mt-[50px] mb-[50px] md:mt-16 md:mb-20 md:px-[60px]">
+        <h2 id="challenge-title-mobile" className="text-fluid-3xl mb-6 text-center font-normal md:mb-10 md:text-4xl">
           {t('challenge_title')}
         </h2>
 
-        <div className="mx-auto w-[310px]">
+        <div className="mx-auto w-[310px] md:w-[450px]">
           {/* Challenge 1 - Mars Rescue */}
           <div className="mb-[35px]">
             <picture>
@@ -395,19 +399,19 @@ export default function BrainAIContentMobile() {
                 className="w-full"
               />
             </picture>
-            <h3 className="text-fluid-2xl my-[18px] text-center font-normal">
+            <h3 className="text-fluid-2xl my-[18px] text-center font-normal md:my-6 md:text-3xl">
               {t('challenge1_title')}
             </h3>
-            <p className="text-fluid-lg mt-[10px] leading-relaxed">
+            <p className="text-fluid-lg mt-[10px] leading-relaxed md:mt-4 md:text-xl md:leading-relaxed">
               {t('challenge1_desc1')}
             </p>
-            <p className="text-fluid-lg mt-[10px] leading-relaxed">
+            <p className="text-fluid-lg mt-[10px] leading-relaxed md:mt-4 md:text-xl md:leading-relaxed">
               {t('challenge1_desc2')}
             </p>
           </div>
 
           {/* Challenge 2 - Future City */}
-          <div className="mb-[35px]">
+          <div className="mb-[35px] md:mb-10">
             <picture>
               <source
                 media="(max-width: 900px)"
@@ -423,16 +427,16 @@ export default function BrainAIContentMobile() {
                 className="w-full"
               />
             </picture>
-            <h3 className="text-fluid-2xl my-[18px] text-center font-normal">
+            <h3 className="text-fluid-2xl my-[18px] text-center font-normal md:my-6 md:text-3xl">
               {t('challenge2_title')}
             </h3>
-            <p className="text-fluid-lg mt-[10px] leading-relaxed">
+            <p className="text-fluid-lg mt-[10px] leading-relaxed md:mt-4 md:text-xl md:leading-relaxed">
               {t('challenge2_desc1')}
             </p>
-            <p className="text-fluid-lg mt-[10px] leading-relaxed">
+            <p className="text-fluid-lg mt-[10px] leading-relaxed md:mt-4 md:text-xl md:leading-relaxed">
               {t('challenge2_desc2')}
             </p>
-            <p className="text-fluid-lg mt-[10px] leading-relaxed">
+            <p className="text-fluid-lg mt-[10px] leading-relaxed md:mt-4 md:text-xl md:leading-relaxed">
               {t('challenge2_desc3')}
             </p>
           </div>
