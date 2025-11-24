@@ -227,7 +227,7 @@ export default function EASleepContent() {
               bulletClass: 'swiper-pagination-bullet',
               bulletActiveClass: 'swiper-pagination-bullet-active',
             }}
-            className="swiper-carousel pb-12"
+            className="swiper-carousel !pb-0 [&_.swiper-pagination]:!bottom-4 [&_.swiper-pagination]:!relative [&_.swiper-pagination]:!mt-[-60px] [&_.swiper-pagination]:!z-10 [&_.swiper-pagination-bullet]:!w-3 [&_.swiper-pagination-bullet]:!h-1.5 [&_.swiper-pagination-bullet]:!rounded-full [&_.swiper-pagination-bullet]:!bg-white/40 [&_.swiper-pagination-bullet]:!opacity-100 [&_.swiper-pagination-bullet-active]:!w-8 [&_.swiper-pagination-bullet-active]:!h-1.5 [&_.swiper-pagination-bullet-active]:!bg-white [&_.swiper-pagination-bullet-active]:!opacity-100"
           >
             {swiperData.map(item => (
               <SwiperSlide key={`swiper-${item.title}`}>

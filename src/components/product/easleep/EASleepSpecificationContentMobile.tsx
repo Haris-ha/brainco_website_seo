@@ -94,14 +94,14 @@ export default function EASleepSpecificationContentMobile({ products }: EASleepS
 
         {/* Thumbnail Navigation */}
         <nav aria-label="产品图片缩略图导航 / Product image thumbnail navigation">
-          <div className="flex gap-2 overflow-x-auto">
+          <div className="flex gap-2 overflow-x-auto md:w-full md:justify-between">
             {currentImages.map((image, index) => (
               <motion.button
                 key={`mobile-thumb-${index}`}
                 type="button"
                 whileTap={{ scale: 0.95 }}
                 onClick={() => handleSlideChange(index)}
-                className="h-[60px] w-[60px] flex-shrink-0 cursor-pointer overflow-hidden rounded-lg border border-gray-300"
+                className="h-[60px] w-[60px] md:h-[100px] md:w-[100px] flex-shrink-0 cursor-pointer overflow-hidden rounded-lg border border-gray-300"
                 style={{
                   backgroundImage: `url(${image})`,
                   backgroundSize: 'cover',
@@ -143,16 +143,16 @@ export default function EASleepSpecificationContentMobile({ products }: EASleepS
               role="option"
               aria-selected={selectedProductIndex === index}
             >
-              <h3 className="text-fluid-lg font-medium">
+              <h3 className="text-fluid-lg font-medium md:text-[3.75vw]">
                 {product.name}
               </h3>
               <div className="flex-shrink-0 text-right">
-                <div className="text-fluid-lg text-[#333]">
+                <div className="text-fluid-lg text-[#333] md:text-[3.75vw]">
                   ¥
                   {(product.price || 0) / 100}
                 </div>
                 {product.oldPrice && (
-                  <div className="text-fluid-sm text-[#595757] line-through opacity-50">
+                  <div className="text-fluid-sm text-[#595757] line-through opacity-50 md:text-[3.75vw]">
                     ¥
                     {(product.oldPrice || 0) / 100}
                   </div>

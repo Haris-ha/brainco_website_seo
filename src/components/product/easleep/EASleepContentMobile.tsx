@@ -195,7 +195,7 @@ export default function EASleepContentMobile() {
       {/* Hero Banner */}
       <header className="relative" role="img" aria-label="EASleep 智能助眠产品 - 移动端 / EASleep Smart Sleep Aid - Mobile">
         <Image
-          className="mt-24 w-full"
+          className="mt-24 w-full md:max-h-[600px] md:object-cover md:object-top"
           src="https://website-www-brainco-cn.oss-cn-hangzhou.aliyuncs.com/images/product/easleep/banner.webp"
           alt="EASleep 智能助眠产品横幅 / EASleep Smart Sleep Aid Banner"
           width={375}
@@ -206,7 +206,7 @@ export default function EASleepContentMobile() {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
-            className="text-fluid-4xl font-normal drop-shadow-lg"
+            className="text-fluid-4xl font-normal drop-shadow-lg md:text-[4.5vw]"
           >
             Easleep
           </motion.h1>
@@ -214,7 +214,7 @@ export default function EASleepContentMobile() {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.1 }}
-            className="text-fluid-4xl font-normal drop-shadow-lg"
+            className="text-fluid-4xl font-normal drop-shadow-lg md:text-[4.5vw]"
           >
             {t('hero_title')}
           </motion.p>
@@ -222,7 +222,7 @@ export default function EASleepContentMobile() {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.2 }}
-            className="text-fluid-2xl mt-2 font-normal drop-shadow-lg"
+            className="text-fluid-2xl mt-2 font-normal drop-shadow-lg md:text-[3vw]"
           >
             {t('hero_subtitle')}
           </motion.p>
@@ -230,7 +230,7 @@ export default function EASleepContentMobile() {
       </header>
 
       {/* Swiper Carousel */}
-      <div className="py-8">
+      <div className="h-full py-8">
         <Swiper
           style={{ '--swiper-theme-color': '#fff' } as any}
           modules={[Pagination]}
@@ -241,7 +241,7 @@ export default function EASleepContentMobile() {
             bulletClass: 'swiper-pagination-bullet',
             bulletActiveClass: 'swiper-pagination-bullet-active',
           }}
-          className="pb-12"
+          className="[&_.swiper-pagination]:!relative [&_.swiper-pagination]:!bottom-[10px] [&_.swiper-pagination]:!z-10 [&_.swiper-pagination]:!mt-[-50px] [&_.swiper-pagination-bullet]:!h-1 [&_.swiper-pagination-bullet]:!w-2 [&_.swiper-pagination-bullet]:!rounded-full [&_.swiper-pagination-bullet]:!bg-white/50 [&_.swiper-pagination-bullet-active]:!h-1 [&_.swiper-pagination-bullet-active]:!w-4 [&_.swiper-pagination-bullet-active]:!bg-white"
         >
           {swiperData.map(item => (
             <SwiperSlide key={`mobile-swiper-${item.title}`}>
@@ -251,7 +251,7 @@ export default function EASleepContentMobile() {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ duration: 0.8 }}
-                  className="text-fluid-3xl"
+                  className="text-fluid-3xl md:text-[3.75vw]"
                 >
                   {item.title}
                 </motion.h2>
@@ -260,12 +260,12 @@ export default function EASleepContentMobile() {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ duration: 0.8, delay: 0.2 }}
-                  className="text-fluid-lg"
+                  className="text-fluid-lg md:text-[2.25vw]"
                 >
                   {item.description}
                 </motion.p>
               </div>
-              <div>
+              <div className="relative">
                 <Image
                   className="w-full"
                   style={{ paddingTop: '10px' }}
@@ -281,14 +281,14 @@ export default function EASleepContentMobile() {
       </div>
 
       {/* Clinical Research Section */}
-      <section className="px-10">
+      <section className="px-10 md:mx-auto md:max-w-[90vw] md:px-12">
         <motion.h2
           id="research-title-mobile"
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.8 }}
-          className="text-fluid-2xl pt-10 text-center"
+          className="text-fluid-2xl pt-10 text-center md:text-[3vw]"
         >
           {`${t('research_title')} ${t('research_desc')}`}
         </motion.h2>
@@ -303,9 +303,9 @@ export default function EASleepContentMobile() {
         </motion.p> */}
       </section>
 
-      <div className="flex items-center justify-center gap-10 px-10 py-10">
-        <div className="text-fluid-5xl text-center">{t('research_percentage')}</div>
-        <div className="text-fluid-xl flex items-center">
+      <div className="flex items-center justify-center gap-10 px-10 py-10 md:mx-auto md:max-w-[90vw] md:px-12">
+        <div className="text-fluid-5xl text-center md:text-[5vw]">{t('research_percentage')}</div>
+        <div className="text-fluid-xl flex items-center md:text-[2.5vw]">
           <span>{t('research_improvement')}</span>
           {/* <Image
             className="transition-transform duration-300 hover:scale-105"
@@ -319,7 +319,7 @@ export default function EASleepContentMobile() {
       </div>
 
       <Image
-        className="w-full px-10"
+        className="w-full px-10 md:px-[60px]"
         src="https://website-www-brainco-cn.oss-cn-hangzhou.aliyuncs.com/images/product/easleep/improve.webp"
         alt="EASleep 睡眠改善效果图表 - 数据可视化展示 / EASleep Sleep Improvement Chart - Data Visualization Display"
         width={375}
@@ -327,20 +327,20 @@ export default function EASleepContentMobile() {
       />
 
       {/* Solution Section */}
-      <section className="px-4 py-10 text-center">
+      <section className="px-4 py-10 text-center md:mx-auto md:max-w-[90vw] md:px-12">
         <motion.h2
           id="solution-title-mobile"
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.8 }}
-          className="text-fluid-3xl"
+          className="text-fluid-3xl md:text-[3.75vw]"
         >
           {t('solution_title')}
         </motion.h2>
       </section>
 
-      <section className="flex flex-col items-center justify-center gap-10">
+      <section className="flex flex-col items-center justify-center gap-10 md:mx-auto md:max-w-[90vw] md:flex-row md:flex-wrap md:justify-center md:gap-24 md:px-12">
         {solutionItems.map((item, index) => (
           <motion.article
             key={`mobile-solution-${item.title}`}
@@ -351,17 +351,17 @@ export default function EASleepContentMobile() {
             className="flex flex-col items-center justify-center gap-4"
           >
             <Image
-              className="mb-2 h-10 w-auto"
+              className="mb-2 h-10 w-auto md:h-12"
               src={item.icon}
               alt={`${item.title} - EASleep 解决方案功能图标 / ${item.title} - EASleep Solution Feature Icon`}
               width={40}
               height={40}
             />
-            <h3 className="text-fluid-base text-center">{item.title}</h3>
-            <p className="text-fluid-base text-center">{item.desc1}</p>
-            <p className="text-fluid-base text-center">{item.desc2}</p>
+            <h3 className="text-fluid-base text-center md:text-[2vw]">{item.title}</h3>
+            <p className="text-fluid-base text-center md:text-[2vw]">{item.desc1}</p>
+            <p className="text-fluid-base text-center md:text-[2vw]">{item.desc2}</p>
             {item.desc3 && (
-              <p className="text-fluid-base text-center">{item.desc3}</p>
+              <p className="text-fluid-base text-center md:text-[2vw]">{item.desc3}</p>
             )}
           </motion.article>
         ))}
@@ -376,19 +376,19 @@ export default function EASleepContentMobile() {
       />
 
       {/* Patent Section */}
-      <section>
+      <section className="md:mx-auto md:max-w-[90vw] md:px-12">
         <motion.h2
           id="patent-title-mobile"
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.8 }}
-          className="text-fluid-3xl mb-10 px-4 text-center font-normal text-[#333333]"
+          className="text-fluid-3xl mb-10 px-4 text-center font-normal text-[#333333] md:text-[3.75vw]"
         >
           {t('patent_title')}
         </motion.h2>
 
-        <ul className="flex gap-10 px-20">
+        <ul className="flex gap-10 px-20 md:justify-center md:gap-16 md:px-0">
           {patentFeatures.map((feature, index) => (
             <motion.li
               key={`mobile-patent-${feature.title}`}
@@ -396,16 +396,17 @@ export default function EASleepContentMobile() {
               whileInView={{ opacity: 1, scale: 1 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: index * 0.1 }}
-              className="flex flex-1 flex-col items-center"
+              className="flex flex-1 flex-col items-center md:flex-none"
             >
               <Image
                 src={feature.icon}
                 alt={`${feature.title} - EASleep 专利特性图标 / ${feature.title} - EASleep Patent Feature Icon`}
                 width={32}
                 height={32}
+                className="md:h-10 md:w-10"
               />
-              <h3 className="text-fluid-base text-center font-normal">{feature.title}</h3>
-              <p className="text-fluid-base text-center font-normal">{feature.desc}</p>
+              <h3 className="text-fluid-base text-center font-normal md:text-[2vw]">{feature.title}</h3>
+              <p className="text-fluid-base text-center font-normal md:text-[2vw]">{feature.desc}</p>
             </motion.li>
           ))}
         </ul>
@@ -415,7 +416,7 @@ export default function EASleepContentMobile() {
           alt="EASleep 产品专利证书 - 知识产权认证 / EASleep Product Patent Certificate - Intellectual Property Certification"
           width={288}
           height={150}
-          className="mx-auto mt-[14px]"
+          className="mx-auto mt-[14px] md:mt-6"
         />
 
         <motion.h3
@@ -424,10 +425,10 @@ export default function EASleepContentMobile() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.8 }}
-          className="text-fluid-2xl my-4 text-center font-normal"
+          className="text-fluid-2xl my-4 text-center font-normal md:text-[3vw]"
         >
           {t('patent_count_prefix')}
-          <span className="text-fluid-4xl">{patentNumbers.length}</span>
+          <span className="text-fluid-4xl md:text-[4.5vw]">{patentNumbers.length}</span>
           {t('patent_count_suffix')}
         </motion.h3>
 
@@ -436,7 +437,7 @@ export default function EASleepContentMobile() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.8, delay: 0.2 }}
-          className="text-fluid-base pb-4 text-center font-normal"
+          className="text-fluid-base pb-4 text-center font-normal md:text-[2vw]"
         >
           {t('patent_desc')}
         </motion.p>
@@ -449,7 +450,7 @@ export default function EASleepContentMobile() {
               whileInView={{ opacity: 1, scale: 1 }}
               viewport={{ once: true }}
               transition={{ duration: 0.3, delay: index * 0.02 }}
-              className="text-fluid-base text-[#ccc]"
+              className="text-fluid-base text-[#ccc] md:text-[2vw]"
             >
               {t('spec_patent_prefix')}
               {patent}
@@ -459,14 +460,14 @@ export default function EASleepContentMobile() {
       </section>
 
       {/* CES Physical Sleep Aid Section */}
-      <section className="px-10 py-10 text-center">
+      <section className="px-10 py-10 text-center md:mx-auto md:max-w-[90vw] md:px-12">
         <motion.h2
           id="ces-title-mobile"
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.8 }}
-          className="text-fluid-3xl mb-4"
+          className="text-fluid-3xl mb-4 md:text-[3.75vw]"
         >
           {t('ces_title')}
         </motion.h2>
@@ -475,7 +476,7 @@ export default function EASleepContentMobile() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.8, delay: 0.2 }}
-          className="text-fluid-lg"
+          className="text-fluid-lg md:text-[2.25vw]"
         >
           {t('ces_desc')}
         </motion.p>
@@ -512,22 +513,22 @@ export default function EASleepContentMobile() {
             whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8, delay: 0.2 }}
-            className="flex h-[32px] w-[124px] items-center justify-center rounded-[16px] bg-[#9686ac] text-center"
+            className="flex h-[32px] w-[124px] items-center justify-center rounded-[16px] bg-[#9686ac] text-center md:h-[40px] md:w-[160px]"
           >
-            <span className="text-fluid-sm font-normal !text-white">{t('ces_effect_1')}</span>
+            <span className="text-fluid-sm font-normal !text-white md:text-[1.75vw]">{t('ces_effect_1')}</span>
           </motion.div>
         </div>
 
         {/* Right side - Cortisol with downward arrow */}
-        <div className="absolute right-[20px] bottom-[40px] flex flex-col items-center">
+        <div className="absolute right-[20px] bottom-[40px] flex flex-col items-center md:right-[40px] md:bottom-[60px]">
           <motion.div
             initial={{ opacity: 0, scale: 0.8 }}
             whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8, delay: 0.2 }}
-            className="flex h-[32px] w-[124px] items-center justify-center rounded-[16px] bg-[#b1b1b1] text-center"
+            className="flex h-[32px] w-[124px] items-center justify-center rounded-[16px] bg-[#b1b1b1] text-center md:h-[40px] md:w-[160px]"
           >
-            <span className="text-fluid-sm font-normal !text-white">{t('ces_effect_2')}</span>
+            <span className="text-fluid-sm font-normal !text-white md:text-[1.75vw]">{t('ces_effect_2')}</span>
           </motion.div>
           <motion.div
             initial={{ opacity: 0, scale: 0.8 }}
@@ -549,14 +550,14 @@ export default function EASleepContentMobile() {
       </div>
 
       {/* Binaural Beats Section */}
-      <section className="px-10 py-10 text-center">
+      <section className="px-10 py-10 text-center md:mx-auto md:max-w-[90vw] md:px-12">
         <motion.h2
           id="binaural-title-mobile"
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.8 }}
-          className="text-fluid-3xl mb-4"
+          className="text-fluid-3xl mb-4 md:text-[3.75vw]"
         >
           {t('binaural_title')}
         </motion.h2>
@@ -565,7 +566,7 @@ export default function EASleepContentMobile() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.8, delay: 0.2 }}
-          className="text-fluid-lg"
+          className="text-fluid-lg md:text-[2.25vw]"
         >
           {t('binaural_desc1')}
           <br />
@@ -584,14 +585,14 @@ export default function EASleepContentMobile() {
       />
 
       {/* Sleep Manager Section */}
-      <section className="px-10 py-10 text-center">
+      <section className="px-10 py-10 text-center md:mx-auto md:max-w-[90vw] md:px-12">
         <motion.h2
           id="manager-title-mobile"
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.8 }}
-          className="text-fluid-xl"
+          className="text-fluid-xl md:text-[2.5vw]"
         >
           {t('manager_title')}
         </motion.h2>
@@ -600,22 +601,22 @@ export default function EASleepContentMobile() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.8, delay: 0.2 }}
-          className="text-fluid-lg"
+          className="text-fluid-lg md:text-[2.25vw]"
         >
           {t('manager_desc1')}
           <br />
           {t('manager_desc2')}
         </motion.p>
 
-        <div className="flex justify-around px-8">
+        <div className="flex justify-around px-4 md:my-12 md:gap-8 md:px-0">
           <motion.div
             initial={{ opacity: 0, scale: 0.8 }}
             whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5 }}
-            className="relative w-[112px] duration-300"
+            className="relative w-[112px] duration-300 md:w-[140px]"
           >
-            <p className="text-fluid-xl mb-[-14px] scale-70 text-center">
+            <p className="text-fluid-xl mb-[-14px] min-h-24 scale-70 text-center md:scale-100 md:text-[2.5vw]">
               {t('manager_feature_1')}
             </p>
             <Image
@@ -623,6 +624,7 @@ export default function EASleepContentMobile() {
               alt={`${t('manager_feature_1')} - EASleep 睡眠报告界面展示 / ${t('manager_feature_1')} - EASleep Sleep Report Interface Display`}
               width={112}
               height={178}
+              className="md:h-auto md:w-[140px]"
             />
           </motion.div>
 
@@ -631,9 +633,9 @@ export default function EASleepContentMobile() {
             whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5, delay: 0.2 }}
-            className="relative w-[112px] duration-300"
+            className="relative w-[112px] duration-300 md:w-[140px]"
           >
-            <p className="text-fluid-xl mb-[-14px] scale-70 text-center">
+            <p className="text-fluid-xl mb-[-14px] min-h-24 scale-70 text-center md:scale-100 md:text-[2.5vw]">
               {t('manager_feature_2')}
             </p>
             <Image
@@ -641,6 +643,7 @@ export default function EASleepContentMobile() {
               alt={`${t('manager_feature_2')} - EASleep 睡眠阶段分析界面 / ${t('manager_feature_2')} - EASleep Sleep Stages Analysis Interface`}
               width={112}
               height={178}
+              className="md:h-auto md:w-[140px]"
             />
           </motion.div>
 
@@ -649,9 +652,9 @@ export default function EASleepContentMobile() {
             whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5, delay: 0.4 }}
-            className="relative w-[120px] duration-300"
+            className="relative w-[120px] duration-300 md:w-[140px]"
           >
-            <p className="text-fluid-xl mb-[-14px] scale-70 text-center">
+            <p className="text-fluid-xl mb-[-14px] min-h-24 scale-70 text-center md:scale-100 md:text-[2.5vw]">
               {t('manager_feature_3')}
             </p>
             <Image
@@ -659,30 +662,31 @@ export default function EASleepContentMobile() {
               alt={`${t('manager_feature_3')} - EASleep B-CBTi 认知行为疗法界面 / ${t('manager_feature_3')} - EASleep B-CBTi Cognitive Behavioral Therapy Interface`}
               width={112}
               height={178}
+              className="md:h-auto md:w-[140px]"
             />
           </motion.div>
         </div>
 
-        <p className="text-fluid-base mt-[-10px] w-full scale-70 px-2.5 text-center text-[#999]">
+        <p className="text-fluid-base mt-[-10px] w-full scale-70 px-2.5 text-center text-[#999] md:scale-100 md:text-[2vw]">
           {t('manager_note')}
         </p>
       </section>
 
       {/* Usage Scenarios Section */}
-      <section className="px-10 py-10 text-center">
+      <section className="px-10 py-10 text-center md:mx-auto md:max-w-[90vw] md:px-12">
         <motion.h2
           id="scenarios-title-mobile"
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.8 }}
-          className="text-fluid-3xl"
+          className="text-fluid-3xl md:text-[3.75vw]"
         >
           {t('scenarios_title')}
         </motion.h2>
       </section>
 
-      <section className="mt-0 mb-10 flex justify-around px-4">
+      <section className="mt-0 mb-10 flex justify-around px-4 md:mx-auto md:max-w-[90vw] md:gap-8 md:px-12">
         {scenarios.map((scenario, index) => (
           <motion.article
             key={`mobile-scenario-${scenario.title}`}
@@ -690,18 +694,18 @@ export default function EASleepContentMobile() {
             whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5, delay: index * 0.2 }}
-            className="relative h-[178px] w-[112px] transition-transform duration-300 hover:scale-105"
+            className="relative h-[178px] w-[112px] transition-transform duration-300 hover:scale-105 md:h-[220px] md:w-[140px]"
           >
-            <div className="flex h-8 w-full items-center justify-center">
+            <div className="flex h-8 w-full items-center justify-center md:h-10">
               <Image
                 src={scenario.icon}
                 alt={`${scenario.title} - EASleep 使用场景图标 / ${scenario.title} - EASleep Usage Scenario Icon`}
                 width={12}
                 height={12}
-                className="h-12 w-auto"
+                className="h-12 w-auto md:h-14"
               />
             </div>
-            <h3 className="text-fluid-base mb-4 text-center">
+            <h3 className="text-fluid-base my-4 text-center md:text-[2vw]">
               {scenario.title}
             </h3>
             <Image
@@ -709,6 +713,7 @@ export default function EASleepContentMobile() {
               alt={`${scenario.title} - EASleep 使用场景展示图 / ${scenario.title} - EASleep Usage Scenario Display`}
               width={112}
               height={150}
+              className="md:h-auto md:w-[140px]"
             />
           </motion.article>
         ))}
@@ -719,19 +724,19 @@ export default function EASleepContentMobile() {
         initial={{ y: 100 }}
         animate={{ y: isScrolling || isAtBottom ? 100 : 0 }}
         transition={{ duration: 0.3, ease: 'easeInOut' }}
-        className="fixed right-0 bottom-0 left-0 z-50 border-t border-gray-200 bg-white px-4 py-3 shadow-lg"
+        className="fixed right-0 bottom-0 left-0 z-50 border-t border-gray-200 bg-white px-4 py-3 shadow-lg md:px-8"
       >
         <div className="flex items-center justify-between">
           <div className="ml-4 flex items-baseline">
-            <span className="text-fluid-3xl font-medium text-gray-900">¥2499</span>
-            <span className="text-fluid-xl ml-1 text-gray-600">{t('hero_price_from')}</span>
+            <span className="text-fluid-3xl font-medium text-gray-900 md:text-[3.75vw]">¥2499</span>
+            <span className="text-fluid-xl ml-1 text-gray-600 md:text-[2.5vw]">{t('hero_price_from')}</span>
           </div>
           <motion.button
             type="button"
             whileHover={{ scale: 1.02 }}
             whileTap={{ scale: 0.98 }}
             onClick={handlePurchase}
-            className="text-fluid-lg h-[40px] w-[120px] cursor-pointer rounded-[22px] bg-[#4f68d2] font-medium !text-white transition-all"
+            className="text-fluid-lg h-[40px] w-[120px] cursor-pointer rounded-[22px] bg-[#4f68d2] font-medium !text-white transition-all md:h-[48px] md:w-[150px] md:text-[2.25vw]"
             aria-label={`${t('hero_buy_button')} - EASleep 智能助眠设备 / ${t('hero_buy_button')} - EASleep Smart Sleep Aid Device`}
           >
             {t('hero_buy_button')}
@@ -740,7 +745,9 @@ export default function EASleepContentMobile() {
       </motion.div>
 
       {/* After Sales */}
-      <AfterSalesMobile />
+      <div className="mt-24 md:mt-[60px] md:px-[60px]">
+        <AfterSalesMobile />
+      </div>
     </main>
   );
 }
