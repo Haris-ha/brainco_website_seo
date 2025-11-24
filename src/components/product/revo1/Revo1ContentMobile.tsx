@@ -332,10 +332,10 @@ export default function Revo1ContentMobile() {
                     className="mt-10 flex items-center gap-4 overflow-hidden px-2 text-base"
                   >
                     <dt className="mr-6 w-16 flex-[64px_0_0]">{t(spec.label as any)}</dt>
-                    <dd className="min-w-[100px] flex-[max-content] text-center">
+                    <dd className="min-w-[100px] flex-[max-content] text-center md:min-w-0 md:flex-1">
                       {spec.basic.startsWith('spec_') ? t(spec.basic as any) : spec.basic}
                     </dd>
-                    <dd className="min-w-[100px] flex-[max-content] text-center">
+                    <dd className="min-w-[100px] flex-[max-content] text-center md:min-w-0 md:flex-1">
                       {spec.tactile.startsWith('spec_') ? t(spec.tactile as any) : spec.tactile}
                     </dd>
                   </div>
