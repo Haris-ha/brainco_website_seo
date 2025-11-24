@@ -26,11 +26,11 @@ export default function AfterSalesMobile({ is15Days = false, is30Days = false, t
   ];
 
   return (
-    <ul className="flex flex-col justify-center px-8 py-10">
+    <ul className="flex flex-col justify-center px-8 py-10 md:px-12 md:py-12">
       {items.map((item, index) => (
         <motion.li
           key={index}
-          className={`flex items-center ${index === 0 ? 'mb-6' : ''}`}
+          className={`flex items-center ${index === 0 ? 'mb-6' : ''} md:mb-8`}
           initial={{ opacity: 0, x: -20 }}
           whileInView={{ opacity: 1, x: 0 }}
           viewport={{ once: true }}
@@ -43,9 +43,9 @@ export default function AfterSalesMobile({ is15Days = false, is30Days = false, t
               : `${item.name} - 客户服务图标 / ${item.name} - Customer Service Icon`}
             width={40}
             height={40}
-            className="h-auto w-10 flex-shrink-0"
+            className="h-auto w-10 flex-shrink-0 md:h-12 md:w-12"
           />
-          <span className="text-fluid-base ml-2.5 text-left">
+          <span className="text-fluid-base ml-2.5 text-left md:ml-4 md:text-[2vw]">
             {item.name}
           </span>
         </motion.li>
