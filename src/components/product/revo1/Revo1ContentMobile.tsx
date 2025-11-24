@@ -303,8 +303,8 @@ export default function Revo1ContentMobile() {
         >
           {t('version_title')}
         </motion.h2>
-        <div className="sticky top-28 z-[30] h-[65px] md:ml-auto md:max-w-[84vw] md:px-0 w-full bg-[#07111b]">
-          <ul className="flex gap-3 bg-[#07111b] px-6 pb-5 md:w-full max-w-[80vw] ml-auto">
+        <div className="sticky top-28 z-[30] h-[65px] w-full bg-[#07111b] md:ml-auto md:max-w-[84vw] md:px-0">
+          <ul className="ml-auto flex max-w-[80vw] gap-3 bg-[#07111b] px-6 pb-5 md:w-full">
             <li className="flex h-[45px] flex-1 items-center justify-center rounded-lg border border-[#bbb]">
               {t('version_basic')}
             </li>
