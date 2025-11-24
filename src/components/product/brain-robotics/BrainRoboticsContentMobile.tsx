@@ -237,11 +237,11 @@ export default function BrainRoboticsContentMobile() {
 
         <div className="absolute top-0 left-0 h-full w-full">
           {/* Achievement Badges - Top Right */}
-          <div className="absolute top-32 right-[14px] z-10 flex flex-col items-end">
+          <div className="absolute top-32 right-[14px] z-10 flex flex-col items-start md:top-40 md:right-[40px]">
             {achievements.map((achievement, index) => (
               <motion.div
                 key={achievement}
-                className="mb-[10px]"
+                className="mb-[10px] md:mb-[15px]"
                 initial={{ opacity: 0, scale: 0.8 }}
                 animate={{ opacity: 1, scale: 1 }}
                 transition={{ duration: 0.6, delay: index * 0.3, ease: 'easeOut' }}
@@ -251,14 +251,14 @@ export default function BrainRoboticsContentMobile() {
                   alt={`BrainCo 智能仿生手获奖徽章 ${index + 1} - 移动端 / BrainCo Brain Robotics Award Badge ${index + 1} - Mobile`}
                   width={index === 0 ? 72 : index === 1 ? 50 : 40}
                   height={index === 0 ? 72 : index === 1 ? 50 : 40}
-                  className={`h-auto ${index === 1 ? 'mr-[20px]' : index === 2 ? 'mr-[32px]' : ''}`}
+                  className={`h-auto ${index === 1 ? 'mr-[20px]' : index === 2 ? 'mr-[32px]' : ''} ${index === 0 ? 'md:w-[120px]' : index === 1 ? 'md:mr-[30px] md:w-[110px]' : 'md:mr-[50px] md:w-[88px]'}`}
                 />
               </motion.div>
             ))}
           </div>
 
           {/* Product Introduction - Bottom Left */}
-          <div className="absolute bottom-0 left-[35px] mb-6 flex w-[305px] flex-col justify-end rounded-2xl p-8 text-center !text-white backdrop-blur-xs">
+          <div className="absolute bottom-0 left-[35px] mb-6 flex w-[305px] flex-col justify-end rounded-2xl p-8 text-center !text-white backdrop-blur-xs md:left-1/2 md:w-auto md:min-w-[400px] md:-translate-x-1/2">
             <motion.p
               className="text-fluid-2xl"
               initial={{ opacity: 0, y: 20 }}
@@ -288,9 +288,9 @@ export default function BrainRoboticsContentMobile() {
       </header>
 
       {/* Gestures Section */}
-      <section className="mt-[20px]" aria-labelledby="gestures-section-title-mobile">
+      <section className="mt-[20px] md:mt-[60px] md:px-[60px]" aria-labelledby="gestures-section-title-mobile">
         <h2 id="gestures-section-title-mobile" className="sr-only">手势控制模式 - 移动端 / Gesture Control Modes - Mobile</h2>
-        <div className="grid grid-cols-2 gap-y-[20px]">
+        <div className="grid grid-cols-2 gap-y-[20px] md:mx-auto md:max-w-[1200px]">
           {gestures.map((gesture, index) => (
             <motion.article
               key={gesture.name}
@@ -305,7 +305,7 @@ export default function BrainRoboticsContentMobile() {
                 alt={`${gesture.name} - 仿生手手势控制示意图 - 移动端 / ${gesture.name} - Hand gesture control illustration - Mobile`}
                 width={60}
                 height={60}
-                className="mr-[10px] h-[60px] w-[60px] flex-shrink-0"
+                className="mr-[10px] h-[60px] w-[60px] flex-shrink-0 md:h-[80px] md:w-[80px]"
               />
               <div className="flex-1">
                 <h3
@@ -322,7 +322,7 @@ export default function BrainRoboticsContentMobile() {
                 </p>
                 {gesture.tips && (
                   <span
-                    className="text-fluid-base -mt-[6px] block origin-left"
+                    className="text-fluid-base mt-[-6px] block origin-left"
                     style={{ transform: 'scale(0.7)', width: '130%' }}
                   >
                     {gesture.tips}
@@ -334,8 +334,8 @@ export default function BrainRoboticsContentMobile() {
         </div>
       </section>
 
-      {/* Parameters Section */}
-      <section className="mt-[-28px] flex pr-[14px]" aria-labelledby="parameters-section-title-mobile">
+      {/* Parameters Section - Mobile */}
+      <section className="mt-[-28px] flex pr-[14px] md:hidden" aria-labelledby="parameters-section-title-mobile">
         <h2 id="parameters-section-title-mobile" className="sr-only">技术参数 - 移动端 / Technical Parameters - Mobile</h2>
         {/* Product Image */}
         <picture className="w-[204px] flex-shrink-0">
@@ -396,8 +396,8 @@ export default function BrainRoboticsContentMobile() {
         </div>
       </section>
 
-      {/* Awards Section */}
-      <section className="flex pl-[36px]" aria-labelledby="awards-section-title-mobile">
+      {/* Awards Section - Mobile */}
+      <section className="flex pl-[36px] md:hidden" aria-labelledby="awards-section-title-mobile">
         <h2 id="awards-section-title-mobile" className="sr-only">获奖历史 - 移动端 / Awards History - Mobile</h2>
         {/* Awards Timeline - Left */}
         <div className="mr-[-14px] pt-[80px]">
@@ -456,6 +456,97 @@ export default function BrainRoboticsContentMobile() {
         </picture>
       </section>
 
+      {/* Awards and Parameters Section - Tablet/Desktop */}
+      <section className="hidden md:flex md:justify-center md:px-[40px] md:pb-20" aria-labelledby="awards-params-section-title-md">
+        <h2 id="awards-params-section-title-md" className="sr-only">获奖历史与技术参数 - 平板端 / Awards History and Technical Parameters - Tablet</h2>
+        {/* Left - Awards Timeline */}
+        <div className="mr-[-36px] pt-[160px]">
+          <ul>
+            {awards.map((award, index) => (
+              <motion.li
+                key={award.title}
+                className="mb-[15px] flex items-center"
+                initial={{ opacity: 0, x: -30 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6, delay: index * 0.3, ease: 'easeOut' }}
+              >
+                <div className="rounded-[14px] bg-[#c62927] p-[12px]">
+                  <Image
+                    src={award.img}
+                    alt={`${award.title} - ${award.year} 获奖证书 / ${award.title} - ${award.year} Award Certificate`}
+                    width={index === 0 ? 120 : 100}
+                    height={index === 0 ? 120 : 100}
+                    className={`h-auto ${index === 0 ? 'w-[120px]' : 'w-[100px]'}`}
+                  />
+                </div>
+                <div className="flex w-[180px] flex-col items-end">
+                  <p className="text-fluid-base relative flex h-[45px] w-full items-end justify-end pb-[6px] text-right after:absolute after:bottom-0 after:left-0 after:h-[2px] after:w-full after:bg-[#c62927]">
+                    {award.title}
+                  </p>
+                  <p className="text-fluid-3xl relative leading-[45px] before:absolute before:top-1/2 before:left-[-18px] before:h-[5px] before:w-[5px] before:-translate-y-1/2 before:rounded-full before:border-[4px] before:border-[#c62927]">
+                    {award.year}
+                  </p>
+                </div>
+              </motion.li>
+            ))}
+          </ul>
+        </div>
+
+        {/* Center - Product Image */}
+        <picture className="w-[400px] flex-shrink-0">
+          <source
+            media="(min-width:800px)"
+            srcSet="https://website-www-brainco-cn.oss-cn-hangzhou.aliyuncs.com/images/3gJn1V7S1loO8cDa.webp"
+          />
+          <source
+            media="(max-width:800px)"
+            srcSet="https://website-www-brainco-cn.oss-cn-hangzhou.aliyuncs.com/images/yY6BfJmjhWrzsF0Y.webp"
+          />
+          <Image
+            src="https://website-www-brainco-cn.oss-cn-hangzhou.aliyuncs.com/images/3gJn1V7S1loO8cDa.webp"
+            alt={`${t('product_name')} - BrainCo 智能仿生手产品主图 - 产品外观展示 / ${t('product_name')} - BrainCo Brain Robotics Main Product Image - Product Appearance Display`}
+            width={458}
+            height={900}
+            className="h-auto w-[320px]"
+          />
+        </picture>
+
+        {/* Right - Technical Parameters */}
+        <div className="ml-[-80px] pt-[260px]">
+          <ul>
+            {parameters.map((param, index) => (
+              <motion.li
+                key={param.name}
+                className="relative mb-[36px] flex items-center before:order-[-2] before:h-[6px] before:w-[6px] before:rounded-full before:border-[4px] before:border-[#c62927] after:order-[-1] after:mx-[12px] after:w-[60px] after:flex-shrink-0 after:border-b after:border-[#333] after:content-['']"
+                initial={{ opacity: 0, x: 30 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6, delay: index * 0.3, ease: 'easeOut' }}
+              >
+                {(index === 0 || index === parameters.length - 1) && (
+                  <u
+                    className={`absolute left-[24px] h-[180px] border-r border-[#333] before:absolute before:left-[-60px] before:h-[6px] before:w-[6px] before:rounded-full before:border-[4px] before:border-[#c62927] after:absolute after:left-[-40px] after:w-[40px] after:border-b after:border-[#333] after:content-[''] ${
+                      index === 0
+                        ? 'bottom-1/2 before:top-0 before:-translate-y-1/2 after:top-0'
+                        : 'top-1/2 before:bottom-0 before:translate-y-1/2 after:bottom-0'
+                    }`}
+                  />
+                )}
+                <div>
+                  <h3 className="text-fluid-base font-normal">{param.name}</h3>
+                  <p className="text-fluid-3xl relative mt-[10px] inline-block pb-[6px] leading-none after:absolute after:bottom-0 after:left-0 after:h-[2px] after:w-full after:rounded-[2px] after:bg-[#c62927]">
+                    {param.value}
+                    <span className="text-fluid-xl">{param.unit}</span>
+                  </p>
+                  <p className="text-fluid-sm mt-[3px]">{param.desc}</p>
+                </div>
+              </motion.li>
+            ))}
+          </ul>
+        </div>
+      </section>
+
       {/* Video Section */}
       <section className="w-full" aria-labelledby="video-section-title-mobile">
         <h2 id="video-section-title-mobile" className="sr-only">BrainRobotics 产品演示视频 - 移动端 / BrainRobotics Product Demo Video - Mobile</h2>
@@ -497,7 +588,7 @@ export default function BrainRoboticsContentMobile() {
         >
           {t('resources_title')}
         </motion.h2>
-        <div className="flex h-[40px] items-center justify-between rounded-[20px] border border-[#1A74BF] px-[24px]">
+        <div className="flex h-[40px] items-center justify-between rounded-[20px] border border-[#1A74BF] px-[24px] md:mx-auto md:max-w-[600px] md:h-[60px]">
           <span className="text-fluid-base">{t('resource_manual_cn')}</span>
           <a
             href="https://www.brainco.cn/lib/BC2-0900343100-Stark%20%E7%94%A8%E6%88%B7%E8%AF%B4%E6%98%8E%E4%B9%A6%EF%BC%88%E5%A4%A7%E6%89%8B%EF%BC%89-AW-20230925.pdf"
@@ -509,7 +600,7 @@ export default function BrainRoboticsContentMobile() {
             {t('download_btn')}
           </a>
         </div>
-        <div className="mt-[28px] flex h-[40px] items-center justify-between rounded-[20px] border border-[#1A74BF] px-[24px]">
+        <div className="mt-[28px] flex h-[40px] items-center justify-between rounded-[20px] border border-[#1A74BF] px-[24px] md:mx-auto md:max-w-[600px] md:h-[60px]">
           <span className="text-fluid-base">{t('resource_manual_en')}</span>
           <a
             href="https://www.brainco.cn/lib/BC2-0900343100-Stark%20%E7%94%A8%E6%88%B7%E8%AF%B4%E6%98%8E%E4%B9%A6%EF%BC%88%E5%A4%A7%E6%89%8B%EF%BC%89-AW-20230925%20%E8%8B%B1%E6%96%87%E7%89%88.pdf"
