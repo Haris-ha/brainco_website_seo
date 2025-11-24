@@ -28,13 +28,13 @@ export function CartList({
   return (
     <section className="w-full" aria-labelledby="cart-title">
       {/* 标题和全选 */}
-      <header className="mb-4 flex items-center justify-between border-b border-dashed border-[#707070] pb-4 md:mb-8 md:pb-6">
+      <header className="mb-4 flex items-center justify-between border-b border-dashed border-[#707070] pb-4 lg:mb-8 lg:pb-6">
         <motion.h1
           id="cart-title"
           initial={{ opacity: 0, x: -20 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.6 }}
-          className="text-fluid-3xl md:text-fluid-5xl font-medium text-[#333]"
+          className="text-fluid-3xl md:text-fluid-4xl lg:text-fluid-5xl font-medium text-[#333]"
         >
           {t('title')}
         </motion.h1>
@@ -44,7 +44,7 @@ export function CartList({
           initial={{ opacity: 0, x: 20 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.6 }}
-          className="hidden items-center gap-3 md:flex"
+          className="hidden items-center gap-3 lg:flex"
         >
           <motion.button
             type="button"
@@ -81,21 +81,21 @@ export function CartList({
         </motion.div>
       </header>
 
-      {/* 已选商品数量提示（Mobile） */}
+      {/* 已选商品数量提示（Mobile/Tablet） */}
       {checkedCount > 0 && (
         <motion.div
           initial={{ opacity: 0, y: -10 }}
           animate={{ opacity: 1, y: 0 }}
-          className="mb-4 text-center md:hidden"
+          className="mb-4 text-center lg:hidden"
         >
-          <span className="text-fluid-lg text-[#595757]">
+          <span className="text-fluid-lg md:text-fluid-xl text-[#595757]">
             {t('selected_items', { count: checkedCount })}
           </span>
         </motion.div>
       )}
 
       {/* 商品列表 */}
-      <ul className="space-y-4 md:space-y-6">
+      <ul className="space-y-4 lg:space-y-6">
         <AnimatePresence mode="popLayout">
           {items.map(item => (
             <CartItem

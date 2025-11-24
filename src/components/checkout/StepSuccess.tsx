@@ -33,8 +33,8 @@ export function StepSuccess({ orderNumber }: StepSuccessProps) {
         }}
         className="mb-8 flex justify-center"
       >
-        <div className="flex size-[120px] items-center justify-center rounded-full bg-green-100 md:size-[160px]">
-          <CheckCircle className="size-[80px] text-green-500 md:size-[100px]" />
+        <div className="flex size-[120px] items-center justify-center rounded-full bg-green-100 md:size-[140px] lg:size-[160px]">
+          <CheckCircle className="size-[80px] text-green-500 md:size-[90px] lg:size-[100px]" />
         </div>
       </motion.div>
 
@@ -44,7 +44,7 @@ export function StepSuccess({ orderNumber }: StepSuccessProps) {
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6, delay: 0.4 }}
-        className="text-fluid-5xl mb-4 font-medium text-[#333]"
+        className="text-fluid-5xl mb-4 font-medium text-[#333] md:text-fluid-6xl"
       >
         {t('order_success')}
       </motion.h1>
@@ -56,10 +56,10 @@ export function StepSuccess({ orderNumber }: StepSuccessProps) {
         transition={{ duration: 0.6, delay: 0.6 }}
         className="mb-8 rounded-lg bg-[#f9f9f9] p-6"
       >
-        <p className="text-fluid-base mb-2 text-[#595757]">
+        <p className="text-fluid-base mb-2 text-[#595757] md:text-fluid-lg">
           {t('order_number')}
         </p>
-        <p className="text-fluid-2xl font-mono font-medium text-[#4F68D2]">
+        <p className="text-fluid-2xl font-mono font-medium text-[#4F68D2] md:text-fluid-3xl">
           {orderNumber}
         </p>
       </motion.div>
@@ -77,7 +77,7 @@ export function StepSuccess({ orderNumber }: StepSuccessProps) {
           whileTap={{ scale: 0.95 }}
           onClick={() => router.push('/')}
           aria-label={t('Cart.continue_shopping')}
-          className="text-fluid-xl cursor-target h-[50px] w-full rounded-[25px] border-2 border-[#4F68D2] bg-white font-medium text-[#4F68D2] transition-all hover:bg-[#4F68D2] hover:!text-white md:h-[72px] md:w-[260px] md:rounded-[41px]"
+          className="text-fluid-xl cursor-target h-[50px] w-full rounded-[25px] border-2 border-[#4F68D2] bg-white font-medium text-[#4F68D2] transition-all hover:bg-[#4F68D2] hover:!text-white md:h-[60px] md:text-fluid-2xl lg:h-[72px] lg:w-[260px] lg:rounded-[41px]"
         >
           {t('Cart.continue_shopping')}
         </motion.button>
@@ -88,7 +88,7 @@ export function StepSuccess({ orderNumber }: StepSuccessProps) {
           whileTap={{ scale: 0.95 }}
           onClick={() => router.push(`/orders/${orderNumber}`)}
           aria-label={t('view_order')}
-          className="text-fluid-xl cursor-target h-[50px] w-full rounded-[25px] bg-[#4F68D2] font-medium !text-white shadow-lg transition-all hover:bg-[#3d52a8] md:h-[72px] md:w-[260px] md:rounded-[41px]"
+          className="text-fluid-xl cursor-target h-[50px] w-full rounded-[25px] bg-[#4F68D2] font-medium !text-white shadow-lg transition-all hover:bg-[#3d52a8] md:h-[60px] md:text-fluid-2xl lg:h-[72px] lg:w-[260px] lg:rounded-[41px]"
         >
           {t('view_order')}
         </motion.button>

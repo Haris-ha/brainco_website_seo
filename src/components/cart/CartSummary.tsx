@@ -30,29 +30,29 @@ export function CartSummary({ totalPrice, hasCheckedItems }: CartSummaryProps) {
       initial={{ opacity: 0, y: 30 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.6, delay: 0.2 }}
-      className="mt-8 pt-6 md:pt-8"
+      className="mt-8 pt-6 lg:pt-8"
       aria-labelledby="cart-summary-title"
     >
       <h2 id="cart-summary-title" className="sr-only">{t('total')}</h2>
       {/* 快递配送信息 */}
-      <div className="mb-4 md:mb-8">
-        <div className="flex items-center justify-between md:justify-start md:gap-2">
-          <span className="text-fluid-lg md:text-fluid-2xl text-[#595757]">
+      <div className="mb-4 lg:mb-8">
+        <div className="flex items-center justify-between lg:justify-start lg:gap-2">
+          <span className="text-fluid-lg md:text-fluid-xl lg:text-fluid-2xl text-[#595757]">
             {t('shipping')}
           </span>
-          <span className="text-fluid-lg md:text-fluid-xl font-medium text-[#4F68D2]">
+          <span className="text-fluid-lg md:text-fluid-xl lg:text-fluid-xl font-medium text-[#4F68D2]">
             {t('shipping_free')}
           </span>
         </div>
       </div>
 
       {/* 价格明细 */}
-      <div className="mb-4 flex flex-col gap-2 md:mb-8">
-        <div className="flex items-baseline justify-between md:items-center">
-          <span className="text-fluid-xl md:text-fluid-3xl text-[#333]">
+      <div className="mb-4 flex flex-col gap-2 lg:mb-8">
+        <div className="flex items-baseline justify-between lg:items-center">
+          <span className="text-fluid-xl md:text-fluid-2xl lg:text-fluid-3xl text-[#333]">
             {t('total')}
           </span>
-          <span className="text-fluid-2xl md:text-fluid-6xl font-medium text-[#333]">
+          <span className="text-fluid-2xl md:text-fluid-4xl lg:text-fluid-6xl font-medium text-[#333]">
             ¥
             {' '}
             {formattedTotal}
@@ -60,14 +60,14 @@ export function CartSummary({ totalPrice, hasCheckedItems }: CartSummaryProps) {
         </div>
 
         <div className="flex items-center justify-end">
-          <span className="text-fluid-lg md:text-fluid-lg text-[#999]">
+          <span className="text-fluid-lg md:text-fluid-xl lg:text-fluid-lg text-[#999]">
             {t('tax_included')}
           </span>
         </div>
       </div>
 
       {/* 结算按钮 */}
-      <div className="mb-8 flex justify-center md:mb-12 md:justify-end">
+      <div className="mb-8 flex justify-center lg:mb-12 lg:justify-end">
         <motion.button
           type="button"
           whileHover={hasCheckedItems ? { scale: 1.05 } : {}}
@@ -75,7 +75,7 @@ export function CartSummary({ totalPrice, hasCheckedItems }: CartSummaryProps) {
           onClick={handleCheckout}
           disabled={!hasCheckedItems}
           aria-label={hasCheckedItems ? t('checkout') : `${t('checkout')} - ${t('selected_items', { count: 0 })}`}
-          className={`text-fluid-xl  cursor-target h-[36px] w-[120px] rounded-[28px] font-medium !text-white shadow-lg transition-all md:h-[48px] md:w-[160px] md:rounded-[32px] ${
+          className={`text-fluid-xl md:text-fluid-2xl cursor-target h-[36px] w-[120px] md:h-[42px] md:w-[140px] rounded-[28px] font-medium !text-white shadow-lg transition-all lg:h-[48px] lg:w-[160px] lg:rounded-[32px] ${
             hasCheckedItems
               ? 'bg-[#4F68D2] hover:bg-[#3d52a8]'
               : 'cursor-not-allowed bg-[rgba(0,0,0,0.16)]'
@@ -87,11 +87,11 @@ export function CartSummary({ totalPrice, hasCheckedItems }: CartSummaryProps) {
 
       {/* 版权信息 */}
       <div className="border-t border-dashed border-[#e0e0e0] pt-6 text-center">
-        <p className="text-fluid-lg md:text-fluid-lg flex flex-col items-center gap-1 text-[#444] md:flex-row md:justify-center md:gap-3">
+        <p className="text-fluid-lg md:text-fluid-xl lg:text-fluid-lg flex flex-col items-center gap-1 text-[#444] lg:flex-row lg:justify-center lg:gap-3">
           <span>{t('copyright')}</span>
-          <span className="hidden md:inline">·</span>
+          <span className="hidden lg:inline">·</span>
           <span>{t('privacy_legal')}</span>
-          <span className="hidden md:inline">·</span>
+          <span className="hidden lg:inline">·</span>
           <span>{t('icp_number')}</span>
         </p>
       </div>

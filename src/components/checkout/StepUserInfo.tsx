@@ -162,17 +162,17 @@ export function StepUserInfo({ onContinue, initialData }: StepUserInfoProps) {
     >
       {/* 步骤指示 */}
       <nav aria-label={t('step_indicator', { current: 1, total: 3 })}>
-        <span className="mt-3 mb-4 block text-base md:mt-4 md:mb-5 lg:mt-5 lg:mb-6 lg:text-xl">
+        <span className="mt-3 mb-4 block text-base md:text-fluid-lg md:mt-4 md:mb-5 lg:mt-5 lg:mb-6 lg:text-xl">
           {t('step_indicator', { current: 1, total: 3 })}
         </span>
       </nav>
 
       {/* 标题 */}
-      <h1 id="step-1-title" className="text-2xl text-[#333] md:text-3xl lg:text-4xl">
+      <h1 id="step-1-title" className="text-2xl text-[#333] md:text-fluid-3xl lg:text-3xl xl:text-4xl">
         {t('step_1_title')}
       </h1>
 
-      <p className="mt-3 text-lg">
+      <p className="mt-3 text-lg md:text-fluid-xl">
         {t('step_1_desc')}
       </p>
 
@@ -191,8 +191,8 @@ export function StepUserInfo({ onContinue, initialData }: StepUserInfoProps) {
           <legend className="sr-only">{t('step_1_title')}</legend>
           <ul className="w-full">
             {/* 姓名 */}
-            <li className="mb-3 md:mb-4 lg:mb-4">
-              <label htmlFor="checkout-name" className="mb-1 block text-sm text-[#333] md:mb-1.5 md:text-[15px] lg:text-lg">
+            <li className="mb-3 lg:mb-4">
+              <label htmlFor="checkout-name" className="mb-1 block text-sm text-[#333] md:text-fluid-base md:mb-1.5 lg:text-[15px] xl:text-lg">
                 {t('name')}
               </label>
               <input
@@ -204,13 +204,13 @@ export function StepUserInfo({ onContinue, initialData }: StepUserInfoProps) {
                 aria-required="true"
                 autoComplete="name"
                 data-form-type="other"
-                className="cursor-target h-[44px] w-full rounded-[22px] border border-[#707070] px-4 text-sm focus:border-[#4F68D2] focus:outline-none md:h-[48px] md:rounded-[24px] md:px-5 md:text-[15px] lg:h-[52px] lg:rounded-[26px] lg:px-6 lg:text-base"
+                className="cursor-target h-[44px] w-full rounded-[22px] border border-[#707070] px-4 text-sm focus:border-[#4F68D2] focus:outline-none md:h-[50px] md:text-fluid-base md:px-5 lg:h-[52px] lg:rounded-[26px] lg:px-6 lg:text-[15px] xl:text-base"
               />
             </li>
 
             {/* 电话号码 */}
-            <li className="mb-3 md:mb-4 lg:mb-4">
-              <label htmlFor="checkout-phone" className="mb-1 block text-sm text-[#333] md:mb-1.5 md:text-[15px] lg:text-lg">
+            <li className="mb-3 lg:mb-4">
+              <label htmlFor="checkout-phone" className="mb-1 block text-sm text-[#333] md:text-fluid-base md:mb-1.5 lg:text-[15px] xl:text-lg">
                 {t('phone')}
               </label>
               <input
@@ -223,13 +223,13 @@ export function StepUserInfo({ onContinue, initialData }: StepUserInfoProps) {
                 autoComplete="tel"
                 inputMode="numeric"
                 data-form-type="other"
-                className="cursor-target h-[44px] w-full rounded-[22px] border border-[#707070] px-4 text-sm focus:border-[#4F68D2] focus:outline-none md:h-[48px] md:rounded-[24px] md:px-5 md:text-[15px] lg:h-[52px] lg:rounded-[26px] lg:px-6 lg:text-base"
+                className="cursor-target h-[44px] w-full rounded-[22px] border border-[#707070] px-4 text-sm focus:border-[#4F68D2] focus:outline-none md:h-[50px] md:text-fluid-base md:px-5 lg:h-[52px] lg:rounded-[26px] lg:px-6 lg:text-[15px] xl:text-base"
               />
             </li>
 
             {/* 验证码 */}
-            <li className="mb-3 md:mb-4 lg:mb-4">
-              <label htmlFor="checkout-code" className="mb-1 block text-sm text-[#333] md:mb-1.5 md:text-[15px] lg:text-lg">
+            <li className="mb-3 lg:mb-4">
+              <label htmlFor="checkout-code" className="mb-1 block text-sm text-[#333] md:text-fluid-base md:mb-1.5 lg:text-[15px] xl:text-lg">
                 {t('verification_code')}
               </label>
               <div className="relative flex">
@@ -244,14 +244,14 @@ export function StepUserInfo({ onContinue, initialData }: StepUserInfoProps) {
                   inputMode="numeric"
                   maxLength={6}
                   data-form-type="other"
-                  className="cursor-target h-[44px] w-full rounded-[22px] border border-[#707070] px-4 pr-[100px] text-sm focus:border-[#4F68D2] focus:outline-none md:h-[48px] md:rounded-[24px] md:px-5 md:pr-[110px] md:text-[15px] lg:h-[52px] lg:rounded-[26px] lg:px-6 lg:pr-[120px] lg:text-base"
+                  className="cursor-target h-[44px] w-full rounded-[22px] border border-[#707070] px-4 pr-[100px] text-sm focus:border-[#4F68D2] focus:outline-none md:h-[50px] md:pr-[110px] md:text-fluid-base md:px-5 lg:h-[52px] lg:rounded-[26px] lg:px-6 lg:pr-[120px] lg:text-[15px] xl:text-base"
                 />
                 <button
                   type="button"
                   onClick={handleGetCode}
                   disabled={countdown > 0 || !/^1[3-9]\d{9}$/.test(formData.phone)}
                   aria-label={t('get_code')}
-                  className="cursor-target absolute top-1/2 right-3 -translate-y-1/2 text-xs text-[#4F68D2] disabled:cursor-not-allowed disabled:text-[#ccc] md:right-3.5 md:text-sm lg:right-4 lg:text-[14px]"
+                  className="cursor-target absolute top-1/2 right-3 -translate-y-1/2 text-xs text-[#4F68D2] disabled:cursor-not-allowed disabled:text-[#ccc] md:right-3.5 md:text-fluid-sm lg:right-4 lg:text-sm xl:text-[14px]"
                 >
                   {codeText}
                 </button>
@@ -263,7 +263,7 @@ export function StepUserInfo({ onContinue, initialData }: StepUserInfoProps) {
 
       {/* 错误提示 */}
       {validation && (
-        <div role="alert" aria-live="polite" className="block text-xs text-red-500 md:text-sm">{validation}</div>
+        <div role="alert" aria-live="polite" className="block text-xs text-red-500 md:text-fluid-sm lg:text-sm">{validation}</div>
       )}
 
       {/* 继续按钮 */}
@@ -272,7 +272,7 @@ export function StepUserInfo({ onContinue, initialData }: StepUserInfoProps) {
         onClick={handleSubmit}
         disabled={isSubmitDisabled}
         aria-label={t('continue_btn')}
-        className="cursor-target mx-auto mt-8 flex h-[44px] w-[140px] items-center justify-center rounded-[22px] border-none bg-[#4f68d2] text-base font-medium !text-white shadow-[0px_3px_20px_1px_rgba(0,0,0,0.16)] transition-all hover:bg-[#3d52a8] disabled:cursor-not-allowed disabled:bg-[#f4f4f4] disabled:!text-[#707070] md:mt-10 md:h-[48px] md:w-[160px] md:rounded-[24px] md:text-lg lg:mt-12 lg:h-[52px] lg:w-[180px] lg:rounded-[26px] lg:text-xl"
+        className="cursor-target mx-auto mt-8 flex h-[44px] w-[140px] items-center justify-center rounded-[22px] border-none bg-[#4f68d2] text-base font-medium !text-white shadow-[0px_3px_20px_1px_rgba(0,0,0,0.16)] transition-all hover:bg-[#3d52a8] disabled:cursor-not-allowed disabled:bg-[#f4f4f4] disabled:!text-[#707070] md:mt-10 md:h-[50px] md:w-[160px] md:text-fluid-lg lg:mt-12 lg:h-[52px] lg:w-[180px] lg:rounded-[24px] lg:text-lg xl:rounded-[26px] xl:text-xl"
       >
         {t('continue_btn')}
       </button>

@@ -588,7 +588,7 @@ export default function BrainRoboticsContentMobile() {
         >
           {t('resources_title')}
         </motion.h2>
-        <div className="flex h-[40px] items-center justify-between rounded-[20px] border border-[#1A74BF] px-[24px] md:mx-auto md:max-w-[600px] md:h-[60px]">
+        <div className="flex h-[40px] items-center justify-between rounded-[20px] border border-[#1A74BF] px-[24px] md:mx-auto md:h-[60px] md:max-w-[600px]">
           <span className="text-fluid-base">{t('resource_manual_cn')}</span>
           <a
             href="https://www.brainco.cn/lib/BC2-0900343100-Stark%20%E7%94%A8%E6%88%B7%E8%AF%B4%E6%98%8E%E4%B9%A6%EF%BC%88%E5%A4%A7%E6%89%8B%EF%BC%89-AW-20230925.pdf"
@@ -600,7 +600,7 @@ export default function BrainRoboticsContentMobile() {
             {t('download_btn')}
           </a>
         </div>
-        <div className="mt-[28px] flex h-[40px] items-center justify-between rounded-[20px] border border-[#1A74BF] px-[24px] md:mx-auto md:max-w-[600px] md:h-[60px]">
+        <div className="mt-[28px] flex h-[40px] items-center justify-between rounded-[20px] border border-[#1A74BF] px-[24px] md:mx-auto md:h-[60px] md:max-w-[600px]">
           <span className="text-fluid-base">{t('resource_manual_en')}</span>
           <a
             href="https://www.brainco.cn/lib/BC2-0900343100-Stark%20%E7%94%A8%E6%88%B7%E8%AF%B4%E6%98%8E%E4%B9%A6%EF%BC%88%E5%A4%A7%E6%89%8B%EF%BC%89-AW-20230925%20%E8%8B%B1%E6%96%87%E7%89%88.pdf"

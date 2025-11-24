@@ -181,26 +181,26 @@ export function StepPaymentMethod({
         type="button"
         onClick={onBack}
         aria-label={t('back')}
-        className="cursor-target flex items-center text-xs leading-6 md:top-[20px] md:left-[-50px] md:text-sm lg:top-[24px] lg:left-[-60px] lg:text-[15px] lg:leading-7"
+        className="cursor-target flex items-center text-xs leading-6 md:text-fluid-sm lg:top-[20px] lg:left-[-50px] lg:text-sm xl:top-[24px] xl:left-[-60px] xl:text-[15px] xl:leading-7"
       >
-        <span className="mr-1 text-sm md:text-base">←</span>
+        <span className="mr-1 text-sm md:text-fluid-base lg:text-base">←</span>
         <span>{t('back')}</span>
       </button>
 
       {/* 步骤指示 */}
       {/* 步骤指示 */}
       <nav aria-label={t('step_indicator', { current: 2, total: 3 })}>
-        <span className="mt-10 mb-4 block text-base md:mt-4 md:mb-5 md:text-base lg:mt-5 lg:mb-6 lg:text-lg">
+        <span className="mt-10 mb-4 block text-base md:text-fluid-lg md:mt-4 md:mb-5 lg:mt-5 lg:mb-6 lg:text-base xl:text-lg">
           {t('step_indicator', { current: 3, total: 3 })}
         </span>
       </nav>
 
       {/* 标题 */}
-      <h1 id="step-3-title" className="text-2xl text-[#333] md:text-3xl lg:text-4xl">
+      <h1 id="step-3-title" className="text-2xl text-[#333] md:text-fluid-3xl lg:text-3xl xl:text-4xl">
         {t('step_3_title')}
       </h1>
 
-      <p className="mt-3 text-lg md:mt-4 md:text-xl lg:mt-5 lg:text-2xl">
+      <p className="mt-3 text-lg md:text-fluid-xl md:mt-4 lg:mt-5 lg:text-xl xl:text-2xl">
         {t('step_3_desc')}
       </p>
 
@@ -209,13 +209,13 @@ export function StepPaymentMethod({
         <legend className="sr-only">{t('payment_method')}</legend>
         <ul className="flex w-full flex-col" role="radiogroup" aria-label={t('payment_method')}>
           {paymentMethods.map(method => (
-            <li key={method.value} className="mb-3 md:mb-4 lg:mb-5">
+            <li key={method.value} className="mb-3 lg:mb-4 xl:mb-5">
               <button
                 type="button"
                 onClick={() => setPaymentMethod(method.value)}
                 aria-pressed={paymentMethod === method.value}
                 aria-label={`${t('payment_method')} - ${method.name}`}
-                className={`cursor-target flex h-[60px] w-full items-center justify-center rounded-[30px] border-1 text-lg transition-colors md:h-[75px] md:rounded-[37px] md:border-[3px] md:text-xl lg:h-[72px] lg:rounded-[45px] lg:border-[2px] lg:text-[24px] ${
+                className={`cursor-target flex h-[60px] w-full items-center justify-center rounded-[30px] border-1 text-lg transition-colors md:h-[70px] md:text-fluid-xl lg:h-[75px] lg:rounded-[37px] lg:border-[3px] lg:text-xl xl:h-[72px] xl:rounded-[45px] xl:border-[2px] xl:text-[24px] ${
                   paymentMethod === method.value
                     ? 'border-[#4f68d2] bg-[#4f68d2] !text-white'
                     : 'border-[#333] bg-white !text-[#333]'
@@ -232,7 +232,7 @@ export function StepPaymentMethod({
       {qrValue && (
         <section className="flex flex-col items-center" aria-labelledby="qr-code-title">
           <h2 id="qr-code-title" className="sr-only">{t('scan_to_pay', { method: paymentMethod === 'WECHAT_PAY_NATIVE' ? t('wechat_pay') : t('alipay') })}</h2>
-          <p className="my-1.5 text-sm text-[#707070] md:text-base">
+          <p className="my-1.5 text-sm text-[#707070] md:text-fluid-base lg:text-base">
             {paymentMethod === 'WECHAT_PAY_NATIVE' ? '请使用微信扫码支付' : '正在跳转到支付宝支付页面...'}
           </p>
 
@@ -268,7 +268,7 @@ export function StepPaymentMethod({
             )}
           </figure>
 
-          <p className="my-1.5 text-center text-sm text-[#707070] md:text-base">
+          <p className="my-1.5 text-center text-sm text-[#707070] md:text-fluid-base lg:text-base">
             {t('pay_within_30_min')}
           </p>
         </section>
@@ -281,7 +281,7 @@ export function StepPaymentMethod({
           onClick={handleSubmit}
           disabled={!paymentMethod || isSubmitting}
           aria-label={t('confirm')}
-          className="cursor-target mx-auto mt-12 flex h-[50px] w-[180px] items-center justify-center rounded-[25px] border-none bg-[#4f68d2] text-xl font-medium !text-white shadow-[0px_3px_20px_1px_rgba(0,0,0,0.16)] transition-all hover:bg-[#3d52a8] disabled:cursor-not-allowed disabled:bg-[#f4f4f4] disabled:!text-[#707070] md:mt-16 md:h-[64px] md:w-[220px] md:rounded-[32px] md:text-2xl lg:mt-26 lg:h-[72px] lg:w-[260px] lg:rounded-[40px] lg:text-[34px]"
+          className="cursor-target mx-auto mt-12 flex h-[50px] w-[180px] items-center justify-center rounded-[25px] border-none bg-[#4f68d2] text-xl font-medium !text-white shadow-[0px_3px_20px_1px_rgba(0,0,0,0.16)] transition-all hover:bg-[#3d52a8] disabled:cursor-not-allowed disabled:bg-[#f4f4f4] disabled:!text-[#707070] md:mt-16 md:h-[60px] md:w-[200px] md:text-fluid-2xl lg:h-[64px] lg:w-[220px] lg:rounded-[32px] lg:text-2xl xl:mt-26 xl:h-[72px] xl:w-[260px] xl:rounded-[40px] xl:text-[34px]"
         >
           {t('confirm')}
         </button>

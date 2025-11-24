@@ -37,10 +37,10 @@ export const CartItem = memo(({
       animate={{ opacity: 1, y: 0 }}
       exit={{ opacity: 0, x: -20 }}
       transition={{ duration: 0.3 }}
-      className="flex flex-col gap-4  border-b border-dashed border-[#707070] pb-4 md:flex-row md:items-center md:justify-between md:pb-6"
+      className="flex flex-col gap-4 border-b border-dashed border-[#707070] pb-4 lg:flex-row lg:items-center lg:justify-between lg:pb-6"
     >
       {/* 复选框和商品信息 */}
-      <div className="flex items-center gap-4 md:flex-1 md:items-center md:gap-8">
+      <div className="flex items-center gap-4 lg:flex-1 lg:items-center lg:gap-8">
         {/* 复选框 */}
         <motion.button
           type="button"
@@ -49,7 +49,7 @@ export const CartItem = memo(({
           onClick={() => onToggleCheck(item.id)}
           aria-label={item.checked ? `${t('delete')} ${item.name}` : `${t('select_all')} ${item.name}`}
           aria-pressed={item.checked}
-          className={`cursor-target mt-1 flex size-[14px] shrink-0 cursor-pointer items-center justify-center rounded-[2px] border transition-all md:mt-0 md:size-[24px] md:rounded-[4px] ${
+          className={`cursor-target mt-1 flex size-[14px] shrink-0 cursor-pointer items-center justify-center rounded-[2px] border transition-all lg:mt-0 lg:size-[24px] lg:rounded-[4px] ${
             item.checked
               ? 'border-[#4F68D2] bg-[#4F68D2]'
               : 'border-[#707070] bg-white'
@@ -59,7 +59,7 @@ export const CartItem = memo(({
             <motion.svg
               initial={{ scale: 0 }}
               animate={{ scale: 1 }}
-              className="size-[12px] !text-white md:size-[24px]"
+              className="size-[12px] !text-white lg:size-[24px]"
               fill="none"
               stroke="currentColor"
               viewBox="0 0 24 24"
@@ -75,7 +75,7 @@ export const CartItem = memo(({
         </motion.button>
 
         {/* 商品图片 */}
-        <div className="relative size-[44px] shrink-0 overflow-hidden rounded md:size-[100px]">
+        <div className="relative size-[44px] shrink-0 overflow-hidden rounded lg:size-[100px]">
           <Image
             src={item.pictureUrl}
             alt={`${item.name} - 购物车商品图片 / ${item.name} - Shopping Cart Product Image`}
@@ -84,19 +84,19 @@ export const CartItem = memo(({
           />
         </div>
 
-        {/* 商品名称（Mobile） */}
-        <div className="flex flex-1 flex-col md:hidden">
-          <p className="text-fluid-base text-[#595757]">{item.name}</p>
+        {/* 商品名称（Mobile/Tablet） */}
+        <div className="flex flex-1 flex-col lg:hidden">
+          <p className="text-fluid-base md:text-fluid-lg text-[#595757]">{item.name}</p>
         </div>
 
         {/* 商品名称（Desktop） */}
-        <div className="hidden flex-1 md:block">
+        <div className="hidden flex-1 lg:block">
           <p className="text-fluid-xl text-[#595757]">{item.name}</p>
         </div>
       </div>
 
       {/* 数量和价格（Desktop） */}
-      <div className="hidden items-center gap-8 md:flex">
+      <div className="hidden items-center gap-8 lg:flex">
         {/* 数量调整器 */}
         <div className="flex items-center gap-4">
           <span className="text-fluid-xl text-[#595757]">{t('quantity')}</span>
@@ -147,11 +147,11 @@ export const CartItem = memo(({
         </motion.button>
       </div>
 
-      {/* 数量、价格和删除（Mobile） */}
-      <div className="flex items-center justify-between md:hidden">
+      {/* 数量、价格和删除（Mobile/Tablet） */}
+      <div className="flex items-center justify-between lg:hidden">
         <div className="flex items-center gap-4">
           {/* 价格 */}
-          <span className="text-fluid-lg text-[#595757]">
+          <span className="text-fluid-lg md:text-fluid-xl text-[#595757]">
             ¥
             {(item.price / 100).toFixed(2)}
           </span>
@@ -195,9 +195,9 @@ export const CartItem = memo(({
         </motion.button>
       </div>
 
-      {/* 小计（Mobile） */}
-      <div className="text-right md:hidden">
-        <span className="text-fluid-lg text-[#333]">
+      {/* 小计（Mobile/Tablet） */}
+      <div className="text-right lg:hidden">
+        <span className="text-fluid-lg md:text-fluid-xl text-[#333]">
           {t('subtotal')}
           : ¥
           {subtotal.toFixed(2)}

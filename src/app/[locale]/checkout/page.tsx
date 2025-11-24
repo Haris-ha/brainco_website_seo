@@ -264,20 +264,20 @@ export default function CheckoutPage() {
         initial={{ opacity: 0, y: -20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5 }}
-        className="sticky top-0 z-40 flex items-center justify-between border-b border-gray-100 bg-white px-6 py-4 md:px-12"
+        className="sticky top-0 z-40 flex items-center justify-between border-b border-gray-100 bg-white px-6 py-4 lg:px-12"
       >
-        <div className="flex items-center gap-1 md:gap-4">
+        <div className="flex items-center gap-1 lg:gap-4">
           <Image
             src="https://website-www-brainco-cn.oss-cn-hangzhou.aliyuncs.com/images/icon.webp"
             alt="BrainCo 公司 Logo - 脑机接口技术公司 / BrainCo Company Logo - Brain-Computer Interface Technology Company"
             width={180}
             height={80}
-            className="h-auto w-[100px] lg:w-[180px]"
+            className="h-auto w-[100px] md:w-[120px] xl:w-[180px]"
             priority
           />
-          <div className="relative flex items-center gap-2 pl-3 md:pl-6">
-            <div className="absolute top-1/2 left-0 h-[12px] w-[2px] -translate-y-1/2 bg-gray-800 md:h-[16px]" />
-            <span className="font-medium text-gray-800" style={{ fontSize: 'clamp(14px, 1.5vw, 1.5rem)' }}>
+          <div className="relative flex items-center gap-2 pl-3 lg:pl-6">
+            <div className="absolute top-1/2 left-0 h-[12px] w-[2px] -translate-y-1/2 bg-gray-800 md:h-[14px] lg:h-[16px]" />
+            <span className="font-medium text-gray-800 md:text-fluid-lg" style={{ fontSize: 'clamp(14px, 1.5vw, 1.5rem)' }}>
               {t('page_title')}
             </span>
           </div>
@@ -293,7 +293,7 @@ export default function CheckoutPage() {
           aria-label="返回上一页 / Back to previous page"
         >
           <svg
-            className="h-5 w-5 md:h-7 md:w-7"
+            className="h-5 w-5 md:h-6 md:w-6 lg:h-7 lg:w-7"
             fill="none"
             stroke="currentColor"
             viewBox="0 0 24 24"
@@ -305,23 +305,23 @@ export default function CheckoutPage() {
               d="M15 19l-7-7 7-7"
             />
           </svg>
-          <span className="font-medium text-gray-800" style={{ fontSize: 'clamp(14px, 1.5vw, 1.5rem)' }}>
+          <span className="font-medium text-gray-800 md:text-fluid-lg" style={{ fontSize: 'clamp(14px, 1.5vw, 1.5rem)' }}>
             {t('back')}
           </span>
         </motion.button>
       </motion.header>
 
       {/* 主内容区 */}
-      <div className="mx-auto flex w-full max-w-[80vw] flex-1 items-center justify-between py-5 md:px-6 md:py-10">
+      <div className="mx-auto flex w-full max-w-[80vw] flex-1 items-center justify-between py-5 lg:px-6 lg:py-10">
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 0.6 }}
-          className="flex w-full flex-col gap-3 md:flex-row md:items-center md:gap-6 lg:gap-42"
+          className="flex w-full flex-col gap-3 lg:flex-row lg:items-center lg:gap-6 xl:gap-42"
         >
           {/* 左侧：订单预览（仅桌面端显示） */}
           {currentStep < 3 && (
-            <div className="hidden w-full md:block md:w-1/2 md:flex-shrink-0">
+            <div className="hidden w-full lg:block lg:w-1/2 lg:flex-shrink-0">
               <OrderPreview
                 items={checkedItems}
                 discountAmount={discountAmount}
@@ -333,10 +333,10 @@ export default function CheckoutPage() {
           )}
 
           {/* 右侧：步骤表单 */}
-          <div className={`w-full flex-1 md:w-1/2 ${currentStep < 3 ? 'ml-3 md:ml-4 lg:ml-5' : 'mx-auto max-w-[720px]'}`}>
-            {/* 移动端订单预览按钮（仅在移动端显示） */}
+          <div className={`w-full flex-1 lg:w-1/2 ${currentStep < 3 ? 'ml-3 lg:ml-4 xl:ml-5' : 'mx-auto max-w-[720px]'}`}>
+            {/* 移动端订单预览按钮（仅在移动端和tablet显示） */}
             {currentStep < 3 && (
-              <div className="mb-4 flex justify-center md:hidden">
+              <div className="mb-4 flex justify-center lg:hidden">
                 <motion.button
                   type="button"
                   whileHover={{ scale: 1.02 }}
@@ -382,13 +382,13 @@ export default function CheckoutPage() {
 
       {/* 底部版权信息 */}
       {currentStep < 3 && (
-        <div className="border-t border-[#e0e0e0] py-2.5 md:py-3">
+        <div className="border-t border-[#e0e0e0] py-2.5 lg:py-3">
           <div className="text-center">
-            <p className="text-xs text-[#999] md:text-base">
+            <p className="text-xs text-[#999] md:text-fluid-sm lg:text-base">
               <span>{t('copyright')}</span>
-              <span className="mx-1 md:mx-1.5">·</span>
+              <span className="mx-1 lg:mx-1.5">·</span>
               <span>{t('privacy_legal')}</span>
-              <span className="mx-1 md:mx-1.5">·</span>
+              <span className="mx-1 lg:mx-1.5">·</span>
               <span>{t('icp_number')}</span>
             </p>
           </div>
@@ -402,7 +402,7 @@ export default function CheckoutPage() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            className="fixed inset-0 z-50 flex items-center justify-center bg-black/50 p-4 md:hidden"
+            className="fixed inset-0 z-50 flex items-center justify-center bg-black/50 p-4 lg:hidden"
             onClick={() => setShowOrderPreviewModal(false)}
           >
             <motion.div

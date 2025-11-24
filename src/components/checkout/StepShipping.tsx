@@ -201,25 +201,25 @@ export function StepShipping({
         type="button"
         onClick={onBack}
         aria-label={t('back')}
-        className="cursor-target flex items-center text-xs leading-6 md:top-[20px] md:left-[-50px] md:text-sm lg:top-[24px] lg:left-[-60px] lg:text-[15px] lg:leading-7"
+        className="cursor-target flex items-center text-xs leading-6 md:text-fluid-sm lg:top-[20px] lg:left-[-50px] lg:text-sm xl:top-[24px] xl:left-[-60px] xl:text-[15px] xl:leading-7"
       >
-        <span className="mr-1 text-sm md:text-base">←</span>
+        <span className="mr-1 text-sm md:text-fluid-base lg:text-base">←</span>
         <span>{t('back')}</span>
       </button>
 
       {/* 步骤指示 */}
       <nav aria-label={t('step_indicator', { current: 2, total: 3 })}>
-        <span className="mt-10 mb-4 block text-base md:mt-4 md:mb-5 md:text-base lg:mt-5 lg:mb-6 lg:text-lg">
+        <span className="mt-10 mb-4 block text-base md:text-fluid-lg md:mt-4 md:mb-5 lg:mt-5 lg:mb-6 lg:text-base xl:text-lg">
           {t('step_indicator', { current: 2, total: 3 })}
         </span>
       </nav>
 
       {/* 标题 */}
-      <h1 id="step-2-title" className="text-2xl text-[#333] md:text-3xl lg:text-4xl">
+      <h1 id="step-2-title" className="text-2xl text-[#333] md:text-fluid-3xl lg:text-3xl xl:text-4xl">
         {t('step_2_title')}
       </h1>
 
-      <div className="mt-3 flex flex-col items-start justify-between gap-2 text-sm md:mt-4 md:flex-row md:items-center md:text-[15px] lg:mt-5 lg:text-base">
+      <div className="mt-3 flex flex-col items-start justify-between gap-2 text-sm md:mt-4 md:text-fluid-base md:flex-row md:items-center lg:mt-5 lg:text-[15px] xl:text-base">
         <span>{t('step_2_desc')}</span>
         <div className="flex items-center text-[#6076D6]">
           <input
@@ -229,7 +229,7 @@ export function StepShipping({
             onChange={e => setDefaultAddress(e.target.checked)}
             className="cursor-target mr-1 border-[#6076D6]"
           />
-          <label htmlFor="defaultAddress" className="cursor-target text-xs md:text-sm">
+          <label htmlFor="defaultAddress" className="cursor-target text-xs md:text-fluid-sm lg:text-sm">
             {t('set_default_address')}
           </label>
         </div>
@@ -248,8 +248,8 @@ export function StepShipping({
           <legend className="sr-only">{t('step_2_title')}</legend>
           <ul className="w-full">
             {/* 姓名 */}
-            <li className="mb-3 md:mb-4 lg:mb-4">
-              <label htmlFor="shipping-name" className="mb-1 block text-sm text-[#333] md:mb-1.5 md:text-[15px] lg:text-base">
+            <li className="mb-3 lg:mb-4">
+              <label htmlFor="shipping-name" className="mb-1 block text-sm text-[#333] md:text-fluid-base md:mb-1.5 lg:text-[15px] xl:text-base">
                 {t('name')}
               </label>
               <input
@@ -259,13 +259,13 @@ export function StepShipping({
                 onChange={e => setFormData({ ...formData, name: e.target.value })}
                 placeholder={t('name_placeholder')}
                 aria-required="true"
-                className="cursor-target h-[44px] w-full rounded-[22px] border border-[#707070] px-4 text-sm focus:border-[#4F68D2] focus:outline-none md:h-[48px] md:rounded-[24px] md:px-5 md:text-[15px] lg:h-[52px] lg:rounded-[26px] lg:px-6 lg:text-base"
+                className="cursor-target h-[44px] w-full rounded-[22px] border border-[#707070] px-4 text-sm focus:border-[#4F68D2] focus:outline-none md:h-[50px] md:text-fluid-base md:px-5 lg:h-[52px] lg:rounded-[26px] lg:px-6 lg:text-[15px] xl:text-base"
               />
             </li>
 
             {/* 收货地址（省市区选择器） */}
-            <li className="mb-3 md:mb-4 lg:mb-4">
-              <label id="shipping-region-label" htmlFor="shipping-region" className="mb-1 block text-sm text-[#333] md:mb-1.5 md:text-[15px] lg:text-base" aria-required="true">
+            <li className="mb-3 lg:mb-4">
+              <label id="shipping-region-label" htmlFor="shipping-region" className="mb-1 block text-sm text-[#333] md:text-fluid-base md:mb-1.5 lg:text-[15px] xl:text-base" aria-required="true">
                 {t('province_city_district')}
               </label>
               <div
@@ -279,7 +279,7 @@ export function StepShipping({
                   }
                 }}
                 aria-labelledby="shipping-region-label"
-                className="cursor-target flex h-[44px] w-full items-center rounded-[22px] border border-[#707070] px-4 text-sm focus-within:border-[#4F68D2] focus-within:outline-none md:h-[48px] md:rounded-[24px] md:px-5 md:text-[15px] lg:h-[52px] lg:rounded-[26px] lg:px-6 lg:text-base"
+                className="cursor-target flex h-[44px] w-full items-center rounded-[22px] border border-[#707070] px-4 text-sm focus-within:border-[#4F68D2] focus-within:outline-none md:h-[50px] md:text-fluid-base md:px-5 lg:h-[52px] lg:rounded-[26px] lg:px-6 lg:text-[15px] xl:text-base"
               >
                 <span className={getAreaDisplayText() ? 'text-[#333]' : 'text-gray-400'}>
                   {getAreaDisplayText() || t('province_city_district_placeholder')}
@@ -302,8 +302,8 @@ export function StepShipping({
             </li>
 
             {/* 详细地址 */}
-            <li className="mb-3 md:mb-4 lg:mb-4">
-              <label htmlFor="shipping-address" className="mb-1 block text-sm text-[#333] md:mb-1.5 md:text-[15px] lg:text-base">
+            <li className="mb-3 lg:mb-4">
+              <label htmlFor="shipping-address" className="mb-1 block text-sm text-[#333] md:text-fluid-base md:mb-1.5 lg:text-[15px] xl:text-base">
                 {t('detailed_address')}
               </label>
               <input
@@ -313,13 +313,13 @@ export function StepShipping({
                 onChange={e => setFormData({ ...formData, address: e.target.value })}
                 placeholder={t('detailed_address_placeholder')}
                 aria-required="true"
-                className="cursor-target h-[44px] w-full rounded-[22px] border border-[#707070] px-4 text-sm focus:border-[#4F68D2] focus:outline-none md:h-[48px] md:rounded-[24px] md:px-5 md:text-[15px] lg:h-[52px] lg:rounded-[26px] lg:px-6 lg:text-base"
+                className="cursor-target h-[44px] w-full rounded-[22px] border border-[#707070] px-4 text-sm focus:border-[#4F68D2] focus:outline-none md:h-[50px] md:text-fluid-base md:px-5 lg:h-[52px] lg:rounded-[26px] lg:px-6 lg:text-[15px] xl:text-base"
               />
             </li>
 
             {/* 电话号码 */}
-            <li className="mb-3 md:mb-4 lg:mb-4">
-              <label htmlFor="shipping-phone" className="mb-1 block text-sm text-[#333] md:mb-1.5 md:text-[15px] lg:text-base">
+            <li className="mb-3 lg:mb-4">
+              <label htmlFor="shipping-phone" className="mb-1 block text-sm text-[#333] md:text-fluid-base md:mb-1.5 lg:text-[15px] xl:text-base">
                 {t('phone')}
               </label>
               <input
@@ -329,7 +329,7 @@ export function StepShipping({
                 onChange={e => setFormData({ ...formData, phone: e.target.value })}
                 placeholder={t('phone_placeholder')}
                 aria-required="true"
-                className="cursor-target h-[44px] w-full rounded-[22px] border border-[#707070] px-4 text-sm focus:border-[#4F68D2] focus:outline-none md:h-[48px] md:rounded-[24px] md:px-5 md:text-[15px] lg:h-[52px] lg:rounded-[26px] lg:px-6 lg:text-base"
+                className="cursor-target h-[44px] w-full rounded-[22px] border border-[#707070] px-4 text-sm focus:border-[#4F68D2] focus:outline-none md:h-[50px] md:text-fluid-base md:px-5 lg:h-[52px] lg:rounded-[26px] lg:px-6 lg:text-[15px] xl:text-base"
               />
             </li>
           </ul>
@@ -342,7 +342,7 @@ export function StepShipping({
         onClick={handleSubmit}
         disabled={isDisabled || isSubmitting}
         aria-label={isSubmitting ? t('submitting') : t('submit_order')}
-        className="cursor-target mx-auto mt-8 flex h-[44px] w-[140px] items-center justify-center rounded-[22px] border-none bg-[#4f68d2] text-base font-medium !text-white shadow-[0px_3px_20px_1px_rgba(0,0,0,0.16)] transition-all hover:bg-[#3d52a8] disabled:cursor-not-allowed disabled:bg-[#f4f4f4] disabled:!text-[#707070] md:mt-10 md:h-[48px] md:w-[160px] md:rounded-[24px] md:text-lg lg:mt-12 lg:h-[52px] lg:w-[180px] lg:rounded-[26px] lg:text-xl"
+        className="cursor-target mx-auto mt-8 flex h-[44px] w-[140px] items-center justify-center rounded-[22px] border-none bg-[#4f68d2] text-base font-medium !text-white shadow-[0px_3px_20px_1px_rgba(0,0,0,0.16)] transition-all hover:bg-[#3d52a8] disabled:cursor-not-allowed disabled:bg-[#f4f4f4] disabled:!text-[#707070] md:mt-10 md:h-[50px] md:w-[160px] md:text-fluid-lg lg:mt-12 lg:h-[52px] lg:w-[180px] lg:rounded-[24px] lg:text-lg xl:rounded-[26px] xl:text-xl"
       >
         {isSubmitting ? t('submitting') : t('submit_order')}
       </button>
