@@ -148,7 +148,7 @@ export default function Revo1ContentMobile() {
         >
           {t('industry_title')}
         </motion.h2>
-        <ul className="mt-10 pr-5">
+        <ul className="mt-10 pr-5 md:mx-auto md:max-w-[90vw]">
           {industryList.map((item, index) => (
             <motion.li
               key={item.icon}
@@ -303,8 +303,8 @@ export default function Revo1ContentMobile() {
         >
           {t('version_title')}
         </motion.h2>
-        <div className="sticky top-28 z-[30] h-[65px]">
-          <ul className="flex gap-3 bg-[#07111b] px-6 pb-5">
+        <div className="sticky top-28 z-[30] h-[65px] md:ml-auto md:max-w-[84vw] md:px-0 w-full bg-[#07111b]">
+          <ul className="flex gap-3 bg-[#07111b] px-6 pb-5 md:w-full max-w-[80vw] ml-auto">
             <li className="flex h-[45px] flex-1 items-center justify-center rounded-lg border border-[#bbb]">
               {t('version_basic')}
             </li>
@@ -314,7 +314,7 @@ export default function Revo1ContentMobile() {
           </ul>
         </div>
         <motion.div
-          className="px-8"
+          className="px-8 md:px-16"
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
@@ -359,7 +359,7 @@ export default function Revo1ContentMobile() {
           {t('experience_title')}
         </motion.h2>
         <motion.p
-          className="text-fluid-base mt-6 px-6"
+          className="text-fluid-base mt-6 px-6 md:px-32"
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
@@ -368,7 +368,7 @@ export default function Revo1ContentMobile() {
           {t('experience_desc')}
         </motion.p>
         <motion.div
-        className='px-8'
+          className="px-8"
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
@@ -459,7 +459,7 @@ export default function Revo1ContentMobile() {
           {t('partner_title')}
         </motion.h2>
         <motion.ul
-          className="mt-10 flex flex-wrap items-center justify-evenly px-4"
+          className="mt-10 flex flex-wrap items-center justify-evenly px-4 md:px-32"
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
@@ -468,7 +468,7 @@ export default function Revo1ContentMobile() {
           {partnerMobile.map((logo, index) => (
             <motion.li
               key={logo}
-              className="mb-8 flex h-16 min-w-[100px] justify-center"
+              className="mb-8 flex h-16 min-w-[100px] justify-center md:w-[160px]"
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}

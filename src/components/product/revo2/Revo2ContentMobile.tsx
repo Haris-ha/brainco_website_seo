@@ -346,7 +346,7 @@ export default function Revo2ContentMobile() {
           />
         </motion.div>
         <motion.ul
-          className="mt-9 mb-10 ml-12 grid grid-cols-2 gap-x-0 px-14 pr-10 text-left"
+          className="mt-9 mb-10 ml-12 grid grid-cols-2 gap-x-0 px-14 pr-10 text-left md:grid-cols-3 md:ml-40"
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
@@ -391,7 +391,7 @@ export default function Revo2ContentMobile() {
       <section className="bg-[#070707] pt-10 pb-8" aria-labelledby="version-title-mobile">
         <motion.h2
           id="version-title-mobile"
-          className="text-fluid-3xl mx-auto mb-8 w-[326px] border-t border-[#666] pt-10 text-center font-bold text-[#d6d6d6]"
+          className="text-fluid-3xl mx-auto mb-8 w-[326px] border-t border-[#666] pt-10 text-center font-bold text-[#d6d6d6] md:w-[480px]"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
@@ -403,7 +403,7 @@ export default function Revo2ContentMobile() {
           {productVersions.map((version, index) => (
             <motion.li
               key={version.title}
-              className={`mx-auto mb-6 w-[326px] rounded-3xl p-10 ${version.border ? 'border border-white' : ''}`}
+              className={`mx-auto mb-6 w-[326px] rounded-3xl p-10 ${version.border ? 'border border-white' : ''} md:w-[480px]`}
               style={version.gradient ? { background: version.gradient } : {}}
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
