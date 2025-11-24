@@ -169,7 +169,7 @@ export default function OrdersPage() {
       </motion.header>
 
       {/* 主内容区 */}
-      <main className="flex min-h-[calc(100vh-80px)] items-center justify-center overflow-y-auto py-8">
+      <main className="flex min-h-[calc(100vh-80px)] items-center justify-center overflow-y-auto py-8 md:px-[60px]">
         {!isAuthenticated && <OrderAuth onAuthSuccess={handleAuthSuccess} />}
 
         {isAuthenticated && !selectedOrder && (

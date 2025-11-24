@@ -158,14 +158,14 @@ export default function OnlineServiceMobile() {
             <motion.div
               className="absolute bottom-0 z-[2] max-h-[85vh] w-full overflow-y-auto rounded-t-3xl bg-[#f8f9fa]"
               style={{
-                paddingBottom: 'calc(2.5rem + env(safe-area-inset-bottom, 0px) + 30px)',
+                paddingBottom: 'calc(2.5rem + env(safe-area-inset-bottom, 0px))',
               }}
               initial={{ y: '100%' }}
               animate={{ y: 0 }}
               exit={{ y: '100%' }}
               transition={{ type: 'spring', damping: 30, stiffness: 300 }}
             >
-              <div className="px-6 pt-8" style={{ paddingBottom: 'calc(2.5rem + env(safe-area-inset-bottom, 0px) + 20px)' }}>
+              <div className="px-6 pt-8" style={{ paddingBottom: 'calc(2.5rem + env(safe-area-inset-bottom, 0px))' }}>
                 {/* Title */}
                 <motion.h4
                   className="mb-6 text-2xl font-semibold text-[#1a1a1a]"
