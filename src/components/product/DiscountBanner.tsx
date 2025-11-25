@@ -45,7 +45,7 @@ export default function DiscountBanner({ product, isMobile = false }: DiscountBa
           whileTap={{ scale: 0.95 }}
           onClick={handleToggleQrCode}
           onKeyDown={handleKeyDown}
-          className="group relative flex h-[60px] w-full max-w-[580px] items-center gap-2 overflow-hidden rounded-l-[30px] py-2 shadow-md transition-all hover:shadow-lg"
+          className="group relative flex h-[60px] w-full max-w-[95vw] items-center gap-2 overflow-hidden rounded-l-[30px] py-2 shadow-md transition-all hover:shadow-lg"
           style={{
             background: 'linear-gradient(to right, #7b5c1c 0%, #866926 50%, #f5e4a9 100%)',
           }}

@@ -10,11 +10,13 @@ import { useCart } from '@/hooks/useCart';
 type PurchaseButtonProps = {
   product: any;
   isMobile?: boolean;
+  className?: string;
 };
 
 export default function PurchaseButton({
   product,
   isMobile = false,
+  className = '',
 }: PurchaseButtonProps) {
   const t = useTranslations('FocusXin');
   const router = useRouter();
@@ -60,7 +62,7 @@ export default function PurchaseButton({
         whileTap={{ scale: 0.98 }}
         onClick={handleBuyNow}
         disabled={isLoading}
-        className="text-fluid-lg h-[40px] w-[120px] cursor-pointer rounded-[22px] bg-[#4f68d2] font-medium !text-white transition-all disabled:cursor-not-allowed disabled:opacity-50"
+        className={`text-fluid-lg h-[40px] w-[120px] cursor-pointer rounded-[22px] bg-[#4f68d2] font-medium !text-white transition-all disabled:cursor-not-allowed disabled:opacity-50 ${className}`}
       >
         {isLoading ? '加载中...' : t('buy_now')}
       </motion.button>
@@ -73,7 +75,7 @@ export default function PurchaseButton({
       whileTap={{ scale: 0.95 }}
       onClick={handleBuyNow}
       disabled={isLoading}
-      className="cursor-target text-fluid-2xl h-[72px] w-[260px] rounded-[41px] bg-[#4f68d2] font-medium !text-white shadow-lg transition-all hover:bg-[#3d52a8] disabled:cursor-not-allowed disabled:opacity-50"
+      className={`cursor-target text-fluid-2xl h-[72px] w-[260px] rounded-[41px] bg-[#4f68d2] font-medium !text-white shadow-lg transition-all hover:bg-[#3d52a8] disabled:cursor-not-allowed disabled:opacity-50 ${className}`}
     >
       {isLoading ? '加载中...' : t('buy_now')}
     </motion.button>

@@ -43,9 +43,9 @@ export default function AfterSales({ text, text2, is15Days = false, is30Days = f
               : `${item.name} - 客户服务图标 / ${item.name} - Customer Service Icon`}
             width={78}
             height={78}
-            className="h-auto w-[4.0625vw] max-w-[78px] min-w-[50px]"
+            className="h-auto w-[5vw] max-w-[96px] min-w-[50px]"
           />
-          <span className="text-fluid-2xl ml-[1.145vw] max-w-[26vw] text-left">
+          <span className="text-fluid-2xl ml-[1.145vw] max-w-[30vw] text-left">
             {item.name}
           </span>
         </motion.li>

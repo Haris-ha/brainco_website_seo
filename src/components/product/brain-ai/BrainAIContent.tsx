@@ -194,7 +194,7 @@ export default function BrainAIContent() {
                 width={22}
                 height={22}
                 className="ml-5"
-                style={{ transform: isPlaying ? 'scale(0.8)' : 'scale(1)' }}
+                style={{ transform: isPlaying ? 'scale(0.8)' : 'scale(0.8)' }}
               />
             </motion.button>
           </motion.div>
