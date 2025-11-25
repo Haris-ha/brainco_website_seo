@@ -217,25 +217,40 @@ export default function BrainAIContentMobile() {
           whileInView={{ opacity: 1, scale: 1 }}
           viewport={{ once: true }}
           transition={{ duration: 0.4 }}
-          className="relative mb-[25px] w-full rounded-[20px] border p-5 md:mb-8 md:rounded-2xl md:p-8"
-          style={{ borderColor: '#7CC0D9' }}
+          className="relative mb-[25px] w-full rounded-[24px] px-6 pt-[60px] pb-8 md:mb-8 md:px-8 md:pt-[80px] md:pb-16"
+          style={{
+            backgroundColor: '#EAF5FD',
+          }}
         >
-          <div className="absolute top-0 left-1/2 flex h-[26px] w-[48px] -translate-x-1/2 -translate-y-1/2 items-center justify-center bg-white px-1 md:h-[32px] md:w-[56px]">
+          <div className="absolute top-[25px] left-1/2 flex h-[50px] w-[115px] -translate-x-1/2 -translate-y-1/2 items-start justify-center rounded-b-[24px] bg-white px-5 pb-2">
             <Image
               src="https://website-www-brainco-cn.oss-cn-hangzhou.aliyuncs.com/images/K6DRed4HiSAPG3jX.webp"
-              alt="Icon 1"
-              width={20}
-              height={20}
-              className="md:h-6 md:w-6"
+              alt="脑科学人工智能进校方案图标 / Neuroscience & AI School Program Icon"
+              width={40}
+              height={40}
             />
           </div>
-          <h3 className="text-fluid-2xl my-[15px] pl-[10px] font-normal md:my-6 md:pl-4 md:text-3xl">
+          <h3 className="text-fluid-2xl mx-auto mb-[20px] max-w-[70%] text-center font-bold text-[#333] md:mb-[30px] md:text-3xl">
             {t('section1_title')}
           </h3>
-          <p className="text-fluid-base mb-2 leading-relaxed md:mb-3 md:text-lg md:leading-relaxed">{t('section1_desc1')}</p>
-          <p className="text-fluid-base mb-2 leading-relaxed md:mb-3 md:text-lg md:leading-relaxed">{t('section1_desc2')}</p>
-          <p className="text-fluid-base mb-2 leading-relaxed md:mb-3 md:text-lg md:leading-relaxed">{t('section1_desc3')}</p>
-          <p className="text-fluid-base leading-relaxed md:text-lg md:leading-relaxed">{t('section1_desc4')}</p>
+          <div className="flex flex-col items-center justify-center px-4 text-left">
+            <p className="text-fluid-base mb-[20px] flex items-start text-[#333] md:mb-[26px] md:text-xl">
+              <span className="mt-2 mr-4 h-2 w-2 shrink-0 rounded-full" style={{ backgroundColor: 'rgba(91, 170, 205, 1)' }} />
+              {t('section1_desc1')}
+            </p>
+            <p className="text-fluid-base mb-[20px] flex items-start text-[#333] md:mb-[26px] md:text-xl">
+              <span className="mt-2 mr-4 h-2 w-2 shrink-0 rounded-full" style={{ backgroundColor: 'rgba(91, 170, 205, 1)' }} />
+              {t('section1_desc2')}
+            </p>
+            <p className="text-fluid-base mb-[20px] flex items-start text-[#333] md:mb-[26px] md:text-xl">
+              <span className="mt-2 mr-4 h-2 w-2 shrink-0 rounded-full" style={{ backgroundColor: 'rgba(91, 170, 205, 1)' }} />
+              {t('section1_desc3')}
+            </p>
+            <p className="text-fluid-base flex items-start text-[#333] md:text-xl">
+              <span className="mt-2 mr-4 h-2 w-2 shrink-0 rounded-full" style={{ backgroundColor: 'rgba(91, 170, 205, 1)' }} />
+              {t('section1_desc4')}
+            </p>
+          </div>
         </motion.div>
 
         {/* Section 2 */}
@@ -244,25 +259,40 @@ export default function BrainAIContentMobile() {
           whileInView={{ opacity: 1, scale: 1 }}
           viewport={{ once: true }}
           transition={{ duration: 0.4, delay: 0.1 }}
-          className="relative mb-[25px] w-full rounded-[20px] border p-5 md:mb-8 md:rounded-2xl md:p-8"
-          style={{ borderColor: '#843D99' }}
+          className="relative mb-[25px] w-full rounded-[24px] px-6 pt-[60px] pb-8 md:mb-8 md:px-8 md:pt-[80px] md:pb-16"
+          style={{
+            backgroundColor: '#FFF9F3',
+          }}
         >
-          <div className="absolute top-0 left-1/2 flex h-[26px] w-[48px] -translate-x-1/2 -translate-y-1/2 items-center justify-center bg-white px-1 md:h-[32px] md:w-[56px]">
+          <div className="absolute top-[25px] left-1/2 flex h-[50px] w-[115px] -translate-x-1/2 -translate-y-1/2 items-start justify-center rounded-b-[24px] bg-white px-5 pb-2">
             <Image
               src="https://website-www-brainco-cn.oss-cn-hangzhou.aliyuncs.com/images/j4cts2sYGTmph83W.webp"
-              alt="Icon 2"
-              width={26}
-              height={26}
-              className="md:h-8 md:w-8"
+              alt="BrainAI科技领袖营图标 / BrainAI Tech Leadership Camp Icon"
+              width={32}
+              height={40}
             />
           </div>
-          <h3 className="text-fluid-2xl my-[15px] pl-[10px] font-normal md:my-6 md:pl-4 md:text-3xl">
+          <h3 className="text-fluid-2xl mx-auto mb-[20px] max-w-[60%] text-center font-bold text-[#333] md:mb-[30px] md:text-3xl">
             {t('section2_title')}
           </h3>
-          <p className="text-fluid-base mb-2 leading-relaxed md:mb-3 md:text-lg md:leading-relaxed">{t('section2_desc1')}</p>
-          <p className="text-fluid-base mb-2 leading-relaxed md:mb-3 md:text-lg md:leading-relaxed">{t('section2_desc2')}</p>
-          <p className="text-fluid-base mb-2 leading-relaxed md:mb-3 md:text-lg md:leading-relaxed">{t('section2_desc3')}</p>
-          <p className="text-fluid-base leading-relaxed md:text-lg md:leading-relaxed">{t('section2_desc4')}</p>
+          <div className="flex flex-col items-center justify-center px-4 text-left">
+            <p className="text-fluid-base mb-[20px] flex items-start text-[#333] md:mb-[26px] md:text-xl">
+              <span className="mt-2 mr-4 h-2 w-2 shrink-0 rounded-full" style={{ backgroundColor: 'rgba(240, 78, 40, 1)' }} />
+              {t('section2_desc1')}
+            </p>
+            <p className="text-fluid-base mb-[20px] flex items-start text-[#333] md:mb-[26px] md:text-xl">
+              <span className="mt-2 mr-4 h-2 w-2 shrink-0 rounded-full" style={{ backgroundColor: 'rgba(240, 78, 40, 1)' }} />
+              {t('section2_desc2')}
+            </p>
+            <p className="text-fluid-base mb-[20px] flex items-start text-[#333] md:mb-[26px] md:text-xl">
+              <span className="mt-2 mr-4 h-2 w-2 shrink-0 rounded-full" style={{ backgroundColor: 'rgba(240, 78, 40, 1)' }} />
+              {t('section2_desc3')}
+            </p>
+            <p className="text-fluid-base flex items-start text-[#333] md:text-xl">
+              <span className="mt-2 mr-4 h-2 w-2 shrink-0 rounded-full" style={{ backgroundColor: 'rgba(240, 78, 40, 1)' }} />
+              {t('section2_desc4')}
+            </p>
+          </div>
         </motion.div>
 
         {/* Section 3 */}
@@ -271,23 +301,32 @@ export default function BrainAIContentMobile() {
           whileInView={{ opacity: 1, scale: 1 }}
           viewport={{ once: true }}
           transition={{ duration: 0.4, delay: 0.2 }}
-          className="relative w-full rounded-[20px] border p-5 md:rounded-2xl md:p-8"
-          style={{ borderColor: '#3199EA' }}
+          className="relative w-full rounded-[24px] px-6 pt-[60px] pb-8 md:px-8 md:pt-[80px] md:pb-16"
+          style={{
+            backgroundColor: '#F6F1FF',
+          }}
         >
-          <div className="absolute top-0 left-1/2 flex h-[26px] w-[48px] -translate-x-1/2 -translate-y-1/2 items-center justify-center bg-white px-1 md:h-[32px] md:w-[56px]">
+          <div className="absolute top-[25px] left-1/2 flex h-[50px] w-[115px] -translate-x-1/2 -translate-y-1/2 items-start justify-center rounded-b-[24px] bg-white px-5 pb-2">
             <Image
               src="https://website-www-brainco-cn.oss-cn-hangzhou.aliyuncs.com/images/NZPz4zQrGBw5DieD.webp"
-              alt="Icon 3"
-              width={48}
-              height={26}
-              className="md:h-7 md:w-12"
+              alt="NeuroMaster挑战赛图标 / NeuroMaster Challenge Icon"
+              width={68}
+              height={40}
             />
           </div>
-          <h3 className="text-fluid-2xl my-[15px] pl-[10px] font-normal md:my-6 md:pl-4 md:text-3xl">
+          <h3 className="text-fluid-2xl mx-auto mb-[20px] max-w-[60%] text-center font-bold text-[#333] md:mb-[30px] md:text-3xl">
             {t('section3_title')}
           </h3>
-          <p className="text-fluid-base mb-2 leading-relaxed md:mb-3 md:text-lg md:leading-relaxed">{t('section3_desc1')}</p>
-          <p className="text-fluid-base leading-relaxed md:text-lg md:leading-relaxed">{t('section3_desc2')}</p>
+          <div className="flex flex-col items-center justify-center px-4 text-left">
+            <p className="text-fluid-base mb-[20px] flex items-start text-[#333] md:mb-[26px] md:text-xl">
+              <span className="mt-2 mr-4 h-2 w-2 shrink-0 rounded-full" style={{ backgroundColor: 'rgba(109, 70, 169, 1)' }} />
+              {t('section3_desc1')}
+            </p>
+            <p className="text-fluid-base flex items-start text-[#333] md:text-xl">
+              <span className="mt-2 mr-4 h-2 w-2 shrink-0 rounded-full" style={{ backgroundColor: 'rgba(109, 70, 169, 1)' }} />
+              {t('section3_desc2')}
+            </p>
+          </div>
         </motion.div>
       </section>
 
@@ -402,10 +441,12 @@ export default function BrainAIContentMobile() {
             <h3 className="text-fluid-2xl my-[18px] text-center font-normal md:my-6 md:text-3xl">
               {t('challenge1_title')}
             </h3>
-            <p className="text-fluid-lg mt-[10px] leading-relaxed md:mt-4 md:text-xl md:leading-relaxed">
+            <p className="text-fluid-lg mt-[10px] flex items-start leading-relaxed md:mt-4 md:text-xl md:leading-relaxed">
+              <span className="mt-2 mr-4 h-2 w-2 shrink-0 rounded-full bg-black" />
               {t('challenge1_desc1')}
             </p>
-            <p className="text-fluid-lg mt-[10px] leading-relaxed md:mt-4 md:text-xl md:leading-relaxed">
+            <p className="text-fluid-lg mt-[10px] flex items-start leading-relaxed md:mt-4 md:text-xl md:leading-relaxed">
+              <span className="mt-2 mr-4 h-2 w-2 shrink-0 rounded-full bg-black" />
               {t('challenge1_desc2')}
             </p>
           </div>
@@ -430,13 +471,16 @@ export default function BrainAIContentMobile() {
             <h3 className="text-fluid-2xl my-[18px] text-center font-normal md:my-6 md:text-3xl">
               {t('challenge2_title')}
             </h3>
-            <p className="text-fluid-lg mt-[10px] leading-relaxed md:mt-4 md:text-xl md:leading-relaxed">
+            <p className="text-fluid-lg mt-[10px] mb-5 flex items-start leading-relaxed md:mt-4 md:text-xl md:leading-relaxed">
+              <span className="mt-2 mr-4 h-2 w-2 shrink-0 rounded-full bg-black" />
               {t('challenge2_desc1')}
             </p>
-            <p className="text-fluid-lg mt-[10px] leading-relaxed md:mt-4 md:text-xl md:leading-relaxed">
+            <p className="text-fluid-lg mt-[10px] mb-5 flex items-start leading-relaxed md:mt-4 md:text-xl md:leading-relaxed">
+              <span className="mt-2 mr-4 h-2 w-2 shrink-0 rounded-full bg-black" />
               {t('challenge2_desc2')}
             </p>
-            <p className="text-fluid-lg mt-[10px] leading-relaxed md:mt-4 md:text-xl md:leading-relaxed">
+            <p className="text-fluid-lg mt-[10px] flex items-start leading-relaxed md:mt-4 md:text-xl md:leading-relaxed">
+              <span className="mt-2 mr-4 h-2 w-2 shrink-0 rounded-full bg-black" />
               {t('challenge2_desc3')}
             </p>
           </div>

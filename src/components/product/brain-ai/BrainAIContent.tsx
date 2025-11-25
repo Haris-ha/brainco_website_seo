@@ -97,18 +97,18 @@ export default function BrainAIContent() {
         </picture>
         <div className="absolute top-0 right-0 bottom-0 flex items-end">
           <div
-            className="relative my-auto mr-[100px] w-[50vw] rounded-3xl p-12 !text-white"
+            className="relative my-auto mr-[100px] w-[40vw] rounded-4xl p-12 !text-white"
             style={{
-              background: 'linear-gradient(to left, rgba(0, 0, 0, 0.25) 0%, rgba(0, 0, 0, 0.15) 60%, transparent 100%)',
-              backdropFilter: 'blur(6px)',
-              WebkitBackdropFilter: 'blur(6px)',
+              background: 'linear-gradient(to left, rgba(0, 0, 0, 0.15) 0%, rgba(0, 0, 0, 0.15) 60%, transparent 100%)',
+              backdropFilter: 'blur(24px)',
+              WebkitBackdropFilter: 'blur(24px)',
             }}
           >
             <motion.h1
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8 }}
-              className="text-fluid-6xl mb-4 font-normal drop-shadow-lg"
+              className="text-fluid-6xl mb-2 font-normal drop-shadow-lg"
             >
               {t('hero_title')}
             </motion.h1>
@@ -116,7 +116,7 @@ export default function BrainAIContent() {
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.2 }}
-              className="text-fluid-7xl mb-4 font-normal drop-shadow-lg"
+              className="text-fluid-5xl mb-2 leading-tight font-normal drop-shadow-lg"
             >
               {t('hero_subtitle')}
             </motion.h2>
@@ -124,7 +124,7 @@ export default function BrainAIContent() {
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.4 }}
-              className="text-fluid-xl mt-[48px] drop-shadow-md"
+              className="text-fluid-xl mt-[24px] drop-shadow-md"
             >
               {t('hero_description')}
             </motion.p>
@@ -167,9 +167,9 @@ export default function BrainAIContent() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            className="pointer-events-none absolute right-[40px] bottom-[62px] flex w-[560px] flex-col items-end"
+            className="pointer-events-none absolute right-[40px] bottom-[62px] flex w-[480px] flex-col items-end"
           >
-            <h3 className="text-fluid-4xl w-full text-right font-normal !text-white">
+            <h3 className="text-fluid-4xl w-full text-right font-semibold !text-white">
               {t('video_title')}
             </h3>
             <h4 className="text-fluid-4xl w-full text-right font-normal !text-white">
@@ -217,17 +217,19 @@ export default function BrainAIContent() {
           {t('sections_title')}
         </h2>
 
-        <div className="mx-auto grid max-w-7xl grid-cols-1 gap-6 lg:grid-cols-3">
+        <div className="mx-auto grid w-[90vw] grid-cols-1 gap-12 lg:grid-cols-3">
           {/* Section 1 */}
           <motion.div
             initial={{ opacity: 0, scale: 0.8 }}
             whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true, margin: '-100px' }}
             transition={{ duration: 0.5 }}
-            className="relative rounded-[50px] border-2 px-6 pt-[60px] pb-8 lg:px-8"
-            style={{ borderColor: '#7CC0D9' }}
+            className="relative rounded-[24px] px-6 pt-[80px] pb-16 lg:px-8"
+            style={{
+              backgroundColor: '#EAF5FD',
+            }}
           >
-            <div className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-white px-5">
+            <div className="absolute top-[25px] left-1/2 flex h-[50px] w-[115px] -translate-x-1/2 -translate-y-1/2 items-start justify-center rounded-b-[24px] bg-white px-5 pb-2">
               <Image
                 src="https://website-www-brainco-cn.oss-cn-hangzhou.aliyuncs.com/images/K6DRed4HiSAPG3jX.webp"
                 alt="脑科学人工智能进校方案图标 / Neuroscience & AI School Program Icon"
@@ -235,14 +237,26 @@ export default function BrainAIContent() {
                 height={40}
               />
             </div>
-            <h3 className="text-fluid-3xl mb-[30px] text-center font-normal">
+            <h3 className="text-fluid-3xl mx-auto mb-[30px] max-w-[60%] text-center font-bold text-[#333]">
               {t('section1_title')}
             </h3>
-            <div className="text-left">
-              <p className="text-fluid-xl mb-[26px]">{t('section1_desc1')}</p>
-              <p className="text-fluid-xl mb-[26px]">{t('section1_desc2')}</p>
-              <p className="text-fluid-xl mb-[26px]">{t('section1_desc3')}</p>
-              <p className="text-fluid-xl">{t('section1_desc4')}</p>
+            <div className="px-4 text-left">
+              <p className="text-fluid-xl mb-[26px] flex items-start text-[#333]">
+                <span className="mt-3 mr-4 h-2 w-2 shrink-0 rounded-full" style={{ backgroundColor: 'rgba(91, 170, 205, 1)' }} />
+                {t('section1_desc1')}
+              </p>
+              <p className="text-fluid-xl mb-[26px] flex items-start text-[#333]">
+                <span className="mt-3 mr-4 h-2 w-2 shrink-0 rounded-full" style={{ backgroundColor: 'rgba(91, 170, 205, 1)' }} />
+                {t('section1_desc2')}
+              </p>
+              <p className="text-fluid-xl mb-[26px] flex items-start text-[#333]">
+                <span className="mt-3 mr-4 h-2 w-2 shrink-0 rounded-full" style={{ backgroundColor: 'rgba(91, 170, 205, 1)' }} />
+                {t('section1_desc3')}
+              </p>
+              <p className="text-fluid-xl flex items-start text-[#333]">
+                <span className="mt-3 mr-4 h-2 w-2 shrink-0 rounded-full" style={{ backgroundColor: 'rgba(91, 170, 205, 1)' }} />
+                {t('section1_desc4')}
+              </p>
             </div>
           </motion.div>
 
@@ -252,25 +266,39 @@ export default function BrainAIContent() {
             whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true, margin: '-100px' }}
             transition={{ duration: 0.5, delay: 0.2 }}
-            className="relative rounded-[50px] border-2 px-6 pt-[60px] pb-8 lg:px-8"
-            style={{ borderColor: '#843D99' }}
+            className="relative rounded-[24px] px-6 pt-[80px] pb-16 lg:px-8"
+            style={{
+              backgroundColor: '#FFF9F3',
+            }}
           >
-            <div className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-white px-5">
+            <div className="absolute top-[25px] left-1/2 flex h-[50px] w-[115px] -translate-x-1/2 -translate-y-1/2 items-start justify-center rounded-b-[24px] bg-white px-5 pb-2">
               <Image
                 src="https://website-www-brainco-cn.oss-cn-hangzhou.aliyuncs.com/images/j4cts2sYGTmph83W.webp"
                 alt="BrainAI科技领袖营图标 / BrainAI Tech Leadership Camp Icon"
-                width={40}
+                width={32}
                 height={40}
               />
             </div>
-            <h3 className="text-fluid-3xl mb-[30px] text-center font-normal">
+            <h3 className="text-fluid-3xl mx-auto mb-[30px] max-w-[60%] text-center font-bold text-[#333]">
               {t('section2_title')}
             </h3>
-            <div className="text-left">
-              <p className="text-fluid-xl mb-[26px]">{t('section2_desc1')}</p>
-              <p className="text-fluid-xl mb-[26px]">{t('section2_desc2')}</p>
-              <p className="text-fluid-xl mb-[26px]">{t('section2_desc3')}</p>
-              <p className="text-fluid-xl">{t('section2_desc4')}</p>
+            <div className="px-4 text-left">
+              <p className="text-fluid-xl mb-[26px] flex items-start text-[#333]">
+                <span className="mt-3 mr-4 h-2 w-2 shrink-0 rounded-full" style={{ backgroundColor: 'rgba(240, 78, 40, 1)' }} />
+                {t('section2_desc1')}
+              </p>
+              <p className="text-fluid-xl mb-[26px] flex items-start text-[#333]">
+                <span className="mt-3 mr-4 h-2 w-2 shrink-0 rounded-full" style={{ backgroundColor: 'rgba(240, 78, 40, 1)' }} />
+                {t('section2_desc2')}
+              </p>
+              <p className="text-fluid-xl mb-[26px] flex items-start text-[#333]">
+                <span className="mt-3 mr-4 h-2 w-2 shrink-0 rounded-full" style={{ backgroundColor: 'rgba(240, 78, 40, 1)' }} />
+                {t('section2_desc3')}
+              </p>
+              <p className="text-fluid-xl flex items-start text-[#333]">
+                <span className="mt-3 mr-4 h-2 w-2 shrink-0 rounded-full" style={{ backgroundColor: 'rgba(240, 78, 40, 1)' }} />
+                {t('section2_desc4')}
+              </p>
             </div>
           </motion.div>
 
@@ -280,80 +308,92 @@ export default function BrainAIContent() {
             whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true, margin: '-100px' }}
             transition={{ duration: 0.5, delay: 0.4 }}
-            className="relative rounded-[50px] border-2 px-6 pt-[60px] pb-8 lg:px-8"
-            style={{ borderColor: '#3199EA' }}
+            className="relative rounded-[24px] px-6 pt-[80px] pb-16 lg:px-8"
+            style={{
+              backgroundColor: '#F6F1FF',
+            }}
           >
-            <div className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-white px-5">
+            <div className="absolute top-[25px] left-1/2 flex h-[50px] w-[115px] -translate-x-1/2 -translate-y-1/2 items-start justify-center rounded-b-[24px] bg-white px-5 pb-2">
               <Image
                 src="https://website-www-brainco-cn.oss-cn-hangzhou.aliyuncs.com/images/NZPz4zQrGBw5DieD.webp"
                 alt="NeuroMaster挑战赛图标 / NeuroMaster Challenge Icon"
-                width={40}
+                width={68}
                 height={40}
               />
             </div>
-            <h3 className="text-fluid-3xl mb-[30px] text-center font-normal">
+            <h3 className="text-fluid-3xl mx-auto mb-[30px] max-w-[60%] text-center font-bold text-[#333]">
               {t('section3_title')}
             </h3>
-            <div className="text-left">
-              <p className="text-fluid-xl mb-[26px]">{t('section3_desc1')}</p>
-              <p className="text-fluid-xl">{t('section3_desc2')}</p>
+            <div className="px-4 text-left ">
+              <p className="text-fluid-xl mb-[26px] flex items-start text-[#333]">
+                <span className="mt-3 mr-4 h-2 w-2 shrink-0 rounded-full" style={{ backgroundColor: 'rgba(109, 70, 169, 1)' }} />
+                {t('section3_desc1')}
+              </p>
+              <p className="text-fluid-xl flex items-start text-[#333]">
+                <span className="mt-3 mr-4 h-2 w-2 shrink-0 rounded-full" style={{ backgroundColor: 'rgba(109, 70, 169, 1)' }} />
+                {t('section3_desc2')}
+              </p>
             </div>
           </motion.div>
         </div>
       </section>
 
       {/* Course Scheme Section */}
-      <section className="mt-[175px]">
+      <section className="mt-[175px] px-4 lg:px-8 xl:px-12">
         <h2 className="text-fluid-5xl mb-[62px] text-center font-normal">
           {t('scheme_title')}
         </h2>
 
         {/* Introductory Course */}
-        <div className="mx-auto mb-[86px] flex h-[270px] w-[1324px] max-w-full items-center justify-center rounded-[135px]" style={{ background: 'linear-gradient(131deg, #FFF2F1 0%, #FFFDF4 52%, #F1FEF6 100%, #F3FFF7 100%)' }}>
-          <div className="flex w-[455px] flex-col items-center justify-center">
-            <p className="text-fluid-3xl mb-5 px-2 py-1 text-center 2xl:px-10">{t('course_intro_title')}</p>
-            <p className="text-fluid-2xl px-2 py-1">{t('course_intro_grade')}</p>
+        <div className="mx-auto mb-[86px] max-w-full rounded-[32px] px-8 py-12" style={{ background: 'linear-gradient(131deg, #FFF2F1 0%, #FFFDF4 52%, #F1FEF6 100%, #F3FFF7 100%)' }}>
+          {/* Description at top */}
+          <div className="mb-8 flex flex-col items-center justify-center">
+            <p className="text-fluid-3xl mb-5 text-center">{t('course_intro_title')}</p>
+            <p className="text-fluid-2xl">{t('course_intro_grade')}</p>
           </div>
-          <div className="flex flex-1 flex-wrap">
+          {/* 6 blocks in 2 rows, 3 columns */}
+          <div className="grid grid-cols-1 gap-6 md:grid-cols-3">
             {[1, 2, 3, 4, 5, 6].map((num, index) => (
-              <motion.span
+              <motion.div
                 key={num}
                 initial={{ opacity: 0, scale: 0.8 }}
                 whileInView={{ opacity: 1, scale: 1 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.3, delay: index * 0.1 }}
-                className={`mr-[54px] flex h-[84px] w-[232px] items-center justify-center rounded-[42px] bg-white text-center shadow-[7px_7px_5px_1px_rgba(206,206,206,0.75)] ${index < 3 ? 'mb-10' : ''}`}
+                className="flex min-h-[92px] items-center justify-center rounded-[42px] bg-white px-4 py-4 text-center"
                 style={{ border: '5px solid rgba(230, 188, 188, 0.65)' }}
               >
-                <i className="text-fluid-2xl px-2 py-1 font-normal not-italic">
+                <span className="text-fluid-2xl leading-tight font-normal">
                   {t(`course_intro_${num}` as any)}
-                </i>
-              </motion.span>
+                </span>
+              </motion.div>
             ))}
           </div>
         </div>
 
         {/* Advanced Course */}
-        <div className="mx-auto flex h-[270px] w-[1324px] max-w-full items-center justify-center rounded-[135px]" style={{ background: 'linear-gradient(131deg, #FFF2F1 0%, #FFFDF4 52%, #F1FEF6 100%, #F3FFF7 100%)' }}>
-          <div className="flex w-[455px] flex-col items-center justify-center">
-            <p className="text-fluid-3xl mb-5 px-2 py-1 text-center 2xl:px-10">{t('course_advanced_title')}</p>
-            <p className="text-fluid-2xl px-2 py-1">{t('course_advanced_grade')}</p>
+        <div className="mx-auto max-w-full rounded-[32px] px-8 py-12" style={{ background: 'linear-gradient(131deg, #FFF2F1 0%, #FFFDF4 52%, #F1FEF6 100%, #F3FFF7 100%)' }}>
+          {/* Description at top */}
+          <div className="mb-8 flex flex-col items-center justify-center">
+            <p className="text-fluid-3xl mb-5 text-center">{t('course_advanced_title')}</p>
+            <p className="text-fluid-2xl">{t('course_advanced_grade')}</p>
           </div>
-          <div className="flex flex-1 flex-wrap">
+          {/* 6 blocks in 2 rows, 3 columns */}
+          <div className="grid grid-cols-1 gap-6 md:grid-cols-3">
             {[1, 2, 3, 4, 5, 6].map((num, index) => (
-              <motion.span
+              <motion.div
                 key={num}
                 initial={{ opacity: 0, scale: 0.8 }}
                 whileInView={{ opacity: 1, scale: 1 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.3, delay: index * 0.1 }}
-                className={`mr-[54px] flex h-[84px] w-[232px] items-center justify-center rounded-[42px] bg-white text-center shadow-[7px_7px_5px_1px_rgba(206,206,206,0.75)] ${index < 3 ? 'mb-10' : ''}`}
-                style={{ border: '5px solid rgba(205, 234, 211, 0.65)' }}
+                className="flex min-h-[92px] items-center justify-center rounded-[42px] bg-white px-4 py-4 text-center"
+                style={{ border: '5px solid rgba(230, 188, 188, 0.65)' }}
               >
-                <i className="text-fluid-2xl px-2 py-1 font-normal not-italic">
+                <span className="text-fluid-2xl leading-tight font-normal">
                   {t(`course_advanced_${num}` as any)}
-                </i>
-              </motion.span>
+                </span>
+              </motion.div>
             ))}
           </div>
         </div>
@@ -366,7 +406,7 @@ export default function BrainAIContent() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: '-100px' }}
           transition={{ duration: 0.6 }}
-          className="text-fluid-5xl mb-9 text-center font-normal"
+          className="text-fluid-5xl mb-9 text-center font-semibold"
         >
           {t('leader_title')}
         </motion.h2>
@@ -375,7 +415,7 @@ export default function BrainAIContent() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: '-100px' }}
           transition={{ duration: 0.6, delay: 0.2 }}
-          className="text-fluid-2xl mx-auto mb-[98px] w-[1130px] text-center"
+          className="text-fluid-2xl mx-auto mb-[98px] w-[960px] text-center"
         >
           {t('leader_description')}
         </motion.p>
@@ -416,7 +456,7 @@ export default function BrainAIContent() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: '-100px' }}
           transition={{ duration: 0.6 }}
-          className="text-fluid-5xl mb-[84px] w-full text-center font-normal"
+          className="text-fluid-5xl mb-[84px] w-full text-center font-semibold"
         >
           {t('challenge_title')}
         </motion.h2>
@@ -451,7 +491,7 @@ export default function BrainAIContent() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: '-50px' }}
               transition={{ duration: 0.5, delay: 0.2 }}
-              className="text-fluid-5xl my-[10px] text-center font-normal"
+              className="text-fluid-4xl my-[10px] text-center font-semibold"
             >
               {t('challenge1_title')}
             </motion.h3>
@@ -462,10 +502,12 @@ export default function BrainAIContent() {
               transition={{ duration: 0.5, delay: 0.3 }}
               className="text-left"
             >
-              <p className="text-fluid-xl mb-5 leading-relaxed">
+              <p className="mb-5 flex items-start text-fluid-xl leading-relaxed">
+                <span className="h-2 w-2 shrink-0 mt-3 mr-4 rounded-full bg-black" />
                 {t('challenge1_desc1')}
               </p>
-              <p className="text-fluid-xl leading-relaxed">
+              <p className="flex items-start text-fluid-xl leading-relaxed">
+                <span className="h-2 w-2 shrink-0 mt-3 mr-4 rounded-full bg-black" />
                 {t('challenge1_desc2')}
               </p>
             </motion.div>
@@ -500,7 +542,7 @@ export default function BrainAIContent() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: '-50px' }}
               transition={{ duration: 0.5, delay: 0.4 }}
-              className="text-fluid-5xl my-[10px] text-center font-normal"
+              className="text-fluid-4xl my-[10px] text-center font-semibold"
             >
               {t('challenge2_title')}
             </motion.h3>
@@ -511,13 +553,16 @@ export default function BrainAIContent() {
               transition={{ duration: 0.5, delay: 0.5 }}
               className="text-left"
             >
-              <p className="text-fluid-xl mb-5 leading-relaxed">
+              <p className="mb-5 flex items-start text-fluid-xl leading-relaxed">
+                <span className="h-2 w-2 shrink-0 mt-3 mr-4 rounded-full bg-black" />
                 {t('challenge2_desc1')}
               </p>
-              <p className="text-fluid-xl mb-5 leading-relaxed">
+              <p className="mb-5 flex items-start text-fluid-xl leading-relaxed">
+                <span className="h-2 w-2 shrink-0 mt-3 mr-4 rounded-full bg-black" />
                 {t('challenge2_desc2')}
               </p>
-              <p className="text-fluid-xl leading-relaxed">
+              <p className="flex items-start text-fluid-xl leading-relaxed">
+                <span className="h-2 w-2 shrink-0 mt-3 mr-4 rounded-full bg-black" />
                 {t('challenge2_desc3')}
               </p>
             </motion.div>
