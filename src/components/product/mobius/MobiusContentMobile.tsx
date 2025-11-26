@@ -61,13 +61,13 @@ export default function MobiusContentMobile() {
         </div>
         <div className="absolute right-0 bottom-20 left-0 flex items-center justify-center px-[20px]">
           <motion.div
-            className="rounded-[12px] bg-black/20 p-[30px] backdrop-blur-xs"
+            className="rounded-[12px] bg-black/20 p-[30px] backdrop-blur-md"
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.3, ease: 'easeOut' }}
           >
             <motion.h1
-              className="text-fluid-4xl mb-[20px] font-medium text-white"
+              className="text-fluid-4xl mb-[20px] font-semibold text-white"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.5, ease: 'easeOut' }}
@@ -115,13 +115,13 @@ export default function MobiusContentMobile() {
               className="w-full"
             />
             <motion.div
-              className="absolute right-[20px] bottom-[60px] left-[20px] rounded-[10px] bg-black/30 p-[20px]"
+              className="absolute right-[20px] bottom-[60px] left-[20px] rounded-[10px] bg-black/30 p-[20px] backdrop-blur-md"
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6, delay: 0.2 }}
             >
-              <h3 className="text-fluid-3xl mb-[10px] font-medium !text-white">{item.title}</h3>
+              <h3 className="text-fluid-3xl mb-[10px] font-semibold !text-white">{item.title}</h3>
               <p className="text-fluid-sm leading-[1.6] !text-white">
                 {item.text}
               </p>
@@ -177,8 +177,8 @@ export default function MobiusContentMobile() {
                   <div className="ml-[4px] h-[1px] w-[20px] bg-[#cccccc] md:ml-[6px] md:w-[30px]" />
                 </div>
                 <div className="flex-1">
-                  <h3 className="text-fluid-lg md:text-fluid-base mb-[4px] font-medium text-[#333333] md:mb-[6px]">{feature.title}</h3>
-                  <p className="text-fluid-base leading-[1.4] text-[#161414]">{feature.desc}</p>
+                  <h3 className="text-fluid-lg md:text-fluid-base mb-[4px] font-semibold text-[#333333] md:mb-[6px]">{feature.title}</h3>
+                  <p className="text-fluid-base leading-[1.4] text-[#111827]">{feature.desc}</p>
                 </div>
               </motion.div>
             ))}
@@ -219,8 +219,8 @@ export default function MobiusContentMobile() {
                   <div className="ml-[4px] h-[1px] w-[20px] bg-[#cccccc] md:ml-[6px] md:w-[30px]" />
                 </div>
                 <div className="flex-1">
-                  <h3 className="text-fluid-lg md:text-fluid-base mb-[4px] font-medium text-[#333333] md:mb-[6px]">{feature.title}</h3>
-                  <p className="text-fluid-base leading-[1.4] text-[#161414]">{feature.desc}</p>
+                  <h3 className="text-fluid-lg md:text-fluid-base mb-[4px] font-semibold text-[#333333] md:mb-[6px]">{feature.title}</h3>
+                  <p className="text-fluid-base leading-[1.4] text-[#111827]">{feature.desc}</p>
                 </div>
               </motion.div>
             ))}
@@ -262,8 +262,8 @@ export default function MobiusContentMobile() {
                   <div className="ml-[4px] h-[1px] w-[20px] bg-[#cccccc] md:ml-[6px] md:w-[30px]" />
                 </div>
                 <div className="flex-1">
-                  <h3 className="text-fluid-lg md:text-fluid-base mb-[4px] font-medium text-[#333333] md:mb-[6px]">{feature.title}</h3>
-                  <p className="text-fluid-base leading-[1.4] text-[#161414]">{feature.desc}</p>
+                  <h3 className="text-fluid-lg md:text-fluid-base mb-[4px] font-semibold text-[#333333] md:mb-[6px]">{feature.title}</h3>
+                  <p className="text-fluid-base leading-[1.4] text-[#111827]">{feature.desc}</p>
                 </div>
               </motion.div>
             ))}
@@ -291,13 +291,13 @@ export default function MobiusContentMobile() {
           {/* Title */}
           <motion.h2
             id="control-button-title-mobile"
-            className="text-fluid-xl mb-[20px] text-left font-medium text-[#333333]"
+            className="text-fluid-xl mb-[20px] text-left font-semibold text-[#333333]"
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8, delay: 0.2, ease: 'easeOut' }}
           >
-            {t('control_button_title')}
+            <span dangerouslySetInnerHTML={{ __html: t('control_button_title') }} />
           </motion.h2>
 
           {/* Activities Grid */}
@@ -327,7 +327,7 @@ export default function MobiusContentMobile() {
                     role="presentation"
                   />
                 </div>
-                <span className={`rounded-full bg-white px-2 py-1 text-center text-[10px] leading-tight text-[#3b3b3b] ${activity.img === 'table-tennis.png' ? 'whitespace-nowrap' : ''}`}>
+                <span className={`rounded-full bg-white px-2 py-1 text-center text-[10px] leading-tight font-semibold text-[#333333] ${activity.img === 'table-tennis.png' ? 'whitespace-nowrap' : ''}`}>
                   {activity.name}
                 </span>
               </motion.div>
@@ -349,7 +349,7 @@ export default function MobiusContentMobile() {
           {t('scenario_title')}
         </motion.h2>
         <motion.p
-          className="text-fluid-sm mt-[10px] px-14 text-center text-[#666666]"
+          className="text-fluid-sm mt-[10px] px-14 text-center text-[#111827]"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
@@ -358,11 +358,11 @@ export default function MobiusContentMobile() {
           {t('scenario_desc')}
         </motion.p>
 
-        <div className="mt-[5px] flex flex-wrap px-[20px]">
+        <div className="mt-[5px] grid grid-cols-3 justify-items-center gap-4 px-[20px] md:grid-cols-4">
           {scenarios.map((scenario, index) => (
             <motion.div
               key={scenario.name}
-              className="mt-[15px] flex w-1/4 flex-col items-center"
+              className="mt-[15px] flex flex-col items-center"
               initial={{ opacity: 0, scale: 0.8 }}
               whileInView={{ opacity: 1, scale: 1 }}
               viewport={{ once: true }}
@@ -377,7 +377,7 @@ export default function MobiusContentMobile() {
                   className="max-h-full max-w-full object-contain"
                 />
               </div>
-              <span className="text-fluid-sm mt-[8px] rounded-[10px] bg-[#f4f4f4] px-[4px] py-[2px] text-[#3b3b3b]">
+              <span className="text-fluid-base mt-[8px] w-[100px] md:w-[120px] rounded-[10px] bg-[#f4f4f4] py-[2px] text-center font-semibold text-[#333333]">
                 {scenario.name}
               </span>
             </motion.div>
@@ -389,7 +389,7 @@ export default function MobiusContentMobile() {
       <section className="mt-[70px] bg-white px-4 py-[40px]" aria-labelledby="characteristics-title-mobile">
         <motion.h2
           id="characteristics-title-mobile"
-          className="text-fluid-2xl mb-[10px] text-center leading-[28px] font-medium text-[#666666] px-10"
+          className="text-fluid-2xl mb-[10px] px-10 text-center leading-[28px] font-semibold text-[#333333]"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
@@ -398,7 +398,7 @@ export default function MobiusContentMobile() {
           {t('feature_sensor_title')}
         </motion.h2>
         <motion.div
-          className="text-fluid-5xl mb-[30px] text-center font-medium text-[#333333]"
+          className="text-fluid-5xl mb-[30px] text-center font-semibold text-[#333333]"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
@@ -416,13 +416,13 @@ export default function MobiusContentMobile() {
           ].map((sensor, index) => (
             <motion.div
               key={sensor.name}
-              className="flex h-[90px] w-[90px] items-center justify-center rounded-full border-2 border-[#333333] bg-white"
+              className="flex h-[90px] w-[90px] items-center justify-center rounded-full border-2 border-[#979797] bg-white"
               initial={{ opacity: 0, scale: 0.8 }}
               whileInView={{ opacity: 1, scale: 1 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6, delay: 0.2 + index * 0.1, ease: 'easeOut' }}
             >
-              <span className="text-fluid-xs text-center text-[#333333]">{sensor.name}</span>
+              <span className="text-fluid-xs text-center font-semibold text-[#333333]">{sensor.name}</span>
             </motion.div>
           ))}
         </div>
@@ -441,12 +441,11 @@ export default function MobiusContentMobile() {
               viewport={{ once: true }}
               transition={{ duration: 0.4, delay: idx * 0.1 }}
             >
-              <span className="text-fluid-4xl font-bold">
+              <span className="text-fluid-4xl font-semibold text-[#333333]">
                 {item.value}
-                {item.unit && <span className="ml-1">{item.unit}</span>}
               </span>
-              {' '}{' '}
-              {item.label}
+              {' '}
+              <span className="text-fluid-base font-semibold text-[#333333]">{item.label}</span>
             </motion.div>
           ))}
         </div>
@@ -455,7 +454,7 @@ export default function MobiusContentMobile() {
         <div className="mt-[65px]">
           <motion.h2
             id="comparison-title-mobile"
-            className="text-fluid-3xl text-center leading-[1.5]"
+            className="text-fluid-3xl text-center leading-[1.5] font-semibold text-[#333333]"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -469,7 +468,7 @@ export default function MobiusContentMobile() {
             {[t('feature_shell_1'), t('feature_shell_2'), t('feature_shell_3')].map((text, idx) => (
               <motion.div
                 key={text}
-                className="text-fluid-sm flex px-4 h-[30px] min-w-[62px] items-center justify-center rounded-[15px] bg-[#707070] !text-white"
+                className="text-fluid-sm flex h-[30px] min-w-[62px] items-center justify-center rounded-[15px] bg-[#F4F4F4] px-4 font-semibold !text-[#333]"
                 initial={{ opacity: 0, scale: 0.8 }}
                 whileInView={{ opacity: 1, scale: 1 }}
                 viewport={{ once: true }}
@@ -480,7 +479,7 @@ export default function MobiusContentMobile() {
             ))}
           </div>
           <motion.div
-            className="mt-[20px] px-28 flex justify-center"
+            className="mt-[20px] flex justify-center px-28"
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
             viewport={{ once: true }}
@@ -494,7 +493,7 @@ export default function MobiusContentMobile() {
               className="w-[90%]"
             />
           </motion.div>
-          <div className="text-fluid-lg mt-[20px] pl-[72px] md:text-center">
+          <div className="text-fluid-lg mt-[20px] pl-[64px] md:text-center md:pl-[30vw]">
             {[
               { value: t('feature_precision_value'), label: t('feature_precision') },
               { value: t('feature_rebound_value'), label: t('feature_rebound') },
@@ -502,14 +501,14 @@ export default function MobiusContentMobile() {
             ].map((item, idx) => (
               <motion.div
                 key={item.label}
-                className="mb-[10px]"
+                className="mb-[10px] flex items-center"
                 initial={{ opacity: 0, x: -20 }}
                 whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.4, delay: idx * 0.1 }}
               >
-                <span className="text-fluid-5xl pr-[10px] font-bold">{item.value}</span>
-                {item.label}
+                <div className="text-fluid-5xl font-semibold text-[#111827] mr-4">{item.label}</div>
+                <div className="text-fluid-xl font-semibold text-[#333333]">{item.value}</div>
               </motion.div>
             ))}
           </div>
@@ -535,7 +534,7 @@ export default function MobiusContentMobile() {
       <section className="bg-[#F8F8F8] py-[48px]" aria-labelledby="app-title-mobile">
         <motion.h2
           id="app-title-mobile"
-          className="text-fluid-3xl text-center leading-[1.5]"
+          className="text-fluid-3xl text-center leading-[1.5] font-semibold text-[#333333]"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
@@ -546,7 +545,7 @@ export default function MobiusContentMobile() {
           {t('app_subtitle')}
         </motion.h2>
         <motion.p
-          className="text-fluid-sm mt-[15px] px-28 text-center"
+          className="text-fluid-sm mt-[15px] px-28 text-center text-[#111827]"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
@@ -600,7 +599,7 @@ export default function MobiusContentMobile() {
         {/* Title */}
         <motion.h2
           id="comparison-title-mobile"
-          className="text-fluid-3xl mb-[40px] text-center font-medium"
+          className="text-fluid-3xl mb-[40px] text-center font-semibold"
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
@@ -625,7 +624,7 @@ export default function MobiusContentMobile() {
               height={160}
               className="h-auto w-[120px]"
             />
-            <span className="text-fluid-base mt-[10px] font-medium">{t('comparison_m3')}</span>
+            <span className="text-fluid-base mt-[10px] font-semibold">{t('comparison_m3')}</span>
           </motion.div>
           <motion.div
             className="flex flex-col items-center"
@@ -641,13 +640,13 @@ export default function MobiusContentMobile() {
               height={160}
               className="h-auto w-[120px]"
             />
-            <span className="text-fluid-base mt-[10px] font-medium">{t('comparison_m2')}</span>
+            <span className="text-fluid-base mt-[10px] font-semibold">{t('comparison_m2')}</span>
           </motion.div>
         </div>
 
         {/* Comparison Table */}
         <motion.div
-          className="overflow-hidden rounded-lg bg-white md:mx-10 mx-4"
+          className="mx-4 overflow-hidden rounded-lg bg-white md:mx-10"
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
@@ -656,10 +655,10 @@ export default function MobiusContentMobile() {
           <table className="w-full">
             <thead>
               <tr className="bg-[#f5f5f5]">
-                <th className="text-fluid-base border-r border-gray-200 py-3 text-center font-medium text-[#333333]">
+                <th className="text-fluid-base border-r border-gray-200 py-3 text-center font-semibold text-[#333333]">
                   {t('comparison_m3')}
                 </th>
-                <th className="text-fluid-base py-3 text-center font-medium text-[#333333]">
+                <th className="text-fluid-base py-3 text-center font-semibold text-[#333333]">
                   {t('comparison_m2')}
                 </th>
               </tr>
@@ -680,10 +679,10 @@ export default function MobiusContentMobile() {
                   key={`comparison-row-${idx}`}
                   className={`border-t border-gray-200 ${idx % 2 === 1 ? 'bg-[#fafafa]' : ''}`}
                 >
-                  <td className="text-fluid-sm border-r border-gray-200 px-3 py-3 text-center text-[#666666]">
+                  <td className="text-fluid-sm border-r border-gray-200 px-3 py-3 text-center text-[#111827]">
                     {row.m3}
                   </td>
-                  <td className="text-fluid-sm px-3 py-3 text-center text-[#666666]">{row.m2}</td>
+                  <td className="text-fluid-sm px-3 py-3 text-center text-[#111827]">{row.m2}</td>
                 </tr>
               ))}
             </tbody>
@@ -691,7 +690,7 @@ export default function MobiusContentMobile() {
 
           {/* Common Features */}
           <div className="border-t-2 border-gray-300 bg-[#f5f5f5] px-4 py-4 text-center">
-            <p className="text-fluid-base mb-3 font-medium text-[#333333]">
+            <p className="text-fluid-base mb-3 font-semibold text-[#333333]">
               {t('comparison_common')}
             </p>
             <div className="flex flex-wrap justify-center gap-2">
@@ -706,7 +705,7 @@ export default function MobiusContentMobile() {
               ].map((feature, index) => (
                 <motion.span
                   key={feature}
-                  className="text-fluid-xs rounded-full bg-white px-3 py-2 text-[#666666]"
+                  className="text-fluid-xs rounded-full bg-white px-3 py-2 text-[#111827]"
                   initial={{ opacity: 0, scale: 0.9 }}
                   whileInView={{ opacity: 1, scale: 1 }}
                   viewport={{ once: true }}
@@ -726,7 +725,7 @@ export default function MobiusContentMobile() {
       <section className="mt-[35px] mb-[100px] px-[50px]" aria-labelledby="patent-title-mobile">
         <motion.h2
           id="patent-title-mobile"
-          className="text-fluid-3xl text-center"
+          className="text-fluid-3xl text-center font-semibold text-[#333333]"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
@@ -761,10 +760,10 @@ export default function MobiusContentMobile() {
                 transition={{ duration: 0.4, delay: idx * 0.1 }}
               >
                 <div className="mb-[6px] flex flex-col items-center leading-none">
-                  <span className="text-fluid-4xl font-bold">{patent.count}</span>
-                  <span className="text-fluid-sm mt-1">{patent.unit}</span>
+                  <span className="text-fluid-4xl font-semibold text-[#333333]">{patent.count}</span>
+                  <span className="text-fluid-sm mt-1 font-semibold text-[#333333]">{patent.unit}</span>
                 </div>
-                <p className="text-fluid-sm">{patent.desc}</p>
+                <p className="text-fluid-sm font-semibold text-[#333333]">{patent.desc}</p>
               </motion.div>
             ))}
           </div>
@@ -781,10 +780,10 @@ export default function MobiusContentMobile() {
                 transition={{ duration: 0.4, delay: (idx + 3) * 0.1 }}
               >
                 <div className="mb-[6px] flex flex-col items-center leading-none">
-                  <span className="text-fluid-4xl font-bold">{patent.count}</span>
-                  <span className="text-fluid-sm mt-1">{patent.unit}</span>
+                  <span className="text-fluid-4xl font-semibold text-[#333333]">{patent.count}</span>
+                  <span className="text-fluid-sm mt-1 font-semibold text-[#333333]">{patent.unit}</span>
                 </div>
-                <p className="text-fluid-sm">{patent.desc}</p>
+                <p className="text-fluid-sm font-semibold text-[#333333]">{patent.desc}</p>
               </motion.div>
             ))}
           </div>

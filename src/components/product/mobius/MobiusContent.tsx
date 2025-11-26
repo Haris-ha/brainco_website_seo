@@ -13,15 +13,15 @@ export default function MobiusContent() {
     { img: 'https://website-www-brainco-cn.oss-cn-hangzhou.aliyuncs.com/images/nRkCQyHxhiU1pm7r.webp', name: t('scenario_downslope') },
     { img: 'https://website-www-brainco-cn.oss-cn-hangzhou.aliyuncs.com/images/6tlmX0a5pAWwfGDL.webp', name: t('scenario_sit') },
     { img: 'https://website-www-brainco-cn.oss-cn-hangzhou.aliyuncs.com/images/seVWwEFIqhoMrXxp.webp', name: t('scenario_stand') },
-    { img: 'https://website-www-brainco-cn.oss-cn-hangzhou.aliyuncs.com/images/9vrlIf8Uj3k2dV7J.webp', name: t('scenario_fast_walk') },
-    { img: 'https://website-www-brainco-cn.oss-cn-hangzhou.aliyuncs.com/images/cf2AsK8QumqPvEpW.webp', name: t('scenario_obstacle') },
     { img: 'https://website-www-brainco-cn.oss-cn-hangzhou.aliyuncs.com/images/Zqms57UeQjGI6zwR.webp', name: t('scenario_walk') },
     { img: 'https://website-www-brainco-cn.oss-cn-hangzhou.aliyuncs.com/images/UwhYf0j9KBtxFaHR.webp', name: t('scenario_downstairs') },
     { img: 'https://website-www-brainco-cn.oss-cn-hangzhou.aliyuncs.com/images/9J7a4uq0grB5Zi32.webp', name: t('scenario_slow_walk') },
-    { img: 'https://website-www-brainco-cn.oss-cn-hangzhou.aliyuncs.com/images/wAepvfnIuEiWys7d.webp', name: t('scenario_seat') },
     { img: 'https://website-www-brainco-cn.oss-cn-hangzhou.aliyuncs.com/images/dBs6nGUbH0PXK3M8.webp', name: t('scenario_lean') },
     { img: 'https://website-www-brainco-cn.oss-cn-hangzhou.aliyuncs.com/images/lauqZ5KFd4LcPsVW.webp', name: t('scenario_kneel') },
     { img: 'https://website-www-brainco-cn.oss-cn-hangzhou.aliyuncs.com/images/NK6B7nd593VUWXR0.webp', name: t('scenario_run') },
+    { img: 'https://website-www-brainco-cn.oss-cn-hangzhou.aliyuncs.com/images/9vrlIf8Uj3k2dV7J.webp', name: t('scenario_fast_walk') },
+    { img: 'https://website-www-brainco-cn.oss-cn-hangzhou.aliyuncs.com/images/cf2AsK8QumqPvEpW.webp', name: t('scenario_obstacle') },
+    { img: 'https://website-www-brainco-cn.oss-cn-hangzhou.aliyuncs.com/images/wAepvfnIuEiWys7d.webp', name: t('scenario_seat') },
   ];
 
   const patents = [
@@ -106,7 +106,7 @@ export default function MobiusContent() {
             className="h-auto w-full"
           />
           <motion.div
-            className="absolute right-[40px] bottom-[40px] left-[40px] rounded-[12px] bg-black/30 p-[30px]"
+            className="absolute right-[40px] bottom-[40px] left-[40px] rounded-[24px] bg-[#00000040] p-[30px] backdrop-blur-[20px]"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -134,7 +134,7 @@ export default function MobiusContent() {
             className="h-auto w-full"
           />
           <motion.div
-            className="absolute right-[40px] bottom-[40px] left-[40px] rounded-[12px] bg-black/30 p-[30px]"
+            className="absolute right-[40px] bottom-[40px] left-[40px] rounded-[24px] bg-[#00000040] p-[30px] backdrop-blur-[20px]"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -159,7 +159,7 @@ export default function MobiusContent() {
       >
         <h2 id="features-title" className="sr-only">Mobius 产品功能特性 / Mobius Product Features</h2>
         {/* Left Features */}
-        <div className="flex flex-1 flex-col items-start justify-center gap-[120px] pr-[80px]">
+        <div className="mt-10 flex flex-1 flex-col items-start justify-center gap-[100px] pr-[80px]">
           {/* Button Feature */}
           <motion.div
             className="relative -mr-20 max-w-[400px] text-left"
@@ -168,8 +168,8 @@ export default function MobiusContent() {
             viewport={{ once: true }}
             transition={{ duration: 0.8, delay: 0.2, ease: 'easeOut' }}
           >
-            <h3 className="text-fluid-5xl mb-[16px] font-medium text-[#333333]">{t('feature_button_title')}</h3>
-            <p className="text-fluid-2xl mb-[20px] leading-[2] text-[#333333]">
+            <h3 className="text-fluid-5xl mb-[16px] font-semibold text-[#333333]">{t('feature_button_title')}</h3>
+            <p className="text-fluid-2xl mb-[20px] text-[#111827]">
               {t('feature_button_desc')}
             </p>
             {/* Connection Line */}
@@ -187,8 +187,8 @@ export default function MobiusContent() {
             viewport={{ once: true }}
             transition={{ duration: 0.8, delay: 0.4, ease: 'easeOut' }}
           >
-            <h3 className="text-fluid-5xl mb-[16px] font-medium text-[#333333]">{t('feature_sleep_title')}</h3>
-            <p className="text-fluid-2xl leading-[2] text-[#333333]">
+            <h3 className="text-fluid-5xl mb-[16px] font-semibold text-[#333333]">{t('feature_sleep_title')}</h3>
+            <p className="text-fluid-2xl text-[#111827]">
               {t('feature_sleep_desc')}
             </p>
             {/* Connection Line */}
@@ -225,8 +225,8 @@ export default function MobiusContent() {
             viewport={{ once: true }}
             transition={{ duration: 0.8, delay: 0.6, ease: 'easeOut' }}
           >
-            <h3 className="text-fluid-5xl mb-[16px] font-medium text-[#333333]">{t('feature_vibration_title')}</h3>
-            <p className="text-fluid-2xl leading-[2] text-[#333333]">
+            <h3 className="text-fluid-5xl mb-[16px] font-semibold text-[#333333]">{t('feature_vibration_title')}</h3>
+            <p className="text-fluid-2xl text-[#111827]">
               {t('feature_vibration_desc')}
             </p>
             {/* Connection Line */}
@@ -249,7 +249,7 @@ export default function MobiusContent() {
       >
         <h2 id="features-back-title" className="sr-only">Mobius 产品背面功能特性 / Mobius Product Back Features</h2>
         {/* Left Features */}
-        <div className="flex flex-1 flex-col items-start justify-center gap-[120px] pr-[80px]">
+        <div className="mt-10 flex flex-1 flex-col items-start justify-center gap-[80px] pr-[80px]">
           {/* Angle Feature */}
           <motion.div
             className="relative -mr-20 max-w-[400px] min-w-[300px] text-left"
@@ -258,8 +258,8 @@ export default function MobiusContent() {
             viewport={{ once: true }}
             transition={{ duration: 0.8, delay: 0.2, ease: 'easeOut' }}
           >
-            <h3 className="text-fluid-5xl mb-[16px] font-medium text-[#333333]">{t('feature_angle_title')}</h3>
-            <p className="text-fluid-2xl mb-[20px] leading-[2] text-[#333333]">
+            <h3 className="text-fluid-5xl mb-[16px] font-semibold text-[#333333]">{t('feature_angle_title')}</h3>
+            <p className="text-fluid-2xl mb-[20px] text-[#111827]">
               {t('feature_angle_desc')}
             </p>
             {/* Connection Line */}
@@ -277,8 +277,8 @@ export default function MobiusContent() {
             viewport={{ once: true }}
             transition={{ duration: 0.8, delay: 0.4, ease: 'easeOut' }}
           >
-            <h3 className="text-fluid-5xl mb-[16px] font-medium text-[#333333]">{t('feature_hydraulic_title')}</h3>
-            <p className="text-fluid-2xl leading-[2] text-[#333333]">
+            <h3 className="text-fluid-5xl mb-[16px] font-semibold text-[#333333]">{t('feature_hydraulic_title')}</h3>
+            <p className="text-fluid-2xl text-[#111827]">
               {t('feature_hydraulic_desc')}
             </p>
             {/* Connection Line */}
@@ -296,8 +296,8 @@ export default function MobiusContent() {
             viewport={{ once: true }}
             transition={{ duration: 0.8, delay: 0.6, ease: 'easeOut' }}
           >
-            <h3 className="text-fluid-5xl mb-[16px] font-medium text-[#333333]">{t('feature_battery_title')}</h3>
-            <p className="text-fluid-2xl leading-[2] text-[#333333]">
+            <h3 className="text-fluid-5xl mb-[16px] font-semibold text-[#333333]">{t('feature_battery_title')}</h3>
+            <p className="text-fluid-2xl text-[#111827]">
               {t('feature_battery_desc')}
             </p>
             {/* Connection Line */}
@@ -310,7 +310,7 @@ export default function MobiusContent() {
 
         {/* Center Image */}
         <motion.div
-          className="relative z-10 flex-shrink-0"
+          className="relative z-10 ml-14 flex-shrink-0"
           initial={{ opacity: 0, scale: 0.9 }}
           whileInView={{ opacity: 1, scale: 1 }}
           viewport={{ once: true }}
@@ -321,12 +321,12 @@ export default function MobiusContent() {
             alt="Mobius 轻凌M3智能仿生腿背面功能展示图 / Mobius Revolimb M3 Intelligent Bionic Leg Back Features Display"
             width={400}
             height={600}
-            className="h-auto w-[480px]"
+            className="h-auto w-[400px]"
           />
         </motion.div>
 
         {/* Right Features */}
-        <div className="flex flex-1 flex-col items-start justify-center gap-[120px] pl-[80px]">
+        <div className="flex flex-1 flex-col items-start justify-center gap-[80px] pl-[100px]">
           {/* Sensors Feature */}
           <motion.div
             className="relative -ml-20 max-w-[400px] text-left 2xl:-ml-0"
@@ -335,8 +335,8 @@ export default function MobiusContent() {
             viewport={{ once: true }}
             transition={{ duration: 0.8, delay: 0.2, ease: 'easeOut' }}
           >
-            <h3 className="text-fluid-5xl mb-[16px] font-medium text-[#333333]">{t('feature_sensors_title')}</h3>
-            <p className="text-fluid-2xl leading-[2] text-[#333333]">
+            <h3 className="text-fluid-5xl mb-[16px] font-semibold text-[#333333]">{t('feature_sensors_title')}</h3>
+            <p className="text-fluid-2xl text-[#111827]">
               {t('feature_sensors_desc')}
             </p>
             {/* Connection Line */}
@@ -354,8 +354,8 @@ export default function MobiusContent() {
             viewport={{ once: true }}
             transition={{ duration: 0.8, delay: 0.4, ease: 'easeOut' }}
           >
-            <h3 className="text-fluid-5xl mb-[16px] font-medium text-[#333333]">{t('feature_algorithm_title')}</h3>
-            <p className="text-fluid-2xl leading-[2] text-[#333333]">
+            <h3 className="text-fluid-5xl mb-[16px] font-semibold text-[#333333]">{t('feature_algorithm_title')}</h3>
+            <p className="text-fluid-2xl text-[#111827]">
               {t('feature_algorithm_desc')}
             </p>
             {/* Connection Line */}
@@ -379,16 +379,16 @@ export default function MobiusContent() {
         viewport={{ once: true }}
         transition={{ duration: 0.8, ease: 'easeOut' }}
       >
-        <div className="flex w-1/2 flex-col items-end py-[80px]">
+        <div className="flex w-1/2 flex-col items-center py-[80px]">
           {/* Title */}
           <motion.h2
-            className="text-fluid-6xl mb-[80px] text-center font-medium text-[#333333]"
+            className="text-fluid-6xl mb-[80px] text-center leading-tight font-medium text-[#333333]"
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8, delay: 0.2, ease: 'easeOut' }}
           >
-            {t('control_button_title')}
+            <span dangerouslySetInnerHTML={{ __html: t('control_button_title') }} />
           </motion.h2>
 
           {/* Activities Grid */}
@@ -418,7 +418,7 @@ export default function MobiusContent() {
                     role="presentation"
                   />
                 </div>
-                <span className="text-fluid-lg rounded-full bg-white px-6 py-2 text-center text-[#3b3b3b]">
+                <span className="text-fluid-lg min-w-[100px] rounded-full bg-white px-6 py-2 text-center text-[#3b3b3b]">
                   {activity.name}
                 </span>
               </motion.div>
@@ -428,10 +428,10 @@ export default function MobiusContent() {
       </motion.section>
 
       {/* Applicable Scenarios */}
-      <section className="mx-auto mt-[80px] w-full max-w-[1360px] px-40" aria-labelledby="scenario-title">
+      <section className="mx-auto mt-[80px] w-full max-w-[90vw] px-40" aria-labelledby="scenario-title">
         <motion.h2
           id="scenario-title"
-          className="text-fluid-6xl text-center font-normal text-[#333333]"
+          className="text-fluid-6xl text-center font-semibold text-[#333333]"
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
@@ -440,7 +440,7 @@ export default function MobiusContent() {
           {t('scenario_title')}
         </motion.h2>
         <motion.p
-          className="text-fluid-xl mt-[20px] text-center leading-[2] text-[#333333]"
+          className="text-fluid-xl mx-auto mt-[20px] w-[70%] text-center text-[#333333]"
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
@@ -449,7 +449,7 @@ export default function MobiusContent() {
           {t('scenario_desc')}
         </motion.p>
 
-        <div className="mt-[88px] grid grid-cols-4 gap-x-6 gap-y-12 md:grid-cols-7 md:gap-x-8 md:gap-y-20">
+        <div className="mx-auto mt-[88px] grid grid-cols-5 gap-x-12 gap-y-24">
           {scenarios.map((scenario, index) => (
             <motion.div
               key={scenario.name}
@@ -459,16 +459,16 @@ export default function MobiusContent() {
               viewport={{ once: true }}
               transition={{ duration: 0.6, delay: index * 0.05, ease: 'easeOut' }}
             >
-              <div className="flex w-full items-center justify-center">
+              <div className="flex h-[80px] w-[80px] items-center justify-center">
                 <Image
                   src={scenario.img}
                   alt={`${scenario.name} - Mobius 适用场景图标 / ${scenario.name} - Mobius Applicable Scenario Icon`}
-                  width={180}
-                  height={180}
-                  className="h-auto max-h-full w-auto max-w-full object-contain"
+                  width={80}
+                  height={80}
+                  className="h-auto max-h-full w-auto max-w-full object-cover"
                 />
               </div>
-              <span className="text-fluid-lg mt-4 rounded-[22px] bg-[#f4f4f4] px-4 py-2 text-center text-[#3b3b3b] md:mt-6">
+              <span className="text-fluid-lg mt-4 w-[160px] rounded-full bg-[#f4f4f4] px-4 py-4 text-center font-semibold text-[#333] md:mt-6 2xl:w-[200px]">
                 {scenario.name}
               </span>
             </motion.div>
@@ -495,11 +495,14 @@ export default function MobiusContent() {
             viewport={{ once: true }}
             transition={{ duration: 0.8, delay: 0.2, ease: 'easeOut' }}
           >
-            <h3 className="text-fluid-4xl mb-[10px] text-[#333333]">
+            <h3 className="text-fluid-4xl mb-[10px] font-semibold text-[#333333]">
               {t('feature_sensor_title')}
             </h3>
-            <div className="text-fluid-7xl mb-[40px] font-medium text-[#333333]">
-              {t('feature_sensor_freq')}
+            <div className="text-fluid-8xl mb-[40px] flex items-center gap-2 font-medium text-[#333333]">
+              {t('feature_sensor_freq').slice(0, -2)}
+              <div className="text-fluid-5xl font-semibold text-[#333333]">
+                {t('feature_sensor_freq').slice(-2)}
+              </div>
             </div>
 
             {/* Three Sensor Circles */}
@@ -511,13 +514,13 @@ export default function MobiusContent() {
               ].map((sensor, index) => (
                 <motion.div
                   key={sensor.name}
-                  className="flex h-[160px] w-[160px] items-center justify-center rounded-full border-2 border-[#333333] bg-white"
+                  className="flex h-[160px] w-[160px] items-center justify-center rounded-full border-2 border-[#979797] bg-white 2xl:h-[200px] 2xl:w-[200px]"
                   initial={{ opacity: 0, scale: 0.8 }}
                   whileInView={{ opacity: 1, scale: 1 }}
                   viewport={{ once: true }}
                   transition={{ duration: 0.6, delay: 0.4 + index * 0.1, ease: 'easeOut' }}
                 >
-                  <span className="text-fluid-2xl text-center text-[#333333]">{sensor.name}</span>
+                  <span className="text-fluid-2xl text-center font-semibold text-[#333333]">{sensor.name}</span>
                 </motion.div>
               ))}
             </div>
@@ -533,11 +536,11 @@ export default function MobiusContent() {
               viewport={{ once: true }}
               transition={{ duration: 0.8, delay: 0.3, ease: 'easeOut' }}
             >
-              <div className="text-fluid-7xl mb-[10px] font-medium text-[#333333]">
+              <div className="text-fluid-6xl mb-[10px] font-semibold text-[#333333]">
                 {t('feature_duration_value')}
-                <span className="text-fluid-4xl ml-2">{t('feature_duration_unit')}</span>
+                {/* <span className="text-fluid-4xl ml-2">{t('feature_duration_unit')}</span> */}
               </div>
-              <span className="text-fluid-2xl text-[#666666]">{t('feature_duration')}</span>
+              <span className="text-fluid-2xl font-semibold text-[#333]">{t('feature_duration')}</span>
             </motion.div>
 
             {/* Maximum Flexion */}
@@ -548,11 +551,11 @@ export default function MobiusContent() {
               viewport={{ once: true }}
               transition={{ duration: 0.8, delay: 0.4, ease: 'easeOut' }}
             >
-              <div className="text-fluid-7xl mb-[10px] font-medium text-[#333333]">
+              <div className="text-fluid-6xl mb-[10px] font-semibold text-[#333333]">
                 {t('feature_flexion_value')}
-                <span className="text-fluid-4xl ml-2">{t('feature_flexion_unit')}</span>
+                {/* <span className="text-fluid-4xl ml-2">{t('feature_flexion_unit')}</span> */}
               </div>
-              <span className="text-fluid-2xl text-[#666666]">{t('feature_flexion')}</span>
+              <span className="text-fluid-2xl font-semibold text-[#333]">{t('feature_flexion')}</span>
             </motion.div>
 
             {/* Pressure Test */}
@@ -563,11 +566,11 @@ export default function MobiusContent() {
               viewport={{ once: true }}
               transition={{ duration: 0.8, delay: 0.5, ease: 'easeOut' }}
             >
-              <div className="text-fluid-7xl mb-[10px] font-medium text-[#333333]">
+              <div className="text-fluid-6xl mb-[10px] font-semibold text-[#333333]">
                 {t('feature_pressure_value')}
-                <span className="text-fluid-4xl ml-2">{t('feature_pressure_unit')}</span>
+                {/* <span className="text-fluid-4xl ml-2">{t('feature_pressure_unit')}</span> */}
               </div>
-              <span className="text-fluid-2xl text-[#666666]">{t('feature_pressure')}</span>
+              <span className="text-fluid-2xl font-semibold text-[#333]">{t('feature_pressure')}</span>
             </motion.div>
 
             {/* Waterproof Rating */}
@@ -578,10 +581,10 @@ export default function MobiusContent() {
               viewport={{ once: true }}
               transition={{ duration: 0.8, delay: 0.6, ease: 'easeOut' }}
             >
-              <div className="text-fluid-7xl mb-[10px] font-medium text-[#333333]">
+              <div className="text-fluid-6xl mb-[10px] font-semibold text-[#333333]">
                 {t('feature_waterproof_value')}
               </div>
-              <span className="text-fluid-2xl text-[#666666]">{t('feature_waterproof')}</span>
+              <span className="text-fluid-2xl font-semibold text-[#333]">{t('feature_waterproof')}</span>
             </motion.div>
           </div>
         </div>
@@ -589,7 +592,7 @@ export default function MobiusContent() {
 
       {/* Carbon Fiber Shell - Image Left, Text Right */}
       <motion.section
-        className="mt-[100px] flex w-full items-center bg-white px-40"
+        className="mx-auto mt-[100px] flex w-full max-w-[90vw] items-center bg-white px-40"
         aria-labelledby="shell-title"
         initial={{ opacity: 0, y: 50 }}
         whileInView={{ opacity: 1, y: 0 }}
@@ -621,20 +624,20 @@ export default function MobiusContent() {
           viewport={{ once: true }}
           transition={{ duration: 0.8, delay: 0.4, ease: 'easeOut' }}
         >
-          <h2 id="shell-title" className="text-fluid-6xl mb-[20px] font-medium text-[#333333]">
+          <h2 id="shell-title" className="text-fluid-5xl mb-[20px] font-semibold text-[#333333]">
             {t('feature_shell_title')}
           </h2>
-          <h3 className="text-fluid-6xl mb-[40px] font-medium text-[#333333]">
+          <h3 className="text-fluid-5xl mb-[60px] font-semibold text-[#333333]">
             {t('feature_shell_subtitle')}
           </h3>
-          <div className="flex gap-[20px] text-center">
-            <span className="text-fluid-3xl rounded-full bg-black/60 px-8 py-3 !text-white">
+          <div className="flex flex-col gap-[20px] text-center">
+            <span className="text-fluid-2xl min-w-[320px] rounded-full bg-[#F4F4F4] px-16 py-4 font-semibold !text-[#333] 2xl:min-w-[400px]">
               {t('feature_shell_1')}
             </span>
-            <span className="text-fluid-3xl rounded-full bg-black/60 px-8 py-3 !text-white">
+            <span className="text-fluid-2xl min-w-[320px] rounded-full bg-[#F4F4F4] px-16 py-4 font-semibold !text-[#333] 2xl:min-w-[400px]">
               {t('feature_shell_2')}
             </span>
-            <span className="text-fluid-3xl rounded-full bg-black/60 px-8 py-3 !text-white">
+            <span className="text-fluid-2xl min-w-[320px] rounded-full bg-[#F4F4F4] px-16 py-4 font-semibold !text-[#333] 2xl:min-w-[400px]">
               {t('feature_shell_3')}
             </span>
           </div>
@@ -643,7 +646,7 @@ export default function MobiusContent() {
 
       {/* Variable Damping - Text Left, Image Right */}
       <motion.section
-        className="mt-[100px] flex w-full items-center bg-white px-40"
+        className="mx-auto mt-[100px] flex w-full max-w-[90vw] items-center bg-white pl-40"
         aria-labelledby="damping-title"
         initial={{ opacity: 0, y: 50 }}
         whileInView={{ opacity: 1, y: 0 }}
@@ -658,27 +661,33 @@ export default function MobiusContent() {
           viewport={{ once: true }}
           transition={{ duration: 0.8, delay: 0.2, ease: 'easeOut' }}
         >
-          <h2 id="damping-title" className="text-fluid-6xl mb-[60px] font-medium text-[#333333]">
+          <h2 id="damping-title" className="text-fluid-5xl mb-[60px] font-semibold text-[#333333]">
             {t('feature_damping_title')}
           </h2>
           <div className="flex flex-col gap-[30px]">
-            <div className="text-left">
-              <div className="text-fluid-7xl mb-[10px] font-medium text-[#333333]">
+            <div className="flex items-center gap-[20px] text-left">
+              <span className="text-fluid-6xl font-semibold text-[#333333]">
+                {t('feature_precision')}
+              </span>
+              <div className="text-fluid-2xl font-semibold text-[#333333]">
                 {t('feature_precision_value')}
               </div>
-              <div className="text-fluid-3xl text-[#666666]">{t('feature_precision')}</div>
             </div>
-            <div className="text-left">
-              <div className="text-fluid-7xl mb-[10px] font-medium text-[#333333]">
+            <div className="flex items-center gap-[20px] text-left">
+              <span className="text-fluid-6xl font-semibold text-[#333333]">
+                {t('feature_rebound')}
+              </span>
+              <span className="text-fluid-2xl font-semibold text-[#333333]">
                 {t('feature_rebound_value')}
-              </div>
-              <div className="text-fluid-3xl text-[#666666]">{t('feature_rebound')}</div>
+              </span>
             </div>
-            <div className="text-left">
-              <div className="text-fluid-7xl mb-[10px] font-medium text-[#333333]">
+            <div className="flex items-center gap-[20px] text-left">
+              <span className="text-fluid-6xl font-semibold text-[#333333]">
+                {t('feature_load')}
+              </span>
+              <span className="text-fluid-2xl font-semibold text-[#333333]">
                 {t('feature_load_value')}
-              </div>
-              <div className="text-fluid-3xl text-[#666666]">{t('feature_load')}</div>
+              </span>
             </div>
           </div>
         </motion.div>
@@ -719,10 +728,10 @@ export default function MobiusContent() {
           transition={{ duration: 0.8, delay: 0.2, ease: 'easeOut' }}
         >
           {t('app_title')}
-          {t('app_subtitle')}
+          {/* {t('app_subtitle')} */}
         </motion.h2>
         <motion.p
-          className="text-fluid-2xl mx-auto max-w-[600px] leading-[2] text-[#666666]"
+          className="text-fluid-2xl mx-auto max-w-[600px] text-[#111827]"
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
@@ -734,7 +743,7 @@ export default function MobiusContent() {
 
       {/* M3 vs M2 Comparison */}
       <motion.section
-        className="mx-auto mt-[100px] w-full max-w-[1200px] px-40 py-[80px]"
+        className="mx-auto mt-[100px] w-full max-w-[90vw] px-40 py-[80px]"
         aria-labelledby="comparison-title"
         initial={{ opacity: 0, y: 50 }}
         whileInView={{ opacity: 1, y: 0 }}
@@ -744,7 +753,7 @@ export default function MobiusContent() {
         {/* Title */}
         <motion.h2
           id="comparison-title"
-          className="text-fluid-6xl mb-[60px] text-center font-medium"
+          className="text-fluid-6xl mb-[60px] text-center font-semibold"
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
@@ -764,12 +773,12 @@ export default function MobiusContent() {
           >
             <Image
               src="https://www.brainco.cn/news-images/m3@2x.png"
-              alt={`${t('m3_title')} - Mobius 轻凌M3智能仿生腿产品图 / ${t('m3_title')} - Mobius Revolimb M3 Intelligent Bionic Leg Product Image`}
+              alt={`${t('M3 Name')} - Mobius 轻凌M3智能仿生腿产品图 / ${t('M3 Name')} - Mobius Revolimb M3 Intelligent Bionic Leg Product Image`}
               width={300}
               height={400}
               className="h-auto w-[200px]"
             />
-            <span className="text-fluid-5xl mt-[20px] font-medium">{t('m3_title')}</span>
+            <span className="text-fluid-5xl mt-[20px] font-medium">{t('M3 Name')}</span>
           </motion.div>
           <motion.div
             className="flex flex-col items-center"
@@ -780,12 +789,12 @@ export default function MobiusContent() {
           >
             <Image
               src="https://www.brainco.cn/news-images/M2@2x.png"
-              alt={`${t('m2_title')} - Mobius 轻凌M2智能仿生腿产品图 / ${t('m2_title')} - Mobius Revolimb M2 Intelligent Bionic Leg Product Image`}
+              alt={`${t('M2 Name')} - Mobius 轻凌M2智能仿生腿产品图 / ${t('M2 Name')} - Mobius Revolimb M2 Intelligent Bionic Leg Product Image`}
               width={300}
               height={400}
               className="h-auto w-[200px]"
             />
-            <span className="text-fluid-5xl mt-[20px] font-medium">{t('m2_title')}</span>
+            <span className="text-fluid-5xl mt-[20px] font-medium">{t('M2 Name')}</span>
           </motion.div>
         </div>
 
@@ -800,13 +809,13 @@ export default function MobiusContent() {
           <table className="w-full">
             <thead>
               <tr className="bg-[#f5f5f5]">
-                <th className="text-fluid-3xl border-r border-gray-200 px-6 py-6 text-center font-medium text-[#333333]">
+                <th className="text-fluid-3xl border-r border-gray-200 px-6 py-6 text-center font-semibold text-[#333333]">
                   {t('comparison_parameter')}
                 </th>
-                <th className="text-fluid-3xl border-r border-gray-200 py-6 text-center font-medium text-[#333333]">
+                <th className="text-fluid-3xl border-r border-gray-200 py-6 text-center font-semibold text-[#333333]">
                   {t('comparison_m3')}
                 </th>
-                <th className="text-fluid-3xl py-6 text-center font-medium text-[#333333]">
+                <th className="text-fluid-3xl py-6 text-center font-semibold text-[#333333]">
                   {t('comparison_m2')}
                 </th>
               </tr>
@@ -814,109 +823,109 @@ export default function MobiusContent() {
             <tbody>
               {/* Support Material */}
               <tr className="border-t border-gray-200">
-                <td className="text-fluid-xl border-r border-gray-200 px-6 py-5 text-center text-[#333333]">
+                <td className="text-fluid-xl border-r border-gray-200 px-6 py-5 text-center font-semibold text-[#333333]">
                   {t('comparison_support')}
                 </td>
-                <td className="text-fluid-xl border-r border-gray-200 px-6 py-5 text-center text-[#666666]">
+                <td className="text-fluid-xl border-r border-gray-200 px-6 py-5 text-center text-[#111827]">
                   {t('comparison_support_value')}
                 </td>
-                <td className="text-fluid-xl px-6 py-5 text-center text-[#666666]">
+                <td className="text-fluid-xl px-6 py-5 text-center text-[#111827]">
                   {t('comparison_support_value')}
                 </td>
               </tr>
               {/* Height */}
               <tr className="border-t border-gray-200 bg-[#fafafa]">
-                <td className="text-fluid-xl border-r border-gray-200 px-6 py-5 text-center text-[#333333]">
+                <td className="text-fluid-xl border-r border-gray-200 px-6 py-5 text-center font-semibold text-[#333333]">
                   {t('comparison_height')}
                 </td>
-                <td className="text-fluid-xl border-r border-gray-200 px-6 py-5 text-center text-[#666666]">
+                <td className="text-fluid-xl border-r border-gray-200 px-6 py-5 text-center text-[#111827]">
                   {t('comparison_height_value')}
                 </td>
-                <td className="text-fluid-xl px-6 py-5 text-center text-[#666666]">
+                <td className="text-fluid-xl px-6 py-5 text-center text-[#111827]">
                   {t('comparison_height_value')}
-                </td>
-              </tr>
-              {/* Weight */}
-              <tr className="border-t border-gray-200">
-                <td className="text-fluid-xl border-r border-gray-200 px-6 py-5 text-center text-[#333333]">
-                  {t('comparison_weight')}
-                </td>
-                <td className="text-fluid-xl border-r border-gray-200 px-6 py-5 text-center text-[#666666]">
-                  {t('comparison_weight_value')}
-                </td>
-                <td className="text-fluid-xl px-6 py-5 text-center text-[#666666]">
-                  {t('comparison_weight_value')}
                 </td>
               </tr>
               {/* Waterproof */}
               <tr className="border-t border-gray-200 bg-[#fafafa]">
-                <td className="text-fluid-xl border-r border-gray-200 px-6 py-5 text-center text-[#333333]">
+                <td className="text-fluid-xl border-r border-gray-200 px-6 py-5 text-center font-semibold text-[#333333]">
                   {t('comparison_waterproof')}
                 </td>
-                <td className="text-fluid-xl border-r border-gray-200 px-6 py-5 text-center text-[#666666]">
+                <td className="text-fluid-xl border-r border-gray-200 px-6 py-5 text-center text-[#111827]">
                   {t('comparison_waterproof_value')}
                 </td>
-                <td className="text-fluid-xl px-6 py-5 text-center text-[#666666]">
+                <td className="text-fluid-xl px-6 py-5 text-center text-[#111827]">
                   {t('comparison_waterproof_value')}
+                </td>
+              </tr>
+              {/* Weight */}
+              <tr className="border-t border-gray-200">
+                <td className="text-fluid-xl border-r border-gray-200 px-6 py-5 text-center font-semibold text-[#333333]">
+                  {t('comparison_weight')}
+                </td>
+                <td className="text-fluid-xl border-r border-gray-200 px-6 py-5 text-center text-[#111827]">
+                  {t('comparison_weight_value')}
+                </td>
+                <td className="text-fluid-xl px-6 py-5 text-center text-[#111827]">
+                  {t('comparison_weight_value')}
                 </td>
               </tr>
               {/* Charging Time */}
               <tr className="border-t border-gray-200">
-                <td className="text-fluid-xl border-r border-gray-200 px-6 py-5 text-center text-[#333333]">
+                <td className="text-fluid-xl border-r border-gray-200 px-6 py-5 text-center font-semibold text-[#333333]">
                   {t('comparison_charging')}
                 </td>
-                <td className="text-fluid-xl border-r border-gray-200 px-6 py-5 text-center text-[#666666]">
+                <td className="text-fluid-xl border-r border-gray-200 px-6 py-5 text-center text-[#111827]">
                   {t('comparison_charging_value')}
                 </td>
-                <td className="text-fluid-xl px-6 py-5 text-center text-[#666666]">
+                <td className="text-fluid-xl px-6 py-5 text-center text-[#111827]">
                   {t('comparison_charging_value')}
                 </td>
               </tr>
               {/* Battery Life */}
               <tr className="border-t border-gray-200 bg-[#fafafa]">
-                <td className="text-fluid-xl border-r border-gray-200 px-6 py-5 text-center text-[#333333]">
+                <td className="text-fluid-xl border-r border-gray-200 px-6 py-5 text-center font-semibold text-[#333333]">
                   {t('comparison_battery')}
                 </td>
-                <td className="text-fluid-xl border-r border-gray-200 px-6 py-5 text-center text-[#666666]">
+                <td className="text-fluid-xl border-r border-gray-200 px-6 py-5 text-center text-[#111827]">
                   {t('comparison_battery_m3')}
                 </td>
-                <td className="text-fluid-xl px-6 py-5 text-center text-[#666666]">
+                <td className="text-fluid-xl px-6 py-5 text-center text-[#111827]">
                   {t('comparison_battery_m2')}
                 </td>
               </tr>
               {/* Stair Climbing */}
               <tr className="border-t border-gray-200">
-                <td className="text-fluid-xl border-r border-gray-200 px-6 py-5 text-center text-[#333333]">
+                <td className="text-fluid-xl border-r border-gray-200 px-6 py-5 text-center font-semibold text-[#333333]">
                   {t('comparison_stair')}
                 </td>
-                <td className="text-fluid-2xl border-r border-gray-200 px-6 py-5 text-center text-[#666666]">
+                <td className="text-fluid-2xl border-r border-gray-200 px-6 py-5 text-center text-[#111827]">
                   {t('comparison_yes')}
                 </td>
-                <td className="text-fluid-2xl px-6 py-5 text-center text-[#666666]">
+                <td className="text-fluid-2xl px-6 py-5 text-center text-[#111827]">
                   {t('comparison_no')}
                 </td>
               </tr>
               {/* Running */}
               <tr className="border-t border-gray-200 bg-[#fafafa]">
-                <td className="text-fluid-xl border-r border-gray-200 px-6 py-5 text-center text-[#333333]">
+                <td className="text-fluid-xl border-r border-gray-200 px-6 py-5 text-center font-semibold text-[#333333]">
                   {t('comparison_run')}
                 </td>
-                <td className="text-fluid-2xl border-r border-gray-200 px-6 py-5 text-center text-[#666666]">
+                <td className="text-fluid-2xl border-r border-gray-200 px-6 py-5 text-center text-[#111827]">
                   {t('comparison_yes')}
                 </td>
-                <td className="text-fluid-2xl px-6 py-5 text-center text-[#666666]">
+                <td className="text-fluid-2xl px-6 py-5 text-center text-[#111827]">
                   {t('comparison_no')}
                 </td>
               </tr>
               {/* Obstacle */}
               <tr className="border-t border-gray-200">
-                <td className="text-fluid-xl border-r border-gray-200 px-6 py-5 text-center text-[#333333]">
+                <td className="text-fluid-xl border-r border-gray-200 px-6 py-5 text-center font-semibold text-[#333333]">
                   {t('comparison_obstacle')}
                 </td>
-                <td className="text-fluid-2xl border-r border-gray-200 px-6 py-5 text-center text-[#666666]">
+                <td className="text-fluid-2xl border-r border-gray-200 px-6 py-5 text-center text-[#111827]">
                   {t('comparison_yes')}
                 </td>
-                <td className="text-fluid-2xl px-6 py-5 text-center text-[#666666]">
+                <td className="text-fluid-2xl px-6 py-5 text-center text-[#111827]">
                   {t('comparison_no')}
                 </td>
               </tr>
@@ -924,11 +933,11 @@ export default function MobiusContent() {
           </table>
 
           {/* Common Features */}
-          <div className="border-t-2 border-gray-300 bg-[#f5f5f5] px-6 py-6 text-center">
-            <p className="text-fluid-2xl mb-6 font-medium text-[#333333]">
+          <div className="border-t-2 border-gray-300 bg-[#f5f5f5] px-6 py-6">
+            <p className="text-fluid-2xl mb-6 text-center font-semibold text-[#333333]">
               {t('comparison_common')}
             </p>
-            <div className="flex flex-wrap justify-center gap-3">
+            <div className="grid grid-cols-3 gap-4">
               {[
                 t('comparison_feature_1'),
                 t('comparison_feature_2'),
@@ -938,18 +947,17 @@ export default function MobiusContent() {
                 t('comparison_feature_6'),
                 t('comparison_feature_7'),
               ].map((feature, index) => (
-                <motion.span
+                <motion.div
                   key={feature}
-                  className="text-fluid-lg rounded-full bg-white px-5 py-3 text-[#666666]"
+                  className="flex w-full items-center rounded-full bg-white px-8 py-3"
                   initial={{ opacity: 0, scale: 0.9 }}
                   whileInView={{ opacity: 1, scale: 1 }}
                   viewport={{ once: true }}
                   transition={{ duration: 0.4, delay: 0.6 + index * 0.05, ease: 'easeOut' }}
                 >
-                  •
-                  {' '}
-                  {feature}
-                </motion.span>
+                  <span className="mr-2 mb-1 text-xl text-black">•</span>
+                  <span className="text-fluid-lg text-[#111827]">{feature}</span>
+                </motion.div>
               ))}
             </div>
           </div>
@@ -958,73 +966,90 @@ export default function MobiusContent() {
 
       {/* Patents */}
       <motion.section
-        className="mx-auto mt-[50px] mb-[100px] w-full max-w-[1500px] px-4 text-center"
+        className="mx-auto mt-[50px] mb-[100px] w-full max-w-[90vw] px-4 text-center"
         aria-labelledby="patent-title"
         initial={{ opacity: 0, y: 50 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
         transition={{ duration: 0.8, ease: 'easeOut' }}
       >
-        <h2 id="patent-title" className="text-fluid-6xl mb-[24px] px-40 font-normal text-[#333333]">
+        <h2 id="patent-title" className="text-fluid-6xl mb-[24px] px-40 font-semibold text-[#333333]">
           {t('patent_title')}
         </h2>
-        <div className="mt-[60px] flex h-full items-center justify-center px-40">
+        <div className="mt-[60px] flex min-h-[600px] items-stretch gap-12 px-40 md:gap-16">
           {/* Left: Patent Image */}
           <motion.div
             initial={{ opacity: 0, scale: 0.9 }}
             whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8, ease: 'easeOut' }}
-            className="-mr-10 hidden w-[500px] flex-shrink-0 lg:block"
+            className="hidden h-full w-1/2 flex-shrink-0 lg:block"
           >
             <Image
               src="https://website-www-brainco-cn.oss-cn-hangzhou.aliyuncs.com/images/fC7y3OzorWYn9Vmb.webp"
               alt="Mobius 智能假肢领域专利数量展示图 / Mobius Intelligent Prosthetics Patent Count Display"
               width={1200}
               height={600}
-              className="h-auto w-full"
+              className="h-full w-full object-contain"
             />
           </motion.div>
 
-          {/* Right: Patent Data - Top 2, Bottom 3, Right Aligned */}
-          <div className="flex flex-1 flex-col justify-between self-stretch">
-            {/* Top Row - 2 items, right aligned */}
-            <div className="mt-30 grid grid-cols-3 gap-8 md:gap-10 2xl:mt-20">
-              <div className="col-span-1"></div>
-              {patents.slice(0, 2).map((patent, index) => (
+          {/* Right: Patent Data - First row 1 item, Second and Third rows 2 items each */}
+          <div className="ml-10 flex h-full w-1/2 flex-col justify-between gap-24 py-4 2xl:ml-20 2xl:gap-28">
+            {/* First Row - 1 item (full width) */}
+            {patents[0] && (
+              <motion.div
+                key={patents[0].desc}
+                className="text-left"
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6, delay: 0.1, ease: 'easeOut' }}
+              >
+                <h3 className="text-fluid-5xl leading-none font-semibold text-[#333333]">
+                  {patents[0].count}
+                  <span className="text-fluid-2xl ml-2">{patents[0].unit}</span>
+                </h3>
+                <p className="text-fluid-2xl mt-[8px] font-semibold text-[#333333]">{patents[0].desc}</p>
+              </motion.div>
+            )}
+
+            {/* Second Row - 2 items */}
+            <div className="grid grid-cols-2 gap-24">
+              {patents.slice(1, 3).map((patent, index) => (
                 <motion.div
                   key={patent.desc}
-                  className="col-span-1 text-left"
+                  className="text-left"
                   initial={{ opacity: 0, y: 30 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
-                  transition={{ duration: 0.6, delay: index * 0.1, ease: 'easeOut' }}
+                  transition={{ duration: 0.6, delay: 0.2 + index * 0.1, ease: 'easeOut' }}
                 >
-                  <h3 className="text-fluid-6xl leading-none text-[#333333]">
+                  <h3 className="text-fluid-5xl leading-none font-semibold text-[#333333]">
                     {patent.count}
-                    <span className="text-fluid-3xl">{patent.unit}</span>
+                    <span className="text-fluid-2xl ml-2">{patent.unit}</span>
                   </h3>
-                  <p className="text-fluid-2xl mt-[8px] text-[#333333]">{patent.desc}</p>
+                  <p className="text-fluid-2xl mt-[8px] font-semibold text-[#333333]">{patent.desc}</p>
                 </motion.div>
               ))}
             </div>
 
-            {/* Bottom Row - 3 items */}
-            <div className="grid grid-cols-3 gap-8 md:gap-10">
-              {patents.slice(2).map((patent, index) => (
+            {/* Third Row - 2 items */}
+            <div className="grid grid-cols-2 gap-24">
+              {patents.slice(3).map((patent, index) => (
                 <motion.div
                   key={patent.desc}
-                  className="col-span-1 text-left"
+                  className="text-left"
                   initial={{ opacity: 0, y: 30 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
-                  transition={{ duration: 0.6, delay: (index + 2) * 0.1, ease: 'easeOut' }}
+                  transition={{ duration: 0.6, delay: 0.4 + index * 0.1, ease: 'easeOut' }}
                 >
-                  <h3 className="text-fluid-6xl leading-none text-[#333333]">
+                  <h3 className="text-fluid-5xl leading-none font-semibold text-[#333333]">
                     {patent.count}
-                    <span className="text-fluid-3xl">{patent.unit}</span>
+                    <span className="text-fluid-2xl ml-2">{patent.unit}</span>
                   </h3>
-                  <p className="text-fluid-2xl mt-[8px] text-[#333333]">{patent.desc}</p>
+                  <p className="text-fluid-2xl mt-[8px] font-semibold text-[#333333]">{patent.desc}</p>
                 </motion.div>
               ))}
             </div>
