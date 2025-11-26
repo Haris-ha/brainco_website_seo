@@ -1,7 +1,7 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import { useTranslations } from 'next-intl';
+import { useLocale, useTranslations } from 'next-intl';
 import Image from 'next/image';
 import Link from 'next/link';
 import { useState } from 'react';
@@ -11,6 +11,10 @@ export default function Revo2Content() {
   const t = useTranslations('Revo2');
   const [selectedColorIndex, setSelectedColorIndex] = useState(1); // Default to middle (流光银)
 
+  const locale = useLocale();
+  const documentationUrl = locale === 'en-US'
+    ? 'https://www.brainco-hz.com/docs/revolimb-hand/en/revo2/parameters.html'
+    : 'https://www.brainco-hz.com/docs/revolimb-hand/revo2/parameters.html';
   return (
     <main className="bg-black !text-white">
       {/* Hero Video Section */}
@@ -64,7 +68,7 @@ export default function Revo2Content() {
               {t('contact_us')}
             </Link>
             <a
-              href="https://www.brainco-hz.com/docs/revolimb-hand/revo2/parameters.html"
+              href={documentationUrl}
               target="_blank"
               rel="noopener noreferrer"
               className="cursor-target text-fluid-3xl flex h-[72px] w-[264px] items-center justify-center rounded-[45px] border border-white !text-white transition-transform hover:scale-105"
