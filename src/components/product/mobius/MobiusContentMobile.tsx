@@ -377,7 +377,7 @@ export default function MobiusContentMobile() {
                   className="max-h-full max-w-full object-contain"
                 />
               </div>
-              <span className="text-fluid-base mt-[8px] w-[100px] md:w-[120px] rounded-[10px] bg-[#f4f4f4] py-[2px] text-center font-semibold text-[#333333]">
+              <span className="text-fluid-base mt-[8px] w-[100px] rounded-[10px] bg-[#f4f4f4] py-[2px] text-center font-semibold text-[#333333] md:w-[120px]">
                 {scenario.name}
               </span>
             </motion.div>
@@ -435,7 +435,7 @@ export default function MobiusContentMobile() {
           ].map((item, idx) => (
             <motion.div
               key={item.label}
-              className="mb-[20px] w-1/2"
+              className="mb-[20px] flex w-1/2 flex-col items-center"
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
@@ -493,7 +493,7 @@ export default function MobiusContentMobile() {
               className="w-[90%]"
             />
           </motion.div>
-          <div className="text-fluid-lg mt-[20px] pl-[64px] md:text-center md:pl-[30vw]">
+          <div className="text-fluid-lg mt-[20px] pl-[64px] md:pl-[30vw] md:text-center">
             {[
               { value: t('feature_precision_value'), label: t('feature_precision') },
               { value: t('feature_rebound_value'), label: t('feature_rebound') },
@@ -507,7 +507,7 @@ export default function MobiusContentMobile() {
                 viewport={{ once: true }}
                 transition={{ duration: 0.4, delay: idx * 0.1 }}
               >
-                <div className="text-fluid-5xl font-semibold text-[#111827] mr-4">{item.label}</div>
+                <div className="text-fluid-5xl mr-4 font-semibold text-[#111827]">{item.label}</div>
                 <div className="text-fluid-xl font-semibold text-[#333333]">{item.value}</div>
               </motion.div>
             ))}
@@ -759,17 +759,17 @@ export default function MobiusContentMobile() {
                 viewport={{ once: true }}
                 transition={{ duration: 0.4, delay: idx * 0.1 }}
               >
-                <div className="mb-[6px] flex flex-col items-center leading-none">
+                <div className="mb-[6px] flex items-center justify-center leading-none">
                   <span className="text-fluid-4xl font-semibold text-[#333333]">{patent.count}</span>
-                  <span className="text-fluid-sm mt-1 font-semibold text-[#333333]">{patent.unit}</span>
+                  <span className="text-fluid-base ml-2 font-semibold text-[#333333]">{patent.unit}</span>
                 </div>
-                <p className="text-fluid-sm font-semibold text-[#333333]">{patent.desc}</p>
+                <p className="text-fluid-sm font-semibold text-[#333333] text-center">{patent.desc}</p>
               </motion.div>
             ))}
           </div>
 
           {/* Bottom Row - 2 items */}
-          <div className="grid grid-cols-3 gap-4">
+          <div className="grid grid-cols-3 gap-4 mt-[30px]">
             {patents.slice(3).map((patent, idx) => (
               <motion.div
                 key={patent.desc}
@@ -779,11 +779,11 @@ export default function MobiusContentMobile() {
                 viewport={{ once: true }}
                 transition={{ duration: 0.4, delay: (idx + 3) * 0.1 }}
               >
-                <div className="mb-[6px] flex flex-col items-center leading-none">
+                <div className="mb-[6px] flex items-center justify-center leading-none">
                   <span className="text-fluid-4xl font-semibold text-[#333333]">{patent.count}</span>
-                  <span className="text-fluid-sm mt-1 font-semibold text-[#333333]">{patent.unit}</span>
+                  <span className="text-fluid-base ml-2 font-semibold text-[#333333]">{patent.unit}</span>
                 </div>
-                <p className="text-fluid-sm font-semibold text-[#333333]">{patent.desc}</p>
+                <p className="text-fluid-sm font-semibold text-[#333333] text-center">{patent.desc}</p>
               </motion.div>
             ))}
           </div>
