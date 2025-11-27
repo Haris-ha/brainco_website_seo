@@ -1,6 +1,6 @@
 # BrainCo 官网 - Next.js 版本
 
-这是 BrainCo 官方网站的 Next.js 重构版本，从原来的 Vue3 项目迁移而来。
+BrainCo 官方网站的 Next.js 重构版本
 
 ## 快速开始
 

@@ -271,7 +271,9 @@ export default function NewsDetailContent({ news, locale, allNews = EMPTY_NEWS_A
           className="mb-8 flex flex-wrap items-center gap-4 text-[#666] lg:mb-12"
         >
           <time className="text-base lg:text-2xl">
-            {formatDate(news.newsDate, 'YYYY年MM月DD日')}
+            {locale.startsWith('zh')
+              ? formatDate(news.newsDate, 'YYYY年MM月DD日', locale)
+              : formatDate(news.newsDate, 'MMMM DD, YYYY', locale)}
           </time>
           <span className="text-base lg:text-xl">•</span>
           <span className="text-base lg:text-xl">BrainCo</span>

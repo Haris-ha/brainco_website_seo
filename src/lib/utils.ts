@@ -90,7 +90,7 @@ export const deepClone = <T>(obj: T): T => {
 };
 
 // 格式化日期
-export const formatDate = (date: Date | string | number, format: string = 'YYYY-MM-DD'): string => {
+export const formatDate = (date: Date | string | number, format: string = 'YYYY-MM-DD', locale: string = 'en-US'): string => {
   const d = new Date(date);
   const year = d.getFullYear();
   const month = String(d.getMonth() + 1).padStart(2, '0');
@@ -99,13 +99,35 @@ export const formatDate = (date: Date | string | number, format: string = 'YYYY-
   const minutes = String(d.getMinutes()).padStart(2, '0');
   const seconds = String(d.getSeconds()).padStart(2, '0');
 
-  return format
+  // 月份名称（英文）
+  const monthNames = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
+  const monthNamesShort = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+  const monthIndex = d.getMonth();
+
+  // 中文月份名称
+  const monthNamesZh = ['一月', '二月', '三月', '四月', '五月', '六月', '七月', '八月', '九月', '十月', '十一月', '十二月'];
+  const monthNamesZhShort = ['1月', '2月', '3月', '4月', '5月', '6月', '7月', '8月', '9月', '10月', '11月', '12月'];
+
+  // 判断是否为中文环境
+  const isZh = locale.startsWith('zh');
+
+  let result = format
     .replace('YYYY', String(year))
     .replace('MM', month)
     .replace('DD', day)
     .replace('HH', hours)
     .replace('mm', minutes)
     .replace('ss', seconds);
+
+  // 支持月份名称
+  if (format.includes('MMMM')) {
+    result = result.replace('MMMM', isZh ? monthNamesZh[monthIndex] : monthNames[monthIndex]);
+  }
+  if (format.includes('MMM')) {
+    result = result.replace('MMM', isZh ? monthNamesZhShort[monthIndex] : monthNamesShort[monthIndex]);
+  }
+
+  return result;
 };
 
 // 判断是否为移动设备
