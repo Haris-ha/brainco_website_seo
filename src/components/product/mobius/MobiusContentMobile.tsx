@@ -25,7 +25,7 @@ export default function MobiusContentMobile() {
   ];
 
   const swiperList = [
-    { img: 'https://www.brainco.cn/news-images/m2.png', title: t('m2_title'), text: t('m2_desc') },
+    { img: 'https://www.brainco.cn/news-images/m2intelligent bionicleg.jpg', title: t('m2_title'), text: t('m2_desc') },
     { img: 'https://www.brainco.cn/news-images/m3.png', title: t('m3_title'), text: t('m3_desc') },
   ];
 
@@ -50,7 +50,7 @@ export default function MobiusContentMobile() {
       >
         <div className="relative h-full w-full">
           <Image
-            src="https://website-www-brainco-cn.oss-cn-hangzhou.aliyuncs.com/images/QhGk39MAOtN7E0UZ.webp"
+            src="https://www.brainco.cn/news-images/m4_heroscreen.jpg"
             alt="Mobius 轻凌智能仿生腿 - 产品展示 / Mobius Revolimb Intelligent Bionic Leg - Product Display"
             fill
             sizes="100vw"

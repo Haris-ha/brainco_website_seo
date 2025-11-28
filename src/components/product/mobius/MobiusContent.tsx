@@ -37,7 +37,7 @@ export default function MobiusContent() {
       {/* Hero Banner */}
       <header className="relative w-full">
         <Image
-          src="https://website-www-brainco-cn.oss-cn-hangzhou.aliyuncs.com/images/QhGk39MAOtN7E0UZ.webp"
+          src="https://www.brainco.cn/news-images/m4_heroscreen.jpg"
           alt="Mobius 轻凌智能仿生腿 - 产品展示 / Mobius Revolimb Intelligent Bionic Leg - Product Display"
           width={1920}
           height={1080}
@@ -45,7 +45,7 @@ export default function MobiusContent() {
           className="h-screen w-full object-cover"
           priority
         />
-        <div className="absolute right-[40px] bottom-52 flex h-full w-[380px] flex-col justify-center pt-[250px] 2xl:right-[100px]">
+        <div className="absolute right-0 bottom-0 flex h-full w-1/2 flex-col justify-center pr-40 pl-20">
           {/* <motion.div
             initial={{ opacity: 0, scale: 0.8 }}
             animate={{ opacity: 1, scale: 1 }}
@@ -98,15 +98,15 @@ export default function MobiusContent() {
           transition={{ duration: 0.8, ease: 'easeOut' }}
         >
           <Image
-            src="https://www.brainco.cn/news-images/m2.png"
+            src="https://www.brainco.cn/news-images/m2intelligent bionicleg.jpg"
             alt={`${t('m2_title')} - Mobius 轻凌M2智能仿生腿产品展示 / ${t('m2_title')} - Mobius Revolimb M2 Intelligent Bionic Leg Product Display`}
             width={900}
             height={600}
             sizes="(max-width: 768px) 100vw, 50vw"
-            className="h-auto w-full"
+            className="h-auto min-h-[800px] w-full rounded-[32px] object-cover"
           />
           <motion.div
-            className="absolute right-[40px] bottom-[40px] left-[40px] rounded-[24px] bg-[#00000040] p-[30px] backdrop-blur-[20px]"
+            className="absolute right-[40px] bottom-[40px] left-[40px] rounded-[24px] bg-[#00000040] p-[30px] backdrop-blur-[16px]"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -131,10 +131,10 @@ export default function MobiusContent() {
             width={900}
             height={600}
             sizes="(max-width: 768px) 100vw, 50vw"
-            className="h-auto w-full"
+            className="h-auto min-h-[800px] w-full rounded-[32px] object-cover"
           />
           <motion.div
-            className="absolute right-[40px] bottom-[40px] left-[40px] rounded-[24px] bg-[#00000040] p-[30px] backdrop-blur-[20px]"
+            className="absolute right-[40px] bottom-[40px] left-[40px] rounded-[24px] bg-[#00000040] p-[30px] backdrop-blur-[16px]"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -369,9 +369,9 @@ export default function MobiusContent() {
 
       {/* Control Button Switch Section */}
       <motion.section
-        className="relative mt-[150px] flex min-h-[600px] w-full items-center justify-end bg-cover bg-center px-20"
+        className="relative mt-[150px] flex min-h-[550px] w-full items-center justify-end bg-cover bg-center px-20"
         style={{
-          backgroundImage: 'url(https://www.brainco.cn/news-images/controlbuttonswitchbg@2x.png)',
+          backgroundImage: 'url(https://www.brainco.cn/news-images/onebuttonswitchesmultiplefunctions.jpg)',
         }}
         aria-labelledby="control-button-title"
         initial={{ opacity: 0, y: 50 }}
@@ -379,7 +379,7 @@ export default function MobiusContent() {
         viewport={{ once: true }}
         transition={{ duration: 0.8, ease: 'easeOut' }}
       >
-        <div className="flex w-1/2 flex-col items-center py-[80px]">
+        <div className="flex w-1/2 flex-col items-center py-[80px] mr-10">
           {/* Title */}
           <motion.h2
             className="text-fluid-6xl mb-[80px] text-center leading-tight font-medium text-[#333333]"

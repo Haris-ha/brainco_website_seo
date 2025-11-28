@@ -146,9 +146,9 @@ export const imageUrls = {
 
   // 科学验证
   verification1: 'https://website-www-brainco-cn.oss-cn-hangzhou.aliyuncs.com/images/CBhfv3d7SlLURAKb.webp',
-  verification2: 'https://website-www-brainco-cn.oss-cn-hangzhou.aliyuncs.com/images/rYig9OwN7m6vqNRn.webp',
+  verification2: 'https://www.brainco.cn/news-images/focusxinscientificverificationresearch2_ trainingeffect data statistics.jpg',
   verification1Mobile: 'https://website-www-brainco-cn.oss-cn-hangzhou.aliyuncs.com/images/ZchfivqPWGVT95Cm.webp',
-  verification2Mobile: 'https://website-www-brainco-cn.oss-cn-hangzhou.aliyuncs.com/images/StIgszOrlxXYBfog.webp',
+  verification2Mobile: 'https://www.brainco.cn/news-images/focusxinscientificverificationresearch2_ trainingeffect data statistics.jpg',
 
   // 专利
   patent: 'https://website-www-brainco-cn.oss-cn-hangzhou.aliyuncs.com/images/965A78C9-4833-4f8c-9985-9E7319C8FB84.png',
