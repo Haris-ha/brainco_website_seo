@@ -655,6 +655,9 @@ export default function MobiusContentMobile() {
           <table className="w-full">
             <thead>
               <tr className="bg-[#f5f5f5]">
+                <th className="text-fluid-base border-r border-gray-200 px-3 py-3 text-center font-semibold text-[#333333]">
+                  {t('comparison_parameter')}
+                </th>
                 <th className="text-fluid-base border-r border-gray-200 py-3 text-center font-semibold text-[#333333]">
                   {t('comparison_m3')}
                 </th>
@@ -665,20 +668,23 @@ export default function MobiusContentMobile() {
             </thead>
             <tbody>
               {[
-                { m3: t('comparison_support_value'), m2: t('comparison_support_value') },
-                { m3: t('comparison_height_value'), m2: t('comparison_height_value') },
-                { m3: t('comparison_weight_value'), m2: t('comparison_weight_value') },
-                { m3: t('comparison_waterproof_value'), m2: t('comparison_waterproof_value') },
-                { m3: t('comparison_charging_value'), m2: t('comparison_charging_value') },
-                { m3: t('comparison_battery_m3'), m2: t('comparison_battery_m2') },
-                { m3: t('comparison_yes'), m2: t('comparison_no') },
-                { m3: t('comparison_yes'), m2: t('comparison_no') },
-                { m3: t('comparison_yes'), m2: t('comparison_no') },
+                { key: 'comparison_support', param: t('comparison_support'), m3: t('comparison_support_value'), m2: t('comparison_support_value') },
+                { key: 'comparison_height', param: t('comparison_height'), m3: t('comparison_height_value'), m2: t('comparison_height_value') },
+                { key: 'comparison_weight', param: t('comparison_weight'), m3: t('comparison_weight_value'), m2: t('comparison_weight_value') },
+                { key: 'comparison_waterproof', param: t('comparison_waterproof'), m3: t('comparison_waterproof_value'), m2: t('comparison_waterproof_value') },
+                { key: 'comparison_charging', param: t('comparison_charging'), m3: t('comparison_charging_value'), m2: t('comparison_charging_value') },
+                { key: 'comparison_battery', param: t('comparison_battery'), m3: t('comparison_battery_m3'), m2: t('comparison_battery_m2') },
+                { key: 'comparison_stair', param: t('comparison_stair'), m3: t('comparison_yes'), m2: t('comparison_yes') },
+                { key: 'comparison_run', param: t('comparison_run'), m3: t('comparison_yes'), m2: t('comparison_no') },
+                { key: 'comparison_obstacle', param: t('comparison_obstacle'), m3: t('comparison_yes'), m2: t('comparison_yes') },
               ].map((row, idx) => (
                 <tr
-                  key={`comparison-row-${idx}`}
+                  key={row.key}
                   className={`border-t border-gray-200 ${idx % 2 === 1 ? 'bg-[#fafafa]' : ''}`}
                 >
+                  <td className="text-fluid-sm border-r border-gray-200 px-3 py-3 text-center font-semibold text-[#333333]">
+                    {row.param}
+                  </td>
                   <td className="text-fluid-sm border-r border-gray-200 px-3 py-3 text-center text-[#111827]">
                     {row.m3}
                   </td>

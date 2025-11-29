@@ -902,7 +902,7 @@ export default function MobiusContent() {
                   {t('comparison_yes')}
                 </td>
                 <td className="text-fluid-2xl px-6 py-5 text-center text-[#111827]">
-                  {t('comparison_no')}
+                  {t('comparison_yes')}
                 </td>
               </tr>
               {/* Running */}
@@ -926,7 +926,7 @@ export default function MobiusContent() {
                   {t('comparison_yes')}
                 </td>
                 <td className="text-fluid-2xl px-6 py-5 text-center text-[#111827]">
-                  {t('comparison_no')}
+                  {t('comparison_yes')}
                 </td>
               </tr>
             </tbody>
