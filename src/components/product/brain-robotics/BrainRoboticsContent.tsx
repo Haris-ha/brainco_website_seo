@@ -16,8 +16,9 @@ export default function BrainRoboticsContent() {
     'https://website-www-brainco-cn.oss-cn-hangzhou.aliyuncs.com/images/Faqw38wA9nZBc0tg.webp',
   ];
 
-  // Gesture patterns data
+  // Gesture patterns data - ordered according to design
   const gestures = [
+    // Row 1
     {
       img: 'https://website-www-brainco-cn.oss-cn-hangzhou.aliyuncs.com/images/jFJvgNc1HrD8GMEN.png',
       name: t('gesture_1_name'),
@@ -30,12 +31,7 @@ export default function BrainRoboticsContent() {
       desc: t('gesture_2_desc'),
       tips: t('gesture_2_tips'),
     },
-    {
-      img: 'https://website-www-brainco-cn.oss-cn-hangzhou.aliyuncs.com/images/J6rjlqMGv0ZjNB3O.png',
-      name: t('gesture_3_name'),
-      desc: t('gesture_3_desc'),
-      tips: t('gesture_3_tips'),
-    },
+    // Row 2
     {
       img: 'https://website-www-brainco-cn.oss-cn-hangzhou.aliyuncs.com/images/F15DGmCjXqupOYIn.png',
       name: t('gesture_4_name'),
@@ -48,12 +44,7 @@ export default function BrainRoboticsContent() {
       desc: t('gesture_5_desc'),
       tips: t('gesture_5_tips'),
     },
-    {
-      img: 'https://website-www-brainco-cn.oss-cn-hangzhou.aliyuncs.com/images/GH9E31Q8yIvysWzb.png',
-      name: t('gesture_6_name'),
-      desc: t('gesture_6_desc'),
-      tips: t('gesture_6_tips'),
-    },
+    // Row 3
     {
       img: 'https://website-www-brainco-cn.oss-cn-hangzhou.aliyuncs.com/images/UlpxSu8JbuaEhuxy.png',
       name: t('gesture_7_name'),
@@ -66,12 +57,7 @@ export default function BrainRoboticsContent() {
       desc: t('gesture_8_desc'),
       tips: t('gesture_8_tips'),
     },
-    {
-      img: 'https://website-www-brainco-cn.oss-cn-hangzhou.aliyuncs.com/images/gFBiIGwt7Q4xJetE.png',
-      name: t('gesture_9_name'),
-      desc: t('gesture_9_desc'),
-      tips: t('gesture_9_tips'),
-    },
+    // Row 4
     {
       img: 'https://website-www-brainco-cn.oss-cn-hangzhou.aliyuncs.com/images/Wn55F38WXmAatZir.png',
       name: t('gesture_10_name'),
@@ -84,18 +70,7 @@ export default function BrainRoboticsContent() {
       desc: t('gesture_11_desc'),
       tips: t('gesture_11_tips'),
     },
-    {
-      img: 'https://website-www-brainco-cn.oss-cn-hangzhou.aliyuncs.com/images/V27n4RnEiRSzgMtg.png',
-      name: t('gesture_12_name'),
-      desc: t('gesture_12_desc'),
-      tips: t('gesture_12_tips'),
-    },
-    {
-      img: 'https://website-www-brainco-cn.oss-cn-hangzhou.aliyuncs.com/images/veyA5J2ATIDxZbYU.png',
-      name: t('gesture_13_name'),
-      desc: t('gesture_13_desc'),
-      tips: t('gesture_13_tips'),
-    },
+    // Row 5
     {
       img: 'https://website-www-brainco-cn.oss-cn-hangzhou.aliyuncs.com/images/jFW4K5jUsyf5s5Ea.png',
       name: t('gesture_14_name'),
@@ -103,22 +78,56 @@ export default function BrainRoboticsContent() {
       tips: t('gesture_14_tips'),
     },
     {
-      img: 'https://website-www-brainco-cn.oss-cn-hangzhou.aliyuncs.com/images/nOyuyzqVC4FhSJh0.png',
-      name: t('gesture_15_name'),
-      desc: t('gesture_15_desc'),
-      tips: t('gesture_15_tips'),
+      img: 'https://website-www-brainco-cn.oss-cn-hangzhou.aliyuncs.com/images/veyA5J2ATIDxZbYU.png',
+      name: t('gesture_13_name'),
+      desc: t('gesture_13_desc'),
+      tips: t('gesture_13_tips'),
     },
+    // Row 6
     {
       img: 'https://website-www-brainco-cn.oss-cn-hangzhou.aliyuncs.com/images/jflTF504IoM91KxJ.png',
-      name: t('gesture_16_name'),
-      desc: t('gesture_16_desc'),
-      tips: t('gesture_16_tips'),
+      name: t('gesture_12_name'),
+      desc: t('gesture_12_desc'),
+      tips: t('gesture_12_tips'),
     },
     {
       img: 'https://website-www-brainco-cn.oss-cn-hangzhou.aliyuncs.com/images/zLys3SwmG0pNHxVu.png',
       name: t('gesture_17_name'),
       desc: t('gesture_17_desc'),
       tips: t('gesture_17_tips'),
+    },
+    // Row 7
+    {
+      img: 'https://website-www-brainco-cn.oss-cn-hangzhou.aliyuncs.com/images/J6rjlqMGv0ZjNB3O.png',
+      name: t('gesture_3_name'),
+      desc: t('gesture_3_desc'),
+      tips: t('gesture_3_tips'),
+    },
+    {
+      img: 'https://website-www-brainco-cn.oss-cn-hangzhou.aliyuncs.com/images/V27n4RnEiRSzgMtg.png',
+      name: t('gesture_16_name'),
+      desc: t('gesture_16_desc'),
+      tips: t('gesture_16_tips'),
+    },
+    // Row 8
+    {
+      img: 'https://website-www-brainco-cn.oss-cn-hangzhou.aliyuncs.com/images/GH9E31Q8yIvysWzb.png',
+      name: t('gesture_6_name'),
+      desc: t('gesture_6_desc'),
+      tips: t('gesture_6_tips'),
+    },
+    {
+      img: 'https://website-www-brainco-cn.oss-cn-hangzhou.aliyuncs.com/images/nOyuyzqVC4FhSJh0.png',
+      name: t('gesture_15_name'),
+      desc: t('gesture_15_desc'),
+      tips: t('gesture_15_tips'),
+    },
+    // Row 9
+    {
+      img: 'https://website-www-brainco-cn.oss-cn-hangzhou.aliyuncs.com/images/gFBiIGwt7Q4xJetE.png',
+      name: t('gesture_9_name'),
+      desc: t('gesture_9_desc'),
+      tips: t('gesture_9_tips'),
     },
     {
       img: 'https://website-www-brainco-cn.oss-cn-hangzhou.aliyuncs.com/images/gOTl1Raz04kA4DvE.png',
@@ -226,19 +235,17 @@ export default function BrainRoboticsContent() {
       <header className="relative w-full">
         <div className="relative">
           <Image
-            src="https://website-www-brainco-cn.oss-cn-hangzhou.aliyuncs.com/images/cScrrdjj07wJs2xb.webp"
+            src="https://www.brainco.cn/news-images/intelligentprostheticbionichand_heroscreen.jpg"
             alt="BrainCo 智能仿生手 - 灵巧仿生假肢展示 / BrainCo Brain Robotics - Intelligent Prosthetic Hand"
             width={990}
             height={990}
-            className="left-1/2 h-screen transform object-cover"
+            className="h-screen w-full object-cover"
             priority
           />
-          {/* White gradient overlay from right to left */}
-          <div className="pointer-events-none absolute inset-0 bg-gradient-to-l from-white via-white/5 to-transparent" />
         </div>
-        <div className="absolute top-0 right-[20px] flex flex-col pt-[200px] 2xl:right-[180px] 2xl:pt-[180px]">
+        <div className="absolute top-1/2 left-1/8 flex w-1/2 -translate-y-1/2 flex-col items-start px-[20px] 2xl:px-[60px]">
           {/* Achievement Badges */}
-          <div className="flex h-[100px] items-center gap-4">
+          <div className="flex items-center gap-4 rounded-[24px] bg-white px-[30px] py-[20px]">
             {achievements.map((achievement, index) => (
               <motion.div
                 key={achievement}
@@ -259,28 +266,20 @@ export default function BrainRoboticsContent() {
           </div>
 
           {/* Product Introduction */}
-          <div className="mt-[60px] w-[410px]">
-            <motion.p
-              className="text-fluid-5xl font-semibold"
-              initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, ease: 'easeOut' }}
-            >
-              {t('brand_name')}
-            </motion.p>
+          <div className="mt-[60px] flex w-full max-w-[480px] flex-col items-center justify-center 2xl:max-w-[720px]">
             <motion.h1
-              className="text-fluid-7xl mb-[40px] max-w-[350px] font-semibold 2xl:max-w-none"
+              className="text-fluid-6xl mb-[30px] w-full max-w-[480px] text-left font-bold 2xl:max-w-full"
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.5, ease: 'easeOut' }}
+              transition={{ duration: 0.8, delay: 0.3, ease: 'easeOut' }}
             >
               {t('product_name')}
             </motion.h1>
             <motion.p
-              className="text-fluid-xl max-w-[350px] leading-relaxed 2xl:max-w-none"
+              className="text-fluid-xl max-w-[480px] leading-relaxed 2xl:max-w-full"
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.8, ease: 'easeOut' }}
+              transition={{ duration: 0.8, delay: 0.6, ease: 'easeOut' }}
             >
               {t('intro_text')}
             </motion.p>
@@ -289,129 +288,184 @@ export default function BrainRoboticsContent() {
       </header>
 
       {/* Gestures Section */}
-      <section className="relative z-[2] mt-[-335px] pl-[182px] 2xl:pl-[242px]" aria-labelledby="gestures-section-title">
+      <section className="relative" aria-labelledby="gestures-section-title">
         <h2 id="gestures-section-title" className="sr-only">手势控制模式 / Gesture Control Modes</h2>
-        <div className="rounded-l-[85px] bg-white pt-[100px] pr-[74px] pb-[100px] pl-[100px] shadow-lg">
-          <div className="grid grid-cols-3 gap-x-[50px] gap-y-[40px]">
-            {gestures.map((gesture, index) => (
-              <motion.article
-                key={gesture.name}
-                className="flex items-start"
-                initial={{ opacity: 0, scale: 0.9 }}
-                whileInView={{ opacity: 1, scale: 1 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.6, delay: index * 0.05, ease: 'easeOut' }}
-              >
-                <Image
-                  src={gesture.img}
-                  alt={`${gesture.name} - 仿生手手势控制示意图 / ${gesture.name} - Hand gesture control illustration`}
-                  width={120}
-                  height={120}
-                  className="h-[120px] w-[120px] flex-shrink-0"
-                />
-                <div className="ml-[28px] flex-1">
-                  <h3 className="text-fluid-3xl font-normal">{gesture.name}</h3>
-                  <p className="text-fluid-xl mt-[8px]">{gesture.desc}</p>
-                  {gesture.tips && (
-                    <span className="text-fluid-base mt-[4px] block text-gray-600">
-                      {gesture.tips}
-                    </span>
-                  )}
-                </div>
-              </motion.article>
-            ))}
+        <div className=" bg-white py-[100px]">
+          <div className="mx-auto w-[76%]">
+            <div className="grid grid-cols-2 gap-x-[80px] gap-y-[60px]">
+              {gestures.map((gesture, index) => (
+                <motion.article
+                  key={gesture.name}
+                  className="flex items-center"
+                  initial={{ opacity: 0, scale: 0.9 }}
+                  whileInView={{ opacity: 1, scale: 1 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.6, delay: index * 0.05, ease: 'easeOut' }}
+                >
+                  <Image
+                    src={gesture.img}
+                    alt={`${gesture.name} - 仿生手手势控制示意图 / ${gesture.name} - Hand gesture control illustration`}
+                    width={90}
+                    height={90}
+                    className="h-[90px] w-[90px] flex-shrink-0"
+                  />
+                  <div className="ml-[20px] flex-1">
+                    <h3 className="text-fluid-3xl font-bold text-[#333333]">{gesture.name}</h3>
+                    <p className="text-fluid-lg mt-[6px] text-[#666666]">{gesture.desc}</p>
+                    {gesture.tips && (
+                      <span className="text-fluid-lg mt-[6px] block text-[#666666]">
+                        {gesture.tips}
+                      </span>
+                    )}
+                  </div>
+                </motion.article>
+              ))}
+            </div>
           </div>
         </div>
       </section>
 
-      {/* Awards and Parameters Section */}
-      <section className="flex justify-center px-[60px] pb-40  2xl:px-0 2xl:pb-0" aria-labelledby="awards-params-section-title">
-        <h2 id="awards-params-section-title" className="sr-only">获奖历史与技术参数 / Awards History and Technical Parameters</h2>
-        {/* Left - Awards Timeline */}
-        <div className="mr-[-48px] pt-[120px] 2xl:mr-[-78px] 2xl:pt-[420px]">
-          <ul>
-            {awards.map((award, index) => (
-              <motion.li
+      {/* Parameters Section */}
+      <section className="relative bg-white py-[100px]" aria-labelledby="params-section-title">
+        <h2 id="params-section-title" className="sr-only">技术参数 / Technical Parameters</h2>
+        <div className="mx-auto w-[76%]">
+          <div className="relative flex items-center justify-center">
+            {/* Left Parameters - 2 items */}
+            <div className="flex w-1/3 flex-col gap-[80px] pr-[60px] 2xl:pr-0">
+              {parameters.slice(0, 2).map((param, index) => (
+                <motion.div
+                  key={param.name}
+                  className="relative flex w-full items-center"
+                  initial={{ opacity: 0, x: -30 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.6, delay: index * 0.3, ease: 'easeOut' }}
+                >
+                  <div className="relative flex w-full items-center 2xl:pl-40">
+                    <div className="w-full">
+                      <h3 className="text-fluid-2xl font-semibold text-[#111827]">{param.name}</h3>
+                      <div className="flex w-full items-center justify-between">
+                        <p className="text-fluid-5xl relative mt-[16px] inline-block min-w-[160px] pb-[10px] leading-none font-bold text-[#333]">
+                          {param.value}
+                          <span className="text-fluid-2xl ml-2 font-semibold text-[#333]">{param.unit}</span>
+                        </p>
+                        <div className="flex items-center gap-2">
+                          <div className="h-[1px] w-[94px] bg-[#333]" />
+                          <div className="h-[8px] w-[8px] rounded-full border-[6px] border-[#c62927] bg-white" />
+                        </div>
+                      </div>
+                      <p className="text-fluid-base mt-[6px] max-w-[200px] text-[#666666] 2xl:max-w-none">{param.desc}</p>
+                    </div>
+                  </div>
+                </motion.div>
+              ))}
+            </div>
+
+            {/* Center - Product Image */}
+            <div className="relative flex w-1/3 flex-shrink-0 justify-center">
+              <Image
+                src="https://www.brainco.cn/news-images/intelligentprostheticbionichand_spec.png"
+                alt={`${t('product_name')} - BrainCo 智能仿生手产品规格图 / ${t('product_name')} - BrainCo Brain Robotics Product Specifications`}
+                width={400}
+                height={600}
+                className="h-auto w-[350px] 2xl:w-[400px]"
+              />
+            </div>
+
+            {/* Right Parameters - 3 items */}
+            <div className="flex w-1/3 flex-col gap-[80px] pl-[40px] 2xl:pl-0">
+              {parameters.slice(2, 5).map((param, index) => (
+                <motion.div
+                  key={param.name}
+                  className="relative flex items-center"
+                  initial={{ opacity: 0, x: 30 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.6, delay: index * 0.3, ease: 'easeOut' }}
+                >
+                  <div className="relative flex items-center">
+                    <div className="mr-[20px] flex items-center">
+                      <div className="mr-2 h-[8px] w-[8px] min-w-[12px] rounded-full border-[6px] border-[#c62927] bg-white" />
+                      <div className="h-[1px] w-[94px] bg-[#333]" />
+                    </div>
+                    <div>
+                      <h3 className="text-fluid-2xl h-[45px] font-semibold text-[#111827]">{param.name}</h3>
+                      <p className="text-fluid-5xl relative mt-[16px] inline-block pb-[10px] leading-none font-bold text-[#333]">
+                        {param.value}
+                        <span className="text-fluid-2xl ml-1 font-semibold text-[#333]">{param.unit}</span>
+                      </p>
+                      <p className="text-fluid-base mt-[6px] text-[#666666]">{param.desc}</p>
+                    </div>
+                  </div>
+                </motion.div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Awards Timeline Section */}
+      <section className="w-full bg-white py-[80px]" aria-labelledby="awards-section-title">
+        <h2 id="awards-section-title" className="sr-only">获奖历史 / Awards History</h2>
+        <div className="mx-auto w-[76%]">
+          {/* First Row - 4 items */}
+          <div className="mb-[60px] grid grid-cols-4 gap-[40px]">
+            {awards.slice(0, 4).map((award, index) => (
+              <motion.div
                 key={award.title}
-                className="mb-[20px] flex items-center"
-                initial={{ opacity: 0, x: -30 }}
-                whileInView={{ opacity: 1, x: 0 }}
+                className="flex flex-col items-start"
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                transition={{ duration: 0.6, delay: index * 0.3, ease: 'easeOut' }}
+                transition={{ duration: 0.6, delay: index * 0.2, ease: 'easeOut' }}
               >
-                <div className="rounded-[18px] bg-[#c62927] p-[18px]">
+                <p className="text-fluid-4xl mb-[12px] font-semibold text-[#333333]">{award.year}</p>
+                <div className="mb-[12px] flex w-full items-center">
+                  <div className="h-[8px] w-[8px] rounded-full bg-[#333333]" />
+                  <div className="ml-[8px] h-[1px] flex-1 bg-[#333333]" />
+                </div>
+                <p className="text-fluid-lg mb-[20px] text-left font-semibold text-[#111827]">{award.title}</p>
+                <div className="!h-[120px] w-auto">
                   <Image
                     src={award.img}
                     alt={`${award.title} - ${award.year} 获奖证书 / ${award.title} - ${award.year} Award Certificate`}
-                    width={index === 0 ? 160 : 130}
-                    height={index === 0 ? 160 : 130}
-                    className={`h-auto ${index === 0 ? 'w-[160px]' : 'w-[130px]'}`}
+                    width={200}
+                    height={120}
+                    className="!h-[120px] w-auto object-contain"
                   />
                 </div>
-                <div className="flex w-[240px] flex-col items-end">
-                  <p className="text-fluid-lg relative flex h-[60px] w-full items-end justify-end pb-[8px] text-right after:absolute after:bottom-0 after:left-0 after:h-[3px] after:w-full after:bg-[#c62927]">
-                    {award.title}
-                  </p>
-                  <p className="text-fluid-5xl relative leading-[60px] before:absolute before:top-1/2 before:left-[-24px] before:h-[6px] before:w-[6px] before:-translate-y-1/2 before:rounded-full before:border-[5px] before:border-[#c62927]">
-                    {award.year}
-                  </p>
-                </div>
-              </motion.li>
+              </motion.div>
             ))}
-          </ul>
-        </div>
-
-        {/* Center - Product Image */}
-        <picture className="w-[458px] flex-shrink-0 2xl:w-[658px]">
-          <source
-            media="(min-width:800px)"
-            srcSet="https://website-www-brainco-cn.oss-cn-hangzhou.aliyuncs.com/images/3gJn1V7S1loO8cDa.webp"
-          />
-          <source
-            media="(max-width:800px)"
-            srcSet="https://website-www-brainco-cn.oss-cn-hangzhou.aliyuncs.com/images/yY6BfJmjhWrzsF0Y.webp"
-          />
-          <Image
-            src="https://website-www-brainco-cn.oss-cn-hangzhou.aliyuncs.com/images/3gJn1V7S1loO8cDa.webp"
-            alt={`${t('product_name')} - BrainCo 智能仿生手产品主图 - 产品外观展示 / ${t('product_name')} - BrainCo Brain Robotics Main Product Image - Product Appearance Display`}
-            width={658}
-            height={900}
-            className="h-auto w-[458px] 2xl:w-[658px]"
-          />
-        </picture>
-
-        {/* Right - Technical Parameters */}
-        <div className="ml-[-24px] pt-[360px] 2xl:ml-[-44px] 2xl:pt-[460px] 2xl:pt-[660px]">
-          <ul>
-            {parameters.map((param, index) => (
-              <motion.li
-                key={param.name}
-                className="relative mb-[64px] flex items-center before:order-[-2] before:h-[8px] before:w-[8px] before:rounded-full before:border-[6px] before:border-[#c62927] after:order-[-1] after:mx-[20px] after:w-[94px] after:flex-shrink-0 after:border-b after:border-[#333] after:content-['']"
-                initial={{ opacity: 0, x: 30 }}
-                whileInView={{ opacity: 1, x: 0 }}
+          </div>
+          {/* Second Row - 2 items */}
+          <div className="grid grid-cols-4 gap-[40px]">
+            {awards.slice(4, 6).map((award, index) => (
+              <motion.div
+                key={award.title}
+                className="flex flex-col items-start"
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                transition={{ duration: 0.6, delay: index * 0.3, ease: 'easeOut' }}
+                transition={{ duration: 0.6, delay: (index + 4) * 0.2, ease: 'easeOut' }}
               >
-                {(index === 0 || index === parameters.length - 1) && (
-                  <u
-                    className={`absolute left-[40px] h-[335px] border-r border-[#333] before:absolute before:left-[-100px] before:h-[8px] before:w-[8px] before:rounded-full before:border-[6px] before:border-[#c62927] after:absolute after:left-[-66px] after:w-[66px] after:border-b after:border-[#333] after:content-[''] ${
-                      index === 0
-                        ? 'bottom-1/2 before:top-0 before:-translate-y-1/2 after:top-0'
-                        : 'top-1/2 before:bottom-0 before:translate-y-1/2 after:bottom-0'
-                    }`}
-                  />
-                )}
-                <div>
-                  <h3 className="text-fluid-lg font-normal">{param.name}</h3>
-                  <p className="text-fluid-5xl relative mt-[16px] inline-block pb-[10px] leading-none after:absolute after:bottom-0 after:left-0 after:h-[3px] after:w-full after:rounded-[2px] after:bg-[#c62927]">
-                    {param.value}
-                    <span className="text-fluid-2xl">{param.unit}</span>
-                  </p>
-                  <p className="text-fluid-base mt-[6px]">{param.desc}</p>
+                <p className="text-fluid-4xl mb-[12px] font-semibold text-[#333333]">{award.year}</p>
+                <div className="mb-[12px] flex w-full items-center">
+                  <div className="h-[8px] w-[8px] rounded-full bg-[#333333]" />
+                  <div className="ml-[8px] h-[1px] flex-1 bg-[#333333]" />
                 </div>
-              </motion.li>
+                <p className="text-fluid-lg mb-[20px] h-[45px] text-left font-semibold text-[#111827]">{award.title}</p>
+                <div className="!h-[120px] !w-auto">
+                  <Image
+                    src={award.img}
+                    alt={`${award.title} - ${award.year} 获奖证书 / ${award.title} - ${award.year} Award Certificate`}
+                    width={200}
+                    height={120}
+                    className="!h-[120px] w-auto object-contain"
+                  />
+                </div>
+              </motion.div>
             ))}
-          </ul>
+          </div>
         </div>
       </section>
 

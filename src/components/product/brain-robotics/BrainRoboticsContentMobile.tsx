@@ -16,8 +16,9 @@ export default function BrainRoboticsContentMobile() {
     'https://website-www-brainco-cn.oss-cn-hangzhou.aliyuncs.com/images/Faqw38wA9nZBc0tg.webp',
   ];
 
-  // Gesture patterns data
+  // Gesture patterns data - ordered according to design
   const gestures = [
+    // Row 1
     {
       img: 'https://website-www-brainco-cn.oss-cn-hangzhou.aliyuncs.com/images/jFJvgNc1HrD8GMEN.png',
       name: t('gesture_1_name'),
@@ -30,12 +31,7 @@ export default function BrainRoboticsContentMobile() {
       desc: t('gesture_2_desc'),
       tips: t('gesture_2_tips'),
     },
-    {
-      img: 'https://website-www-brainco-cn.oss-cn-hangzhou.aliyuncs.com/images/J6rjlqMGv0ZjNB3O.png',
-      name: t('gesture_3_name'),
-      desc: t('gesture_3_desc'),
-      tips: t('gesture_3_tips'),
-    },
+    // Row 2
     {
       img: 'https://website-www-brainco-cn.oss-cn-hangzhou.aliyuncs.com/images/F15DGmCjXqupOYIn.png',
       name: t('gesture_4_name'),
@@ -48,12 +44,7 @@ export default function BrainRoboticsContentMobile() {
       desc: t('gesture_5_desc'),
       tips: t('gesture_5_tips'),
     },
-    {
-      img: 'https://website-www-brainco-cn.oss-cn-hangzhou.aliyuncs.com/images/GH9E31Q8yIvysWzb.png',
-      name: t('gesture_6_name'),
-      desc: t('gesture_6_desc'),
-      tips: t('gesture_6_tips'),
-    },
+    // Row 3
     {
       img: 'https://website-www-brainco-cn.oss-cn-hangzhou.aliyuncs.com/images/UlpxSu8JbuaEhuxy.png',
       name: t('gesture_7_name'),
@@ -66,12 +57,7 @@ export default function BrainRoboticsContentMobile() {
       desc: t('gesture_8_desc'),
       tips: t('gesture_8_tips'),
     },
-    {
-      img: 'https://website-www-brainco-cn.oss-cn-hangzhou.aliyuncs.com/images/gFBiIGwt7Q4xJetE.png',
-      name: t('gesture_9_name'),
-      desc: t('gesture_9_desc'),
-      tips: t('gesture_9_tips'),
-    },
+    // Row 4
     {
       img: 'https://website-www-brainco-cn.oss-cn-hangzhou.aliyuncs.com/images/Wn55F38WXmAatZir.png',
       name: t('gesture_10_name'),
@@ -84,18 +70,7 @@ export default function BrainRoboticsContentMobile() {
       desc: t('gesture_11_desc'),
       tips: t('gesture_11_tips'),
     },
-    {
-      img: 'https://website-www-brainco-cn.oss-cn-hangzhou.aliyuncs.com/images/V27n4RnEiRSzgMtg.png',
-      name: t('gesture_12_name'),
-      desc: t('gesture_12_desc'),
-      tips: t('gesture_12_tips'),
-    },
-    {
-      img: 'https://website-www-brainco-cn.oss-cn-hangzhou.aliyuncs.com/images/veyA5J2ATIDxZbYU.png',
-      name: t('gesture_13_name'),
-      desc: t('gesture_13_desc'),
-      tips: t('gesture_13_tips'),
-    },
+    // Row 5
     {
       img: 'https://website-www-brainco-cn.oss-cn-hangzhou.aliyuncs.com/images/jFW4K5jUsyf5s5Ea.png',
       name: t('gesture_14_name'),
@@ -103,10 +78,30 @@ export default function BrainRoboticsContentMobile() {
       tips: t('gesture_14_tips'),
     },
     {
-      img: 'https://website-www-brainco-cn.oss-cn-hangzhou.aliyuncs.com/images/nOyuyzqVC4FhSJh0.png',
-      name: t('gesture_15_name'),
-      desc: t('gesture_15_desc'),
-      tips: t('gesture_15_tips'),
+      img: 'https://website-www-brainco-cn.oss-cn-hangzhou.aliyuncs.com/images/veyA5J2ATIDxZbYU.png',
+      name: t('gesture_13_name'),
+      desc: t('gesture_13_desc'),
+      tips: t('gesture_13_tips'),
+    },
+    // Row 6
+    {
+      img: 'https://website-www-brainco-cn.oss-cn-hangzhou.aliyuncs.com/images/V27n4RnEiRSzgMtg.png',
+      name: t('gesture_12_name'),
+      desc: t('gesture_12_desc'),
+      tips: t('gesture_12_tips'),
+    },
+    {
+      img: 'https://website-www-brainco-cn.oss-cn-hangzhou.aliyuncs.com/images/zLys3SwmG0pNHxVu.png',
+      name: t('gesture_17_name'),
+      desc: t('gesture_17_desc'),
+      tips: t('gesture_17_tips'),
+    },
+    // Row 7
+    {
+      img: 'https://website-www-brainco-cn.oss-cn-hangzhou.aliyuncs.com/images/J6rjlqMGv0ZjNB3O.png',
+      name: t('gesture_3_name'),
+      desc: t('gesture_3_desc'),
+      tips: t('gesture_3_tips'),
     },
     {
       img: 'https://website-www-brainco-cn.oss-cn-hangzhou.aliyuncs.com/images/jflTF504IoM91KxJ.png',
@@ -114,11 +109,25 @@ export default function BrainRoboticsContentMobile() {
       desc: t('gesture_16_desc'),
       tips: t('gesture_16_tips'),
     },
+    // Row 8
     {
-      img: 'https://website-www-brainco-cn.oss-cn-hangzhou.aliyuncs.com/images/zLys3SwmG0pNHxVu.png',
-      name: t('gesture_17_name'),
-      desc: t('gesture_17_desc'),
-      tips: t('gesture_17_tips'),
+      img: 'https://website-www-brainco-cn.oss-cn-hangzhou.aliyuncs.com/images/GH9E31Q8yIvysWzb.png',
+      name: t('gesture_6_name'),
+      desc: t('gesture_6_desc'),
+      tips: t('gesture_6_tips'),
+    },
+    {
+      img: 'https://website-www-brainco-cn.oss-cn-hangzhou.aliyuncs.com/images/nOyuyzqVC4FhSJh0.png',
+      name: t('gesture_15_name'),
+      desc: t('gesture_15_desc'),
+      tips: t('gesture_15_tips'),
+    },
+    // Row 9
+    {
+      img: 'https://website-www-brainco-cn.oss-cn-hangzhou.aliyuncs.com/images/gFBiIGwt7Q4xJetE.png',
+      name: t('gesture_9_name'),
+      desc: t('gesture_9_desc'),
+      tips: t('gesture_9_tips'),
     },
     {
       img: 'https://website-www-brainco-cn.oss-cn-hangzhou.aliyuncs.com/images/gOTl1Raz04kA4DvE.png',
@@ -309,20 +318,20 @@ export default function BrainRoboticsContentMobile() {
               />
               <div className="flex-1">
                 <h3
-                  className="text-fluid-base origin-left"
+                  className="text-fluid-base origin-left font-bold text-[#333333]"
                   style={{ transform: 'scale(0.8)', width: '120%' }}
                 >
                   {gesture.name}
                 </h3>
                 <p
-                  className="text-fluid-base mt-0 origin-left"
+                  className="text-fluid-base mt-0 origin-left text-[#666666]"
                   style={{ transform: 'scale(0.7)', width: '130%' }}
                 >
                   {gesture.desc}
                 </p>
                 {gesture.tips && (
                   <span
-                    className="text-fluid-base mt-[-6px] block origin-left"
+                    className="text-fluid-base mt-[-6px] block origin-left text-[#666666]"
                     style={{ transform: 'scale(0.7)', width: '130%' }}
                   >
                     {gesture.tips}
@@ -616,3 +625,5 @@ export default function BrainRoboticsContentMobile() {
     </main>
   );
 }
+
+

@@ -121,10 +121,10 @@ export const formatDate = (date: Date | string | number, format: string = 'YYYY-
 
   // 支持月份名称
   if (format.includes('MMMM')) {
-    result = result.replace('MMMM', isZh ? monthNamesZh[monthIndex] : monthNames[monthIndex]);
+    result = result.replace('MMMM', isZh ? (monthNamesZh[monthIndex] ?? '') : (monthNames[monthIndex] ?? ''));
   }
   if (format.includes('MMM')) {
-    result = result.replace('MMM', isZh ? monthNamesZhShort[monthIndex] : monthNamesShort[monthIndex]);
+    result = result.replace('MMM', isZh ? (monthNamesZhShort[monthIndex] ?? '') : (monthNamesShort[monthIndex] ?? ''));
   }
 
   return result;
