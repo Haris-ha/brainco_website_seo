@@ -159,41 +159,41 @@ export default function MobiusContent() {
       >
         <h2 id="features-title" className="sr-only">Mobius 产品功能特性 / Mobius Product Features</h2>
         {/* Left Features */}
-        <div className="mt-10 flex flex-1 flex-col items-start justify-center gap-[100px] pr-[80px]">
+        <div className="mt-10 flex flex-1 flex-col items-start justify-center gap-[100px] pr-[80px] 2xl:w-1/3 2xl:pr-0">
           {/* Button Feature */}
           <motion.div
-            className="relative -mr-20 max-w-[400px] text-left"
+            className="relative -mr-20 max-w-[400px] text-left 2xl:mr-0 2xl:max-w-none"
             initial={{ opacity: 0, x: -30 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8, delay: 0.2, ease: 'easeOut' }}
           >
             <h3 className="text-fluid-5xl mb-[16px] font-semibold text-[#333333]">{t('feature_button_title')}</h3>
-            <p className="text-fluid-2xl mb-[20px] text-[#111827]">
+            <p className="text-fluid-2xl mb-[20px] text-[#111827] 2xl:max-w-[calc(100%-150px)]">
               {t('feature_button_desc')}
             </p>
             {/* Connection Line */}
-            <div className="absolute top-[18px] right-[-100px] flex items-center">
-              <div className="h-[1px] w-[90px] bg-[#cccccc]" />
+            <div className="absolute top-[18px] right-[-100px] flex items-center 2xl:right-0 2xl:w-[150px] 2xl:justify-end">
+              <div className="h-[1px] w-[90px] bg-[#cccccc] 2xl:w-[110px]" />
               <div className="ml-2 h-8 w-8 rounded-full border-2 border-[#333333] bg-white" />
             </div>
           </motion.div>
 
           {/* Sleep Feature */}
           <motion.div
-            className="relative -mr-20 max-w-[400px] text-left"
+            className="relative -mr-20 max-w-[400px] text-left 2xl:mr-0 2xl:max-w-none"
             initial={{ opacity: 0, x: -30 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8, delay: 0.4, ease: 'easeOut' }}
           >
             <h3 className="text-fluid-5xl mb-[16px] font-semibold text-[#333333]">{t('feature_sleep_title')}</h3>
-            <p className="text-fluid-2xl text-[#111827]">
+            <p className="text-fluid-2xl text-[#111827] 2xl:max-w-[calc(100%-150px)]">
               {t('feature_sleep_desc')}
             </p>
             {/* Connection Line */}
-            <div className="absolute top-[18px] right-[-90px] flex items-center">
-              <div className="h-[1px] w-[90px] bg-[#cccccc]" />
+            <div className="absolute top-[18px] right-[-100px] flex items-center 2xl:right-0 2xl:w-[150px] 2xl:justify-end">
+              <div className="h-[1px] w-[90px] bg-[#cccccc] 2xl:w-[110px]" />
               <div className="ml-2 h-8 w-8 rounded-full border-2 border-[#333333] bg-white" />
             </div>
           </motion.div>
@@ -201,7 +201,7 @@ export default function MobiusContent() {
 
         {/* Center Image */}
         <motion.div
-          className="relative z-10 flex-shrink-0"
+          className="relative z-10 flex-shrink-0 2xl:w-1/3"
           initial={{ opacity: 0, scale: 0.9 }}
           whileInView={{ opacity: 1, scale: 1 }}
           viewport={{ once: true }}
@@ -212,27 +212,29 @@ export default function MobiusContent() {
             alt="Mobius 轻凌M3智能仿生腿正面功能展示图 / Mobius Revolimb M3 Intelligent Bionic Leg Front Features Display"
             width={400}
             height={600}
-            className="h-auto w-[500px]"
+            className="h-auto w-[500px] 2xl:w-full"
           />
         </motion.div>
 
         {/* Right Feature */}
-        <div className="flex flex-1 flex-col items-start justify-center pl-[80px]">
+        <div className="flex flex-1 flex-col items-start justify-center pl-[80px] 2xl:w-1/3 2xl:pl-0">
           <motion.div
-            className="relative -ml-20 max-w-[400px] text-left 2xl:-ml-0"
+            className="relative -ml-20 max-w-[400px] text-left 2xl:-ml-0 2xl:max-w-none"
             initial={{ opacity: 0, x: 30 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8, delay: 0.6, ease: 'easeOut' }}
           >
-            <h3 className="text-fluid-5xl mb-[16px] font-semibold text-[#333333]">{t('feature_vibration_title')}</h3>
-            <p className="text-fluid-2xl text-[#111827]">
-              {t('feature_vibration_desc')}
-            </p>
+            <div className="2xl:pl-[180px]">
+              <h3 className="text-fluid-5xl mb-[16px] font-semibold text-[#333333]">{t('feature_vibration_title')}</h3>
+              <p className="text-fluid-2xl text-[#111827] 2xl:max-w-[calc(100%-150px)]">
+                {t('feature_vibration_desc')}
+              </p>
+            </div>
             {/* Connection Line */}
-            <div className="absolute top-[18px] left-[-130px] flex items-center">
+            <div className="absolute top-[18px] left-[-130px] flex items-center 2xl:left-[-30px] 2xl:w-[150px] 2xl:justify-end">
               <div className="mr-2 h-8 w-8 rounded-full border-2 border-[#333333] bg-white" />
-              <div className="h-[1px] w-[90px] bg-[#cccccc]" />
+              <div className="h-[1px] w-[90px] bg-[#cccccc] 2xl:w-[110px]" />
             </div>
           </motion.div>
         </div>
@@ -249,60 +251,60 @@ export default function MobiusContent() {
       >
         <h2 id="features-back-title" className="sr-only">Mobius 产品背面功能特性 / Mobius Product Back Features</h2>
         {/* Left Features */}
-        <div className="mt-10 flex flex-1 flex-col items-start justify-center gap-[80px] pr-[80px]">
+        <div className="mt-10 flex flex-1 flex-col items-start justify-center gap-[80px] pr-[80px] 2xl:w-1/3 2xl:pr-0">
           {/* Angle Feature */}
           <motion.div
-            className="relative -mr-20 max-w-[400px] min-w-[300px] text-left"
+            className="relative -mr-20 max-w-[400px] min-w-[300px] text-left 2xl:mr-0 2xl:max-w-none 2xl:w-full"
             initial={{ opacity: 0, x: -30 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8, delay: 0.2, ease: 'easeOut' }}
           >
             <h3 className="text-fluid-5xl mb-[16px] font-semibold text-[#333333]">{t('feature_angle_title')}</h3>
-            <p className="text-fluid-2xl mb-[20px] text-[#111827]">
+            <p className="text-fluid-2xl mb-[20px] text-[#111827] 2xl:max-w-[calc(100%-150px)]">
               {t('feature_angle_desc')}
             </p>
             {/* Connection Line */}
-            <div className="absolute top-[18px] right-[-100px] flex items-center">
-              <div className="h-[1px] w-[80px] bg-[#cccccc]" />
+            <div className="absolute top-[18px] right-[-100px] flex items-center 2xl:right-0 2xl:w-[150px] 2xl:justify-end">
+              <div className="h-[1px] w-[80px] bg-[#cccccc] 2xl:w-[110px]" />
               <div className="ml-2 h-8 w-8 rounded-full border-2 border-[#333333] bg-white" />
             </div>
           </motion.div>
 
           {/* Hydraulic Feature */}
           <motion.div
-            className="relative -mr-20 max-w-[400px] text-left"
+            className="relative -mr-20 max-w-[400px] text-left 2xl:mr-0 2xl:max-w-none"
             initial={{ opacity: 0, x: -30 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8, delay: 0.4, ease: 'easeOut' }}
           >
-            <h3 className="text-fluid-5xl mb-[16px] font-semibold text-[#333333]">{t('feature_hydraulic_title')}</h3>
-            <p className="text-fluid-2xl text-[#111827]">
+            <h3 className="text-fluid-5xl mb-[16px] font-semibold text-[#333333] 2xl:w-full">{t('feature_hydraulic_title')}</h3>
+            <p className="text-fluid-2xl text-[#111827] 2xl:max-w-[calc(100%-150px)]">
               {t('feature_hydraulic_desc')}
             </p>
             {/* Connection Line */}
-            <div className="absolute top-[18px] right-[-90px] flex items-center">
-              <div className="h-[1px] w-[80px] bg-[#cccccc]" />
+            <div className="absolute top-[18px] right-[-90px] flex items-center 2xl:right-0 2xl:w-[150px] 2xl:justify-end">
+              <div className="h-[1px] w-[80px] bg-[#cccccc] 2xl:w-[110px]" />
               <div className="ml-2 h-8 w-8 rounded-full border-2 border-[#333333] bg-white" />
             </div>
           </motion.div>
 
           {/* Battery Feature */}
           <motion.div
-            className="relative -mr-20 max-w-[400px] text-left"
+            className="relative -mr-20 max-w-[400px] text-left 2xl:mr-0 2xl:max-w-none"
             initial={{ opacity: 0, x: -30 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8, delay: 0.6, ease: 'easeOut' }}
           >
             <h3 className="text-fluid-5xl mb-[16px] font-semibold text-[#333333]">{t('feature_battery_title')}</h3>
-            <p className="text-fluid-2xl text-[#111827]">
+            <p className="text-fluid-2xl text-[#111827] 2xl:max-w-[calc(100%-150px)]">
               {t('feature_battery_desc')}
             </p>
             {/* Connection Line */}
-            <div className="absolute top-[18px] right-[-90px] flex items-center">
-              <div className="h-[1px] w-[90px] bg-[#cccccc]" />
+            <div className="absolute top-[18px] right-[-90px] flex items-center 2xl:right-0 2xl:w-[150px] 2xl:justify-end">
+              <div className="h-[1px] w-[90px] bg-[#cccccc] 2xl:w-[110px]" />
               <div className="ml-2 h-8 w-8 rounded-full border-2 border-[#333333] bg-white" />
             </div>
           </motion.div>
@@ -310,7 +312,7 @@ export default function MobiusContent() {
 
         {/* Center Image */}
         <motion.div
-          className="relative z-10 ml-14 flex-shrink-0"
+          className="relative z-10 ml-14 flex-shrink-0 2xl:ml-0 2xl:w-1/3"
           initial={{ opacity: 0, scale: 0.9 }}
           whileInView={{ opacity: 1, scale: 1 }}
           viewport={{ once: true }}
@@ -321,47 +323,51 @@ export default function MobiusContent() {
             alt="Mobius 轻凌M3智能仿生腿背面功能展示图 / Mobius Revolimb M3 Intelligent Bionic Leg Back Features Display"
             width={400}
             height={600}
-            className="h-auto w-[400px]"
+            className="h-auto w-[400px] 2xl:w-full"
           />
         </motion.div>
 
         {/* Right Features */}
-        <div className="flex flex-1 flex-col items-start justify-center gap-[80px] pl-[100px]">
+        <div className="flex flex-1 flex-col items-start justify-center gap-[80px] pl-[100px] 2xl:w-1/3 2xl:pl-0">
           {/* Sensors Feature */}
           <motion.div
-            className="relative -ml-20 max-w-[400px] text-left 2xl:-ml-0"
+            className="relative -ml-20 max-w-[400px] text-left 2xl:-ml-0 2xl:max-w-none"
             initial={{ opacity: 0, x: 30 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8, delay: 0.2, ease: 'easeOut' }}
           >
-            <h3 className="text-fluid-5xl mb-[16px] font-semibold text-[#333333]">{t('feature_sensors_title')}</h3>
-            <p className="text-fluid-2xl text-[#111827]">
-              {t('feature_sensors_desc')}
-            </p>
+            <div className="2xl:pl-[180px]">
+              <h3 className="text-fluid-5xl mb-[16px] font-semibold text-[#333333]">{t('feature_sensors_title')}</h3>
+              <p className="text-fluid-2xl text-[#111827] 2xl:max-w-[calc(100%-150px)]">
+                {t('feature_sensors_desc')}
+              </p>
+            </div>
             {/* Connection Line */}
-            <div className="absolute top-[18px] left-[-130px] flex items-center">
+            <div className="absolute top-[18px] left-[-130px] flex items-center 2xl:left-[-30px] 2xl:w-[150px] 2xl:justify-end">
               <div className="mr-2 h-8 w-8 rounded-full border-2 border-[#333333] bg-white" />
-              <div className="h-[1px] w-[90px] bg-[#cccccc]" />
+              <div className="h-[1px] w-[90px] bg-[#cccccc] 2xl:w-[110px]" />
             </div>
           </motion.div>
 
           {/* Algorithm Feature */}
           <motion.div
-            className="relative -ml-20 max-w-[400px] text-left 2xl:-ml-0"
+            className="relative -ml-20 max-w-[400px] text-left 2xl:-ml-0 2xl:max-w-none"
             initial={{ opacity: 0, x: 30 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8, delay: 0.4, ease: 'easeOut' }}
           >
-            <h3 className="text-fluid-5xl mb-[16px] font-semibold text-[#333333]">{t('feature_algorithm_title')}</h3>
-            <p className="text-fluid-2xl text-[#111827]">
-              {t('feature_algorithm_desc')}
-            </p>
+            <div className="2xl:pl-[180px]">
+              <h3 className="text-fluid-5xl mb-[16px] font-semibold text-[#333333]">{t('feature_algorithm_title')}</h3>
+              <p className="text-fluid-2xl text-[#111827] 2xl:max-w-[calc(100%-150px)]">
+                {t('feature_algorithm_desc')}
+              </p>
+            </div>
             {/* Connection Line */}
-            <div className="absolute top-[18px] left-[-130px] flex items-center">
+            <div className="absolute top-[18px] left-[-130px] flex items-center 2xl:left-[-30px] 2xl:w-[150px] 2xl:justify-end">
               <div className="mr-2 h-8 w-8 rounded-full border-2 border-[#333333] bg-white" />
-              <div className="h-[1px] w-[90px] bg-[#cccccc]" />
+              <div className="h-[1px] w-[90px] bg-[#cccccc] 2xl:w-[110px]" />
             </div>
           </motion.div>
         </div>
@@ -592,7 +598,7 @@ export default function MobiusContent() {
 
       {/* Carbon Fiber Shell - Image Left, Text Right */}
       <motion.section
-        className="mx-auto mt-[100px] flex w-full max-w-[90vw] items-center bg-white px-40"
+        className="mx-auto mt-[100px] flex w-full max-w-[90vw] items-center justify-center bg-white px-40"
         aria-labelledby="shell-title"
         initial={{ opacity: 0, y: 50 }}
         whileInView={{ opacity: 1, y: 0 }}
