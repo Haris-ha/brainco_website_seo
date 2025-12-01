@@ -141,7 +141,7 @@ export default function Revo1Content() {
           >
             {t('product_name')}
             {' '}
-            <span className="ml-6 font-bold">{t('product_model')}</span>
+            <span className="font-bold">{t('product_model')}</span>
           </motion.h1>
           <motion.p
             className="text-fluid-3xl mt-4"
@@ -159,7 +159,7 @@ export default function Revo1Content() {
           >
             <Link
               href="/contact#contact"
-              className="cursor-target text-fluid-3xl flex h-[72px] w-[264px] items-center justify-center rounded-[45px] bg-[#1a74bf] !text-white transition-transform hover:scale-105"
+              className="cursor-target text-fluid-3xl flex h-[76px] w-[284px] items-center justify-center rounded-[45px] bg-[#1a74bf] !text-white transition-transform hover:scale-105"
               aria-label={`${t('contact_us')} - Revo1 智能灵巧手 / ${t('contact_us')} - Revo1 Intelligent Dexterous Hand`}
             >
               {t('contact_us')}
@@ -168,7 +168,7 @@ export default function Revo1Content() {
               href={documentationUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="cursor-target text-fluid-3xl flex h-[72px] w-[264px] items-center justify-center rounded-[45px] border border-white !text-white transition-transform hover:scale-105"
+              className="cursor-target text-fluid-3xl flex h-[76px] w-[284px] items-center justify-center rounded-[45px] border-[2px] border-white !text-white transition-transform hover:scale-105"
               aria-label={`${t('documentation')} - Revo1 产品文档 / ${t('documentation')} - Revo1 Product Documentation`}
             >
               {t('documentation')}
@@ -207,14 +207,14 @@ export default function Revo1Content() {
         >
           {t('industry_title')}
         </motion.h2>
-        <div className="mx-auto mt-24 flex max-w-[90%] justify-center overflow-x-hidden text-[#c7cdd4] xl:max-w-[85%]">
-          <ul>
+        <div className="mx-auto mt-32 flex w-full max-w-[80%] justify-center gap-8 text-[#c7cdd4] 2xl:max-w-[70%]">
+          <div className="grid w-2/3 grid-cols-2 gap-16">
             {industryList.map((item, index) => (
-              <motion.li
+              <motion.div
                 key={item.icon}
-                className="mb-32 flex items-start last:mb-0"
-                initial={{ opacity: 0, x: -50 }}
-                whileInView={{ opacity: 1, x: 0 }}
+                className="flex flex-col"
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: index * 0.2, duration: 0.8 }}
               >
@@ -223,25 +223,23 @@ export default function Revo1Content() {
                   alt={`${t(`industry_${index + 1}_title` as any)} - Revo1 行业应用图标 / ${t(`industry_${index + 1}_title` as any)} - Revo1 Industry Application Icon`}
                   width={80}
                   height={80}
-                  className="mr-3 h-20 w-20 flex-shrink-0 object-contain xl:mr-4"
+                  className="mb-4 h-20 w-20 object-contain"
                 />
-                <div className="mr-8 w-[220px] flex-shrink-0 xl:mr-8 xl:w-[220px] 2xl:w-[240px]">
-                  <h3 className="text-fluid-2xl leading-tight font-medium">
-                    {t(`industry_${index + 1}_title` as any)}
-                  </h3>
-                  <p
-                    className="text-fluid-lg mt-3 leading-relaxed xl:mt-5"
-                    dangerouslySetInnerHTML={{ __html: t(`industry_${index + 1}_desc` as any) }}
-                  />
-                </div>
-                <ul className="flex flex-shrink-0 gap-3 xl:gap-4">
+                <h3 className="text-fluid-3xl mb-3 leading-tight font-semibold text-white">
+                  {t(`industry_${index + 1}_title` as any)}
+                </h3>
+                <p
+                  className="text-fluid-lg mb-6 leading-relaxed text-[##8F9297]"
+                  dangerouslySetInnerHTML={{ __html: t(`industry_${index + 1}_desc` as any) }}
+                />
+                <div className="flex flex-col gap-4 text-[#C7CDD4]">
                   {item.ability.map((subInfo, subIndex) => (
-                    <li
+                    <div
                       key={`${index}-${subIndex}`}
-                      className="flex min-w-[130px] flex-col xl:min-w-[150px]"
+                      className="flex flex-col"
                     >
-                      <h4 className="text-fluid-xl">{t(subInfo.title as any)}</h4>
-                      <div className="mt-1 flex items-end leading-none xl:mt-2">
+                      <h4 className="text-fluid-xl mb-1 font-semibold">{t(subInfo.title as any)}</h4>
+                      <div className="flex items-end leading-none">
                         <span className="text-fluid-3xl xl:text-fluid-4xl relative top-1 pr-1 font-bold xl:pr-2">
                           {subInfo.data}
                         </span>
@@ -255,14 +253,14 @@ export default function Revo1Content() {
                           </b>
                         )}
                       </div>
-                    </li>
+                    </div>
                   ))}
-                </ul>
-              </motion.li>
+                </div>
+              </motion.div>
             ))}
-          </ul>
+          </div>
           <motion.div
-            className="ml-3 flex flex-shrink-0 flex-col items-center xl:ml-4"
+            className="flex w-1/3 flex-shrink-0 flex-col items-center"
             initial={{ opacity: 0, scale: 0.8 }}
             whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true }}
@@ -271,11 +269,11 @@ export default function Revo1Content() {
             <Image
               src="https://website-www-brainco-cn.oss-cn-hangzhou.aliyuncs.com/images/product/dexterous/OpdcfbPwGNAqTaol.webp"
               alt="Revo1 智能灵巧手产品主图 - 产品外观展示 / Revo1 Intelligent Dexterous Hand Main Product Image - Product Appearance Display"
-              width={240}
-              height={240}
+              width={360}
+              height={360}
               className="ml-1 xl:ml-2 xl:h-[280px] xl:w-[280px] 2xl:h-[360px] 2xl:w-[360px]"
             />
-            <p className="text-fluid-base xl:text-fluid-xl mt-6 pl-[60px] text-[#c7cdd4] xl:mt-12">
+            <p className="text-fluid-xl mt-6 mb-1 pl-[60px] font-semibold text-[#c7cdd4] xl:mt-12">
               {t('product_weight_label')}
             </p>
             <p className="text-fluid-3xl xl:text-fluid-4xl flex items-end pl-[60px] font-bold text-[#c7cdd4]">
@@ -285,7 +283,7 @@ export default function Revo1Content() {
                 {t('product_weight_unit')}
               </span>
             </p>
-            <p className="text-fluid-base xl:text-fluid-xl mt-2 pl-[60px] text-[#c7cdd4]">
+            <p className="text-fluid-xl mt-2 pl-[60px] font-semibold text-[#c7cdd4]">
               {t('active_joints_label')}
             </p>
             <p className="text-fluid-3xl xl:text-fluid-4xl flex items-end pl-[60px] font-bold text-[#c7cdd4]">
@@ -301,7 +299,7 @@ export default function Revo1Content() {
 
       {/* Ability Showcase Section */}
       <section className="bg-black py-36 pb-25 !text-white" aria-labelledby="ability-title">
-        <div className="mx-auto w-[90%] max-w-[960px] px-4">
+        <div className="mx-auto w-[90%] max-w-[960px] px-4 2xl:max-w-[70%]">
           <div className="text-center">
             {abilityList.map(
               (item, index) =>
@@ -314,7 +312,7 @@ export default function Revo1Content() {
                   >
                     <h2
                       id="ability-title"
-                      className="text-fluid-5xl font-medium"
+                      className="text-fluid-5xl font-medium capitalize"
                     >
                       {t(`ability_${index + 1}_title` as any)}
                     </h2>
@@ -369,7 +367,7 @@ export default function Revo1Content() {
 
       {/* Product Version Section */}
       <section className="bg-black py-20 !text-white" aria-labelledby="version-title">
-        <div className="mx-auto w-[90%] max-w-[1200px] border-t border-[#666] pt-20">
+        <div className="mx-auto w-[90%] max-w-[1200px] border-t border-[#666] pt-20 2xl:max-w-[70%]">
           <motion.h2
             id="version-title"
             className="text-fluid-5xl mb-24 text-center font-bold"
@@ -384,10 +382,10 @@ export default function Revo1Content() {
             <div className="mx-auto w-full max-w-[95%] xl:max-w-[90%]">
               <ul className="flex flex-wrap items-start gap-8">
                 <span className="mr-4 w-full flex-[100%_0_0] font-medium xl:mr-0 xl:w-[280px] xl:flex-[280px_0_0]" />
-                <li className="text-fluid-2xl xl:text-fluid-3xl flex h-[60px] flex-1 items-center justify-center rounded-xl bg-white/10 !text-white xl:h-[76px]">
+                <li className="text-fluid-2xl xl:text-fluid-3xl border-[0.5px] flex h-[60px] flex-1 items-center justify-center rounded-xl border-[#8B8B8B] bg-white/10 font-semibold !text-white xl:h-[76px]">
                   {t('version_basic')}
                 </li>
-                <li className="text-fluid-2xl xl:text-fluid-3xl flex h-[60px] flex-1 items-center justify-center rounded-xl bg-white/10 !text-white xl:h-[76px]">
+                <li className="text-fluid-2xl xl:text-fluid-3xl border-[0.5px] flex h-[60px] flex-1 items-center justify-center rounded-xl border-[#8B8B8B] bg-white/10 font-semibold !text-white xl:h-[76px]">
                   {t('version_tactile')}
                 </li>
               </ul>
@@ -402,14 +400,14 @@ export default function Revo1Content() {
           >
             {versionSpecs.map((category, catIndex) => (
               <div key={category.category} className="mt-36">
-                <h3 className="text-fluid-4xl mt-32 mb-20 border-b border-b-[#333] pb-3 leading-none first:mt-0">
+                <h3 className="text-fluid-4xl mt-32 mb-20 border-b border-b-[#333] pb-3 leading-none font-semibold first:mt-0">
                   {t(category.category as any)}
                 </h3>
                 <dl className="mt-10 first:mt-0 xl:mt-14">
                   {category.specs.map((spec, specIndex) => (
                     <div
                       key={`${catIndex}-${specIndex}`}
-                      className="text-fluid-xl xl:text-fluid-2xl mt-10 flex flex-wrap items-start first:mt-0 xl:mt-14"
+                      className="text-fluid-xl xl:text-fluid-2xl mt-10 flex flex-wrap items-start gap-4 first:mt-0 xl:mt-14"
                     >
                       <dt className="mr-4 w-full flex-[100%_0_0] font-medium xl:mr-0 xl:w-[280px] xl:flex-[280px_0_0]">{t(spec.label as any)}</dt>
                       <dd className="mt-2 flex-1 text-center xl:mt-0">{spec.basic.startsWith('spec_') ? t(spec.basic as any) : spec.basic}</dd>
@@ -424,11 +422,11 @@ export default function Revo1Content() {
       </section>
 
       {/* Experience Section */}
-      <section className="relative mx-auto flex h-full w-full max-w-[100vw] justify-between overflow-hidden bg-white px-40 pt-40 text-black" aria-labelledby="experience-title">
+      <section className="relative mx-auto flex h-full w-full max-w-[100vw] justify-between overflow-hidden bg-white pr-40 pl-60 pt-40 text-black" aria-labelledby="experience-title">
         <div>
           <motion.h2
             id="experience-title"
-            className="text-fluid-5xl absolute top-30 left-1/2 -translate-x-1/2"
+            className="text-fluid-5xl absolute top-30 left-1/2 -translate-x-1/2 font-semibold"
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -437,7 +435,7 @@ export default function Revo1Content() {
             {t('experience_title')}
           </motion.h2>
           <motion.p
-            className="text-fluid-xl xl:text-fluid-2xl mx-auto mt-60 -mr-20 w-full text-[#070502]"
+            className="text-fluid-xl xl:text-fluid-2xl mx-auto mt-45 text-[#111827] -mr-40"
             initial={{ opacity: 0, x: -30 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
@@ -446,7 +444,7 @@ export default function Revo1Content() {
             {t('experience_desc')}
           </motion.p>
           <motion.ul
-            className="mx-auto mt-12 -mr-20 flex w-full items-end gap-2 xl:mt-20"
+            className="mt-12 flex w-full items-center gap-10 xl:mt-20 -mr-40"
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
             viewport={{ once: true }}
@@ -461,15 +459,11 @@ export default function Revo1Content() {
                 viewport={{ once: true }}
                 transition={{ delay: 0.5 + index * 0.1, duration: 0.6 }}
               >
-                <div className="h-28 w-full flex items-center justify-center overflow-hidden">
-                  <Image
-                    src={img}
-                    alt={`Revo1 应用场景图片 ${index + 1} - ${t('experience_title')} / Revo1 Application Scene Image ${index + 1} - ${t('experience_title')}`}
-                    width={160}
-                    height={120}
-                    className="max-h-full max-w-full object-contain"
-                  />
-                </div>
+                <img
+                  src={img}
+                  alt={`Revo1 应用场景 ${index + 1} - ${t('experience_title')} / Revo1 Application Scene ${index + 1} - ${t('experience_title')}`}
+                  className="!h-40 w-auto object-contain"
+                />
               </motion.li>
             ))}
           </motion.ul>
@@ -479,7 +473,7 @@ export default function Revo1Content() {
           alt="Revo1 智能灵巧手应用体验展示图 - 产品使用场景 / Revo1 Intelligent Dexterous Hand Application Experience Display - Product Usage Scene"
           width={600}
           height={600}
-          className="h-auto max-w-[45%] xl:max-w-[50%]"
+          className="h-auto max-w-[40%]"
         />
       </section>
 
@@ -487,7 +481,7 @@ export default function Revo1Content() {
       <section className="bg-black py-20 pb-34 !text-white" aria-labelledby="quality-title">
         <motion.h2
           id="quality-title"
-          className="text-fluid-5xl mb-16 text-center"
+          className="text-fluid-5xl mb-16 text-center font-semibold"
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
@@ -580,7 +574,7 @@ export default function Revo1Content() {
       <section className="bg-white pb-25 text-black" aria-labelledby="partner-title">
         <motion.h2
           id="partner-title"
-          className="text-fluid-5xl pt-20 text-center"
+          className="text-fluid-5xl pt-20 text-center font-semibold"
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}

@@ -557,7 +557,7 @@
     "spec_proximity_distance": "接近觉识别距离",
     "spec_proximity_distance_value": "0-1cm（人手）",
     "spec_repeat_positioning": "重复定位精度",
-    "spec_comm_frequency": "通讯频率"
+    "spec_comm_frequency": "采样频率"
   },
   "Revo2": {
     "meta_title": "仿生灵巧手 Revo 2 - 轻量小巧的工业灵巧手 - 强脑科技BrainCo",

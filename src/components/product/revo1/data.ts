@@ -33,9 +33,9 @@ export const industryList: IndustryItem[] = [
   {
     icon: 'https://website-www-brainco-cn.oss-cn-hangzhou.aliyuncs.com/images/product/dexterous/ThuaGXvIYVdeNWMB.png',
     ability: [
+      { title: 'ability_force_resolution', data: '0.1', unit: 'N', extend: 'ability_max_resolution' },
       { title: 'ability_measurement_range', data: '0-25', unit: 'N' },
       { title: 'ability_sampling_frequency', data: '50', unit: 'Hz' },
-      { title: 'ability_force_resolution', data: '0.1', unit: 'N', extend: 'ability_max_resolution' },
     ],
   },
   {

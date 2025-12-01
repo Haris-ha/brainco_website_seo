@@ -109,12 +109,12 @@ export default function Revo1ContentMobile() {
             width={264}
             height={264}
           />
-          <h1 className="text-fluid-4xl mt-7 font-medium">
+          <h1 className="text-fluid-3xl md:text-fluid-4xl mt-7 font-semibold">
             {t('product_name')}
             {' '}
             {t('product_model')}
           </h1>
-          <p className="text-fluid-lg mt-2">{t('subtitle')}</p>
+          <p className="text-fluid-lg mt-2 font-medium">{t('subtitle')}</p>
           <div className="mt-6 flex gap-6">
             <Link
               href="/contact#contact"
@@ -140,7 +140,7 @@ export default function Revo1ContentMobile() {
       <section className="bg-[#07111b] py-12 !text-white" aria-labelledby="industry-title-mobile">
         <motion.h2
           id="industry-title-mobile"
-          className="text-fluid-3xl text-center font-bold"
+          className="text-fluid-3xl md:text-fluid-4xl px-4 text-center font-semibold"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
@@ -165,30 +165,30 @@ export default function Revo1ContentMobile() {
                 height={40}
                 className="-ml-3 block h-10"
               />
-              <h3 className="text-fluid-xl mt-3 font-medium">
+              <h3 className="text-fluid-xl mt-3 font-semibold text-white">
                 {t(`industry_${index + 1}_title` as any)}
               </h3>
-              <p className="text-fluid-base mt-2 text-gray-300">
+              <p className="text-fluid-base mt-2 font-medium text-[##8F9297]">
                 {t(`industry_${index + 1}_desc` as any)}
               </p>
               <ul className="mt-8 flex">
                 {item.ability.map((subInfo, subIndex) => (
-                  <li key={`${index}-${subIndex}`} className="flex-1">
-                    <h4 className="text-fluid-sm font-medium text-gray-300">{t(subInfo.title as any)}</h4>
+                  <li key={`${index}-${subIndex}`} className="flex-1 text-[#C7CDD4]">
+                    <h4 className="text-fluid-sm font-semibold text-[#C7CDD4]">{t(subInfo.title as any)}</h4>
                     <div className="flex items-end leading-none">
-                      <span className="text-fluid-3xl relative top-1.5 mr-0.5 font-bold text-gray-300">
+                      <span className="text-fluid-3xl relative top-1.5 mr-0.5 font-bold text-[#C7CDD4]">
                         {subInfo.data}
                       </span>
                       <s className="relative top-1 no-underline">
                         {subInfo.unit === 'ability_unit_seconds' ? t(subInfo.unit as any) : subInfo.unit}
                       </s>
                       {subInfo.extend && (
-                        <p className="text-fluid-base relative top-1.5 ml-1 font-medium text-gray-300">
+                        <p className="text-fluid-base relative top-1.5 ml-1 font-medium text-[#C7CDD4]">
                           {subInfo.extend.startsWith('ability_') ? t(subInfo.extend as any) : subInfo.extend}
                         </p>
                       )}
                       {subInfo.connect && (
-                        <b className="text-fluid-3xl relative top-1 ml-0.5 font-bold text-gray-300">
+                        <b className="text-fluid-3xl relative top-1 ml-0.5 font-bold text-[#C7CDD4]">
                           {subInfo.connect}
                         </b>
                       )}
@@ -214,7 +214,7 @@ export default function Revo1ContentMobile() {
           />
           <dl className="mt-10 flex justify-center">
             <div className="mr-18">
-              <dt className="text-fluid-sm font-medium text-gray-300">{t('product_weight_label')}</dt>
+              <dt className="text-fluid-xl font-medium text-gray-300">{t('product_weight_label')}</dt>
               <dd className="text-fluid-3xl mt-2 flex items-end leading-none font-bold text-gray-300">
                 {t('product_weight_value')}
                 {' '}
@@ -224,7 +224,7 @@ export default function Revo1ContentMobile() {
               </dd>
             </div>
             <div>
-              <dt className="text-fluid-sm font-medium text-gray-300">{t('active_joints_label')}</dt>
+              <dt className="text-fluid-xl font-medium text-gray-300">{t('active_joints_label')}</dt>
               <dd className="text-fluid-3xl mt-2 flex items-end leading-none font-bold text-gray-300">
                 {t('active_joints_value')}
                 {' '}
@@ -350,7 +350,7 @@ export default function Revo1ContentMobile() {
       <section className="bg-white py-12 pb-10 text-center text-black" aria-labelledby="experience-title-mobile">
         <motion.h2
           id="experience-title-mobile"
-          className="text-fluid-3xl font-medium"
+          className="text-fluid-3xl md:text-fluid-4xl px-4 font-semibold"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
@@ -359,7 +359,7 @@ export default function Revo1ContentMobile() {
           {t('experience_title')}
         </motion.h2>
         <motion.p
-          className="text-fluid-base mt-6 px-6 md:px-32"
+          className="text-fluid-base mt-6 px-6 font-medium text-[#111827] md:px-32"
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
@@ -450,7 +450,7 @@ export default function Revo1ContentMobile() {
       <section className="bg-white pt-12 text-black" aria-labelledby="partner-title-mobile">
         <motion.h2
           id="partner-title-mobile"
-          className="text-fluid-3xl text-center font-medium"
+          className="text-fluid-3xl md:text-fluid-4xl px-4 text-center font-semibold"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
