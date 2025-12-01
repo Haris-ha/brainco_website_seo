@@ -71,7 +71,7 @@ export default function Revo2Content() {
               href={documentationUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="cursor-target text-fluid-3xl flex h-[72px] w-[264px] items-center justify-center rounded-[45px] border border-white !text-white transition-transform hover:scale-105"
+              className="cursor-target text-fluid-3xl flex h-[72px] w-[264px] items-center justify-center rounded-[45px] border-[2px] border-white !text-white transition-transform hover:scale-105"
               aria-label={`${t('documentation')} - Revo2 产品文档 / ${t('documentation')} - Revo2 Product Documentation`}
             >
               {t('documentation')}
@@ -84,7 +84,8 @@ export default function Revo2Content() {
       <section className="mt-29 text-center" aria-labelledby="compact-title">
         <motion.h2
           id="compact-title"
-          className="text-fluid-5xl bg-gradient-to-r from-[#acd0f4] to-[#5da1e6] bg-clip-text font-normal text-transparent"
+          className="text-fluid-5xl inline-block bg-gradient-to-r from-[#acd0f4] to-[#5da1e6] bg-clip-text font-semibold text-transparent"
+          style={{ WebkitBackgroundClip: 'text' }}
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
@@ -93,7 +94,7 @@ export default function Revo2Content() {
           {t('feature_compact_title')}
         </motion.h2>
         <motion.p
-          className="text-fluid-2xl mt-7 text-[#c7cdd4]"
+          className="text-fluid-2xl mx-auto mt-7 max-w-[60%] text-[#c7cdd4]"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
@@ -101,7 +102,7 @@ export default function Revo2Content() {
           dangerouslySetInnerHTML={{ __html: t('feature_compact_desc').replace(/\n/g, '<br />') }}
         />
         <motion.div
-          className="mx-auto mt-10 w-[1126px] overflow-hidden rounded-3xl"
+          className="mx-auto mt-16 w-[1126px] overflow-hidden rounded-3xl"
           initial={{ opacity: 0, scale: 0.9 }}
           whileInView={{ opacity: 1, scale: 1 }}
           viewport={{ once: true }}
@@ -121,7 +122,8 @@ export default function Revo2Content() {
       <section className="mt-29 text-center" aria-labelledby="light-title">
         <motion.h2
           id="light-title"
-          className="text-fluid-5xl bg-gradient-to-r from-[#acd0f4] to-[#5da1e6] bg-clip-text font-normal text-transparent"
+          className="text-fluid-5xl inline-block bg-gradient-to-r from-[#acd0f4] to-[#5da1e6] bg-clip-text font-semibold text-transparent"
+          style={{ WebkitBackgroundClip: 'text' }}
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
@@ -130,18 +132,20 @@ export default function Revo2Content() {
           {t('feature_light_title')}
         </motion.h2>
         <motion.p
-          className="text-fluid-2xl mt-0 flex items-center justify-center"
+          className="text-fluid-2xl mt-0 flex items-center justify-center font-semibold text-[#C7CDD4]"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ delay: 0.2, duration: 0.8 }}
         >
+          <span className="text-fluid-6xl mx-1.5">{t('feature_light_value')}</span>
+          <span className="text-fluid-3xl mt-1">{t('feature_light_unit')}</span>
+        </motion.p>
+        <motion.p className="text-fluid-2xl mt-4 flex items-center justify-center text-[#8F9297]">
           {t('feature_light_weight')}
-          <span className="text-fluid-6xl mx-1.5 font-bold">{t('feature_light_value')}</span>
-          {t('feature_light_unit')}
         </motion.p>
         <motion.p
-          className="text-fluid-2xl mt-0 text-[#c7cdd4]"
+          className="text-fluid-2xl mx-auto mt-4 max-w-[60%] text-[#c7cdd4]"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
@@ -150,7 +154,7 @@ export default function Revo2Content() {
           {t('feature_light_desc')}
         </motion.p>
         <motion.div
-          className="mx-auto mt-21 w-[1126px]"
+          className="mx-auto mt-16 w-[1126px] overflow-hidden rounded-3xl"
           initial={{ opacity: 0, scale: 0.9 }}
           whileInView={{ opacity: 1, scale: 1 }}
           viewport={{ once: true }}
@@ -170,7 +174,8 @@ export default function Revo2Content() {
       <section className="mt-29 text-center" aria-labelledby="bionic-title">
         <motion.h2
           id="bionic-title"
-          className="text-fluid-5xl bg-gradient-to-r from-[#acd0f4] to-[#5da1e6] bg-clip-text font-normal text-transparent"
+          className="text-fluid-5xl inline-block bg-gradient-to-r from-[#acd0f4] to-[#5da1e6] bg-clip-text font-semibold text-transparent"
+          style={{ WebkitBackgroundClip: 'text' }}
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
@@ -179,7 +184,7 @@ export default function Revo2Content() {
           {t('feature_bionic_title')}
         </motion.h2>
         <motion.p
-          className="text-fluid-2xl mt-7 text-[#c7cdd4]"
+          className="text-fluid-2xl mx-auto mt-7 max-w-[60%] text-[#c7cdd4]"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
@@ -187,7 +192,7 @@ export default function Revo2Content() {
           dangerouslySetInnerHTML={{ __html: t('feature_bionic_desc').replace(/\n/g, '<br />') }}
         />
         <motion.div
-          className="mx-auto mt-10 w-[1126px] overflow-hidden rounded-3xl"
+          className="mx-auto mt-16 w-[1126px] overflow-hidden rounded-3xl"
           initial={{ opacity: 0, scale: 0.9 }}
           whileInView={{ opacity: 1, scale: 1 }}
           viewport={{ once: true }}
@@ -215,18 +220,15 @@ export default function Revo2Content() {
           viewport={{ once: true }}
           transition={{ duration: 0.8 }}
         >
-          <h2 id="custom-title" className="text-fluid-5xl bg-gradient-to-r from-[#acd0f4] to-[#5da1e6] bg-clip-text font-normal text-transparent">
+          <h2 id="custom-title" className="text-fluid-5xl bg-gradient-to-r from-[#acd0f4] to-[#5da1e6] bg-clip-text font-semibold text-transparent">
             {t('feature_custom_title')}
           </h2>
-          <p
-            className="text-fluid-2xl mt-7 text-[#c7cdd4]"
-            dangerouslySetInnerHTML={{ __html: t('feature_custom_desc').replace(/\n/g, '<br />') }}
-          />
+          <p className="text-fluid-2xl mx-auto mt-7 max-w-[60%] text-center text-[#c7cdd4]" dangerouslySetInnerHTML={{ __html: t('feature_custom_desc').replace(/\n/g, '<br />') }} />
         </motion.div>
 
         {/* 机械手图片展示区 */}
         <motion.div
-          className="relative mt-12 flex h-[400px] w-full items-center justify-center gap-12"
+          className="relative mt-16 flex h-[400px] w-full items-center justify-center gap-12"
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
@@ -245,7 +247,7 @@ export default function Revo2Content() {
                 zIndex: selectedColorIndex === index ? 10 : 1,
               }}
             >
-              <div className="h-75 w-full flex items-center justify-center overflow-hidden">
+              <div className="flex h-75 w-full items-center justify-center overflow-hidden">
                 <Image
                   src={item.img}
                   alt={`Revo2 ${t(item.name as any)} 颜色版本 - 智能灵巧手产品展示 / Revo2 ${t(item.name as any)} Color Version - Intelligent Dexterous Hand Product Display`}
@@ -286,7 +288,7 @@ export default function Revo2Content() {
                 }}
                 transition={{ duration: 0.3 }}
               />
-              <span className="text-fluid-lg whitespace-nowrap !text-white">
+              <span className="text-fluid-xl font-medium whitespace-nowrap !text-[#C7CDD4]">
                 {t(item.name as any)}
               </span>
             </button>
@@ -307,7 +309,7 @@ export default function Revo2Content() {
           {t('specs_title')}
         </motion.h2>
         <motion.p
-          className="text-fluid-3xl mt-13 text-[#d6d6d6]"
+          className="text-fluid-3xl mx-auto my-16 max-w-[60%] text-center text-[#C7CDD4]"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
@@ -335,11 +337,11 @@ export default function Revo2Content() {
           viewport={{ once: true }}
           transition={{ delay: 0.6, duration: 0.8 }}
         >
-          <ul className="gap-x-auto mb-12 grid grid-cols-3 justify-items-center border-b border-[#333] px-25">
+          <ul className="gap-x-auto mb-12 grid grid-cols-3 justify-items-start border-b border-[#333] px-25">
             {technicalSpecs.map((spec, index) => (
               <motion.li
                 key={spec.label}
-                className="mb-14 flex flex-col items-center"
+                className="mb-14 flex flex-col items-start text-[#C7CDD4]"
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
@@ -348,17 +350,33 @@ export default function Revo2Content() {
                 <span className="text-fluid-2xl">{t(spec.label as any)}</span>
                 {spec.customStyle
                   ? (
-                      <p className="text-fluid-5xl mt-3 flex h-16 items-center text-center leading-16 font-bold">
-                        <span className="text-fluid-2xl m-0 h-16 text-center leading-16 font-normal">
-                          {spec.value.startsWith('spec_') ? t(spec.value as any) : spec.value}
-                        </span>
+                      <p className="text-fluid-5xl mt-3 flex h-16 items-baseline text-center leading-16 font-bold">
+                        {spec.value === 'spec_comm_freq_value' && locale === 'en-US'
+                          ? (
+                              <>
+                                <span className="text-fluid-2xl m-0 h-16 text-center leading-16 font-semibold">
+                                  Max
+                                </span>
+                                <span className="text-fluid-5xl m-0 mx-1.5 h-16 text-center leading-16 font-bold">
+                                  1K
+                                </span>
+                                <span className="text-fluid-2xl m-0 h-16 text-center leading-16 font-semibold">
+                                  Hz
+                                </span>
+                              </>
+                            )
+                          : (
+                              <span className="text-fluid-2xl m-0 h-16 text-center leading-16 font-semibold">
+                                {spec.value.startsWith('spec_') ? t(spec.value as any) : spec.value}
+                              </span>
+                            )}
                       </p>
                     )
                   : (
-                      <p className="text-fluid-5xl mt-3 flex h-16 items-center leading-16 font-bold">
+                      <p className="text-fluid-5xl mt-3 flex h-16 items-baseline leading-16 font-bold">
                         {spec.value}
                         {spec.unit && (
-                          <span className="text-fluid-2xl ml-2 text-center font-normal">
+                          <span className="text-fluid-2xl ml-2 text-center font-semibold">
                             {spec.unit.startsWith('spec_') ? t(spec.unit as any) : spec.unit}
                           </span>
                         )}
@@ -374,7 +392,7 @@ export default function Revo2Content() {
       </section>
 
       {/* Product Versions */}
-      <section className="mx-auto mt-20 w-[1200px] border-b border-[#666] pb-20" aria-labelledby="version-title">
+      <section className="mx-auto mt-20 max-w-[80%] border-b border-[#666] pb-20" aria-labelledby="version-title">
         <motion.h2
           id="version-title"
           className="text-fluid-5xl mb-14 text-center font-bold !text-white"
@@ -397,7 +415,7 @@ export default function Revo2Content() {
               transition={{ delay: index * 0.2, duration: 0.8 }}
             >
               <h3 className="text-fluid-3xl font-bold">{t(version.title as any)}</h3>
-              <p className="text-fluid-xl mt-1">{t(version.model as any)}</p>
+              {/* <p className="text-fluid-xl mt-1">{t(version.model as any)}</p> */}
               <ol>
                 {version.details.map((detail, detailIndex) => (
                   <li
@@ -427,12 +445,12 @@ export default function Revo2Content() {
           transition={{ duration: 0.8 }}
         >
           {t('product_name')}
-          <span className="ml-2 bg-gradient-to-r from-[#acd0f4] to-[#5da1e6] bg-clip-text font-[860] text-transparent">
+          <span className="ml-8 bg-gradient-to-r from-[#acd0f4] to-[#5da1e6] bg-clip-text font-[860] text-transparent">
             {t('product_model')}
           </span>
         </motion.h2>
         <motion.p
-          className="text-fluid-3xl mt-11 text-[#d6d6d6]"
+          className="text-fluid-3xl mx-auto mt-11 max-w-[70%] text-[#C7CDD4]"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
@@ -463,14 +481,14 @@ export default function Revo2Content() {
         >
           {t('email_note')}
         </motion.p>
-        <Image
-          src="https://website-www-brainco-cn.oss-cn-hangzhou.aliyuncs.com/images/product/rove2/YyJKNZgji6LtTRoX.webp"
-          alt="Revo2 智能灵巧手产品总结展示图 - 产品全景 / Revo2 Intelligent Dexterous Hand Product Summary Display - Product Panorama"
-          width={1920}
-          height={1080}
-          className="w-full"
-        />
       </section>
+      <Image
+        src="https://website-www-brainco-cn.oss-cn-hangzhou.aliyuncs.com/images/product/rove2/YyJKNZgji6LtTRoX.webp"
+        alt="Revo2 智能灵巧手产品总结展示图 - 产品全景 / Revo2 Intelligent Dexterous Hand Product Summary Display - Product Panorama"
+        width={1920}
+        height={1080}
+        className="w-full"
+      />
     </main>
   );
 }

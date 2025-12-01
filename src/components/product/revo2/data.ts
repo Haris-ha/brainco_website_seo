@@ -63,7 +63,7 @@ export const productVersions: ProductVersion[] = [
     model: 'version_basic_model',
     gradient: 'linear-gradient(0deg, #171a1d 0.32%, #515151 97.92%)',
     details: [
-      { label: 'version_voltage', value: '9-28V' },
+      { label: 'version_voltage', value: '12-28V' },
       { label: 'version_interface', value: '485, CANfd' },
       { label: 'version_tactile_sense', value: 'version_tactile_none' },
       { label: 'version_control', value: 'version_control_basic' },
@@ -74,7 +74,7 @@ export const productVersions: ProductVersion[] = [
     model: 'version_pro_model',
     gradient: 'linear-gradient(181deg, #04437e 0.69%, #07121c 99.31%)',
     details: [
-      { label: 'version_voltage', value: '9-64V' },
+      { label: 'version_voltage', value: '12-64V' },
       { label: 'version_interface', value: '485, CANfd, EtherCAT' },
       { label: 'version_tactile_sense', value: 'version_tactile_none' },
       { label: 'version_control', value: 'version_control_basic' },
@@ -85,7 +85,7 @@ export const productVersions: ProductVersion[] = [
     model: 'version_tactile_model',
     border: true,
     details: [
-      { label: 'version_voltage', value: '9-64V' },
+      { label: 'version_voltage', value: '12-64V' },
       { label: 'version_interface', value: '485, CANfd, EtherCAT' },
       { label: 'version_tactile_sense', value: 'version_tactile_features' },
       { label: 'version_control', value: 'version_control_tactile' },

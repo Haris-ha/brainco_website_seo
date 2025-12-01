@@ -1,7 +1,7 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import { useTranslations } from 'next-intl';
+import { useLocale, useTranslations } from 'next-intl';
 import Image from 'next/image';
 import Link from 'next/link';
 import { useRef, useState } from 'react';
@@ -9,6 +9,7 @@ import { colorImages, productVersions, technicalSpecs } from './data';
 
 export default function Revo2ContentMobile() {
   const t = useTranslations('Revo2');
+  const locale = useLocale();
   const [selectedColorIndex, setSelectedColorIndex] = useState(1); // Default to middle (流光银)
   const [bannerVideoLoaded, setBannerVideoLoaded] = useState(false);
   const bannerVideoRef = useRef<HTMLVideoElement | null>(null);
@@ -105,7 +106,8 @@ export default function Revo2ContentMobile() {
       <section className="pt-10 text-center" aria-labelledby="compact-title-mobile">
         <motion.h2
           id="compact-title-mobile"
-          className="text-fluid-3xl bg-gradient-to-r from-[#acd0f4] to-[#5da1e6] bg-clip-text text-transparent"
+          className="text-fluid-3xl inline-block bg-gradient-to-r from-[#acd0f4] to-[#5da1e6] bg-clip-text font-semibold text-transparent"
+          style={{ WebkitBackgroundClip: 'text' }}
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
@@ -114,7 +116,7 @@ export default function Revo2ContentMobile() {
           {t('feature_compact_title')}
         </motion.h2>
         <motion.p
-          className="text-fluid-lg mt-4 px-10 text-gray-300"
+          className="text-fluid-lg mx-auto mt-4 max-w-[80%] text-[#C7CDD4]"
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
@@ -141,7 +143,8 @@ export default function Revo2ContentMobile() {
       <section className="pt-10 text-center" aria-labelledby="light-title-mobile">
         <motion.h2
           id="light-title-mobile"
-          className="text-fluid-3xl bg-gradient-to-r from-[#acd0f4] to-[#5da1e6] bg-clip-text text-transparent"
+          className="text-fluid-3xl inline-block bg-gradient-to-r from-[#acd0f4] to-[#5da1e6] bg-clip-text font-semibold text-transparent"
+          style={{ WebkitBackgroundClip: 'text' }}
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
@@ -150,18 +153,20 @@ export default function Revo2ContentMobile() {
           {t('feature_light_title')}
         </motion.h2>
         <motion.p
-          className="flex items-center justify-center"
+          className="mt-0 flex items-center justify-center font-semibold text-[#C7CDD4]"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ delay: 0.2, duration: 0.8 }}
         >
+          <span className="text-fluid-4xl mx-1.5">{t('feature_light_value')}</span>
+          <span className="text-fluid-2xl mt-1">{t('feature_light_unit')}</span>
+        </motion.p>
+        <motion.p className="text-fluid-lg mt-4 flex items-center justify-center text-[#8F9297]">
           {t('feature_light_weight')}
-          <span className="text-fluid-3xl mx-1 font-bold">{t('feature_light_value')}</span>
-          <span className="text-fluid-2xl font-bold">{t('feature_light_unit')}</span>
         </motion.p>
         <motion.p
-          className="text-fluid-lg mt-4 px-4 text-gray-300"
+          className="text-fluid-lg mx-auto mt-4 max-w-[80%] text-[#C7CDD4]"
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
@@ -189,7 +194,8 @@ export default function Revo2ContentMobile() {
       <section className="pt-10 text-center" aria-labelledby="bionic-title-mobile">
         <motion.h2
           id="bionic-title-mobile"
-          className="text-fluid-3xl bg-gradient-to-r from-[#acd0f4] to-[#5da1e6] bg-clip-text text-transparent"
+          className="text-fluid-3xl inline-block bg-gradient-to-r from-[#acd0f4] to-[#5da1e6] bg-clip-text font-semibold text-transparent"
+          style={{ WebkitBackgroundClip: 'text' }}
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
@@ -198,7 +204,7 @@ export default function Revo2ContentMobile() {
           {t('feature_bionic_title')}
         </motion.h2>
         <motion.p
-          className="text-fluid-lg mt-4 px-20 text-gray-300"
+          className="text-fluid-lg mx-auto mt-4 max-w-[80%] text-[#C7CDD4]"
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
@@ -226,7 +232,7 @@ export default function Revo2ContentMobile() {
       <section className="px-4 pt-10 text-center" aria-labelledby="custom-title-mobile">
         <motion.h2
           id="custom-title-mobile"
-          className="text-fluid-2xl bg-gradient-to-r from-[#acd0f4] to-[#5da1e6] bg-clip-text text-transparent"
+          className="text-fluid-2xl bg-gradient-to-r from-[#acd0f4] to-[#5da1e6] bg-clip-text font-semibold text-transparent"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
@@ -235,7 +241,7 @@ export default function Revo2ContentMobile() {
           {t('feature_custom_title')}
         </motion.h2>
         <motion.p
-          className="text-fluid-lg mt-4 px-4 text-gray-300"
+          className="text-fluid-lg mx-auto mt-4 max-w-[80%] text-center text-[#C7CDD4]"
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
@@ -303,7 +309,7 @@ export default function Revo2ContentMobile() {
                 }}
                 transition={{ duration: 0.3 }}
               />
-              <span className="text-fluid-sm whitespace-nowrap !text-white">
+              <span className="text-fluid-sm font-medium whitespace-nowrap !text-[#C7CDD4]">
                 {t(item.name as any)}
               </span>
             </button>
@@ -315,7 +321,7 @@ export default function Revo2ContentMobile() {
       <section className="mt-10 flex flex-col items-center bg-[#070707] py-10 text-center" aria-labelledby="specs-title-mobile">
         <motion.h2
           id="specs-title-mobile"
-          className="text-fluid-3xl mb-6 font-bold"
+          className="text-fluid-3xl mb-6 font-semibold"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
@@ -324,7 +330,7 @@ export default function Revo2ContentMobile() {
           {t('specs_title')}
         </motion.h2>
         <motion.p
-          className="text-fluid-base mt-6 px-20"
+          className="text-fluid-base mx-auto mt-6 max-w-[90%] text-center text-[#C7CDD4]"
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
@@ -346,7 +352,7 @@ export default function Revo2ContentMobile() {
           />
         </motion.div>
         <motion.ul
-          className="mt-9 mb-10 ml-12 grid grid-cols-2 gap-x-0 px-14 pr-10 text-left md:grid-cols-3 md:ml-40"
+          className="mt-9 mb-10 ml-12 grid grid-cols-2 gap-x-0 px-10 pr-10 text-left md:grid-cols-3 md:ml-40"
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
@@ -360,20 +366,36 @@ export default function Revo2ContentMobile() {
               viewport={{ once: true }}
               transition={{ delay: 0.7 + index * 0.05, duration: 0.5 }}
             >
-              <h3 className="text-fluid-base text-gray-300">{t(spec.label as any)}</h3>
+              <h3 className="text-fluid-base text-[#C7CDD4]">{t(spec.label as any)}</h3>
               {spec.customStyle
                 ? (
-                    <p className="text-fluid-3xl mt-2 mb-8 flex items-center leading-10 font-bold">
-                      <span className="text-fluid-lg text-center">
-                        {spec.value.startsWith('spec_') ? t(spec.value as any) : spec.value}
-                      </span>
+                    <p className="text-fluid-3xl mt-2 mb-8 flex items-baseline leading-10 font-bold">
+                      {spec.value === 'spec_comm_freq_value' && locale === 'en-US'
+                        ? (
+                            <>
+                              <span className="text-fluid-lg text-center font-semibold">
+                                Max
+                              </span>
+                              <span className="text-fluid-3xl mx-1.5 text-center font-bold">
+                                1K
+                              </span>
+                              <span className="text-fluid-lg text-center font-semibold">
+                                Hz
+                              </span>
+                            </>
+                          )
+                        : (
+                            <span className="text-fluid-lg text-center">
+                              {spec.value.startsWith('spec_') ? t(spec.value as any) : spec.value}
+                            </span>
+                          )}
                     </p>
                   )
                 : (
-                    <p className="text-fluid-3xl mt-2 mb-8 flex items-center leading-10 font-bold">
+                    <p className="text-fluid-3xl mt-2 mb-8 flex items-baseline leading-10 font-bold">
                       {spec.value}
                       {spec.unit && (
-                        <span className="text-fluid-lg mt-2 ml-1.5 text-center">
+                        <span className="text-fluid-lg ml-1.5 text-center">
                           {spec.unit.startsWith('spec_') ? t(spec.unit as any) : spec.unit}
                         </span>
                       )}
@@ -411,12 +433,12 @@ export default function Revo2ContentMobile() {
               transition={{ delay: index * 0.2, duration: 0.8 }}
             >
               <h3 className="text-fluid-2xl">{t(version.title as any)}</h3>
-              <p className="text-fluid-xl">{t(version.model as any)}</p>
+              {/* <p className="text-fluid-xl">{t(version.model as any)}</p> */}
               <ol>
                 {version.details.map((detail, detailIndex) => (
                   <li
                     key={detailIndex}
-                    className="text-fluid-lg mt-9 flex justify-between border-b border-[#aaa] leading-7 text-gray-300"
+                    className="text-fluid-lg mt-9 flex justify-between items-end border-b border-[#aaa] leading-7 text-gray-300"
                   >
                     <span>{t(detail.label as any)}</span>
                     <span className="w-[130px] flex-[130px_0_0] text-right">
@@ -434,7 +456,7 @@ export default function Revo2ContentMobile() {
       <section className="bg-[#070707] text-center" aria-labelledby="summary-title-mobile">
         <motion.h2
           id="summary-title-mobile"
-          className="text-fluid-3xl flex justify-center font-bold"
+          className="text-fluid-3xl flex justify-center font-semibold"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
@@ -446,7 +468,7 @@ export default function Revo2ContentMobile() {
           </span>
         </motion.h2>
         <motion.p
-          className="text-fluid-lg mt-4 text-[#d6d6d6]"
+          className="text-fluid-lg mx-auto mt-4 max-w-[80%] text-[#C7CDD4]"
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
