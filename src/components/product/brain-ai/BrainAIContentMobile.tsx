@@ -108,7 +108,7 @@ export default function BrainAIContentMobile() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6 }}
-              className="text-fluid-4xl mb-2 text-left font-normal drop-shadow-lg md:mb-3 md:text-5xl"
+              className="text-fluid-4xl mb-2 text-left font-bold drop-shadow-lg md:mb-3 md:text-5xl"
             >
               {t('hero_title')}
             </motion.h1>
@@ -167,8 +167,8 @@ export default function BrainAIContentMobile() {
             exit={{ opacity: 0 }}
             className="pointer-events-none absolute top-0 left-0 flex h-full w-full flex-col items-center justify-center !text-white"
           >
-            <h2 className="text-fluid-xl md:text-2xl">{t('video_title')}</h2>
-            <p className="text-fluid-xl md:text-2xl">{t('video_subtitle')}</p>
+            <h2 className="text-fluid-2xl max-w-[80%] font-bold md:text-3xl">{t('video_title')}</h2>
+            <p className="text-fluid-xl max-w-[80%] text-center md:text-2xl">{t('video_subtitle')}</p>
             <motion.button
               type="button"
               whileTap={{ scale: 0.95 }}
@@ -342,14 +342,14 @@ export default function BrainAIContentMobile() {
           style={{ background: 'linear-gradient(131deg, #FFF2F1 0%, #FFFDF4 52%, #F1FEF6 100%, #F3FFF7 100%)' }}
         >
           <div className="text-fluid-base mb-[10px] text-center md:mb-4 md:text-lg">
-            <p>{t('course_intro_title')}</p>
+            <p className="font-medium">{t('course_intro_title')}</p>
             <p>{t('course_intro_grade')}</p>
           </div>
-          <div className="flex flex-wrap justify-center">
+          <div className="ml-[22px] flex flex-wrap justify-center">
             {[1, 2, 3, 4, 5, 6].map(num => (
               <span
                 key={num}
-                className="mr-[22px] mb-[6px] flex h-full w-[68px] items-center justify-center rounded-lg border-2 border-[#e6bcbc] bg-white py-2 text-center shadow-[7px_7px_5px_1px_rgba(206,206,206,0.75)] last:mr-0 md:mr-6 md:mb-3 md:w-[80px] md:py-3 md:last:mr-6 [&:nth-child(3n)]:mr-0 [&:nth-child(3n)]:mr-6"
+                className="mr-[22px] mb-[6px] flex h-full items-center justify-center rounded-lg border-2 border-[#e6bcbc] bg-white p-4 px-6 py-2 text-center shadow-[7px_7px_5px_1px_rgba(206,206,206,0.75)] last:mr-0 md:mr-6 md:mb-3 md:py-3 md:last:mr-6 [&:nth-child(3n)]:mr-0 [&:nth-child(3n)]:mr-6"
               >
                 <i className="text-fluid-base scale-[0.8] font-normal not-italic md:scale-100 md:text-base">
                   {t(`course_intro_${num}` as any)}
@@ -368,11 +368,11 @@ export default function BrainAIContentMobile() {
             <p>{t('course_advanced_title')}</p>
             <p>{t('course_advanced_grade')}</p>
           </div>
-          <div className="flex flex-wrap justify-center">
+          <div className="ml-[22px] flex flex-wrap justify-center">
             {[1, 2, 3, 4, 5, 6].map(num => (
               <span
                 key={num}
-                className="mr-[22px] mb-[6px] flex h-full w-[68px] items-center justify-center rounded-lg border-2 border-[#e6bcbc] bg-white py-2 text-center shadow-[7px_7px_5px_1px_rgba(206,206,206,0.75)] last:mr-0 md:mr-6 md:mb-3 md:w-[80px] md:py-3 md:last:mr-6 [&:nth-child(3n)]:mr-0 [&:nth-child(3n)]:mr-6 "
+                className="mr-[22px] mb-[6px] flex h-full items-center justify-center rounded-lg border-2 border-[#e6bcbc] bg-white p-4 py-2 text-center shadow-[7px_7px_5px_1px_rgba(206,206,206,0.75)] last:mr-0 md:mr-6 md:mb-3  md:py-3 md:last:mr-6 [&:nth-child(3n)]:mr-0 [&:nth-child(3n)]:mr-6 "
               >
                 <i className="text-fluid-base scale-[0.8] font-normal not-italic md:scale-100 md:text-base">
                   {t(`course_advanced_${num}` as any)}

@@ -108,7 +108,7 @@ export default function BrainAIContent() {
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8 }}
-              className="text-fluid-6xl mb-2 font-normal drop-shadow-lg"
+              className="text-fluid-6xl mb-2 font-bold"
             >
               {t('hero_title')}
             </motion.h1>
@@ -116,7 +116,7 @@ export default function BrainAIContent() {
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.2 }}
-              className="text-fluid-5xl mb-2 leading-tight font-normal drop-shadow-lg"
+              className="text-fluid-5xl mb-2 leading-tight"
             >
               {t('hero_subtitle')}
             </motion.h2>
@@ -124,7 +124,7 @@ export default function BrainAIContent() {
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.4 }}
-              className="text-fluid-xl mt-[24px] drop-shadow-md"
+              className="text-fluid-xl mt-[24px]"
             >
               {t('hero_description')}
             </motion.p>
@@ -169,7 +169,7 @@ export default function BrainAIContent() {
             exit={{ opacity: 0 }}
             className="pointer-events-none absolute right-[40px] bottom-[62px] flex w-[480px] flex-col items-end"
           >
-            <h3 className="text-fluid-4xl w-full text-right font-semibold !text-white">
+            <h3 className="text-fluid-4xl w-full text-right font-bold !text-white">
               {t('video_title')}
             </h3>
             <h4 className="text-fluid-4xl w-full text-right font-normal !text-white">
@@ -185,7 +185,7 @@ export default function BrainAIContent() {
               }}
               className="pointer-events-auto mt-[32px] flex h-[78px] w-[206px] cursor-pointer items-center justify-center rounded-[39px] border border-white !text-white transition-all hover:scale-105"
             >
-              <span className="text-fluid-xl">
+              <span className="text-fluid-2xl">
                 {isPlaying ? t('video_pause') : t('video_button')}
               </span>
               <Image
@@ -348,7 +348,7 @@ export default function BrainAIContent() {
         <div className="mx-auto mb-[86px] max-w-full rounded-[32px] px-8 py-12" style={{ background: 'linear-gradient(131deg, #FFF2F1 0%, #FFFDF4 52%, #F1FEF6 100%, #F3FFF7 100%)' }}>
           {/* Description at top */}
           <div className="mb-8 flex flex-col items-center justify-center">
-            <p className="text-fluid-3xl mb-5 text-center">{t('course_intro_title')}</p>
+            <p className="text-fluid-3xl mb-5 text-center font-medium">{t('course_intro_title')}</p>
             <p className="text-fluid-2xl">{t('course_intro_grade')}</p>
           </div>
           {/* 6 blocks in 2 rows, 3 columns */}
@@ -375,7 +375,7 @@ export default function BrainAIContent() {
         <div className="mx-auto max-w-full rounded-[32px] px-8 py-12" style={{ background: 'linear-gradient(131deg, #FFF2F1 0%, #FFFDF4 52%, #F1FEF6 100%, #F3FFF7 100%)' }}>
           {/* Description at top */}
           <div className="mb-8 flex flex-col items-center justify-center">
-            <p className="text-fluid-3xl mb-5 text-center">{t('course_advanced_title')}</p>
+            <p className="text-fluid-3xl mb-5 text-center font-medium">{t('course_advanced_title')}</p>
             <p className="text-fluid-2xl">{t('course_advanced_grade')}</p>
           </div>
           {/* 6 blocks in 2 rows, 3 columns */}
