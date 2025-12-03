@@ -62,7 +62,7 @@ export default function PurchaseButton({
 
   // Format price display
   const formatPrice = (price: number) => {
-    return (price / 100).toFixed(2);
+    return (price / 100);
   };
 
   // Handle scroll detection and bottom detection for mobile
@@ -136,7 +136,7 @@ export default function PurchaseButton({
                 whileTap={{ scale: 0.98 }}
                 onClick={handleBuyNow}
                 disabled={isLoading}
-                className="text-fluid-lg h-[40px] w-[120px] cursor-pointer rounded-[22px] bg-[#4f68d2] font-medium !text-white transition-all disabled:cursor-not-allowed disabled:opacity-50"
+                className="text-fluid-lg h-[40px] w-[120px] cursor-pointer rounded-[22px] bg-[#1A74BF] font-medium !text-white transition-all disabled:cursor-not-allowed disabled:opacity-50"
               >
                 {isLoading ? tCart('submitting') : t('buy_now')}
               </motion.button>
@@ -152,12 +152,12 @@ export default function PurchaseButton({
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.8, delay: 1.2 }}
-      className="mt-[2vw] flex flex-col gap-[1vw]"
+      className="mt-[2vw] flex flex-col gap-[2vw]"
     >
       {showPrice && product?.price && (
         <div className="flex flex-col">
           <div className="flex items-baseline gap-[1.5vw]">
-            <span className="text-fluid-5xl font-medium text-[#333]">
+            <span className="text-fluid-3xl font-medium text-[#333]">
               ¥
               {formatPrice(product.price)}
             </span>
@@ -175,7 +175,7 @@ export default function PurchaseButton({
         whileTap={{ scale: 0.95 }}
         onClick={handleBuyNow}
         disabled={isLoading}
-        className="cursor-target text-fluid-2xl h-[72px] w-[260px] cursor-pointer rounded-[41px] bg-[#4f68d2] font-medium !text-white shadow-lg transition-all hover:bg-[#3d52a8] disabled:cursor-not-allowed disabled:opacity-50"
+        className="cursor-target text-fluid-2xl h-[72px] w-[260px] cursor-pointer rounded-[41px] bg-[#1A74BF] font-medium !text-white shadow-lg transition-all hover:bg-[#1A74BF]/80 disabled:cursor-not-allowed disabled:opacity-50"
       >
         {isLoading ? tCart('submitting') : t('buy_now')}
       </motion.button>

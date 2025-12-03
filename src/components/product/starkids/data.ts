@@ -6,6 +6,8 @@ export type TrainingModule = {
   name?: string;
   desc?: string;
   src: string;
+  srcEn?: string;
+  hideBackground?: boolean;
 };
 
 export const trainingModules: TrainingModule[] = [
@@ -46,6 +48,8 @@ export const trainingModules: TrainingModule[] = [
   },
   {
     src: `${imgBase}EnOFzkrNWaSsPMBH.webp`,
+    srcEn: `https://www.brainco.cn/news-images/girl_training_module_intro.png`,
+    hideBackground: true,
   },
   {
     name: 'behavior_dashboard',

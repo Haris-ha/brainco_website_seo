@@ -1,9 +1,9 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import { useTranslations } from 'next-intl';
+import { useLocale, useTranslations } from 'next-intl';
 import Image from 'next/image';
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 
 import AfterSales from '@/components/common/AfterSales';
 import { findProductByIdentifier } from '@/lib/api';
@@ -13,7 +13,10 @@ import PurchaseButton from './PurchaseButton';
 
 export default function StarKidsContent() {
   const t = useTranslations('StarKids');
+  const locale = useLocale();
   const [product, setProduct] = useState<any>(null);
+  const [isVideoPlaying, setIsVideoPlaying] = useState(false);
+  const videoRef = useRef<HTMLVideoElement | null>(null);
 
   // Fetch product data
   useEffect(() => {
@@ -33,13 +36,13 @@ export default function StarKidsContent() {
       <header className="relative mt-[5vw] flex justify-end">
         <picture className="relative">
           <img
-            src="https://website-www-brainco-cn.oss-cn-hangzhou.aliyuncs.com/images/product/starkid/XnquQobOARSTzZtY.webp"
+            src="https://www.brainco.cn/news-images/hero_starkids.png"
             alt="StarKids 专注力训练系统产品展示 - 学生课堂训练场景 / StarKids attention training system - Student classroom training scene"
-            className="w-full translate-x-[10vw]"
+            className="w-full"
           />
           <div className="pointer-events-none absolute inset-0 bg-gradient-to-r from-white via-white/10 to-transparent" />
         </picture>
-        <div className="absolute top-0 bottom-0 left-0 flex w-full flex-col items-start justify-start pt-[5vw] pb-[6vw] pl-[8vw]">
+        <div className={`absolute top-0 bottom-0 left-0 flex w-full flex-col items-start justify-start pt-[8vw] pb-[6vw] ${locale === 'zh-CN' ? 'pl-[16vw]' : 'pl-[8vw]'}`}>
           <motion.div
             initial={{ opacity: 0, scale: 0.8 }}
             animate={{ opacity: 1, scale: 1 }}
@@ -50,14 +53,14 @@ export default function StarKidsContent() {
               alt="StarKids 专注力训练系统 Logo / StarKids Attention Training System Logo"
               width={134}
               height={134}
-              className="mb-[1vw] h-auto w-[10vw]"
+              className="mb-[1vw] h-auto w-[12vw]"
             />
           </motion.div>
           <motion.h1
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.3 }}
-            className="text-fluid-5xl mt-[0.5vw] leading-[1.4] font-normal"
+            className="text-fluid-5xl mt-[0.5vw] leading-[1.4] font-bold"
           >
             {t('hero_title_1')}
           </motion.h1>
@@ -65,7 +68,7 @@ export default function StarKidsContent() {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.6 }}
-            className="text-fluid-5xl mt-[0.5vw] leading-[1.4] font-normal"
+            className="text-fluid-5xl mt-[0.5vw] leading-[1.4] whitespace-pre-line"
           >
             {t('hero_title_2')}
           </motion.h2>
@@ -73,7 +76,7 @@ export default function StarKidsContent() {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.9 }}
-            className="text-fluid-4xl mt-[2vw]"
+            className="text-fluid-2xl mt-[2vw]"
           >
             {t('hero_description')}
           </motion.p>
@@ -83,7 +86,7 @@ export default function StarKidsContent() {
 
       {/* System Overview Section */}
       <section className="mx-auto w-[80vw] max-w-[1600px]" aria-labelledby="system-overview-title">
-        <div className="mt-[4.5vw] text-center">
+        <div className="my-[4.5vw] text-center">
           <Image
             src="https://website-www-brainco-cn.oss-cn-hangzhou.aliyuncs.com/images/mGWZ1YCsNC1Sa1r2.webp"
             alt="StarKids 智能训练系统图标 / StarKids intelligent training system icon"
@@ -93,7 +96,7 @@ export default function StarKidsContent() {
           />
           <h2
             id="system-overview-title"
-            className="text-fluid-5xl mt-[2.6vw] font-medium"
+            className="text-fluid-5xl mx-auto mt-[2.6vw] max-w-[80%] font-semibold"
             style={{ color: PRIMARY_COLOR }}
           >
             {t('system_title')}
@@ -101,9 +104,9 @@ export default function StarKidsContent() {
         </div>
 
         {/* Features Grid */}
-        <div className="mt-[4.5vw] flex justify-center gap-[1vw]">
+        <div className="mt-[6.5vw] flex h-full items-center justify-center">
           {/* Left Features */}
-          <div className="flex w-[40vw] flex-col justify-around gap-[2vw]">
+          <div className={`flex ${locale === 'zh-CN' ? 'w-[20vw]' : 'w-[28vw]'} mx-auto flex-col justify-between gap-[10vw]`}>
             {systemFeatures.slice(0, 2).map((feature, index) => (
               <motion.div
                 key={index}
@@ -111,15 +114,16 @@ export default function StarKidsContent() {
                 whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.6, delay: index * 0.2 }}
+                className="flex-1"
               >
                 <h4
-                  className="text-fluid-4xl font-medium"
+                  className="text-fluid-3xl font-semibold"
                   style={{ color: PRIMARY_COLOR }}
                 >
                   {t(feature.title)}
                 </h4>
                 <p
-                  className="text-fluid-3xl mt-[0.5vw] h-[8vw]"
+                  className="text-fluid-2xl mt-[0.5vw] h-[8vw]"
                   dangerouslySetInnerHTML={{
                     __html: t(feature.desc).replace(/\n/g, '<br/>'),
                   }}
@@ -141,12 +145,12 @@ export default function StarKidsContent() {
               alt="StarKids 专注力训练头戴设备 - 脑电波实时监测装置 / StarKids attention training headset - Real-time EEG monitoring device"
               width={642}
               height={642}
-              className="h-auto w-[40vw]"
+              className="h-auto w-[32vw]"
             />
           </motion.div>
 
           {/* Right Features */}
-          <div className="flex w-[40vw] flex-col justify-around gap-[2vw]">
+          <div className={`flex ${locale === 'zh-CN' ? 'w-[20vw]' : 'w-[28vw]'} mx-auto flex-col justify-between gap-[10vw]`}>
             {systemFeatures.slice(2, 4).map((feature, index) => (
               <motion.div
                 key={index}
@@ -154,15 +158,16 @@ export default function StarKidsContent() {
                 whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.6, delay: index * 0.2 }}
+                className="flex-1"
               >
                 <h4
-                  className="text-fluid-4xl font-medium"
+                  className="text-fluid-3xl font-semibold"
                   style={{ color: PRIMARY_COLOR }}
                 >
                   {t(feature.title)}
                 </h4>
                 <p
-                  className="text-fluid-3xl mt-[0.5vw] h-[8vw]"
+                  className="text-fluid-2xl mt-[0.5vw] h-[8vw]"
                   dangerouslySetInnerHTML={{
                     __html: t(feature.desc).replace(/\n/g, '<br/>'),
                   }}
@@ -174,7 +179,7 @@ export default function StarKidsContent() {
       </section>
 
       {/* Training Modules Section */}
-      <section className="mt-[6.8vw]" aria-labelledby="training-modules-title">
+      <section className="mx-auto mt-[6.8vw] max-w-[90%]" aria-labelledby="training-modules-title">
         {/* Statistics Header */}
         <h2 id="training-modules-title" className="sr-only">训练模块统计 / Training Modules Statistics</h2>
         <div className="flex justify-around px-[2vw]">
@@ -217,7 +222,7 @@ export default function StarKidsContent() {
                   {stat.unit}
                 </span>
               </div>
-              <p className="text-fluid-4xl mt-[0.7vw] leading-[1]">
+              <p className="text-fluid-3xl mt-[0.7vw] leading-[1] font-semibold">
                 {stat.label}
               </p>
             </motion.div>
@@ -228,6 +233,8 @@ export default function StarKidsContent() {
         <div className="mt-[1vw] grid grid-cols-3 justify-items-center gap-[2vw] px-[5vw]">
           {trainingModules.map((module, index) => {
             const isIndependent = !module.name;
+            const imageSrc = locale === 'en-US' && module.srcEn ? module.srcEn : module.src;
+            const shouldHideBackground = module.hideBackground;
             return (
               <motion.div
                 key={index}
@@ -235,41 +242,51 @@ export default function StarKidsContent() {
                 whileInView={{ opacity: 1, scale: 1 }}
                 viewport={{ once: true, margin: '-50px' }}
                 transition={{ duration: 0.4, delay: index * 0.05 }}
-                className={`relative mt-[2.5vw] flex w-[26.8vw] flex-col items-center pb-[1.5vw] ${
+                className={`relative mt-[2.5vw] flex w-[28vw] flex-col items-center pb-[1.5vw] ${
                   !isIndependent ? 'module-card' : ''
                 }`}
               >
                 {!isIndependent && (
                   <div
-                    className="absolute top-0 left-0 -z-10 h-[15.3vw] w-full rounded-[1.25vw]"
-                    style={{ background: '#DEEFEE', bottom: 0 }}
+                    className="absolute top-0 left-0 -z-10 w-full rounded-[1.25vw]"
+                    style={{ background: '#DEEFEE', bottom: 0, height: locale === 'zh-CN' ? '10.3vw' : '15.3vw' }}
+                  />
+                )}
+
+                {!shouldHideBackground && (
+                  <div
+                    className="absolute top-[40%] left-1/2 w-[24vw] -translate-x-1/2 rounded-[1.25vw]"
+                    style={{ background: '#DEEFEE', zIndex: 0, height: locale === 'zh-CN' ? '14vw' : '17vw' }}
                   />
                 )}
 
                 {module.name && (
                   <div
-                    className="flex h-[2.6vw] w-[24.5vw] items-center justify-center rounded-[1.3vw] px-[0.15vw]"
+                    className="relative z-10 flex h-[2.6vw] w-[22vw] items-center justify-center rounded-[1.3vw] p-[0.15vw]"
                     style={{ background: PRIMARY_COLOR }}
                   >
-                    <div className="flex h-full w-full items-center justify-center rounded-[1.3vw] border border-dashed border-white">
-                      <span className="text-fluid-2xl font-medium !text-white">
+                    <div className="flex h-full w-full items-center justify-center rounded-[1.3vw] border-[0.53px] border-dashed border-white">
+                      <span className="text-fluid-xl font-medium !text-white">
                         {t(module.name)}
                       </span>
                     </div>
                   </div>
                 )}
 
-                <div className={`mt-[1.4vw] flex flex-col items-center justify-center text-center ${isIndependent ? 'relative top-[3.1vw]' : ''}`}>
-                  <Image
-                    src={module.src}
-                    alt={module.name ? `${t(module.name)} - 训练模块示意图 / Training module illustration` : 'StarKids 训练模块 / StarKids training module'}
-                    width={400}
-                    height={400}
-                    className={`h-auto ${isIndependent ? 'w-[18.2vw]' : 'w-[20.8vw]'}`}
-                  />
+                <div className={`relative z-10 mt-[1.4vw] flex flex-col items-center justify-center text-center ${isIndependent ? 'top-[3.1vw]' : ''}`}>
+                  {/* 图片 */}
+                  <div className="relative">
+                    <Image
+                      src={imageSrc}
+                      alt={module.name ? `${t(module.name)} - 训练模块示意图 / Training module illustration` : 'StarKids 训练模块 / StarKids training module'}
+                      width={400}
+                      height={400}
+                      className={`h-auto ${isIndependent ? 'w-[20vw]' : 'w-[18vw]'}`}
+                    />
+                  </div>
                   {module.desc && (
                     <p
-                      className="text-fluid-2xl mt-[1.25vw] text-center"
+                      className="text-fluid-xl mt-[1.25vw] px-[4vw] text-center"
                       dangerouslySetInnerHTML={{
                         __html: t(module.desc),
                       }}
@@ -288,8 +305,8 @@ export default function StarKidsContent() {
         style={{ color: PRIMARY_COLOR }}
         aria-labelledby="interactive-scene-title"
       >
-        <h2 id="interactive-scene-title" className="text-fluid-5xl font-medium">{t('interactive_title')}</h2>
-        <p className="text-fluid-4xl">{t('interactive_subtitle')}</p>
+        <h2 id="interactive-scene-title" className="text-fluid-5xl mx-auto max-w-[80%] font-semibold">{t('interactive_title')}</h2>
+        <p className="text-fluid-3xl mx-auto mt-[2vw] max-w-[80%]">{t('interactive_subtitle')}</p>
 
         <figure className="relative mt-[4.5vw]">
           <video
@@ -317,54 +334,120 @@ export default function StarKidsContent() {
       {/* Training Mode Section */}
       <section
         className="mt-[7.8vw] bg-[#F4F4F4] pt-[5vw] text-center"
-        style={{ color: PRIMARY_COLOR }}
         aria-labelledby="training-mode-title"
       >
-        <h2 id="training-mode-title" className="text-fluid-5xl font-medium">{t('training_mode_title')}</h2>
-        <p className="text-fluid-4xl">{t('training_mode_subtitle')}</p>
+        <h2 id="training-mode-title" className="text-fluid-5xl mx-auto max-w-[80%] font-semibold" style={{ color: PRIMARY_COLOR }}>{t('training_mode_title')}</h2>
+        <p className="text-fluid-3xl" style={{ color: PRIMARY_COLOR }}>{t('training_mode_subtitle')}</p>
 
-        <div className="mt-[6.25vw] flex items-center justify-center gap-[6.7vw] px-[5vw] pb-[4.7vw]">
+        <div className="mx-auto mt-[6.25vw] flex max-w-[90vw] flex-col items-center justify-center gap-[4vw] px-[8vw] pb-[4.7vw]">
+          {/* 上方：文字和图片水平布局 */}
+          <div className="flex w-full items-center justify-center gap-[10vw] px-[4vw]">
+            {/* 左侧文字 */}
+            <motion.div
+              initial={{ opacity: 0, x: -50 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6 }}
+              className="flex h-full flex-1 flex-col gap-[3vw] text-left"
+            >
+              <h3 className="text-fluid-4xl font-semibold !text-[#333]">{t('training_principles_title')}</h3>
+
+              <div className="flex flex-col gap-[3vw]">
+                <div>
+                  <h4 className="text-fluid-3xl font-semibold !text-[#333]">{t('training_principles_neurofeedback_title')}</h4>
+                  <p className="text-fluid-xl mt-[0.5vw] !text-[#333]">{t('training_principles_neurofeedback_desc')}</p>
+                </div>
+
+                <div>
+                  <h4 className="text-fluid-3xl font-semibold !text-[#333]">{t('training_principles_video_title')}</h4>
+                  <p className="text-fluid-xl mt-[0.5vw] !text-[#333]">{t('training_principles_video_desc')}</p>
+                </div>
+              </div>
+            </motion.div>
+
+            {/* 右侧图片 */}
+            <motion.div
+              initial={{ opacity: 0, x: 50 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6 }}
+              className="flex flex-1 items-center justify-end"
+            >
+              <Image
+                src="https://www.brainco.cn/news-images/principlesoftraining.png"
+                alt="StarKids 训练原理示意图 / StarKids training principles illustration"
+                width={600}
+                height={400}
+                className="h-auto"
+              />
+            </motion.div>
+          </div>
+
+          {/* 下方：视频 */}
           <motion.div
-            initial={{ opacity: 0, x: -50 }}
-            whileInView={{ opacity: 1, x: 0 }}
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
+            className="relative w-full"
           >
-            <Image
-              src="https://website-www-brainco-cn.oss-cn-hangzhou.aliyuncs.com/images/product/starkid/VvRspiJCtbEnhTwl.webp"
-              alt="StarKids 训练模式界面展示 / StarKids training mode interface display"
-              width={440}
-              height={440}
-              className="h-auto w-[22.9vw]"
+            <video
+              ref={videoRef}
+              controls={isVideoPlaying}
+              className="w-full cursor-pointer"
+              src="https://website-www-brainco-cn.oss-cn-hangzhou.aliyuncs.com/assets/video/K9hDdccdM7rYrPwAgzska.mp4"
+              aria-label="StarKids 训练模式演示视频 / StarKids training mode demo video"
+              onPlay={() => setIsVideoPlaying(true)}
+              onPause={() => setIsVideoPlaying(false)}
+              onEnded={() => setIsVideoPlaying(false)}
             />
+            {!isVideoPlaying && (
+              <button
+                type="button"
+                onClick={() => {
+                  if (videoRef.current) {
+                    videoRef.current.play();
+                    setIsVideoPlaying(true);
+                  }
+                }}
+                className="absolute top-1/2 left-1/2 z-10 -translate-x-1/2 -translate-y-1/2 cursor-pointer rounded-full bg-white/90 p-[2vw] transition-all hover:scale-110 hover:bg-white"
+                aria-label="播放视频 / Play video"
+              >
+                <svg
+                  className="h-[4vw] w-[4vw] text-[#333]"
+                  fill="currentColor"
+                  viewBox="0 0 24 24"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path d="M8 5v14l11-7z" />
+                </svg>
+              </button>
+            )}
           </motion.div>
-
-          <motion.video
-            initial={{ opacity: 0, x: 50 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-            controls
-            className="mt-[3.6vw] w-[50vw] cursor-pointer rounded-[1.25vw]"
-            src="https://website-www-brainco-cn.oss-cn-hangzhou.aliyuncs.com/assets/video/K9hDdccdM7rYrPwAgzska.mp4"
-            aria-label="StarKids 训练模式演示视频 / StarKids training mode demo video"
-          />
         </div>
       </section>
 
       {/* Training Recommend Section */}
       <section className="relative bg-[#F4F4F4] pb-[4.2vw]" aria-labelledby="training-recommend-title">
         <h2 id="training-recommend-title" className="sr-only">个性化训练推荐 / Personalized Training Recommendations</h2>
-        <Image
-          src="https://website-www-brainco-cn.oss-cn-hangzhou.aliyuncs.com/images/product/starkid/CzwFXWrxOTDvYSNJ.webp"
-          alt="StarKids 训练推荐背景 / StarKids training recommendation background"
-          role="presentation"
-          width={1920}
-          height={800}
-          className="h-auto w-full"
-        />
+        <div className="relative">
+          <Image
+            src="https://www.brainco.cn/news-images/asessmentbackground.png"
+            alt="StarKids 训练推荐背景 / StarKids training recommendation background"
+            role="presentation"
+            width={1920}
+            height={800}
+            className="h-auto w-full"
+          />
+          {/* 文字覆盖层 - 居中显示 */}
+          <div className="absolute top-[32%] left-1/2 w-full -translate-x-1/2 -translate-y-1/2">
+            <h3 className="text-fluid-5xl text-center font-semibold !text-white">
+              {t('recommend_banner_text')}
+            </h3>
+          </div>
+        </div>
 
-        <div className="relative mx-auto -mt-[14.6vw] flex w-[79.7vw] gap-[2.4vw]">
+        <div className="relative mx-auto -mt-[12.6vw] flex w-[79.7vw] gap-[2.4vw]">
           {/* Left Assessment */}
           <div className="flex w-[39.1vw] flex-col">
             {/* First Image */}
@@ -389,8 +472,8 @@ export default function StarKidsContent() {
               viewport={{ once: true }}
               className="mt-[5.2vw] mb-[2vw] flex justify-center"
             >
-              <div className="flex w-[24vw] items-center justify-center rounded-[1.25vw] bg-white px-[1.25vw] py-[1.25vw] shadow-sm">
-                <h3 className="text-fluid-2xl font-medium">{t('recommend_title')}</h3>
+              <div className="flex w-[60%] items-center justify-center rounded-[1.25vw] bg-white px-[1.25vw] py-[1.25vw]">
+                <h3 className="text-fluid-2xl text-center">{t('recommend_title')}</h3>
               </div>
             </motion.div>
 
@@ -413,10 +496,10 @@ export default function StarKidsContent() {
             {/* Assessment Title */}
             <div className="mt-[8.6vw] flex items-center justify-center">
               <div
-                className="flex h-[8vw] w-[40vw] items-center justify-center rounded-[2vw] px-[4.2vw] text-center !text-white"
-                style={{ background: '#F06F67', width: '40vw' }}
+                className="flex w-[42vw] items-center justify-center rounded-full  px-[1.6vw] py-[1vw] text-center !text-white"
+                style={{ background: '#F06F67' }}
               >
-                <h5 className="text-fluid-3xl font-medium">
+                <h5 className="text-fluid-2xl font-semibold">
                   {t('recommend_assessment_1_title')}
                 </h5>
               </div>
@@ -443,7 +526,7 @@ export default function StarKidsContent() {
               viewport={{ once: true }}
               className="mt-[1.8vw] flex justify-center self-start text-center"
             >
-              <div className="w-[33vw] rounded-[1.25vw] bg-white px-[1.25vw] py-[1.25vw] shadow-sm">
+              <div className="w-[33vw] rounded-[1.25vw] bg-white px-[1.25vw] py-[1.25vw]">
                 <p className="text-fluid-2xl">
                   {t('recommend_assessment_1_desc')}
                 </p>
@@ -461,10 +544,10 @@ export default function StarKidsContent() {
                 <i className="h-[0.21vw] w-[0.21vw] rounded-full bg-white" />
               </div>
               <div
-                className="flex items-center justify-center rounded-[2vw] px-[1.6vw] py-[1vw] text-center !text-white"
+                className="flex items-center justify-center rounded-full px-[1.6vw] py-[1vw] text-center !text-white"
                 style={{ background: '#F06F67' }}
               >
-                <h5 className="text-fluid-3xl font-medium">
+                <h5 className="text-fluid-2xl font-semibold">
                   {t('recommend_assessment_2_title')}
                 </h5>
               </div>
@@ -475,7 +558,7 @@ export default function StarKidsContent() {
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              className="relative mt-[5.5vw] ml-[-1vw] px-[1vw]"
+              className="relative mt-[5.5vw] ml-[-1vw] flex items-center justify-end px-[1vw]"
             >
               <Image
                 src={`${imgBase}xRVtLGqrlwFhPbkX.webp`}
@@ -484,8 +567,8 @@ export default function StarKidsContent() {
                 height={82}
                 className="absolute top-[-2.1vw] left-[-0.5vw] h-auto w-[4.3vw]"
               />
-              <div className="rounded-[1.25vw] bg-white px-[1.25vw] py-[1.25vw] shadow-sm">
-                <p className="text-fluid-2xl font-medium">
+              <div className="w-[90%] rounded-[1.25vw] bg-white px-[1.25vw] py-[1.25vw]">
+                <p className="text-fluid-2xl text-center">
                   {t('recommend_assessment_2_desc')}
                 </p>
               </div>
@@ -588,7 +671,7 @@ export default function StarKidsContent() {
         {/* Quantitative Data */}
         <div className="mx-auto mt-[2.5vw] flex w-[90vw] max-w-[1500px] items-center justify-center gap-[2.8vw]">
           <div className="w-[27vw] text-left" style={{ color: '#333' }}>
-            <h3 className="text-fluid-4xl mb-[1.5vw] leading-[1.4]">
+            <h3 className="text-fluid-4xl mb-[1.5vw] leading-[1.4] font-semibold">
               {t('track_data_title')}
             </h3>
             <p className="text-fluid-2xl mb-[1.25vw] leading-[1.4]">
@@ -608,7 +691,7 @@ export default function StarKidsContent() {
               alt="StarKids 量化数据分析 - 科学训练效果统计 / StarKids quantitative data analysis - Scientific training effect statistics"
               width={872}
               height={600}
-              className="h-auto w-[45.4vw]"
+              className="h-auto w-[40.4vw]"
             />
           </motion.div>
         </div>
@@ -618,13 +701,13 @@ export default function StarKidsContent() {
       <section className="mt-[7.3vw]" aria-labelledby="scientific-intervention-title">
         <h2
           id="scientific-intervention-title"
-          className="text-fluid-5xl text-center font-medium"
+          className="text-fluid-5xl text-center font-semibold"
           style={{ color: PRIMARY_COLOR }}
         >
           {t('intervene_title')}
         </h2>
 
-        <div className="mx-auto mt-[11.7vw] flex w-[85.2vw] gap-[2.6vw] rounded-[1.8vw] bg-[#FAFAFA] py-[5vw] pl-[3.1vw]">
+        <div className="mx-auto mt-[11.7vw] flex w-[85.2vw] gap-[2.6vw] rounded-[1.8vw] bg-[#FAFAFA] py-[5vw] pl-[3.1vw] text-[#333]">
           {/* Left Content */}
           <div className="w-[51.6vw]">
             <p className="text-fluid-3xl relative inline-block">
@@ -664,7 +747,7 @@ export default function StarKidsContent() {
           </div>
 
           {/* Right Content */}
-          <div className="relative -mt-[13vw] w-[26.3vw]">
+          <div className="relative -mt-[13vw] w-[26.3vw] text-[#333]">
             <motion.div
               initial={{ opacity: 0, scale: 0.9 }}
               whileInView={{ opacity: 1, scale: 1 }}
@@ -679,13 +762,13 @@ export default function StarKidsContent() {
               />
             </motion.div>
 
-            <p className="text-fluid-2xl mt-[1.8vw] mb-[0.8vw] font-medium">
+            <p className="text-fluid-2xl mt-[1.8vw] mb-[0.8vw]">
               {t('intervene_disclaimer')}
             </p>
-            <p className="text-fluid-2xl mb-[0.8vw] font-medium">
+            <p className="text-fluid-2xl mb-[0.8vw]">
               {t('intervene_hospital_desc')}
             </p>
-            <span className="block text-[0.83vw]">
+            <span className="text-fluid-xl block">
               {t('intervene_study_details')}
             </span>
           </div>
@@ -694,10 +777,10 @@ export default function StarKidsContent() {
 
       {/* Authentication Section */}
       <div className="mx-auto mt-[4.7vw] w-[78.1vw] text-center">
-        <h3 className="text-fluid-5xl font-medium" style={{ color: PRIMARY_COLOR }}>
+        <h3 className="text-fluid-5xl font-semibold" style={{ color: PRIMARY_COLOR }}>
           {t('auth_title')}
         </h3>
-        <p className="text-fluid-4xl" style={{ color: PRIMARY_COLOR }}>
+        <p className="text-fluid-3xl mt-2 font-semibold" style={{ color: PRIMARY_COLOR }}>
           {t('auth_subtitle')}
         </p>
 
