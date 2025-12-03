@@ -35,7 +35,7 @@ export default function TechnologyContentMobile() {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 0.8 }}
-          className="relative z-10 flex min-h-full w-full flex-col justify-center px-[10vw] text-left !text-white md:px-[60px] h-[700px]"
+          className="relative z-10 flex h-[700px] min-h-full w-full flex-col justify-center px-[10vw] text-left !text-white md:px-[60px]"
         >
           <motion.h1
             initial={{ scale: 0.8, opacity: 0 }}
@@ -49,7 +49,7 @@ export default function TechnologyContentMobile() {
             initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.4 }}
-            className="text-fluid-base leading-[1.7] drop-shadow-[0_2px_6px_rgba(0,0,0,0.4)] md:text-lg md:leading-[1.8]"
+            className="text-fluid-base leading-[1.7] whitespace-pre-line drop-shadow-[0_2px_6px_rgba(0,0,0,0.4)] md:text-lg md:leading-[1.8]"
           >
             {t('page_intro')}
           </motion.p>
@@ -230,52 +230,55 @@ export default function TechnologyContentMobile() {
             }
               `}
             >
-              <button
-                type="button"
-                className="flex h-full w-full items-center justify-center"
-                onClick={() => setProcessIndex(index)}
-                aria-label={`查看 ${item.year} 年的历程 / View ${item.year} timeline`}
-                aria-pressed={processIndex === index}
-              >
-                {processIndex !== index && (
-                  <h3 className="absolute flex h-full items-center text-lg text-[#bebebe]">
-                    {item.year}
-                  </h3>
-                )}
-                {processIndex === index && (
-                  <motion.div
-                    initial={{ opacity: 0 }}
-                    animate={{ opacity: 1 }}
-                    transition={{ duration: 0.5 }}
-                    className="w-full"
-                  >
-                    <SimpleCarousel
-                      items={item.data.map(data => (
-                        <div key={data.url} className="flex flex-col justify-start px-6 md:px-10">
-                          <div className="flex h-[170px] items-center overflow-hidden md:h-[220px]">
-                            <Image
-                              src={data.url}
-                              alt={`${item.year} 年历程图片 / ${item.year} timeline image`}
-                              width={300}
-                              height={170}
-                              className="h-auto w-full object-contain"
-                            />
-                          </div>
-                          <h3 className="text-fluid-4xl my-[14px] flex items-end leading-[1.2] md:my-[18px] md:text-5xl">
-                            {item.year}
-                            {t('year_suffix') && <span className="text-fluid-lg mb-2 no-underline md:mb-2.5 md:text-xl">{t('year_suffix')}</span>}
-                          </h3>
-                          <p className="text-fluid-lg w-full text-left leading-relaxed md:text-xl md:leading-[1.8]">
-                            {data.desc}
-                          </p>
-                        </div>
-                      ))}
-                      autoplay={false}
-                      showIndicators
-                    />
-                  </motion.div>
-                )}
-              </button>
+              {processIndex !== index
+                ? (
+                    <button
+                      type="button"
+                      className="flex h-full w-full items-center justify-center"
+                      onClick={() => setProcessIndex(index)}
+                      aria-label={`查看 ${item.year} 年的历程 / View ${item.year} timeline`}
+                      aria-pressed={processIndex === index}
+                    >
+                      <h3 className="absolute flex h-full items-center text-lg text-[#bebebe]">
+                        {item.year}
+                      </h3>
+                    </button>
+                  )
+                : (
+                    <div className="flex h-full w-full items-center justify-center">
+                      <motion.div
+                        initial={{ opacity: 0 }}
+                        animate={{ opacity: 1 }}
+                        transition={{ duration: 0.5 }}
+                        className="w-full"
+                      >
+                        <SimpleCarousel
+                          items={item.data.map(data => (
+                            <div key={data.url} className="flex flex-col justify-start px-6 md:px-10">
+                              <div className="flex h-[170px] items-center overflow-hidden md:h-[220px]">
+                                <Image
+                                  src={data.url}
+                                  alt={`${item.year} 年历程图片 / ${item.year} timeline image`}
+                                  width={300}
+                                  height={170}
+                                  className="h-auto w-full object-contain"
+                                />
+                              </div>
+                              <h3 className="text-fluid-4xl my-[14px] flex items-end leading-[1.2] md:my-[18px] md:text-5xl">
+                                {item.year}
+                                {t('year_suffix') && <span className="text-fluid-lg mb-2 no-underline md:mb-2.5 md:text-xl">{t('year_suffix')}</span>}
+                              </h3>
+                              <p className="text-fluid-lg w-full text-left leading-relaxed whitespace-pre-line md:text-xl md:leading-[1.8]">
+                                {data.desc}
+                              </p>
+                            </div>
+                          ))}
+                          autoplay={false}
+                          showIndicators
+                        />
+                      </motion.div>
+                    </div>
+                  )}
             </li>
           ))}
         </motion.ul>

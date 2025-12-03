@@ -312,7 +312,7 @@ export default function ContactContent() {
           viewport={{ once: true }}
           transition={{ duration: 0.8, ease: 'easeOut' }}
         >
-          <h2 className="mb-[45px] text-[60px] leading-[80px] font-medium text-[#333333]">
+          <h2 className="mb-[45px] text-[48px] leading-[80px] font-medium text-[#333333] 2xl:text-[60px]">
             {t('cooperation_title')}
           </h2>
 

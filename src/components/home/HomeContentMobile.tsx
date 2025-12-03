@@ -169,7 +169,7 @@ export function HomeContentMobile() {
             {t('hero_title_1_mobile')}
           </motion.h1>
           <motion.p
-            className="text-fluid-3xl mt-6"
+            className="text-fluid-3xl mx-auto mt-6 max-w-sm text-center"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.4, ease: 'easeOut' }}

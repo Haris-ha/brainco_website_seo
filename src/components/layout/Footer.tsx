@@ -185,7 +185,7 @@ export function Footer({ locale }: FooterProps) {
           {/* 导航链接 */}
           <nav aria-label="产品和服务导航 / Products and services navigation" className="mt-16 flex justify-between">
             {/* 产品栏 */}
-            <div>
+            <div className="ml-10 max-w-sm 2xl:max-w-none">
               <p className="mb-10 text-2xl font-medium !text-[#1F1F1F]">
                 {t('products')}
               </p>
@@ -206,7 +206,7 @@ export function Footer({ locale }: FooterProps) {
                       <Link
                         href={item.href}
                         prefetch={true}
-                        className="cursor-target group relative inline-block text-xl !text-[#666] transition-colors duration-200"
+                        className="cursor-target group relative block text-xl break-words !text-[#666] transition-colors duration-200"
                       >
                         {item.title}
                         <div className="absolute -bottom-1 left-0 h-[2px] w-0 bg-[#666] transition-all duration-300 ease-in-out group-hover:w-full" />
@@ -437,7 +437,7 @@ export function Footer({ locale }: FooterProps) {
           </div>
 
           {/* 版权信息 */}
-          <div className="mt-2.5 px-5 pb-5 text-center md:px-20 md:mt-5">
+          <div className="mt-2.5 px-5 pb-5 text-center md:mt-5 md:px-20">
             <p className="text-fluid-base !text-gray-500">
               {isHangzhou
                 ? t('copyright_hangzhou')

@@ -85,7 +85,7 @@ export default function TechnologyContent() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.6 }}
-            className="text-fluid-2xl max-w-[708px] drop-shadow-[0_2px_6px_rgba(0,0,0,0.4)]"
+            className="text-fluid-2xl max-w-[708px] whitespace-pre-line drop-shadow-[0_2px_6px_rgba(0,0,0,0.4)]"
           >
             {t('page_intro')}
           </motion.p>
@@ -282,18 +282,20 @@ export default function TechnologyContent() {
               }
                 `}
               >
-                <button
-                  onClick={() => setSelectedYear(index)}
-                  type="button"
-                  aria-pressed={selectedYear === index}
-                  aria-label={`选择年份 ${item.year} / Select year ${item.year}`}
-                  className="flex h-full w-full flex-col items-center justify-center"
-                >
-                  {selectedYear !== index
-                    ? (
+                {selectedYear !== index
+                  ? (
+                      <button
+                        onClick={() => setSelectedYear(index)}
+                        type="button"
+                        aria-pressed={selectedYear === index}
+                        aria-label={`选择年份 ${item.year} / Select year ${item.year}`}
+                        className="flex h-full w-full flex-col items-center justify-center"
+                      >
                         <h3 className="cursor-target text-xl text-[#bebebe]">{item.year}</h3>
-                      )
-                    : (
+                      </button>
+                    )
+                  : (
+                      <div className="flex h-full w-full flex-col items-center justify-center">
                         <div className="w-full pb-10">
                           <SimpleCarousel
                             items={item.data.map(data => (
@@ -316,7 +318,7 @@ export default function TechnologyContent() {
                                   {item.year}
                                   {t('year_suffix') && <span className="ml-1 text-xl">{t('year_suffix')}</span>}
                                 </h3>
-                                <p className="text-fluid-xl leading-[1.7] font-light">
+                                <p className="text-fluid-xl leading-[1.7] font-light whitespace-pre-line">
                                   {data.desc}
                                 </p>
                               </motion.div>
@@ -325,8 +327,8 @@ export default function TechnologyContent() {
                             showIndicators
                           />
                         </div>
-                      )}
-                </button>
+                      </div>
+                    )}
               </li>
             ))}
           </ul>

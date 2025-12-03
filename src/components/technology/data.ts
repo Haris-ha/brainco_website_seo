@@ -195,129 +195,129 @@ const processEnUS: ProcessData[] = [
     year: '2025',
     data: [{
       url: 'https://website-www-brainco-cn.oss-cn-hangzhou.aliyuncs.com/images/TPZbEzeRhNaYojCm.webp',
-      desc: `As one of "Hangzhou's Six Dragons," BrainCo has garnered significant attention from all sectors of society, demonstrating strong growth momentum with accelerated technological innovation and industrialization. The company was honored with the "National Advanced Collective for Work with Persons with Disabilities" title at the 7th National Commendation Conference for Model Persons with Disabilities and Advanced Workers in Assistance, showcasing its outstanding contributions to disability assistance. In terms of technological innovation, the company launched a new generation of bionic dexterous hands suitable for embodied intelligence scenarios, widely applied in cutting-edge fields such as intelligent manufacturing. Additionally, the company partnered with the Beijing Brain Research Institute to establish the Brain-Computer Interface Joint Innovation Center, jointly advancing research, technological innovation, and industrial application in the BCI field.`,
+      desc: `BrainCo, recognized as one of the" Hangzhou Six Dragons," continued to gain strong attention across society and showed steady growth driven by faster technological innovation and industrialization. The company received the "National Advanced Collective for Work with Persons with Disabilities" award at the 7th National Commendation Conference, acknowledging its long-term contributions to disability assistance. \n\n During the year, BrainCo launched a new generation of bionic dexterous hands for embodied intelligence scenarios. These products are now used in advanced fields such as intelligent manufacturing. BrainCo also partnered with the Beijing Brain Research Institute to establish the Brain-Computer Interface Joint Innovation Center, promoting research, technological innovation, and industrial application in the BCI field.`,
     }],
   },
   {
     year: '2024',
     data: [{
       url: 'https://website-www-brainco-cn.oss-cn-hangzhou.aliyuncs.com/images/EYzcSlIFJahPwTAo.webp',
-      desc: `As a representative of "new quality productive forces," BrainCo continues to drive innovation in brain-computer interface technology. The company was selected as an Outstanding Winner of the Ministry of Industry and Information Technology's AI Medical Device Innovation Challenge with its "BCI Intervention System Development for Children with Autism" project and was recognized as a national-level "Little Giant" specialized and refined enterprise. In terms of international development, the intelligent lower limb product obtained US FDA certification and successfully entered the medical insurance system, marking an important milestone in the company's overseas market expansion. Additionally, as a member of the Chinese entrepreneurs delegation, BrainCo participated in the APEC CEO Summit, being the only Chinese company in the brain-computer interface field.`,
+      desc: `As a representative of "new quality productive forces," BrainCo continues to drive innovation in brain-computer interface technology. The company was selected as an Outstanding Winner of the Ministry of Industry and Information Technology's AI Medical Device Innovation Challenge with its project "BCI Intervention System Development for Children with Autism." It was also recognized as a national-level "Little Giant" specialized and refined enterprise. \n\n In international development, BrainCo's intelligent lower limb product obtained US FDA certification and entered the U.S. medical insurance system. This marked an important milestone in the company's global expansion. BrainCo also joined the Chinese entrepreneurs' delegation at the APEC CEO Summit, becoming the only Chinese company in the brain–computer interface field to attend.`,
     }],
   },
   {
     year: '2023',
     data: [{
       url: 'https://website-www-brainco-cn.oss-cn-hangzhou.aliyuncs.com/images/UBoip5eGE2b4nQuv.png',
-      desc: `BrainCo collaborated with major hospitals including Peking Union Medical College Hospital, Ruijin Hospital affiliated with Shanghai Jiao Tong University, and Beijing Anding Hospital affiliated with Capital Medical University to conduct scientific research on sleep and depression based on brain-computer interface technology. Meanwhile, BrainCo's second-generation intelligent lower limb product was successfully launched, helping people with disabilities truly experience "technology changing life" with lighter weight, higher strength, and better algorithms. At the opening ceremony of the 4th Asian Para Games in Hangzhou, an athlete with disabilities used BrainCo's intelligent bionic hand to light the torch - the world's first time a BCI-powered bionic hand lit the sacred flame at an international sports event!`,
+      desc: `BrainCo worked with major hospitals—including Peking Union Medical College Hospital, Ruijin Hospital of Shanghai Jiao Tong University, and Beijing Anding Hospital of Capital Medical University—to carry out scientific research on sleep and depression using brain–computer interface technology. \n\n The company launched its second-generation intelligent lower limb product, offering lighter weight, higher strength, and improved algorithms. These upgrades helped people with disabilities experience real improvements in daily life. At the opening ceremony of the 4th Asian Para Games in Hangzhou, an athlete used BrainCo's intelligent bionic hand to light the torch—the first time a BCI-powered bionic hand ignited the flame at an international sports event.`,
     }],
   },
   {
     year: '2022',
     data: [{
       url: 'https://website-www-brainco-cn.oss-cn-hangzhou.aliyuncs.com/images/oLai3PkD2TYpcdFs.png',
-      desc: `The brain-computer interface industry entered a period of accelerated development. BrainCo achieved the world's first mass production of 100,000 units of a single high-precision brain-computer interface product, breaking through the engineering and technical challenges of consumer-grade BCI devices. BrainCo's intelligent bionic hand received FDA approval for market launch in the United States. In the same year, the intelligent bionic hand appeared at the 2022 Beijing Winter Paralympics, helping athletes with disabilities complete the torch relay.`,
+      desc: `The brain-computer interface industry entered a period of accelerated development. BrainCo achieved the world's first mass production of 100,000 units of a single high-precision brain-computer interface product, overcoming key engineering challenges of consumer-grade BCI devices. BrainCo's intelligent bionic hand received FDA approval for market launch in the United States. In the same, year it also appeared at the 2022 Beijing Winter Paralympics, assisting athletes with disabilities in completing the torch relay.`,
     }],
   },
   {
     year: '2021',
     data: [{
       url: 'https://website-www-brainco-cn.oss-cn-hangzhou.aliyuncs.com/images/bStN67BaanwokVN0.webp',
-      desc: `The world's first joint research project on portable BCI neurofeedback system training for children's whole-brain development was officially launched. The project, jointly conducted by the National Children's Medical Center - Shanghai Children's Medical Center affiliated with Shanghai Jiao Tong University School of Medicine and BrainCo, will contribute innovative technological achievements to the assessment and treatment system for children's brain and cognitive development through multidisciplinary approaches including BCI, near-infrared brain function imaging, MRI, and genetics.`,
+      desc: `The world's first joint research project on portable BCI neurofeedback system training for children's whole-brain development was officially launched. This project, carried out by the National Children's Medical Center – Shanghai Children's Medical Center, affiliated with Shanghai Jiao Tong University School of Medicine and BrainCo, integrates BCI, near-infrared brain function imaging, MRI, and genetics to enhance assessment and treatment for children's brain and cognitive development.`,
     }],
   },
   {
     year: '2020',
     data: [{
       url: 'https://website-www-brainco-cn.oss-cn-hangzhou.aliyuncs.com/images/dd5fvdoG1HxzsZXk.webp',
-      desc: `China's first clinical BCI R&D project for children with autism was officially launched. The "Development of Wearable EEG-Based Rehabilitation System for Autism" project, jointly conducted by the National Autism Rehabilitation Research Center of China Rehabilitation Research Center and BrainCo, aims to explore innovative pathways for scientific intervention in autism through advanced non-invasive BCI technology.`,
+      desc: `China's first clinical BCI R&D project for children with autism was officially launched. The "Development of Wearable EEG-Based Rehabilitation System for Autism" project, jointly conducted by the National Autism Rehabilitation Research Center of China Rehabilitation Research Center, and BrainCo, aims to explore innovative scientific intervention pathways for autism using advanced non-invasive BCI technology.`,
     }],
   },
   {
     year: '2019',
     data: [{
       url: 'https://website-www-brainco-cn.oss-cn-hangzhou.aliyuncs.com/images/9AKgBIuiOxsDWzpU.webp',
-      desc: `The intelligent bionic hand was named one of TIME Magazine's 100 Best Inventions and featured on the cover. As the world's first mass-produced BCI AI prosthesis, BrainCo's intelligent bionic hand was selected for this list due to its exceptional BCI underlying technology breakthroughs. Unlike prosthetics available at the time, BrainCo used an advanced algorithm that allowed users and the hand to learn from each other, leading TIME Magazine to praise the BrainCo intelligent bionic hand as "pioneering in the field of brain-computer interfaces."`,
+      desc: `The intelligent bionic hand was named one of TIME Magazine's 100 Best Inventions and featured on the cover. As the world's first mass-produced BCI Al prosthesis, BrainCo's intelligent bionic hand was selected for this list due to its exceptional BCI underlying technology breakthroughs. Unlike prosthetics available at the time, BrainCo used an advanced algorithm that enabled shared learning between the user and the hand. Therefore,TIME Magazine praised the BrainCo intelligent bionic hand as "pioneering in the field of brain-computer interfaces."`,
     }],
   },
   {
     year: '2018',
     data: [{
       url: 'https://website-www-brainco-cn.oss-cn-hangzhou.aliyuncs.com/images/538PyRUuTHlgBcYv.webp',
-      desc: `An upper-limb amputee achieved "bilateral brain control" for the first time, using bionic fingers and brain-controlled prosthetics to play piano in non-laboratory conditions. On CCTV's "Challenge the Impossible" program, a girl named Lin Anlu, who lost her right arm, was fitted with BrainCo's intelligent bionic hand. After multiple iterations and optimizations of the control algorithm, BrainCo helped Anlu perform alongside world-renowned pianist Lang Lang. This successful performance meant that BrainCo had broken through the technical difficulty limits of previous intelligent prosthetics, reaching new heights in current BCI technology.`,
+      desc: `An upper-limb amputee achieved "bilateral brain control" for the first time, using bionic fingers and brain-controlled prosthetics to play piano in non-laboratory conditions. On CCTV's "Challenge the Impossible" program, a girl named Lin Anlu, who lost her right arm, was fitted with BrainCo's intelligent bionic hand. After several rounds of algorithm iterations and optimizations of the control algorithm, BrainCo helped Anlu perform alongside world-renowned pianist Lang Lang. This successful performance meant that BrainCo had overcome the technical limits of previous intelligent prosthetics, reaching new heights in current BCI technology.`,
     }],
   },
   {
     year: '2017',
     data: [{
       url: 'https://website-www-brainco-cn.oss-cn-hangzhou.aliyuncs.com/images/c4FBwLr4Vv8Amocz.webp',
-      desc: `Breakthrough achieved in underlying BCI technology. The solid gel electrode - a new electrode material developed by BrainCo - achieved mass production, overcoming the difficulty of large-scale precise collection of EEG signals, bringing the single-electrode accuracy of portable EEG devices to professional-grade levels. This technology greatly advanced the establishment of ultra-large-scale brain and muscle neural electrical data, laying a solid foundation for breakthroughs in artificial intelligence algorithms.`,
+      desc: `Breakthrough achieved in underlying BCI technology. The solid gel electrode - a new electrode material developed by BrainCo - achieved mass production. It overcame the difficulty of large-scale, precise EEG signal collection and brought the single-electrode accuracy of portable EEG devices to professional-grade performance. This technology greatly advanced the establishment of ultra-large-scale brain and muscle neural electrical data. It also laid a solid foundation for breakthroughs in artificial intelligence algorithms.`,
     }],
   },
   {
     year: '2016',
     data: [{
       url: 'https://website-www-brainco-cn.oss-cn-hangzhou.aliyuncs.com/images/ITOljUtgiAnWbQLF.webp',
-      desc: `Tesla CEO Elon Musk founded Neuralink and served as its CEO. Unlike non-invasive BCI technology, Neuralink is dedicated to developing invasive BCI devices by embedding chips into the human brain to read brain activity. With this, research and development in both invasive and non-invasive BCI fields have embarked on the path of commercial transformation with planned mass production and terminal application.`,
+      desc: `Tesla CEO Elon Musk founded Neuralink and served as its CEO. Unlike non-invasive BCI technology, Neuralink is dedicated to developing invasive BCI devices by implanting chips in the human brain to record neural signals. With this, research and development in both invasive and non-invasive BCI research began moving toward commercial transformation, including planned mass production and terminal applications.`,
     }],
   },
   {
     year: '2015',
     data: [{
       url: 'https://website-www-brainco-cn.oss-cn-hangzhou.aliyuncs.com/images/V6NqTv8YECN0X8bD.webp',
-      desc: `BrainCo was founded at the Harvard Innovation Lab, independently developing BCI devices. In the same year, BrainCo adopted a completely new self-learning theory - "Human Learning Based on Machine Learning Classification" - and successfully developed the most accurate and secure wearable EEG chip on the market at the time, as well as thought-controlled bionic hands, winning first place in the Harvard China Forum Business Competition. By year's end, to continue validating this theory, BrainCo launched the intelligent prosthetic R&D project with an ambitious goal: to enable millions of amputees to control prosthetics naturally.`,
+      desc: `BrainCo was founded at the Harvard Innovation Lab, independently developing BCI devices. In the same year, BrainCo adopted a completely new self-learning theory - "Human Learning Based on Machine Learning Classification" - and successfully developed the most accurate and secure wearable EEG chip on the market at the time, as well as thought-controlled bionic hands. This achievement helped the team win first place at the Harvard China Forum Business Competition. By the end of the year, BrainCo launched the intelligent prosthetic R&D project to continue validating this theory, setting an ambitious goal: to enable millions of amputees to control prosthetics naturally.`,
     }],
   },
   {
     year: '2014',
     data: [{
       url: 'https://website-www-brainco-cn.oss-cn-hangzhou.aliyuncs.com/images/CUMYFObjSs8iuawH.webp',
-      desc: `The first non-invasive brain-to-brain interface (BBI) experiment was successful. Researchers at the University of Washington used non-invasive BCI technology to connect the brains of two researchers. The interface first detected motor imagery intentions from the "sender's" EEG signals, then transmitted the information via the internet to the "receiver's" motor cortex region, finally triggering the receiver to complete the target action (touchpad press) through TMS. This experiment promoted the application of internet technology in human brain connection and brought new opportunities and challenges: in the future, people may be able to decode the encoding programs of abstract thoughts and cognitive information in the human brain and disseminate them through brain-to-brain interface technology.`,
+      desc: `The first non-invasive brain-to-brain interface (BBI) experiment was successful. Researchers at the University of Washington used non-invasive BCI technology to connect the brains of two researchers. The interface first detected motor imagery intentions from the "sender's" EEG signals and then transmitted this information via the internet to the "receiver's" motor cortex region. Through TMS, the receiver was ultimately triggered to perform the target action—a touchpad press. This experiment advanced the use of internet technology in connecting human brains and introduced new opportunities and challenges. In the future, people may be able to decode the encoding patterns of abstract thoughts and cognitive information in the human brain and transmit them through brain-to-brain interfaces.`,
     }, {
       url: 'https://website-www-brainco-cn.oss-cn-hangzhou.aliyuncs.com/images/a24Hgqm1piQufQNN.webp',
-      desc: `At the FIFA World Cup in Brazil, 29-year-old paraplegic patient Juliano Pinto wore a BCI exoskeleton device developed by Professor Miguel Nicolelis's team and kicked off the World Cup. Pinto's brain simply needed to issue commands like "walk" or "kick," and these brain signals would be received by the exoskeleton device Pinto was wearing and converted into commands to control the exoskeleton. Professor Nicolelis later commented: "This was the first time an exoskeleton was controlled by brain activity and provided feedback to the patient."`,
+      desc: `At the FIFA World Cup in Brazil, 29-year-old paraplegic patient Juliano Pinto wore a BCI exoskeleton device developed by Professor Miguel Nicolelis's team and kicked off the opening match. Pinto only needed to issue simple brain commands such as "walk" or "kick." These signals were received by the exoskeleton he was wearing and converted into commands that controlled the device. Professor Nicolelis later commented, "This was the first time an exoskeleton was controlled by brain activity and also provided feedback to the patient."`,
     }],
   },
   {
     year: '2006',
     data: [{
       url: 'https://website-www-brainco-cn.oss-cn-hangzhou.aliyuncs.com/images/pzgSiChVnbHsKvIj.webp',
-      desc: `John Donoghue's team was the first to prove that spinal cord injury patients could directly control a computer cursor through neural discharge signals from the motor cortex. Neuronal ensemble activity recorded through a 96-microelectrode array implanted in the primary motor cortex showed that three years after spinal cord injury, the patient's hand movement intentions could still modulate cortical discharge patterns. Researchers created decoders to generate a "neural cursor" that patients could control, enabling them to open simulated emails and operate devices like TVs - even while conversing. This research marked a major advance in BCI technology - although control precision was limited, it confirmed the feasibility of "thought-controlled" devices.`,
+      desc: `John Donoghue's team was the first to show that spinal cord injury patients could directly control a computer cursor using neural discharge signals from the motor cortex. The researchers implanted a 96-microelectrode array in the patient's primary motor cortex and recorded neuronal ensemble activity. Their results showed that the patient's intended hand movements could still modulate cortical firing patterns, even three years after the injury. The team then designed decoders that translated these signals into a "neural cursor" that the patient could control. With this system, the patient was able to open simulated emails, operate devices such as televisions, and do so even while talking. Although the system had limits in precision, the study represented a major step forward in BCI technology and provided the first clear evidence that "thought-controlled" interfaces were achievable.`,
     }],
   },
   {
     year: '1998',
     data: [{
       url: 'https://website-www-brainco-cn.oss-cn-hangzhou.aliyuncs.com/images/K2hQeHcKZ7TS6dog.webp',
-      desc: `The first invasive BCI for motor simulation was implanted in the human body. The Emory University research team implanted electrodes in the brain of paralyzed patient Johnny Ray, allowing the patient to autonomously regulate neural signals in an on/off manner by recording action potentials, thereby enabling communication with the outside world. Eventually, Johnny learned to directly control a computer cursor with his brain, meaning the experiment successfully achieved direct control of the external environment by paralyzed patients using BCI technology. This was a breakthrough case of BCI technology application in the medical field.`,
+      desc: `The first invasive BCI system for motor simulation was implanted in a human patient. Researchers at Emory University implanted electrodes in the brain of paralyzed patient Johnny Ray, enabling him to modulate neural signals in an on/off pattern by recording action potentials. This allowed him to communicate with the outside world. Over time, Johnny learned to control a computer cursor directly with his brain. This meant the experiment successfully achieved direct neural control of external devices by a paralyzed patient, making it a breakthrough case for the  medical application of BCI technology.`,
     }],
   },
   {
     year: '1988',
     data: [{
       url: 'https://website-www-brainco-cn.oss-cn-hangzhou.aliyuncs.com/images/AH0HRPivzFcyxQ60.webp',
-      desc: `Non-invasive BCI technology was successfully applied to control physical objects for the first time. Computer science professor Stevo Bozinovski and colleagues used EEG alpha wave recognition software to control robot movement, starting/stopping the robot based on eye-opening/closing actions recorded in brain waves. This experiment opened new channels for direct communication between robots and the human brain, inspiring people to expand controllable physical devices and apply this technology to military, medical, and other fields, such as using EEG to remotely pilot drones and wheelchairs.`,
+      desc: `The first invasive BCI for motor simulation was implanted in the human body. Non-invasive BCI technology was successfully used to control a physical device for the first time. Computer science professor Stevo Bozinovski and his colleagues used EEG alpha-wave recognition software to control a robot. The robot started or stopped moving based on eye-opening and eye-closing actions detected in the EEG signals. This experiment opened a new channel for direct human–robot communication and inspired broader applications—such as using EEG to remotely control drones, wheelchairs, and other devices in military and medical fields.`,
     }],
   },
   {
     year: '1978',
     data: [{
       url: 'https://website-www-brainco-cn.oss-cn-hangzhou.aliyuncs.com/images/EmzjrJ99AFkZUPgX.webp',
-      desc: 'The first invasive BCI device for vision restoration was successfully implanted in the human body. American biomedical scientist William Dobelle implanted an array of 68 electrodes into the visual cortex of Jerry, a patient who became blind after adulthood, enabling him to see image outlines drawn in white dots. The "Dobelle Eye" as an innovative application of BCI technology was the first to verify the operability of integrating BCI and bionic technology, leading further exploration of using technology to overcome physiological barriers.',
+      desc: 'The first invasive BCI device for vision restoration was successfully implanted in the human body. American Biomedical scientist William Dobelle implanted an array of 68 electrodes into Jerry\'s visual cortex, a patient who became blind in adulthood. The device allowed Jerry to perceive simple visual patterns represented as white-dot outlines. Known as the "Dobelle Eye," this early BCI-bionic system demonstrated for the first time that integrating brain interfaces with prosthetic technology was feasible. It opened the door for future exploration into overcoming physiological barriers through technology.',
     }],
   },
   {
     year: '1969',
     data: [{
       url: 'https://website-www-brainco-cn.oss-cn-hangzhou.aliyuncs.com/images/tt7D1oas8NLmb1XB.webp',
-      desc: 'Invasive BCI technology was successfully applied to primates for the first time. American neuroscientist Eberhard Fetz connected a neuron in an experimental monkey\'s brain to an instrument panel, and through food reward feedback, the monkey successfully learned to control the firing of brain neurons. This experiment was the first verification in human history that primate brain electrical signals could be used to drive external devices, and it also proved the brain\'s neural plasticity.',
+      desc: 'Invasive BCI technology was successfully applied to primates for the first time. American neuroscientist Eberhard Fetz connected a neuron in an experimental monkey\'s brain to an instrument panel. Through food-reward conditioning, the monkey learned to voluntarily control the firing rate of that neuron. This experiment was the first verification in human history that primate brain electrical signals could be used to drive external devices, and it also proved the brain\'s neural plasticity.',
     }],
   },
   {
     year: '1929',
     data: [{
       url: 'https://website-www-brainco-cn.oss-cn-hangzhou.aliyuncs.com/images/1qzBsv0KL78WIP5o.webp',
-      desc: 'The existence of human brain waves was first recorded and published. German psychiatrist Hans Berger published the first paper in history recording human brain electrical activity, revealing images of electrical waves measured from the human cerebral cortex and naming these images as electroencephalogram (EEG). This discovery proved the existence of human brain waves, providing a completely new approach for research on brain neural activity.',
+      desc: 'The existence of human brain waves was recorded and published for the first time. German psychiatrist Hans Berger released the first scientific paper documenting electrical activity in the human brain. In his study, he presented wave-like patterns measured from the cerebral cortex and named them electroencephalograms (EEG). This discovery confirmed that human brain waves exist and opened an entirely new pathway for studying neural activity in the brain.',
     }],
   },
 ];
@@ -337,19 +337,19 @@ const cooperatingInstitutionsEnUS: CooperatingInstitution[] = [
   {
     img: 'https://website-www-brainco-cn.oss-cn-hangzhou.aliyuncs.com/images/leYjidhFDCBnIwkA.webp',
     title: 'BrainCo and Beijing Brain Research Institute Jointly Establish BCI Joint Innovation Center',
-    desc: `At the Brain-Computer Interface Innovation Development and Application Forum of the Zhongguancun Forum, BrainCo and the Beijing Brain Research Institute jointly unveiled and established the "Brain-Computer Interface Joint Innovation Center," officially signing a strategic cooperation agreement to jointly promote scientific research, technological innovation, and industrial application in the BCI field, fostering deep integration and collaborative development between academia and industry.`,
+    desc: `At the Brain-Computer Interface Innovation Development and Application Forum of the Zhongguancun Forum, BrainCo and the Beijing Brain Research Institute announced the launch of the "Brain-Computer Interface Joint Innovation Center" and signed a strategic cooperation agreement. The collaboration will accelerate research, innovation, and industrial application in the BCI sector and deepen integration between academia and industry.`,
     openUrl: 'https://mp.weixin.qq.com/s/GU9osTgqvJ7sOVGJzc30OQ',
   },
   {
     img: 'https://website-www-brainco-cn.oss-cn-hangzhou.aliyuncs.com/images/EfijgLeqGPQbyIum.webp',
     title: 'BrainCo Signs Deep Cooperation Agreement with Beijing Anding Hospital',
-    desc: 'Beijing Anding Hospital affiliated with Capital Medical University and BrainCo signed a deep cooperation agreement. Both parties will focus on depression screening as the main research direction, combining top-tier BCI and AI technology to explore the scientific and clinical significance of multimodal indicators for brain and mental diseases, develop mental illness brain network solutions based on multi-channel EEG data, and jointly promote clinical validation, application, and popularization of results.',
+    desc: 'Beijing Anding Hospital, affiliated with Capital Medical University and BrainCo, signed a deep cooperation agreement. The two parties will focus on depression screening as their primary research direction, integrating advanced BCI and AI technologies to explore the scientific and clinical value of multimodal indicators for brain and mental disorders. They will work together to develop brain-network solutions for mental illnesses based on multi-channel EEG data and jointly promote the clinical validation, application, and dissemination of these results.',
     openUrl: 'https://mp.weixin.qq.com/s/2_BoaK-EyVO8RQ6ltyB2ZA',
   },
   {
     img: 'https://website-www-brainco-cn.oss-cn-hangzhou.aliyuncs.com/images/cjYLNyKkMtgiZRGb.webp',
-    title: 'BrainCo as Co-builder with Hangzhou Dianzi University and Provincial Tongde Hospital to Create Provincial Key Laboratory for Brain-Machine Collaborative Intelligence Technology and Applications',
-    desc: 'Addressing the strategic needs of the nation and Zhejiang Province to transition from international follower to leader in the key technology field of brain-machine intelligence, focusing on applied basic research in non-invasive brain-machine intelligence, conducting key research on non-invasive BCI new paradigms, BCI security, low SNR information decoding, brain-inspired intelligence, and brain-machine collaborative enhancement theories and key technologies, obtaining a batch of original scientific research achievements with independent intellectual property rights, and cultivating high-end interdisciplinary talents in the brain-machine intelligence field.',
+    title: 'BrainCo Co-builds the Provincial Key Laboratory for Brain–Machine Collaborative Intelligence Technology and Applications with Hangzhou Dianzi University and Provincial Tongde Hospital',
+    desc: 'Addressing the strategic needs of both the nation and Zhejiang Province to shift from an international follower to a global leader in brain–machine intelligence, the laboratory focuses on applied basic research in non-invasive BCI technologies. Its work covers new paradigms of non-invasive BCI, BCI security, low-SNR information decoding, brain-inspired intelligence, and theories and key technologies for brain–machine collaborative enhancement. The laboratory aims to generate original scientific achievements with independent intellectual property rights and to cultivate high-end interdisciplinary talent in brain–machine intelligence.',
     openUrl: 'https://m.thepaper.cn/baijiahao_30948599',
   },
 ];

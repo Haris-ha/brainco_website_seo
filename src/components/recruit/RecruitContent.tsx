@@ -111,7 +111,7 @@ export default function RecruitContent() {
           </motion.p>
 
           <motion.span
-            className="mt-[160px] max-w-[622px] text-center text-[44px] font-medium text-[#2b2b2b]"
+            className="mt-[160px] max-w-[822px] text-center text-[44px] font-medium text-[#2b2b2b]"
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -206,7 +206,7 @@ export default function RecruitContent() {
 
           {/* Introduction */}
           <motion.div
-            className="mt-[123px] mb-[80px] flex h-[400px] w-[678px] flex-col justify-between text-center text-2xl leading-10 text-[#2b2b2b]"
+            className="mt-[123px] mb-[80px] flex h-[400px] w-[678px] flex-col justify-between gap-10 text-center text-2xl leading-10 text-[#2b2b2b]"
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}

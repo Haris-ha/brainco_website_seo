@@ -1,10 +1,10 @@
 'use client';
 
 import { useEffect, useState } from 'react';
-import { useIsMobile } from '@/hooks/useIsMobile';
 import RecruitContent from '@/components/recruit/RecruitContent';
 import RecruitContentMobile from '@/components/recruit/RecruitContentMobile';
 import ShapeBlur from '@/components/ShapeBlur';
+import { useIsMobile } from '@/hooks/useIsMobile';
 
 export default function RecruitPageClient() {
   const isMobile = useIsMobile();

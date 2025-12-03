@@ -10,6 +10,7 @@ import { ProductImageWithLabel } from '@/components/common/ProductImageWithLabel
 
 type Product = {
   name: string;
+  fullName?: string;
   img: string;
   previewImg: string;
   href: string;
@@ -27,6 +28,7 @@ type ProductsMenuDesktopProps = {
 
 export function ProductsMenuDesktop({ onClose }: ProductsMenuDesktopProps) {
   const t = useTranslations('ProductsMenuDesktop');
+  const tHome = useTranslations('Home');
 
   useEffect(() => {
     // 保存当前滚动位置
@@ -61,7 +63,7 @@ export function ProductsMenuDesktop({ onClose }: ProductsMenuDesktopProps) {
           previewImg:
             'https://website-www-brainco-cn.oss-cn-hangzhou.aliyuncs.com/images/aNIUvPigSeFGEbHW.webp',
           href: '/products/mobius',
-          desc: t('mobius_desc'),
+          desc: tHome('product_mobius_desc'),
         },
         {
           name: t('brain_robotics_name'),
@@ -69,7 +71,7 @@ export function ProductsMenuDesktop({ onClose }: ProductsMenuDesktopProps) {
           previewImg:
             'https://website-www-brainco-cn.oss-cn-hangzhou.aliyuncs.com/images/nGjyEWDFRvCrwald.webp',
           href: '/products/brain-robotics',
-          desc: t('brain_robotics_desc'),
+          desc: tHome('product_brain_robotics_desc'),
         },
         {
           name: t('dexterous_name'),
@@ -77,7 +79,7 @@ export function ProductsMenuDesktop({ onClose }: ProductsMenuDesktopProps) {
           previewImg:
             'https://website-www-brainco-cn.oss-cn-hangzhou.aliyuncs.com/images/uRsplIedTmtaAUYk.webp',
           href: '/products/revo1',
-          desc: t('dexterous_desc'),
+          desc: tHome('product_dexterous_desc'),
         },
       ],
     },
@@ -85,44 +87,49 @@ export function ProductsMenuDesktop({ onClose }: ProductsMenuDesktopProps) {
       title: t('intelligent_health'),
       products: [
         {
-          name: t('easleep_name'),
+          name: 'Easleep',
+          fullName: t('easleep_name'),
           img: 'https://website-www-brainco-cn.oss-cn-hangzhou.aliyuncs.com/images/DJqKOvlTBcFyidSf.webp',
           previewImg:
             'https://website-www-brainco-cn.oss-cn-hangzhou.aliyuncs.com/images/BAGWcXOZRtdxgpsk.webp',
           href: '/health/easleep',
-          desc: t('easleep_desc'),
+          desc: tHome('product_easleep_desc'),
         },
         {
-          name: t('oxyzen_name'),
+          name: 'OxyZen',
+          fullName: t('oxyzen_name'),
           img: 'https://website-www-brainco-cn.oss-cn-hangzhou.aliyuncs.com/images/KJgdiOXZcRnGYhDH.webp',
           previewImg:
             'https://website-www-brainco-cn.oss-cn-hangzhou.aliyuncs.com/images/vJBVfyIDRSmEpieZ.webp',
           href: '/health/oxyzen',
-          desc: t('oxyzen_desc'),
+          desc: tHome('product_oxyzen_desc'),
         },
         {
-          name: t('focus_zen_name'),
+          name: 'FocusZen',
+          fullName: t('focus_zen_name'),
           img: 'https://website-www-brainco-cn.oss-cn-hangzhou.aliyuncs.com/images/qyrUWeHbfgRsVAPS.webp',
           previewImg:
             'https://website-www-brainco-cn.oss-cn-hangzhou.aliyuncs.com/images/NKmGxfsUrSWyTBQe.webp',
           href: '/health/focus-zen',
-          desc: t('focus_zen_desc'),
+          desc: tHome('product_focus_zen_desc'),
         },
         {
-          name: t('focus_xin_name'),
+          name: 'FocusXin',
+          fullName: t('focus_xin_name'),
           img: 'https://website-www-brainco-cn.oss-cn-hangzhou.aliyuncs.com/images/qyrUWeHbfgRsVAPS.webp',
           previewImg:
             'https://website-www-brainco-cn.oss-cn-hangzhou.aliyuncs.com/images/NKmGxfsUrSWyTBQe.webp',
           href: '/health/focus-xin',
-          desc: t('focus_xin_desc'),
+          desc: tHome('product_focus_xin_desc'),
         },
         {
-          name: t('starkids_name'),
+          name: 'StarKids',
+          fullName: t('starkids_name'),
           img: 'https://website-www-brainco-cn.oss-cn-hangzhou.aliyuncs.com/images/qyrUWeHbfgRsVAPS.webp',
           previewImg:
             'https://website-www-brainco-cn.oss-cn-hangzhou.aliyuncs.com/images/QqcGWLgUfmjhPZEz.webp',
           href: '/health/starkids',
-          desc: t('starkids_desc'),
+          desc: tHome('product_starkids_desc'),
         },
       ],
     },
@@ -135,7 +142,7 @@ export function ProductsMenuDesktop({ onClose }: ProductsMenuDesktopProps) {
           previewImg:
             'https://website-www-brainco-cn.oss-cn-hangzhou.aliyuncs.com/images/MIhtXTQFnymLuCwS.webp',
           href: '/education/brain-ai',
-          desc: t('brain_ai_desc'),
+          desc: tHome('product_brain_ai_desc'),
         },
       ],
     },
@@ -218,7 +225,7 @@ export function ProductsMenuDesktop({ onClose }: ProductsMenuDesktopProps) {
                     </motion.div>
                     {/* 产品名称 */}
                     <motion.span
-                      className={`mt-1 text-sm transition-colors duration-300 md:text-lg ${
+                      className={`mt-1 text-center text-sm transition-colors duration-300 md:text-lg ${
                         hoveredProduct[category.title] === index
                           ? 'text-[#666]'
                           : 'text-[#333] group-hover:text-[#666]'
@@ -256,7 +263,7 @@ export function ProductsMenuDesktop({ onClose }: ProductsMenuDesktopProps) {
                       >
                         <Image
                           src={category.products[hoveredProduct[category.title]!]!.previewImg}
-                          alt={category.products[hoveredProduct[category.title]!]!.name}
+                          alt={category.products[hoveredProduct[category.title]!]!.fullName || category.products[hoveredProduct[category.title]!]!.name}
                           width={220}
                           height={220}
                           className="h-auto max-h-[180px] w-auto md:max-h-[220px]"
