@@ -86,12 +86,12 @@ export default function FocusZenContentMobile() {
       >
         <div className="flex h-full flex-col items-center px-4 pb-16 text-center !text-white md:px-8">
           {/* 毛玻璃背景容器 */}
-          <div className="rounded-2xl px-6 py-8 md:px-12 md:py-12">
+          <div className="rounded-2xl px-6 py-8 backdrop-blur-sm md:px-12 md:py-12">
             <motion.h1
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6 }}
-              className="text-fluid-4xl mb-1 font-medium md:text-[4.5vw]"
+              className="text-fluid-3xl mb-1 font-semibold md:text-[4.5vw]"
             >
               {t('hero_title')}
             </motion.h1>
@@ -99,7 +99,7 @@ export default function FocusZenContentMobile() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.2 }}
-              className="text-fluid-5xl mb-2 font-medium md:text-[5vw]"
+              className="text-fluid-4xl mb-2 font-semibold md:text-[5vw]"
             >
               {t('hero_subtitle')}
             </motion.h2>
@@ -131,7 +131,7 @@ export default function FocusZenContentMobile() {
             alt="FocusZen 专注力训练正念设备 - 产品主图展示 / FocusZen Focus Training Mindfulness Device - Main Product Display"
             width={800}
             height={600}
-            className="mb-8 w-full md:mx-auto md:mb-12 md:max-w-[80%]"
+            className="mx-auto mb-8 w-[80vw] md:mx-auto md:mb-12 md:w-[400px]"
           />
 
           <div className="flex flex-col items-center space-y-8 md:space-y-12">
@@ -142,23 +142,23 @@ export default function FocusZenContentMobile() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.6, delay: index * 0.1 }}
-                className="flex w-full items-center justify-center space-x-4 md:space-x-6 md:pl-48"
+                className="flex w-full items-center justify-center space-x-4 md:space-x-6 md:pl-24"
               >
                 <Image
                   src={feature.icon}
                   alt={`${t(feature.titleKey)} - FocusZen 功能特性图标 / ${t(feature.titleKey)} - FocusZen Feature Icon`}
                   width={58}
                   height={58}
-                  className="flex-shrink-0 md:h-[72px] md:w-[72px]"
+                  className="flex-shrink-0 md:h-[82px] md:w-[82px]"
                 />
                 <div className="w-[45%] md:w-[50%]">
-                  <h3 className="text-fluid-base mb-2 font-medium md:text-[2vw]">
+                  <h3 className="text-fluid-base mb-2 font-semibold md:!text-2xl">
                     {t(feature.titleKey)}
                   </h3>
-                  <p className="text-fluid-base text-gray-700 md:text-[2vw]">
+                  <p className="text-fluid-base text-gray-700 md:!text-base">
                     {t(feature.desc1Key)}
                   </p>
-                  <p className="text-fluid-base text-gray-700 md:text-[2vw]">
+                  <p className="text-fluid-base text-gray-700 md:!text-base">
                     {t(feature.desc2Key)}
                   </p>
                 </div>
@@ -176,7 +176,7 @@ export default function FocusZenContentMobile() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
-            className="text-fluid-base mb-1 font-normal md:text-[2vw]"
+            className="text-fluid-lg mb-1 font-normal md:!text-2xl"
           >
             {t('neuromindfulness_title')}
           </motion.p>
@@ -186,7 +186,7 @@ export default function FocusZenContentMobile() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.2 }}
-            className="text-fluid-3xl mb-4 font-medium md:text-[3.75vw]"
+            className="text-fluid-3xl mb-4 font-medium md:!text-3xl"
           >
             {t('neurofeedback_title')}
           </motion.h2>
@@ -195,7 +195,7 @@ export default function FocusZenContentMobile() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.4 }}
-            className="text-fluid-base mb-2 px-10 md:px-16 md:text-[2vw]"
+            className="text-fluid-base mb-2 px-10 md:px-16 md:!text-base"
           >
             {t('neurofeedback_desc_1')}
           </motion.p>
@@ -204,7 +204,7 @@ export default function FocusZenContentMobile() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.6 }}
-            className="text-fluid-base mb-8 md:text-[2vw]"
+            className="text-fluid-base mb-8 md:!text-base"
           >
             {t('neurofeedback_desc_2')}
           </motion.p>
@@ -232,14 +232,14 @@ export default function FocusZenContentMobile() {
                   whileInView={{ opacity: 1, x: 0 }}
                   viewport={{ once: true }}
                   transition={{ duration: 0.6, delay: index * 0.1 }}
-                  className="relative w-[14vw] md:w-[12vw]"
+                  className="relative w-[14vw]"
                 >
                   <Image
                     src={scene.image}
                     alt={`${t(scene.nameKey)} - FocusZen 正念场景示意图 / ${t(scene.nameKey)} - FocusZen Mindfulness Scene Illustration`}
                     width={58}
                     height={58}
-                    className="rounded md:h-[72px] md:w-[72px]"
+                    className="rounded md:h-[110px] md:w-[110px]"
                   />
                   <div className="absolute inset-0 flex flex-col items-center justify-center !text-white">
                     <Image
@@ -247,10 +247,10 @@ export default function FocusZenContentMobile() {
                       alt={`${t(scene.nameKey)} 场景图标 / ${t(scene.nameKey)} Scene Icon`}
                       width={12}
                       height={12}
-                      className="mb-1 md:h-4 md:w-4"
+                      className="mb-1 md:h-6 md:w-6"
                       role="presentation"
                     />
-                    <span className="scale-75 transform text-[10px] md:scale-100 md:text-[1.2vw]">
+                    <span className="scale-75 transform text-fluid-sm md:scale-100 md:!text-base">
                       {t(scene.nameKey)}
                     </span>
                   </div>
@@ -280,7 +280,7 @@ export default function FocusZenContentMobile() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6, delay: 0.2 }}
-              className="text-fluid-base mb-2 md:text-[2vw]"
+              className="text-fluid-base mx-auto mb-2 max-w-[80%] md:text-[2vw]"
             >
               {t('report_desc_1')}
             </motion.p>
@@ -289,7 +289,7 @@ export default function FocusZenContentMobile() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6, delay: 0.4 }}
-              className="text-fluid-base md:text-[2vw]"
+              className="text-fluid-base mx-auto max-w-[80%] md:text-[2vw]"
             >
               {t('report_desc_2')}
             </motion.p>
@@ -301,14 +301,14 @@ export default function FocusZenContentMobile() {
               alt="FocusZen 多维报告界面 1 - 专注力训练数据分析报告 / FocusZen Multi-Dimensional Report Interface 1 - Focus Training Data Analysis Report"
               width={180}
               height={300}
-              className="absolute top-0 left-10 z-10 md:left-16 md:h-[370px] md:w-[220px]"
+              className="absolute top-0 left-10 z-10 md:left-24 md:h-[370px] md:w-[220px]"
             />
             <Image
               src={imageUrls.report2}
               alt="FocusZen 多维报告界面 2 - 训练效果可视化图表 / FocusZen Multi-Dimensional Report Interface 2 - Training Effect Visualization Chart"
               width={180}
               height={300}
-              className="absolute right-10 bottom-0 md:right-16 md:h-[370px] md:w-[220px]"
+              className="absolute right-10 bottom-0 md:right-24 md:h-[370px] md:w-[220px]"
             />
           </div>
         </div>
@@ -333,7 +333,7 @@ export default function FocusZenContentMobile() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6, delay: 0.2 }}
-              className="text-fluid-base mb-2 md:text-[2vw]"
+              className="text-fluid-base mx-auto mb-2 max-w-[80%] md:text-[2vw]"
             >
               {t('content_desc_1')}
             </motion.p>
@@ -354,14 +354,14 @@ export default function FocusZenContentMobile() {
               alt="FocusZen 优质内容界面 1 - 正念冥想课程内容展示 / FocusZen Premium Content Interface 1 - Mindfulness Meditation Course Content Display"
               width={180}
               height={300}
-              className="absolute top-0 left-8 z-10 md:left-16 md:h-[370px] md:w-[220px]"
+              className="absolute top-0 left-16 z-10 md:left-24 md:h-[370px] md:w-[220px]"
             />
             <Image
               src={imageUrls.content2}
               alt="FocusZen 优质内容界面 2 - 训练课程内容详情 / FocusZen Premium Content Interface 2 - Training Course Content Details"
               width={180}
               height={300}
-              className="absolute right-8 bottom-0 md:right-16 md:h-[370px] md:w-[220px]"
+              className="absolute right-16 bottom-0 md:right-24 md:h-[370px] md:w-[220px]"
             />
           </div>
         </div>
@@ -377,7 +377,7 @@ export default function FocusZenContentMobile() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6 }}
-              className="text-fluid-3xl relative mb-8 inline-block pb-6 font-medium after:absolute after:bottom-0 after:left-1/2 after:h-[1px] after:w-[40px] after:-translate-x-1/2 after:bg-gray-900 after:content-[''] md:text-[3.75vw] md:after:w-[60px]"
+              className="text-fluid-3xl relative mb-8 inline-block pb-6 font-semibold after:absolute after:bottom-0 after:left-1/2 after:h-[1px] after:w-[40px] after:-translate-x-1/2 after:bg-gray-900 after:content-[''] md:text-[3.75vw] md:after:w-[60px]"
             >
               {t('group_mode_title')}
             </motion.h2>
@@ -386,7 +386,7 @@ export default function FocusZenContentMobile() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6, delay: 0.2 }}
-              className="text-fluid-base px-8 md:px-16 md:text-[2vw]"
+              className="text-fluid-base mx-auto max-w-[80%] px-8 md:px-16 md:text-[2vw]"
             >
               {t('group_mode_desc_1')}
               {t('group_mode_desc_2')}
@@ -459,7 +459,7 @@ export default function FocusZenContentMobile() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6 }}
-              className="text-fluid-3xl mb-8 font-medium md:text-[3.75vw]"
+              className="text-fluid-3xl mx-auto mb-8 max-w-[80%] font-semibold md:text-[3.75vw]"
             >
               {t('community_title')}
             </motion.h2>
@@ -468,7 +468,7 @@ export default function FocusZenContentMobile() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6, delay: 0.2 }}
-              className="text-fluid-base md:text-[2vw]"
+              className="text-fluid-base mx-auto max-w-[80%] md:text-[2vw]"
             >
               {t('community_desc_1')}
               {t('community_desc_2')}
@@ -481,28 +481,28 @@ export default function FocusZenContentMobile() {
               alt="FocusZen 社区练习场景 1 - 正念训练社区活动展示 / FocusZen Community Practice Scene 1 - Mindfulness Training Community Activity Display"
               width={131}
               height={237}
-              className="absolute top-8 left-12 md:top-12 md:left-20 md:h-[315px] md:w-[175px]"
+              className="absolute top-8 left-12 md:top-12 md:left-32 md:h-[315px] md:w-[175px]"
             />
             <Image
               src={imageUrls.community2}
               alt="FocusZen 社区练习场景 2 - 团体正念训练活动 / FocusZen Community Practice Scene 2 - Group Mindfulness Training Activity"
               width={131}
               height={237}
-              className="absolute top-20 left-1/2 z-20 -translate-x-1/2 md:top-24 md:h-[315px] md:w-[175px]"
+              className="absolute right-12 bottom-8 md:right-32 md:bottom-16 md:h-[315px] md:w-[175px]"
             />
             <Image
               src={imageUrls.community3}
               alt="FocusZen 社区练习场景 3 - 正念冥想社区互动 / FocusZen Community Practice Scene 3 - Mindfulness Meditation Community Interaction"
               width={131}
               height={237}
-              className="absolute top-6 right-8 md:top-12 md:right-20 md:h-[315px] md:w-[175px]"
+              className="absolute top-24 left-1/2 z-20 -translate-x-1/2 md:top-24 md:h-[315px] md:w-[175px]"
             />
             <Image
               src={imageUrls.community4}
               alt="FocusZen 社区练习装饰元素 1 / FocusZen Community Practice Decorative Element 1"
               width={44}
               height={58}
-              className="absolute top-14 right-32 z-10 md:top-20 md:right-40 md:h-[77px] md:w-[58px]"
+              className="absolute top-24 right-40 z-30 md:top-28 md:right-76 md:h-[77px] md:w-[58px]"
               role="presentation"
             />
             <Image
@@ -510,7 +510,7 @@ export default function FocusZenContentMobile() {
               alt="FocusZen 社区练习装饰元素 2 / FocusZen Community Practice Decorative Element 2"
               width={49}
               height={66}
-              className="absolute bottom-40 left-24 z-10 md:bottom-52 md:left-32 md:h-[88px] md:w-[65px]"
+              className="absolute bottom-20 left-36 z-30 md:bottom-28 md:left-56 md:h-[88px] md:w-[65px]"
               role="presentation"
             />
           </div>
@@ -527,15 +527,15 @@ export default function FocusZenContentMobile() {
           className="w-full"
           role="presentation"
         />
-        <div className="absolute inset-0 flex w-full items-center justify-end px-8 md:px-16">
-          <div className="max-w-[180px] text-right !text-white md:max-w-[240px]">
+        <div className="absolute inset-0 flex w-full items-center justify-end px-8 md:px-32">
+          <div className="max-w-[180px] text-right !text-white md:max-w-[360px]">
             <motion.h2
               id="business-solution-title-mobile"
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6 }}
-              className="text-fluid-base mb-2 font-normal md:text-[2vw]"
+              className="text-fluid-2xl mb-2 font-semibold md:!text-3xl"
             >
               {t('business_solution_title')}
             </motion.h2>
@@ -544,7 +544,7 @@ export default function FocusZenContentMobile() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6, delay: 0.2 }}
-              className="text-fluid-base mb-2 flex items-center justify-end space-x-2 md:text-[2vw]"
+              className="text-fluid-sm mb-2 flex items-center justify-end space-x-2 md:!text-base"
             >
               <span className="relative pr-4 after:absolute after:top-1/2 after:right-0 after:h-4 after:w-[3px] after:-translate-y-1/2 after:bg-white after:content-[''] md:after:h-5 md:after:w-[4px]">
                 {t('business_institution')}
@@ -556,7 +556,7 @@ export default function FocusZenContentMobile() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6, delay: 0.4 }}
-              className="text-fluid-sm mb-6 text-right md:text-[1.75vw]"
+              className="text-fluid-sm mb-6 text-right text-[#8F9297] md:!text-base"
             >
               {t('business_desc')}
             </motion.p>
@@ -596,7 +596,7 @@ export default function FocusZenContentMobile() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="text-fluid-3xl mb-4 px-8 font-normal md:px-16 md:text-[3.75vw]"
+          className="text-fluid-3xl mx-auto mb-4 max-w-[90%] px-8 font-semibold md:px-16 md:text-[3.75vw]"
         >
           {t('training_title')}
         </motion.h2>
@@ -605,7 +605,7 @@ export default function FocusZenContentMobile() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6, delay: 0.2 }}
-          className="text-fluid-base mb-2 px-4 md:px-16 md:text-[2vw]"
+          className="text-fluid-base mx-auto mb-2 max-w-[80%] px-4 md:px-16 md:text-[2vw]"
         >
           {t('training_desc_1')}
         </motion.p>
@@ -614,7 +614,7 @@ export default function FocusZenContentMobile() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6, delay: 0.4 }}
-          className="text-fluid-base mb-6 px-4 md:px-16 md:text-[2vw]"
+          className="text-fluid-base mx-auto mb-6 max-w-[80%] px-4 md:px-16 md:text-[2vw]"
         >
           {t('training_desc_2')}
         </motion.p>
@@ -632,7 +632,7 @@ export default function FocusZenContentMobile() {
             alt="FocusZen 训练数据补充图表 / FocusZen Training Data Additional Chart"
             width={67}
             height={122}
-            className="absolute right-7 bottom-0"
+            className="absolute right-7 bottom-0 md:right-72 md:bottom-0"
             role="presentation"
           />
         </div>
@@ -647,7 +647,7 @@ export default function FocusZenContentMobile() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
-            className="text-fluid-3xl mb-8 font-normal md:text-[3.75vw]"
+            className="text-fluid-3xl mx-auto mb-8 max-w-[90%] font-semibold md:text-[3.75vw]"
           >
             <span className="relative pr-3 after:absolute after:top-1/2 after:right-0 after:h-6 after:w-[2px] after:-translate-y-1/2 after:bg-gray-900 after:content-[''] md:after:h-8 md:after:w-[3px]">
               {t('meditation_corner')}
@@ -696,7 +696,7 @@ export default function FocusZenContentMobile() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
-            className="text-fluid-3xl mb-4 font-medium md:text-[3.75vw]"
+            className="text-fluid-3xl mx-auto mb-4 max-w-[90%] font-semibold md:text-[3.75vw]"
           >
             <span className="relative pr-3 after:absolute after:top-1/2 after:right-0 after:h-6 after:w-[2px] after:-translate-y-1/2 after:bg-gray-900 after:content-[''] md:after:h-8 md:after:w-[3px]">
               {t('salon_title')}
@@ -708,7 +708,7 @@ export default function FocusZenContentMobile() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.2 }}
-            className="text-fluid-base mb-2 md:text-[2vw]"
+            className="text-fluid-base mx-auto mb-2 max-w-[80%] md:text-[2vw]"
           >
             {t('salon_desc_1')}
           </motion.p>
@@ -717,7 +717,7 @@ export default function FocusZenContentMobile() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.4 }}
-            className="text-fluid-base mb-2 md:text-[2vw]"
+            className="text-fluid-base mx-auto mb-2 max-w-[80%] md:text-[2vw]"
           >
             {t('salon_desc_2')}
           </motion.p>
@@ -726,7 +726,7 @@ export default function FocusZenContentMobile() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.6 }}
-            className="text-fluid-base mb-8 md:text-[2vw]"
+            className="text-fluid-base mx-auto mb-8 max-w-[80%] md:text-[2vw]"
           >
             {t('salon_desc_3')}
           </motion.p>
@@ -751,11 +751,16 @@ export default function FocusZenContentMobile() {
                   className="w-full"
                 />
                 {img.labelKey && (
-                  <div className="absolute top-1/2 right-0 left-0 -translate-y-1/2 bg-black/30 py-2 md:py-3">
-                    <span className="text-fluid-base block text-center font-medium !text-white drop-shadow-lg md:text-[2vw]">
-                      {t(img.labelKey)}
-                    </span>
-                  </div>
+                  <>
+                    {/* 渐变模糊效果层 - 使用 mask 实现渐变模糊 */}
+                    <div className="absolute right-0 bottom-0 left-0 h-16 bg-white/10 [mask-image:linear-gradient(to_top,black_60%,transparent_100%)] backdrop-blur-sm md:h-20" />
+                    {/* 文字标签层 */}
+                    <div className="absolute right-0 bottom-0 left-0 z-10 flex h-12 items-center justify-center leading-[1.2] md:h-16">
+                      <span className="text-fluid-sm mx-auto block max-w-[80%] text-center font-semibold !text-white md:text-[2vw]">
+                        {t(img.labelKey)}
+                      </span>
+                    </div>
+                  </>
                 )}
               </motion.div>
             ))}
@@ -772,7 +777,7 @@ export default function FocusZenContentMobile() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
-            className="text-fluid-3xl mb-10 font-normal md:text-[3.75vw]"
+            className="text-fluid-3xl mx-auto mb-10 max-w-[90%] font-semibold md:!text-3xl"
           >
             {t('partners_title')}
           </motion.h2>
@@ -781,7 +786,7 @@ export default function FocusZenContentMobile() {
             whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
-            className="md:mx-auto md:max-w-[85%]"
+            className="mx-auto max-w-[90%] md:mx-auto md:max-w-[85%]"
           >
             <Image
               src={imageUrls.partners}

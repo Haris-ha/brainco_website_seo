@@ -111,11 +111,11 @@ export const salonImages: SalonImage[] = [
 // 图片 URLs
 export const imageUrls = {
   // Hero Banner
-  heroBanner: 'https://website-www-brainco-cn.oss-cn-hangzhou.aliyuncs.com/images/DyWnCFyTsz9KeXXb.webp',
+  heroBanner: 'https://www.brainco.cn/news-images/heor_fz.png',
   heroBannerMobile: 'https://website-www-brainco-cn.oss-cn-hangzhou.aliyuncs.com/images/MZP1fPJC7Pm2CBDc.webp',
 
   // 设备区块
-  deviceMain: 'https://website-www-brainco-cn.oss-cn-hangzhou.aliyuncs.com/images/EiG02Nkw09bPrGha.webp',
+  deviceMain: 'https://www.brainco.cn/news-images/image 225.png',
 
   // 视频区块
   videoPoster: 'https://website-www-brainco-cn.oss-cn-hangzhou.aliyuncs.com/images/TSexEDE8hwzhE39x.webp',

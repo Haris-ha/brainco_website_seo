@@ -18,7 +18,7 @@ export function SalonImageWithLabel({
   className = '',
 }: SalonImageWithLabelProps) {
   return (
-    <div className={`relative ${className}`}>
+    <div className={`relative overflow-hidden ${className}`}>
       <Image
         src={src}
         alt={alt}
@@ -26,8 +26,11 @@ export function SalonImageWithLabel({
         height={height}
         className="w-full"
       />
-      <div className="absolute top-1/2 right-0 left-0 -translate-y-1/2 bg-black/30 py-4">
-        <span className="block text-center text-2xl font-medium !text-white drop-shadow-lg md:text-3xl">
+      {/* 渐变模糊效果层 - 使用 mask 实现渐变模糊 */}
+      <div className="absolute right-0 bottom-0 left-0 h-20 bg-white/10 [mask-image:linear-gradient(to_top,black_60%,transparent_100%)] backdrop-blur-sm" />
+      {/* 文字标签层 */}
+      <div className="absolute right-0 bottom-0 left-0 z-10 flex h-16 items-center justify-center">
+        <span className="text-fluid-2xl block text-center font-semibold !text-white">
           {label}
         </span>
       </div>
