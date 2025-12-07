@@ -77,34 +77,34 @@ export default function EASleepContentMobile() {
   // Solution items data
   const solutionItems = [
     {
-      icon: 'https://website-www-brainco-cn.oss-cn-hangzhou.aliyuncs.com/images/EtrZirhCACXWpDdn.webp',
+      icon: 'https://www.brainco.cn/news-images/EEG Collection & Feedback.jpg',
       title: t('solution_1_title'),
       desc1: t('solution_1_desc1'),
       desc2: t('solution_1_desc2'),
       desc3: t('solution_1_desc3'),
     },
     {
-      icon: 'https://website-www-brainco-cn.oss-cn-hangzhou.aliyuncs.com/images/bneabYkc9aX27WRM.webp',
+      icon: 'https://www.brainco.cn/news-images/APP Smart Sleep System.jpg',
       title: t('solution_2_title'),
       desc1: t('solution_2_desc1'),
       desc2: t('solution_2_desc2'),
       desc3: t('solution_2_desc3'),
     },
     {
-      icon: 'https://website-www-brainco-cn.oss-cn-hangzhou.aliyuncs.com/images/k8PM0RWM525hbekd.webp',
+      icon: 'https://www.brainco.cn/news-images/B-CBTi Sleep Repair Solution.jpg',
       title: t('solution_3_title'),
       desc1: t('solution_3_desc1'),
       desc2: t('solution_3_desc2'),
     },
     {
-      icon: 'https://website-www-brainco-cn.oss-cn-hangzhou.aliyuncs.com/images/jtEXAd2hh7jBcxCp.webp',
+      icon: 'https://www.brainco.cn/news-images/Custom Sleep Plan.jpg',
       title: t('solution_4_title'),
       desc1: t('solution_4_desc1'),
       desc2: t('solution_4_desc2'),
       desc3: t('solution_4_desc3'),
     },
     {
-      icon: 'https://website-www-brainco-cn.oss-cn-hangzhou.aliyuncs.com/images/xa6H6p4pc4fPxQd2.webp',
+      icon: 'https://www.brainco.cn/news-images/Sleep Analysis Report.jpg',
       title: t('solution_5_title'),
       desc1: t('solution_5_desc1'),
       desc2: t('solution_5_desc2'),
@@ -115,17 +115,17 @@ export default function EASleepContentMobile() {
   // Patent features data
   const patentFeatures = [
     {
-      icon: 'https://website-www-brainco-cn.oss-cn-hangzhou.aliyuncs.com/images/blwYUB67kqptMoDV.webp',
+      icon: 'https://www.brainco.cn/news-images/Smart Sleep Induction.jpg',
       title: t('patent_feature_1_title'),
       desc: t('patent_feature_1_desc'),
     },
     {
-      icon: 'https://website-www-brainco-cn.oss-cn-hangzhou.aliyuncs.com/images/xHo7DZv40g2VnLp1.webp',
+      icon: 'https://www.brainco.cn/news-images/Sleep Detection.jpg',
       title: t('patent_feature_2_title'),
       desc: t('patent_feature_2_desc'),
     },
     {
-      icon: 'https://website-www-brainco-cn.oss-cn-hangzhou.aliyuncs.com/images/l8zc2vdARKXjgx9T.webp',
+      icon: 'https://www.brainco.cn/news-images/Safe & Stable.jpg',
       title: t('patent_feature_3_title'),
       desc: t('patent_feature_3_desc'),
     },
@@ -288,19 +288,19 @@ export default function EASleepContentMobile() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.8 }}
-          className="text-fluid-2xl pt-10 text-center md:text-[3vw]"
+          className="text-fluid-2xl text-center font-medium text-[#333] md:text-[3vw]"
         >
-          {`${t('research_title')} ${t('research_desc')}`}
+          {`${t('research_title')}`}
         </motion.h2>
-        {/* <motion.p
+        <motion.p
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.8, delay: 0.2 }}
-          className="text-fluid-lg px-10 text-center"
+          className="text-fluid-lg text-center text-[#111827] mt-6"
         >
           {t('research_desc')}
-        </motion.p> */}
+        </motion.p>
       </section>
 
       <div className="flex items-center justify-center gap-10 px-10 py-10 md:mx-auto md:max-w-[90vw] md:px-12">
@@ -327,14 +327,14 @@ export default function EASleepContentMobile() {
       />
 
       {/* Solution Section */}
-      <section className="px-4 py-10 text-center md:mx-auto md:max-w-[90vw] md:px-12">
+      <section className="px-4 pt-20 pb-10 text-center md:mx-auto md:max-w-[90vw] md:px-12">
         <motion.h2
           id="solution-title-mobile"
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.8 }}
-          className="text-fluid-3xl md:text-[3.75vw]"
+          className="text-fluid-3xl font-medium text-[#333] md:text-[3.75vw]"
         >
           {t('solution_title')}
         </motion.h2>
@@ -351,17 +351,17 @@ export default function EASleepContentMobile() {
             className="flex flex-col items-center justify-center gap-4"
           >
             <Image
-              className="mb-2 h-10 w-auto md:h-12"
+              className="mb-2 h-12 w-12 md:h-14"
               src={item.icon}
               alt={`${item.title} - EASleep 解决方案功能图标 / ${item.title} - EASleep Solution Feature Icon`}
               width={40}
               height={40}
             />
-            <h3 className="text-fluid-base text-center md:text-[2vw]">{item.title}</h3>
-            <p className="text-fluid-base text-center md:text-[2vw]">{item.desc1}</p>
-            <p className="text-fluid-base text-center md:text-[2vw]">{item.desc2}</p>
+            <h3 className="text-fluid-xl text-center font-medium text-[#111827] md:text-[2vw]">{item.title}</h3>
+            <p className="text-fluid-base text-center text-[#111827] md:text-[2vw]">{item.desc1}</p>
+            <p className="text-fluid-base text-center text-[#111827] md:text-[2vw]">{item.desc2}</p>
             {item.desc3 && (
-              <p className="text-fluid-base text-center md:text-[2vw]">{item.desc3}</p>
+              <p className="text-fluid-base text-center text-[#111827] md:text-[2vw]">{item.desc3}</p>
             )}
           </motion.article>
         ))}
@@ -383,7 +383,7 @@ export default function EASleepContentMobile() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.8 }}
-          className="text-fluid-3xl mb-10 px-4 text-center font-normal text-[#333333] md:text-[3.75vw]"
+          className="text-fluid-3xl mb-10 px-4 text-center font-medium text-[#333] md:text-[3.75vw]"
         >
           {t('patent_title')}
         </motion.h2>
@@ -450,7 +450,7 @@ export default function EASleepContentMobile() {
               whileInView={{ opacity: 1, scale: 1 }}
               viewport={{ once: true }}
               transition={{ duration: 0.3, delay: index * 0.02 }}
-              className="text-fluid-base text-[#ccc] md:text-[2vw]"
+              className="text-fluid-base text-[#ACACAC] md:text-[2vw]"
             >
               {t('spec_patent_prefix')}
               {patent}
@@ -467,7 +467,7 @@ export default function EASleepContentMobile() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.8 }}
-          className="text-fluid-3xl mb-4 md:text-[3.75vw]"
+          className="text-fluid-3xl mb-4 font-medium text-[#333] md:text-[3.75vw]"
         >
           {t('ces_title')}
         </motion.h2>
@@ -476,9 +476,19 @@ export default function EASleepContentMobile() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.8, delay: 0.2 }}
-          className="text-fluid-lg md:text-[2.25vw]"
+          className="text-fluid-lg font-light text-[#111827] md:text-[2.25vw]"
         >
           {t('ces_desc')}
+        </motion.p>
+
+        <motion.p
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.8, delay: 0.4 }}
+          className="text-fluid-lg mt-6 leading-relaxed font-light text-[#111827] md:text-[2vw]"
+        >
+          {t('ces_notice')}
         </motion.p>
       </section>
 
@@ -557,7 +567,7 @@ export default function EASleepContentMobile() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.8 }}
-          className="text-fluid-3xl mb-4 md:text-[3.75vw]"
+          className="text-fluid-3xl mb-4 font-medium text-[#333] md:text-[3.75vw]"
         >
           {t('binaural_title')}
         </motion.h2>
@@ -592,7 +602,7 @@ export default function EASleepContentMobile() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.8 }}
-          className="text-fluid-xl md:text-[2.5vw]"
+          className="text-fluid-3xl font-medium text-[#333] md:text-[3.75vw]"
         >
           {t('manager_title')}
         </motion.h2>
@@ -601,7 +611,7 @@ export default function EASleepContentMobile() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.8, delay: 0.2 }}
-          className="text-fluid-lg md:text-[2.25vw]"
+          className="text-fluid-lg md:text-[2.25vw] mt-6"
         >
           {t('manager_desc1')}
           <br />
