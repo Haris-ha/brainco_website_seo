@@ -416,7 +416,7 @@ export default function EASleepContent() {
 
               {/* Third row - 1 item */}
               <div className="w-1/2">
-                {solutionItems.slice(4, 5).map((item, index) => (
+                {solutionItems.slice(4, 5).map((item) => (
                   <motion.div
                     key={`solution-${item.title}`}
                     initial={{ opacity: 0, y: 20 }}
