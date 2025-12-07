@@ -17,30 +17,30 @@ export default function OxyZenContentMobile({ productInfo }: OxyZenContentMobile
   const [isScrolling, setIsScrolling] = useState(false);
   const [isAtBottom, setIsAtBottom] = useState(false);
 
-  // 9D解析维度位置配置 - 根据语言调整每个圈的水平定位
+  // 9D解析维度位置配置 - 爱心弧度等距分布
   // 你可以在这里调整每个维度的 left/right 值来适配不同语言的文本宽度
   const dimensionPositions: Record<string, Record<string, string>> = {
     'zh-CN': {
-      dimension_1: 'top-0 left-[-3.33vw]',
-      dimension_2: 'top-1/4 left-[-8.33vw]',
-      dimension_3: 'top-1/2 left-[-7.33vw]',
-      dimension_4: 'bottom-[5.33vw] left-[6vw]',
-      dimension_5: 'bottom-[-4] left-[40%]',
-      dimension_6: 'right-[0] bottom-[5.33vw]',
-      dimension_7: 'right-[-6.33vw] top-1/2',
-      dimension_8: 'right-[-6.33vw] top-1/4',
-      dimension_9: 'right-[0] top-0',
+      dimension_1: 'top-[-16vw] left-[0vw]', // 左上 - 略微向内
+      dimension_2: 'top-[0vw] left-[-6vw]', // 左中上 - 向外
+      dimension_3: 'top-[18vw] left-[-6vw]', // 左中 - 最外侧（爱心最宽处）
+      dimension_4: 'top-[37vw] left-[-6vw]', // 左中下 - 向内收
+      dimension_5: 'bottom-[0vw] left-1/2 -translate-x-1/2', // 底部中间 - 爱心尖端
+      dimension_6: 'top-[37vw] right-[-6vw]', // 右中下 - 向内收（对称）
+      dimension_7: 'top-[18vw] right-[-6vw]', // 右中 - 最外侧（对称）
+      dimension_8: 'top-[0vw] right-[-6vw]', // 右中上 - 向外（对称）
+      dimension_9: 'top-[-16vw] right-[-4vw]', // 右上 - 略微向内（对称）
     },
     'en-US': {
-      dimension_1: 'top-0 left-[-9.33vw]',
-      dimension_2: 'top-1/4 left-[-12.33vw]',
-      dimension_3: 'top-1/2 left-[-7.33vw]',
-      dimension_4: 'bottom-[5.33vw] left-[-5vw]',
-      dimension_5: 'bottom-[-4] left-[40%]',
-      dimension_6: 'right-[-10.33vw] bottom-[5.33vw]',
-      dimension_7: 'right-[-8.33vw] top-1/2',
-      dimension_8: 'right-[-10.33vw] top-1/4',
-      dimension_9: 'right-[-10.33vw] top-0',
+      dimension_1: 'top-[-16vw] left-[-6vw]', // 左上 - 略微向内
+      dimension_2: 'top-[0vw] left-[-11vw]', // 左中上 - 向外
+      dimension_3: 'top-[18vw] left-[-10vw]', // 左中 - 最外侧（爱心最宽处）
+      dimension_4: 'top-[37vw] left-[-10vw]', // 左中下 - 向内收
+      dimension_5: 'bottom-[0vw] left-1/2 -translate-x-1/2', // 底部中间 - 爱心尖端
+      dimension_6: 'top-[37vw] right-[-12vw]', // 右中下 - 向内收（对称）
+      dimension_7: 'top-[18vw] right-[-11vw]', // 右中 - 最外侧（对称）
+      dimension_8: 'top-[0vw] right-[-12vw]', // 右中上 - 向外（对称）
+      dimension_9: 'top-[-16vw] right-[-8vw]', // 右上 - 略微向内（对称）
     },
     // 可以添加更多语言配置
     // 'zh-TW': { ... },
@@ -87,42 +87,40 @@ export default function OxyZenContentMobile({ productInfo }: OxyZenContentMobile
   }, []);
 
   return (
-    <main className="bg-white text-[#333]">
+    <main className="overflow-hidden bg-white text-[#333]">
       {/* Hero Banner */}
       <header className="relative mt-24" role="img" aria-label="OxyZen 正念冥想产品 - 移动端 / OxyZen Mindfulness Product - Mobile">
         <Image
-          src="https://website-www-brainco-cn.oss-cn-hangzhou.aliyuncs.com/images/Iq43zFOho6u9SW5N.png"
+          src="https://www.brainco.cn/news-images/hero_oz.jpg"
           alt={`${t('product_name')} - OxyZen 氧气能量补充设备 - 移动端产品展示 / ${t('product_name')} - OxyZen Oxygen Energy Device - Mobile Product Display`}
           width={750}
           height={1000}
           className="h-auto w-full"
+          priority
         />
-        <div className="absolute top-0 right-0 left-0 pt-10 text-center md:pt-16">
+        <div className="absolute top-0 right-0 bottom-0 flex w-1/2 flex-col items-start justify-center px-6 md:px-12">
           <motion.h1
-            className="text-fluid-4xl font-normal !text-white md:text-[4.5vw]"
+            className="text-fluid-4xl mb-3 text-left font-bold text-[#333] md:text-[4.5vw]"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
           >
             {t('product_name')}
           </motion.h1>
-          <motion.h2
-            id="product-subtitle-mobile"
-            className="text-fluid-3xl mt-2 font-normal md:text-[3.75vw]"
+          <motion.p
+            className="text-fluid-lg mb-1 text-left text-[#333] md:text-[2.25vw]"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.2, duration: 0.8 }}
           >
-            {t('product_subtitle')}
-          </motion.h2>
+            {t('tagline_1')}
+          </motion.p>
           <motion.p
-            className="text-fluid-lg mt-4 md:text-[2.25vw]"
+            className="text-fluid-lg mb-4 text-left text-[#333] md:text-[2.25vw]"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.4, duration: 0.8 }}
           >
-            {t('tagline_1')}
-            {' '}
             {t('tagline_2')}
           </motion.p>
         </div>
@@ -138,16 +136,48 @@ export default function OxyZenContentMobile({ productInfo }: OxyZenContentMobile
       />
 
       {/* Award */}
-      <section className="px-6 py-9 text-center md:px-12 md:py-12">
+      <section className="px-6 py-6 text-center md:px-12 md:py-12">
         <motion.p
-          className="text-fluid-base md:text-[2vw]"
+          className="text-fluid-base mb-4 md:text-[2vw] max-w-[80%] mx-auto"
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ delay: 0.4, duration: 0.8 }}
+        >
+          {t('award_text')}
+        </motion.p>
+        <motion.div
+          className="mb-6"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.8 }}
         >
-          {t('award_text')}
-        </motion.p>
+          <Image
+            src="https://www.brainco.cn/news-images/reward.png"
+            alt="OxyZen 奖项标识 / OxyZen Award Badges"
+            width={400}
+            height={224}
+            className="mx-auto h-auto w-[80%] max-w-[400px] md:w-[60%]"
+          />
+        </motion.div>
+
+        {/* <motion.div
+          className="mb-4"
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ delay: 0.2, duration: 0.8 }}
+        >
+          <Image
+            src="https://website-www-brainco-cn.oss-cn-hangzhou.aliyuncs.com/images/5fiJCWcxEy5VLUxa.webp"
+            alt="OxyZen 获奖标识 / OxyZen Award Logo"
+            width={290}
+            height={100}
+            className="mx-auto h-auto w-[60%] max-w-[200px] md:w-[40%]"
+          />
+        </motion.div> */}
+
       </section>
 
       {/* Data Collection */}
@@ -175,11 +205,11 @@ export default function OxyZenContentMobile({ productInfo }: OxyZenContentMobile
       </section>
 
       {/* Icons Row */}
-      <div className="flex justify-center gap-8 px-6 py-5 md:gap-12 md:px-12 md:py-8">
+      <div className="flex justify-center gap-8 px-6 pb-5 md:gap-12 md:px-12 md:pb-8">
         {[
-          { icon: 'https://website-www-brainco-cn.oss-cn-hangzhou.aliyuncs.com/images/product/oxyzen/brain.webp', label: 'eeg' },
-          { icon: 'https://website-www-brainco-cn.oss-cn-hangzhou.aliyuncs.com/images/product/oxyzen/heart.webp', label: 'heart_rate' },
-          { icon: 'https://website-www-brainco-cn.oss-cn-hangzhou.aliyuncs.com/images/product/oxyzen/blood.webp', label: 'blood_oxygen' },
+          { icon: 'https://www.brainco.cn/news-images/eeg.png', label: 'eeg' },
+          { icon: 'https://www.brainco.cn/news-images/Heart rate.png', label: 'heart_rate' },
+          { icon: 'https://www.brainco.cn/news-images/Blood oxygen.png', label: 'blood_oxygen' },
         ].map((item, index) => (
           <motion.div
             key={item.label}
@@ -194,7 +224,7 @@ export default function OxyZenContentMobile({ productInfo }: OxyZenContentMobile
               alt={`${t(item.label as any)} - OxyZen 数据采集功能图标 / ${t(item.label as any)} - OxyZen Data Collection Feature Icon`}
               width={15}
               height={15}
-              className="mr-2 h-auto w-auto md:mr-3 md:h-5 md:w-5"
+              className="mr-2 h-8 w-8 md:mr-2 md:h-8 md:w-8"
             />
             <span className="text-fluid-base whitespace-nowrap md:text-[2vw]">{t(item.label as any)}</span>
           </motion.div>
@@ -220,88 +250,91 @@ export default function OxyZenContentMobile({ productInfo }: OxyZenContentMobile
       </div>
 
       {/* Design Features */}
-      <section className="mt-12 bg-[#edf1f2] px-5 py-5 md:mt-16 md:px-12 md:py-8">
-        {/* Card 1 */}
-        <div className="mb-5 flex gap-5 md:mb-8 md:gap-8">
+      <section className="bg-[#edf1f2] px-4 py-6 md:px-[5vw] md:py-[5vw]">
+        <div className="mx-auto grid max-w-full grid-cols-5 grid-rows-5 gap-[2vw] md:max-w-[85vw] md:gap-[1.5vw]">
+          {/* 左上：Detachable Magnetic Design */}
           <motion.div
-            className="w-[51.73vw] rounded-xl bg-white px-5 py-5 text-center md:w-[48%] md:px-6 md:py-6"
-            initial={{ opacity: 0, x: -20 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.8 }}
-          >
-            <h3 className="text-fluid-xl mb-2 font-medium md:text-[2.5vw]">{t('design_magnetic_title')}</h3>
-            <p
-              className="text-fluid-base leading-relaxed md:text-[2vw]"
-              dangerouslySetInnerHTML={{ __html: t('design_magnetic_desc').replace(/\n/g, ' ') }}
-            />
-            <Image
-              src="https://website-www-brainco-cn.oss-cn-hangzhou.aliyuncs.com/images/product/oxyzen/style1.webp"
-              alt={`${t('design_magnetic_title')} - OxyZen 磁吸设计示意图 / ${t('design_magnetic_title')} - OxyZen Magnetic Design Illustration`}
-              width={149}
-              height={76}
-              className="mx-auto mt-1 h-auto w-[39.73vw] md:mt-2 md:w-[60%]"
-            />
-          </motion.div>
-
-          <motion.div
-            className="w-[35.73vw] rounded-xl bg-white px-5 py-5 text-center md:w-[48%] md:px-6 md:py-6"
-            initial={{ opacity: 0, x: 20 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.8 }}
-          >
-            <h3 className="text-fluid-xl mb-2 font-medium md:text-[2.5vw]">{t('design_comfortable_title')}</h3>
-            <p
-              className="text-fluid-base leading-relaxed md:text-[2vw]"
-              dangerouslySetInnerHTML={{ __html: t('design_comfortable_desc').replace(/\n/g, ' ') }}
-            />
-            <Image
-              src="https://website-www-brainco-cn.oss-cn-hangzhou.aliyuncs.com/images/product/oxyzen/style2.webp"
-              alt={`${t('design_comfortable_title')} - OxyZen 舒适设计示意图 / ${t('design_comfortable_title')} - OxyZen Comfortable Design Illustration`}
-              width={73}
-              height={52}
-              className="mx-auto mt-1 h-auto w-[19.46vw] md:mt-2 md:w-[50%]"
-            />
-          </motion.div>
-        </div>
-
-        {/* Cards 2 */}
-        <div className="flex gap-5 md:gap-8">
-          <motion.div
-            className="flex items-center justify-center overflow-hidden rounded-xl bg-white md:w-[48%]"
-            initial={{ opacity: 0, y: 20 }}
+            className="col-span-3 row-span-3 flex flex-col items-start justify-start rounded-2xl bg-white p-4 md:rounded-[2vw] md:p-[3vw]"
+            initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8 }}
           >
+            <h3 className="text-fluid-2xl mb-2 font-semibold text-[#111827] md:mb-4">{t('design_magnetic_title')}</h3>
+            <div className="text-fluid-sm mb-3 space-y-2 leading-relaxed text-[#333] md:mb-6 md:space-y-4">
+              {t('design_magnetic_desc').split('\n').map((line, index) => (
+                <p key={index}>{line}</p>
+              ))}
+            </div>
             <Image
-              src="https://website-www-brainco-cn.oss-cn-hangzhou.aliyuncs.com/images/product/oxyzen/style3.webp"
-              alt="OxyZen 设计特性展示图 - 产品外观与功能展示 / OxyZen Design Features Display - Product Appearance and Functionality"
-              width={206}
-              height={200}
-              className="h-auto w-full"
+              src="https://website-www-brainco-cn.oss-cn-hangzhou.aliyuncs.com/images/LewVPJHtk60Dy2hS.webp"
+              alt={`${t('design_magnetic_title')} - OxyZen 磁吸设计示意图 / ${t('design_magnetic_title')} - OxyZen Magnetic Design Illustration`}
+              width={568}
+              height={300}
+              className="mt-auto h-auto w-full object-contain"
             />
           </motion.div>
 
+          {/* 右上：Comfortable & Skin-friendly */}
           <motion.div
-            className="w-[32vw] rounded-xl bg-white px-5 py-5 text-center md:w-[48%] md:px-6 md:py-6"
-            initial={{ opacity: 0, y: 20 }}
+            className="col-span-2 row-span-3 flex flex-col items-start justify-start rounded-2xl bg-white p-4 md:rounded-[2vw] md:p-[3vw]"
+            initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.1, duration: 0.8 }}
           >
-            <h3 className="text-fluid-xl mb-2 font-medium md:text-[2.5vw]">{t('design_portable_title')}</h3>
-            <p
-              className="text-fluid-base leading-relaxed md:text-[2vw]"
-              dangerouslySetInnerHTML={{ __html: t('design_portable_desc').replace(/\n/g, ' ') }}
-            />
+            <h3 className="text-fluid-2xl mb-2 font-semibold text-[#111827] md:mb-4">{t('design_comfortable_title')}</h3>
+            <div className="text-fluid-sm mb-3 space-y-2 leading-relaxed text-[#333] md:mb-6 md:space-y-4">
+              {t('design_comfortable_desc').split('\n').map((line, index) => (
+                <p key={index}>{line}</p>
+              ))}
+            </div>
             <Image
-              src="https://website-www-brainco-cn.oss-cn-hangzhou.aliyuncs.com/images/product/oxyzen/style4.webp"
+              src="https://website-www-brainco-cn.oss-cn-hangzhou.aliyuncs.com/images/CrrdayolPeH3kgXx.webp"
+              alt={`${t('design_comfortable_title')} - OxyZen 舒适设计示意图 / ${t('design_comfortable_title')} - OxyZen Comfortable Design Illustration`}
+              width={275}
+              height={200}
+              className="mx-auto mt-auto h-auto w-[80%] object-contain"
+            />
+          </motion.div>
+
+          {/* 左下：多彩头带图片 */}
+          <motion.div
+            className="col-span-3 row-span-2 flex items-center justify-center overflow-hidden rounded-2xl bg-white pb-2 md:rounded-[2vw] md:pb-[2vw]"
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.2, duration: 0.8 }}
+          >
+            <Image
+              src="https://website-www-brainco-cn.oss-cn-hangzhou.aliyuncs.com/images/beazFEGimF59Rbvo.webp"
+              alt="OxyZen 设计特性展示图 - 产品外观与功能展示 / OxyZen Design Features Display - Product Appearance and Functionality"
+              width={736}
+              height={400}
+              className="h-full w-full object-cover"
+            />
+          </motion.div>
+
+          {/* 右下：Lightweight & Portable */}
+          <motion.div
+            className="col-span-2 row-span-2 flex flex-col items-start justify-start rounded-2xl bg-white p-4 md:rounded-[2vw] md:p-[3vw]"
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.3, duration: 0.8 }}
+          >
+            <h3 className="text-fluid-2xl mb-2 font-semibold text-[#111827] md:mb-4">{t('design_portable_title')}</h3>
+            <div className="text-fluid-sm mb-3 space-y-2 leading-relaxed text-[#333] md:mb-10 md:space-y-4">
+              {t('design_portable_desc').split('\n').map((line, index) => (
+                <p key={index}>{line}</p>
+              ))}
+            </div>
+            <Image
+              src="https://website-www-brainco-cn.oss-cn-hangzhou.aliyuncs.com/images/SEH2rPIKwdnQxgx1.webp"
               alt={`${t('design_portable_title')} - OxyZen 便携设计示意图 / ${t('design_portable_title')} - OxyZen Portable Design Illustration`}
-              width={102}
-              height={100}
-              className="mx-auto mt-1 h-auto w-[27.2vw] md:mt-2 md:w-[50%]"
+              width={390}
+              height={300}
+              className="mt-auto h-auto w-full object-contain"
             />
           </motion.div>
         </div>
@@ -334,9 +367,9 @@ export default function OxyZenContentMobile({ productInfo }: OxyZenContentMobile
       {/* Icons Row 2 */}
       <div className="flex justify-center gap-4 px-6 pb-5 md:gap-12 md:px-12 md:pb-8">
         {[
-          { icon: 'https://website-www-brainco-cn.oss-cn-hangzhou.aliyuncs.com/images/product/oxyzen/chart.webp', label: 'mindfulness_index' },
-          { icon: 'https://website-www-brainco-cn.oss-cn-hangzhou.aliyuncs.com/images/product/oxyzen/heart.webp', label: 'heart_rate' },
-          { icon: 'https://website-www-brainco-cn.oss-cn-hangzhou.aliyuncs.com/images/product/oxyzen/blood.webp', label: 'blood_oxygen' },
+          { icon: 'https://www.brainco.cn/news-images/meditation state.png', label: 'mindfulness_index' },
+          { icon: 'https://www.brainco.cn/news-images/Heart rate.png', label: 'heart_rate' },
+          { icon: 'https://www.brainco.cn/news-images/Blood oxygen.png', label: 'blood_oxygen' },
         ].map((item, index) => (
           <motion.div
             key={item.label}
@@ -351,7 +384,7 @@ export default function OxyZenContentMobile({ productInfo }: OxyZenContentMobile
               alt={`${t(item.label as any)} - OxyZen 3D指标功能图标 / ${t(item.label as any)} - OxyZen 3D Indicator Feature Icon`}
               width={15}
               height={15}
-              className="mr-2 h-auto w-auto md:mr-3 md:h-5 md:w-5"
+              className="mr-1 h-12 w-12 md:mr-2 md:h-14 md:w-14"
             />
             <span className="text-fluid-base whitespace-nowrap md:text-[2vw]">{t(item.label as any)}</span>
           </motion.div>
@@ -359,9 +392,9 @@ export default function OxyZenContentMobile({ productInfo }: OxyZenContentMobile
       </div>
 
       {/* App Image */}
-      <div className="px-[18.66vw] md:px-[25vw]">
+      <div className="px-[18.66vw] md:px-[25vw] mb-10">
         <Image
-          src="https://website-www-brainco-cn.oss-cn-hangzhou.aliyuncs.com/images/product/oxyzen/app.webp"
+          src="https://www.brainco.cn/news-images/screen_home.png"
           alt="OxyZen 3D指标应用界面展示 - 健康数据可视化 / OxyZen 3D Indicators App Interface Display - Health Data Visualization"
           width={500}
           height={400}
@@ -370,7 +403,7 @@ export default function OxyZenContentMobile({ productInfo }: OxyZenContentMobile
       </div>
 
       {/* 9D Parsing */}
-      <section className="px-6 py-10 text-center md:px-12 md:py-12">
+      <section className="bg-[#F6F6F6] px-6 py-10 text-center md:px-12 md:py-12">
         <motion.h2
           id="parsing-title-mobile"
           className="text-fluid-3xl mb-4 font-medium md:mb-6 md:text-[3.75vw]"
@@ -393,32 +426,75 @@ export default function OxyZenContentMobile({ productInfo }: OxyZenContentMobile
         />
 
         {/* Circular Layout */}
-        <div className="relative mx-auto mt-22 h-[53.33vw] w-[90.66vw] rounded-full border border-[#d8d6d6] p-[2.66vw] md:mt-28 md:h-[45vw] md:w-[70vw] md:p-[3vw]">
-          <div className="h-full w-full rounded-full border border-[#d8d6d6]" />
+        <div className="relative mx-auto mt-22 h-[53.33vw] w-[90.66vw] rounded-full p-[2.66vw] md:mt-28 md:h-[45vw] md:w-[70vw] md:p-[3vw]">
 
-          <Image
-            src="https://website-www-brainco-cn.oss-cn-hangzhou.aliyuncs.com/images/WAowa05JcAyTF6AL.webp"
-            alt="OxyZen 9D解析维度图 1 - 健康数据分析维度 / OxyZen 9D Parsing Dimension 1 - Health Data Analysis Dimension"
-            width={96}
-            height={80}
-            className="absolute top-0 left-1/2 z-10 h-auto w-[25.6vw] -translate-x-[25.6vw] -translate-y-[14.66vw] md:w-[20vw] md:-translate-x-[20vw] md:-translate-y-[12vw]"
-            role="presentation"
-          />
-          <Image
-            src="https://website-www-brainco-cn.oss-cn-hangzhou.aliyuncs.com/images/Ls3phK4hHBivlNDI.webp"
-            alt="OxyZen 9D解析维度图 2 - 健康数据分析维度 / OxyZen 9D Parsing Dimension 2 - Health Data Analysis Dimension"
-            width={96}
-            height={80}
-            className="absolute top-0 left-1/2 h-auto w-[25.6vw] -translate-x-[5.33vw] -translate-y-[10.33vw] md:w-[20vw] md:-translate-x-[4vw] md:-translate-y-[8vw]"
-            role="presentation"
-          />
-          <Image
-            src="https://website-www-brainco-cn.oss-cn-hangzhou.aliyuncs.com/images/Tyw4f2mxbbxhy7kD.png"
-            alt="OxyZen 9D解析中心图 - 多维度健康数据分析 / OxyZen 9D Parsing Center - Multi-dimensional Health Data Analysis"
-            width={107}
-            height={100}
-            className="absolute top-1/2 left-1/2 z-20 h-auto w-[28.53vw] -translate-x-1/2 -translate-y-[10.66vw] md:w-[22vw] md:-translate-y-[8.5vw]"
-          />
+          {/* 左侧第一张手机截图 - 最低 */}
+          <motion.div
+            className="absolute top-0 left-1/2 z-10 -translate-x-[33vw] -translate-y-[10vw] md:-translate-x-[28vw] md:-translate-y-[8vw]"
+            initial={{ opacity: 0, y: 30, scale: 0.9 }}
+            whileInView={{ opacity: 1, y: 0, scale: 1 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.2, duration: 0.8 }}
+          >
+            <Image
+              src="https://www.brainco.cn/news-images/report1.png"
+              alt="OxyZen 9D解析维度图 1 - 健康数据分析维度 / OxyZen 9D Parsing Dimension 1 - Health Data Analysis Dimension"
+              width={96}
+              height={80}
+              className="h-auto w-[25.6vw] md:w-[20vw]"
+              role="presentation"
+            />
+          </motion.div>
+          {/* 中间第二张手机截图 - 最高 */}
+          <motion.div
+            className="absolute top-0 left-1/2 -translate-x-[12.8vw] -translate-y-[16vw] md:-translate-x-[10vw] md:-translate-y-[14vw]"
+            initial={{ opacity: 0, y: 30, scale: 0.9 }}
+            whileInView={{ opacity: 1, y: 0, scale: 1 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.3, duration: 0.8 }}
+          >
+            <Image
+              src="https://www.brainco.cn/news-images/report2.png"
+              alt="OxyZen 9D解析维度图 2 - 健康数据分析维度 / OxyZen 9D Parsing Dimension 2 - Health Data Analysis Dimension"
+              width={96}
+              height={80}
+              className="h-auto w-[25.6vw] md:w-[20vw]"
+              role="presentation"
+            />
+          </motion.div>
+          {/* 右侧第三张手机截图 - 比第一张稍高 */}
+          <motion.div
+            className="absolute top-0 left-1/2 translate-x-[7vw] -translate-y-[12vw] md:translate-x-[8vw] md:-translate-y-[10vw]"
+            initial={{ opacity: 0, y: 30, scale: 0.9 }}
+            whileInView={{ opacity: 1, y: 0, scale: 1 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.4, duration: 0.8 }}
+          >
+            <Image
+              src="https://www.brainco.cn/news-images/report3.png"
+              alt="OxyZen 9D解析维度图 3 - 健康数据分析维度 / OxyZen 9D Parsing Dimension 3 - Health Data Analysis Dimension"
+              width={96}
+              height={80}
+              className="h-auto w-[25.6vw] md:w-[20vw]"
+              role="presentation"
+            />
+          </motion.div>
+          {/* 中心莲花图 */}
+          <motion.div
+            className="absolute top-[60%] left-1/2 z-20 -translate-x-1/2 -translate-y-[10.66vw] md:-translate-y-[8.5vw]"
+            initial={{ opacity: 0, scale: 0.8 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.5, duration: 1, ease: 'easeOut' }}
+          >
+            <Image
+              src="https://website-www-brainco-cn.oss-cn-hangzhou.aliyuncs.com/images/Tyw4f2mxbbxhy7kD.png"
+              alt="OxyZen 9D解析中心图 - 多维度健康数据分析 / OxyZen 9D Parsing Center - Multi-dimensional Health Data Analysis"
+              width={107}
+              height={100}
+              className="h-auto w-[28.53vw] md:w-[22vw]"
+            />
+          </motion.div>
 
           <ul className="absolute top-0 left-0 h-full w-full">
             {[
@@ -450,17 +526,17 @@ export default function OxyZenContentMobile({ productInfo }: OxyZenContentMobile
       {/* Sleep Content */}
       <section className="relative">
         <Image
-          src="https://website-www-brainco-cn.oss-cn-hangzhou.aliyuncs.com/images/product/oxyzen/more.webp"
+          src="https://www.brainco.cn/news-images/group_mindfulness.jpg"
           alt="OxyZen 睡眠内容背景图 - 优质睡眠内容展示 / OxyZen Sleep Content Background - Premium Sleep Content Display"
           width={750}
           height={500}
           className="h-auto w-full"
           role="presentation"
         />
-        <div className="absolute top-0 right-0 left-0 px-4 pt-10 text-center !text-white md:px-12 md:pt-16">
+        <div className="absolute top-0 right-0 left-0 px-4 pt-2 text-center !text-[#333] md:px-12 md:pt-16">
           <motion.h2
             id="content-title-mobile"
-            className="text-fluid-3xl mb-2.5 font-medium md:mb-4 md:text-[3.75vw]"
+            className="text-fluid-2xl mb-1 font-medium md:mb-4 md:text-[2.5vw]"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}

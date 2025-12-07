@@ -4,12 +4,12 @@ import { codeInspectorPlugin } from 'code-inspector-plugin';
 import createNextIntlPlugin from 'next-intl/plugin';
 import './src/libs/Env';
 
-// Define the base Next.js configuration
 const baseConfig: NextConfig = {
-  eslint: {
-    dirs: ['.'],
-    ignoreDuringBuilds: true,
-  },
+  // 添加 CDN 域名配置
+  assetPrefix:
+    process.env.NODE_ENV === 'production'
+      ? process.env.NEXT_PUBLIC_CDN_URL
+      : '',
   turbopack: {
     rules: codeInspectorPlugin({
       bundler: 'turbopack',

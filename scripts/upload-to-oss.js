@@ -28,8 +28,9 @@ dotenv.config({ path: '.env.local' });
 dotenv.config({ path: '.env' });
 
 // 配置
+const ossRegion = process.env.OSS_REGION?.trim() || 'oss-cn-hangzhou';
 const config = {
-  region: process.env.OSS_REGION || 'oss-cn-hangzhou',
+  region: ossRegion,
   accessKeyId: process.env.OSS_ACCESS_KEY_ID,
   accessKeySecret: process.env.OSS_ACCESS_KEY_SECRET,
   bucket: process.env.OSS_BUCKET,
@@ -43,6 +44,19 @@ if (!config.accessKeyId || !config.accessKeySecret || !config.bucket) {
   console.error('  - OSS_ACCESS_KEY_SECRET');
   console.error('  - OSS_BUCKET');
   console.error('  - OSS_REGION (可选，默认 oss-cn-hangzhou)');
+  process.exit(1);
+}
+
+// 验证 region 格式
+const validRegionPattern = /^oss-[a-z]+-[a-z]+(-\d+)?$/;
+if (!validRegionPattern.test(config.region)) {
+  console.error('❌ 错误：OSS_REGION 格式不正确');
+  console.error(`当前值: "${config.region}"`);
+  console.error('正确格式示例: oss-cn-hangzhou, oss-cn-beijing, oss-us-west-1');
+  console.error('请检查以下文件中的 OSS_REGION 配置：');
+  console.error('  - .env.production');
+  console.error('  - .env.local');
+  console.error('  - .env');
   process.exit(1);
 }
 
