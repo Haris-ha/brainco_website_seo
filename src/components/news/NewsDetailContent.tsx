@@ -14,12 +14,9 @@ import { formatDate } from '@/lib/utils';
 type NewsDetailContentProps = {
   news: StrapiNewsItem;
   locale: string;
-  allNews?: StrapiNewsItem[];
 };
 
-const EMPTY_NEWS_ARRAY: StrapiNewsItem[] = [];
-
-export default function NewsDetailContent({ news, locale, allNews = EMPTY_NEWS_ARRAY }: NewsDetailContentProps) {
+export default function NewsDetailContent({ news, locale }: NewsDetailContentProps) {
   const router = useRouter();
   const t = useTranslations('News');
   const contentRef = useRef<HTMLDivElement>(null);
