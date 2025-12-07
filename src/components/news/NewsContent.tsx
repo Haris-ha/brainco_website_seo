@@ -24,10 +24,10 @@ export default function NewsContent({
   const loading = false; // 数据已在服务端获取，不需要loading状态
 
   return (
-    <main className="w-full overflow-x-hidden bg-white">
+    <main className="w-full bg-white">
       <NewsHero isMobile={false} />
 
-      <section className="relative mx-auto mt-[3.5vw] w-full max-w-[70vw] px-[4vw] pt-10 pb-[3vw] md:mt-[55px] md:pb-[60px] xl:px-[2vw]" aria-labelledby="news-section-title">
+      <section className="relative mx-auto mt-[3.5vw] w-full overflow-x-hidden px-[4vw] pt-10 pb-[3vw] md:mt-[55px] md:pb-[12vw] xl:overflow-x-visible xl:px-[2vw]" aria-labelledby="news-section-title">
         <h2 id="news-section-title" className="sr-only">新闻列表 / News List</h2>
         {/* <motion.h5
           initial={{ opacity: 0.7, y: -5 }}
@@ -47,9 +47,13 @@ export default function NewsContent({
             )
           : (
               <>
-                <HotNewsCarousel hotNews={hotNews} isMobile={false} />
-                <NewsList newsList={newsList} isMobile={false} />
-                <WeChatQRCode />
+                <div className="relative mx-auto max-w-[65%]">
+                  <HotNewsCarousel hotNews={hotNews} isMobile={false} />
+                  <WeChatQRCode />
+                </div>
+                <div className="mx-auto mt-[6vw] max-w-[85%]">
+                  <NewsList newsList={newsList} isMobile={false} />
+                </div>
               </>
             )}
       </section>

@@ -20,7 +20,7 @@ export default function NewsItem({ item, index = 0, isMobile = false }: NewsItem
     // PC端：整个卡片可点击；移动端：也支持整个卡片点击
     e.preventDefault();
     e.stopPropagation();
-    
+
     // 如果有 documentId，直接跳转到站内；否则直接跳转外部链接
     if (item.documentId) {
       router.push(`/${locale}/news/${item.documentId}`);
@@ -36,7 +36,6 @@ export default function NewsItem({ item, index = 0, isMobile = false }: NewsItem
     handleCardClick(e);
   };
 
-
   return (
     <motion.article
       initial={{ opacity: 0.3, y: 10 }}
@@ -44,7 +43,7 @@ export default function NewsItem({ item, index = 0, isMobile = false }: NewsItem
       viewport={{ once: true, amount: 0.05 }}
       transition={{ duration: 0.3, delay: Math.min(index * 0.05, 0.3) }}
       whileHover={{ scale: 1.02 }}
-      className="h-full w-full bg-[#FAFAFA] transition-shadow hover:shadow-lg"
+      className="h-full w-full rounded-[10px] bg-[#F7F7F7] transition-shadow hover:shadow-lg md:rounded-[12px]"
       onClick={handleCardClick}
       style={{ cursor: 'pointer' }}
     >
@@ -61,11 +60,11 @@ export default function NewsItem({ item, index = 0, isMobile = false }: NewsItem
             style={{ cursor: 'pointer' }}
           />
         </figure>
-        <div className={`flex flex-1 flex-col ${isMobile ? 'px-[2vw] pt-[2vw] pb-[3vw] md:px-[24px] md:pt-[20px] md:pb-[28px]' : 'px-[1.5vw] pt-[1.5vw] pb-[2.5vw] md:px-[30px] md:pt-[24px] md:pb-[36px]'}`}>
-          <h3 className={`${isMobile ? 'text-fluid-base md:text-lg' : 'text-fluid-xl'} mb-[1vw] line-clamp-2 flex-1 font-medium text-[#333333] md:mb-[10px]`}>
+        <div className={`flex  flex-1 flex-col ${isMobile ? 'px-[2vw] pt-[2vw] pb-[3vw] md:px-[24px] md:pt-[20px] md:pb-[28px]' : 'px-[1.5vw] pt-[1.5vw] pb-[2.5vw] md:px-[30px] md:pt-[24px] md:pb-[36px]'}`}>
+          <h3 className={`${isMobile ? 'text-fluid-base md:text-lg' : 'text-fluid-xl'} mb-[1vw] line-clamp-2 flex-1 font-semibold text-[#333333] md:mb-[10px]`}>
             {item.title}
           </h3>
-          <time className={`${isMobile ? 'text-fluid-base md:text-base' : 'text-fluid-xl'} mt-auto text-[#999999]`}>{item.time}</time>
+          <time className={`${isMobile ? 'text-fluid-base md:text-base' : 'text-fluid-xl'} mt-auto text-[#666]`}>{item.time}</time>
         </div>
       </div>
 

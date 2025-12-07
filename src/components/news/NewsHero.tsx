@@ -23,8 +23,8 @@ export default function NewsHero({ isMobile = false }: NewsHeroProps) {
         isMobile ? 'md:h-[50vh] md:min-h-[300px]' : ''
       }`}
       style={{
-        height: isMobile ? '40vh' : '100vh',
-        minHeight: isMobile ? '200px' : '320px',
+        height: isMobile ? '40vh' : '50vh',
+        minHeight: isMobile ? '200px' : '300px',
         backgroundImage: `url(${backgroundImage})`,
         backgroundSize: 'cover',
         backgroundPosition: 'center',

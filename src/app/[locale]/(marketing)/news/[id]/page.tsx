@@ -198,7 +198,7 @@ export default async function NewsDetailPage(props: NewsDetailPageProps) {
   }
 
   // 获取其他新闻列表（用于生成 GridMotion 的 items）
-  const allNews = await getNewsList(locale, { pageSize: 100 });
+  // const allNews = await getNewsList(locale, { pageSize: 100 });
 
   // 生成新闻详情页的结构化数据
   const newsStructuredData = {
@@ -244,7 +244,7 @@ export default async function NewsDetailPage(props: NewsDetailPageProps) {
           structuredData: newsStructuredData,
         }}
       />
-      <NewsDetailContent news={news} locale={locale} allNews={allNews} />
+      <NewsDetailContent news={news} locale={locale} />
     </>
   );
 }

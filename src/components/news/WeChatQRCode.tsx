@@ -13,7 +13,7 @@ export default function WeChatQRCode() {
       whileInView={{ opacity: 1, x: 0 }}
       viewport={{ once: true }}
       transition={{ duration: 0.6, delay: 0.3 }}
-      className="absolute top-[5vw] right-[-180px] hidden w-[180px] rounded-xl xl:block"
+      className="absolute top-[5vw] right-[-220px] hidden w-[180px] rounded-xl xl:block"
       aria-label="微信公众号二维码 / WeChat QR Code"
     >
       <div className="flex flex-col items-center justify-center rounded-xl bg-[#f8f8f8] px-[20px] py-[20px]">

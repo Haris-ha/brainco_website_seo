@@ -7,9 +7,9 @@ import { useTranslations } from 'next-intl';
 import Image from 'next/image';
 import { useRouter } from 'next/navigation';
 import { useEffect, useMemo, useRef } from 'react';
-import GridMotion from '@/components/ui/GridMotion/GridMotion.jsx';
+// import GridMotion from '@/components/ui/GridMotion/GridMotion.jsx';
 import { formatDate } from '@/lib/utils';
-import { generateGridItems } from './generateGridItems';
+// import { generateGridItems } from './generateGridItems';
 
 type NewsDetailContentProps = {
   news: StrapiNewsItem;
@@ -25,7 +25,7 @@ export default function NewsDetailContent({ news, locale, allNews = EMPTY_NEWS_A
   const contentRef = useRef<HTMLDivElement>(null);
 
   // 生成 GridMotion 所需的 items 数组
-  const items = generateGridItems(allNews, news.id);
+  // const items = generateGridItems(allNews, news.id);
 
   // 配置 marked 选项
   useEffect(() => {
@@ -247,9 +247,9 @@ export default function NewsDetailContent({ news, locale, allNews = EMPTY_NEWS_A
         </div>
       </div>
 
-      <div className="hidden lg:block">
+      {/* <div className="hidden lg:block">
         <GridMotion items={items as any} />
-      </div>
+      </div> */}
 
       {/* 新闻内容 */}
       <article className="mx-auto max-w-[90vw] px-4 pt-16 pb-16 md:max-w-[90vw] md:px-4 lg:max-w-[72vw] lg:px-8 lg:pt-24">

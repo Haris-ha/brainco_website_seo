@@ -101,7 +101,7 @@ export default function HotNewsCarousel({ hotNews, isMobile = false }: HotNewsCa
     >
       <div className="mx-auto w-full max-w-full">
         <div
-          className="relative aspect-[16/9] w-full cursor-pointer overflow-hidden rounded-[10px] md:rounded-[12px]"
+          className="relative aspect-[16/9] w-full cursor-pointer overflow-hidden rounded-t-[10px] md:rounded-t-[12px]"
           onClick={e => handleImageClick(item, e)}
         >
           <Image
@@ -122,13 +122,13 @@ export default function HotNewsCarousel({ hotNews, isMobile = false }: HotNewsCa
           }`}
         >
           <div
-            className={`mb-[1vw] font-medium text-[#333333] ${
+            className={`mb-[1vw] font-semibold text-[#333333] ${
               isMobile ? 'text-fluid-base md:mb-[12px] md:text-xl' : 'text-fluid-2xl mb-[1.5vw]'
             }`}
           >
             {item.title}
           </div>
-          <div className={`${isMobile ? 'text-fluid-lg md:text-lg' : 'text-fluid-xl'} mb-0 text-[#999999] xl:mb-[1vw]`}>{item.time}</div>
+          <div className={`${isMobile ? 'text-fluid-lg md:text-lg' : 'text-fluid-xl'} mb-0 text-[#666666] xl:mb-[1vw]`}>{item.time}</div>
         </div>
       </div>
     </div>
@@ -141,7 +141,7 @@ export default function HotNewsCarousel({ hotNews, isMobile = false }: HotNewsCa
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true, margin: '-200px' }}
         transition={{ duration: 0.3 }}
-        className="mb-[2vw] bg-[#FAFAFA] pb-[3vw] md:mb-[50px] md:pb-[50px]"
+        className="mb-[2vw] bg-[#F7F7F7] pb-[3vw] md:mb-[50px] md:pb-[50px] rounded-b-[10px] md:rounded-b-[12px]"
         aria-label="热点新闻轮播 / Hot news carousel"
       >
         <div ref={carouselRef}>
