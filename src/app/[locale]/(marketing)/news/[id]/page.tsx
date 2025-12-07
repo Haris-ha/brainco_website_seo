@@ -5,7 +5,7 @@ import NewsDetailContent from '@/components/news/NewsDetailContent';
 import DynamicCanonical from '@/components/seo/DynamicCanonical';
 import StructuredData from '@/components/seo/StructuredData';
 import { generateSEOMetadata } from '@/lib/metadata';
-import { getNewsDetail, getNewsList } from '@/lib/seo';
+import { getNewsDetail } from '@/lib/seo';
 
 type NewsDetailPageProps = {
   params: Promise<{ locale: string; id: string }>;
