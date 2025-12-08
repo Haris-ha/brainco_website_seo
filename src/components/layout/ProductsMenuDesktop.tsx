@@ -4,7 +4,7 @@ import { motion } from 'framer-motion';
 import { useTranslations } from 'next-intl';
 import Image from 'next/image';
 import Link from 'next/link';
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 
 import { ProductImageWithLabel } from '@/components/common/ProductImageWithLabel';
 
@@ -29,29 +29,6 @@ type ProductsMenuDesktopProps = {
 export function ProductsMenuDesktop({ onClose }: ProductsMenuDesktopProps) {
   const t = useTranslations('ProductsMenuDesktop');
   const tHome = useTranslations('Home');
-
-  useEffect(() => {
-    // 保存当前滚动位置
-    const scrollY = window.scrollY;
-
-    // 固定页面位置防止滚动
-    document.body.style.position = 'fixed';
-    document.body.style.top = `-${scrollY}px`;
-    document.body.style.left = '0';
-    document.body.style.right = '0';
-
-    return () => {
-      // 恢复原状
-      const scrollPos = Math.abs(Number.parseInt(document.body.style.top || '0', 10));
-      document.body.style.position = '';
-      document.body.style.top = '';
-      document.body.style.left = '';
-      document.body.style.right = '';
-
-      // 恢复滚动位置
-      window.scrollTo(0, scrollPos);
-    };
-  }, []);
 
   const productCategories: ProductCategory[] = [
     {
