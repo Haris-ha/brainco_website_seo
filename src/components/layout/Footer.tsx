@@ -206,7 +206,7 @@ export function Footer({ locale }: FooterProps) {
                       <Link
                         href={item.href}
                         prefetch={true}
-                        className="cursor-target group relative block text-xl break-words !text-[#666] transition-colors duration-200"
+                        className="cursor-target group relative inline-block text-xl break-words !text-[#666] transition-colors duration-200"
                       >
                         {item.title}
                         <div className="absolute -bottom-1 left-0 h-[2px] w-0 bg-[#666] transition-all duration-300 ease-in-out group-hover:w-full" />

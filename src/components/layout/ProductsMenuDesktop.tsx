@@ -176,7 +176,7 @@ export function ProductsMenuDesktop({ onClose }: ProductsMenuDesktopProps) {
                   <Link
                     href={product.href}
                     onClick={onClose}
-                    className={`cursor-target flex flex-col items-center rounded-lg px-2 py-2 transition-all duration-300 md:px-4 md:py-3 ${
+                    className={`cursor-target flex w-full flex-col items-center rounded-lg px-2 py-2 transition-all duration-300 md:px-4 md:py-3 ${
                       hoveredProduct[category.title] === index
                         ? 'bg-gray-100'
                         : 'hover:bg-gray-50'
@@ -230,7 +230,7 @@ export function ProductsMenuDesktop({ onClose }: ProductsMenuDesktopProps) {
                     <Link
                       href={category.products[hoveredProduct[category.title]!]!.href}
                       onClick={onClose}
-                      className="cursor-target flex h-full flex-col items-center justify-center"
+                      className="cursor-target flex h-full w-full flex-col items-center justify-center"
                     >
                       {/* 预览图 */}
                       <motion.div
@@ -277,7 +277,7 @@ export function ProductsMenuDesktop({ onClose }: ProductsMenuDesktopProps) {
                         whileHover={{ scale: 1.02, y: -5 }}
                         transition={{ duration: 0.2 }}
                       >
-                        <Link href="/products/revo1" onClick={onClose} className="cursor-target block overflow-hidden rounded-2xl">
+                        <Link href="/products/revo1" onClick={onClose} className="cursor-target block w-full overflow-hidden rounded-2xl">
                           <ProductImageWithLabel
                             src="https://www.brainco.cn/news-images/stark.png"
                             alt="Revo 1"
@@ -292,7 +292,7 @@ export function ProductsMenuDesktop({ onClose }: ProductsMenuDesktopProps) {
                         whileHover={{ scale: 1.02, y: -5 }}
                         transition={{ duration: 0.2 }}
                       >
-                        <Link href="/products/revo2" onClick={onClose} className="cursor-target block overflow-hidden rounded-2xl">
+                        <Link href="/products/revo2" onClick={onClose} className="cursor-target block w-full overflow-hidden rounded-2xl">
                           <ProductImageWithLabel
                             src="https://www.brainco.cn/news-images/revo.png"
                             alt="Revo 2"

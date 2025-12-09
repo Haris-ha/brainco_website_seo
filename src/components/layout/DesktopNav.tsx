@@ -92,7 +92,7 @@ export function DesktopNav({ locale }: { locale: string }) {
                   {/* 产品菜单 */}
                   {item.key === 'products'
                     ? (
-                        <>
+                        <div className="relative flex h-full w-full items-center justify-center">
                           <span className={`cursor-target transition-colors duration-200 ${isRevoPage ? '!text-white hover:text-gray-200' : 'text-[#333] hover:text-black'}`}>{t(item.key)}</span>
                           {/* Hover 下划线 */}
                           <div
@@ -101,12 +101,12 @@ export function DesktopNav({ locale }: { locale: string }) {
                             } ${isRevoPage ? 'bg-white' : 'bg-[#333]'}`}
                             style={{ height: '3px' }}
                           />
-                        </>
+                        </div>
                       )
                     : item.children
                       ? (
                           /* 公司菜单 */
-                          <>
+                          <div className="relative flex h-full w-full items-center justify-center">
                             <span className={`cursor-target transition-colors duration-200 ${isRevoPage ? '!text-white hover:text-gray-200' : 'text-[#333] hover:text-black'}`}>{t(item.key)}</span>
                             {/* Hover 下划线 */}
                             <div
@@ -121,7 +121,7 @@ export function DesktopNav({ locale }: { locale: string }) {
                                     <Link
                                       key={child.href}
                                       href={child.href}
-                                      className={`cursor-target block text-2xl transition-colors duration-200 ${
+                                      className={`cursor-target flex w-full items-center justify-center text-2xl transition-colors duration-200 ${
                                         childIndex === 0 ? 'mb-[42px]' : ''
                                       } ${isRevoPage ? '!text-white hover:!text-gray-200' : '!text-[#333] hover:!text-[#000]'}`}
                                     >
@@ -131,24 +131,22 @@ export function DesktopNav({ locale }: { locale: string }) {
                                 </div>
                               </div>
                             )}
-                          </>
+                          </div>
                         )
                       : (
                           /* 普通链接 */
-                          <div className={isRevoPage ? 'group-hover:!text-gray-200' : 'group-hover:!text-[#000]'}>
-                            <Link
-                              href={item.href || `/${locale}`}
-                              prefetch={true}
-                              className={`cursor-target transition-colors duration-200 ${isRevoPage ? '!text-white' : '!text-[#333]'}`}
-                            >
-                              {t(item.key)}
-                            </Link>
+                          <Link
+                            href={item.href || `/${locale}`}
+                            prefetch={true}
+                            className={`cursor-target relative flex h-full w-full items-center justify-center transition-colors duration-200 ${isRevoPage ? '!text-white group-hover:!text-gray-200' : '!text-[#333] group-hover:!text-[#000]'}`}
+                          >
+                            {t(item.key)}
                             {/* Hover 下划线 */}
                             <div
                               className={`absolute bottom-2 left-1/2 h-0.5 w-20 -translate-x-1/2 scale-x-0 rounded-sm transition-all duration-200 group-hover:scale-x-100 ${isRevoPage ? 'bg-white' : 'bg-[#333]'}`}
                               style={{ height: '3px' }}
                             />
-                          </div>
+                          </Link>
                         )}
                 </li>
               ))}
