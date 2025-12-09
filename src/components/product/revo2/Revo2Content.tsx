@@ -16,7 +16,7 @@ export default function Revo2Content() {
     ? 'https://www.brainco-hz.com/docs/revolimb-hand/en/revo2/parameters.html'
     : 'https://www.brainco-hz.com/docs/revolimb-hand/revo2/parameters.html';
   return (
-    <main className="bg-black !text-white">
+    <main className="bg-[#090909] !text-white">
       {/* Hero Video Section */}
       <motion.header
         className="relative"
@@ -34,7 +34,7 @@ export default function Revo2Content() {
         >
           <track kind="captions" />
         </video>
-        <div className="absolute top-0 left-0 flex h-full w-full flex-col items-center justify-center">
+        <div className="absolute top-0 left-0 flex h-full w-full flex-col items-center justify-end pb-50 !text-white 2xl:pb-70">
           <motion.h1
             className="text-fluid-6xl font-bold !text-white"
             initial={{ y: 20, opacity: 0 }}
@@ -62,7 +62,7 @@ export default function Revo2Content() {
           >
             <Link
               href="/contact#contact"
-              className="cursor-target text-fluid-3xl flex h-[72px] w-[264px] items-center justify-center rounded-[45px] bg-[#1a74bf] !text-white transition-transform hover:scale-105"
+              className="cursor-target text-fluid-3xl flex h-[72px] w-[264px] items-center justify-center rounded-[45px] bg-[#1a74bf] font-semibold !text-white transition-transform hover:scale-105"
               aria-label={`${t('contact_us')} - Revo2 智能灵巧手 / ${t('contact_us')} - Revo2 Intelligent Dexterous Hand`}
             >
               {t('contact_us')}
@@ -71,7 +71,7 @@ export default function Revo2Content() {
               href={documentationUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="cursor-target text-fluid-3xl flex h-[72px] w-[264px] items-center justify-center rounded-[45px] border-[2px] border-white !text-white transition-transform hover:scale-105"
+              className="cursor-target text-fluid-3xl flex h-[72px] w-[264px] items-center justify-center rounded-[45px] border-[2px] border-white font-semibold !text-white transition-transform hover:scale-105"
               aria-label={`${t('documentation')} - Revo2 产品文档 / ${t('documentation')} - Revo2 Product Documentation`}
             >
               {t('documentation')}
@@ -297,7 +297,7 @@ export default function Revo2Content() {
       </section>
 
       {/* Technical Specifications */}
-      <section className="mx-auto w-[1200px] border-y border-[#666] py-20 text-center" aria-labelledby="specs-title">
+      <section className="mx-auto w-full max-w-[90%] border-y border-[#666] py-20 text-center" aria-labelledby="specs-title">
         <motion.h2
           id="specs-title"
           className="text-fluid-5xl font-semibold text-[#fafafa]"
@@ -309,7 +309,7 @@ export default function Revo2Content() {
           {t('specs_title')}
         </motion.h2>
         <motion.p
-          className="text-fluid-3xl mx-auto my-16 max-w-[60%] text-center text-[#C7CDD4]"
+          className="text-fluid-2xl mx-auto my-16 max-w-[60%] text-center text-[#C7CDD4]"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
@@ -347,26 +347,26 @@ export default function Revo2Content() {
                 viewport={{ once: true }}
                 transition={{ delay: 0.7 + index * 0.05, duration: 0.5 }}
               >
-                <span className="text-fluid-2xl">{t(spec.label as any)}</span>
+                <span className="text-fluid-2xl text-left">{t(spec.label as any)}</span>
                 {spec.customStyle
                   ? (
-                      <p className="text-fluid-5xl mt-3 flex h-16 items-baseline text-center leading-16 font-bold">
+                      <p className="text-fluid-5xl mt-3 flex h-16 items-baseline text-left leading-16 font-bold">
                         {spec.value === 'spec_comm_freq_value' && locale === 'en-US'
                           ? (
                               <>
-                                <span className="text-fluid-2xl m-0 h-16 text-center leading-16 font-semibold">
+                                <span className="text-fluid-2xl m-0 h-16 text-center leading-16 font-medium">
                                   Max
                                 </span>
                                 <span className="text-fluid-5xl m-0 mx-1.5 h-16 text-center leading-16 font-bold">
                                   1K
                                 </span>
-                                <span className="text-fluid-2xl m-0 h-16 text-center leading-16 font-semibold">
+                                <span className="text-fluid-2xl m-0 h-16 text-center leading-16 font-medium">
                                   Hz
                                 </span>
                               </>
                             )
                           : (
-                              <span className="text-fluid-2xl m-0 h-16 text-center leading-16 font-semibold">
+                              <span className="text-fluid-2xl m-0 h-16 text-left leading-16 font-medium">
                                 {spec.value.startsWith('spec_') ? t(spec.value as any) : spec.value}
                               </span>
                             )}
@@ -376,7 +376,7 @@ export default function Revo2Content() {
                       <p className="text-fluid-5xl mt-3 flex h-16 items-baseline leading-16 font-bold">
                         {spec.value}
                         {spec.unit && (
-                          <span className="text-fluid-2xl ml-2 text-center font-semibold">
+                          <span className="text-fluid-2xl ml-2 text-left font-medium">
                             {spec.unit.startsWith('spec_') ? t(spec.unit as any) : spec.unit}
                           </span>
                         )}
@@ -392,7 +392,7 @@ export default function Revo2Content() {
       </section>
 
       {/* Product Versions */}
-      <section className="mx-auto mt-20 max-w-[80%] border-b border-[#666] pb-20" aria-labelledby="version-title">
+      <section className="mx-auto mt-20 max-w-[90%] border-b border-[#666] px-30 pb-30" aria-labelledby="version-title">
         <motion.h2
           id="version-title"
           className="text-fluid-5xl mb-14 text-center font-bold !text-white"
@@ -435,7 +435,7 @@ export default function Revo2Content() {
       </section>
 
       {/* Summary Section */}
-      <section className="mx-auto mt-20 max-w-[90%] text-center" aria-labelledby="summary-title">
+      <section className="mx-auto mt-20 max-w-[80%] text-center" aria-labelledby="summary-title">
         <motion.h2
           id="summary-title"
           className="text-fluid-6xl font-semibold !text-white"
@@ -450,7 +450,7 @@ export default function Revo2Content() {
           </span>
         </motion.h2>
         <motion.p
-          className="text-fluid-3xl mx-auto mt-11 max-w-[70%] text-[#C7CDD4]"
+          className="text-fluid-3xl mx-auto mt-11 max-w-[80%] text-[#C7CDD4]"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
@@ -458,7 +458,7 @@ export default function Revo2Content() {
           dangerouslySetInnerHTML={{ __html: t('summary_desc').replace(/\n/g, '<br />') }}
         />
         <motion.div
-          className="mt-19 flex justify-center"
+          className="mt-28 flex justify-center"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
@@ -466,7 +466,7 @@ export default function Revo2Content() {
         >
           <Link
             href="/contact#contact"
-            className="cursor-target text-fluid-3xl flex h-[72px] w-[264px] items-center justify-center rounded-[45px] bg-[#1a74bf] !text-white transition-transform hover:scale-105"
+            className="cursor-target text-fluid-3xl flex h-[72px] w-[264px] items-center justify-center rounded-[45px] bg-[#1a74bf] font-semibold !text-white transition-transform hover:scale-105"
             aria-label={`${t('contact_us')} - Revo2 智能灵巧手 / ${t('contact_us')} - Revo2 Intelligent Dexterous Hand`}
           >
             {t('contact_us')}

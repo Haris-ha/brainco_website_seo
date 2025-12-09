@@ -119,7 +119,7 @@ export default function Revo1Content() {
           muted
           className="block h-auto w-full object-cover"
         />
-        <div className="absolute top-0 left-0 flex h-full w-full flex-col items-center justify-end pb-40 !text-white 2xl:pb-60">
+        <div className="absolute top-0 left-0 flex h-full w-full flex-col items-center justify-end pb-50 !text-white 2xl:pb-70">
           <motion.h1
             className="text-fluid-6xl font-bold"
             initial={{ y: 20, opacity: 0 }}
