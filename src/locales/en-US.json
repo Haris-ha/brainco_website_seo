@@ -519,7 +519,7 @@
     "ability_force_resolution": "Force Resolution",
     "ability_standard_interface": "Standard Port",
     "ability_unit_seconds": "secs",
-    "ability_max_resolution": "MAX 0.01N",
+    "ability_max_resolution": "MAX 0.01 N",
     "spec_category_dimensions": "Size",
     "spec_category_working": "Operating Spec",
     "spec_category_hardware": "Hardware Configuration",

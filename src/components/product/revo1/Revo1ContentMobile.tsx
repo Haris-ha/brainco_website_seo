@@ -179,11 +179,11 @@ export default function Revo1ContentMobile() {
                       <span className="text-fluid-3xl relative top-1.5 mr-0.5 font-bold text-[#C7CDD4]">
                         {subInfo.data}
                       </span>
-                      <s className="relative top-1 no-underline">
+                      <span className={`relative top-1 no-underline ${subInfo.connect ? 'font-bold' : ''}`}>
                         {subInfo.unit === 'ability_unit_seconds' ? t(subInfo.unit as any) : subInfo.unit}
-                      </s>
+                      </span>
                       {subInfo.extend && (
-                        <p className="text-fluid-base relative top-1.5 ml-1 font-medium text-[#C7CDD4]">
+                        <p className="text-fluid-base relative top-1.5 ml-1 font-bold text-[#C7CDD4]">
                           {subInfo.extend.startsWith('ability_') ? t(subInfo.extend as any) : subInfo.extend}
                         </p>
                       )}
