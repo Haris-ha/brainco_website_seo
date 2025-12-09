@@ -159,41 +159,41 @@ export default function MobiusContent() {
       >
         <h2 id="features-title" className="sr-only">Mobius 产品功能特性 / Mobius Product Features</h2>
         {/* Left Features */}
-        <div className="mt-10 flex flex-1 flex-col items-start justify-center gap-[100px] pr-[80px] 2xl:w-1/3 2xl:pr-0">
+        <div className="mt-10 flex flex-1 flex-col items-start justify-center gap-[100px] pr-[80px]">
           {/* Button Feature */}
           <motion.div
-            className="relative -mr-20 max-w-[400px] text-left 2xl:mr-0 2xl:max-w-none"
+            className="relative -mr-20 max-w-[400px] text-left"
             initial={{ opacity: 0, x: -30 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8, delay: 0.2, ease: 'easeOut' }}
           >
             <h3 className="text-fluid-5xl mb-[16px] font-semibold text-[#333333]">{t('feature_button_title')}</h3>
-            <p className="text-fluid-2xl mb-[20px] text-[#111827] 2xl:max-w-[calc(100%-150px)]">
+            <p className="text-fluid-2xl mb-[20px] text-[#111827]">
               {t('feature_button_desc')}
             </p>
             {/* Connection Line */}
-            <div className="absolute top-[18px] right-[-100px] flex items-center 2xl:right-0 2xl:w-[150px] 2xl:justify-end">
-              <div className="h-[1px] w-[90px] bg-[#cccccc] 2xl:w-[110px]" />
+            <div className="absolute top-[18px] right-[-100px] flex items-center">
+              <div className="h-[1px] w-[90px] bg-[#cccccc]" />
               <div className="ml-2 h-8 w-8 rounded-full border-2 border-[#333333] bg-white" />
             </div>
           </motion.div>
 
           {/* Sleep Feature */}
           <motion.div
-            className="relative -mr-20 max-w-[400px] text-left 2xl:mr-0 2xl:max-w-none"
+            className="relative -mr-20 max-w-[400px] text-left"
             initial={{ opacity: 0, x: -30 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8, delay: 0.4, ease: 'easeOut' }}
           >
             <h3 className="text-fluid-5xl mb-[16px] font-semibold text-[#333333]">{t('feature_sleep_title')}</h3>
-            <p className="text-fluid-2xl text-[#111827] 2xl:max-w-[calc(100%-150px)]">
+            <p className="text-fluid-2xl text-[#111827]">
               {t('feature_sleep_desc')}
             </p>
             {/* Connection Line */}
-            <div className="absolute top-[18px] right-[-100px] flex items-center 2xl:right-0 2xl:w-[150px] 2xl:justify-end">
-              <div className="h-[1px] w-[90px] bg-[#cccccc] 2xl:w-[110px]" />
+            <div className="absolute top-[18px] right-[-100px] flex items-center">
+              <div className="h-[1px] w-[90px] bg-[#cccccc]" />
               <div className="ml-2 h-8 w-8 rounded-full border-2 border-[#333333] bg-white" />
             </div>
           </motion.div>
@@ -201,7 +201,7 @@ export default function MobiusContent() {
 
         {/* Center Image */}
         <motion.div
-          className="relative z-10 flex-shrink-0 2xl:w-1/3"
+          className="relative z-10 flex-shrink-0"
           initial={{ opacity: 0, scale: 0.9 }}
           whileInView={{ opacity: 1, scale: 1 }}
           viewport={{ once: true }}
@@ -212,29 +212,27 @@ export default function MobiusContent() {
             alt="Mobius 轻凌M3智能仿生腿正面功能展示图 / Mobius Revolimb M3 Intelligent Bionic Leg Front Features Display"
             width={400}
             height={600}
-            className="h-auto w-[500px] 2xl:w-full"
+            className="h-auto w-[500px]"
           />
         </motion.div>
 
         {/* Right Feature */}
-        <div className="flex flex-1 flex-col items-start justify-center pl-[80px] 2xl:w-1/3 2xl:pl-0">
+        <div className="flex flex-1 flex-col items-start justify-center pl-[80px]">
           <motion.div
-            className="relative -ml-20 max-w-[400px] text-left 2xl:-ml-0 2xl:max-w-none"
+            className="relative -ml-20 max-w-[400px] text-left 2xl:-ml-0"
             initial={{ opacity: 0, x: 30 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8, delay: 0.6, ease: 'easeOut' }}
           >
-            <div className="2xl:pl-[180px]">
-              <h3 className="text-fluid-5xl mb-[16px] font-semibold text-[#333333]">{t('feature_vibration_title')}</h3>
-              <p className="text-fluid-2xl text-[#111827] 2xl:max-w-[calc(100%-150px)]">
-                {t('feature_vibration_desc')}
-              </p>
-            </div>
+            <h3 className="text-fluid-5xl mb-[16px] font-semibold text-[#333333]">{t('feature_vibration_title')}</h3>
+            <p className="text-fluid-2xl text-[#111827]">
+              {t('feature_vibration_desc')}
+            </p>
             {/* Connection Line */}
-            <div className="absolute top-[18px] left-[-130px] flex items-center 2xl:left-[-30px] 2xl:w-[150px] 2xl:justify-end">
+            <div className="absolute top-[18px] left-[-130px] flex items-center">
               <div className="mr-2 h-8 w-8 rounded-full border-2 border-[#333333] bg-white" />
-              <div className="h-[1px] w-[90px] bg-[#cccccc] 2xl:w-[110px]" />
+              <div className="h-[1px] w-[90px] bg-[#cccccc]" />
             </div>
           </motion.div>
         </div>
@@ -251,60 +249,60 @@ export default function MobiusContent() {
       >
         <h2 id="features-back-title" className="sr-only">Mobius 产品背面功能特性 / Mobius Product Back Features</h2>
         {/* Left Features */}
-        <div className="mt-10 flex flex-1 flex-col items-start justify-center gap-[80px] pr-[80px] 2xl:w-1/3 2xl:pr-0">
+        <div className="mt-10 flex flex-1 flex-col items-start justify-center gap-[80px] pr-[80px]">
           {/* Angle Feature */}
           <motion.div
-            className="relative -mr-20 max-w-[400px] min-w-[300px] text-left 2xl:mr-0 2xl:max-w-none 2xl:w-full"
+            className="relative -mr-20 max-w-[400px] min-w-[300px] text-left"
             initial={{ opacity: 0, x: -30 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8, delay: 0.2, ease: 'easeOut' }}
           >
             <h3 className="text-fluid-5xl mb-[16px] font-semibold text-[#333333]">{t('feature_angle_title')}</h3>
-            <p className="text-fluid-2xl mb-[20px] text-[#111827] 2xl:max-w-[calc(100%-150px)]">
+            <p className="text-fluid-2xl mb-[20px] text-[#111827]">
               {t('feature_angle_desc')}
             </p>
             {/* Connection Line */}
-            <div className="absolute top-[18px] right-[-100px] flex items-center 2xl:right-0 2xl:w-[150px] 2xl:justify-end">
-              <div className="h-[1px] w-[80px] bg-[#cccccc] 2xl:w-[110px]" />
+            <div className="absolute top-[18px] right-[-100px] flex items-center">
+              <div className="h-[1px] w-[80px] bg-[#cccccc]" />
               <div className="ml-2 h-8 w-8 rounded-full border-2 border-[#333333] bg-white" />
             </div>
           </motion.div>
 
           {/* Hydraulic Feature */}
           <motion.div
-            className="relative -mr-20 max-w-[400px] text-left 2xl:mr-0 2xl:max-w-none"
+            className="relative -mr-20 max-w-[400px] text-left"
             initial={{ opacity: 0, x: -30 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8, delay: 0.4, ease: 'easeOut' }}
           >
-            <h3 className="text-fluid-5xl mb-[16px] font-semibold text-[#333333] 2xl:w-full">{t('feature_hydraulic_title')}</h3>
-            <p className="text-fluid-2xl text-[#111827] 2xl:max-w-[calc(100%-150px)]">
+            <h3 className="text-fluid-5xl mb-[16px] font-semibold text-[#333333]">{t('feature_hydraulic_title')}</h3>
+            <p className="text-fluid-2xl text-[#111827]">
               {t('feature_hydraulic_desc')}
             </p>
             {/* Connection Line */}
-            <div className="absolute top-[18px] right-[-90px] flex items-center 2xl:right-0 2xl:w-[150px] 2xl:justify-end">
-              <div className="h-[1px] w-[80px] bg-[#cccccc] 2xl:w-[110px]" />
+            <div className="absolute top-[18px] right-[-90px] flex items-center">
+              <div className="h-[1px] w-[80px] bg-[#cccccc]" />
               <div className="ml-2 h-8 w-8 rounded-full border-2 border-[#333333] bg-white" />
             </div>
           </motion.div>
 
           {/* Battery Feature */}
           <motion.div
-            className="relative -mr-20 max-w-[400px] text-left 2xl:mr-0 2xl:max-w-none"
+            className="relative -mr-20 max-w-[400px] text-left"
             initial={{ opacity: 0, x: -30 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8, delay: 0.6, ease: 'easeOut' }}
           >
             <h3 className="text-fluid-5xl mb-[16px] font-semibold text-[#333333]">{t('feature_battery_title')}</h3>
-            <p className="text-fluid-2xl text-[#111827] 2xl:max-w-[calc(100%-150px)]">
+            <p className="text-fluid-2xl text-[#111827]">
               {t('feature_battery_desc')}
             </p>
             {/* Connection Line */}
-            <div className="absolute top-[18px] right-[-90px] flex items-center 2xl:right-0 2xl:w-[150px] 2xl:justify-end">
-              <div className="h-[1px] w-[90px] bg-[#cccccc] 2xl:w-[110px]" />
+            <div className="absolute top-[18px] right-[-90px] flex items-center">
+              <div className="h-[1px] w-[90px] bg-[#cccccc]" />
               <div className="ml-2 h-8 w-8 rounded-full border-2 border-[#333333] bg-white" />
             </div>
           </motion.div>
@@ -312,7 +310,7 @@ export default function MobiusContent() {
 
         {/* Center Image */}
         <motion.div
-          className="relative z-10 ml-14 flex-shrink-0 2xl:ml-0 2xl:w-1/3"
+          className="relative z-10 ml-14 flex-shrink-0"
           initial={{ opacity: 0, scale: 0.9 }}
           whileInView={{ opacity: 1, scale: 1 }}
           viewport={{ once: true }}
@@ -323,51 +321,47 @@ export default function MobiusContent() {
             alt="Mobius 轻凌M3智能仿生腿背面功能展示图 / Mobius Revolimb M3 Intelligent Bionic Leg Back Features Display"
             width={400}
             height={600}
-            className="h-auto w-[400px] 2xl:w-full"
+            className="h-auto w-[400px]"
           />
         </motion.div>
 
         {/* Right Features */}
-        <div className="flex flex-1 flex-col items-start justify-center gap-[80px] pl-[100px] 2xl:w-1/3 2xl:pl-0">
+        <div className="flex flex-1 flex-col items-start justify-center gap-[80px] pl-[100px]">
           {/* Sensors Feature */}
           <motion.div
-            className="relative -ml-20 max-w-[400px] text-left 2xl:-ml-0 2xl:max-w-none"
+            className="relative -ml-20 max-w-[400px] text-left 2xl:-ml-0"
             initial={{ opacity: 0, x: 30 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8, delay: 0.2, ease: 'easeOut' }}
           >
-            <div className="2xl:pl-[180px]">
-              <h3 className="text-fluid-5xl mb-[16px] font-semibold text-[#333333]">{t('feature_sensors_title')}</h3>
-              <p className="text-fluid-2xl text-[#111827] 2xl:max-w-[calc(100%-150px)]">
-                {t('feature_sensors_desc')}
-              </p>
-            </div>
+            <h3 className="text-fluid-5xl mb-[16px] font-semibold text-[#333333]">{t('feature_sensors_title')}</h3>
+            <p className="text-fluid-2xl text-[#111827]">
+              {t('feature_sensors_desc')}
+            </p>
             {/* Connection Line */}
-            <div className="absolute top-[18px] left-[-130px] flex items-center 2xl:left-[-30px] 2xl:w-[150px] 2xl:justify-end">
+            <div className="absolute top-[18px] left-[-130px] flex items-center">
               <div className="mr-2 h-8 w-8 rounded-full border-2 border-[#333333] bg-white" />
-              <div className="h-[1px] w-[90px] bg-[#cccccc] 2xl:w-[110px]" />
+              <div className="h-[1px] w-[90px] bg-[#cccccc]" />
             </div>
           </motion.div>
 
           {/* Algorithm Feature */}
           <motion.div
-            className="relative -ml-20 max-w-[400px] text-left 2xl:-ml-0 2xl:max-w-none"
+            className="relative -ml-20 max-w-[400px] text-left 2xl:-ml-0"
             initial={{ opacity: 0, x: 30 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8, delay: 0.4, ease: 'easeOut' }}
           >
-            <div className="2xl:pl-[180px]">
-              <h3 className="text-fluid-5xl mb-[16px] font-semibold text-[#333333]">{t('feature_algorithm_title')}</h3>
-              <p className="text-fluid-2xl text-[#111827] 2xl:max-w-[calc(100%-150px)]">
-                {t('feature_algorithm_desc')}
-              </p>
-            </div>
+            <h3 className="text-fluid-5xl mb-[16px] font-semibold text-[#333333]">{t('feature_algorithm_title')}</h3>
+            <p className="text-fluid-2xl text-[#111827]">
+              {t('feature_algorithm_desc')}
+            </p>
             {/* Connection Line */}
-            <div className="absolute top-[18px] left-[-130px] flex items-center 2xl:left-[-30px] 2xl:w-[150px] 2xl:justify-end">
+            <div className="absolute top-[18px] left-[-130px] flex items-center">
               <div className="mr-2 h-8 w-8 rounded-full border-2 border-[#333333] bg-white" />
-              <div className="h-[1px] w-[90px] bg-[#cccccc] 2xl:w-[110px]" />
+              <div className="h-[1px] w-[90px] bg-[#cccccc]" />
             </div>
           </motion.div>
         </div>
@@ -385,7 +379,7 @@ export default function MobiusContent() {
         viewport={{ once: true }}
         transition={{ duration: 0.8, ease: 'easeOut' }}
       >
-        <div className="flex w-1/2 flex-col items-center py-[80px] mr-10">
+        <div className="mr-10 flex w-1/2 flex-col items-center py-[80px]">
           {/* Title */}
           <motion.h2
             className="text-fluid-6xl mb-[80px] text-center leading-tight font-medium text-[#333333]"
@@ -484,7 +478,7 @@ export default function MobiusContent() {
 
       {/* Parameters */}
       <motion.section
-        className="mx-auto mt-[100px] w-full max-w-[1220px] bg-white px-40 py-[80px]"
+        className="mx-auto mt-[100px] w-full max-w-[80%] bg-white px-40 py-[80px]"
         aria-labelledby="parameters-title"
         initial={{ opacity: 0, y: 50 }}
         whileInView={{ opacity: 1, y: 0 }}
@@ -533,10 +527,10 @@ export default function MobiusContent() {
           </motion.div>
 
           {/* Bottom Grid - 4 Parameters */}
-          <div className="grid grid-cols-4 gap-[40px]">
+          <div className="flex w-full items-center justify-center gap-30">
             {/* Battery Duration */}
             <motion.div
-              className="flex flex-col items-center text-center"
+              className="flex flex-col items-start justify-center text-left"
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
@@ -551,7 +545,7 @@ export default function MobiusContent() {
 
             {/* Maximum Flexion */}
             <motion.div
-              className="flex flex-col items-center text-center"
+              className="flex flex-col items-start justify-center text-left"
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
@@ -566,7 +560,7 @@ export default function MobiusContent() {
 
             {/* Pressure Test */}
             <motion.div
-              className="flex flex-col items-center text-center"
+              className="flex flex-col items-start justify-center text-left"
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
@@ -581,7 +575,7 @@ export default function MobiusContent() {
 
             {/* Waterproof Rating */}
             <motion.div
-              className="flex flex-col items-center text-center"
+              className="flex flex-col items-start justify-center text-left"
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
@@ -806,132 +800,132 @@ export default function MobiusContent() {
 
         {/* Comparison Table */}
         <motion.div
-          className="overflow-hidden rounded-lg bg-white"
+          className="mb-20 overflow-hidden bg-white"
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.8, delay: 0.5, ease: 'easeOut' }}
         >
-          <table className="w-full">
+          <table className="w-full table-fixed  border border-[#979797] mb-6">
             <thead>
               <tr className="bg-[#f5f5f5]">
-                <th className="text-fluid-3xl border-r border-gray-200 px-6 py-6 text-center font-semibold text-[#333333]">
+                <th className="text-fluid-3xl w-1/3 border-r border-[#979797] px-6 py-6 text-left font-semibold text-[#333333]">
                   {t('comparison_parameter')}
                 </th>
-                <th className="text-fluid-3xl border-r border-gray-200 py-6 text-center font-semibold text-[#333333]">
+                <th className="text-fluid-3xl w-1/3 border-r border-[#979797] px-6 py-6 text-left font-semibold text-[#333333]">
                   {t('comparison_m3')}
                 </th>
-                <th className="text-fluid-3xl py-6 text-center font-semibold text-[#333333]">
+                <th className="text-fluid-3xl w-1/3 px-6 py-6 text-left font-semibold text-[#333333]">
                   {t('comparison_m2')}
                 </th>
               </tr>
             </thead>
             <tbody>
               {/* Support Material */}
-              <tr className="border-t border-gray-200">
-                <td className="text-fluid-xl border-r border-gray-200 px-6 py-5 text-center font-semibold text-[#333333]">
+              <tr className="border-t border-[#979797]">
+                <td className="text-fluid-xl border-r border-[#979797] px-6 py-5 text-left font-semibold text-[#333333]">
                   {t('comparison_support')}
                 </td>
-                <td className="text-fluid-xl border-r border-gray-200 px-6 py-5 text-center text-[#111827]">
+                <td className="text-fluid-xl border-r border-[#979797] px-6 py-5 text-left text-[#111827]">
                   {t('comparison_support_value')}
                 </td>
-                <td className="text-fluid-xl px-6 py-5 text-center text-[#111827]">
+                <td className="text-fluid-xl px-6 py-5 text-left text-[#111827]">
                   {t('comparison_support_value')}
                 </td>
               </tr>
               {/* Height */}
-              <tr className="border-t border-gray-200 bg-[#fafafa]">
-                <td className="text-fluid-xl border-r border-gray-200 px-6 py-5 text-center font-semibold text-[#333333]">
+              <tr className="border-t border-[#979797] bg-[#fafafa]">
+                <td className="text-fluid-xl border-r border-[#979797] px-6 py-5 text-left font-semibold text-[#333333]">
                   {t('comparison_height')}
                 </td>
-                <td className="text-fluid-xl border-r border-gray-200 px-6 py-5 text-center text-[#111827]">
+                <td className="text-fluid-xl border-r border-[#979797] px-6 py-5 text-left text-[#111827]">
                   {t('comparison_height_value')}
                 </td>
-                <td className="text-fluid-xl px-6 py-5 text-center text-[#111827]">
+                <td className="text-fluid-xl px-6 py-5 text-left text-[#111827]">
                   {t('comparison_height_value')}
                 </td>
               </tr>
               {/* Waterproof */}
-              <tr className="border-t border-gray-200 bg-[#fafafa]">
-                <td className="text-fluid-xl border-r border-gray-200 px-6 py-5 text-center font-semibold text-[#333333]">
+              <tr className="border-t border-[#979797]">
+                <td className="text-fluid-xl border-r border-[#979797] px-6 py-5 text-left font-semibold text-[#333333]">
                   {t('comparison_waterproof')}
                 </td>
-                <td className="text-fluid-xl border-r border-gray-200 px-6 py-5 text-center text-[#111827]">
+                <td className="text-fluid-xl border-r border-[#979797] px-6 py-5 text-left text-[#111827]">
                   {t('comparison_waterproof_value')}
                 </td>
-                <td className="text-fluid-xl px-6 py-5 text-center text-[#111827]">
+                <td className="text-fluid-xl px-6 py-5 text-left text-[#111827]">
                   {t('comparison_waterproof_value')}
                 </td>
               </tr>
               {/* Weight */}
-              <tr className="border-t border-gray-200">
-                <td className="text-fluid-xl border-r border-gray-200 px-6 py-5 text-center font-semibold text-[#333333]">
+              <tr className="border-t border-[#979797] bg-[#fafafa]">
+                <td className="text-fluid-xl border-r border-[#979797] px-6 py-5 text-left font-semibold text-[#333333]">
                   {t('comparison_weight')}
                 </td>
-                <td className="text-fluid-xl border-r border-gray-200 px-6 py-5 text-center text-[#111827]">
+                <td className="text-fluid-xl border-r border-[#979797] px-6 py-5 text-left text-[#111827]">
                   {t('comparison_weight_value')}
                 </td>
-                <td className="text-fluid-xl px-6 py-5 text-center text-[#111827]">
+                <td className="text-fluid-xl px-6 py-5 text-left text-[#111827]">
                   {t('comparison_weight_value')}
                 </td>
               </tr>
               {/* Charging Time */}
-              <tr className="border-t border-gray-200">
-                <td className="text-fluid-xl border-r border-gray-200 px-6 py-5 text-center font-semibold text-[#333333]">
+              <tr className="border-t border-[#979797]">
+                <td className="text-fluid-xl border-r border-[#979797] px-6 py-5 text-left font-semibold text-[#333333]">
                   {t('comparison_charging')}
                 </td>
-                <td className="text-fluid-xl border-r border-gray-200 px-6 py-5 text-center text-[#111827]">
+                <td className="text-fluid-xl border-r border-[#979797] px-6 py-5 text-left text-[#111827]">
                   {t('comparison_charging_value')}
                 </td>
-                <td className="text-fluid-xl px-6 py-5 text-center text-[#111827]">
+                <td className="text-fluid-xl px-6 py-5 text-left text-[#111827]">
                   {t('comparison_charging_value')}
                 </td>
               </tr>
               {/* Battery Life */}
-              <tr className="border-t border-gray-200 bg-[#fafafa]">
-                <td className="text-fluid-xl border-r border-gray-200 px-6 py-5 text-center font-semibold text-[#333333]">
+              <tr className="border-t border-[#979797] bg-[#fafafa]">
+                <td className="text-fluid-xl border-r border-[#979797] px-6 py-5 text-left font-semibold text-[#333333]">
                   {t('comparison_battery')}
                 </td>
-                <td className="text-fluid-xl border-r border-gray-200 px-6 py-5 text-center text-[#111827]">
+                <td className="text-fluid-xl border-r border-[#979797] px-6 py-5 text-left text-[#111827]">
                   {t('comparison_battery_m3')}
                 </td>
-                <td className="text-fluid-xl px-6 py-5 text-center text-[#111827]">
+                <td className="text-fluid-xl px-6 py-5 text-left text-[#111827]">
                   {t('comparison_battery_m2')}
                 </td>
               </tr>
               {/* Stair Climbing */}
-              <tr className="border-t border-gray-200">
-                <td className="text-fluid-xl border-r border-gray-200 px-6 py-5 text-center font-semibold text-[#333333]">
+              <tr className="border-t border-[#979797]">
+                <td className="text-fluid-xl border-r border-[#979797] px-6 py-5 text-left font-semibold text-[#333333]">
                   {t('comparison_stair')}
                 </td>
-                <td className="text-fluid-2xl border-r border-gray-200 px-6 py-5 text-center text-[#111827]">
+                <td className="text-fluid-2xl border-r border-[#979797] px-6 py-5 text-left text-[#111827]">
                   {t('comparison_yes')}
                 </td>
-                <td className="text-fluid-2xl px-6 py-5 text-center text-[#111827]">
+                <td className="text-fluid-2xl px-6 py-5 text-left text-[#111827]">
                   {t('comparison_yes')}
                 </td>
               </tr>
               {/* Running */}
-              <tr className="border-t border-gray-200 bg-[#fafafa]">
-                <td className="text-fluid-xl border-r border-gray-200 px-6 py-5 text-center font-semibold text-[#333333]">
+              <tr className="border-t border-[#979797] bg-[#fafafa]">
+                <td className="text-fluid-xl border-r border-[#979797] px-6 py-5 text-left font-semibold text-[#333333]">
                   {t('comparison_run')}
                 </td>
-                <td className="text-fluid-2xl border-r border-gray-200 px-6 py-5 text-center text-[#111827]">
+                <td className="text-fluid-2xl border-r border-[#979797] px-6 py-5 text-left text-[#111827]">
                   {t('comparison_yes')}
                 </td>
-                <td className="text-fluid-2xl px-6 py-5 text-center text-[#111827]">
+                <td className="text-fluid-2xl px-6 py-5 text-left text-[#111827]">
                   {t('comparison_no')}
                 </td>
               </tr>
               {/* Obstacle */}
-              <tr className="border-t border-gray-200">
-                <td className="text-fluid-xl border-r border-gray-200 px-6 py-5 text-center font-semibold text-[#333333]">
+              <tr className="border-t border-[#979797]">
+                <td className="text-fluid-xl border-r border-[#979797] px-6 py-5 text-left font-semibold text-[#333333]">
                   {t('comparison_obstacle')}
                 </td>
-                <td className="text-fluid-2xl border-r border-gray-200 px-6 py-5 text-center text-[#111827]">
+                <td className="text-fluid-2xl border-r border-[#979797] px-6 py-5 text-left text-[#111827]">
                   {t('comparison_yes')}
                 </td>
-                <td className="text-fluid-2xl px-6 py-5 text-center text-[#111827]">
+                <td className="text-fluid-2xl px-6 py-5 text-left text-[#111827]">
                   {t('comparison_yes')}
                 </td>
               </tr>
@@ -939,7 +933,7 @@ export default function MobiusContent() {
           </table>
 
           {/* Common Features */}
-          <div className="border-t-2 border-gray-300 bg-[#f5f5f5] px-6 py-6">
+          <div className="bg-[#f5f5f5] px-6 py-6">
             <p className="text-fluid-2xl mb-6 text-center font-semibold text-[#333333]">
               {t('comparison_common')}
             </p>
