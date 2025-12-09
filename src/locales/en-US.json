@@ -374,9 +374,9 @@
   "BrainRobotics": {
     "meta_title": "Intelligent Bionic Hand - Brain-Computer Interface Technology - BrainCo",
     "meta_description": "BrainCo Intelligent Bionic Hand integrates brain-computer interface technology with AI algorithms, detecting neural and muscle signals to recognize movement intentions, achieving dexterous intelligence and mind-controlled movement.",
-    "product_name": "Intelligent Bionic Hand",
+    "product_name": "Intelligent Prosthetic Bionic Hand",
     "brand_name": "BrainCo",
-    "intro_text": "The BrainCo Intelligent Bionic Hand is a smart product that highly integrates brain-computer interface technology with artificial intelligence algorithms. This bionic hand can detect the wearer's neural and muscle electrical signals, recognize movement intentions, and convert them into actions, achieving dexterous intelligence and mind-controlled movement.",
+    "intro_text": "BrainCo's Intelligent Bionic Hand is an advanced smart product that integrates brain-computer interface technology with artificial intelligence algorithms. This bionic hand detects the user's neural and muscle signals to recognize their movement intentions, then converts those intentions into actions of the intelligent bionic hand. This allows for precise and intelligent control, enabling the hand to move as desired.",
     "gestures_title": "Gesture Modes",
     "gesture_1_name": "Finger pointing (Oppose thumb)",
     "gesture_1_desc": "Press the button switch with the hand to display the number '8'",

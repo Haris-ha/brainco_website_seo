@@ -276,7 +276,7 @@ export default function BrainRoboticsContent() {
               {t('product_name')}
             </motion.h1>
             <motion.p
-              className="text-fluid-xl max-w-[480px] leading-relaxed 2xl:max-w-full"
+              className="text-fluid-xl max-w-[480px] leading-relaxed 2xl:mr-auto 2xl:max-w-[80%]"
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.6, ease: 'easeOut' }}
@@ -362,7 +362,13 @@ export default function BrainRoboticsContent() {
             </div>
 
             {/* Center - Product Image */}
-            <div className="relative flex w-1/3 flex-shrink-0 justify-center">
+            <motion.div
+              className="relative flex w-1/3 flex-shrink-0 justify-center"
+              initial={{ opacity: 0, scale: 0.9 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.8, ease: 'easeOut' }}
+            >
               <Image
                 src="https://www.brainco.cn/news-images/intelligentprostheticbionichand_spec.png"
                 alt={`${t('product_name')} - BrainCo 智能仿生手产品规格图 / ${t('product_name')} - BrainCo Brain Robotics Product Specifications`}
@@ -370,7 +376,7 @@ export default function BrainRoboticsContent() {
                 height={600}
                 className="h-auto w-[350px] 2xl:w-[400px]"
               />
-            </div>
+            </motion.div>
 
             {/* Right Parameters - 3 items */}
             <div className="flex w-1/3 flex-col gap-[80px] pl-[40px] 2xl:pl-0">
@@ -510,7 +516,13 @@ export default function BrainRoboticsContent() {
         >
           {t('resources_title')}
         </motion.h2>
-        <div className="mx-auto flex w-[998px] items-center justify-between rounded-[12px] border border-[#1A74BF] px-[80px] py-[40px]">
+        <motion.div
+          className="mx-auto flex w-[998px] items-center justify-between rounded-[12px] border border-[#1A74BF] px-[80px] py-[40px]"
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6, ease: 'easeOut' }}
+        >
           <span className="text-fluid-2xl">{t('resource_manual_cn')}</span>
           <a
             href="https://www.brainco.cn/lib/BC2-0900343100-Stark%20%E7%94%A8%E6%88%B7%E8%AF%B4%E6%98%8E%E4%B9%A6%EF%BC%88%E5%A4%A7%E6%89%8B%EF%BC%89-AW-20230925.pdf"
@@ -521,8 +533,14 @@ export default function BrainRoboticsContent() {
           >
             {t('download_btn')}
           </a>
-        </div>
-        <div className="mx-auto mt-[58px] flex w-[998px] items-center justify-between rounded-[12px] border border-[#1A74BF] px-[80px] py-[40px]">
+        </motion.div>
+        <motion.div
+          className="mx-auto mt-[58px] flex w-[998px] items-center justify-between rounded-[12px] border border-[#1A74BF] px-[80px] py-[40px]"
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6, delay: 0.2, ease: 'easeOut' }}
+        >
           <span className="text-fluid-2xl">{t('resource_manual_en')}</span>
           <a
             href="https://www.brainco.cn/lib/BC2-0900343100-Stark%20%E7%94%A8%E6%88%B7%E8%AF%B4%E6%98%8E%E4%B9%A6%EF%BC%88%E5%A4%A7%E6%89%8B%EF%BC%89-AW-20230925%20%E8%8B%B1%E6%96%87%E7%89%88.pdf"
@@ -533,7 +551,7 @@ export default function BrainRoboticsContent() {
           >
             {t('download_btn')}
           </a>
-        </div>
+        </motion.div>
       </section>
     </main>
   );
