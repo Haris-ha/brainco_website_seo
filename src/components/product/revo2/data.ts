@@ -40,7 +40,7 @@ export const technicalSpecs: TechSpec[] = [
   { label: 'spec_pinch', value: '≥15', unit: 'N' },
   { label: 'spec_precision', value: '0.1°' },
   { label: 'spec_voltage', value: '12-64', unit: 'v' },
-  { label: 'spec_interface', value: '485&CANfd&EtherCAT', customStyle: true },
+  { label: 'spec_interface', value: '485&CANFD&EtherCAT', customStyle: true },
 ];
 
 // Product version details
@@ -64,7 +64,7 @@ export const productVersions: ProductVersion[] = [
     gradient: 'linear-gradient(0deg, #171a1d 0.32%, #515151 97.92%)',
     details: [
       { label: 'version_voltage', value: '12-28V' },
-      { label: 'version_interface', value: '485, CANfd' },
+      { label: 'version_interface', value: '485, CANFD' },
       { label: 'version_tactile_sense', value: 'version_tactile_none' },
       { label: 'version_control', value: 'version_control_basic' },
     ],
@@ -75,7 +75,7 @@ export const productVersions: ProductVersion[] = [
     gradient: 'linear-gradient(181deg, #04437e 0.69%, #07121c 99.31%)',
     details: [
       { label: 'version_voltage', value: '12-64V' },
-      { label: 'version_interface', value: '485, CANfd, EtherCAT' },
+      { label: 'version_interface', value: '485, CANFD, EtherCAT' },
       { label: 'version_tactile_sense', value: 'version_tactile_none' },
       { label: 'version_control', value: 'version_control_basic' },
     ],
@@ -86,7 +86,7 @@ export const productVersions: ProductVersion[] = [
     border: true,
     details: [
       { label: 'version_voltage', value: '12-64V' },
-      { label: 'version_interface', value: '485, CANfd, EtherCAT' },
+      { label: 'version_interface', value: '485, CANFD, EtherCAT' },
       { label: 'version_tactile_sense', value: 'version_tactile_features' },
       { label: 'version_control', value: 'version_control_tactile' },
     ],

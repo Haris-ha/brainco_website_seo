@@ -298,14 +298,15 @@ export default function Revo1Content() {
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.5 }}
+                    className="mx-auto max-w-[90%]"
                   >
                     <h2
                       id="ability-title"
-                      className="text-fluid-5xl font-medium capitalize"
+                      className="text-fluid-5xl font-medium"
                     >
                       {t(`ability_${index + 1}_title` as any)}
                     </h2>
-                    <p className="text-fluid-2xl mt-3 mb-14 text-[#c7cdd4]">
+                    <p className="text-fluid-2xl mx-auto mt-3 mb-14 max-w-[90%] text-[#c7cdd4]">
                       {t(`ability_${index + 1}_desc` as any)}
                     </p>
                   </motion.div>
