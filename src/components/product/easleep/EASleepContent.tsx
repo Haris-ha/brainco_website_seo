@@ -180,7 +180,7 @@ export default function EASleepContent() {
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8 }}
-              className="mb-8"
+              className="mb-8 max-w-[80%] mx-auto"
             >
               <h1 className="text-fluid-7xl font-normal drop-shadow-lg">
                 {t('hero_title')}

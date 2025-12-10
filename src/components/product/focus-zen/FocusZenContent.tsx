@@ -46,12 +46,12 @@ export default function FocusZenContent() {
           />
           <div className="pointer-events-none absolute inset-0 bg-gradient-to-r from-white via-white/10 to-transparent" />
         </picture>
-        <div className={`absolute top-0 bottom-0 left-0 flex w-full flex-col items-start justify-start pt-[16vw] pb-[6vw] ${locale === 'zh-CN' ? 'pl-[16vw]' : 'pl-[12vw]'}`}>
+        <div className={`absolute top-0 bottom-0 left-0 flex w-full flex-col items-start justify-start pt-[12vw] pb-[6vw] ${locale === 'zh-CN' ? 'pl-[16vw]' : 'pl-[12vw]'}`}>
           <motion.h1
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
-            className="text-fluid-5xl mt-[0.5vw] leading-[1.4] font-bold"
+            className="text-fluid-5xl mt-[0.5vw] leading-[1.4] font-bold whitespace-pre-wrap"
           >
             {t('hero_title')}
           </motion.h1>
