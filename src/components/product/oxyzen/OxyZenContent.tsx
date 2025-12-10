@@ -113,7 +113,7 @@ export default function OxyZenContent({ productInfo }: OxyZenContentProps) {
               className="h-36 w-[200px] object-contain"
               role="presentation"
             />
-            <p className="text-fluid-xl mt-1 text-left font-medium">{t('award_text')}</p>
+            <p className="text-fluid-xl mt-3 text-left font-medium">{t('award_text')}</p>
           </div>
         </motion.div>
       </section>

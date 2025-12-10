@@ -1,7 +1,7 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import { useTranslations } from 'next-intl';
+import { useLocale, useTranslations } from 'next-intl';
 import Image from 'next/image';
 import { Pagination } from 'swiper/modules';
 import { Swiper, SwiperSlide } from 'swiper/react';
@@ -13,7 +13,7 @@ import 'swiper/css/pagination';
 export default function EASleepContent() {
   const t = useTranslations('EASleep');
   const router = useRouter();
-
+  const locale = useLocale();
   // 处理购买按钮点击 - 跳转到规格选择页面
   const handlePurchase = () => {
     // 跳转到产品规格选择页面，让用户选择具体型号
@@ -139,17 +139,17 @@ export default function EASleepContent() {
   // Usage scenarios data
   const scenarios = [
     {
-      icon: 'https://website-www-brainco-cn.oss-cn-hangzhou.aliyuncs.com/images/fWsTd0PMynfQTnX0.webp',
+      icon: 'https://www.brainco.cn/news-images/Night Sleep Aid - EASleep Usage Scenario Icon.png',
       title: t('scenario_1'),
       image: 'https://website-www-brainco-cn.oss-cn-hangzhou.aliyuncs.com/images/BMxTNyAzE96nRt4j.webp',
     },
     {
-      icon: 'https://website-www-brainco-cn.oss-cn-hangzhou.aliyuncs.com/images/exNk38Y76104521m.webp',
+      icon: 'https://www.brainco.cn/news-images/Office Nap - EASleep Usage Scenario Icon.png',
       title: t('scenario_2'),
       image: 'https://website-www-brainco-cn.oss-cn-hangzhou.aliyuncs.com/images/Q57TNEayMm1M3zYz.webp',
     },
     {
-      icon: 'https://website-www-brainco-cn.oss-cn-hangzhou.aliyuncs.com/images/xRPTd1Hr8mbFGpJ2.webp',
+      icon: 'https://www.brainco.cn/news-images/Travel Sleep - EASleep Usage Scenario Icon.png',
       title: t('scenario_3'),
       image: 'https://website-www-brainco-cn.oss-cn-hangzhou.aliyuncs.com/images/Pm3W81QhfX1DxH3h.webp',
     },
@@ -158,8 +158,8 @@ export default function EASleepContent() {
   return (
     <main>
       {/* Hero Banner */}
-      <header className="relative flex items-center justify-center">
-        <picture>
+      <header className="relative flex min-h-screen items-center justify-center overflow-hidden">
+        <picture className="absolute inset-0 h-full w-full">
           <source
             media="(min-width: 900px)"
             srcSet="https://website-www-brainco-cn.oss-cn-hangzhou.aliyuncs.com/images/hD5RMSnyEK5Ad3E8.webp"
@@ -171,16 +171,16 @@ export default function EASleepContent() {
           <img
             src="https://website-www-brainco-cn.oss-cn-hangzhou.aliyuncs.com/images/hD5RMSnyEK5Ad3E8.webp"
             alt="EASleep 睡眠改善助眠设备 - 产品展示 / EASleep Sleep Improvement Device - Product Display"
-            className="w-full"
+            className="h-full w-full object-cover"
           />
         </picture>
-        <div className="absolute inset-0 flex items-end justify-center pb-[120px] 2xl:pb-[200px]">
+        <div className="absolute inset-0 z-10 flex items-end justify-center pb-[120px] 2xl:pb-[200px]">
           <div className="flex flex-col items-center text-center !text-white">
             <motion.div
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8 }}
-              className="mb-8 max-w-[80%] mx-auto"
+              className="mx-auto mb-8 max-w-[80%]"
             >
               <h1 className="text-fluid-7xl font-normal drop-shadow-lg">
                 {t('hero_title')}
@@ -193,10 +193,11 @@ export default function EASleepContent() {
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.4 }}
-              className="mb-8 flex items-baseline justify-center"
+              className="mb-8 flex items-baseline justify-center text-center"
             >
+              {locale === 'en-US' && <span className="text-fluid-4xl mr-2">{t('hero_price_from')}</span>}
               <span className="text-fluid-5xl font-medium">¥2499</span>
-              <span className="text-fluid-4xl ml-1">{t('hero_price_from')}</span>
+              {locale === 'zh-CN' && <span className="text-fluid-3xl ml-2">{t('hero_price_from')}</span>}
             </motion.div>
             <motion.button
               type="button"
@@ -239,7 +240,7 @@ export default function EASleepContent() {
                     height={600}
                     className="h-full w-full object-cover"
                   />
-                  <div className="absolute top-1/2 left-[200px] -translate-y-1/2 !text-white">
+                  <div className="absolute top-1/2 left-[260px] -translate-y-1/2 !text-white">
                     <motion.h2
                       initial={{ opacity: 0, y: 30 }}
                       whileInView={{ opacity: 1, y: 0 }}
@@ -254,7 +255,7 @@ export default function EASleepContent() {
                       whileInView={{ opacity: 1, y: 0 }}
                       viewport={{ once: true }}
                       transition={{ duration: 0.8, delay: 0.2 }}
-                      className="text-fluid-xl mt-2 w-[350px] opacity-50"
+                      className="text-fluid-xl mt-2 w-[350px] opacity-50 2xl:w-[450px]"
                     >
                       {item.description}
                     </motion.p>
@@ -301,13 +302,17 @@ export default function EASleepContent() {
                 />
               </div>
               <div className="flex flex-1 flex-col justify-center">
-                <Image
-                  src="https://website-www-brainco-cn.oss-cn-hangzhou.aliyuncs.com/images/zNG8tK7dG2rxGpr6.webp"
-                  alt="EASleep 睡眠改善效果图表 - 数据可视化展示 / EASleep Sleep Improvement Chart - Data Visualization Display"
-                  width={328}
-                  height={200}
-                  className="animate-zoom-in h-auto w-full scale-80"
-                />
+                <motion.div
+                  initial={{ opacity: 0, scale: 0.8 }}
+                  whileInView={{ opacity: 1, scale: 1 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.8 }}
+                  className="flex items-center justify-center"
+                >
+                  <span className="text-[120px] font-bold leading-none text-[#333] xl:text-[150px] 2xl:text-[180px]">
+                    90%
+                  </span>
+                </motion.div>
                 <div className="mt-[60px]">
                   <motion.div
                     initial={{ opacity: 0, scale: 0.8 }}
@@ -416,7 +421,7 @@ export default function EASleepContent() {
 
               {/* Third row - 1 item */}
               <div className="w-1/2">
-                {solutionItems.slice(4, 5).map((item) => (
+                {solutionItems.slice(4, 5).map(item => (
                   <motion.div
                     key={`solution-${item.title}`}
                     initial={{ opacity: 0, y: 20 }}
@@ -675,7 +680,7 @@ export default function EASleepContent() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8, delay: 0.2 }}
-            className="text-fluid-4xl font-bold"
+            className="text-fluid-3xl font-bold"
           >
             {t('binaural_subtitle')}
           </motion.h3>
@@ -740,7 +745,7 @@ export default function EASleepContent() {
               transition={{ duration: 0.5 }}
               className="flex flex-col items-center"
             >
-              <p className="text-fluid-xl mb-[-20px] h-32 w-[200px] text-center text-[#111827]">
+              <p className="text-fluid-xl mb-[-20px] h-46 w-[200px] text-center text-[#111827]">
                 {t('manager_feature_1')}
               </p>
               <Image
@@ -758,7 +763,7 @@ export default function EASleepContent() {
               transition={{ duration: 0.5, delay: 0.2 }}
               className="flex flex-col items-center"
             >
-              <p className="text-fluid-xl mb-[-20px] h-32 w-[200px] text-center text-[#111827]">
+              <p className="text-fluid-xl mb-[-20px] h-46 w-[200px] text-center text-[#111827]">
                 {t('manager_feature_2')}
               </p>
               <Image
@@ -776,7 +781,7 @@ export default function EASleepContent() {
               transition={{ duration: 0.5, delay: 0.4 }}
               className="flex flex-col items-center"
             >
-              <p className="text-fluid-xl mb-[-20px] h-32 w-[200px] text-center text-[#111827]">
+              <p className="text-fluid-xl mb-[-20px] h-46 w-[200px] text-center text-[#111827]">
                 {t('manager_feature_3')}
               </p>
               <Image
@@ -831,9 +836,9 @@ export default function EASleepContent() {
                     alt={`${scenario.title} - EASleep 使用场景图标 / ${scenario.title} - EASleep Usage Scenario Icon`}
                     width={60}
                     height={60}
-                    className="h-16 w-auto"
+                    className="h-16 w-16"
                   />
-                  <h3 className="text-fluid-3xl ml-5 font-normal">{scenario.title}</h3>
+                  <h3 className="text-fluid-3xl ml-4 font-normal">{scenario.title}</h3>
                 </div>
                 <Image
                   src={scenario.image}
