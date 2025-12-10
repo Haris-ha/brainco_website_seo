@@ -113,7 +113,7 @@ export default function MobiusContent() {
             transition={{ duration: 0.8, delay: 0.3, ease: 'easeOut' }}
           >
             <h3 className="text-fluid-5xl mb-[20px] font-medium !text-white">{t('m2_title')}</h3>
-            <p className="text-fluid-xl leading-[1.8] !text-white">
+            <p className="text-fluid-xl leading-[1.8] !text-white min-h-[200px]">
               {t('m2_desc')}
             </p>
           </motion.div>
@@ -141,7 +141,7 @@ export default function MobiusContent() {
             transition={{ duration: 0.8, delay: 0.3, ease: 'easeOut' }}
           >
             <h3 className="text-fluid-5xl mb-[20px] font-medium !text-white">{t('m3_title')}</h3>
-            <p className="text-fluid-xl leading-[1.8] !text-white">
+            <p className="text-fluid-xl leading-[1.8] !text-white min-h-[200px]">
               {t('m3_desc')}
             </p>
           </motion.div>
@@ -753,7 +753,7 @@ export default function MobiusContent() {
         {/* Title */}
         <motion.h2
           id="comparison-title"
-          className="text-fluid-6xl mb-[60px] text-center font-semibold"
+          className="text-fluid-6xl mb-[60px] text-center font-semibold max-w-[80%] mx-auto"
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
@@ -800,132 +800,132 @@ export default function MobiusContent() {
 
         {/* Comparison Table */}
         <motion.div
-          className="mb-20 overflow-hidden bg-white"
+          className="overflow-hidden rounded-lg bg-white"
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.8, delay: 0.5, ease: 'easeOut' }}
         >
-          <table className="w-full table-fixed  border border-[#979797] mb-6">
+          <table className="w-full">
             <thead>
               <tr className="bg-[#f5f5f5]">
-                <th className="text-fluid-3xl w-1/3 border-r border-[#979797] px-6 py-6 text-left font-semibold text-[#333333]">
+                <th className="text-fluid-3xl border-r border-gray-200 px-6 py-6 text-center font-semibold text-[#333333]">
                   {t('comparison_parameter')}
                 </th>
-                <th className="text-fluid-3xl w-1/3 border-r border-[#979797] px-6 py-6 text-left font-semibold text-[#333333]">
+                <th className="text-fluid-3xl border-r border-gray-200 py-6 text-center font-semibold text-[#333333]">
                   {t('comparison_m3')}
                 </th>
-                <th className="text-fluid-3xl w-1/3 px-6 py-6 text-left font-semibold text-[#333333]">
+                <th className="text-fluid-3xl py-6 text-center font-semibold text-[#333333]">
                   {t('comparison_m2')}
                 </th>
               </tr>
             </thead>
             <tbody>
               {/* Support Material */}
-              <tr className="border-t border-[#979797]">
-                <td className="text-fluid-xl border-r border-[#979797] px-6 py-5 text-left font-semibold text-[#333333]">
+              <tr className="border-t border-gray-200">
+                <td className="text-fluid-xl border-r border-gray-200 px-6 py-5 text-center font-semibold text-[#333333]">
                   {t('comparison_support')}
                 </td>
-                <td className="text-fluid-xl border-r border-[#979797] px-6 py-5 text-left text-[#111827]">
+                <td className="text-fluid-xl border-r border-gray-200 px-6 py-5 text-center text-[#111827]">
                   {t('comparison_support_value')}
                 </td>
-                <td className="text-fluid-xl px-6 py-5 text-left text-[#111827]">
+                <td className="text-fluid-xl px-6 py-5 text-center text-[#111827]">
                   {t('comparison_support_value')}
                 </td>
               </tr>
               {/* Height */}
-              <tr className="border-t border-[#979797] bg-[#fafafa]">
-                <td className="text-fluid-xl border-r border-[#979797] px-6 py-5 text-left font-semibold text-[#333333]">
+              <tr className="border-t border-gray-200">
+                <td className="text-fluid-xl border-r border-gray-200 px-6 py-5 text-center font-semibold text-[#333333]">
                   {t('comparison_height')}
                 </td>
-                <td className="text-fluid-xl border-r border-[#979797] px-6 py-5 text-left text-[#111827]">
+                <td className="text-fluid-xl border-r border-gray-200 px-6 py-5 text-center text-[#111827]">
                   {t('comparison_height_value')}
                 </td>
-                <td className="text-fluid-xl px-6 py-5 text-left text-[#111827]">
+                <td className="text-fluid-xl px-6 py-5 text-center text-[#111827]">
                   {t('comparison_height_value')}
                 </td>
               </tr>
               {/* Waterproof */}
-              <tr className="border-t border-[#979797]">
-                <td className="text-fluid-xl border-r border-[#979797] px-6 py-5 text-left font-semibold text-[#333333]">
+              <tr className="border-t border-gray-200">
+                <td className="text-fluid-xl border-r border-gray-200 px-6 py-5 text-center font-semibold text-[#333333]">
                   {t('comparison_waterproof')}
                 </td>
-                <td className="text-fluid-xl border-r border-[#979797] px-6 py-5 text-left text-[#111827]">
+                <td className="text-fluid-xl border-r border-gray-200 px-6 py-5 text-center text-[#111827]">
                   {t('comparison_waterproof_value')}
                 </td>
-                <td className="text-fluid-xl px-6 py-5 text-left text-[#111827]">
+                <td className="text-fluid-xl px-6 py-5 text-center text-[#111827]">
                   {t('comparison_waterproof_value')}
                 </td>
               </tr>
               {/* Weight */}
-              <tr className="border-t border-[#979797] bg-[#fafafa]">
-                <td className="text-fluid-xl border-r border-[#979797] px-6 py-5 text-left font-semibold text-[#333333]">
+              <tr className="border-t border-gray-200">
+                <td className="text-fluid-xl border-r border-gray-200 px-6 py-5 text-center font-semibold text-[#333333]">
                   {t('comparison_weight')}
                 </td>
-                <td className="text-fluid-xl border-r border-[#979797] px-6 py-5 text-left text-[#111827]">
+                <td className="text-fluid-xl border-r border-gray-200 px-6 py-5 text-center text-[#111827]">
                   {t('comparison_weight_value')}
                 </td>
-                <td className="text-fluid-xl px-6 py-5 text-left text-[#111827]">
+                <td className="text-fluid-xl px-6 py-5 text-center text-[#111827]">
                   {t('comparison_weight_value')}
                 </td>
               </tr>
               {/* Charging Time */}
-              <tr className="border-t border-[#979797]">
-                <td className="text-fluid-xl border-r border-[#979797] px-6 py-5 text-left font-semibold text-[#333333]">
+              <tr className="border-t border-gray-200">
+                <td className="text-fluid-xl border-r border-gray-200 px-6 py-5 text-center font-semibold text-[#333333]">
                   {t('comparison_charging')}
                 </td>
-                <td className="text-fluid-xl border-r border-[#979797] px-6 py-5 text-left text-[#111827]">
+                <td className="text-fluid-xl border-r border-gray-200 px-6 py-5 text-center text-[#111827]">
                   {t('comparison_charging_value')}
                 </td>
-                <td className="text-fluid-xl px-6 py-5 text-left text-[#111827]">
+                <td className="text-fluid-xl px-6 py-5 text-center text-[#111827]">
                   {t('comparison_charging_value')}
                 </td>
               </tr>
               {/* Battery Life */}
-              <tr className="border-t border-[#979797] bg-[#fafafa]">
-                <td className="text-fluid-xl border-r border-[#979797] px-6 py-5 text-left font-semibold text-[#333333]">
+              <tr className="border-t border-gray-200">
+                <td className="text-fluid-xl border-r border-gray-200 px-6 py-5 text-center font-semibold text-[#333333]">
                   {t('comparison_battery')}
                 </td>
-                <td className="text-fluid-xl border-r border-[#979797] px-6 py-5 text-left text-[#111827]">
+                <td className="text-fluid-xl border-r border-gray-200 px-6 py-5 text-center text-[#111827]">
                   {t('comparison_battery_m3')}
                 </td>
-                <td className="text-fluid-xl px-6 py-5 text-left text-[#111827]">
+                <td className="text-fluid-xl px-6 py-5 text-center text-[#111827]">
                   {t('comparison_battery_m2')}
                 </td>
               </tr>
               {/* Stair Climbing */}
-              <tr className="border-t border-[#979797]">
-                <td className="text-fluid-xl border-r border-[#979797] px-6 py-5 text-left font-semibold text-[#333333]">
+              <tr className="border-t border-gray-200">
+                <td className="text-fluid-xl border-r border-gray-200 px-6 py-5 text-center font-semibold text-[#333333]">
                   {t('comparison_stair')}
                 </td>
-                <td className="text-fluid-2xl border-r border-[#979797] px-6 py-5 text-left text-[#111827]">
+                <td className="text-fluid-2xl border-r border-gray-200 px-6 py-5 text-center text-[#111827]">
                   {t('comparison_yes')}
                 </td>
-                <td className="text-fluid-2xl px-6 py-5 text-left text-[#111827]">
+                <td className="text-fluid-2xl px-6 py-5 text-center text-[#111827]">
                   {t('comparison_yes')}
                 </td>
               </tr>
               {/* Running */}
-              <tr className="border-t border-[#979797] bg-[#fafafa]">
-                <td className="text-fluid-xl border-r border-[#979797] px-6 py-5 text-left font-semibold text-[#333333]">
+              <tr className="border-t border-gray-200">
+                <td className="text-fluid-xl border-r border-gray-200 px-6 py-5 text-center font-semibold text-[#333333]">
                   {t('comparison_run')}
                 </td>
-                <td className="text-fluid-2xl border-r border-[#979797] px-6 py-5 text-left text-[#111827]">
+                <td className="text-fluid-2xl border-r border-gray-200 px-6 py-5 text-center text-[#111827]">
                   {t('comparison_yes')}
                 </td>
-                <td className="text-fluid-2xl px-6 py-5 text-left text-[#111827]">
+                <td className="text-fluid-2xl px-6 py-5 text-center text-[#111827]">
                   {t('comparison_no')}
                 </td>
               </tr>
               {/* Obstacle */}
-              <tr className="border-t border-[#979797]">
-                <td className="text-fluid-xl border-r border-[#979797] px-6 py-5 text-left font-semibold text-[#333333]">
+              <tr className="border-t border-gray-200">
+                <td className="text-fluid-xl border-r border-gray-200 px-6 py-5 text-center font-semibold text-[#333333]">
                   {t('comparison_obstacle')}
                 </td>
-                <td className="text-fluid-2xl border-r border-[#979797] px-6 py-5 text-left text-[#111827]">
+                <td className="text-fluid-2xl border-r border-gray-200 px-6 py-5 text-center text-[#111827]">
                   {t('comparison_yes')}
                 </td>
-                <td className="text-fluid-2xl px-6 py-5 text-left text-[#111827]">
+                <td className="text-fluid-2xl px-6 py-5 text-center text-[#111827]">
                   {t('comparison_yes')}
                 </td>
               </tr>
@@ -933,7 +933,7 @@ export default function MobiusContent() {
           </table>
 
           {/* Common Features */}
-          <div className="bg-[#f5f5f5] px-6 py-6">
+          <div className="bg-[#f5f5f5] px-6 py-6 mt-6">
             <p className="text-fluid-2xl mb-6 text-center font-semibold text-[#333333]">
               {t('comparison_common')}
             </p>

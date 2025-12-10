@@ -395,7 +395,7 @@ export default function BrainRoboticsContent() {
                       <div className="h-[1px] w-[94px] bg-[#333]" />
                     </div>
                     <div>
-                      <h3 className="text-fluid-2xl h-[45px] font-semibold text-[#111827]">{param.name}</h3>
+                      <h3 className="text-fluid-2xl font-semibold text-[#111827]">{param.name}</h3>
                       <p className="text-fluid-5xl relative mt-[16px] inline-block pb-[10px] leading-none font-bold text-[#333]">
                         {param.value}
                         <span className="text-fluid-2xl ml-1 font-semibold text-[#333]">{param.unit}</span>
