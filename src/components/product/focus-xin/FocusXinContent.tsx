@@ -52,18 +52,18 @@ export default function FocusXinContent() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
-            className="text-fluid-5xl font-bold"
+            className="text-fluid-5xl mb-4 font-bold whitespace-pre-wrap"
           >
             {t('hero_title')}
           </motion.h1>
-          <motion.h2
+          {/* <motion.h2
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.2 }}
             className="text-fluid-5xl mb-8 font-normal"
           >
             {t('hero_subtitle')}
-          </motion.h2>
+          </motion.h2> */}
           <motion.p
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -226,9 +226,9 @@ export default function FocusXinContent() {
           ))}
         </ul>
 
-        <ul className="mt-8 max-w-[80vw] space-y-2 px-[3vw] text-left text-[0.9vw] text-[#6B7280] ml-24">
+        <ul className="mt-8 ml-24 max-w-[80vw] space-y-2 px-[3vw] text-left text-[0.9vw] text-[#6B7280]">
           {literatureList.map(lit => (
-            <li key={lit.key} className="break-words flex items-start">
+            <li key={lit.key} className="flex items-start break-words">
               <span className="mt-2 mr-4 h-2 w-2 shrink-0 rounded-full" style={{ backgroundColor: '#6B7280' }} />
               {t(lit.key)}
             </li>
@@ -243,11 +243,11 @@ export default function FocusXinContent() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="text-fluid-5xl mb-[4.8vw] font-semibold max-w-[72vw] mx-auto"
+          className="text-fluid-5xl mx-auto mb-[4.8vw] max-w-[72vw] font-semibold"
           dangerouslySetInnerHTML={{ __html: t('training_title') }}
         />
 
-        <div className="mx-auto flex justify-between items-start space-x-5">
+        <div className="mx-auto flex items-start justify-between space-x-5">
           {trainingTypes.map((training, index) => (
             <motion.div
               key={training.nameKey}
@@ -265,7 +265,7 @@ export default function FocusXinContent() {
                 height={456}
                 className="w-full"
               />
-              <p className="text-fluid-2xl mt-8 text-[#111827] text-center max-w-[80%] mx-auto">{t(training.descKey)}</p>
+              <p className="text-fluid-2xl mx-auto mt-8 max-w-[80%] text-center text-[#111827]">{t(training.descKey)}</p>
             </motion.div>
           ))}
         </div>

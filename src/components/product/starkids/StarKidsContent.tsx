@@ -42,7 +42,7 @@ export default function StarKidsContent() {
           />
           <div className="pointer-events-none absolute inset-0 bg-gradient-to-r from-white via-white/10 to-transparent" />
         </picture>
-        <div className={`absolute top-0 bottom-0 left-0 flex w-full flex-col items-start justify-start pt-[8vw] pb-[6vw] ${locale === 'zh-CN' ? 'pl-[16vw]' : 'pl-[8vw]'}`}>
+        <div className={`absolute top-0 bottom-0 left-0 flex w-full flex-col items-start justify-start pt-[4vw] pb-[6vw] ${locale === 'zh-CN' ? 'pl-[16vw]' : 'pl-[8vw]'}`}>
           <motion.div
             initial={{ opacity: 0, scale: 0.8 }}
             animate={{ opacity: 1, scale: 1 }}
@@ -60,7 +60,7 @@ export default function StarKidsContent() {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.3 }}
-            className="text-fluid-5xl mt-[0.5vw] leading-[1.4] font-bold"
+            className="text-fluid-5xl mt-[0.5vw] leading-[1.4] font-bold whitespace-pre-wrap"
           >
             {t('hero_title_1')}
           </motion.h1>
